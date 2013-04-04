@@ -1,0 +1,94 @@
+.chat_time {
+
+    float:right;
+    color:#CCCCCC;
+}
+
+.chat_date {
+
+    font-style: italic;
+    font-weight: bold;
+    text-align: right;
+  margin-right:2px;
+}
+
+.chat_alert_list_div {
+  height:36px;
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  z-index:100;
+}
+
+
+.chat_alert_list_div ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  padding-left:0px;
+
+}
+
+
+.chat_alert_list_div li {
+  position: relative;
+  display: block;
+  float: right;
+  padding-right:20px;
+  /*padding-right:20px;*/
+
+}
+
+.chat_alert_list_div li.chat_request div.chat_header_text {
+  background-color:#FBF0A4;
+  border:1px solid black;
+  height:25px;
+  width:200px;
+  padding:5px;
+  padding-bottom:0px;
+  margin:5px;
+  margin-bottom:0px;
+  border-bottom:0px;
+  position:relative;
+  right:5px;
+  font-size:0.8em;
+}
+
+.chat_alert_list_div li.chat_request a:hover, .chat_alert_list_div li.chat_request div.chat_header_text:hover {
+  color:#FBF0A4;
+  background-color:#8393CA;
+}
+
+.chat_alert_list_div .chat_request .chat_block {
+   background: none repeat scroll 0 0 white;
+   border: 1px solid black;
+   height: 200px;
+   width: 300px;
+   font-size:0.8em;
+}
+
+.chat_alert_list_div .chat_request .chat_block .chat_area {
+   height: 135px; overflow: auto; padding: 20px; background: white;
+}
+
+.chat_open {
+  position:relative;
+  bottom:200px;
+}
+
+
+.chat_alert_list_div .chat_request .chat_block .chat_area span                 { color: white; background: #333; padding: 4px 8px; -moz-border-radius: 5px; -webkit-border-radius: 8px; margin: 0 5px 0 0; }
+.chat_alert_list_div .chat_request .chat_block .chat_area p                    { padding: 8px 0; border-bottom: 1px solid #ccc; }
+.chat_alert_list_div .chat_request .chat_block #sendie                         { 
+    border: 1px solid #999999;
+    float: right;
+    height: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top:3px;
+    line-height:1em;
+    width: 288px;
+    position:relative;
+    bottom:1px;
+
+ }

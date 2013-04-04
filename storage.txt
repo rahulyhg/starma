@@ -1,0 +1,14 @@
+ <script type="text/javascript" src="/chat/chat.js"></script>
+    <script type="text/javascript" src="/chat/chat_monitor.js"></script>
+
+<script type="text/javascript">
+    
+      
+    	// kick off chat
+        var chat_monitor =  new Chat_Monitor();
+    	
+        $(document).ready(function() {
+            chat_monitor.monitor();
+            setInterval('chat_monitor.monitor()', 10000);
+        });
+</script>

@@ -1,0 +1,21 @@
+Longitute,Time Zone West Hours,Time Zone East Hours
+00d,0h,
+15d,1h,1h
+30d,2h,1h
+45d,3h,2h
+52d 30m,3.5h,3h
+60d,4h,4h
+75d,5h,5h
+82d 30m,,5.5h
+90d,6h,6h
+97d 30m,,6.5h
+,,
+105d,7h,
+107d 30m,,7.5h
+120d,8h,8h
+135d,9h,9h
+142d 30m,,9.5h
+150d,10h,10h
+157d 30m,10.5h,
+165d,11h,11h
+180d,12h,12h

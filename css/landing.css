@@ -1,0 +1,847 @@
+#initial_confirm_form #confirm_form {
+  font-size:1.5em;
+  line-height: 1.5em;
+  margin:auto;
+  margin-top:50px;
+  padding:10px;
+  padding-top:30px;
+  width:500px;
+  height:270px;
+  border-radius:25px;
+  background-color:#d3dbf6;
+  text-align:center;
+}
+
+#initial_confirm_form input[type="submit"] {
+  padding:5px;
+  margin:5px;
+  margin-top:50px;
+  width:230px;
+  height:30px;
+  border-radius:5px;
+  background-color:#8393CA;
+  text-transform:capitalize;
+  font-weight:bold;
+}
+
+#initial_confirm_form #confirm_form span {
+  font-weight:bold;
+  font-size:1.1em;
+}
+
+
+/****************LANDING PAGE****************************/
+#landing, #register, #birth_info_first_time {
+  width:1200px;
+  height:890px;
+  margin-left:auto;
+  margin-right:auto;
+  position:relative;
+}
+
+#landing .bg, #register .bg, #birth_info_first_time .bg {
+  position:relative;
+  display:block;
+}
+
+#landing #logo, #register #logo, #birth_info_first_time #logo, #sign_in, #create_account, #enter_info {
+  margin-left:auto; 
+  margin-right:auto
+}
+
+#landing #logo, #register #logo, #birth_info_first_time #logo {
+  width:389px;
+  height:132px;
+  top:50px;
+  
+}
+
+#landing #sign_in, #register #create_account, #birth_info_first_time #enter_info {
+  width:700px;
+  top:100px;
+  text-align:center;
+}
+
+#landing #sign_in img, #register #create_account img, #birth_info_first_time #enter_info img {
+ margin-right:auto;
+ margin-left:auto;
+}
+
+
+
+
+#landing_footer {
+  position:relative;
+  bottom:300px;
+  width:100%;
+  
+}
+
+#landing_footer #footer_links {
+  height:100px;
+  margin:auto;
+  width:1200px;
+}
+
+#landing_footer #footer_links ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  padding-left:0px;
+}
+
+#landing_footer #footer_links ul li {
+  position: relative;
+  display: inline;
+  float: left;
+}
+
+#landing_footer #footer_links ul li a {
+  padding-left:56px;
+  padding-right:56px;
+
+}
+
+#landing #sign_in .title {
+  font-size: 1.1em;
+    left: 225px;
+    position: relative;
+    text-align: center;
+    width: 100px;
+}
+
+
+
+
+#login_form {
+  position: relative;
+  display:block;
+  bottom: 80px;
+  font-size:1.1em;
+  text-align:left;
+}
+
+#login_form input[type="text"],
+#login_form input[type="password"] {
+  position:relative;
+  border:0px;
+  display:block;
+  left:250px;
+  padding:0px;
+  margin:0px;
+  box-sizing: border-box; 
+ -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+  font-size:0.8em;
+}
+
+#login_form input[type="text"]:focus,
+#login_form input[type="password"]:focus {
+  outline: 0 none;
+
+}
+
+
+#login_form div {
+  position:relative;
+}
+
+#login_form #email_title {
+  position:relative;
+  height:26px;
+  bottom:2px;
+  right:485px;
+  text-align:right;
+}
+
+#login_form #email_input {
+  bottom:22px;
+}
+
+#login_form #password_title {
+  position:relative;
+  top:3px;
+  height:26px;
+  right:485px;
+  text-align:right;
+}
+
+#login_form #password_input {
+  bottom:19px;
+}
+
+#landing #login_button_div{
+  margin-right:auto;
+  margin-left:auto;
+  width:76px;
+  
+  left:160px;
+  
+  position:relative;
+}
+
+#login_form #stay_logged_in_input {
+  bottom: 45px;
+    font-size: 0.8em;
+    left: 230px;
+    position: absolute;
+}
+
+
+
+#landing #create_account {
+  position:relative;
+  text-align:center;
+  width:280px;
+  left:300px;
+  top:20px;
+}
+
+#landing #forgot_password {
+  bottom: 125px;
+    font-size: 0.7em;
+    left: 730px;
+    position: relative;
+    text-align: left;
+    width: 200px;
+}
+
+.landing_error {
+bottom: 280px;
+    color: red;
+    float: right;
+    font-size: 0.8em;
+    position: relative;
+    right: 170px;
+    width: 300px;
+}
+
+#bug_button, #birth_info input[name="submit"]  {
+  background:url('/img/account_info/Starma-Astrology-Space-Bug.png') no-repeat;
+  width:76px;
+  height:63px;
+  border:0px;
+}
+
+#bug_button:hover, #birth_info input[name="submit"]:hover{
+  cursor: hand; 
+  cursor: pointer;
+  background:url('/img/account_info/Starma-Astrology-Space-BugHover.png') no-repeat;
+  
+}
+
+/***************************************REGISTRATION PAGE ONLY****************************************/
+
+#register .error {
+  color:red;
+  position:relative;
+  z-index:1;
+  display:block;
+  left:830px;
+  width:435px;
+}
+
+#register .hidden_error {
+  visibility:hidden;
+}
+
+#username_error {  
+  bottom:531px;
+}
+
+#date_error {  
+  bottom:516px;
+}
+
+#user_exists_error {  
+  bottom:578px;
+}
+
+#email_error {  
+  bottom:528px;
+}
+
+#email_no_match_error {  
+  bottom:521px;
+}
+
+#password_error {  
+  bottom:516px;
+}
+
+#token_error {  
+  bottom:456px;
+  color:red;
+  position:relative;
+  z-index:1;
+  display:block;
+  left:680px;
+  width:135px;
+}
+
+
+#register #create_account {
+  top:85px;
+  left:80px;
+}
+
+#register .title {
+  position:relative;
+  font-size:1.3em;
+  background:url('/img/account_info/Starma-Astrology-Flare.png') no-repeat #8393CA;
+  width:240px;
+  height:22px;
+  text-align:center;
+  margin:auto;
+  top:65px;
+}
+
+#register input, #register select {
+  position:relative;
+  border:0px;
+  display:block;
+  left:220px;
+  padding:0px;
+  margin:0px;
+  
+}
+
+#register input {
+  box-sizing: border-box; 
+ -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+  font-size:0.8em;
+  width:144px;
+  
+}
+
+#register input:focus {
+  outline: 0 none;
+
+}
+
+#register select {
+  display:inline-block;
+  bottom:17px;
+}
+
+#register select[name="month_birthday"] {
+  position:relative;
+  left:210px;
+  display:inline-block;
+}
+
+#register select[name="day_birthday"] {
+  position:relative;
+  left:250px;
+  display:inline-block;
+}
+
+#register select[name="year_birthday"] {
+  position:relative;
+  left:300px;
+  display:inline-block;
+}
+
+#register #register_form div {
+  position:relative;
+}
+
+#register input[focus] {
+  outline: 0 none;
+}
+
+#register_form {
+  position: relative;
+  display:block;
+  bottom: 217px;
+  right:20px;
+  font-size:1.1em;
+  text-align:left;
+}
+
+#register #register_form .reg_title {
+  text-align:right;
+  width:180px;
+}
+
+#register #nickname_input {
+  bottom:16px;
+}
+
+#register #email_title {
+  bottom:06px;
+}
+
+#register #email_input {
+  bottom:25px;
+}
+
+#register #email2_title {
+  bottom:18px;
+}
+
+#register #email2_input {
+  bottom:36px;
+}
+
+#register #password_title {
+  bottom:27px;
+}
+
+#register #password_input {
+  bottom:46px;
+}
+
+#register img.token_img {
+  position:relative;
+  display:block;
+  bottom:320px;
+  right:65px;
+}
+
+#register #token_title {
+  bottom:23px;
+  left:180px;
+}
+
+#register #token_input {
+  bottom:39px;
+  left:165px;
+  z-index:1;
+}
+
+/*
+#register #agreement_box {
+  text-align:left;
+  font-size:0.7em;
+}
+
+#register #agreement_box input {
+  display:inline;
+  float:left;
+  position:relative;
+  top:5px;
+  left:0px;
+  width:20px;
+}
+*/
+
+#agreement {
+  position:relative;
+  top:50px;
+  width:700px;
+  padding:30px;
+  margin:auto;
+  background: #d3dbf6;
+  border-bottom-right-radius: 50px;
+   border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+   border-top-left-radius: 50px;
+}
+
+#agreement ul {
+  list-style-type:disc;
+  margin: 20px;
+  margin-left:50px;
+  padding: 0;
+  padding-left:0px;
+}
+
+#agreement input[type="submit"] {
+  width:70px;
+}
+
+#register #reset_button_div {
+  visibility:hidden;
+}
+
+#register #register_button_div {
+  bottom:65px;
+  left:335px;
+}
+/***************************BIRTH INFO FIRST TIME PAGE ONLY**************************/
+#birth_info_first_time #submit_div {
+  left:150px;
+  bottom:20px;
+}
+
+/*
+#birth_info_first_time .error {
+  color:red;
+  position:relative;
+  z-index:1;
+  display:block;
+  left:830px;
+  width:435px;
+}
+
+#register .hidden_error {
+  visibility:hidden;
+}
+
+#username_error {  
+  bottom:535px;
+}
+
+#date_error {  
+  bottom:520px;
+}
+
+#user_exists_error {  
+  bottom:581px;
+}
+
+#email_error {  
+  bottom:532px;
+}
+
+#email_no_match_error {  
+  bottom:525px;
+}
+
+#password_error {  
+  bottom:520px;
+}
+
+#token_error {  
+  bottom:460px;
+  color:red;
+  position:relative;
+  z-index:1;
+  display:block;
+  left:680px;
+  width:435px;
+}
+*/
+
+#birth_info {
+  position:relative;
+}
+
+#birth_info_first_time #enter_info {
+  top:50px;
+  left:80px;
+}
+
+
+
+#birth_info_first_time .title {
+  position:relative;
+  font-size:1.3em;
+  width:250px;
+  height:22px;
+  text-align:center;
+  margin:auto;
+  top:65px;
+}
+
+#birth_info_first_time .description {
+  position:relative;
+  width:500px;
+  text-align:center;
+  margin:auto;
+  top:75px;
+}
+
+
+
+#birth_info_first_time input, #birth_info_first_time select {
+  position:relative;
+  border:0px;
+  display:block;
+  left:220px;
+  padding:0px;
+  margin:0px;
+  
+}
+
+#birth_info_first_time input {
+  box-sizing: border-box; 
+ -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+  font-size:0.8em;
+  width:130px;
+  
+}
+
+#birth_info_first_time input:focus {
+  outline: 0 none;
+
+}
+
+#birth_info_first_time select {
+  display:inline-block;
+  bottom:17px;
+}
+
+#birth_info_first_time select[name="hour_time"] {
+  position:relative;
+  left:210px;
+  display:inline-block;
+}
+
+#birth_info_first_time select[name="minute_time"] {
+  position:relative;
+  left:240px;
+  display:inline-block;
+}
+
+#birth_info_first_time select[name="meridiem_time"] {
+  position:relative;
+  left:270px;
+  display:inline-block;
+}
+
+#birth_info_first_time #birth_info div {
+  position:relative;
+}
+
+#birth_info_first_time input[focus] {
+  outline: 0 none;
+}
+
+#birth_info_first_time #birth_info {
+  position: relative;
+  display:block;
+  bottom: 70px;
+  font-size:1.1em;
+  text-align:left;
+  left:45px;
+}
+
+#birth_info_first_time #birth_info .reg_title {
+  text-align:right;
+  width:180px;
+}
+
+#birth_info_first_time #birth_time_title {
+  position:relative;
+  bottom:8px;
+  left:67px;
+}
+
+#birth_info_first_time #birth_time_input {
+  position:relative;
+  bottom:8px;
+}
+
+#birth_info_first_time #birth_time_input select:disabled {
+  background-color:white;
+}
+
+#birth_place_title, #birth_place_input {
+  position:relative;
+  bottom:37px;
+}
+
+#birth_place_title.no_move, #birth_place_input.no_move {
+  position:relative;
+  bottom:0px;
+
+}
+
+#birth_info_first_time #birth_place_title {
+  position:relative;
+  left:62px;
+  bottom:4px;
+}
+
+#birth_info_first_time #birth_place_input {
+  position:relative;
+  bottom:23px;
+  right:8px;
+}
+
+
+
+
+#birth_info_first_time #birth_interval_title {
+  position:relative;
+  bottom: 14px;
+  left: 38px;
+}
+
+#birth_info_first_time #birth_interval_input {
+    bottom: 14px;
+    position: relative;
+    right: 10px;
+}
+
+#birth_info_first_time #birth_interval_input select:disabled {
+   background-color:white;
+}
+
+#birth_interval_box_title {
+    
+    left: 18px;
+    position: relative;
+}
+
+#birth_info_first_time #birth_interval_box_title {
+    bottom: 20px;
+    left: 18px;
+    position: relative;
+}
+
+#birth_interval_box_input {
+   
+    position: relative;
+    right:3px; 
+    bottom:20px;
+}
+
+#birth_info_first_time #birth_interval_box_input {
+   bottom: 37px;
+    position: relative;
+    right: 90px;
+}
+
+#birth_interval_box_help_text {
+    bottom: 198px;
+    display: none;
+    left: 165px;
+    position: absolute;
+}
+
+#birth_interval_box_help_text.offset {
+  bottom:146px;
+}
+
+#birth_info_first_time #birth_info div#birth_interval_box_help_text {
+   display:none;
+   position:absolute;
+   left:210px;
+   bottom:95px;
+}
+    
+#birth_time_hover_box {
+    border: 1px solid black;
+    bottom: 63px;
+    font-size: 0.8em;
+    left: 140px;
+    line-height: 17px;
+    padding-left: 3px;
+    padding-right: 3px;
+    position: relative;
+    width: 10px;
+    color:black;
+  background-color:white;
+}
+
+
+#birth_time_hover_box:hover {
+  color:white;
+  background-color:black;
+}
+
+#birth_time_hover_box span {
+  
+  left:15px;
+  bottom:-180px;
+  
+}
+
+#birth_info_first_time #birth_info div#birth_time_hover_box {
+      border: 1px solid black;
+    bottom: 130px;
+    font-size: 0.8em;
+    left: 355px;
+    line-height: 17px;
+    padding-left: 3px;
+    padding-right: 3px;
+    position: absolute;
+}
+
+#enter_info img {
+  position:relative;
+  top:40px;
+}
+
+/*
+#register #email2_title {
+  bottom:18px;
+}
+
+#register #email2_input {
+  bottom:36px;
+}
+
+#register #password_title {
+  bottom:27px;
+}
+
+#register #password_input {
+  bottom:46px;
+}
+
+#register img.token_img {
+  position:relative;
+  display:block;
+  bottom:320px;
+  right:65px;
+}
+
+#register #token_title {
+  bottom:23px;
+  left:180px;
+}
+
+#register #token_input {
+  bottom:39px;
+  left:165px;
+  z-index:1;
+}
+
+*/
+
+
+/*********************BUGABOOS**************************/
+
+#bug1 {
+    position:relative;
+    width:69px;
+    height:75px;
+    bottom: 379px;
+    float: right;
+    right: 65px;
+}
+
+#bug2 {
+  position:relative;
+  bottom: 69px;
+    height: 81px;
+    left: 59px;
+    width: 149px;
+}
+
+#register #bug1 {
+  position:relative;
+    width:69px;
+    height:75px;
+    bottom: 611px;
+    float: right;
+    right: 65px;
+}
+
+#register #bug2 {
+  position:relative;
+  bottom: 301px;
+    height: 81px;
+    left: 59px;
+    width: 149px;
+}
+
+#birth_info_first_time #bug1 {
+  position:relative;
+    width:69px;
+    height:75px;
+    bottom: 489px;
+    float: right;
+    right: 65px;
+}
+
+#birth_info_first_time #bug2 {
+  position:relative;
+  bottom:179px;
+    height: 81px;
+    left: 59px;
+    width: 149px;
+}

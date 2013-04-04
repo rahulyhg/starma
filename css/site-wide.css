@@ -1,0 +1,207 @@
+body {
+  background:#8393CA /*url('/img/Starma-Astrology-RightSide.png')*/;
+  font:1em "Comic Sans MS";
+  //font-family: "Comic Sans MS", "Marker Felt";
+  line-height:23px;
+  //font:1em "cambria";
+  margin:0px;
+}
+
+body a {
+  font:1em "Comic Sans MS";
+  //font-family: "Comic Sans MS", "Marker Felt";
+  line-height:23px;
+  //font:1em "cambria";
+  text-decoration:none;
+}
+
+/*
+body select {
+  -webkit-appearance:caret;
+}
+*/
+
+#frame {
+  width:980px;
+  position:relative;
+  border:0px solid black;
+  min-height:890px;
+}
+
+#img_preloader {
+  display:none;
+}
+
+#img_preloader img{
+  display:none;
+}
+
+#top_ad_space { 
+  line-height:70px;
+  vertical-align:middle;
+  margin:25px;
+  background-color: #b6bfdc;
+  height:75px;
+  font-weight:bold;
+  font-size:1.2em;
+}
+
+.flare_title {
+  width:100%;
+  text-align:center;
+  height:22px;
+  
+}
+
+.left_flare {
+  background:url('/img/Starma-Astrology-FlareL.png') no-repeat;
+  height:22px;
+  width:23px;
+  display:inline-block;
+}
+
+.right_flare {
+  background:url('/img/Starma-Astrology-FlareR.png') no-repeat;
+  height:22px;
+  width:23px;
+  display:inline-block;
+}
+
+.title_content {
+  height:22px;
+  font-size:1.1em;
+  padding-left:15px;
+  padding-right:15px;
+  vertical-align:top;
+  display:inline-block;
+}
+
+
+.circle_hilite {
+  background:url('/img/arrows/RedCircle.png') no-repeat;
+  height:89px;
+  width:104px;
+  position:absolute;
+  pointer-events: none;
+  z-index:1;
+}
+
+.up_arrow_hilite {
+  background:url('/img/arrows/RedArrow.png') no-repeat;
+  height:41px;
+  width:150px;
+  position:absolute;
+  z-index:1;
+}
+
+.down_arrow_hilite {
+  background:url('/img/arrows/RedArrow_chart.png') no-repeat;
+  height:58px;
+  width:190px;
+  position:absolute;
+  z-index:1;
+}
+
+
+#welcome .circle_hilite {
+     bottom: 785px;
+    left: 115px;
+    
+}
+
+#welcome .up_arrow_hilite {
+    bottom: 762px;
+    left: 198px;
+  
+}
+
+#starma_chart .circle_hilite {
+     bottom: 643px;
+     right: 695px;
+     background:url('/img/arrows/RedCircle_chart.png') no-repeat;
+     width:104px;
+     height:120px;
+}
+
+#starma_chart .down_arrow_hilite {
+    bottom: 730px;
+    left: 88px;
+  
+}
+
+#account_menu {
+  position:a;
+  background:url('/img/arrows/AccountArrow') no-repeat top right;
+  width:165px;
+  text-align:right;
+  
+}
+
+#account_menu a {
+  color:black;
+}
+
+#account_menu .dropdown {
+  display:none;
+  width:165px;
+}
+
+#account_menu:hover .dropdown {
+  display:block;
+}
+
+#account_menu .dropdown ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  padding-left:0px;
+
+}
+
+#account_menu .dropdown ul li {
+  position: relative;
+  display: inline-block;
+  
+
+}
+
+#account_menu .dropdown ul li a {
+  text-align:right;
+  display:block;
+  width:150px;
+  color:black;
+  margin: 0px;
+  padding:0px;
+  padding-right:10px;
+  line-height:37px;
+  border:2px solid black;
+  border-bottom:0px;
+  background-color:#8393CA;
+}
+
+#account_menu .dropdown ul li:hover a {
+ 
+  background-color:#FBF0A4;
+}
+
+.help_text {
+  padding:20px;
+}
+
+
+.hover_box:hover span {
+  display:block;
+  
+}
+
+.hover_box span {
+  z-index:5;
+  position:absolute;
+  background:#FFFFFF;
+  border:1px solid black;
+  width:300px;
+  display:none;
+  padding:10px;
+  
+  color:black;
+}

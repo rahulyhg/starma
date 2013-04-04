@@ -1,0 +1,61 @@
+#admin_frame {
+  width:1000px;
+  margin:auto;
+  padding:10px;
+  border:1px solid black;
+}
+
+.admin_table {
+  wdith:900px;
+  border:1px solid black;  
+  margin:auto;
+}
+
+.admin_table tr {
+  padding:0px;
+  margin:0px;
+}
+
+.admin_table td {
+  padding:0px;
+  margin:0px;
+  vertical-align:top;
+}
+
+#admin_table_left_column {
+  width:180px;
+  padding:10px;  
+  background-color:#CCCCCC;
+}
+
+#admin_table_middle_column {
+  width:380px;
+  padding:10px;  
+}
+
+#admin_table_right_column {
+  width:280px;
+  background-color:#CCCCCC;
+  padding:10px;  
+ 
+}
+
+.admin_page_header {
+    font-weight: bold;
+    padding-bottom: 20px;
+    text-align: center;
+   
+    width: 100%;
+}
+
+
+#bug_button, #birth_info input[name="submit"] {
+    background: url("../img/account_info/Starma-Astrology-Space-Bug.png") no-repeat scroll 0 0 transparent;
+    
+}
+
+#bug_button:hover, #birth_info input[name="submit"]:hover{
+  
+  background:url('../img/account_info/Starma-Astrology-Space-BugHover.png') no-repeat;
+  
+}
