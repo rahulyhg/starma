@@ -21,7 +21,7 @@ date_default_timezone_set('America/Chicago');
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Testing Grounds</title>
+<title>Starma</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <LINK REL="StyleSheet" HREF="css/reset.css" TYPE="text/css"/>
 <LINK REL="StyleSheet" HREF="css/chart.css" TYPE="text/css"/>
