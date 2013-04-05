@@ -2,7 +2,7 @@
 ob_start();
 //ini_set('memory_limit', '256M');
 //  error_reporting(0); // we don't want to see errors on screen - REMOVE THIS WHEN LIVE
-//error_reporting( error_reporting() & ~E_NOTICE );
+error_reporting( error_reporting() & ~E_NOTICE );
 //echo "Magic quotes is " . (get_magic_quotes_gpc() ? "ON" : "OFF");
 //set_magic_quotes_runtime(1);
 //echo "Magic quotes is " . (get_magic_quotes_gpc() ? "ON" : "OFF");

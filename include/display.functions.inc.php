@@ -646,6 +646,19 @@ function upload_photo_form() {
   move_on_form();
 }
 
+function upload_photo_form_admin($user_id) {
+  $chart = get_chart_by_name('Main',$user_id);
+  show_main_photo($chart["chart_id"]);
+  echo '<div id="upload_photo_form">
+    <br>You may upload <b><span style="color:red">' . (max_photos() - num_photos($user_id)) . '</span></b> more photo(s)<br><Br><br>
+    <form action="process_photo_admin.php" method="post" enctype="multipart/form-data"> 
+    Upload Photo: <input type="file" name="image" /><input type="submit" value="Upload" name="action" />
+    <input name="user_id" value="' . $user_id . '" type="hidden"/>
+    </form>
+  </div>';
+  show_photo_grid($user_id);
+}
+
 function get_left_menu ($the_page) {
   for ($x=1; $x<=6; $x++) {
     $menu['nav' . $x] = array('','#'); 
