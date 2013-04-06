@@ -80,7 +80,7 @@
       echo '<div class="admin_page_header">PROFILE</div>';
       edit_profile_form($user_id); 
       echo '<br>';
-      if ($user_id != -1) {
+      if (get_chart_by_name ("Main", $user_id)) {
         echo '<div id="admin_photo_upload">';
         upload_photo_form_admin($user_id);     
         if (isset($_GET["error"])) {

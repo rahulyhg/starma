@@ -789,7 +789,7 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
   else {
     $type="default";
   }
-  print_r ($_SESSION["chart_input_vars"]);
+  //print_r ($_SESSION["chart_input_vars"]);
   echo '<div id="birth_info">
           <form id="birth_info_form" method="post" action=' . $action . '>';
 //// THIS AREA ONLY APPLIES TO ENTERING SOMEONE ELSES USER INFORMATION (AS AN ADMIN OR OTHERWISE) OR UPDATING YOUR OWN ////

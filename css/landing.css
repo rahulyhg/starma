@@ -558,7 +558,7 @@ bottom: 280px;
   box-sizing: border-box; 
  -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
   font-size:0.8em;
-  width:130px;
+  width:15px;
   
 }
 
@@ -691,7 +691,7 @@ bottom: 280px;
 #birth_info_first_time #birth_interval_box_input {
    bottom: 37px;
     position: relative;
-    right: 90px;
+    right: 35px;
 }
 
 #birth_interval_box_help_text {
