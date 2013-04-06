@@ -558,6 +558,11 @@ bottom: 280px;
   box-sizing: border-box; 
  -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
   font-size:0.8em;
+  width:130px;
+  
+}
+
+#birth_info_first_time input[type="checkbox"] {
   width:15px;
   
 }
