@@ -521,7 +521,8 @@ function get_photos($user_id) {
 }
 
 function num_my_photos() { 
-  num_photos(get_my_user_id());
+  ;
+  return num_photos(get_my_user_id());
 }
 
 function num_photos($user_id) { 
@@ -538,7 +539,7 @@ function num_photos($user_id) {
 }
 
 function associate_photo_with_me($pic_name) {
-  associate_photo_with_user($pic_name, get_my_user_id());
+  return associate_photo_with_user($pic_name, get_my_user_id());
 }
 
 function associate_photo_with_user($pic_name, $user_id) {
@@ -550,7 +551,7 @@ function associate_photo_with_user($pic_name, $user_id) {
       else {
         $main = 0;
       }
-      $q = sprintf("INSERT into user_picture (user_id, picture, main) VALUES (%d, '%s', %d)", $_SESSION["user_id"], mysql_real_escape_string($pic_name), $main);
+      $q = sprintf("INSERT into user_picture (user_id, picture, main) VALUES (%d, '%s', %d)", $user_id, mysql_real_escape_string($pic_name), $main);
       $result = mysql_query($q) or die(mysql_error());
       return true;
     }
@@ -768,6 +769,7 @@ function get_favorties_user_list () {
   }
 }
 
+
 function get_filtered_user_list ($filter, $type="include") {
   if (isLoggedIn()) {
     $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join favorite on favorite.favorite_user_id = user.user_id where chart.nickname="main" AND favorite.user_id = ' . get_my_user_id() . ' AND ';
@@ -787,7 +789,42 @@ function get_filtered_user_list ($filter, $type="include") {
   }
 }
 
-function get_celeb_list() {
+function get_celebrity_user_list () {
+  if (isLoggedIn()) {
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' ORDER BY nickname LIMIT 10'; 
+    if ($result = mysql_query($q)) {
+      return $result;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
+function get_filtered_celebrity_user_list ($filter, $type="include") {
+  if (isLoggedIn()) {
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND ';
+    if ($type=="exclude") {
+      $q = $q . 'NOT '; 
+    }
+    $q = $q . sprintf('user.nickname like "%s%%" ORDER BY nickname', mysql_real_escape_string($filter));
+    if ($result = mysql_query($q)) {
+      return $result;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
+
+function get_celeb_list() {  // THIS FUNCTION FOR ADMINS ONLY, TO MANAGE CELEBRITIES
   if (isLoggedIn()) {
     $q = 'SELECT user.* from user WHERE permissions_id = -1 ORDER BY nickname';
     if ($result = mysql_query($q)) {

@@ -78,7 +78,7 @@ function addJSChatEvents($r_id) {
     </script>';
 }
 
-function addJSSearchEvents($input_id) {
+function addJSSearchEvents($input_id, $ftn="filterUsers") {
   echo '<script type="text/javascript">
            
         
@@ -92,9 +92,9 @@ function addJSSearchEvents($input_id) {
                  $.ajax({
 		          type: "GET",
                           cache: false,
-	                  url: "https://www.starma.com/chat/process_all.php",
+	                  url: "' .get_full_domain() . '/chat/process_all.php",
                           data: {  
-		   			"function": "filterUsers",
+		   			"function": "' . $ftn . '",
 					"filter": filter
                                         
 					

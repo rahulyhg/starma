@@ -403,9 +403,14 @@ function show_my_main_photo() {
 }
 
 function show_my_photo_grid ($link=1) {
+  show_interactive_photo_grid (get_my_user_id(),$link);
+}
+
+function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
+
   echo '<div id="my_photos">';
   
-  $photo_grid = get_my_photos ();
+  $photo_grid = get_photos ($user_id);
   //$length = sizeof($photo_list);
   
 
@@ -415,7 +420,12 @@ function show_my_photo_grid ($link=1) {
         
         if ($link==1) {
           echo '<div class="grid_photo_wrapper_link">';
-          $href='change_my_profile_pic.php?photo_id=' . $photo["user_pic_id"];
+          if (isAdmin() and $user_id != get_my_user_id()) { // IF ADMIN CHANGING SOMEONE ELSES PROFILE PIC, USE ADMIN TECH
+            $href='change_profile_pic.php?photo_id=' . $photo["user_pic_id"];
+          }
+          else {                                            // ELSE USE NORMAL TECH
+            $href='change_my_profile_pic.php?photo_id=' . $photo["user_pic_id"];
+          }
         }
         else { 
           echo '<div class="grid_photo_wrapper">';
@@ -429,7 +439,7 @@ function show_my_photo_grid ($link=1) {
             echo '</div>';
             if ($link==1) { 
               echo '<div class="delete_grid_photo">'; 
-                echo '<a href="delete_photo.php?photo_id=' . $photo["user_pic_id"] . '">Delete</a>';
+                echo '<a href="' . $url_offset . 'delete_photo.php?photo_id=' . $photo["user_pic_id"] . '">Delete</a>';
               echo '</div>';
             }
             else {
@@ -636,6 +646,7 @@ function show_descriptors_info($chart_id) {
 function upload_photo_form() {
   
   show_my_main_photo();
+  //echo num_my_photos();
   echo '<div id="upload_photo_form">
     <br>You may upload <b><span style="color:red">' . (max_photos() - num_my_photos()) . '</span></b> more photo(s)<br><Br><br>
     <form action="process_photo.php" method="post" enctype="multipart/form-data">
@@ -656,7 +667,7 @@ function upload_photo_form_admin($user_id) {
     <input name="user_id" value="' . $user_id . '" type="hidden"/>
     </form>
   </div>';
-  show_photo_grid($user_id);
+  show_interactive_photo_grid ($user_id,$link=1, '../');
 }
 
 function get_left_menu ($the_page) {
@@ -683,7 +694,8 @@ function get_left_menu ($the_page) {
   elseif ($the_page == 'cosel') {
     $menu['nav1'] = array('All Users&nbsp;&nbsp;','all_users.php');
     $menu['nav2'] = array('My Favorites&nbsp;&nbsp;','favorites.php');
-    $menu['nav3'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php');
+    $menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
+    $menu['nav4'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php');
     
   }
   elseif ($the_page == 'hsel') {
@@ -3266,9 +3278,12 @@ function display_all_users ($url="", $filter=0) {
     $user_list = get_user_list ();
     
   }
-  else {
+  elseif ($filter == 1) {
     $user_list = get_favorties_user_list ();
     
+  }
+  else {
+    $user_list = get_celebrity_user_list ();
   }
   //$length = sizeof($user_list);
   

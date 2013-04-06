@@ -59,6 +59,10 @@ function get_landing () {
   return 'landing.php';
 }
 
+function get_full_domain () {
+  return 'https://www.' . get_domain();
+}
+
 function do_redirect ($url) {
   header( 'Location: https://www.' . $url);
 }
@@ -67,11 +71,15 @@ function do_redirect ($url) {
 /**********************BEGIN DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
 function get_domain () {
-  return '127.0.0.1:8080/starma';
+  return '127.0.0.1:8080';
 }
 
 function get_landing () {
   return 'landing.php';
+}
+
+function get_full_domain () {
+  return 'http://' . get_domain();
 }
 
 function do_redirect ($url) {

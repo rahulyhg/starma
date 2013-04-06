@@ -79,14 +79,19 @@
     echo '<td id="admin_table_middle_column">';
       echo '<div class="admin_page_header">PROFILE</div>';
       edit_profile_form($user_id); 
-      upload_photo_form_admin($user_id);     
-      if (isset($_GET["error"])) {
-        echo '<div id="photo_error">';
-        if ($_GET["error"] == 1) {
-          echo "Error Deleting Photo.  Please contact Starma.com Administration.";
-        }
-        elseif ($_GET["error"] == 2) {
-          echo "You have reached the " . max_photos() . " maximum allowed profile photos.";
+      echo '<br>';
+      if ($user_id != -1) {
+        echo '<div id="admin_photo_upload">';
+        upload_photo_form_admin($user_id);     
+        if (isset($_GET["error"])) {
+          echo '<div id="photo_error">';
+          if ($_GET["error"] == 1) {
+            echo "Error Deleting Photo.  Please contact Starma.com Administration.";
+          }
+          elseif ($_GET["error"] == 2) {
+            echo "You have reached the " . max_photos() . " maximum allowed profile photos.";
+          }
+          echo '</div>';
         }
         echo '</div>';
       }
