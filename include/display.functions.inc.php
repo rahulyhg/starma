@@ -360,7 +360,15 @@ function show_my_general_info() {
       echo $user_info["nickname"];
     echo '</div>';
     echo '<div class="name_area">';
-      echo calculate_age(substr((string)$user_info["birthday"], 0, 10));
+      if ($user_info["permissions_id"] == PERMISSIONS_CELEB()) {
+        $chart = get_my_chart ();
+        $birthday = $chart["birthday"];
+      }
+      else {
+        $birthday = $user_info["birthday"];
+      }
+      echo calculate_age(substr((string)$birthday, 0, 10));
+      
       if (get_my_gender() != "U") {
         echo '/' . get_my_gender();
       }
@@ -525,7 +533,14 @@ function show_general_info($chart_id) {
       echo $user_info["nickname"];
     echo '</div>';
     echo '<div class="name_area">';
-      echo calculate_age(substr((string)$user_info["birthday"], 0, 10));
+      if ($user_info["permissions_id"] == PERMISSIONS_CELEB()) {
+        $chart = get_chart ($chart_id);
+        $birthday = $chart["birthday"];
+      }
+      else {
+        $birthday = $user_info["birthday"];
+      }
+      echo calculate_age(substr((string)$birthday, 0, 10));
       if (get_gender($user_info["user_id"]) != "U") {
         echo '/' . get_gender($user_info["user_id"]);
       }

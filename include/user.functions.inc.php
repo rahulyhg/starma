@@ -13,6 +13,11 @@ function max_photos() {
   return 6;
 }
 
+function isCeleb($user_id) {
+  $info = profile_info($user_id);
+  return $info["permissions_id"] == PERMISSIONS_CELEB();
+}
+
 function update_my_last_action_made ($datetime) {
   if (isLoggedIn()) {
     $q = "UPDATE user set last_action_made = " . $datetime . " where user_id = " . get_my_user_id();
@@ -791,7 +796,7 @@ function get_filtered_user_list ($filter, $type="include") {
 
 function get_celebrity_user_list () {
   if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' ORDER BY nickname LIMIT 10'; 
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" ORDER BY nickname'; 
     if ($result = mysql_query($q)) {
       return $result;
     }
@@ -806,7 +811,7 @@ function get_celebrity_user_list () {
 
 function get_filtered_celebrity_user_list ($filter, $type="include") {
   if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND ';
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" AND ';
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }

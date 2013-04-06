@@ -859,6 +859,11 @@ li.my_unknown_button a {
 
 /*//////////////// OTHER COMPARE PAGES ///////////////////////////////////////*/
 
+#js_celebrity_frame {
+  height:790px;
+  overflow:hidden;
+}
+
 #search_bar_div {
     position: relative;
     margin:auto;
