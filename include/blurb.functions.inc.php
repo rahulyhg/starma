@@ -1,6 +1,6 @@
 <?php 
 function custom_chart_url() {
-  return '/main.php?the_left=nav3&the_page=cosel';
+  return '/main.php?the_left=nav4&the_page=cosel';
 }
 
 

@@ -23,6 +23,17 @@
                    $log["users_out"][] = $row["user_id"]; 
                  }
                  break;
+         case('filterCelebs'):
+                 $filter = $_GET['filter'];
+                 $included_users = get_filtered_celebrity_user_list ($filter, "include");
+                 $excluded_users = get_filtered_celebrity_user_list ($filter, "exclude");
+                 while ($row = mysql_fetch_array($included_users)) {
+                   $log["users_in"][] = $row["user_id"]; 
+                 }
+                 while ($row = mysql_fetch_array($excluded_users)) {
+                   $log["users_out"][] = $row["user_id"]; 
+                 }
+                 break;
          case('setTimeZone'):
                  $_SESSION["timezoneOffset"] = $_GET["timezoneOffset"];
                  $log[] = $_SESSION["timezoneOffset"];

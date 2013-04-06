@@ -26,7 +26,9 @@ if (login_check_point($type="full")) {
       echo '<div class="profile_button chart_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=4&chart_id2=' . $_GET["chart_id2"] . '"></a></div>';
       echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '"></a></div>';     
       //echo '<div class="profile_button chat_button"><a href="#" onclick="chat_monitor.nowChatting(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ', 1); var chat_window = window.open(\'chat/chat_window.php?receiver_id=' . get_user_id_from_chart_id ($_GET["chart_id2"]) . '\',\'starma_chat_' . get_user_id_from_chart_id ($_GET["chart_id2"]) . '\',\'height=560px,width=540px\');chat_window.focus();"></a></div>';
-      echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)"></a></div>';
+      if (!isCeleb(get_user_id_from_chart_id ($_GET["chart_id2"]))) {
+        echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)"></a></div>';
+      }
       echo '<div class="profile_button ';
       if (is_my_favorite(get_user_id_from_chart_id ($_GET["chart_id2"]))) {
         echo 'remove_favorite_button';

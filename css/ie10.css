@@ -1,0 +1,22 @@
+/*//// IE10 IS BUGGED RIGHT NOW: SOMETIMES LINKS WONT RE-RENDER AFTER UNHOVERING IF THEY WERE SET TO NONE ON HOVER.  THIS HACK IS A WORKAROUND./////*/
+
+#my_photos .grid_photo_wrapper:hover .profile_tiny {
+  display:table-cell;
+  position:absolute;
+  right:1000px;
+  
+}
+
+#my_photos .grid_photo_wrapper .profile_mouseover {
+  display:table-cell;
+  position:absolute;
+  right:1000px;
+  
+}
+
+#my_photos .grid_photo_wrapper:hover .profile_mouseover {
+
+  position:static;
+  right:0px;
+  
+}

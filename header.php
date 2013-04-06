@@ -2,7 +2,7 @@
 ob_start();
 //ini_set('memory_limit', '256M');
 //  error_reporting(0); // we don't want to see errors on screen - REMOVE THIS WHEN LIVE
-//error_reporting( error_reporting() & ~E_NOTICE );
+error_reporting( error_reporting() & ~E_NOTICE );
 //echo "Magic quotes is " . (get_magic_quotes_gpc() ? "ON" : "OFF");
 //set_magic_quotes_runtime(1);
 //echo "Magic quotes is " . (get_magic_quotes_gpc() ? "ON" : "OFF");
@@ -23,6 +23,7 @@ date_default_timezone_set('America/Chicago');
 <head>
 <title>Starma.com - </title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
 <LINK REL="StyleSheet" HREF="css/reset.css" TYPE="text/css"/>
 <LINK REL="StyleSheet" HREF="css/chart.css" TYPE="text/css"/>
 <LINK REL="StyleSheet" HREF="css/site-wide.css" TYPE="text/css"/>
@@ -38,6 +39,8 @@ date_default_timezone_set('America/Chicago');
     echo '<LINK REL="StyleSheet" HREF="../css/admin.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/site-wide.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/chart.css" TYPE="text/css"/>';
+    echo '<LINK REL="StyleSheet" HREF="../css/main.css" TYPE="text/css"/>';
+    echo '<LINK REL="StyleSheet" HREF="../css/photos.css" TYPE="text/css"/>';
   }
 ?>
 
@@ -67,11 +70,19 @@ date_default_timezone_set('America/Chicago');
 		});    
         });
 
+        //Hack for IE10
+       if (/*@cc_on!@*/false) {
+         var headHTML = document.getElementsByTagName('head')[0].innerHTML;
+         headHTML    += '<link type="text/css" rel="stylesheet" href="css/ie10.css">';
+         document.getElementsByTagName('head')[0].innerHTML = headHTML;
+        }
+
         // Popup window function
 	function basicPopup(url, title, specs) {
           popupWindow = window.open(url,title,specs);
 	}
 </script>
+
 
 <?php if (!strpos($_SERVER['PHP_SELF'], get_landing())) { ?>
 <script type="text/javascript">

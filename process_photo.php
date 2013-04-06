@@ -25,10 +25,10 @@ $error=0;
   }
   if ($error == 0) {
     log_this_action (profile_action_photos(), uploaded_basic_action());
-    header( 'Location: https://www.' . $domain . '/main.php?the_left=nav4&the_page=psel');
+    do_redirect ( get_domain() . '/main.php?the_left=nav4&the_page=psel');
   }
   else {
-    header( 'Location: https://www.' . $domain . '/main.php?the_left=nav4&the_page=psel&error=' . $error);
+      do_redirect ( get_domain() . '/main.php?the_left=nav4&the_page=psel&error=' . $error);
   }
 
 }
