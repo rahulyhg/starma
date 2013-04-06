@@ -781,7 +781,7 @@ function get_filtered_user_list ($filter, $type="include") {
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
-    $q = $q . sprintf('user.nickname like "%s%%" ORDER BY nickname', mysql_real_escape_string($filter));
+    $q = $q . sprintf('user.nickname like "%%%s%%" ORDER BY nickname', mysql_real_escape_string($filter));
     if ($result = mysql_query($q)) {
       return $result;
     }
@@ -815,7 +815,7 @@ function get_filtered_celebrity_user_list ($filter, $type="include") {
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
-    $q = $q . sprintf('user.nickname like "%s%%" ORDER BY nickname', mysql_real_escape_string($filter));
+    $q = $q . sprintf('user.nickname like "%%%s%%" ORDER BY nickname', mysql_real_escape_string($filter));
     if ($result = mysql_query($q)) {
       return $result;
     }
