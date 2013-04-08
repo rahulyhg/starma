@@ -15,6 +15,7 @@ if (login_check_point($type="full", $domain=$domain)) {
     $birthtime = $_SESSION["birthtime"];
     $interval = $_SESSION["interval"];
     $time_unknown = $_SESSION["time_unknown"];
+    $method = $_SESSION["method"];
     if ((string)$interval != '0') {
       $return_vars2 = $_SESSION["return_vars2"];
       unset ($_SESSION["return_vars2"]);
@@ -29,7 +30,8 @@ if (login_check_point($type="full", $domain=$domain)) {
     unset ($_SESSION["birthtime"]);
     unset ($_SESSION["interval"]);
     unset ($_SESSION["time_unknown"]);
-    confirm_form($return_vars, $title, $birthtime, $return_vars2, $interval, $time_unknown);
+    unset ($_SESSION["method"]);
+    confirm_form($return_vars, $title, $birthtime, $return_vars2, $interval, $time_unknown, $method);
     
   }
   else {

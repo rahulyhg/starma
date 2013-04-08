@@ -953,7 +953,7 @@ echo        '<div id="submit_div">
   }
 }
 
-function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir=true, $the_nickname="Freebie1", $interval, $time_unknown) {
+function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir=true, $the_nickname="Freebie1", $interval, $time_unknown, $method="E") {
   
   if ($return_vars[2] == 'South') {
     $LaDirAdd = 'S';
@@ -991,7 +991,7 @@ function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir
   /*      
   for ($poi_id = 2; $poi_id <= 10; $poi_id++) {
         //echo '<br>';
-        $planetArray = PlanetForm ($return_vars[0], $return_vars[8], $return_vars[9], $poi_id);
+        $planetArray = PlanetForm ($return_vars[0], $return_vars[8], $return_vars[9], $poi_id, $method);
         $pos_var_name = 'planet_' . $poi_id . '_position';
         $sign_var_name = 'planet_' . $poi_id . '_sign';
         $$pos_var_name = $planetArray[0];
@@ -1000,7 +1000,7 @@ function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir
   */
   $poi_array = array();
   for ($poi_id = 2; $poi_id <= 10; $poi_id++) {
-    $planetArray = PlanetForm ($return_vars[0], $return_vars[8], $return_vars[9], $poi_id);
+    $planetArray = PlanetForm ($return_vars[0], $return_vars[8], $return_vars[9], $poi_id, $method);
           
     $poi_array[$poi_id] = $planetArray;
   
@@ -1008,7 +1008,7 @@ function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir
 
   unset($_SESSION["chart_input_vars"]);
         
-  if (store_chart_by_sign ($nickname, $birthdatetime, $longitude, $latitude, $DST, $timezone, $asc_coord, $asc_sign_id, $location, $poi_array, $personal, $interval, $time_unknown)) {
+  if (store_chart_by_sign ($nickname, $birthdatetime, $longitude, $latitude, $DST, $timezone, $asc_coord, $asc_sign_id, $location, $poi_array, $personal, $interval, $time_unknown, $method)) {
     //echo date('Y-m-d H:i:s', $birthdatetime);
     if ($redir) {
       do_redirect ($url=$url);
@@ -1024,11 +1024,11 @@ function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir
 }
 
 
-function confirm_form ($return_vars, $location, $birthtime, $return_vars2=0, $interval=0, $time_unknown=0) {
+function confirm_form ($return_vars, $location, $birthtime, $return_vars2=0, $interval=0, $time_unknown=0, $method) {
 
   for ($poi_id = 2; $poi_id <= 10; $poi_id++) {
         //echo '<br>';
-        $planetArray = PlanetForm ($return_vars[0], $return_vars[8], $return_vars[9], $poi_id);
+        $planetArray = PlanetForm ($return_vars[0], $return_vars[8], $return_vars[9], $poi_id, $method);
         $pos_var_name = 'planet_' . $poi_id . '_position';
         $sign_var_name = 'planet_' . $poi_id . '_sign';
         $$pos_var_name = $planetArray[0];
@@ -1040,7 +1040,7 @@ function confirm_form ($return_vars, $location, $birthtime, $return_vars2=0, $in
   if ($return_vars2 != 0) {
     for ($poi_id2 = 2; $poi_id2 <= 10; $poi_id2++) {
         //echo '<br>';
-        $planetArray2 = PlanetForm ($return_vars2[0], $return_vars2[8], $return_vars2[9], $poi_id2);
+        $planetArray2 = PlanetForm ($return_vars2[0], $return_vars2[8], $return_vars2[9], $poi_id2, $method);
         $pos_var_name2 = 'planet_' . $poi_id2 . '_position2';
         $sign_var_name2 = 'planet_' . $poi_id2 . '_sign2';
         $$pos_var_name2 = $planetArray2[0];

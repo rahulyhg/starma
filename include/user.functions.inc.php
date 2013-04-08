@@ -1170,7 +1170,7 @@ function chart_already_there($nickname, $user_id) {
 }
 
 
-function store_chart_by_sign ($nickname, $birthdatetime, $longitude, $latitude, $DST, $timezone, $asc_coord, $asc_sign_id, $location, $poi_array, $personal, $interval, $time_unknown) {
+function store_chart_by_sign ($nickname, $birthdatetime, $longitude, $latitude, $DST, $timezone, $asc_coord, $asc_sign_id, $location, $poi_array, $personal, $interval, $time_unknown, $method) {
   
   if (isLoggedIn()) {
     if (isset($_SESSION["proxy_user_id"]) and isAdmin()) { // IF YOURE AN ADMIN CASTING ANOTHER USER'S CHART
@@ -1180,7 +1180,7 @@ function store_chart_by_sign ($nickname, $birthdatetime, $longitude, $latitude, 
       $user_id = $_SESSION["user_id"];
     }
     if (!$existing_chart_id = chart_already_there($nickname, $user_id)) {
-      $q = 'INSERT INTO chart (nickname, user_id, latitude, longitude, birthday, DST, timezone, location, personal, interval_time, time_unknown) VALUES ("' . $nickname . '",' . $user_id . ',"' . $latitude . '","' . $longitude . '","' . $birthdatetime . '",' . $DST . ',' . $timezone . ',"' . $location . '",' . $personal . ',' . $interval . ',' . $time_unknown . ')';
+      $q = 'INSERT INTO chart (nickname, user_id, latitude, longitude, birthday, DST, timezone, location, personal, interval_time, time_unknown, $method) VALUES ("' . $nickname . '",' . $user_id . ',"' . $latitude . '","' . $longitude . '","' . $birthdatetime . '",' . $DST . ',' . $timezone . ',"' . $location . '",' . $personal . ',' . $interval . ',' . $time_unknown . ',' . $method . ')';
     
       //echo $q;
       mysql_query ($q) or die(mysql_error());
@@ -1214,7 +1214,7 @@ function store_chart_by_sign ($nickname, $birthdatetime, $longitude, $latitude, 
     }
     else {
       
-      $q = 'UPDATE chart set nickname="' . $nickname . '", latitude="' . $latitude . '", longitude="' . $longitude . '", birthday="' . $birthdatetime . '", DST=' . $DST . ', timezone=' . $timezone . ', location="' . $location . '", personal=' . $personal . ', interval_time=' . $interval .', time_unknown=' . $time_unknown .' WHERE chart_id = ' . $existing_chart_id;
+      $q = 'UPDATE chart set nickname="' . $nickname . '", latitude="' . $latitude . '", longitude="' . $longitude . '", birthday="' . $birthdatetime . '", DST=' . $DST . ', timezone=' . $timezone . ', location="' . $location . '", personal=' . $personal . ', interval_time=' . $interval .', time_unknown=' . $time_unknown .', method=' . $method . ' WHERE chart_id = ' . $existing_chart_id;
       
       //echo $q;
       //echo $q;
@@ -1735,7 +1735,6 @@ function lostPassword($nickname, $email)
     return false;
  
 }
- 
 
 function isAdmin() {
   if (permissions_check ($req = 10)) {
@@ -1745,4 +1744,45 @@ function isAdmin() {
     return false;
   }
 }
+ 
+function single_click_cast ($chart_to_cast, $birthdate, $latitude, $longitude, $LaDir, $LoDir, $timezone, $daylight, $title, $interval, $time_unknown, $method) {
+     
+     
+     
+     $birthday = '???';
+     $birthtime = '???';
+     
+     //echo $latitude . '<br>';
+     //echo $longitude . '<br>';
+    // echo $timezone . '<br>';
+    // echo $title . '<br>';
+    // print_r ($birthday);
+    // echo date("m/d/Y", $birthday) . '<br>';
+    
+     if (isset($_SESSION["proxy_user_id"]) and isAdmin()) {
+       $user_id = $_SESSION["proxy_user_id"];
+     }
+     else {
+       $user_id = get_my_user_id();
+     }
+     
+     if ((string)$interval != '0') {
+       $return_vars1 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "lower", $method); 
+       $return_vars2 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "higher", $method);
+       save_secondary_chart ($return_vars1, $title, $birthtime, $url, false, $the_nickname="lowBound", $interval, $time_unknown, $method);
+       save_secondary_chart ($return_vars2, $title, $birthtime, $url, false, $the_nickname="highBound", $interval, $time_unknown, $method);
+       return consolidateCharts ("lowBound","highBound", $user_id, $chart_to_cast,$interval);
+       
+     }
+     else {
+       $return_vars = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "NA", $method); 
+       save_secondary_chart ($return_vars, $title, $birthtime, $url, true, $chart_to_cast, $interval, $time_unknown. $method);  
+       return true;
+       
+     }
+       
+    
+}
+
+
 ?>

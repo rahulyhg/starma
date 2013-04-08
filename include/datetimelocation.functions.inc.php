@@ -50,7 +50,7 @@ function chat_date ($timestamp) {
     return $display_date;
 }
 
-function planetForm ($longitude, $eTime, $the_date, $POIID) {
+function planetForm ($longitude, $eTime, $the_date, $POIID, $method) {
   $the_datePlus = mktime (0, 0, 0, date("m", $the_date), date("d", $the_date)+1, date("Y", $the_date));
 
   if ($POIID == 10) {
@@ -118,7 +118,7 @@ function planetForm ($longitude, $eTime, $the_date, $POIID) {
   
   $finalSign = $LongBeforeSign;
 
-  $resultPOIArray = Ayanamsafy (date("Y", $the_date), $POIPosition, $finalSign);
+  $resultPOIArray = Ayanamsafy (date("Y", $the_date), $POIPosition, $finalSign, $method);
 
   $resultPOIPosition = $resultPOIArray[0];
   $resultPOISign = $resultPOIArray[1];

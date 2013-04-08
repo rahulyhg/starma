@@ -85,7 +85,7 @@ function apply_time_interval ($dir="lower", $interval, $sTime) {
 }
 
 
-function calculate_chart ($birthday, $birthtime, $latitude, $longitude, $LoDir, $LaDir, $timezone, $daylight, $interval, $dir="lower") {
+function calculate_chart ($birthday, $birthtime, $latitude, $longitude, $LoDir, $LaDir, $timezone, $daylight, $interval, $dir="lower", $method="E") {
       
       
 
@@ -348,7 +348,7 @@ function calculate_chart ($birthday, $birthtime, $latitude, $longitude, $LoDir, 
       }
       $AscSign = $lowerAscSign;
      
-      $resultAscArray = Ayanamsafy (date("Y", $greenwichdate), $AscPosition, $AscSign);
+      $resultAscArray = Ayanamsafy (date("Y", $greenwichdate), $AscPosition, $AscSign, $method);
 
       $resultAsc = $resultAscArray[0];
       $AscSign = $resultAscArray[1];
@@ -433,8 +433,13 @@ function reformat_coordinate ($raw_coor, $type) {
   
 }
 
-function Ayanamsafy ($year, $position, $sign) {
-      $Ayanamsa = ayanamsa ($year);
+function Ayanamsafy ($year, $position, $sign, $method="E") {
+      if ($method == "W"){
+        $Ayanamsa = '000000';
+      }
+      else {
+        $Ayanamsa = ayanamsa ($year);
+      }
       //echo $Ayanamsa;
       $result = coordinate_subtract ($position, $Ayanamsa);
       //echo $Ayanamsa . '<br>';

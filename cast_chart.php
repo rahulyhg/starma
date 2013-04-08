@@ -19,6 +19,7 @@
      $sao = $_POST["sao"];
      $errors = array();
      $interval = $_POST["interval"];
+     $method = "E" // EASTERN CHART
      if (!$time_unknown = $_POST["time_unknown"]) {
        $time_unknown = 0;
      }
@@ -116,16 +117,18 @@
 
      if (sizeof($errors) == 0) {
        if ((string)$interval != '0') {
-         $return_vars1 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "lower"); 
-         $return_vars2 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "higher");
+         $return_vars1 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "lower", $method); 
+         $return_vars2 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "higher", $method);
+         
          //die();
        }
        else {
+         $return_vars = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "NA", $method); 
          
-         $return_vars = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval); 
          //die();
        }
-       if ((string)$_POST["stage"] == "2" or isAdmin()) { //IF COMING FROM ENTERING ANOTHER USERS INFO OR ADMIN CASTING SOMEONE ELSES CHART 
+       if ((string)$_POST["stage"] == "2" or (isAdmin() and isset($_SESSION["proxy_user_id"])) { //IF COMING FROM ENTERING ANOTHER USERS INFO OR ADMIN CASTING SOMEONE ELSES CHART 
+         
          //LOG THE ACTION, SET THE NAME FOR THE CHART, AND SET THE RETURN URL
          if ((string)$_POST["stage"] == "2") { //USER CUSTOM CHART CASTING
            log_this_action (compare_action_custom(), cast_basic_action());
@@ -142,8 +145,8 @@
            $url_failed=get_domain() . "/admin/edit_profile.php?consol=failed&user_id=" . $user_id;
          }
          if ((string)$interval != '0') {
-           save_secondary_chart ($return_vars1, $title, $birthtime, $url, false, $the_nickname="lowBound", $interval, $time_unknown);
-           save_secondary_chart ($return_vars2, $title, $birthtime, $url, false, $the_nickname="highBound", $interval, $time_unknown);
+           save_secondary_chart ($return_vars1, $title, $birthtime, $url, false, $the_nickname="lowBound", $interval, $time_unknown, $method);
+           save_secondary_chart ($return_vars2, $title, $birthtime, $url, false, $the_nickname="highBound", $interval, $time_unknown, $method);
            if (consolidateCharts ("lowBound","highBound", $user_id, $chart_to_cast,$interval)) {
              //log_this_action (compare_action_custom(), cast_basic_action()); 
              do_redirect ($url);
@@ -155,7 +158,7 @@
          }
          else {
            
-           save_secondary_chart ($return_vars, $title, $birthtime, $url, true, $chart_to_cast, $interval, $time_unknown);
+           save_secondary_chart ($return_vars, $title, $birthtime, $url, true, $chart_to_cast, $interval, $time_unknown. $method);
            
            
          }
@@ -168,14 +171,19 @@
          if ((string)$interval != '0') {
            $_SESSION["return_vars"] = $return_vars1;
            $_SESSION["return_vars2"] = $return_vars2;
+
+           
          }
          else {
            $_SESSION["return_vars"] = $return_vars;
+ 
+          
          }
          $_SESSION["title"] = $title;
          $_SESSION["birthtime"] = $birthtime;
          $_SESSION["interval"] = $interval;
          $_SESSION["time_unknown"] = $time_unknown;
+         $_SESSION["method"] = $method;
          do_redirect ($url=get_domain() . "/main.php?the_left=nav5&the_page=csel");
        }
        
@@ -185,11 +193,12 @@
          echo '<div id="initial_confirm_form">';
            if ((string)$interval != '0') {
         
-               confirm_form($return_vars1, $title, $birthtime, $return_vars2, $interval, $time_unknown);
+               confirm_form($return_vars1, $title, $birthtime, $return_vars2, $interval, $time_unknown, $method);
            }
            else {
                $return_vars2 = 0;
-               confirm_form($return_vars, $title, $birthtime, $return_vars2, $interval, $time_unknown);
+               
+               confirm_form($return_vars, $title, $birthtime, $return_vars2, $interval, $time_unknown, $method);
            }
            
          echo '</div>';
