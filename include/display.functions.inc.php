@@ -520,6 +520,7 @@ function show_main_photo($chart_id) {
 function show_general_info($chart_id) {
   $user_id = get_user_id_from_chart_id ($chart_id);
   $user_info = profile_info($user_id);
+  $is_celeb = $user_info["permissions_id"] == PERMISSIONS_CELEB();
   if (trim($user_info["location"]) == "") {
     $location = "Unknown";
   }
@@ -529,22 +530,29 @@ function show_general_info($chart_id) {
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
   echo '<div class="profile_info_area">';
     echo '<div class="nickname_area">';
-      echo '<span style="font-size:2em; vertical-align:top; color:' . $online_color . '">•</span>';
-      echo $user_info["nickname"];
+      if ($is_celeb) {
+        echo $user_info["first_name"] . ' ' . $user_info["last_name"];
+      }
+      else {
+        echo '<span style="font-size:2em; vertical-align:top; color:' . $online_color . '">•</span>';
+        echo $user_info["nickname"];
+      }
     echo '</div>';
     echo '<div class="name_area">';
-      if ($user_info["permissions_id"] == PERMISSIONS_CELEB()) {
+      if ($is_celeb) {
         $chart = get_chart ($chart_id);
         $birthday = $chart["birthday"];
       }
       else {
         $birthday = $user_info["birthday"];
       }
-      echo calculate_age(substr((string)$birthday, 0, 10));
-      if (get_gender($user_info["user_id"]) != "U") {
-        echo '/' . get_gender($user_info["user_id"]);
+      if (!$is_celeb) {
+        echo calculate_age(substr((string)$birthday, 0, 10));
+        if (get_gender($user_info["user_id"]) != "U") {
+          echo '/' . get_gender($user_info["user_id"]);
+        }
+        echo ' ' . $location;
       }
-      echo ' ' . $location;
     echo '</div>';
     //echo '<div class="location_area">';
     //  echo $location;
