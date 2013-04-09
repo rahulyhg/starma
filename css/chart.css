@@ -278,6 +278,12 @@
 #starma_chart .chart_tabs.right_side.chart_arrow ul li.arrow a {
   background:url('/img/Starma-Astrology-Chart-ArrowR.png') no-repeat center center;
 }
+
+#chart_direction_link_east, #chart_direction_link_west {
+  left: 570px;
+    position: absolute;
+    z-index: 1;
+}
 /*///////////////////////////END ACTUAL CHART//////////////////////////*/
 
 

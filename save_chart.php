@@ -73,15 +73,15 @@ if (isLoggedIn())
           //echo 'asc_sign_id - lower:' . $asc_sign_id . '<br>' . ' *** asc_sign_id - higher:' . $asc_sign_id2;
           //die();
           //print_r ($poi_array2); die();
-          store_chart_by_sign("lowBound", $birthdatetime, $longitude, $latitude, $DST, $timezone, $asc_coord, $asc_sign_id, $location, $poi_array, 0, $_POST["interval"], $_POST["time_unknown"]);               
-          store_chart_by_sign("highBound", $birthdatetime, $longitude, $latitude, $DST, $timezone, $asc_coord2, $asc_sign_id2, $location, $poi_array2, 0, $_POST["interval"], $_POST["time_unknown"]);
+          store_chart_by_sign("lowBound", $birthdatetime, $longitude, $latitude, $DST, $timezone, $asc_coord, $asc_sign_id, $location, $poi_array, 0, $_POST["interval"], $_POST["time_unknown"], "E");               
+          store_chart_by_sign("highBound", $birthdatetime, $longitude, $latitude, $DST, $timezone, $asc_coord2, $asc_sign_id2, $location, $poi_array2, 0, $_POST["interval"], $_POST["time_unknown"], "E");
           consolidateCharts ("lowBound","highBound", get_my_user_id(), "Main", $_POST["interval"]);
         }
         // otherwise just store the chart as normal
         else {
    
 
-          if (store_chart_by_sign($nickname, $birthdatetime, $longitude, $latitude, $DST, $timezone, $asc_coord, $asc_sign_id, $location, $poi_array, $personal, $_POST["interval"], $_POST["time_unknown"])) {
+          if (store_chart_by_sign($nickname, $birthdatetime, $longitude, $latitude, $DST, $timezone, $asc_coord, $asc_sign_id, $location, $poi_array, $personal, $_POST["interval"], $_POST["time_unknown"], "E")) {
             //echo date('Y-m-d H:i:s', $birthdatetime);
             //Log the Action
             log_this_action (chart_action(), confirm_basic_action());
@@ -95,6 +95,9 @@ if (isLoggedIn())
         echo "<br>end";
         unset($_SESSION["change_info"]);
         echo 'User ID: *' . $_SESSION["user_id"] . '*';
+
+        single_click_cast ("Alternate", $birthdatetime, substr($latitude, 0, 6), substr($longitude, 0, 7), substr($latitude, -1), substr($longitude, -1), $timezone, $DST, $location, $_POST["interval"], $_POST["time_unknown"], "W");
+
         do_redirect( $url = get_domain() . '/' . get_landing());
       }
       

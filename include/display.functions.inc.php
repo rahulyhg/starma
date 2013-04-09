@@ -967,8 +967,15 @@ function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir
   else {
     $LoDirAdd = 'E';
   }
- 
-  $birthdate = combine_pieces ($_POST['year_birthday'], $_POST['month_birthday'], $_POST['day_birthday']); 
+  if (isset($_POST['year_birthday'])) {
+    $birthdate = combine_pieces ($_POST['year_birthday'], $_POST['month_birthday'], $_POST['day_birthday']); 
+    $birthdatetime = substr ($birthdate, 0, 4) . '-' . substr ($birthdate, 4, 2) . '-' . substr ($birthdate, 6, 2) . ' ' . format_piece (get_hours ($birthtime)) . ':' . format_piece (get_minutes($birthtime)) . ':' . format_piece (get_seconds ($birthtime));
+  }
+  else {
+    $birthdatetime = $birthtime;
+    
+  }
+  
 
   $longitude = $return_vars[0] . $LoDirAdd;
   $latitude = $return_vars[1] . $LaDirAdd;
@@ -985,9 +992,10 @@ function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir
     $personal = 0;
   }
  
-  $birthdatetime = substr ($birthdate, 0, 4) . '-' . substr ($birthdate, 4, 2) . '-' . substr ($birthdate, 6, 2) . ' ' . format_piece (get_hours ($birthtime)) . ':' . format_piece (get_minutes($birthtime)) . ':' . format_piece (get_seconds ($birthtime));
+  //$birthdatetime = substr ($birthdate, 0, 4) . '-' . substr ($birthdate, 4, 2) . '-' . substr ($birthdate, 6, 2) . ' ' . format_piece (get_hours ($birthtime)) . ':' . format_piece (get_minutes($birthtime)) . ':' . format_piece (get_seconds ($birthtime));
 
-  //echo $birthdatetime . '<br>';
+  //echo 'Preparing to Save Chart;  Total Birthdatetime input:  ' . $birthdatetime . '<br>';
+  //die();
   /*      
   for ($poi_id = 2; $poi_id <= 10; $poi_id++) {
         //echo '<br>';
@@ -1024,7 +1032,7 @@ function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir
 }
 
 
-function confirm_form ($return_vars, $location, $birthtime, $return_vars2=0, $interval=0, $time_unknown=0, $method) {
+function confirm_form ($return_vars, $location, $birthtime, $return_vars2=0, $interval=0, $time_unknown=0, $method="E") {
 
   for ($poi_id = 2; $poi_id <= 10; $poi_id++) {
         //echo '<br>';
@@ -2139,8 +2147,16 @@ function show_intro_text() {
   ';
 }
 
-function show_my_chart ($goTo = ".") {
-  if ($chart_info = get_my_chart()) {
+function show_my_chart ($goTo = ".", $western=0) {
+  if ($western == 0) {
+    $chart_info = get_my_chart();
+  }
+  else {
+    
+    $chart_info = get_chart_by_name("Alternate",get_my_user_id());  
+    
+  }
+  if ($chart_info) {
       $chart_id = $chart_info["chart_id"];
       if (!isset($_POST["poi_id"])) {
         if (get_my_preferences("chart_more_info_flag", 1) == 0) { 

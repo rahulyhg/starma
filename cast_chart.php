@@ -19,7 +19,7 @@
      $sao = $_POST["sao"];
      $errors = array();
      $interval = $_POST["interval"];
-     $method = "E" // EASTERN CHART
+     $method = "E"; // EASTERN CHART
      if (!$time_unknown = $_POST["time_unknown"]) {
        $time_unknown = 0;
      }
@@ -117,17 +117,17 @@
 
      if (sizeof($errors) == 0) {
        if ((string)$interval != '0') {
-         $return_vars1 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "lower", $method); 
-         $return_vars2 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "higher", $method);
+         $return_vars1 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $LaDir, $timezone, $daylight, $interval, "lower", $method); 
+         $return_vars2 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $LaDir, $timezone, $daylight, $interval, "higher", $method);
          
          //die();
        }
        else {
-         $return_vars = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $Ladir, $timezone, $daylight, $interval, "NA", $method); 
+         $return_vars = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $LaDir, $timezone, $daylight, $interval, "NA", $method); 
          
          //die();
        }
-       if ((string)$_POST["stage"] == "2" or (isAdmin() and isset($_SESSION["proxy_user_id"])) { //IF COMING FROM ENTERING ANOTHER USERS INFO OR ADMIN CASTING SOMEONE ELSES CHART 
+       if ((string)$_POST["stage"] == "2" or (isAdmin() and isset($_SESSION["proxy_user_id"]))) { //IF COMING FROM ENTERING ANOTHER USERS INFO OR ADMIN CASTING SOMEONE ELSES CHART 
          
          //LOG THE ACTION, SET THE NAME FOR THE CHART, AND SET THE RETURN URL
          if ((string)$_POST["stage"] == "2") { //USER CUSTOM CHART CASTING
@@ -158,7 +158,7 @@
          }
          else {
            
-           save_secondary_chart ($return_vars, $title, $birthtime, $url, true, $chart_to_cast, $interval, $time_unknown. $method);
+           save_secondary_chart ($return_vars, $title, $birthtime, $url, true, $chart_to_cast, $interval, $time_unknown, $method);
            
            
          }
