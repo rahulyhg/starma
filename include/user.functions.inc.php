@@ -1789,8 +1789,8 @@ function single_click_cast ($chart_to_cast, $birthdate, $latitude, $longitude, $
      if ((string)$interval != '0') {
        $return_vars1 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $LaDir, $timezone, $daylight, $interval, "lower", $method); 
        $return_vars2 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $LaDir, $timezone, $daylight, $interval, "higher", $method);
-       save_secondary_chart ($return_vars1, $title, $birthtime, $url, false, $the_nickname="lowBound", $interval, $time_unknown, $method);
-       save_secondary_chart ($return_vars2, $title, $birthtime, $url, false, $the_nickname="highBound", $interval, $time_unknown, $method);
+       save_secondary_chart ($return_vars1, $title, $birthdate, $url, false, $the_nickname="lowBound", $interval, $time_unknown, $method);
+       save_secondary_chart ($return_vars2, $title, $birthdate, $url, false, $the_nickname="highBound", $interval, $time_unknown, $method);
        return consolidateCharts ("lowBound","highBound", $user_id, $chart_to_cast,$interval);
        
      }
