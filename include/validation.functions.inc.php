@@ -87,10 +87,7 @@ function do_redirect ($url) {
   header( 'Location: http://' . $url);
 }
 */
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/western_charts
 /**********************END DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
 function validate_registration ($nickname, $password, $password2, $email, $email2, $year, $month, $day, $token) {
