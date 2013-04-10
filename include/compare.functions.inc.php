@@ -34,6 +34,12 @@ function get_cornerstones ($depth=4) {
   return $return_array;
 }
 
+function get_section_list () {
+  $q = 'SELECT * from section';
+  $do_q = mysql_query ($q) or die(mysql_error());
+  return $do_q;  
+}
+
 function get_relationship_list () {
   $q = 'SELECT * from relationship';
   $do_q = mysql_query ($q) or die(mysql_error());

@@ -13,7 +13,7 @@
         edit_poi_sign_blurb ($_POST["poi_id"], $_POST["sign_id"], $_POST["blurb"]);
       }
       elseif ($_POST["blurb_type"] == 'poi_dynamic') {
-        edit_poi_dynamic_blurb ($_POST["poi_id_A"], $_POST["poi_id_B"], $_POST["dynamic_id"], $_POST["blurb"]);
+        edit_poi_dynamic_blurb ($_POST["poi_id_A"], $_POST["poi_id_B"], $_POST["dynamic_id"], $_POST["section_id"], $_POST["blurb"]);
       }
     }
     echo '<div class="page_title">Edit Blurbs</div>';
@@ -31,7 +31,7 @@
         blurb_form($blurb_type, $the_value1=$_POST["poi_id"], $the_value2=$_POST["sign_id"]);      
       }
       elseif ($_POST["blurb_type"] == 'poi_dynamic') {
-        blurb_form($blurb_type, $the_value1=$_POST["poi_id_A"], $the_value2=$_POST["poi_id_B"], $the_value3=$_POST["dynamic_id"]);
+        blurb_form($blurb_type, $the_value1=$_POST["poi_id_A"], $the_value2=$_POST["poi_id_B"], $the_value3=$_POST["dynamic_id"], $the_value4=$_POST["section_id"]);
       }
     }
     else {

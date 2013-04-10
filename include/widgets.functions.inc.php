@@ -118,6 +118,25 @@ function dynamic_select ($the_name="dynamic_id", $the_value="", $auto_submit=fal
   
 }
 
+function section_select ($the_name="section_id", $the_value="", $auto_submit=false, $form="blurb_edit_form") {
+  $section_list = get_section_list ();
+  echo '<select name="' . $the_name . '"';
+  if ($auto_submit) {
+      echo ' onchange="document[\'' . $form . '\'].submit()"';
+  }
+  echo '>';
+  while ($section = mysql_fetch_array($section_list)) {
+    echo '<option value=' . $section["section_id"];
+    if ((string)$section["section_id"] == (string)$the_value) {
+      echo ' SELECTED';
+    }
+    
+    echo '>' . $section["section_name"] . '</option>';
+  }
+  echo '</select>';
+  
+}
+
 
 function year_select ($the_year, $the_name="") {
   echo '<select name="year_' . $the_name . '">';
