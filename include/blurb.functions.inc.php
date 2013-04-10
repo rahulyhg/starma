@@ -40,10 +40,10 @@ function edit_poi_sign_blurb ($poi_id, $sign_id, $blurb) {
   $do_q = mysql_query ($q) or die(mysql_error());
 }
 
-function get_poi_dynamic_blurb ($poi_id_A, $poi_id_B, $dynamic_id, $chart_id1=-2, $chart_id2=-2) {
+function get_poi_dynamic_blurb ($poi_id_A, $poi_id_B, $dynamic_id, $section_id=1, $chart_id1=-2, $chart_id2=-2) {
   //A value of -1 in either of the two poi_id parameters means we're looking for ruling planet blurbs
   //A value of -1 in the dynamic_id means at least one of the ruling planets is unknown
-  $q = 'SELECT blurb from poi_dynamic_blurb WHERE poi_id_A = ' . $poi_id_A . ' and poi_id_B = ' . $poi_id_B . ' and dynamic_id = ' . $dynamic_id;
+  $q = 'SELECT blurb from poi_dynamic_blurb WHERE poi_id_A = ' . $poi_id_A . ' and poi_id_B = ' . $poi_id_B . ' and dynamic_id = ' . $dynamic_id . ' and section_id = ' . $section_id;
   $do_q = mysql_query ($q) or die(mysql_error());
   if ($results = mysql_fetch_array($do_q)) {
     return $results["blurb"];
@@ -75,14 +75,27 @@ function get_poi_dynamic_blurb ($poi_id_A, $poi_id_B, $dynamic_id, $chart_id1=-2
   }
 }
 
-function edit_poi_dynamic_blurb ($poi_id_A, $poi_id_B, $dynamic_id, $blurb) {
-  $q = 'SELECT * from poi_dynamic_blurb WHERE poi_id_A = ' . $poi_id_A . ' and poi_id_B = ' . $poi_id_B . ' and dynamic_id = ' . $dynamic_id;
+function get_poi_dynamic_blurb_for_admins ($poi_id_A, $poi_id_B, $dynamic_id, $section_id=1) {
+  //A value of -1 in either of the two poi_id parameters means we're looking for ruling planet blurbs
+  //A value of -1 in the dynamic_id means at least one of the ruling planets is unknown
+  $q = 'SELECT blurb from poi_dynamic_blurb WHERE poi_id_A = ' . $poi_id_A . ' and poi_id_B = ' . $poi_id_B . ' and dynamic_id = ' . $dynamic_id . ' and section_id = ' . $section_id;
   $do_q = mysql_query ($q) or die(mysql_error());
-  if (mysql_num_rows($do_q) == 0) {
-    $q = 'INSERT INTO poi_dynamic_blurb (poi_id_A, poi_id_B, dynamic_id, blurb) VALUES (' . $poi_id_A . ',' . $poi_id_B . ',' . $dynamic_id . ',"' . mysql_real_escape_string($blurb) . '")';    
+  if ($results = mysql_fetch_array($do_q)) {
+    return $results["blurb"];
   }
   else {
-    $q = 'UPDATE poi_dynamic_blurb SET blurb="' . mysql_real_escape_string($blurb) . '" WHERE poi_id_A = ' . $poi_id_A . ' and poi_id_B = ' . $poi_id_B . ' and dynamic_id = ' . $dynamic_id; 
+    return "";
+  }
+}
+
+function edit_poi_dynamic_blurb ($poi_id_A, $poi_id_B, $dynamic_id, $section_id, $blurb) {
+  $q = 'SELECT * from poi_dynamic_blurb WHERE poi_id_A = ' . $poi_id_A . ' and poi_id_B = ' . $poi_id_B . ' and dynamic_id = ' . $dynamic_id . ' and section_id = ' . $section_id;
+  $do_q = mysql_query ($q) or die(mysql_error());
+  if (mysql_num_rows($do_q) == 0) {
+    $q = 'INSERT INTO poi_dynamic_blurb (poi_id_A, poi_id_B, dynamic_id, section_id, blurb) VALUES (' . $poi_id_A . ',' . $poi_id_B . ',' . $dynamic_id . ',' . $section_id . ',"' . mysql_real_escape_string($blurb) . '")';    
+  }
+  else {
+    $q = 'UPDATE poi_dynamic_blurb SET blurb="' . mysql_real_escape_string($blurb) . '" WHERE poi_id_A = ' . $poi_id_A . ' and poi_id_B = ' . $poi_id_B . ' and dynamic_id = ' . $dynamic_id . ' and section_id = ' . $section_id; 
   }
   $do_q = mysql_query ($q) or die(mysql_error());
 }

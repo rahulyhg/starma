@@ -1638,7 +1638,7 @@ function show_major_connections ($compare_data, $goTo = ".", $stage="2", $chart_
             $relationship_id = $connection_data["relationship_id"];
             //echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id) . "</span>";
             show_dynamic_info($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
-            show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
+            show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, 1, $chart_id1, $chart_id2);
           echo '</div>';
         }
         else {
@@ -1767,10 +1767,10 @@ function show_minor_connections ($compare_data, $goTo = ".", $stage="2", $chart_
               $connection_poi_id_B = get_poi_id (strtoupper($connection));
               echo "<div id='blurb" . $counter . "'>";
                 if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
-                  echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id, $chart_id1, $chart_id2)) . "</span>";
+                  echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id, 1, $chart_id1, $chart_id2)) . "</span>";
                 }
                 else {
-                  echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id, $chart_id1, $chart_id2) . "</span>";
+                  echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id, 1, $chart_id1, $chart_id2) . "</span>";
                 }
               
               echo "</div>";
@@ -1936,7 +1936,7 @@ function show_bonus_connections ($compare_data, $goTo = ".", $stage="2", $chart_
             $relationship_id = $compare_data[$connection_type . '2' . $connection_type]["relationship_id"];
             show_dynamic_info(-1, -1, $relationship_id, $chart_id1, $chart_id2);
             
-            show_poi_dynamic_blurb (-1, -1, $relationship_id, $chart_id1, $chart_id2);
+            show_poi_dynamic_blurb (-1, -1, $relationship_id, 1, $chart_id1, $chart_id2);
           echo '</div>';
         }
         else {
@@ -1982,7 +1982,7 @@ function gender_converter_wrapper ($gender, $blurb) {
   }
 }
 
-function blurb_form ($blurb_type, $the_value1=1, $the_value2=1, $the_value3=1) {
+function blurb_form ($blurb_type, $the_value1=1, $the_value2=1, $the_value3=1, $the_value4=1) {
   
   echo '<form name="blurb_edit_form" method="post" action="./edit_blurbs.php">';
   echo '<input type="hidden" name="blurb_type" value="' . $blurb_type . '">';
@@ -2026,10 +2026,18 @@ function blurb_form ($blurb_type, $the_value1=1, $the_value2=1, $the_value3=1) {
    dynamic_select ($the_name="dynamic_id", $the_value=$the_value3, $auto_submit=true, $form="blurb_edit_form");
    echo '</td>'; 
    echo '</tr>';
+
+   echo '<tr>';
+   echo '<td>Select the Section:</td>';
+   echo '<td>';
+   section_select ($the_name="section_id", $the_value=$the_value4, $auto_submit=true, $form="blurb_edit_form");
+   echo '</td>'; 
+   echo '</tr>';
+ 
    echo '<tr>';
    echo '<td>Relation Blurb:</td>';
    echo '<td>';
-   echo '<textarea style="width:300px; height:200px" name="blurb">' . get_poi_dynamic_blurb ($the_value1, $the_value2, $the_value3) . '</textarea>';
+   echo '<textarea style="width:300px; height:200px" name="blurb">' . get_poi_dynamic_blurb_for_admins ($the_value1, $the_value2, $the_value3, $the_value4) . '</textarea>';
    echo '</td>'; 
    echo '</tr>';
   }
@@ -2070,12 +2078,12 @@ function show_poi_info ($poi_id, $chart_id, $sign_id) {
     
 }
 
-function show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $chart_id1, $chart_id2) {
+function show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id=1, $chart_id1, $chart_id2) {
   if ($user_id2 = get_user_id_from_chart_id($chart_id2)) {
-    $blurb = gender_converter_wrapper (get_gender($user_id2),get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $chart_id1, $chart_id2));
+    $blurb = gender_converter_wrapper (get_gender($user_id2),get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2));
   }
   else {
-    $blurb = get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $chart_id1, $chart_id2);
+    $blurb = get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2);
   }
   echo "<span>" . $blurb . "</span>"; 
 }
