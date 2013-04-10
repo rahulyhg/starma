@@ -40,14 +40,23 @@ if (login_check_point($type="full", $domain=$domain)) {
     }
     
 
-    if ($western == 1 and is_freebie_chart($chart_id2)) {
+    
+    if (is_freebie_chart($chart_id2)) {  
+      if ($western == 1) {
       
-      $chart_to_cast_from = get_chart($chart_id2);
-      if (!single_click_cast ("Alternate_Freebie1", $chart_to_cast_from["birthday"], substr($chart_to_cast_from["latitude"], 0, 6), substr($chart_to_cast_from["longitude"], 0, 7), substr($chart_to_cast_from["latitude"], -1), substr($chart_to_cast_from["longitude"], -1), $chart_to_cast_from["timezone"], $chart_to_cast_from["DST"], $chart_to_cast_from["location"], $chart_to_cast_from["interval_time"], $chart_to_cast_from["time_unknown"], "W")) {
-         echo 'Error Obtaining Western Chart';
+        $chart_to_cast_from = get_chart($chart_id2);
+        if (!single_click_cast ("Alternate_Freebie1", $chart_to_cast_from["birthday"], substr($chart_to_cast_from["latitude"], 0, 6), substr($chart_to_cast_from["longitude"], 0, 7), substr($chart_to_cast_from["latitude"], -1), substr($chart_to_cast_from["longitude"], -1), $chart_to_cast_from["timezone"], $chart_to_cast_from["DST"], $chart_to_cast_from["location"], $chart_to_cast_from["interval_time"], $chart_to_cast_from["time_unknown"], "W")) {
+           echo 'Error Obtaining Western Chart';
+        }
+        $chart_id2 = chart_already_there("Alternate_Freebie1",get_my_user_id());
       }
-      $chart_id2 = chart_already_there("Alternate_Freebie1",get_my_user_id());
+      else {
+        $chart_id2 = chart_already_there("Freebie1",get_my_user_id());
+      }
     }
+    
+      
+    
   
     
     show_others_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . '&tier=4&western=' . $western, $chart_id2, $western);
