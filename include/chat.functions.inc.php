@@ -38,9 +38,9 @@ function reorder_my_chats($order_by) {
   }
 }
  
-function insert_msg_line ($sender_id, $receiver_id, $date_time, $message, $sender_has_seen=0, $receiver_has_seen=0) {
+function insert_msg_line ($sender_id, $receiver_id, $date_time, $message, $sender_has_seen=0, $receiver_has_seen=0, $is_message=0) {
   if (isLoggedIn()) {
-    $q = sprintf ("INSERT INTO msg_line (sender_id, receiver_id, date_time, text_body, sender_has_seen, receiver_has_seen) VALUES (%d,%d,'%s','%s',%d,%d)", $sender_id, $receiver_id, $date_time, mysql_real_escape_string($message), $sender_has_seen, $receiver_has_seen);
+    $q = sprintf ("INSERT INTO msg_line (sender_id, receiver_id, date_time, text_body, sender_has_seen, receiver_has_seen, is_message) VALUES (%d,%d,'%s','%s',%d,%d,%d)", $sender_id, $receiver_id, $date_time, mysql_real_escape_string($message), $sender_has_seen, $receiver_has_seen, $is_message);
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      
