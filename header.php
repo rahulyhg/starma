@@ -57,7 +57,7 @@ date_default_timezone_set('America/Chicago');
     	
         $(document).ready(function() {
           theDate = new Date();
-          
+
           DST = 0;
 
           Date.prototype.stdTimezoneOffset = function() {
