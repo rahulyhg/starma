@@ -726,6 +726,10 @@ function get_left_menu ($the_page) {
     //$menu['nav2'] = array('Log Out&nbsp;&nbsp;','main_logout.php');
     
   }
+  elseif ($the_page == 'isel') {
+    $menu['nav1'] = array('Inbox&nbsp;&nbsp;','inbox.php');
+    
+  }
   elseif ($the_page == 'ssel') {
     $menu['nav1'] = array('Settings&nbsp;&nbsp;','change_my_password.php');
     //$menu['nav2'] = array('Log Out&nbsp;&nbsp;','main_logout.php');
