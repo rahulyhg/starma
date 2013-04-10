@@ -86,7 +86,10 @@ elseif ($tier == "4") {
   if (!isset($_GET["chart_id2"])) {
     if ($chart = get_chart_by_name ("Freebie1")) {
       $_GET["chart_id2"] = $chart["chart_id"];
-      
+      $chart_to_cast_from = $chart;
+      if (!single_click_cast ("Alternate_Freebie1", $chart_to_cast_from["birthday"], substr($chart_to_cast_from["latitude"], 0, 6), substr($chart_to_cast_from["longitude"], 0, 7), substr($chart_to_cast_from["latitude"], -1), substr($chart_to_cast_from["longitude"], -1), $chart_to_cast_from["timezone"], $chart_to_cast_from["DST"], $chart_to_cast_from["location"], $chart_to_cast_from["interval_time"], $chart_to_cast_from["time_unknown"], "W")) {
+         echo 'Error Obtaining Western Chart';
+      }
     }
   }
   require("chart_others.php");
