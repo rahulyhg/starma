@@ -58,13 +58,27 @@ date_default_timezone_set('America/Chicago');
         $(document).ready(function() {
           theDate = new Date();
 
+          DST = 0;
+
+          Date.prototype.stdTimezoneOffset = function() {
+    		var jan = new Date(this.getFullYear(), 0, 1);
+    		var jul = new Date(this.getFullYear(), 6, 1);
+    		return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+	  }
+
+	  Date.prototype.dst = function() {
+		return this.getTimezoneOffset() < this.stdTimezoneOffset();
+          }
+          if (theDate.dst()) { DST = 60; }
+          //http://127.0.0.1:8080/chat/process_all.php
+          
           $.ajax({
 		   type: "GET",
                    cache: false,
 		   url: "https://www.starma.com/chat/process_all.php",
 		   data: {  
 		   	  'function': 'setTimeZone',
-                          'timezoneOffset': theDate.getTimezoneOffset() 									
+                          'timezoneOffset': theDate.getTimezoneOffset() + DST									
 		         },
                    dataType: "json"                                                                    
 		});    
