@@ -38,7 +38,7 @@ elseif ($tier == "2") {
     if (!isset($_SESSION['compare_data'])) {
       generate_compare_data ($_GET["chart_id1"], $chart_id2 = $_GET["chart_id2"]);
       //Log the Action
-      log_this_action (compare_action_chart(), compare_basic_action(), $_GET["chart_id2"]);
+      log_this_action (compare_action_chart(), compare_basic_action(), $_GET["chart_id2"], get_user_id_from_chart_id($_GET["chart_id2"]));
     }
     if (cornerstones_all_there ($_SESSION['compare_chart_ids'][0]) && cornerstones_all_there($_SESSION['compare_chart_ids'][1])) {
       $total_score = compare_charts ($compare_results = $_SESSION["compare_data"], $error_check = false);

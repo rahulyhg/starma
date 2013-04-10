@@ -2310,8 +2310,15 @@ function show_my_chart ($goTo = ".", $western=0) {
   }
 }
 
-function show_others_chart ($goTo = ".", $chart_id) {
-  if ($chart_info = get_chart($chart_id)) {
+function show_others_chart ($goTo = ".", $chart_id, $western=0) {
+  if ($western == 0 or is_freebie_chart($chart_id)) {
+    //$chart_info = get_chart($chart_id);
+    $calc_chart_id = $chart_id;
+  }
+  else {
+    $calc_chart_id = chart_already_there("Alternate",get_user_id_from_chart_id($chart_id));  
+  }
+  if ($chart_info = get_chart($calc_chart_id)) {
       $goTo = $goTo . '&chart_id2=' . $chart_id;
       if (!isset($_POST["poi_id"])) {
         $poi_id = 1;
@@ -2321,7 +2328,7 @@ function show_others_chart ($goTo = ".", $chart_id) {
       }
       $poi_list = get_poi_list();
      
-      $sign_id = get_sign_from_poi ($chart_id, $poi_id);
+      $sign_id = get_sign_from_poi ($calc_chart_id, $poi_id);
       //echo '&&' . $sign_id . '&&<br>';
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id"/>';
@@ -2364,7 +2371,7 @@ function show_others_chart ($goTo = ".", $chart_id) {
       echo '<ul>';
       while ($poi = mysql_fetch_array($poi_list)) {
         if (in_array($poi["poi_id"], poi_left_side())) {
-          $button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+          $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
           echo '<li class="' . get_selector_name($button_sign_id);
           if ($poi_id == $poi["poi_id"]) { 
             echo ' selected';
@@ -2408,13 +2415,13 @@ function show_others_chart ($goTo = ".", $chart_id) {
       while ($poi = mysql_fetch_array($poi_list)) {
         if (in_array($poi["poi_id"], poi_right_side ())) {
           if ($poi["poi_id"] == 9) {
-            $rahu_sign_id = get_sign_from_poi ($chart_id, 9);
-            $ketu_sign_id = get_sign_from_poi ($chart_id, 10);
+            $rahu_sign_id = get_sign_from_poi ($calc_chart_id, 9);
+            $ketu_sign_id = get_sign_from_poi ($calc_chart_id, 10);
             //echo '&&' . $ketu_sign_id . '&&';
             echo '<li class="' . get_selector_name($rahu_sign_id, $ketu_sign_id); 
           }
           else {
-            $button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+            $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
             echo '<li class="' . get_selector_name($button_sign_id);  
           }
           
@@ -2456,7 +2463,7 @@ function show_others_chart ($goTo = ".", $chart_id) {
       echo '</div>';
       //End Right Side Chart Arrow
       echo '<div id="blurb">';
-        show_poi_info($poi_id, $chart_id, $sign_id);
+        show_poi_info($poi_id, $calc_chart_id, $sign_id);
         show_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
         
       echo '</div>';

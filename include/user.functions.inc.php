@@ -279,7 +279,7 @@ function is_freebie_chart($chart_id) {
     $q = "SELECT * from chart where chart_id = " . $chart_id;
     $result = mysql_query($q) or die(mysql_error());
     $row = mysql_fetch_array($result);
-    return $row["nickname"] == 'Freebie1';
+    return $row["nickname"] == 'Freebie1' or $row["nickname"] == "Alternate_Freebie1";
      
   }
   else {
@@ -1103,7 +1103,7 @@ function alter_poi_sign ($chart_id, $poi_id, $sign_id) {
 function consolidateCharts ($chart_name_low,$chart_name_high,$user_id,$chart_name_to_replace,$interval) {
   if (($chart_id_low = chart_already_there($chart_name_low, $user_id)) && ($chart_id_high = chart_already_there($chart_name_high, $user_id))) {
     //compare the 2 charts
-    echo 'chart_id_low: ' . $chart_id_low . ', chart_id_high: ' . $chart_id_high . '<br>';
+    //echo 'chart_id_low: ' . $chart_id_low . ', chart_id_high: ' . $chart_id_high . '<br>';
     $poi_list = get_poi_list();
     while ($poi = mysql_fetch_array($poi_list)) {
       
@@ -1130,7 +1130,7 @@ function consolidateCharts ($chart_name_low,$chart_name_high,$user_id,$chart_nam
       $personal = 0;
     }
 
-    echo "Done consolidating, ready to change names..."; 
+    //echo "Done consolidating, ready to change names..."; 
 
     if ($old_chart_id = chart_already_there($chart_name_to_replace, $user_id)) {
       $q = 'UPDATE chart set nickname="' . $chart_name_low . '", personal=0 WHERE chart_id = ' . $old_chart_id;

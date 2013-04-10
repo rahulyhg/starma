@@ -31,7 +31,7 @@ function get_chart_x_house_id_from_sign_id ($chart_id, $sign_id) {
 function get_chart_x_house_x_poi_id ($chart_id, $poi_id) {
   $q = 'SELECT *
 FROM `chart` inner join chart_x_house on chart.chart_id = chart_x_house.chart_id inner join chart_x_house_x_poi on chart_x_house.chart_x_house_id = chart_x_house_x_poi.chart_x_house_id where chart.chart_id = ' . $chart_id . ' and poi_id = ' . $poi_id;
-  echo $q;
+  //echo $q;
   if ($r = mysql_query($q) or die(mysql_error())) {
     $row = mysql_fetch_array($r);
     return $row["chart_x_house_x_poi_id"];

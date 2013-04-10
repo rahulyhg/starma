@@ -284,6 +284,10 @@
     position: absolute;
     z-index: 1;
 }
+
+#custom_chart #chart_direction_link_east, #custom_chart #chart_direction_link_west {
+  margin-top: 20px;
+}
 /*///////////////////////////END ACTUAL CHART//////////////////////////*/
 
 
