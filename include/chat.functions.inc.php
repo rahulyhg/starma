@@ -1,4 +1,33 @@
 <?php
+function extract_users_from_msgs_list($user_msg_history) {
+  if (isLoggedIn()) {
+    $user_list = array();
+    while ($msg_line = mysql_fetch_array($user_msg_history)) {
+       
+       if ($msg_line["sender_id"] == get_my_user_id()) {
+         $other_user_id = $msg_line["reciever_id"];
+         $new_msg = (int)!(boolean)$msg_line["sender_has_seen"];
+       }
+       else {
+         $other_user_id = $msg_line["sender_id"];
+         $new_msg = (int)!(boolean)$msg_line["receiver_has_seen"];
+       }
+       if (array_key_exists($other_user_id, $user_list)) {
+         $user_list[$other_user_id] = $user_list[$other_user_id] + $new_msg;  
+       }
+       else {
+         
+         $user_list[$other_user_id] = $new_msg;
+       }
+    }
+    return $user_list;
+     
+  }
+  else {
+    return false;
+  }
+}
+
 function my_next_chat_order() {
   if (isLoggedIn()) {
     $q = "SELECT max(order_by) as my_max_order from chat_status where user_id_A = " . get_my_user_id();

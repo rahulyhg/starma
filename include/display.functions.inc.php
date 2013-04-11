@@ -63,6 +63,44 @@ function show_msg_area ($r_id) {
 }
 
 
+function show_msg_area_inbox ($r_id) {
+  $my_msgs = get_my_msgs_with ($r_id);
+  //print_r ($my_msgs);
+  //die(); 
+    
+      echo '<div id="chat_area_' . $r_id . '" class="chat_area" >';
+      $place_date = "0";
+      while ($msg = mysql_fetch_array($my_msgs)) { 
+         //echo $place_date . '<br>' . $msg["date_time"];
+         $local_date_time = apply_my_timezone(strtotime($msg["date_time"]));
+         if ($place_date != date('d/m/Y', $local_date_time)) {
+           
+           echo '<p class="chat_date">' . chat_date($local_date_time) . '</p>';
+           $place_date = date('d/m/Y', $local_date_time);
+         } 
+         echo '<p class="chat_time">' . date('g:i A', $local_date_time) . '</p><p>' . get_nickname($msg["sender_id"]) . ': ' . $msg["text_body"] . '</p>';
+         if ($msg["sender_id"] == get_my_user_id()) {
+             $which_partner = "sender";
+         }
+         else {
+             $which_partner = "receiver";
+         }
+         flag_as_read_my_msg($msg["msg_line_id"], $which_partner);
+      }
+     echo '</div>';
+     echo '<div id="type_area">';
+       echo '<form id="send-message-area" action="send_message.php">
+               <textarea id="sendie" name="text_body" maxlength = "500" ></textarea>
+               <input type="submit" value="Send" name="Submit">
+               <input type="hidden" value=' . $r_id . ' name="other_user_id"/>
+             </form>';
+     echo '</div>';
+     
+  //addJSChatEvents($r_id); 
+  return true;
+}
+
+
 function show_msgs ($r_id) {
   $my_msgs = get_my_msgs_with ($r_id);
   //print_r ($my_msgs);
@@ -3298,7 +3336,17 @@ function format_image ($picture, $type, $user_id=-2) {
       }
     }
     elseif ($type == "thumbnail") 
-      return '<img src=""/>';
+      if ($user_id == -1) {
+        return '<img src="/img/Starma-Astrology-Small-Default-Pic-Male.png"/>';
+      }
+      else {
+        if (is_male($user_id)) {
+          return '<img src="/img/Starma-Astrology-Small-Default-Pic-Male.png"/>';   
+        }
+        else {
+          return '<img src="/img/Starma-Astrology-Small-Default-Pic-Female.png"/>';
+        }
+      }
     else {
       if ($user_id == -1) {
         return '<img src="/img/Starma-Astrology-Compatibility-Male-Pic.png"/>';
@@ -3328,6 +3376,11 @@ function show_user_compare_picture ($url, $user_id) {
     $url = '?the_page=psel&the_left=nav1';
   }
   echo '<div class="user_button"><a href="' . $url . '">' . format_image($picture=get_main_photo($user_id), $type="compare", $user_id) . '</a></div>';
+}
+
+function show_user_inbox_picture ($url, $user_id) {
+  
+  echo '<div class="user_inbox_button"><a href="' . $url . '">' . format_image($picture=get_main_photo($user_id), $type="thumbnail", $user_id) . '</a></div>';
 }
 
 function display_all_users ($url="", $filter=0) {

@@ -122,7 +122,7 @@
                              $my_partner = get_nickname($msg["sender_id"]);
                            }
                            $local_date_time = apply_my_timezone(strtotime($msg["date_time"]));
-                           $chat_block = array($which_partner, $my_partner, $msg["msg_line_id"], '<p class="chat_time">' . date('g:i A', $local_date_time) . '</p><p>' . get_nickname($msg["sender_id"]) . ': ' . $msg["text_body"] . '</p>');
+                           $chat_block = array($which_partner, $my_partner, $msg["msg_line_id"], '<p class="chat_time">' . date('g:i A', $local_date_time) . '</p><p>' . get_nickname($msg["sender_id"]) . ': ' . $msg["text_body"] . '</p>', $msg["is_message"]);
                            $text[$my_partner_id][] = $chat_block;
                            
                            //fwrite(fopen('debug.txt', 'a'), get_nickname($msg["sender_id"]) . ': ' . $msg["text_body"] . '\n');

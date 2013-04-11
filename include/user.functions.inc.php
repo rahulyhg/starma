@@ -151,6 +151,21 @@ function get_my_msgs_with ($r_id) {
   
 }
 
+function get_my_msgs () {
+  if (isLoggedIn()) {
+    $q = "SELECT * from msg_line where sender_id = " . get_my_user_id() . " or receiver_id = " . get_my_user_id() . " ORDER BY date_time DESC, msg_line_id DESC";
+    //echo $q;
+    //die();
+    $result = mysql_query($q) or die(mysql_error());
+    return $result;
+     
+  }
+  else {
+    return false;
+  }
+  
+}
+
 
 function flag_as_read_my_msg ($msg_line_id, $which_partner) {
   if (isLoggedIn()) {
@@ -643,9 +658,13 @@ function profile_info($user_id) {
   if (isLoggedIn()) {
     $q = 'SELECT * from user where user_id = ' . $user_id;
     //echo $q . '<br>';
-    $result = mysql_query($q) or die(mysql_error());
-    $user = mysql_fetch_array($result);
-    return $user; 
+    if ($result = mysql_query($q)) {
+      $user = mysql_fetch_array($result);
+      return $user; 
+    }
+    else {
+      return false;
+    }
   }
   else {
     return false;

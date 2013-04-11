@@ -77,8 +77,8 @@
 }
 
 
-.chat_alert_list_div .chat_request .chat_block .chat_area span                 { color: white; background: #333; padding: 4px 8px; -moz-border-radius: 5px; -webkit-border-radius: 8px; margin: 0 5px 0 0; }
-.chat_alert_list_div .chat_request .chat_block .chat_area p                    { padding: 8px 0; border-bottom: 1px solid #ccc; }
+.chat_alert_list_div .chat_request .chat_block .chat_area span, #inbox_chat_area .chat_area span                 { color: white; background: #333; padding: 4px 8px; -moz-border-radius: 5px; -webkit-border-radius: 8px; margin: 0 5px 0 0; }
+.chat_alert_list_div .chat_request .chat_block .chat_area p, #inbox_chat_area .chat_area p                    { padding: 8px 0; border-bottom: 1px solid #ccc; }
 .chat_alert_list_div .chat_request .chat_block #sendie                         { 
     border: 1px solid #999999;
     float: right;
@@ -92,3 +92,83 @@
     bottom:1px;
 
  }
+
+/*/////////////////////// BEGIN INBOX CHAT AND MESSSAGE SELECTORS ////////////////*/
+
+#inbox_user_list {
+  width:140px;
+  position:absolute;
+  height:700px;
+}
+
+#inbox_header{
+  text-align:center;
+}
+
+#list_body {
+  height:615px;
+  overflow-y:hidden;
+  
+}
+#inbox_user_list #list_body ul li {
+  margin-top:10px;
+  margin-bottom:10px;
+  height: 73px;
+    width: 112px;
+}
+
+#inbox_user_list #list_body .new_ball_space {
+  height:73px;
+  width:30px;
+  
+  position:absolute;
+}
+
+#inbox_user_list .new_ball_space.new {
+  background: url("/img/Starma-Astrology-unread.png") no-repeat no-repeat center center;
+}
+
+#inbox_user_list .hover_box {
+  height:73px;
+  width:80px;
+  position:relative;
+  left:30px; 
+}
+
+
+#inbox_history {
+  width:550px;
+  left:210px;
+  position:absolute;
+  height:700px;
+  
+}
+
+
+#inbox_chat_area {
+    
+}
+
+
+#inbox_chat_area .chat_area {
+  height:500px;
+  border:1px solid black;
+  overflow:auto;
+  background:white;
+  padding: 20px;
+}
+
+#inbox_chat_area #type_area {
+  margin:auto;
+  width:540px;
+  position:relative;
+  padding-top:10px;
+}
+
+#inbox_chat_area #sendie {
+  height:100px;
+  width:540px;
+  border:0px;
+}
+
+/*/////////////////////// END INBOX CHAT AND MESSSAGE SELECTORS ////////////////*/
