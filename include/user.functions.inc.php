@@ -144,7 +144,7 @@ function get_my_new_msg_senders () {
 
 function get_my_new_msgs_with ($r_id) {
   if (isLoggedIn()) {
-    $q = "SELECT * from msg_line where ((sender_id = " . get_my_user_id() . " and receiver_id = " . $r_id . " and sender_has_seen = 0) or (sender_id = " . $r_id . " and receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0)) and is_message = 0 ORDER BY date_time, msg_line_id";
+    $q = "SELECT * from msg_line where (sender_id = " . get_my_user_id() . " and receiver_id = " . $r_id . " and sender_has_seen = 0) or (sender_id = " . $r_id . " and receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0) ORDER BY date_time, msg_line_id";
     //echo $q;
     //die();
     $result = mysql_query($q) or die(mysql_error());
@@ -158,14 +158,10 @@ function get_my_new_msgs_with ($r_id) {
 }
 
 
-function get_my_msgs_with ($r_id, $include_non_chats = true) {
+function get_my_msgs_with ($r_id) {
   if (isLoggedIn()) {
     $q = "SELECT * from (
-             SELECT * from msg_line where ((sender_id = " . get_my_user_id() . " and receiver_id = " . $r_id . ") or (sender_id = " . $r_id . " and receiver_id = " . get_my_user_id() . "))';
-    if (!$include_non_chats) {
-      $q = $q . ' and is_message=0';
-    }
-    $q = $q . ' ORDER BY date_time DESC, msg_line_id DESC LIMIT " . (int)((int)num_new_msgs_with($r_id) + (int)max_msgs()) .
+             SELECT * from msg_line where (sender_id = " . get_my_user_id() . " and receiver_id = " . $r_id . ") or (sender_id = " . $r_id . " and receiver_id = " . get_my_user_id() . ") ORDER BY date_time DESC, msg_line_id DESC LIMIT " . (int)((int)num_new_msgs_with($r_id) + (int)max_msgs()) .
           ") q1 ORDER BY date_time ASC, msg_line_id ASC";
     //echo $q;
     //die();

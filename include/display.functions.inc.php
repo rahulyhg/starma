@@ -30,7 +30,7 @@ function showchat() {
 }
 
 function show_msg_area ($r_id) {
-  $my_msgs = get_my_msgs_with ($r_id, false);
+  $my_msgs = get_my_msgs_with ($r_id);
   //print_r ($my_msgs);
   //die(); 
     
