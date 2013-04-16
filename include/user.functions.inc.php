@@ -113,7 +113,7 @@ function get_my_chat_status () {
 
 function get_my_new_msgs () {
   if (isLoggedIn()) {
-    $q = "SELECT * from msg_line where ((sender_id = " . get_my_user_id() . " and sender_has_seen = 0) or (receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0)) and is_message = 0 ORDER BY date_time, msg_line_id";
+    $q = "SELECT * from msg_line where (sender_id = " . get_my_user_id() . " and sender_has_seen = 0) or (receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0 and is_message = 0) ORDER BY date_time, msg_line_id";
     //echo $q;
     //die();
     $result = mysql_query($q) or die(mysql_error());
