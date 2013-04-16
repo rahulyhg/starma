@@ -147,8 +147,13 @@
 			if(preg_match($reg_exUrl, $message, $url)) {
        		        	 $message = preg_replace($reg_exUrl, '<a href="'.$url[0].'" target="_blank">'.$url[0].'</a>', $message);
 			} 
-			 
-        	        insert_msg_line($sender_id, $receiver_id, date("Y-m-d H:i:s"), $message);
+			if (is_offline($receiver_id)) {
+                          $is_message = 1;
+                        }
+                        else {
+                          $is_message = 0;
+                        } 
+        	        insert_msg_line($sender_id, $receiver_id, date("Y-m-d H:i:s"), $message, $is_message);
         	        
 		 }
         	 break;

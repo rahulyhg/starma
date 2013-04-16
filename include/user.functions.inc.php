@@ -67,10 +67,34 @@ function is_away($user_id) {
   }
 }
 
+function is_offline($user_id) {
+  return !(is_away($user_id)); //or is_online($user_id)); // MAY NOT NEED THE IS_ONLINE CHECK.  IS_AWAY INCLUDES IT
+}
+
 function num_new_msgs_with ($r_id) {
   $r = get_my_new_msgs_with ($r_id);
   return mysql_num_rows($r);
   
+}
+
+function num_new_non_chats () {
+  $r = get_my_new_non_chats ();
+  return mysql_num_rows($r);
+  
+}
+
+function get_my_new_non_chats() {
+  if (isLoggedIn()) {
+    $q = "SELECT * from msg_line where receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0 and is_message = 1 ORDER BY date_time, msg_line_id";
+    //echo $q;
+    //die();
+    $result = mysql_query($q) or die(mysql_error());
+    return $result;
+     
+  }
+  else {
+    return false;
+  }
 }
 
 function get_my_chat_status () {
@@ -89,7 +113,7 @@ function get_my_chat_status () {
 
 function get_my_new_msgs () {
   if (isLoggedIn()) {
-    $q = "SELECT * from msg_line where (sender_id = " . get_my_user_id() . " and sender_has_seen = 0) or (receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0) ORDER BY date_time, msg_line_id";
+    $q = "SELECT * from msg_line where ((sender_id = " . get_my_user_id() . " and sender_has_seen = 0) or (receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0)) and is_message = 0 ORDER BY date_time, msg_line_id";
     //echo $q;
     //die();
     $result = mysql_query($q) or die(mysql_error());
@@ -104,7 +128,7 @@ function get_my_new_msgs () {
 
 function get_my_new_msg_senders () {
   if (isLoggedIn()) {
-    $q = "SELECT DISTINCT sender_id, nickname from msg_line inner join user on user.user_id = msg_line.sender_id where receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0 ORDER BY date_time, msg_line_id, sender_id";
+    $q = "SELECT DISTINCT sender_id, nickname from msg_line inner join user on user.user_id = msg_line.sender_id where receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0 and is_message = 0 ORDER BY date_time, msg_line_id, sender_id";
     //echo $q;
     //die();
     $result = mysql_query($q) or die(mysql_error());
@@ -120,7 +144,7 @@ function get_my_new_msg_senders () {
 
 function get_my_new_msgs_with ($r_id) {
   if (isLoggedIn()) {
-    $q = "SELECT * from msg_line where (sender_id = " . get_my_user_id() . " and receiver_id = " . $r_id . " and sender_has_seen = 0) or (sender_id = " . $r_id . " and receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0) ORDER BY date_time, msg_line_id";
+    $q = "SELECT * from msg_line where ((sender_id = " . get_my_user_id() . " and receiver_id = " . $r_id . " and sender_has_seen = 0) or (sender_id = " . $r_id . " and receiver_id = " . get_my_user_id() . " and receiver_has_seen = 0)) and is_message = 0 ORDER BY date_time, msg_line_id";
     //echo $q;
     //die();
     $result = mysql_query($q) or die(mysql_error());
@@ -169,7 +193,13 @@ function get_my_msgs () {
 
 function flag_as_read_my_msg ($msg_line_id, $which_partner) {
   if (isLoggedIn()) {
-    $q = "UPDATE msg_line set " . $which_partner . "_has_seen = 1 where msg_line_id = " . $msg_line_id;
+    if ($which_partner == "receiver") {
+      $q = "UPDATE msg_line set " . $which_partner . "_has_seen = 1, is_message = 0 where msg_line_id = " . $msg_line_id;  
+    }
+    else {
+      $q = "UPDATE msg_line set " . $which_partner . "_has_seen = 1 where msg_line_id = " . $msg_line_id;
+    }
+   
     //echo $q;
     //die();
     $result = mysql_query($q) or die(mysql_error());

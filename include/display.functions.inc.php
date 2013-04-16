@@ -78,20 +78,29 @@ function show_msg_area_inbox ($r_id) {
            echo '<p class="chat_date">' . chat_date($local_date_time) . '</p>';
            $place_date = date('d/m/Y', $local_date_time);
          } 
-         echo '<p class="chat_time">' . date('g:i A', $local_date_time) . '</p><p>' . get_nickname($msg["sender_id"]) . ': ' . $msg["text_body"] . '</p>';
+         $is_new = "";
          if ($msg["sender_id"] == get_my_user_id()) {
              $which_partner = "sender";
          }
          else {
              $which_partner = "receiver";
+             if ($msg["receiver_has_seen"] == 0) {
+               $is_new = " is_new";
+             }
          }
+         echo '<p class="chat_time' . $is_new  . '">';
+         if ($is_new != "") {
+           echo "(new) ";
+         }
+         echo date('g:i A', $local_date_time) . '</p><p class="' . $is_new . '">' . get_nickname($msg["sender_id"]) . ': ' . $msg["text_body"] . '</p>';
+         
          flag_as_read_my_msg($msg["msg_line_id"], $which_partner);
       }
      echo '</div>';
      echo '<div id="type_area">';
-       echo '<form id="send-message-area" action="send_message.php">
+       echo '<form id="send-message-area" action="send_message.php" method="post">
                <textarea id="sendie" name="text_body" maxlength = "500" ></textarea>
-               <input type="submit" value="Send" name="Submit">
+               <input type="submit" name="submit" value="Send"/>
                <input type="hidden" value=' . $r_id . ' name="other_user_id"/>
              </form>';
      echo '</div>';
@@ -118,6 +127,15 @@ function show_msgs ($r_id) {
      flag_as_read_my_msg($msg["msg_line_id"], $which_partner);
   }
   return true;
+}
+
+function showNewMessageAlert() {
+  $num_chats = num_new_non_chats();
+  if ($num_chats > 0) {
+    echo '<div id="new_message_alert">';
+      echo num_new_non_chats();
+    echo '</div>';
+  }
 }
 
 

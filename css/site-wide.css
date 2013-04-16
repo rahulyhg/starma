@@ -205,3 +205,11 @@ body select {
   
   color:black;
 }
+
+#inbox_user_list .hover_box span {
+  
+  width:80px;
+  padding:0px;
+  font-size:0.8em;
+  height:50px;
+}

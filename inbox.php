@@ -32,6 +32,7 @@ if (login_check_point($type="full", $domain=$domain)) {
             echo '<div class="hover_box">';
               echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';
                 show_user_inbox_picture ('?the_page=isel&the_left=nav1&other_user_id=' . $user_id, $user_id);
+                
                 if ($num_new_msgs > 0) {
                   if ($num_new_msgs == 1) {
                     echo '<span>' . $num_new_msgs . ' new message!</span>';
@@ -41,6 +42,9 @@ if (login_check_point($type="full", $domain=$domain)) {
                   }
                 }
               echo '</div></div>';
+            echo '</div>';
+            echo '<div class="nickname">'; 
+              echo get_nickname($user_id);
             echo '</div>';
           echo '</li>';  
         }
