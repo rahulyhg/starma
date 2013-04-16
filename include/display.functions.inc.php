@@ -20,6 +20,7 @@ function showchat() {
                  echo '<div id="chat_block_' . $partner_id . '" class="chat_block ' . $chat_open . '"  style="display:block">';
                  show_msg_area($partner_id);
                  echo '<script type="text/javascript">';
+                   //echo '$("#chat_area_' . $partner_id . '").scrollTop($("#chat_area_' . $partner_id . '")[0].scrollHeight)';
                    echo 'document.getElementById("chat_area_' . $partner_id . '").scrollTop = document.getElementById("chat_area_' . $partner_id . '").scrollHeight;';
                  echo '</script>';
                }
@@ -68,7 +69,7 @@ function show_msg_area_inbox ($r_id) {
   //print_r ($my_msgs);
   //die(); 
     
-      echo '<div id="chat_area_' . $r_id . '" class="chat_area" >';
+      echo '<div id="chat_area_inbox" class="chat_area" >';
       $place_date = "0";
       while ($msg = mysql_fetch_array($my_msgs)) { 
          //echo $place_date . '<br>' . $msg["date_time"];
