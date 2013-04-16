@@ -68,7 +68,7 @@ function is_away($user_id) {
 }
 
 function is_offline($user_id) {
-  return !(is_away($user_id)); //or is_online($user_id)); // MAY NOT NEED THE IS_ONLINE CHECK.  IS_AWAY INCLUDES IT
+  return !(is_away($user_id)); //or is_online($user_id)); //MAY NOT NEED THE IS_ONLINE CHECK.  IS_AWAY INCLUDES IT
 }
 
 function num_new_msgs_with ($r_id) {
@@ -158,10 +158,14 @@ function get_my_new_msgs_with ($r_id) {
 }
 
 
-function get_my_msgs_with ($r_id) {
+function get_my_msgs_with ($r_id, $include_non_chats = true) {
   if (isLoggedIn()) {
     $q = "SELECT * from (
-             SELECT * from msg_line where (sender_id = " . get_my_user_id() . " and receiver_id = " . $r_id . ") or (sender_id = " . $r_id . " and receiver_id = " . get_my_user_id() . ") ORDER BY date_time DESC, msg_line_id DESC LIMIT " . (int)((int)num_new_msgs_with($r_id) + (int)max_msgs()) .
+             SELECT * from msg_line where ((sender_id = " . get_my_user_id() . " and receiver_id = " . $r_id . ") or (sender_id = " . $r_id . " and receiver_id = " . get_my_user_id() . "))';
+    if (!$include_non_chats) {
+      $q = $q . ' and is_message=0';
+    }
+    $q = $q . ' ORDER BY date_time DESC, msg_line_id DESC LIMIT " . (int)((int)num_new_msgs_with($r_id) + (int)max_msgs()) .
           ") q1 ORDER BY date_time ASC, msg_line_id ASC";
     //echo $q;
     //die();

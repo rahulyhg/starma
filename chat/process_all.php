@@ -153,7 +153,7 @@
                         else {
                           $is_message = 0;
                         } 
-        	        insert_msg_line($sender_id, $receiver_id, date("Y-m-d H:i:s"), $message, $is_message);
+        	        insert_msg_line($sender_id, $receiver_id, date("Y-m-d H:i:s"), $message, $sender_has_seen=0, $receiver_has_seen=0, $is_message);
         	        
 		 }
         	 break;
