@@ -67,10 +67,10 @@
     top: 360px;
 }
 #welcome #celebrities_box_link a {
-  background:url("/img/Starma-Astrology-celebritiesBox.png") no-repeat scroll center center;
+  background:url("/img/Starma-Astrology-CelebritiesBox.png") no-repeat scroll center center;
 }
 #welcome #celebrities_box_link a:hover {
-  background:url("/img/Starma-Astrology-celebritiesBoxH.png") no-repeat scroll center center;
+  background:url("/img/Starma-Astrology-CelebritiesBoxH.png") no-repeat scroll center center;
 }
 
 #welcome .homepage_div a {
