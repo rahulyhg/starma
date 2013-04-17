@@ -1,0 +1,34 @@
+--- a/jquery.autoSuggest.js	Tue Mar 30 16:50:16 2010 -0700
++++ b/jquery.autoSuggest.js	Tue Mar 30 17:39:35 2010 -0700
+@@ -161,11 +161,12 @@
+ 							break;
+ 						case 8:  // delete
+ 							if(input.val() == ""){							
+-								var last = values_input.val().split(",");
+-								last = last[last.length - 2];
++								var vals = values_input.val().split(",");
++								if (vals.length >= 2)
++									vals.splice(vals.length - 2, 1);
+ 								selections_holder.children().not(org_li.prev()).removeClass("selected");
+ 								if(org_li.prev().hasClass("selected")){
+-									values_input.val(values_input.val().replace(","+last+",",","));
++									values_input.val(vals.join(","));
+ 									opts.selectionRemoved.call(this, org_li.prev());
+ 								} else {
+ 									opts.selectionClick.call(this, org_li.prev());
+@@ -331,7 +332,14 @@
+ 							$(this).addClass("selected");
+ 						}).mousedown(function(){ input_focus = false; });
+ 					var close = $('<a class="as-close">&times;</a>').click(function(){
+-							values_input.val(values_input.val().replace(","+data[opts.selectedValuesProp]+",",","));
++							var vals = values_input.val().split(",");
++							for (var i = 0; i < vals.length; i ++) {
++							  if (vals[i] == data[opts.selectedValuesProp]) {
++							    vals.splice(i, 1);
++							    break;
++							  }
++							}
++							values_input.val(vals.join(","));
+ 							opts.selectionRemoved.call(this, item);
+ 							input_focus = true;
+ 							input.focus();

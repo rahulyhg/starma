@@ -62,7 +62,7 @@ if (login_check_point($type="full", $domain=$domain)) {
       echo '</div>';
       echo '<div id="inbox_chat_area">';
         if ($other_user_id == 0) {
-          echo 'Compose Blank Goes Here';
+          show_msg_area_blank();
         }
         else {
           show_msg_area_inbox ($other_user_id);
@@ -78,8 +78,23 @@ if (login_check_point($type="full", $domain=$domain)) {
   
 
 
-?> 
-
-<script type="text/javascript">
-  $('.chat_area').scrollTop($('.chat_area')[0].scrollHeight);
+?>
+<script type="text/javascript"> 
+<?php if ($other_user_id != 0) {?>
+  
+    $('.chat_area').scrollTop($('.chat_area')[0].scrollHeight);
+  
+<?php } else { 
+  echo '$("#type_area #search_favorites_bar").autoSuggest("' .get_full_domain() . '/chat/process_all.php", {
+                minChars: 1, 
+                selectionLimit: 10,  
+                retrieveLimit: 10,
+                selectedValuesProp: "value",
+                selectedItemProp: "name",
+                searchObjProps: "name",
+                extraParams:"&function=search_favs",
+                asHtmlID: "fav_user_id"
+   })';
+  
+} ?>
 </script>

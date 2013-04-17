@@ -31,6 +31,7 @@ date_default_timezone_set('America/Chicago');
 <LINK REL="StyleSheet" HREF="css/main.css" TYPE="text/css"/>
 <LINK REL="StyleSheet" HREF="css/photos.css" TYPE="text/css"/>
 <LINK REL="StyleSheet" HREF="css/chat.css" TYPE="text/css"/>
+<LINK REL="StyleSheet" HREF="autoSuggest/autoSuggest.css" TYPE="text/css"/>
 
 <?php 
   if (isAdmin()) {
@@ -41,12 +42,14 @@ date_default_timezone_set('America/Chicago');
     echo '<LINK REL="StyleSheet" HREF="../css/chart.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/main.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/photos.css" TYPE="text/css"/>';
+    echo '<LINK REL="StyleSheet" HREF="../autoSuggest/autoSuggest.css" TYPE="text/css"/>';
   }
 ?>
 
 
     
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="/autoSuggest/jquery.autoSuggest.js"></script>
     <script type="text/javascript" src="/chat/chat_all.js"></script>
 
 <script type="text/javascript">

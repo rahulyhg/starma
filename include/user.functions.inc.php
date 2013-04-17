@@ -824,13 +824,32 @@ function get_favorties_user_list () {
 }
 
 
-function get_filtered_user_list ($filter, $type="include") {
+function get_filtered_user_list ($filter, $type="include") { //FOR FAVORITES ONLY
   if (isLoggedIn()) {
     $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join favorite on favorite.favorite_user_id = user.user_id where chart.nickname="main" AND favorite.user_id = ' . get_my_user_id() . ' AND ';
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
     $q = $q . sprintf('user.nickname like "%%%s%%" ORDER BY nickname', mysql_real_escape_string($filter));
+    if ($result = mysql_query($q)) {
+      return $result;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
+function get_filtered_user_list_no_celeb ($filter, $type, $limit) {
+  if (isLoggedIn()) {
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where permissions_id != ' . PERMISSIONS_CELEB() . ' AND chart.nickname="main" AND ';
+    if ($type=="exclude") {
+      $q = $q . 'NOT '; 
+    }
+    $q = $q . sprintf('user.nickname like "%%%s%%" ORDER BY nickname LIMIT %s', mysql_real_escape_string($filter), $limit);
     if ($result = mysql_query($q)) {
       return $result;
     }

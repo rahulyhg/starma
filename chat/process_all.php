@@ -12,6 +12,17 @@
     $log = array();
     
     switch($function) {
+         case('search_favs'):
+                 $filter = $_GET['q'];
+                 $included_users = get_filtered_user_list_no_celeb ($filter, $type="include", $_GET["limit"]);
+                 while ($row = mysql_fetch_array($included_users)) {
+                   $json = array();
+                   $json['value'] = $row['user_id'];
+                   $json['name'] = $row['nickname'];
+                   $log[] = $json;
+                   header("Content-type: application/json");
+                 }
+                 break;
          case('filterUsers'):
                  $filter = $_GET['filter'];
                  $included_users = get_filtered_user_list ($filter, "include");

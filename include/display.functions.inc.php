@@ -101,7 +101,7 @@ function show_msg_area_inbox ($r_id) {
      echo '<div id="type_area">';
        echo '<form id="send-message-area" action="send_message.php" method="post">
                <textarea id="sendie" name="text_body" maxlength = "500" ></textarea>
-               <input type="submit" name="submit" value="Send"/>
+               <input type="submit" name="submit" value="Reply"/>
                <input type="hidden" value=' . $r_id . ' name="other_user_id"/>
              </form>';
      echo '</div>';
@@ -109,6 +109,25 @@ function show_msg_area_inbox ($r_id) {
   //addJSChatEvents($r_id); 
   return true;
 }
+
+function show_msg_area_blank () {
+  
+    
+      
+     echo '<div id="type_area" class="blank">';
+       echo '<form id="send-message-area" action="send_message.php" method="post">
+               <input type="text" name="to_name" id="search_favorites_bar"/>
+               <textarea id="sendie" name="text_body" maxlength = "500" ></textarea>
+               <input type="submit" name="submit" value="Send"/>
+               
+             </form>';
+     echo '</div>';
+   
+   
+  //addJSChatEvents($r_id); 
+  return true;
+}
+
 
 
 function show_msgs ($r_id) {
