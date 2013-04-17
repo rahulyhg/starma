@@ -20,7 +20,7 @@
                    $json['value'] = $row['user_id'];
                    $json['name'] = $row['nickname'];
                    $log[] = $json;
-                   header("Content-type: application/json");
+                   //header("Content-type: application/json");
                  }
                  break;
          case('filterUsers'):
