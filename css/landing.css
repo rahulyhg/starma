@@ -12,7 +12,7 @@
   text-align:center;
 }
 
-#initial_confirm_form input[type="submit"] {
+#initial_confirm_form input[type="submit"], #inbox_chat_area input[type="submit"] {
   padding:5px;
   margin:5px;
   margin-top:50px;
@@ -29,6 +29,10 @@
   font-size:1.1em;
 }
 
+#inbox_chat_area input[type="submit"] {
+  margin-top:10px;
+  margin-left:0px;
+}
 
 /****************LANDING PAGE****************************/
 #landing, #register, #birth_info_first_time {

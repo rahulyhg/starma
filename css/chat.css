@@ -104,41 +104,42 @@
 }
 
 #inbox_user_list {
-  width:140px;
+  width:160px;
   position:absolute;
   height:700px;
 }
 
 #inbox_header{
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:10px;
 }
 
 #list_body {
   height:615px;
   overflow-y:hidden;
-  
+  padding-top:3px;
 }
 #inbox_user_list #list_body ul li {
  
-  margin-bottom:30px;
+  margin-bottom:35px;
   height: 73px;
     width: 112px;
 }
 
 #inbox_user_list #list_body ul li .nickname {
- 
+  bottom:79px;
   font-size: 0.8em;
-    left: 14px;
+    left: 17px;
     position: relative;
     text-align: center;
+  
 }
 
 #inbox_user_list #list_body .new_ball_space {
   height:73px;
   width:30px;
-  
-  position:absolute;
+ 
+  position:relative;
 }
 
 #inbox_user_list .new_ball_space.new {
@@ -149,12 +150,19 @@
   height:73px;
   width:80px;
   position:relative;
-  left:30px; 
+  left:30px;
+  bottom:76px; 
+  border:6px solid #D3DBF6;
+}
+
+#inbox_user_list .hover_box.selected {
+
+  border:6px solid #fbf0a4;
 }
 
 
 #inbox_history {
-  width:550px;
+  width:540px;
   left:210px;
   position:absolute;
   height:700px;
@@ -169,10 +177,11 @@
 
 #inbox_chat_area .chat_area {
   height:500px;
-  border:1px solid black;
+  border:0px solid black;
   overflow:auto;
   background:white;
   padding: 20px;
+  border-radius: 5px 5px 5px 5px;
 }
 
 #inbox_chat_area #type_area {
@@ -183,9 +192,23 @@
 }
 
 #inbox_chat_area #sendie {
-  height:100px;
-  width:540px;
-  border:0px;
+  border: 0 none;
+  height: 80px;
+  padding: 10px;
+  width: 520px;
+  border-radius: 5px 5px 5px 5px;
+  
+}
+
+#type_area.blank #sendie {
+  margin-top:10px;
+  height:500px;
+}
+
+#new_message_button {
+  position:absolute;
+  top:20px;
+  left:598px;
 }
 
 #new_message_alert {

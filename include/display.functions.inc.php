@@ -3615,7 +3615,7 @@ function show_registration_form($output=array(-1)){
     echo '<form action="./register.php" method="post"> 
 	
     <div id="nickname_title" class="reg_title">username</div> 
-    <div id="nickname_input"><input name="nickname" type="text" id="nickname" maxlength="12" value="' . $_POST["nickname"] . '"></div>
+    <div id="nickname_input"><input name="nickname" type="text" id="nickname" maxlength="14" value="' . $_POST["nickname"] . '"></div>
 
     <div id="birthday_title" class="reg_title">birthday</div> 
     <div id="birthday_input">';

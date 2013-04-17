@@ -29,7 +29,11 @@ if (login_check_point($type="full", $domain=$domain)) {
               echo ' new';
             }
             echo '"></div>';
-            echo '<div class="hover_box">';
+            echo '<div class="hover_box';
+            if ($user_id == $other_user_id) {
+              echo ' selected';
+            }
+            echo '">';
               echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';
                 show_user_inbox_picture ('?the_page=isel&the_left=nav1&other_user_id=' . $user_id, $user_id);
                 
@@ -58,7 +62,12 @@ if (login_check_point($type="full", $domain=$domain)) {
  
   echo '<div id="inbox_history">';
       echo '<div id="inbox_header">';
-        echo 'History';
+        if ($other_user_id != 0) {
+          echo 'History';
+        }
+        else {
+          echo 'New Message';
+        }
       echo '</div>';
       echo '<div id="inbox_chat_area">';
         if ($other_user_id == 0) {
@@ -71,7 +80,11 @@ if (login_check_point($type="full", $domain=$domain)) {
       
   echo '</div>';
     
-  
+  if ($other_user_id != 0) {
+    echo '<div id="new_message_button" class="starma_button">';
+      echo '<a href="?the_page=isel&the_left=nav1">New Message</a>';
+    echo '</div>';
+  }
   
 }
 
@@ -93,7 +106,9 @@ if (login_check_point($type="full", $domain=$domain)) {
                 selectedItemProp: "name",
                 searchObjProps: "name",
                 extraParams:"&function=search_favs",
-                asHtmlID: "fav_user_id"
+                asHtmlID: "fav_user_id",
+                startText: "Enter Username(s) Here ...",
+                neverSubmit: true
    })';
   
 } ?>
