@@ -191,7 +191,7 @@
 								n_data[opts.selectedItemProp] = i_input;
 								n_data[opts.selectedValuesProp] = i_input;																				
 								var lis = $("li", selections_holder).length;
-								add_selected_item(n_data, "00"+(lis+1));
+								//add_selected_item(n_data, "00"+(lis+1));
 								input.val("");
 							}
 						case 13: // return
