@@ -13,7 +13,78 @@
 }
 
 #welcome {
-  padding:25px;
+  padding-top:3px;
+  padding-left:25px;
+  padding-right:25px;
+}
+
+
+#welcome .flare_title .title_content {
+  font-size:1.8em;
+}
+
+#welcome .homepage_div {
+  position:absolute;
+  height:255px;
+  width:350px;
+}
+
+#welcome #profile_box_link {
+  left:40px;
+}
+#welcome #profile_box_link a {
+  background:url("/img/Starma-Astrology-ProfileBox.png") no-repeat scroll center center;
+}
+#welcome #profile_box_link a:hover {
+  background:url("/img/Starma-Astrology-ProfileBoxH.png") no-repeat scroll center center;
+}
+
+#welcome #compare_box_link {
+  left:390px;
+}
+#welcome #compare_box_link a {
+  background:url("/img/Starma-Astrology-CompareBox.png") no-repeat scroll center center;
+}
+#welcome #compare_box_link a:hover {
+  background:url("/img/Starma-Astrology-CompareBoxH.png") no-repeat scroll center center;
+}
+
+
+#welcome #horoscope_box_link {
+  top: 360px;
+  left:45px;
+}
+#welcome #horoscope_box_link a {
+  background:url("/img/Starma-Astrology-ChartBox.png") no-repeat scroll center center;
+}
+#welcome #horoscope_box_link a:hover {
+  background:url("/img/Starma-Astrology-ChartBoxH.png") no-repeat scroll center center;
+}
+
+
+#welcome #celebrities_box_link {
+ left: 400px;
+    top: 360px;
+}
+#welcome #celebrities_box_link a {
+  background:url("/img/Starma-Astrology-celebritiesBox.png") no-repeat scroll center center;
+}
+#welcome #celebrities_box_link a:hover {
+  background:url("/img/Starma-Astrology-celebritiesBoxH.png") no-repeat scroll center center;
+}
+
+#welcome .homepage_div a {
+  height:255px;
+  width:350px;
+  display:block;
+}
+
+#welcome #header {
+  width:600px;
+  text-align:center;
+  margin:auto;
+  margin-top:20px;
+  margin-bottom:10px;
 }
 
 #logout_link {
