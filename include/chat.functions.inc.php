@@ -5,7 +5,7 @@ function extract_users_from_msgs_list($user_msg_history) {
     while ($msg_line = mysql_fetch_array($user_msg_history)) {
        
        if ($msg_line["sender_id"] == get_my_user_id()) {
-         $other_user_id = $msg_line["reciever_id"];
+         $other_user_id = $msg_line["receiver_id"];
          $new_msg = (int)!(boolean)$msg_line["sender_has_seen"];
        }
        else {
