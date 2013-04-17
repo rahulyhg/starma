@@ -115,7 +115,7 @@
 }
 
 #list_body {
-  height:615px;
+  height:540px;
   overflow-y:hidden;
   padding-top:3px;
 }
@@ -176,7 +176,8 @@
 
 
 #inbox_chat_area .chat_area {
-  height:500px;
+  height:300px;
+  font-size:0.8em;
   border:0px solid black;
   overflow:auto;
   background:white;
@@ -202,7 +203,7 @@
 
 #type_area.blank #sendie {
   margin-top:10px;
-  height:500px;
+  height:380px;
 }
 
 #new_message_button {
