@@ -85,6 +85,7 @@
   margin:auto;
   margin-top:20px;
   margin-bottom:10px;
+  -webkit-text-size-adjust: 100%
 }
 
 #logout_link {
