@@ -63,7 +63,7 @@ elseif ($tier == "2") {
     } 
     $flag = get_my_preferences("compare_more_info_flag", 1);
     if ($flag == 1) {
-      show_sheen($flag);
+      show_sheen($flag, 'compare_info_form');
     }
 
 }

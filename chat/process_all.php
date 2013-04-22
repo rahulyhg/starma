@@ -12,6 +12,17 @@
     $log = array();
     
     switch($function) {
+         case('set_pref'):
+                 $pref = $_GET['pref'];
+                 $pref_name = $_GET['pref_name'];
+                 if ($pref == "true") {
+                   $pref = 1;
+                 }
+                 elseif ($pref == "false") {
+                   $pref = 0;
+                 }
+                 set_my_preference ($pref_name, $pref);
+                 break;
          case('search_favs'):
                  $filter = $_GET['q'];
                  $included_users = get_filtered_user_list_no_celeb ($filter, $type="include", $_GET["limit"]);

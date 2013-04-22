@@ -335,7 +335,7 @@ function is_freebie_chart($chart_id) {
 function set_my_preference ($pref_name, $value) {
   
   if (isLoggedIn()) {
-    $q = "UPDATE user_preferences set " . $pref_name . " = " . $values . " where user_id = " . $_SESSION["user_id"];
+    $q = "UPDATE user_preferences set " . $pref_name . " = " . $value . " where user_id = " . $_SESSION["user_id"];
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      

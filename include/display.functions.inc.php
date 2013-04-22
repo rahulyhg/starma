@@ -7,33 +7,36 @@ function show_sheen ($flag=0, $form_function) {
     
      echo '</div>';
      echo '<div id="sheen_content">';
-        $form_function();
+        $form_function($flag);
      echo '</div>';
     echo '</div>';
 }
 
 function compare_info_form($flag) {
-  echo '<span style="text-align:center">Welcome to Starma's Compatibility Test<br><br></span>';
-  echo 'At the top of the this page you will see a rating out of 5 stars.  Your star rating is meant to give you a general impression of your compatibility with the person you have selected, but not to tell the whole story!  Astrological compatibility is very complex, and therefore very difficult to represent with a simple score. We highly recommend that you read through the dynamics found below the star rating, to get a clearer picture of your compatibility.  For more information on our compatibility system visit our FAQ page.  Enjoy!'
-  echo '<input type="checkbox" name="compare_info_box" id="compare_info_box"/> Don\'t show this again';
-  echo '<input type="button" value="Ok" onclick="function () {
+  echo '<span style="text-align:center">Welcome to Starma\'s Compatibility Test<br><br></span>';
+  echo 'At the top of the this page you will see a rating out of 5 stars.  Your star rating is meant to give you a general impression of your compatibility with the person you have selected, but not to tell the whole story!  Astrological compatibility is very complex, and therefore very difficult to represent with a simple score. We highly recommend that you read through the dynamics found below the star rating, to get a clearer picture of your compatibility.  For more information on our compatibility system visit our FAQ page.  Enjoy!<br><br>';
+  echo '<div style="text-align:center">';
+    echo '<input type="checkbox" name="compare_info_box" id="compare_info_box"/> Don\'t show this again<br><br>';
+    echo '<input type="button" value="Continue" onclick="
           $.ajax({
 		          type: \'GET\',
                           cache: false,
 	                  url: \'' .get_full_domain() . '/chat/process_all.php\',
                           data: {  
 		   			\'function\': \'set_pref\',
-					\'pref\': $(\'#compare_info_box\')
+                                        \'pref_name\':\'compare_more_info_flag\',
+					\'pref\': $(\'#compare_info_box\').is(\':checked\')
                                         
 					
 				},
 	                  dataType: \'json\',
             	          success: function(data){
-				
+				$(\'#sheen\').hide();
 		          }  
                                                                     
 		 });
         "/>';
+   echo '<br><br></div>';
 }
 
 function showchat() {
