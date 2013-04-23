@@ -434,6 +434,51 @@ float: right;
     width: 465px;
 }
 
+#compare_results #explanation #text_selector {
+  bottom: 15px;
+    position: relative;
+}
+
+
+#compare_results #explanation #text_selector div, #compare_results #explanation #text_selector a {
+  color:black; 
+  width:87px;
+  height:22px;
+  display:block;
+  font-size:12px;
+  font-weight:bold;
+}
+
+#compare_results #explanation #text_selector .friends_button {
+  top:22px;
+  left:115px;
+  position:relative;
+}
+
+#compare_results #explanation #text_selector .friends_button a {
+  background-image:url("/img/Starma-Astrology-Compatibility-FriendsOFF.png");
+    
+}
+
+#compare_results #explanation #text_selector .romance_button {
+  bottom:20px;
+  left:260px;
+  position:relative;
+}
+
+#compare_results #explanation #text_selector .romance_button a {
+  background-image:url("/img/Starma-Astrology-Compatibility-RomanceOFF.png");
+  
+}
+
+#compare_results #explanation #text_selector .friends_button a:hover, #compare_results #explanation #text_selector .friends_button.selected a {
+  background-image:url("/img/Starma-Astrology-Compatibility-FriendsON.png");
+}
+
+#compare_results #explanation #text_selector .romance_button a:hover, #compare_results #explanation #text_selector .romance_button.selected a {
+  background-image:url("/img/Starma-Astrology-Compatibility-RomanceON.png");
+}
+
 #detail_selector a {
  color:black;
 }

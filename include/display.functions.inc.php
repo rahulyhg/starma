@@ -25,7 +25,7 @@ function compare_info_form($flag) {
                           data: {  
 		   			\'function\': \'set_pref\',
                                         \'pref_name\':\'compare_more_info_flag\',
-					\'pref\': $(\'#compare_info_box\').is(\':checked\')
+					\'pref\': !$(\'#compare_info_box\').is(\':checked\')
                                         
 					
 				},
@@ -1495,7 +1495,7 @@ function test_form_time () {
         </form>';
 }
 
-function show_compare_results ($score, $goto=".", $results_type, $stage="2") {
+function show_compare_results ($score, $goto=".", $results_type, $text_type, $stage="2") {
       $freebie = is_freebie_chart($_SESSION['compare_chart_ids'][1]);
        
       //Picture of You
@@ -1597,7 +1597,27 @@ function show_compare_results ($score, $goto=".", $results_type, $stage="2") {
         //echo '*' . $score . '*';
       echo '</div>';
       echo '<div id="explanation">';
-        echo 'Below is the basic structure of compatibility.  It must be read as a whole with the understanding that a strong dynamic can compensate for a weak one.  The Major Connections have the strongest influence on compatibility and the Minor Connections have the potential to support or weaken them.';
+        echo 'Display Text For:';
+        //echo 'Below is the basic structure of compatibility.  It must be read as a whole with the understanding that a strong dynamic can compensate for a weak one.  The Major Connections have the strongest influence on compatibility and the Minor Connections have the potential to support or weaken them.';
+        echo '<div id="text_selector">';
+          echo '<div class="friends_button ';
+          if ((string)$text_type == "2") {
+             echo 'selected';
+          }
+          echo '">';
+          echo '<a href="#" ';
+          echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&text_type=2" . "&stage=" . $stage, $hidden="connection_type", $value="'" . $connection_type . "'", $hidden2="", $value2="") . '"';        
+          echo '/>FRIENDS</a></div>';
+          echo 'or';
+          echo '<div class="romance_button ';
+          if ((string)$text_type == "1") {
+             echo 'selected';
+          }
+          echo '">';
+          echo '<a href="#" ';
+          echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&text_type=1" . "&stage=" . $stage, $hidden="connection_type", $value="'" . $connection_type . "'", $hidden2="", $value2="") . '"';        
+          echo '/>ROMANCE</a></div>';
+        echo '</div>';
       echo '</div>';
   
        
@@ -1651,7 +1671,7 @@ function show_compare_results ($score, $goto=".", $results_type, $stage="2") {
       echo '</div>';
 }
 
-function show_major_connections ($compare_data, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
+function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
 
       $connection_type = "rising";
@@ -1754,7 +1774,7 @@ function show_major_connections ($compare_data, $goTo = ".", $stage="2", $chart_
             $relationship_id = $connection_data["relationship_id"];
             //echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id) . "</span>";
             show_dynamic_info($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
-            show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, 1, $chart_id1, $chart_id2);
+            show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, $text_type, $chart_id1, $chart_id2);
           echo '</div>';
         }
         else {
@@ -1787,7 +1807,7 @@ function show_major_connections ($compare_data, $goTo = ".", $stage="2", $chart_
   
 }
 
-function show_minor_connections ($compare_data, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
+function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
 
       
@@ -1886,7 +1906,7 @@ function show_minor_connections ($compare_data, $goTo = ".", $stage="2", $chart_
                   echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id, 1, $chart_id1, $chart_id2)) . "</span>";
                 }
                 else {
-                  echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id, 1, $chart_id1, $chart_id2) . "</span>";
+                  echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id, $text_type, $chart_id1, $chart_id2) . "</span>";
                 }
               
               echo "</div>";
@@ -1927,7 +1947,7 @@ function show_minor_connections ($compare_data, $goTo = ".", $stage="2", $chart_
   
 }
 
-function show_bonus_connections ($compare_data, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
+function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
       $bonus_connections = array('ruling');
       $connection_type = "ruling";
@@ -2052,7 +2072,7 @@ function show_bonus_connections ($compare_data, $goTo = ".", $stage="2", $chart_
             $relationship_id = $compare_data[$connection_type . '2' . $connection_type]["relationship_id"];
             show_dynamic_info(-1, -1, $relationship_id, $chart_id1, $chart_id2);
             
-            show_poi_dynamic_blurb (-1, -1, $relationship_id, 1, $chart_id1, $chart_id2);
+            show_poi_dynamic_blurb (-1, -1, $relationship_id, $text_type, $chart_id1, $chart_id2);
           echo '</div>';
         }
         else {

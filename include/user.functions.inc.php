@@ -332,11 +332,37 @@ function is_freebie_chart($chart_id) {
   }
 }
 
+function is_preference_there ($pref_name, $user_id) {
+  
+  if (isLoggedIn()) {
+    $q = "SELECT * from user_preferences where user_id = " . $user_id;
+    $result = mysql_query($q) or die(mysql_error());
+    if ($row = mysql_fetch_array($result)) {
+      return $row[$pref_name];
+    }
+    else {
+      return false;
+    }
+     
+  }
+  else {
+    return false;
+  }
+}
+
 function set_my_preference ($pref_name, $value) {
   
   if (isLoggedIn()) {
-    $q = "UPDATE user_preferences set " . $pref_name . " = " . $value . " where user_id = " . $_SESSION["user_id"];
-    $result = mysql_query($q) or die(mysql_error());
+    $user_id = get_my_user_id();
+    if (is_preference_there ($pref_name, $user_id)) {
+      $q = "UPDATE user_preferences set " . $pref_name . " = " . $value . " where user_id = " . $user_id;
+      $result = mysql_query($q) or die(mysql_error());
+    }
+    else {
+      $q = "INSERT INTO user_preferences (" . $pref_name . ", user_id) VALUES (" . $value . ", " . $user_id . ")";
+      $result = mysql_query($q) or die(mysql_error());
+    }
+    
     return $result;
      
   }

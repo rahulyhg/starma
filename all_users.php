@@ -34,7 +34,15 @@ elseif ($tier == "2") {
       else { 
         $results_type = "major";
       }
-      $gotothe = "?the_page=" . $the_page . "&the_left=" . $the_left . "&results_type=" . $results_type . "&tier=2";
+
+      if (isset($_GET["text_type"])) {
+        $text_type = $_GET["text_type"];
+      }
+      else { 
+        $text_type = "2";
+      }      
+
+      $gotothe = "?the_page=" . $the_page . "&the_left=" . $the_left . "&results_type=" . $results_type . "&text_type=" . $text_type . "&tier=2";
       if (!isset($_SESSION['compare_data'])) {
         generate_compare_data ($_GET["chart_id1"], $chart_id2 = $_GET["chart_id2"]);
         //Log the Action
@@ -47,21 +55,26 @@ elseif ($tier == "2") {
         $total_score = -1;
       }
       //echo $total_score;
-      show_compare_results ($score = $total_score, $goto=$gotothe, $results_type=$results_type, $stage = $_GET["stage"]);
+      show_compare_results ($score = $total_score, $goto=$gotothe, $results_type=$results_type, $text_type=$text_type, $stage = $_GET["stage"]);
       switch ($results_type) {
         case "major": 
-          show_major_connections ($compare_data=$_SESSION["compare_data"], $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
+          show_major_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
           break;
         case "minor": 
-          show_minor_connections ($compare_data=$_SESSION["compare_data"], $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
+          show_minor_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
           break;            
         case "bonus": 
-          show_bonus_connections ($compare_data=$_SESSION["compare_data"], $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
+          show_bonus_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
           break;
       }
       //compare_charts_old($chart_id1 = $_GET["chart_id1"], $chart_id2 = $_GET["chart_id2"]); 
     } 
-    $flag = get_my_preferences("compare_more_info_flag", 1);
+    if (isset($_SESSION["compare_more_info_flag"])) {
+      $flag = $_SESSION["compare_more_info_flag"];
+    }
+    else {
+      $flag = get_my_preferences("compare_more_info_flag", 1);
+    }
     if ($flag == 1) {
       show_sheen($flag, 'compare_info_form');
     }
