@@ -9,6 +9,7 @@ function clear_compare_data() {
 function clear_session_preferences() {
   unset ($_SESSION["compare_more_info_flag"]);
   unset ($_SESSION["chart_more_info_flag"]);
+  //unset ($_SESSION["western_chart_more_info_flag"]);
 }
 
 ?>

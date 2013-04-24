@@ -6,6 +6,7 @@ if (login_check_point($type="full", $domain=$domain)) {
   
   if (!isset($_POST["poi_id"])) {
     $log_poi_id = 1;
+    clear_session_preferences();
   }
   else {
     $log_poi_id = $_POST["poi_id"];
@@ -42,6 +43,18 @@ if (login_check_point($type="full", $domain=$domain)) {
   }
 
   show_my_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&western=" . $western, $western);
+
+  if ($western == 0) {
+    if (isset($_SESSION["chart_more_info_flag"])) {
+      $flag = $_SESSION["chart_more_info_flag"];
+    }
+    else {
+      $flag = get_my_preferences("chart_more_info_flag", 1);
+    }
+    if ($flag == 1) {
+      show_sheen($flag, 'chart_info_form');
+    }
+  }
   
   
     

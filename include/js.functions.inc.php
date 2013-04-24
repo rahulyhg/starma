@@ -20,6 +20,29 @@ function javascript_submit ($form_name='formx', $action='', $hidden='', $value='
 
 }
 
+function hide_info_box($flag, $name) {
+  echo '<input type="checkbox" name="hide_info_box" id="hide_info_box"/> Don\'t show this again<br><br>';
+  echo '<input type="button" value="Continue" onclick="
+          $.ajax({
+		          type: \'GET\',
+                          cache: false,
+	                  url: \'' .get_full_domain() . '/chat/process_all.php\',
+                          data: {  
+		   			\'function\': \'set_pref\',
+                                        \'pref_name\':\'' . $name . '\',
+					\'pref\': !$(\'#hide_info_box\').is(\':checked\')
+                                        
+					
+				},
+	                  dataType: \'json\',
+            	          success: function(data){
+				$(\'#sheen\').hide();
+		          }  
+                                                                    
+		 });
+       "/>';
+}
+
 function addJSChatEvents($r_id) {
   echo '<script type="text/javascript">
            

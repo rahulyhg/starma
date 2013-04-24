@@ -14,30 +14,27 @@ function show_sheen ($flag=0, $form_function) {
 
 function compare_info_form($flag) {
   echo '<span style="text-align:center">Welcome to Starma\'s Compatibility Test<br><br></span>';
-  echo 'At the top of the this page you will see a rating out of 5 stars.  Your star rating is meant to give you a general impression of your compatibility with the person you have selected, but not to tell the whole story!  Astrological compatibility is very complex, and therefore very difficult to represent with a simple score. We highly recommend that you read through the dynamics found below the star rating, to get a clearer picture of your compatibility.  For more information on our compatibility system visit our FAQ page.  Enjoy!<br><br>';
+  echo 'At the top of the this page you will see a rating out of 5 stars.  Your star rating is meant to give you a general impression of your compatibility with the person you have selected, but not to tell the whole story!  Astrological compatibility is very complex, and therefore very difficult to represent with a simple score. We highly recommend that you read through the dynamics found below the star rating, to get a clearer picture of your compatibility.  Also, our system and formula for compatibility is designed specifically for Vedic astrology, so you will only be able to test your compatibility using your default Starma Chart for now.
+        <br><br>
+        For more information on our compatibility system please visit our FAQ page.  Enjoy!<br><br>';
   echo '<div style="text-align:center">';
-    echo '<input type="checkbox" name="compare_info_box" id="compare_info_box"/> Don\'t show this again<br><br>';
-    echo '<input type="button" value="Continue" onclick="
-          $.ajax({
-		          type: \'GET\',
-                          cache: false,
-	                  url: \'' .get_full_domain() . '/chat/process_all.php\',
-                          data: {  
-		   			\'function\': \'set_pref\',
-                                        \'pref_name\':\'compare_more_info_flag\',
-					\'pref\': !$(\'#compare_info_box\').is(\':checked\')
-                                        
-					
-				},
-	                  dataType: \'json\',
-            	          success: function(data){
-				$(\'#sheen\').hide();
-		          }  
-                                                                    
-		 });
-        "/>';
-   echo '<br><br></div>';
+    hide_info_box($flag, "compare_more_info_flag");
+  echo '<br><br></div>';
 }
+
+function chart_info_form($flag) {
+  echo '<span style="text-align:center">Welcome ' . get_my_nickname() . '!<br><br></span>';
+  echo '1. This section of Starma is dedicated to your Starma Chart, AKA your "Birth Chart."  The icons to the left and right show your Rising sign, Sun sign, Moon sign, etc.  Click on each one to read what it means.  Because each placement only tells a small part of a bigger story, in order to understand your Starma Chart, you have to read it as a whole.  We highly recommend consulting a Vedic astrologer if you want a more in-depth understanding.
+        <br><br>
+        2. Your Starma Chart is calculated using Vedic astrology, which we have found to be more accurate.  If you\'re already familiar with your Western chart, the placements you\'re about to see may be slightly different.  However, to accommodate everyone, we have included a Western Chart View which you can access by clicking the link in the upper right corner of this page.  
+        <br><br>
+        3. We will be adding Neptune, Pluto and Uranus to your Starma Western Chart soon.  In fact, we will be constantly adding features and content so please check back regularly!<br><br>';
+  echo '<div style="text-align:center">';
+    hide_info_box($flag, "chart_more_info_flag");
+  echo '<br><br></div>';
+}
+
+
 
 function showchat() {
  echo '<div class="chat_alert_list_div">

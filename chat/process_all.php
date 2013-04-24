@@ -21,7 +21,7 @@
                  elseif ($pref == "false") {
                    $pref = 0;
                  }
-                 $_SESSION["compare_more_info_flag"] = 0;
+                 $_SESSION[$pref_name] = 0;
                  set_my_preference ($pref_name, $pref);
                  break;
          case('search_favs'):
