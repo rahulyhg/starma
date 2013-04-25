@@ -492,7 +492,7 @@ function update_descriptors ($descriptors) {
 
 function get_my_main_photo() {
   if (isLoggedIn()) {
-    $q = "SELECT picture from user_picture where user_id = " . $_SESSION["user_id"] . " and main = 1";
+    $q = "SELECT picture from user_picture where user_id = " . $_SESSION["user_id"] . " and main = 1 and uncropped = 0";
     $result = mysql_query($q) or die(mysql_error());
     $row = mysql_fetch_array($result);
     return $row["picture"];
@@ -505,7 +505,7 @@ function get_my_main_photo() {
 
 function get_main_photo($user_id) {
   if (isLoggedIn()) {
-    $q = "SELECT picture from user_picture where user_id = " . $user_id . " and main = 1";
+    $q = "SELECT picture from user_picture where user_id = " . $user_id . " and main = 1 and uncropped = 0";
     $result = mysql_query($q) or die(mysql_error());
     $row = mysql_fetch_array($result);
     return $row["picture"];
@@ -518,7 +518,7 @@ function get_main_photo($user_id) {
 
 function get_photo ($photo_id, $user_id) {
   if (isLoggedIn()) {
-    $q = "SELECT picture from user_picture where user_id = " . $user_id . " and user_pic_id = " . $photo_id;
+    $q = "SELECT picture from user_picture where user_id = " . $user_id . " and user_pic_id = " . $photo_id . " and uncropped = 0";
     $result = mysql_query($q) or die(mysql_error());
     $row = mysql_fetch_array($result);
     return $row["picture"];
@@ -559,7 +559,7 @@ function change_profile_pic ($photo_id, $user_id) {
         $user_id, $photo_id);
     
     $result = mysql_query($q) or die(mysql_error());
-    $q = sprintf("update user_picture set main = 1 where user_id = %d and user_pic_id = %d",
+    $q = sprintf("update user_picture set main = 1 where user_id = %d and user_pic_id = %d and uncropped = 0",
         $user_id, $photo_id);
     
     $result = mysql_query($q) or die(mysql_error());
@@ -574,7 +574,7 @@ function change_profile_pic ($photo_id, $user_id) {
 function get_my_photos() {
   return get_photos($_SESSION["user_id"]);
   /*if (isLoggedIn()) {
-    $q = "SELECT * from user_picture where user_id = " . $_SESSION["user_id"];
+    $q = "SELECT * from user_picture where user_id = " . get_my_user_id() . " and uncropped = 0";
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      
@@ -586,7 +586,7 @@ function get_my_photos() {
 
 function get_photos($user_id) {
   if (isLoggedIn()) {
-    $q = "SELECT * from user_picture where user_id = " . $user_id;
+    $q = "SELECT * from user_picture where user_id = " . $user_id . " and uncropped = 0";
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      
@@ -597,13 +597,12 @@ function get_photos($user_id) {
 }
 
 function num_my_photos() { 
-  ;
   return num_photos(get_my_user_id());
 }
 
 function num_photos($user_id) { 
   if (isLoggedIn()) {
-    $q = "SELECT count(picture) as num_pics from user_picture where user_id = " . $user_id;
+    $q = "SELECT count(picture) as num_pics from user_picture where user_id = " . $user_id . " and uncropped = 0";
     $result = mysql_query($q) or die(mysql_error());
     $row = mysql_fetch_array($result);
     return $row["num_pics"];
@@ -627,7 +626,7 @@ function associate_photo_with_user($pic_name, $user_id) {
       else {
         $main = 0;
       }
-      $q = sprintf("INSERT into user_picture (user_id, picture, main) VALUES (%d, '%s', %d)", $user_id, mysql_real_escape_string($pic_name), $main);
+      $q = sprintf("INSERT into user_picture (user_id, picture, main, uncropped) VALUES (%d, '%s', %d, 1)", $user_id, mysql_real_escape_string($pic_name), $main);
       $result = mysql_query($q) or die(mysql_error());
       return true;
     }
@@ -641,6 +640,16 @@ function associate_photo_with_user($pic_name, $user_id) {
   }
 }
 
+function uncropped_photos($user_id) {
+  if (isLoggedIn()) {
+    $q = "SELECT * from user_picture where user_id = " . $user_id . " and uncropped = 1";
+    $result = mysql_query($q) or die(mysql_error());
+    return $result;    
+  }
+  else {
+    return false;
+  }
+}
 
 function update_my_profile_step ($step) { 
   if (isLoggedIn()) {

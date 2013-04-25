@@ -617,6 +617,20 @@ function show_photo_grid ($user_id) {
   echo '</div>';
 }
 
+function show_photo_cropper($photo_to_crop) {
+  $img_id = $photo_to_crop["user_pic_id"];
+  $img_name = $photo_to_crop["picture"];
+  echo '<div id="photo_cropping_area">';
+    echo '<img id="photo_crop_' . $img_id . '" src="img/user/' . $img_name . '">';
+  echo '</div>';
+
+  //echo '<div id="photo_cropping_preview">';
+  //  echo '<img id="preview_' . $img_id . '">';
+  //echo '</div>';
+
+  activate_photo_cropper ($img_id, $img_name);
+}
+
 function show_main_photo($chart_id) {
   echo '<div id="main_photo_box">';
    echo '<div id="border_wrapper">';

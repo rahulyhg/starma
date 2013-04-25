@@ -20,6 +20,41 @@ function javascript_submit ($form_name='formx', $action='', $hidden='', $value='
 
 }
 
+function activate_photo_cropper ($img_id, $img_name) {
+  echo '<script type="text/javascript">
+ 
+          function preview(img, selection) {
+                 var scaleX = 153 / (selection.width || 1);
+                 var scaleY = 153 / (selection.height || 1);
+  
+                 $(\'img#preview_' . $img_id . '\').css({
+                     width: Math.round(scaleX * 114) + \'px\',
+                     height: Math.round(scaleY * 153) + \'px\',
+                     marginLeft: \'-\' + Math.round(scaleX * selection.x1) + \'px\',
+                     marginTop: \'-\' + Math.round(scaleY * selection.y1) + \'px\'
+                  });
+          }
+
+          $(document).ready(function () {
+            $(\'<div><img id="preview_' . $img_id . '" src="img/user/' . $img_name . '" style="position: relative;" /><div>\')
+                    .css({
+                            top: \'50px\',
+                            position: \'relative\',
+                            overflow: \'hidden\',
+                            width: \'153px\',
+                            height: \'153px\'
+                         })
+                         .insertAfter($(\'img#photo_crop_' . $img_id . '\')); 
+
+
+            $(\'img#photo_crop_' . $img_id . '\').imgAreaSelect({
+                 aspectRatio: \'1:1\', onSelectChange: preview
+                 
+            });
+          });
+       </script>';
+}
+
 function hide_info_box($flag, $name) {
   echo '<input type="checkbox" name="hide_info_box" id="hide_info_box"/> Don\'t show this again<br><br>';
   echo '<input type="button" value="Continue" onclick="
