@@ -622,13 +622,19 @@ function show_photo_cropper($photo_to_crop) {
   $img_name = $photo_to_crop["picture"];
   echo '<div id="photo_cropping_area">';
     echo '<img id="photo_crop_' . $img_id . '" src="img/user/' . $img_name . '">';
+    echo '<input type="hidden" name="x1" id="x1" value=""/>';
+    echo '<input type="hidden" name="y1" id="y1" value=""/>';
+    echo '<input type="hidden" name="x2" id="x2" value=""/>';
+    echo '<input type="hidden" name="y2" id="x2" value=""/>';
+    echo '<input type="hidden" name="w" id="w" value=""/>';
+    echo '<input type="hidden" name="h" id="h" value=""/>';
   echo '</div>';
 
   //echo '<div id="photo_cropping_preview">';
   //  echo '<img id="preview_' . $img_id . '">';
   //echo '</div>';
 
-  activate_photo_cropper ($img_id, $img_name);
+  activate_photo_cropper ($img_id, $img_name, 'x1', 'y1', 'x2', 'y2', 'w', 'h');
 }
 
 function show_main_photo($chart_id) {

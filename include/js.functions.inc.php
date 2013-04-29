@@ -20,7 +20,7 @@ function javascript_submit ($form_name='formx', $action='', $hidden='', $value='
 
 }
 
-function activate_photo_cropper ($img_id, $img_name) {
+function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_name, $y2_name, $w_name, $h_name) {
   echo '<script type="text/javascript">
  
           function preview(img, selection) {
@@ -28,15 +28,22 @@ function activate_photo_cropper ($img_id, $img_name) {
                  var scaleY = 153 / (selection.height || 1);
   
                  $(\'img#preview_' . $img_id . '\').css({
+                     display: \'block\',
                      width: Math.round(scaleX * 114) + \'px\',
                      height: Math.round(scaleY * 153) + \'px\',
                      marginLeft: \'-\' + Math.round(scaleX * selection.x1) + \'px\',
                      marginTop: \'-\' + Math.round(scaleY * selection.y1) + \'px\'
                   });
+                  $(\'#' . $x1_name . '\').val(selection.x1);
+          	  $(\'#' . $y1_name . '\').val(selection.y1);
+	  	  $(\'#' . $x2_name . '\').val(selection.x2);
+	  	  $(\'#' . $y2_name . '\').val(selection.y2);
+	  	  $(\'#' . $w_name . '\').val(selection.width);
+	  	  $(\'#' . $h_name . '\').val(selection.height);
           }
 
           $(document).ready(function () {
-            $(\'<div><img id="preview_' . $img_id . '" src="img/user/' . $img_name . '" style="position: relative;" /><div>\')
+            $(\'<div><img id="preview_' . $img_id . '" src="img/user/' . $img_name . '" style="position: relative; display:none;" /><div>\')
                     .css({
                             top: \'50px\',
                             position: \'relative\',
@@ -52,6 +59,8 @@ function activate_photo_cropper ($img_id, $img_name) {
                  
             });
           });
+
+          
        </script>';
 }
 
