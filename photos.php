@@ -8,8 +8,14 @@ log_this_action (profile_action_photos(), viewed_basic_action());
 
 
     if ($unc_photos = uncropped_photos(get_my_user_id())) {
-      $photo_to_crop = mysql_fetch_array($unc_photos);
-      show_photo_cropper($photo_to_crop);
+      
+     
+        $photo_to_crop = mysql_fetch_array($unc_photos);
+        echo '<form action="." method="post" name="crop_photo_form">';
+          show_photo_cropper($photo_to_crop);
+          echo '<input type="hidden" name="imgPath" value="' . $photo_to_crop["picture"] . '"/>';
+        echo '</div>';
+      
     }
     else {
       echo '<div style="position:relative; top:3px">';

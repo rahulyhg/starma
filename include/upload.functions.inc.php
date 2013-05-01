@@ -1,4 +1,20 @@
 <?php
+function PROFILE_IMAGE_PATH() {
+  return "img/user/";
+}
+
+function THUMBNAIL_IMAGE_PATH() {
+  return "img/user/thumbnail/thumb_";
+}
+
+function COMPARE_IMAGE_PATH() {
+  return "img/user/compare/compare_";
+}
+
+function ORIGINAL_IMAGE_PATH() {
+  return "img/user/original/original_";
+}
+
 function maxWidth () {
   return 159;
 }
@@ -56,7 +72,47 @@ function upload_no_adjust ($file_id, $folder="", $types="") {
  
     $image->save($folder . $file_name);
     return array($file_name,$result);
-}  
+} 
+
+function resizeCroppedImage($image_name_to_be, $image, $width, $height, $start_width, $start_height, $scale){
+	list($imagewidth, $imageheight, $imageType) = getimagesize($image);
+	$imageType = image_type_to_mime_type($imageType);
+	
+	$newImageWidth = ceil($width * $scale);
+	$newImageHeight = ceil($height * $scale);
+	$newImage = imagecreatetruecolor($newImageWidth,$newImageHeight);
+	switch($imageType) {
+		case "image/gif":
+			$source=imagecreatefromgif($image); 
+			break;
+	    case "image/pjpeg":
+		case "image/jpeg":
+		case "image/jpg":
+			$source=imagecreatefromjpeg($image); 
+			break;
+	    case "image/png":
+		case "image/x-png":
+			$source=imagecreatefrompng($image); 
+			break;
+  	}
+	imagecopyresampled($newImage,$source,0,0,$start_width,$start_height,$newImageWidth,$newImageHeight,$width,$height);
+	switch($imageType) {
+		case "image/gif":
+	  		imagegif($newImage,$image_name_to_be); 
+			break;
+      	case "image/pjpeg":
+		case "image/jpeg":
+		case "image/jpg":
+	  		imagejpeg($newImage,$image_name_to_be,90); 
+			break;
+		case "image/png":
+		case "image/x-png":
+			imagepng($newImage,$image_name_to_be);  
+			break;
+    }
+    chmod($image_name_to_be, 0777);
+    return $image_name_to_be;
+} 
 
 function upload($file_id, $folder="", $types="") {
     if(!$_FILES[$file_id]['name']) return array('','No file specified');
