@@ -6,8 +6,12 @@ if (login_check_point($type="full", $domain=$domain)) {
 $error=0;
 
   if($_FILES['image']['name'] && num_my_photos() < max_photos()) {
-	list($file,$error) = upload('image',ORIGINAL_IMAGE_PATH(),'jpeg,gif,png,jpg');
-	if($error) print $error;
+	list($file,$error) = upload_no_adjust('image',ORIGINAL_IMAGE_PATH(),'jpeg,gif,png,jpg');
+	if($error) {
+           print $error;
+           
+        }
+        
         if (!associate_photo_with_me($file)) {
           $error = 1; 
           //LOG THE UPLOAD, BUT INDICATE THAT IT COULDNT BE ASSOCIATED

@@ -21,6 +21,9 @@ function javascript_submit ($form_name='formx', $action='', $hidden='', $value='
 }
 
 function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_name, $y2_name, $w_name, $h_name) {
+  $image = new SimpleImage();
+  $image->load(ORIGINAL_IMAGE_PATH() . $img_name);
+  
   echo '<script type="text/javascript">
  
           function preview(img, selection) {
@@ -29,8 +32,8 @@ function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_nam
   
                  $(\'img#preview_' . $img_id . '\').css({
                      display: \'block\',
-                     width: Math.round(scaleX * 114) + \'px\',
-                     height: Math.round(scaleY * 153) + \'px\',
+                     width: Math.round(scaleX * ' . $image->getWidth() . ') + \'px\',
+                     height: Math.round(scaleY * ' . $image->getHeight() . ') + \'px\',
                      marginLeft: \'-\' + Math.round(scaleX * selection.x1) + \'px\',
                      marginTop: \'-\' + Math.round(scaleY * selection.y1) + \'px\'
                   });
@@ -43,10 +46,11 @@ function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_nam
           }
 
           $(document).ready(function () {
-            $(\'<div><img id="preview_' . $img_id . '" src="img/user/' . $img_name . '" style="position: relative; display:none;" /><div>\')
+            $(\'<div><img id="preview_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '" style="position: relative; display:none;" /><div>\')
                     .css({
-                            top: \'50px\',
-                            position: \'relative\',
+                            top: \'10px\',
+                            right: \'10px\',
+                            position: \'absolute\',
                             overflow: \'hidden\',
                             width: \'153px\',
                             height: \'153px\'

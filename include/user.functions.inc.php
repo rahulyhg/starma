@@ -537,6 +537,7 @@ function delete_photo ($photo_id, $user_id) {
       unlink('img/user/' . $file_name);
       unlink('img/user/thumbnail/thumb_' . $file_name);
       unlink('img/user/compare/compare_' . $file_name);
+      unlink('img/user/original/original_' . $file_name);
       return true;
     }
     else {
@@ -643,6 +644,17 @@ function associate_photo_with_user($pic_name, $user_id) {
 function uncropped_photos($user_id) {
   if (isLoggedIn()) {
     $q = "SELECT * from user_picture where user_id = " . $user_id . " and uncropped = 1";
+    $result = mysql_query($q) or die(mysql_error());
+    return $result;    
+  }
+  else {
+    return false;
+  }
+}
+
+function set_photo_cropped_status($user_pic_id, $user_id, $uncropped) {
+  if (isLoggedIn()) {
+    $q = "UPDATE user_picture set uncropped = " . $uncropped . " where user_id = " . $user_id . " and user_pic_id = " . $user_pic_id;
     $result = mysql_query($q) or die(mysql_error());
     return $result;    
   }

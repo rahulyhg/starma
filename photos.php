@@ -6,14 +6,13 @@ if (login_check_point($type="full", $domain=$domain)) {
 
 log_this_action (profile_action_photos(), viewed_basic_action());
 
-
-    if ($unc_photos = uncropped_photos(get_my_user_id())) {
-      
-     
-        $photo_to_crop = mysql_fetch_array($unc_photos);
-        echo '<form action="." method="post" name="crop_photo_form">';
+    $unc_photos = uncropped_photos(get_my_user_id());
+    if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
+        
+        echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
           show_photo_cropper($photo_to_crop);
-          echo '<input type="hidden" name="imgPath" value="' . $photo_to_crop["picture"] . '"/>';
+          echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
+          echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
         echo '</div>';
       
     }

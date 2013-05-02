@@ -15,6 +15,14 @@ function ORIGINAL_IMAGE_PATH() {
   return "img/user/original/original_";
 }
 
+function maxWidth_original () {
+  return 600;
+}
+ 
+function maxHeight_original () {
+  return 600;
+}
+
 function maxWidth () {
   return 159;
 }
@@ -61,7 +69,7 @@ function upload_no_adjust ($file_id, $folder="", $types="") {
     }
 
     //Where the file must be uploaded to
-    if($folder) $folder .= '/';//Add a '/' at the end of the folder
+    //if($folder) $folder .= '/';//Add a '/' at the end of the folder
     
 
     $image = new SimpleImage();
@@ -69,7 +77,20 @@ function upload_no_adjust ($file_id, $folder="", $types="") {
     
     $image->load($_FILES[$file_id]['tmp_name']);
     
- 
+    //echo $folder . $file_name;
+    //die();
+
+    if ($image->getWidth() != maxWidth_original())
+    {
+      $image->resizeToWidth(maxWidth_original());
+       
+    }
+    if ($image->getHeight() > maxHeight_original())
+    {
+      $image->resizeToHeight(maxHeight_original());
+      
+    }
+
     $image->save($folder . $file_name);
     return array($file_name,$result);
 } 
@@ -77,7 +98,6 @@ function upload_no_adjust ($file_id, $folder="", $types="") {
 function resizeCroppedImage($image_name_to_be, $image, $width, $height, $start_width, $start_height, $scale){
 	list($imagewidth, $imageheight, $imageType) = getimagesize($image);
 	$imageType = image_type_to_mime_type($imageType);
-	
 	$newImageWidth = ceil($width * $scale);
 	$newImageHeight = ceil($height * $scale);
 	$newImage = imagecreatetruecolor($newImageWidth,$newImageHeight);
@@ -98,21 +118,27 @@ function resizeCroppedImage($image_name_to_be, $image, $width, $height, $start_w
 	imagecopyresampled($newImage,$source,0,0,$start_width,$start_height,$newImageWidth,$newImageHeight,$width,$height);
 	switch($imageType) {
 		case "image/gif":
+                        
 	  		imagegif($newImage,$image_name_to_be); 
 			break;
       	case "image/pjpeg":
 		case "image/jpeg":
 		case "image/jpg":
+                         
 	  		imagejpeg($newImage,$image_name_to_be,90); 
 			break;
 		case "image/png":
 		case "image/x-png":
+                        
 			imagepng($newImage,$image_name_to_be);  
 			break;
     }
     chmod($image_name_to_be, 0777);
     return $image_name_to_be;
 } 
+
+
+/******* THIS FUNCTION IS DEPRECATED ****************/
 
 function upload($file_id, $folder="", $types="") {
     if(!$_FILES[$file_id]['name']) return array('','No file specified');
@@ -233,6 +259,8 @@ function upload($file_id, $folder="", $types="") {
 
     return array($file_name,$result);
 }  
+
+/******* END DEPRECATED FUNCTION ****************/
 
 class SimpleImage {
  
