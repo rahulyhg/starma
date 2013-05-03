@@ -48,7 +48,7 @@ function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_nam
           $(document).ready(function () {
             $(\'<div><img id="preview_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '" style="position: relative; display:none;" /><div>\')
                     .css({
-                            top: \'10px\',
+                            top: \'53px\',
                             right: \'10px\',
                             position: \'absolute\',
                             overflow: \'hidden\',
@@ -59,7 +59,7 @@ function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_nam
 
 
             $(\'img#photo_crop_' . $img_id . '\').imgAreaSelect({
-                 aspectRatio: \'1:1\', onSelectChange: preview
+                 aspectRatio: \'1:1\', onInit: preview, onSelectChange: preview, handles:true,x1:0,y1:0,x2:250,y2:250
                  
             });
           });

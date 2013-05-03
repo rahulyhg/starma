@@ -1,234 +1,1 @@
-#main_photo {
-   
-   height:153px;
-   width:159px;
-   text-align:center;
-   vertical-align:middle;
-   display:table-cell;
-   background-color:black
-  
-}
-
-#photo_error {
-  bottom: 280px;
-    color: red;
-    left: 270px;
-    position: relative;
-    width: 500px;
-}
-
-#border_wrapper {
-    z-index:1;   
-   /*height:240px;
-   width:248px;*/
-   height:171px;
-   width:177px;
-   display:table-cell;
-   border-spacing:9px 8px;
-   background: url("/img/Starma-Astrology-Profile-Pic-Frame.png") no-repeat scroll 0 0;
-   background-color:#D3DBF6;
-
-}
-
-#main_photo_box {
-  position:relative;
-  height:171px;
-  width:177px;
-}
-
-#main_photo img {
-  /*height:200px;
-  width:200px;*/
- 
-  
-}
-
-#my_photos {
-  min-height:100px;
-  width:775px;
-  position:relative;
-  bottom:100px;
-  border-spacing:5px;
-}
-
-#my_photos .delete_grid_photo {
-  background-color: #CCCCCC;
-    border: 1px solid black;
-    border-radius: 5px 5px 5px 5px;
-    font-size: 0.6em;
-    height: 15px;
-    margin: 5px auto auto;
-    text-align: center;
-    width: 34px;
-}
-
-
-#my_photos .delete_grid_photo a {
-    color: red;
-    line-height: 15px;
-}
-
-#my_photos .grid_photo_wrapper {
-    border-spacing: 0;
-    display: inline-block;
-    height: 90px;
-    padding: 2px;
-    vertical-align: top;
-    width: 80px;
-}
-
-
-#my_photos .grid_photo_wrapper .grid_photo_border_wrapper, #inbox_user_list .grid_photo_border_wrapper {
-    background: url("/img/Starma-Astrology-Profile-Pic-Small-Frame.png") no-repeat scroll 0 0 #D3DBF6;
-    border-spacing: 6px 5px;
-    display: table-cell;
-    height: 73px;
-    width: 80px;
-    z-index: 1;
-}
-
-
-#my_photos .grid_photo_wrapper_link {
-    border-spacing: 0;
-    display: inline-block;
-    height: 100px;
-    padding: 2px;
-    width: 80px;
-    vertical-align:top;
-}
-
-#my_photos .grid_photo_wrapper_link .grid_photo_border_wrapper {
-    background: url("/img/Starma-Astrology-Profile-Pic-Small-Frame.png") no-repeat scroll 0 0 #D3DBF6;
-    border-spacing: 6px 5px;
-    display: table-cell;
-    height: 73px;
-    width: 80px;
-    z-index: 1;
-}
-
-#my_photos .grid_photo, #inbox_user_list .grid_photo {
-  /*height:50px;
-  width:50px;*/
-  height:63px;
-  width:68px;
-  text-align:center;
-  vertical-align:middle;
-   display:table-cell;
-  background-color:#000000;
-  border-spacing:0px;
- 
-}
-
-
-
-#my_photos .grid_photo_wrapper .profile_mouseover {
-  display:none;
-  
-}
-
-
-
-#my_photos .grid_photo_wrapper .profile_mouseover .grid_photo, .photo_border_wrapper_compare {
-  width:133px;
-  height:123px;
-  white-space:nowrap;
-}
-
-
-#my_photos .grid_photo_wrapper:hover .profile_tiny {
-  display:none;
-  
-}
-
-#my_photos .grid_photo_wrapper:hover .profile_mouseover {
-  display:table-cell;
-
-}
-
-#my_photos .grid_photo_wrapper:hover {
-  width:147px;
- 
-}
-
-
-#my_photos .grid_photo_wrapper .grid_photo_border_wrapper.profile_mouseover, .photo_border_wrapper_compare {
-    background: url("/img/Starma-Astrology-Compatibility-Pic-Frame.png") no-repeat scroll 0 0 #D3DBF6;
-    border-spacing: 7px 6px;
-    height: 136px;
-    width: 147px;
-}
-
-#my_photos .grid_photo img{
-
- border:0px; 
- /*height:50px;
-  width:50px;*/
-}
-
-
-#upload_photo_form {
-   bottom: 175px;
-    display: inline-block;
-    left: 200px;
-    position: relative;
-    right: 0;
-}
-
-.user_button {
-  height:123px;
-  width:133px;
-  position:relative;
-  vertical-align:middle;
-  display:table-cell;
-  vertical-align:middle;
-  text-align:center;
-  background:black;
-  z-index:1;
-}
-
-.user_button img{
-  
-  border:0px;
-}
-
-
-#all_users {
-  min-height:626px;
-  width:710px;
-  position:relative;
-  top:3px;
-  margin:auto;
-}
-
-#all_users .user_block {
-  border-spacing:20px;
-  position:relative;
-  height:153px;
-  position:relative;
-  display:inline-block;
-  text-align:center;
-  line-height:0.8em;
-  padding:15px;
-  padding-top:30px;
-  bottom:15px;
-  vertical-align:bottom;
-}
-
-#all_users .user_block .user_button {
-  
-}
-
-#all_users .user_block .user_button img{
-  
-}
-
-#all_users .user_block .user_info{
-  background-color:white;
-  border:1px solid black;
-  position:relative;
-  left:20px;
-  bottom:20px;
-  width:133px;
-  
-}
-
+#main_photo {      height:153px;   width:159px;   text-align:center;   vertical-align:middle;   display:table-cell;   background-color:black  }#photo_error {  bottom: 280px;    color: red;    left: 270px;    position: relative;    width: 500px;}#border_wrapper {    z-index:1;      /*height:240px;   width:248px;*/   height:171px;   width:177px;   display:table-cell;   border-spacing:9px 8px;   background: url("/img/Starma-Astrology-Profile-Pic-Frame.png") no-repeat scroll 0 0;   background-color:#D3DBF6;}#main_photo_box {  position:relative;  height:171px;  width:177px;}#main_photo img {  /*height:200px;  width:200px;*/   }#my_photos {  min-height:100px;  width:775px;  position:relative;  bottom:100px;  border-spacing:5px;}#my_photos .delete_grid_photo {  background-color: #CCCCCC;    border: 1px solid black;    border-radius: 5px 5px 5px 5px;    font-size: 0.6em;    height: 15px;    margin: 5px auto auto;    text-align: center;    width: 34px;}#my_photos .delete_grid_photo a {    color: red;    line-height: 15px;}#my_photos .grid_photo_wrapper {    border-spacing: 0;    display: inline-block;    height: 90px;    padding: 2px;    vertical-align: top;    width: 80px;}#my_photos .grid_photo_wrapper .grid_photo_border_wrapper, #inbox_user_list .grid_photo_border_wrapper {    background: url("/img/Starma-Astrology-Profile-Pic-Small-Frame.png") no-repeat scroll 0 0 #D3DBF6;    border-spacing: 6px 5px;    display: table-cell;    height: 73px;    width: 80px;    z-index: 1;}#my_photos .grid_photo_wrapper_link {    border-spacing: 0;    display: inline-block;    height: 100px;    padding: 2px;    width: 80px;    vertical-align:top;}#my_photos .grid_photo_wrapper_link .grid_photo_border_wrapper {    background: url("/img/Starma-Astrology-Profile-Pic-Small-Frame.png") no-repeat scroll 0 0 #D3DBF6;    border-spacing: 6px 5px;    display: table-cell;    height: 73px;    width: 80px;    z-index: 1;}#my_photos .grid_photo, #inbox_user_list .grid_photo {  /*height:50px;  width:50px;*/  height:63px;  width:68px;  text-align:center;  vertical-align:middle;   display:table-cell;  background-color:#000000;  border-spacing:0px; }#my_photos .grid_photo_wrapper .profile_mouseover {  display:none;  }#my_photos .grid_photo_wrapper .profile_mouseover .grid_photo, .photo_border_wrapper_compare {  width:133px;  height:123px;  white-space:nowrap;}#my_photos .grid_photo_wrapper:hover .profile_tiny {  display:none;  }#my_photos .grid_photo_wrapper:hover .profile_mouseover {  display:table-cell;}#my_photos .grid_photo_wrapper:hover {  width:147px; }#my_photos .grid_photo_wrapper .grid_photo_border_wrapper.profile_mouseover, .photo_border_wrapper_compare {    background: url("/img/Starma-Astrology-Compatibility-Pic-Frame.png") no-repeat scroll 0 0 #D3DBF6;    border-spacing: 7px 6px;    height: 136px;    width: 147px;}#my_photos .grid_photo img{ border:0px;  /*height:50px;  width:50px;*/}#upload_photo_form {   bottom: 175px;    display: inline-block;    left: 200px;    position: relative;    right: 0;}.user_button {  height:123px;  width:133px;  position:relative;  vertical-align:middle;  display:table-cell;  vertical-align:middle;  text-align:center;  background:black;  z-index:1;}.user_button img{    border:0px;}#all_users {  min-height:626px;  width:710px;  position:relative;  top:3px;  margin:auto;}#all_users .user_block {  border-spacing:20px;  position:relative;  height:153px;  position:relative;  display:inline-block;  text-align:center;  line-height:0.8em;  padding:15px;  padding-top:30px;  bottom:15px;  vertical-align:bottom;}#all_users .user_block .user_button {  }#all_users .user_block .user_button img{  }#all_users .user_block .user_info{  background-color:white;  border:1px solid black;  position:relative;  left:20px;  bottom:20px;  width:133px;  }#photo_cropper {  padding:20px;}
