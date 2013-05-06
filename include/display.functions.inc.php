@@ -621,8 +621,10 @@ function show_photo_cropper($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];
   $img_name = $photo_to_crop["picture"];
   echo '<div id="photo_cropping_area">';
-    echo '<img id="photo_crop_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '">';
-    echo '<input style="position:absolute; top:212px; right:10px;" type="submit" name="submit" value="Crop Photo"/>';
+    echo '<img id="photo_crop_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '?' . time() . '">';
+    echo '<input style="position: absolute; right: 35px; top: 240px;" type="submit" name="submit" value="Crop and Set"/>';
+    echo '<input style="position:absolute; top:212px; right:85px;" type="submit" name="submit" value="<- Rotate"/>';
+    echo '<input style="position:absolute; top:212px; right:10px;" type="submit" name="submit" value="Rotate ->"/>';
     echo '<input type="hidden" name="x1" id="x1" value=""/>';
     echo '<input type="hidden" name="y1" id="y1" value=""/>';
     echo '<input type="hidden" name="x2" id="x2" value=""/>';

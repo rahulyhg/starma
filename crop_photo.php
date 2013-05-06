@@ -5,9 +5,12 @@ require_once ("header.php");
 if (login_check_point($type="full", $domain=$domain)) {
   
   $error=0;
-  if (isset($_POST["submit"])) { // IF A PHOTO HAS BEEN CROPPED AND POSTED IN
-        $imgName = $_POST["imgName"];
-        $imgPath = ORIGINAL_IMAGE_PATH() . $imgName;
+  if (isset($_POST["submit"])) { 
+     
+     $imgName = $_POST["imgName"];
+     $imgPath = ORIGINAL_IMAGE_PATH() . $imgName;
+
+     if ($_POST["submit"] == "Crop and Set") { // IF A PHOTO HAS BEEN CROPPED AND POSTED IN
         $x1 = $_POST["x1"];
 	$y1 = $_POST["y1"];
 	$x2 = $_POST["x2"];
@@ -22,7 +25,19 @@ if (login_check_point($type="full", $domain=$domain)) {
 
         //associate_photo_with_user($imgName, get_my_user_id());
         set_photo_cropped_status($_POST["imgID"], get_my_user_id(), 0); 
+     }
+     elseif ($_POST["submit"] == "<- Rotate") { // IF PHOTO NEEDS TO BE ROTATED LEFT
         
+        if (!rotateImage($imgPath, $imgPath, 90)) {
+          $error = 1;
+        }
+     }
+     elseif ($_POST["submit"] == "Rotate ->") {  // IF PHOTO NEEDS TO BE ROTATED RIGHT
+        if (!rotateImage($imgPath, $imgPath, 270)) {
+          $error = 1;
+        }
+
+     }         
   }
 
   if ($error == 0) {

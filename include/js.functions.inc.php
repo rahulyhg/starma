@@ -46,7 +46,7 @@ function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_nam
           }
 
           $(document).ready(function () {
-            $(\'<div><img id="preview_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '" style="position: relative; display:none;" /><div>\')
+            $(\'<div><img id="preview_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '?' . time() . '" style="position: relative; display:none;" /><div>\')
                     .css({
                             top: \'53px\',
                             right: \'10px\',
