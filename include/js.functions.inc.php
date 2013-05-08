@@ -24,6 +24,31 @@ function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_nam
   $image = new SimpleImage();
   $image->load(ORIGINAL_IMAGE_PATH() . $img_name);
   
+  if (check_user_agent ( $type = 'mobile' )) {
+    $persistent = 'true';
+    $resizable = 'false';
+    if ($image->getWidth() >= $image->getHeight()) {
+      $initStartX = round (($image->getWidth() - $image->getHeight()) / 2);
+      $initStartY = 0;
+      $initSizeX = $image->getHeight() + $initStartX;
+      $initSizeY = $image->getHeight();
+    }
+    else {
+      $initStartX = 0;
+      $initStartY = 0;
+      $initSizeX = $image->getWidth();
+      $initSizeY = $image->getWidth();
+    }
+  }
+  else {
+    $initStartX = 0;
+    $initStartY = 0;
+    $initSizeX = 250;
+    $initSizeY = 250;
+    $persistent = 'false';
+    $resizable = 'true';
+  }
+
   echo '<script type="text/javascript">
  
           function preview(img, selection) {
@@ -59,7 +84,7 @@ function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_nam
 
 
             $(\'img#photo_crop_' . $img_id . '\').imgAreaSelect({
-                 aspectRatio: \'1:1\', onInit: preview, onSelectChange: preview, handles:true,x1:0,y1:0,x2:250,y2:250
+                 persistent: ' . $persistent . ', resizable: ' . $resizable . ', aspectRatio: \'1:1\', onInit: preview, onSelectChange: preview, handles:true,x1:' . $initStartX . ',y1:' . $initStartY . ',x2:' . $initSizeX . ',y2:' . $initSizeY . '
                  
             });
           });
