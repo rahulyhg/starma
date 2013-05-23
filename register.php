@@ -7,8 +7,14 @@ require_once "header.php";
 <?php
 if (isset($_POST['register'])){
 
-        //$output = registerNewUser($_POST['nickname'], $_POST['password'], $_POST['password2'], $_POST['email'], $_POST['email2'], $_POST['year_birthday'], $_POST['month_birthday'], $_POST['day_birthday'], $_POST['token']);
-        $output = validate_registration($_POST['nickname'], $_POST['password'], $_POST['password'], $_POST['email'], $_POST['email2'], $_POST['year_birthday'], $_POST['month_birthday'], $_POST['day_birthday'], $_POST['token']);
+        
+        if (isset($_POST["agreement"])) {
+          $agreement = 'plegalblot7';
+        }
+        else {
+          $agreement = 'frizz';
+        }
+        $output = validate_registration($_POST['nickname'], $_POST['password'], $_POST['password'], $_POST['email'], $_POST['email2'], $_POST['year_birthday'], $_POST['month_birthday'], $_POST['day_birthday'], $agreement);
       
         if (sizeof($output) <= 1)        
         {

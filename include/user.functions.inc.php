@@ -1682,13 +1682,13 @@ function activateUser($uid, $actcode)
 }
  
 
-function registerNewUser($nickname, $password, $password2, $email, $email2, $year, $month, $day, $token)
+function registerNewUser($nickname, $password, $password2, $email, $email2, $year, $month, $day, $agreement)
 {
  
     global $seed;
         
     
-    $errors = validate_registration($nickname, $password, $password2, $email, $email2, $year, $month, $day, $token);
+    $errors = validate_registration($nickname, $password, $password2, $email, $email2, $year, $month, $day, $agreement);
 
     if (sizeof($errors) > 1)
     {
@@ -1698,7 +1698,8 @@ function registerNewUser($nickname, $password, $password2, $email, $email2, $yea
     }
 
     $birthday = strtotime($year . "-" . $month . "-" . $day);
-    $token_id = token_valid($token);   
+    
+    //$token_id = token_valid($token);   
 
     $errors = array(); 
     
@@ -1711,7 +1712,8 @@ function registerNewUser($nickname, $password, $password2, $email, $email2, $yea
     if (mysql_query($sql))
     {
         $id = mysql_insert_id();
-        use_token ($token_id, $id); 
+        //use_token ($token_id, $id); 
+
         $errors[] = $id;
         if (sendActivationEmail($email, $nickname, $password, $id, $code))
         {

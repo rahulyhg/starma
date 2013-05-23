@@ -249,27 +249,27 @@ bottom: 280px;
 }
 
 #username_error {  
-  bottom:531px;
+  bottom:556px;
 }
 
 #date_error {  
-  bottom:516px;
+  bottom:541px;
 }
 
 #user_exists_error {  
-  bottom:578px;
+  bottom:603px;
 }
 
 #email_error {  
-  bottom:528px;
+  bottom:553px;
 }
 
 #email_no_match_error {  
-  bottom:521px;
+  bottom:546px;
 }
 
 #password_error {  
-  bottom:516px;
+  bottom:541px;
 }
 
 #token_error {  
@@ -282,6 +282,16 @@ bottom: 280px;
   width:135px;
 }
 
+#terms_error{
+  bottom: 456px;
+    color: red;
+    display: block;
+    font-size: 0.7em;
+    left: 525px;
+    position: relative;
+    width: 300px;
+    z-index: 1;
+}
 
 #register #create_account {
   top:85px;
@@ -413,13 +423,15 @@ bottom: 280px;
   z-index:1;
 }
 
-/*
-#register #agreement_box {
+
+#register #register_form #agreement_box {
   text-align:left;
   font-size:0.7em;
+  left:190px;
+  bottom:25px;
 }
 
-#register #agreement_box input {
+#register #register_form #agreement_box input {
   display:inline;
   float:left;
   position:relative;
@@ -427,7 +439,12 @@ bottom: 280px;
   left:0px;
   width:20px;
 }
-*/
+
+#register #agreement_box div {
+  display: inline-block;
+    left: 5px;
+    width: 300px;
+}
 
 #agreement {
   position:relative;

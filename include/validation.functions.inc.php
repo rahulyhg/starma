@@ -80,7 +80,7 @@ function valid_photo($photo_id, $user_id) {
   return mysql_num_rows($result) >= 1;
 }
 
-
+/*
 function get_domain () {
   return 'starma.com';
 }
@@ -96,10 +96,10 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: https://www.' . $url);
 }
-
+*/
 
 /**********************BEGIN DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
-/*
+
 
 function get_domain () {
   return '127.0.0.1:8080';
@@ -118,10 +118,10 @@ function do_redirect ($url) {
   header( 'Location: http://' . $url);
 }
 
-*/
+
 /**********************END DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
-function validate_registration ($nickname, $password, $password2, $email, $email2, $year, $month, $day, $token) {
+function validate_registration ($nickname, $password, $password2, $email, $email2, $year, $month, $day, $checked) {
     $errors = array();
     
     //the first entry in the error array is reserved for a returned ID of a successful registration
@@ -158,8 +158,14 @@ function validate_registration ($nickname, $password, $password2, $email, $email
       $errors[] = DATE_ERROR();
     }
   
-    if (!($token_id = token_valid($token))) {
-      $errors[] = TOKEN_ERROR();
+    //if (!($token_id = token_valid($token))) {
+    //  $errors[] = TOKEN_ERROR();
+    //}
+    //echo $checked;
+    //die();
+
+    if (!($checked == 'plegalblot7')) {
+      $errors[] = TERMS_ERROR();
     }
     //echo $year . "-" . $month . "-" . $day;
     //echo date("m-d-Y",$birthday);

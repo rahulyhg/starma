@@ -3712,21 +3712,14 @@ function show_registration_form($output=array(-1)){
     <div id="password_input"><input name="password" type="password" id="password" maxlength="15"></div>
     
 <!---
-  <dl> 
-    <dt><label for="password2">Re-type password</label></dt> 
-    <dd><input name="password2" type="password" id="password2" maxlength="15">
-    </dd> 
-  </dl>
---->
     <div id="token_title" class="reg_title">token</div>
     <div id="token_input"><input name="token" type="text" id="token"></div>
-    
-<!---   
-    <div id="agreement_box">
-      <input type="checkbox" name="agreement"/>
-      I agree to the Starma.com Trial User Agreement
-    </div>
 --->
+     
+    <div id="agreement_box">
+      <input type="checkbox" name="agreement" value="1"/>
+      <div>I have read and agree to the Terms of Use and Privacy Policy for Starma.com, and I certify that I am at least 18 years old.</div>
+    </div>
 
     <div id="reset_button_div"> 
       <input id="reset_button" name="reset" type="reset" value="Reset Form"> 
@@ -3784,11 +3777,17 @@ function show_registration_errors($output) {
       echo 'Invalid or Empty Password';
       echo '</div>';
  
-      echo '<div';
-      if (!in_array(TOKEN_ERROR(), $output)) {echo ' class="hidden_error"';}
-      echo ' id="token_error">';
-      echo 'Invalid Token';
-      echo '</div>';
+     # echo '<div';
+     # if (!in_array(TOKEN_ERROR(), $output)) {echo ' class="hidden_error"';}
+     # echo ' id="token_error">';
+     # echo 'Invalid Token';
+     # echo '</div>';
+
+       echo '<div';
+       if (!in_array(TERMS_ERROR(), $output)) {echo ' class="hidden_error"';}
+       echo ' id="terms_error">';
+       echo 'You must indicate that you agree to the above terms';
+       echo '</div>';
  
            //echo "Registration failed! Please try again.";
            //print_r($output);
