@@ -23,7 +23,3 @@ if (activateUser($uid, $actcode) == true)
  
 ?>
 </div</div>
-
-<?php
-require_once "footer.php";
-?> 
