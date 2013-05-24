@@ -6,6 +6,7 @@ require_once "header.php";
 </div>
 <?php
 $validated = false;
+$output = array();
 if (isset($_POST['register'])){
 
         
@@ -22,10 +23,10 @@ if (isset($_POST['register'])){
                 //include ("agreement.php");        
                 $validated = true;
 	}
-        else {
+        //else {
                 
-		show_registration_form($output); 
-	}
+	//	show_registration_form($output); 
+	//}
  
 } 
 //elseif (isset ($_POST['agreed'])){
@@ -50,10 +51,9 @@ if ($validated) {
   //  do_redirect (get_domain() . '/' . get_landing());
   //}
 }
-//else {
-// has not pressed the register button
-//	show_registration_form();	
-//}
+else {
+	show_registration_form($output);	
+}
  
 
 ?> 
