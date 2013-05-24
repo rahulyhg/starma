@@ -256,20 +256,24 @@ bottom: 280px;
   bottom:541px;
 }
 
+#underage_error {  
+  bottom:564px;
+}
+
 #user_exists_error {  
-  bottom:603px;
+  bottom:626px;
 }
 
 #email_error {  
-  bottom:553px;
+  bottom:576px;
 }
 
 #email_no_match_error {  
-  bottom:546px;
+  bottom:569px;
 }
 
 #password_error {  
-  bottom:541px;
+  bottom:564px;
 }
 
 #token_error {  
@@ -283,7 +287,7 @@ bottom: 280px;
 }
 
 #terms_error{
-  bottom: 456px;
+  bottom: 479px;
     color: red;
     display: block;
     font-size: 0.7em;

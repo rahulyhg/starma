@@ -5,6 +5,7 @@ require_once "header.php";
   <img src="/img/account_info/Starma-Astrology-Space-BugHover.png"/>  
 </div>
 <?php
+$validated = false;
 if (isset($_POST['register'])){
 
         
@@ -18,7 +19,8 @@ if (isset($_POST['register'])){
       
         if (sizeof($output) <= 1)        
         {
-                include ("agreement.php");        
+                //include ("agreement.php");        
+                $validated = true;
 	}
         else {
                 
@@ -26,9 +28,10 @@ if (isset($_POST['register'])){
 	}
  
 } 
-elseif (isset ($_POST['agreed'])){
-  if ($_POST['agreed'] == 'Accept') {
-    $output = registerNewUser($_POST['nickname'], $_POST['password'], $_POST['password2'], $_POST['email'], $_POST['email2'], $_POST['year_birthday'], $_POST['month_birthday'], $_POST['day_birthday'], $_POST['token']);
+//elseif (isset ($_POST['agreed'])){
+if ($validated) {
+  //if ($_POST['agreed'] == 'Accept') {
+    $output = registerNewUser($_POST['nickname'], $_POST['password'], $_POST['password'], $_POST['email'], $_POST['email2'], $_POST['year_birthday'], $_POST['month_birthday'], $_POST['day_birthday'], $agreement);
     if (sizeof($output) <= 1)        
     {
           log_this_action (account_action_user(), registered_basic_action(), -1, -1, -1, $output[0]);
@@ -42,10 +45,10 @@ elseif (isset ($_POST['agreed'])){
 	show_registration_form($output); 
     }
     
-  }
-  else {
-    do_redirect (get_domain() . '/' . get_landing());
-  }
+  //}
+  //else {
+  //  do_redirect (get_domain() . '/' . get_landing());
+  //}
 }
 else {
 // has not pressed the register button

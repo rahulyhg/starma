@@ -35,6 +35,10 @@ function USER_EXISTS_ERROR() {
 function EMAIL_NO_MATCH_ERROR() {
   return 7;
 }
+
+function UNDERAGE_ERROR() {
+  return 8;
+}
     
 ### End Error Constants ###
 
@@ -80,7 +84,7 @@ function valid_photo($photo_id, $user_id) {
   return mysql_num_rows($result) >= 1;
 }
 
-/*
+
 function get_domain () {
   return 'starma.com';
 }
@@ -96,11 +100,11 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: https://www.' . $url);
 }
-*/
+
 
 /**********************BEGIN DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
-
+/*
 function get_domain () {
   return '127.0.0.1:8080';
   //return '192.168.1.141:8080';
@@ -117,7 +121,7 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: http://' . $url);
 }
-
+*/
 
 /**********************END DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
@@ -152,10 +156,19 @@ function validate_registration ($nickname, $password, $password2, $email, $email
       $errors[] = USER_EXISTS_ERROR();
     }
 
+    $birthday = $year . "-" . $month . "-" . $day;    
 
-
-    if (!($birthday = strtotime($year . "-" . $month . "-" . $day))) {
+    if (!(strtotime($birthday))) {
       $errors[] = DATE_ERROR();
+    }
+    elseif ((int)(calculate_age(substr((string)$birthday, 0, 10))) < 18) {
+      
+      
+        //echo substr((string)$birthday, 0, 10) . '<br>';
+        //echo (int)(calculate_age(substr((string)$birthday, 0, 10)));
+        //die();
+        $errors[] = UNDERAGE_ERROR();
+      
     }
   
     //if (!($token_id = token_valid($token))) {

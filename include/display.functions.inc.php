@@ -3718,7 +3718,7 @@ function show_registration_form($output=array(-1)){
      
     <div id="agreement_box">
       <input type="checkbox" name="agreement" value="1"/>
-      <div>I have read and agree to the Terms of Use and Privacy Policy for Starma.com, and I certify that I am at least 18 years old.</div>
+      <div>I have read and agree to the <a href="docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>
     </div>
 
     <div id="reset_button_div"> 
@@ -3752,11 +3752,17 @@ function show_registration_errors($output) {
       echo '" id="date_error">';
       echo 'Date is invalid';
       echo '</div>';
+
+      echo '<div class="error';
+      if (!in_array(UNDERAGE_ERROR(), $output)) {echo ' hidden_error';}
+      echo '" id="underage_error">';
+      echo 'You must be at least 18 years old';
+      echo '</div>';
  
       echo '<div class="error';
       if (!in_array(USER_EXISTS_ERROR(), $output)) {echo ' hidden_error';}
       echo '" id="user_exists_error">';
-      echo 'Nickname already taken';
+      echo 'Nickname or Email already in use';
       echo '</div>';
  
       echo '<div class="error';
