@@ -21,7 +21,7 @@ if (isLoggedIn())
 <div id="birth_info_first_time">
   
   <?php show_landing_logo();?>
-  <div class="title"><?php flare_title ("Congradulations!")?></div>
+  <div class="title"><?php flare_title ("Congratulations!")?></div>
   <div class="description">You've successfully created your account!<br>In order to read your Starma&#174; chart with more accuracy,<br>we will need your TIME & PLACE of birth.</div>
   <div class="bg" id="enter_info">
     <img src="img/account_info/Starma-Astrology-TimeandPlaceBoxes.png"/>

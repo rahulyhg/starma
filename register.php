@@ -50,10 +50,10 @@ if ($validated) {
   //  do_redirect (get_domain() . '/' . get_landing());
   //}
 }
-else {
+//else {
 // has not pressed the register button
-	show_registration_form();	
-}
+//	show_registration_form();	
+//}
  
 
 ?> 
