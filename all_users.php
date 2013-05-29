@@ -19,7 +19,7 @@ if ($tier == "1") {
   log_this_action (compare_action_all(), viewed_basic_action());
   echo '<div id="all_users">';
     echo '<div id="compare_header">';
-      flare_title ("All Users");
+      flare_title ("New to Starma");
     echo '</div>';
     echo '<div id="search_bar_div">';
       echo '<div id="search_bar_title">';
