@@ -21,7 +21,16 @@ if ($tier == "1") {
     echo '<div id="compare_header">';
       flare_title ("All Users");
     echo '</div>';
+    echo '<div id="search_bar_div">';
+      echo '<div id="search_bar_title">';
+        echo 'Search:';
+      echo '</div>';
+      echo '<div id="search_bar_input">';
+        echo '<input type="text" id="js_search_bar">';
+      echo '</div>';
+    echo '</div>';
     display_all_users($url="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&stage=2");
+    addJSSearchEvents("js_search_bar","filterAllUsers");
   echo '</div>';
   //display_my_chart_list();
 }

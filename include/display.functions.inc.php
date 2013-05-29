@@ -851,7 +851,7 @@ function get_left_menu ($the_page) {
     $menu['nav6'] = array('Biography&nbsp;&nbsp;','biography.php');
   }
   elseif ($the_page == 'cosel') {
-    $menu['nav1'] = array('All Users&nbsp;&nbsp;','all_users.php');
+    $menu['nav1'] = array('New to Starma&nbsp;&nbsp;','all_users.php');
     $menu['nav2'] = array('My Favorites&nbsp;&nbsp;','favorites.php');
     $menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
     $menu['nav4'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php');

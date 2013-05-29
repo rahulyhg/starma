@@ -35,6 +35,18 @@
                    //header("Content-type: application/json");
                  }
                  break;
+         case('filterAllUsers'):
+                 $filter = $_GET['filter'];
+                 $included_users = get_filtered_user_list_no_celeb ($filter, "include", 100);
+                 $excluded_users = get_filtered_user_list_no_celeb ($filter, "exclude", 100);
+                 while ($row = mysql_fetch_array($included_users)) {
+                   $log["users_in"][] = $row["user_id"]; 
+                 }
+                 while ($row = mysql_fetch_array($excluded_users)) {
+                   $log["users_out"][] = $row["user_id"]; 
+                 }
+                 break;
+        
          case('filterUsers'):
                  $filter = $_GET['filter'];
                  $included_users = get_filtered_user_list ($filter, "include");

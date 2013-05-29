@@ -841,7 +841,7 @@ function get_ruling_planet($chart_id) {
 function get_user_list () {
   
   if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" and permissions_id <> -1 ORDER BY nickname'; // where user_id = ' . $_SESSION["user_id"];
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" and permissions_id <> -1 ORDER BY user_id desc'; // where user_id = ' . $_SESSION["user_id"];
     
     if ($result = mysql_query($q)) {
       return $result;
@@ -896,7 +896,7 @@ function get_filtered_user_list_no_celeb ($filter, $type, $limit) {
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
-    $q = $q . sprintf('user.nickname like "%%%s%%" ORDER BY nickname LIMIT %s', mysql_real_escape_string($filter), $limit);
+    $q = $q . sprintf('user.nickname like "%%%s%%" ORDER BY user_id desc LIMIT %s', mysql_real_escape_string($filter), $limit);
     if ($result = mysql_query($q)) {
       return $result;
     }
