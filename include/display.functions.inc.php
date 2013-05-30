@@ -2327,12 +2327,12 @@ function show_my_chart ($goTo = ".", $western=0) {
   if ($chart_info) {
       $chart_id = $chart_info["chart_id"];
       if (!isset($_POST["poi_id"])) {
-        if (get_my_preferences("chart_more_info_flag", 1) == 0) { 
-          $poi_id = 1;
-        }
-        else {
-          $poi_id = 0;
-        }
+        #if (get_my_preferences("chart_more_info_flag", 1) == 0) { 
+        $poi_id = 1;
+        #}
+        #else {
+        #  $poi_id = 0;
+        #}
       }
       else {
         $poi_id = $_POST["poi_id"];
