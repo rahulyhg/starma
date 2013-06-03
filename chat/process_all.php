@@ -14,7 +14,7 @@
     switch($function) {
          case('run_zip'):
                  $zip = $_GET['zip'];
-                 if (!$log = geocode($zip, 'postalCodeSearch?placename')) {
+                 if (!$log = geocode($zip . ' US', 'postalCodeSearch?placename')) {
                     $log['title'] = ""; 
                  }
                  break;

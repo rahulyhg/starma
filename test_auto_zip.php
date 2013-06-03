@@ -9,7 +9,9 @@ require_once "header.php";
 <?php
 
 echo '<input type="text" id="zip" name="zip" value="" onkeyup="
-        if ($(\'#zip\').val().length >= 5) {
+        var intRegex = /^\d+$/;
+        
+        if ($(\'#zip\').val().length >= 5 && intRegex.test($(\'#zip\').val())) {
           $.ajax({
 		          type: \'GET\',
                           cache: false,
