@@ -12,6 +12,12 @@
     $log = array();
     
     switch($function) {
+         case('run_zip'):
+                 $zip = $_GET['zip'];
+                 if (!$log = geocode($zip, 'postalCodeSearch?placename')) {
+                    $log['title'] = ""; 
+                 }
+                 break;
          case('set_pref'):
                  $pref = $_GET['pref'];
                  $pref_name = $_GET['pref_name'];
