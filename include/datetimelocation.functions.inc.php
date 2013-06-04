@@ -512,6 +512,11 @@ function get_long_seconds ($coord) {
   
 }
 
+function get_country_list () {
+  $q = 'SELECT * from country';
+  $do_q = mysql_query ($q) or die(mysql_error());
+  return $do_q;  
+}
 
 
 

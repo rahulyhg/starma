@@ -924,6 +924,51 @@ function edit_profile_form ($user_id) {  // FOR ADMINS ONLY
   }
 }
 
+function show_gender_location_form ($errors = array(), $title="", $country_id, $action="birth_info_first_time.php") {
+  echo '<div id="gender_location_form_div">';
+    echo '<form id="gender_location_form" method="post" action=" . $action . ">';
+      echo '<div id="gender_div">';
+        echo 'gender: ';
+        gender_select ($the_gender="M", $the_name="gender");
+      echo '</div>';
+
+      echo '<div id="country_div">';
+        echo 'country: ';
+        country_select ($country_id=$country_id, $the_name="js_country_id");
+        //echo '<input id="my_thing" type="text"/>';
+      echo '</div>';
+      echo '<div id="js_city_div">';
+        echo 'city: ';
+        echo '<input type="text" name="title" value="' . $title . '"/>';
+      echo '</div>';
+
+      echo '<div id="js_zip_div">';
+        echo 'zip: ';
+        zipcode_input ($name="zip", $output_div="location_verification");
+        echo '<div id="location_verification">';
+        echo '</div>';
+      echo '</div>';
+    echo '</form>';
+  echo '</div>';
+
+  //Javascript handler for changing if you select a different country
+  echo '<script type="text/javascript">';
+    echo '$("select[name=js_country_id]").change(function(event) { 
+      //alert ("stuff");
+      if ($("select[name=js_country_id]").val() == "236") {
+        $("#js_zip_div").show();
+        
+        $("#js_city_div").hide();
+      }
+      else {
+        $("#js_zip_div").hide();
+        
+        $("#js_city_div").show();
+      }
+    })';
+  echo '</script>';
+}
+
 function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="cast_chart.php", $stage=1) {
   if (isset($_SESSION["change_info"])) {
     $type="mine";

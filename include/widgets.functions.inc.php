@@ -283,4 +283,19 @@ function gender_select ($the_gender, $the_name="gender") {
           echo '>Female</option>';
    echo '</select>';
 }
+
+function country_select ($country_id, $the_name="country_id") {
+  $country_list = get_country_list ();
+  echo '<select name="' . $the_name . '" >';
+  while ($country = mysql_fetch_array($country_list)) {
+    echo '<option value=' . $country["country_id"];
+    if ((string)$country["country_id"] == (string)$country_id) {
+      echo ' SELECTED';
+    }
+    
+    echo '>' . $country["country_title"] . '</option>';
+  }
+  echo '</select>';
+  
+}
 ?>
