@@ -926,13 +926,21 @@ function edit_profile_form ($user_id) {  // FOR ADMINS ONLY
 
 function show_gender_location_form ($errors = array(), $title="", $country_id, $action="birth_info_first_time.php") {
   echo '<div id="gender_location_form_div">';
-    echo '<form id="gender_location_form" method="post" action=" . $action . ">';
+      echo '<div id="img_div">';
+        echo '<img src="img/account_info/Starma-Astrology-GenderBox.png"/>';
+        echo '<img src="img/account_info/Starma-Astrology-CountryBox.png"/>';
+        echo '<img src="img/account_info/Starma-Astrology-ZipBox.png"/>';
+        echo '<form id="gender_location_form" method="post" action=" . $action . ">';
+      echo '</div>';
+      
       echo '<div id="gender_div">';
+        
         echo 'gender: ';
         gender_select ($the_gender="M", $the_name="gender");
       echo '</div>';
 
       echo '<div id="country_div">';
+       
         echo 'country: ';
         country_select ($country_id=$country_id, $the_name="js_country_id");
         //echo '<input id="my_thing" type="text"/>';

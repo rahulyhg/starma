@@ -620,6 +620,31 @@ li.my_unknown_button a {
 /*//////////////// MAIN PROFILE ///////////////////////////////////////*/
 
 
+#gender_location_form_div #js_city_div {
+  display:none;
+}
+
+#gender_location_form_div div {
+ 
+  position:relative;
+}
+
+#gender_location_form_div #img_div {
+   height: 160px;
+    position: relative;
+    width: 250px;
+   text-align:left;
+   margin:auto;
+}
+
+#gender_location_form_div img {
+   top:0px;
+}
+
+#gender_location_form_div #gender_div {
+  //background:url('/img/account_info/Starma-Astrology-GenderBox.png') no-repeat #8393CA scroll right;
+}
+
 
 
 

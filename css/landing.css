@@ -35,7 +35,7 @@
 }
 
 /****************LANDING PAGE****************************/
-#landing, #register, #birth_info_first_time {
+#landing, #register, #birth_info_first_time, #gender_location_first_time {
   width:1200px;
   height:890px;
   margin-left:auto;
@@ -43,30 +43,30 @@
   position:relative;
 }
 
-#landing .bg, #register .bg, #birth_info_first_time .bg {
+#landing .bg, #register .bg, #birth_info_first_time .bg, #gender_location_first_time .bg {
   position:relative;
   display:block;
 }
 
-#landing #logo, #register #logo, #birth_info_first_time #logo, #sign_in, #create_account, #enter_info {
+#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #sign_in, #create_account, #enter_info {
   margin-left:auto; 
   margin-right:auto
 }
 
-#landing #logo, #register #logo, #birth_info_first_time #logo {
+#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo {
   width:389px;
   height:132px;
   top:50px;
   
 }
 
-#landing #sign_in, #register #create_account, #birth_info_first_time #enter_info {
+#landing #sign_in, #register #create_account, #birth_info_first_time #enter_info, #gender_location_first_time #enter_info {
   width:700px;
   top:100px;
   text-align:center;
 }
 
-#landing #sign_in img, #register #create_account img, #birth_info_first_time #enter_info img {
+#landing #sign_in img, #register #create_account img, #birth_info_first_time #enter_info img, #gender_location_first_time #enter_info img {
  margin-right:auto;
  margin-left:auto;
 }
@@ -483,6 +483,12 @@ bottom: 280px;
   bottom:65px;
   left:335px;
 }
+/***************************GENDER AND LOCATION FIRST TIME PAGE ONLY**************************/
+#gender_location_first_time #enter_info {
+  margin:auto;
+}
+
+
 /***************************BIRTH INFO FIRST TIME PAGE ONLY**************************/
 #birth_info_first_time #submit_div {
   left:150px;
@@ -559,7 +565,7 @@ bottom: 280px;
   top:65px;
 }
 
-#birth_info_first_time .description {
+#birth_info_first_time .description, #gender_location_first_time .description {
   position:relative;
   width:500px;
   text-align:center;
