@@ -488,6 +488,13 @@ bottom: 280px;
   margin:auto;
 }
 
+#gender_location_first_time .title {
+  position:relative;
+  font-size:1.3em;
+  margin:auto;
+  top:65px;
+}
+
 
 /***************************BIRTH INFO FIRST TIME PAGE ONLY**************************/
 #birth_info_first_time #submit_div {

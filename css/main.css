@@ -619,6 +619,14 @@ li.my_unknown_button a {
 
 /*//////////////// MAIN PROFILE ///////////////////////////////////////*/
 
+#gender_location_form_div {
+  font-size:1.1em;
+}
+
+#gender_location_form_div select, #gender_location_form_div input {
+  font-size:0.7em;
+  border: 0;
+}
 
 #gender_location_form_div #js_city_div {
   display:none;
@@ -632,17 +640,87 @@ li.my_unknown_button a {
 #gender_location_form_div #img_div {
    height: 160px;
     position: relative;
-    width: 250px;
+    width: 350px;
    text-align:left;
    margin:auto;
+   left:65px;
 }
 
 #gender_location_form_div img {
    top:0px;
 }
 
+#gender_location_form_div img#gender_img {
+   right:7px;
+}
+
+#gender_location_form_div img#country_img, #gender_location_form_div img#zip_img {
+   top:37px;
+}
+
+#gender_location_form_div #input_divs {
+   position:relative;
+   bottom:150px;
+}
+
+#gender_location_form_div #current_location_text {
+  position: relative;
+    right: 17px;
+    top: 27px;
+}
+
 #gender_location_form_div #gender_div {
-  //background:url('/img/account_info/Starma-Astrology-GenderBox.png') no-repeat #8393CA scroll right;
+  right: 107px; 
+  
+}
+
+#gender_location_form_div #gender_div select {
+  left: 17px;
+  position:relative;
+}
+
+#gender_location_form_div #country_div {
+  right: 2px; 
+  top:44px;
+}
+
+#gender_location_form_div #country_div select {
+  left: 17px;
+  position:relative;
+}
+
+#gender_location_form_div #js_zip_div {
+  right: 55px;
+  top: 74px;
+}
+
+#gender_location_form_div #js_zip_div input {
+  left: 25px;
+  position:relative;
+}
+
+#gender_location_form_div #js_zip_div #location_verification {
+  font-weight: bold;
+    height: 25px;
+    left: 325px;
+    position: relative;
+    text-align: left;
+    top: 20px;
+}
+
+#gender_location_form_div #js_city_div {
+  right: 59px;
+  top: 74px;
+}
+
+#gender_location_form_div #js_city_div input {
+  left: 25px;
+  position:relative;
+}
+
+#gender_location_form_div #register_button_div {
+    left: 303px;
+    top: 60px;;
 }
 
 

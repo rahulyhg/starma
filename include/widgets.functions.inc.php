@@ -293,9 +293,28 @@ function country_select ($country_id, $the_name="country_id") {
       echo ' SELECTED';
     }
     
-    echo '>' . $country["country_title"] . '</option>';
+    //echo '>' . ucwords(strtolower($country["country_title"])) . '</option>';
+    echo '>' . format_country_name($name = $country["country_title"]) . '</option>';
   }
   echo '</select>';
   
+}
+
+function format_country_name ($name) {
+
+  $nocap = array("of", "the", "a", "or", "and");
+  $str_arr = explode(" ", $name);
+  $string = "";
+  foreach($str_arr as $word) {
+    $word = strtolower($word);
+    if (!in_array($word, $nocap)) {
+      $string = $string . ucfirst($word);
+    }
+    else { 
+      $string = $string . $word;
+    }
+    $string = $string . " "; 
+  }
+  return trim($string);
 }
 ?>
