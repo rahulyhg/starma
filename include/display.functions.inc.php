@@ -930,7 +930,7 @@ function show_gender_location_form ($errors = array(), $title="", $country_id, $
         echo '<img id="gender_img" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
         echo '<img id="country_img" src="img/account_info/Starma-Astrology-CountryBox.png"/>';
         echo '<img id="zip_img" src="img/account_info/Starma-Astrology-ZipBox.png"/>';
-        echo '<form id="gender_location_form" method="post" action=" . $action . ">';
+        echo '<form id="gender_location_form" method="post" action="' . $action . '">';
       echo '</div>';
       
       echo '<div id="input_divs">';
