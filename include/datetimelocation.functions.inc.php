@@ -139,6 +139,13 @@ function planetForm ($longitude, $eTime, $the_date, $POIID, $method) {
 
 }
 
+function get_country ($country_id) {
+  q = 'SELECT * from country WHERE country_id = ' . (int)$country_id;
+  $do_q = mysql_query ($q) or die(mysql_error());
+  $result = mysql_fetch_array($do_q);
+  return $result;
+}
+
 function DST ($timezone_id, $date) {
     $timezone = new DateTimeZone($timezone_id);
       

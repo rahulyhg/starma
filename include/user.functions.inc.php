@@ -29,6 +29,23 @@ function update_my_last_action_made ($datetime) {
   }
 }
 
+function sign_up_process_done() {
+  if (isLoggedIn()) {
+    if (isAdmin()) {
+      return true;
+    }
+    else if (trim(get_my_location()) == "" or !get_my_chart()) {
+      return false;
+    } 
+    else {
+      return true;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
 function is_online($user_id) {
   if (isLoggedIn()) {
     $q = "SELECT last_action_made from user where user_id = " . $user_id;
@@ -389,6 +406,16 @@ function get_my_preferences ($pref_name, $default) {
   }
 }
 
+function get_my_location() {
+  if (isLoggedIn()) {
+     $user = my_profile_info();
+     return $user["location"];
+  }
+  else {
+    return false;
+  }
+}
+
 function get_my_gender () {
   return get_gender(get_my_user_id());  
 }
@@ -713,6 +740,17 @@ function update_my_biography($about_me) {
     $result = mysql_query($q) or die(mysql_error());
     return true;
      
+  }
+  else {
+    return false;
+  }
+}
+
+function my_location() {
+  if (isLoggedIn()) {
+    $info = my_profile_info();
+    return $info["location"];
+    
   }
   else {
     return false;

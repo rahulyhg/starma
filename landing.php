@@ -11,13 +11,12 @@ if (isLoggedIn())
 {
     
     // The user is already loggedin, so we check to see how much he's done
-    
-    if (permissions_check($req = 10)) {
+    if (isAdmin()) {
       //header( 'Location: http://www.' . $domain . '/index.php');
-      do_redirect( $url = get_domain() . '/index.php');
+      do_redirect( $url = get_domain() . '/index.php'); 
     }
-    elseif (get_my_chart()) {
-      //header( 'Location: http://www.' . $domain . '/profile.php');
+    else if (sign_up_process_done()) {
+      //header( 'Location: http://www.' . $domain . '/index.php');
       do_redirect( $url = get_domain() . '/main.php');
     }
     else {

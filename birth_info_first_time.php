@@ -4,10 +4,39 @@
    
 
 
-
 if (isLoggedIn())
 {
-    
+  if (get_my_location == "") {
+    if (isset($_POST["location_gender_submit"]) and $user = my_profile_info()) {
+      $errors = array();
+      if (isset($_POST["zip"])) {
+        $location_string = $_POST["zip"] . ' US';
+        $type="postalCodeSearch?placename";
+      else {
+        $country = get_country($country_id = $_POST["js_country_id"]);
+        $location_string = $_POST["title"] . ', ' . $country["country_code"];  
+        $type="wikipediaSearch?q";
+      }
+      if (!$result = geocode($location_string, $type)) {
+        $errors[] = "Geocode Error";
+      }
+      if (!valid_gender($gender = $_POST["gender"])) {
+        $errors[] = "Gender Error";
+      }
+      if (sizeof($errors) == 0) {
+        $location = $result["title"];
+        update_my_profile_info($user["first_name"], $user["last_name"], $gender, $location);
+        do_redirect( $url = get_domain() . '/process_login.php');
+      }
+      else {
+        $_SESSION["errors"] = $errors;
+        do_redirect( $url = get_domain() . '/gender_location_first_time.php');
+      }
+    }
+    else {
+      do_redirect( $url = get_domain() . '/gender_location_first_time.php');
+    }
+  }    
        
 ?>
 

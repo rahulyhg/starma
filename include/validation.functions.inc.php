@@ -196,15 +196,18 @@ function login_check_point($type="partial") {
     do_redirect( $url = get_domain() . '/' . get_landing());
     return false;
   }
-  elseif ($type=="full") {
-    if (!(get_my_chart() or permissions_check($req = 10))) {
+  else if (isAdmin()) {
+    return true;
+  }
+  else if ($type=="full") {
+    if (!sign_up_process_done()) {
       do_redirect( $url = get_domain() . '/process_login.php');
       //header( 'Location: http://www.' . $domain . '/process_login.php');   
       return false;
     }
     else {
-           //set_my_online_status(1); 
-           return true;
+      //set_my_online_status(1); 
+      return true;
     }
     
   } 
@@ -233,6 +236,15 @@ function use_token ($token_id, $user_id) {
   $q = 'UPDATE token set user_id = ' . $user_id . ' WHERE token_id = ' . $token_id;
   $do_q = mysql_query ($q) or die(mysql_error());
   return true;
+}
+
+function valid_gender ($gender) {
+  if ($gender == "M" or $gender == "F") {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 function valid_email($email)
@@ -341,7 +353,7 @@ function valid_password($pass, $minlength = 6, $maxlength = 15)
 }
 
 function permissions_check ($req) {
-  if (isset($_SESSION["permissions_id"])) {
+  if (isLoggedIn() and isset($_SESSION["permissions_id"])) {
     $my_permissions = $_SESSION["permissions_id"];
     if ($my_permissions >= $req) {
       return true;

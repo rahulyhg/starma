@@ -4,7 +4,6 @@ require_once ("header.php");
   
 login_check_point($type="full");
 
-
 if (!isset($_GET["the_page"])) {
   $the_page = "hsel";
 }

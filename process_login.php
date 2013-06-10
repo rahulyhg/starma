@@ -9,17 +9,30 @@ if (!isLoggedIn())
         // retrieve the username and password sent from login form & check the login.
         if (checkLogin($_POST['email'], $_POST['password']))
         {
+            
             if ($_POST["stay_logged_in"] == "on") {
               setcookie("email", $_POST['email'], time()+60*60*24*30, '/', get_domain(), true, true);
               setcookie("password", $_POST['password'], time()+60*60*24*30, '/', get_domain(), true, true);
             }
-            if (get_my_chart() or permissions_check($req = 10)) {
-              do_redirect( $url = get_domain() . '/' . get_landing());
-              //echo "Logged in";
+            
+            if (isAdmin()) {
+              //header( 'Location: http://www.' . $domain . '/index.php');
+              do_redirect( $url = get_domain() . '/index.php');
+            }
+            else if (!sign_up_process_done()) {
+              if (get_my_location() == "") {
+                //show_gender_location_form(); 
+                require ("gender_location_first_time.php");
+              }
+              else if (!get_my_chart()) {
+                //show_birth_info_form(); 
+                require ("birth_info_first_time.php");
+              
+              }
             }
             else {
-              //show_birth_info_form(); 
-              require ("birth_info_first_time.php");
+              do_redirect( $url = get_domain() . '/' . get_landing());
+              //echo "Logged in"; 
             }
             
         } else
@@ -32,18 +45,25 @@ if (!isLoggedIn())
     }
  
 } else
-{
-    // The user is already loggedin, so we show the userbox.
-    //show_userbox();
-    if (get_my_chart() or permissions_check($req = 10)) {
-      do_redirect( $url = get_domain() . '/' . get_landing());
-      //echo "Logged in";
-    }
-    else {
-      //show_birth_info_form(); 
-      require ("birth_info_first_time.php");
-    }
-    //header( 'Location: http://' . $domain . '/index.php');
-
+{        
+            if (isAdmin()) {
+              //header( 'Location: http://www.' . $domain . '/index.php');
+              do_redirect( $url = get_domain() . '/index.php');
+            }
+            else if (!sign_up_process_done()) {
+              if (get_my_location() == "") {
+                //show_gender_location_form(); 
+                require ("gender_location_first_time.php");
+              }
+              else if (!get_my_chart()) {
+                //show_birth_info_form(); 
+                require ("birth_info_first_time.php");
+              
+              }
+            }
+            else {
+              do_redirect( $url = get_domain() . '/' . get_landing());
+              //echo "Logged in"; 
+            }
 }
 ?> 
