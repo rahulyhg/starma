@@ -55,7 +55,7 @@ if (isset($_SESSION['errors'])) {
 
 
 <?php 
-   
+  require_once ("landing_footer.php"); 
 ?>
 </body>
 <?php 

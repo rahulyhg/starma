@@ -75,7 +75,7 @@ if (isLoggedIn())
 
 
 <?php 
-  
+  require_once ("landing_footer.php"); 
 ?>
 </body>
 <?php 
