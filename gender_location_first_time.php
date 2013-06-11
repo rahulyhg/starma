@@ -7,6 +7,28 @@
 
 if (isLoggedIn())
 {
+
+if (isset($_GET['gender'])) {
+  $gender = $_GET['gender'];
+}
+else {
+  if (!$gender = get_my_gender()) {
+    $gender = "M";
+  }
+}
+
+if (isset($_GET['country_id'])) {
+  $country_id = $_GET['country_id'];
+}
+
+if (isset($_GET['title'])) {
+  $title = $_GET['title'];
+}
+
+if (isset($_SESSION['errors'])) {
+  $errors = $_SESSION['errors'];
+   unset ($_SESSION["errors"]);
+}
        
 ?>
 
@@ -24,7 +46,7 @@ if (isLoggedIn())
   <div class="description">You're almost there ...</div>
   <div class="bg" id="enter_info">
 
-    <?php if (isset($errors)) {show_gender_location_form($errors = $errors, $title=$title, $county_id=$country_id);}else{show_gender_location_form($errors=array(), $title="", $country_id = 236);}?>
+    <?php if (isset($errors)) {show_gender_location_form($errors = $errors, $title=$title, $county_id=$country_id, $gender=$gender);}else{show_gender_location_form($errors=array(), $title="", $country_id = 236, $gender=$gender);}?>
   </div>
   
   <?php show_bugaboos();?>

@@ -70,19 +70,23 @@ global $seed; // global because $seed is declared in the header.php file
     {
         // Log the User In
         $row = mysql_fetch_array($result);
-        // Save the user ID for use later
-        $_SESSION['user_id'] = $row['user_id'];
-        // Save the email for use later
-        $_SESSION['email'] = $row['email'];
-        // Save the username for use later
-        $_SESSION['nickname'] = $row['nickname'];
-        //save the permissions id
-        $_SESSION['permissions_id'] = $row['permissions_id'];
-        //Log the Login
-        log_this_action (login_action(), login_basic_action());
+        loginUser($user_id = $row['user_id'], $email=$row['email'], $nickname=$row['nickname'], $permissions_id=$row['permissions_id']);
         return true;
     }
     return false;
+}
+
+function loginUser($user_id, $email, $nickname, $permissions_id) {
+        // Save the user ID for use later
+        $_SESSION['user_id'] = $user_id;
+        // Save the email for use later
+        $_SESSION['email'] = $email;
+        // Save the username for use later
+        $_SESSION['nickname'] = $nickname;
+        //save the permissions id
+        $_SESSION['permissions_id'] = $permissions_id;
+        //Log the Login
+        log_this_action (login_action(), login_basic_action());
 }
  
 ?>

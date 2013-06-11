@@ -27,7 +27,7 @@ if (isLoggedIn())
         $timezone = $_POST["timezone"];
         $asc_coord = $_POST["asc_coord"];
         $asc_sign_id = $_POST["asc_sign_id"];
-        $location = $_POST["address"];
+        $location = exceptionizer ($location_string = $_POST["address"]);
         if (isset($_POST["personal"])) {
           $personal = $_POST["personal"];
         }

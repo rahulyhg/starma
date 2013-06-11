@@ -1742,7 +1742,7 @@ function registerNewUser($nickname, $password, $password2, $email, $email2, $yea
     $errors = array(); 
     
     $code = generate_code(20);
-    $sql = sprintf("insert into user (nickname,email,password,actcode,birthday) value ('%s','%s','%s','%s','%s')",
+    $sql = sprintf("insert into user (nickname,email,password,actcode,birthday,activated) value ('%s','%s','%s','%s','%s',1)",
         mysql_real_escape_string($nickname), mysql_real_escape_string($email), mysql_real_escape_string(sha1($password . $seed))
 		, mysql_real_escape_string($code),date("Y-m-d",$birthday));
  
@@ -1753,14 +1753,14 @@ function registerNewUser($nickname, $password, $password2, $email, $email2, $yea
         //use_token ($token_id, $id); 
 
         $errors[] = $id;
-        if (sendActivationEmail($email, $nickname, $password, $id, $code))
-        {
+        //if (sendActivationEmail($email, $nickname, $password, $id, $code))
+        //{
  
-            return $errors;
-        } else
-        {
-            $errors[] = "User Inserted, but Email Failed";
-        }
+        //    return $errors;
+        //} else
+        //{
+        //    $errors[] = "User Inserted, but Email Failed";
+        //}
  
     } else
     {

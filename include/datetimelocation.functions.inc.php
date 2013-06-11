@@ -140,7 +140,7 @@ function planetForm ($longitude, $eTime, $the_date, $POIID, $method) {
 }
 
 function get_country ($country_id) {
-  q = 'SELECT * from country WHERE country_id = ' . (int)$country_id;
+  $q = 'SELECT * from country WHERE country_id = ' . (int)$country_id;
   $do_q = mysql_query ($q) or die(mysql_error());
   $result = mysql_fetch_array($do_q);
   return $result;
@@ -353,14 +353,14 @@ function produce_XML_object_tree($raw_XML) {
 
 function get_coordinates ($address) {
   $found = false;
-  if ($coords = geocode ($_POST["address"],$type='postalCodeSearch?placename')) {
+  if ($coords = geocode ($address,$type='postalCodeSearch?placename')) {
     $found = true;
   }
   
   if ($coords["country"] <> 'US') {
     $found = false;}
   if (!($found)) {
-    if ($coords = geocode ($_POST["address"], $type='wikipediaSearch?q')) {
+    if ($coords = geocode ($address, $type='wikipediaSearch?q')) {
       $found = true;}
   }
   if ($found) {
@@ -533,5 +533,12 @@ function remove_letters ($target) {
   $target = str_replace ("s", "", $target);
   $target = str_replace ("d", "", $target);
   return $target;
+}
+
+function exceptionizer ($location_string) {
+  if (strtoupper($location_string) == "MEXICO CITY, MX" or $location_string == "MEXICO CITY, MEXICO" or $location_string == "MEXICO CITY MEXICO") {
+    $location_string = "Ciudad de Mexico, MX";
+  }
+  return $location_string;
 }
 ?>

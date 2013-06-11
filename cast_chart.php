@@ -54,11 +54,12 @@
      $title = "Not Typed In";
      if (trim($_POST['address']) != '') {
       
-        if ($coords = get_coordinates($_POST["address"])) {
+        if ($coords = get_coordinates(exceptionizer ($location_string = $_POST["address"]))) {
           //echo '*' . $lat .'*';
           $lat = reformat_coordinate($coords['lat'], 'lat');
           $lng = reformat_coordinate($coords['lng'], 'lng');
           $title = $coords['title'];
+          //print_r (get_coordinates("Ciudad de Mexico, MX")); die();
           $latitude = $lat[1];
           $longitude = $lng[1];
           $LoDir = $lng[0];

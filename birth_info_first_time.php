@@ -6,16 +6,28 @@
 
 if (isLoggedIn())
 {
-  if (get_my_location == "") {
+  if (get_my_location() == "") {
     if (isset($_POST["location_gender_submit"]) and $user = my_profile_info()) {
+      $country_id = $_POST["js_country_id"];
       $errors = array();
-      if (isset($_POST["zip"])) {
-        $location_string = $_POST["zip"] . ' US';
-        $type="postalCodeSearch?placename";
+      if ($country_id == 236) {
+        if (trim($_POST["zip"]) == "") {
+          $errors[] = "Geocode Error";
+        }
+        else {
+          $location_string = trim($_POST["zip"]) . ' US';
+          $type="postalCodeSearch?placename";
+        }
+      }
       else {
-        $country = get_country($country_id = $_POST["js_country_id"]);
-        $location_string = $_POST["title"] . ', ' . $country["country_code"];  
-        $type="wikipediaSearch?q";
+        if (trim($_POST["title"]) == "") {
+          $errors[] = "Geocode Error";
+        }
+        else {
+          $country = get_country($country_id = $country_id);
+          $location_string = exceptionizer($location_string = $_POST["title"] . ', ' . $country["country_code"]);  
+          $type="wikipediaSearch?q";
+        }
       }
       if (!$result = geocode($location_string, $type)) {
         $errors[] = "Geocode Error";
@@ -30,7 +42,7 @@ if (isLoggedIn())
       }
       else {
         $_SESSION["errors"] = $errors;
-        do_redirect( $url = get_domain() . '/gender_location_first_time.php');
+        do_redirect( $url = get_domain() . '/gender_location_first_time.php?gender=' . $gender . '&title=' . $_POST["title"] . '&country_id=' . $country_id);
       }
     }
     else {

@@ -690,8 +690,9 @@ li.my_unknown_button a {
 }
 
 #gender_location_form_div #js_zip_div {
-  right: 55px;
-  top: 74px;
+  height: 23px;
+    right: 55px;
+    top: 74px;
 }
 
 #gender_location_form_div #js_zip_div input {
@@ -709,18 +710,20 @@ li.my_unknown_button a {
 }
 
 #gender_location_form_div #js_city_div {
-  right: 59px;
+  left: 9px;
   top: 74px;
 }
 
 #gender_location_form_div #js_city_div input {
-  left: 25px;
-  position:relative;
+  left: 20px;
+    position: relative;
+    width: 270px;
 }
 
 #gender_location_form_div #register_button_div {
-    left: 303px;
-    top: 60px;;
+    left: 603px;
+    top: 60px;
+    width: 100px;
 }
 
 
