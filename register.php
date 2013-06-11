@@ -38,7 +38,7 @@ if ($validated) {
     if (sizeof($output) <= 1)        
     {
           log_this_action (account_action_user(), registered_basic_action(), -1, -1, -1, $output[0]);
-          $user = get_profile($user_id=output[0]);
+          $user = get_profile($user_id=$output[0]);
           loginUser($user_id = $user['user_id'], $email=$user['email'], $nickname=$user['nickname'], $permissions_id=$user['permissions_id']);
           
           //echo "Thank you for registering with Starma.com!  We have sent you an email with a verification link.  Please follow this link to activate your account.";        
