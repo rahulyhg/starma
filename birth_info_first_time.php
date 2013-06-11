@@ -25,14 +25,14 @@ if (isLoggedIn())
         }
         else {
           $country = get_country($country_id = $country_id);
-          $location_string = exceptionizer($location_string = $_POST["title"] . ', ' . $country["country_code"]);  
+          $location_string = exceptionizer($location_string = trim($_POST["title"]) . ', ' . $country["country_code"]);  
           $type="wikipediaSearch?q";
         }
       }
       if (!$result = geocode($location_string, $type)) {
         $errors[] = "Geocode Error";
       }
-      if (!valid_gender($gender = $_POST["gender"])) {
+      if (!valid_gender($gender = trim($_POST["gender"]))) {
         $errors[] = "Gender Error";
       }
       if (sizeof($errors) == 0) {
@@ -42,7 +42,7 @@ if (isLoggedIn())
       }
       else {
         $_SESSION["errors"] = $errors;
-        do_redirect( $url = get_domain() . '/gender_location_first_time.php?gender=' . $gender . '&title=' . $_POST["title"] . '&country_id=' . $country_id);
+        do_redirect( $url = get_domain() . '/gender_location_first_time.php?gender=' . $gender . '&title=' . trim($_POST["title"]) . '&country_id=' . $country_id);
       }
     }
     else {
@@ -75,7 +75,7 @@ if (isLoggedIn())
 
 
 <?php 
-  require_once ("landing_footer.php"); 
+  
 ?>
 </body>
 <?php 
