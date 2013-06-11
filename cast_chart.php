@@ -59,7 +59,7 @@
           $lat = reformat_coordinate($coords['lat'], 'lat');
           $lng = reformat_coordinate($coords['lng'], 'lng');
           $title = $coords['title'];
-          //print_r (get_coordinates("Ciudad de Mexico, MX")); die();
+          //echo $title; die();
           $latitude = $lat[1];
           $longitude = $lng[1];
           $LoDir = $lng[0];
