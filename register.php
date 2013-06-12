@@ -38,7 +38,16 @@ if ($validated) {
     if (sizeof($output) <= 1)        
     {
           log_this_action (account_action_user(), registered_basic_action(), -1, -1, -1, $output[0]);
-          $user = profile_info($output[0]);
+          if ($user = basic_user_data($output[0])) {
+            echo 'User ' . $user["user_id"] . 'is there.<br>';
+          }
+          else {
+            echo 'Failed to obtain User profile<br>';
+          }
+          //echo '*' . $output[0] . '*<br>';
+          //echo '*' . $user["user_id"] . '*<br>';
+          //print_r ($user); 
+          //die();
           loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id']);
           do_redirect( $url = get_domain() . '/' . get_landing());
           //echo "Thank you for registering with Starma.com!  We have sent you an email with a verification link.  Please follow this link to activate your account.";        

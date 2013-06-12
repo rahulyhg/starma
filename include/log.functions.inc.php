@@ -2,7 +2,7 @@
 
 function log_this_action ($log_action_id, $log_basic_action_id, $data_1=-1, $data_2=-1, $data_3=-1, $manual_user_id=-2) {
   if (!($user_id = get_my_user_id())) {
-    if ($log_action_id = account_action_user() and $log_basic_action_id = registered_basic_action()) {
+    if ($log_action_id == account_action_user() and $log_basic_action_id == registered_basic_action()) {
       $user_id = $manual_user_id;
     }
     else {

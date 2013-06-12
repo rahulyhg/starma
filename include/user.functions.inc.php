@@ -769,6 +769,20 @@ function my_profile_info() {
   }
 }
 
+function basic_user_data($user_id) {
+  
+  $q = 'SELECT user_id, email, nickname, permissions_id from user where user_id = ' . $user_id;
+  //echo $q . '<br>';
+  if ($result = mysql_query($q)) {
+    $user = mysql_fetch_array($result);
+    return $user; 
+  }
+  else {
+    return false;
+  }
+  
+}
+
 function profile_info($user_id) {
   if (isLoggedIn()) {
     $q = 'SELECT * from user where user_id = ' . $user_id;
