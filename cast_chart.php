@@ -54,7 +54,7 @@
      $title = "Not Typed In";
      if (trim($_POST['address']) != '') {
       
-        if ($coords = get_coordinates(exceptionizer ($location_string = $_POST["address"]))) {
+        if ($coords = get_coordinates(exceptionizer ($_POST["address"]))) {
           //echo '*' . $lat .'*';
           $lat = reformat_coordinate($coords['lat'], 'lat');
           $lng = reformat_coordinate($coords['lng'], 'lng');

@@ -46,7 +46,7 @@ if (isset($_SESSION['errors'])) {
   <div class="description">You're almost there ...</div>
   <div class="bg" id="enter_info">
 
-    <?php if (isset($errors)) {show_gender_location_form($errors = $errors, $title=$title, $county_id=$country_id, $gender=$gender);}else{show_gender_location_form($errors=array(), $title="", $country_id = 236, $gender=$gender);}?>
+    <?php if (isset($errors)) {show_gender_location_form($errors, $title, $country_id, $gender);}else{show_gender_location_form(array(), "", 236, $gender);}?>
   </div>
   
   <?php show_bugaboos();?>

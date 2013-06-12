@@ -70,7 +70,7 @@ global $seed; // global because $seed is declared in the header.php file
     {
         // Log the User In
         $row = mysql_fetch_array($result);
-        loginUser($user_id = $row['user_id'], $email=$row['email'], $nickname=$row['nickname'], $permissions_id=$row['permissions_id']);
+        loginUser($row['user_id'], $row['email'], $row['nickname'], $row['permissions_id']);
         return true;
     }
     return false;
