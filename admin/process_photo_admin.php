@@ -7,7 +7,8 @@ $user_id = $_POST["user_id"];
 $error=0;
 
   if($_FILES['image']['name'] && num_photos($user_id) < max_photos()) {
-	list($file,$error) = upload_no_adjust('image','../img/user/','jpeg,gif,png,jpg');
+                             
+	list($file,$error) = upload_no_adjust('image',ORIGINAL_IMAGE_PATH(),'jpeg,gif,png,jpg');
 	if($error) print $error;
         if (!associate_photo_with_user($file, $user_id)) {
           $error = 1; 
