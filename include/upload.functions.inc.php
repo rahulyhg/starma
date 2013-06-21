@@ -1,18 +1,38 @@
 <?php
 function PROFILE_IMAGE_PATH() {
-  return "img/user/";
+  if (isAdmin()) {
+    return "../img/user/";
+  }
+  else {
+    return "img/user/";
+  }
 }
 
 function THUMBNAIL_IMAGE_PATH() {
-  return "img/user/thumbnail/thumb_";
+  if (isAdmin()) {
+    return "../img/user/thumbnail/thumb_";
+  }
+  else {
+    return "img/user/thumbnail/thumb_";
+  }
 }
 
 function COMPARE_IMAGE_PATH() {
-  return "img/user/compare/compare_";
+  if (isAdmin()) {
+    return "../img/user/compare/compare_";
+  }
+  else {
+    return "img/user/compare/compare_";
+  }
 }
 
 function ORIGINAL_IMAGE_PATH() {
-  return "img/user/original/original_";
+  if (isAdmin()) {
+    return "../img/user/original/original_";
+  }
+  else {
+    return "img/user/original/original_";
+  }
 }
 
 function maxWidth_original () {

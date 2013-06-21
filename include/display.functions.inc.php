@@ -640,6 +640,7 @@ function show_photo_cropper($photo_to_crop) {
   activate_photo_cropper ($img_id, $img_name, 'x1', 'y1', 'x2', 'y2', 'w', 'h');
 }
 
+
 function show_main_photo($chart_id) {
   echo '<div id="main_photo_box">';
    echo '<div id="border_wrapper">';
@@ -947,7 +948,7 @@ function show_gender_location_form ($errors = array(), $title="", $country_id, $
         echo '<div id="country_div">';
        
           echo 'country: ';
-          country_select ($country_id=$country_id, $the_name="js_country_id");
+          country_select ($country_id, "js_country_id");
           //echo '<input id="my_thing" type="text"/>';
         echo '</div>';
         echo '<div id="js_city_div">';
@@ -957,7 +958,7 @@ function show_gender_location_form ($errors = array(), $title="", $country_id, $
 
         echo '<div id="js_zip_div">';
           echo 'zip: ';
-          zipcode_input ($name="zip", $output_div="location_verification");
+          zipcode_input ("zip", "location_verification");
           echo '<div id="location_verification">';
           echo '</div>';
         echo '</div>';

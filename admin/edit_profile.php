@@ -3,27 +3,46 @@
  require_once ("../header.php");
  //require_once ("db_connect.php");
 
-  if (!permissions_check ($req = 10)) {
-    header( 'Location: http://www.' . $domain . '/underconstruction.php');
-  }  
+ if (!permissions_check ($req = 10)) {
+  header( 'Location: http://www.' . $domain . '/underconstruction.php');
+ }  
+ else {
+  
+  echo '<body>';
+  //INIT VARS
+  if (isset($_GET["user_id"])) {
+    $user_id = (string) $_GET["user_id"];
+      
+  }
+  else if (isset($_POST["user_id"])) {
+    $user_id = (string) $_POST["user_id"]; 
+    //echo 'USER ID POSTED' . $user_id;
+  }
+  else if (isset($_SESSION["proxy_user_id"])) {
+    $user_id = $_SESSION["proxy_user_id"];
+  }
+  else { 
+    $user_id = '-1';
+     
+  }
+  $unc_photos = uncropped_celeb_photos();
+  if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
+      echo '<div style="position:relative; top:3px">';
+        flare_title ("Crop Your Photo");
+      echo '</div>';
+      
+      echo '<div id="photo_cropper">';
+        echo '<form action="crop_photo_admin.php" method="post" name="crop_photo_form">';
+          show_photo_cropper($photo_to_crop);
+          echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
+          echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
+          echo '<input type="hidden" name="user_id" value="' . $photo_to_crop["user_id"] . '"/>';
+          
+        echo '</div>';
+      echo '</div>';
+     
+  }
   else {
-    echo '<body>';
-    //INIT VARS
-    if (isset($_GET["user_id"])) {
-      $user_id = (string) $_GET["user_id"];
-        
-    }
-    else if (isset($_POST["user_id"])) {
-      $user_id = (string) $_POST["user_id"]; 
-      //echo 'USER ID POSTED' . $user_id;
-    }
-    else if (isset($_SESSION["proxy_user_id"])) {
-      $user_id = $_SESSION["proxy_user_id"];
-    }
-    else { 
-      $user_id = '-1';
-       
-    }
  
     // IF COMING FROM A SUbMIT
     if (isset($_POST["submit"])) {
@@ -127,7 +146,7 @@
     echo '</div>';
     echo '</body>';
   }
-
+ }
    require_once ("../footer.php");
   
 ?>

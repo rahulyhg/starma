@@ -679,6 +679,18 @@ function uncropped_photos($user_id) {
   }
 }
 
+function uncropped_celeb_photos() {
+  if (isLoggedIn()) {
+    $q = "SELECT user_picture.* from user_picture inner join user on user.user_id = user_picture.user_id where uncropped = 1 and permissions_id = " . PERMISSIONS_CELEB();
+    $result = mysql_query($q) or die(mysql_error());
+    return $result;    
+  }
+  else {
+    return false;
+  }
+}
+
+
 function set_photo_cropped_status($user_pic_id, $user_id, $uncropped) {
   if (isLoggedIn()) {
     $q = "UPDATE user_picture set uncropped = " . $uncropped . " where user_id = " . $user_id . " and user_pic_id = " . $user_pic_id;

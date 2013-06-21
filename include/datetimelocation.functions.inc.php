@@ -303,7 +303,7 @@ function geocode($address, $type)
         $title = $entry_list[0]->title . ', ' . $entry_list[0]->countryCode;
       }
       else {
-        $title = $entry_list[0]->name . ', ' . $entry_list[0]->adminName1;
+        $title = $entry_list[0]->name . ', ' . $entry_list[0]->adminCode1;
         
       }
       $country = $entry_list[0]->countryCode;
@@ -317,7 +317,7 @@ function geocode($address, $type)
         //  $title = $entry_list[0]->title . ', ' . entry_list[0]->countryCode;
         // }
         //else {
-        //  $title = $entry_list[0]->name . ', ' . $entry_list[0]->adminName1;
+        //  $title = $entry_list[0]->name . ', ' . $entry_list[0]->adminCode1;
         //}
         //$coords['title'] = $title;
       //  $field_counter = $field_counter + 1;
