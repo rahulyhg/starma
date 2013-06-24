@@ -936,6 +936,19 @@ li.my_unknown_button a {
 #chart_1_pic .profile_info_area .nickname_area, #chart_2_pic .profile_info_area .nickname_area {
     bottom:130px;
 }
+
+#chart_1_pic .profile_info_area .name_area, #chart_2_pic .profile_info_area .name_area {
+    line-height: 1.3em;
+    position: relative;
+    top: 5px;
+}
+
+#profile_photo_and_info .profile_info_area .name_area {
+
+ line-height: 1.3em;
+    position: relative;
+    top: 3px;
+}
   
 #descriptors {
    bottom: 325px;
