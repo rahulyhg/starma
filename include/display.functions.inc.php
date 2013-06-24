@@ -469,10 +469,12 @@ function show_my_general_info() {
     $location = $user_info["location"];
     if ($user_info["country_id"] == 236) {  // UNITED STATES
       $state = get_state ($user_info["state_id"]);
-      $location = $user_info["location"] . ', ' . ucfirst(strtolower($state["state_code"]));
+      $location = $user_info["location"] . ', ' . strtoupper($state["state_code"]);
     }
-    $country = get_country ($user_info["country_id"]);
-    $location = $location . '<br>' . ucfirst(strtolower($country["country_title"]));
+    //else {
+    //  $country = get_country ($user_info["country_id"]);
+    //  $location = $location . '<br>' . format_country_name ($country["country_title"]);
+    //}
   }
   echo '<div class="profile_info_area">';
     echo '<div class="nickname_area">';
@@ -671,10 +673,13 @@ function show_general_info($chart_id) {
     $location = $user_info["location"];
     if ($user_info["country_id"] == 236) {  // UNITED STATES
       $state = get_state ($user_info["state_id"]);
-      $location = $user_info["location"]. ', ' . ucfirst(strtolower($state["state_code"]));
+      $location = $user_info["location"]. ', ' . strtoupper($state["state_code"]);
     }
-    $country = get_country ($user_info["country_id"]);
-    $location = $location . '<br>' . ucfirst(strtolower($country["country_title"]));
+    $my_info = my_profile_info();
+    if (!($user_info["country_id"] == $my_info["country_id"])) {
+      $country = get_country ($user_info["country_id"]);
+      $location = $location . '<br>' . format_country_name ($country["country_title"]);
+    }
   }
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
   echo '<div class="profile_info_area">';
