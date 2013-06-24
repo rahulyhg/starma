@@ -468,8 +468,8 @@ function show_my_general_info() {
   else {
     $location = $user_info["location"];
     if ($user_info["country_id"] == 236) {  // UNITED STATES
-      $state = get_state ($state_id);
-      $location = $user_info["location"] . ', ' . ucfirst(strtolower($state["state_title"]));
+      $state = get_state ($user_info["state_id"]);
+      $location = $user_info["location"] . ', ' . ucfirst(strtolower($state["state_code"]));
     }
     $country = get_country ($user_info["country_id"]);
     $location = $location . '<br>' . ucfirst(strtolower($country["country_title"]));
@@ -670,8 +670,8 @@ function show_general_info($chart_id) {
   else {
     $location = $user_info["location"];
     if ($user_info["country_id"] == 236) {  // UNITED STATES
-      $state = get_state ($state_id);
-      $location = $user_info["location"]. ', ' . ucfirst(strtolower($state["state_title"]));
+      $state = get_state ($user_info["state_id"]);
+      $location = $user_info["location"]. ', ' . ucfirst(strtolower($state["state_code"]));
     }
     $country = get_country ($user_info["country_id"]);
     $location = $location . '<br>' . ucfirst(strtolower($country["country_title"]));
