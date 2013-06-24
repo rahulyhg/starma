@@ -467,6 +467,12 @@ function show_my_general_info() {
   }
   else {
     $location = $user_info["location"];
+    if ($user_info["country_id"] == 236) {  // UNITED STATES
+      $state = get_state ($state_id);
+      $location = $user_info["location"] . ', ' . ucfirst(strtolower($state["state_title"]));
+    }
+    $country = get_country ($user_info["country_id"]);
+    $location = $location . '<br>' . ucfirst(strtolower($country["country_title"]));
   }
   echo '<div class="profile_info_area">';
     echo '<div class="nickname_area">';
@@ -663,6 +669,12 @@ function show_general_info($chart_id) {
   }
   else {
     $location = $user_info["location"];
+    if ($user_info["country_id"] == 236) {  // UNITED STATES
+      $state = get_state ($state_id);
+      $location = $user_info["location"]. ', ' . ucfirst(strtolower($state["state_title"]));
+    }
+    $country = get_country ($user_info["country_id"]);
+    $location = $location . '<br>' . ucfirst(strtolower($country["country_title"]));
   }
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
   echo '<div class="profile_info_area">';

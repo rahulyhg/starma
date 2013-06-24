@@ -25,7 +25,8 @@ if (isLoggedIn())
         }
         else {
           $country = get_country($country_id = $country_id);
-          $location_string = exceptionizer($location_string = trim($_POST["title"]) . ', ' . $country["country_code"]);  
+          $location_string = exceptionizer($location_string = trim($_POST["title"]) . ', ' . $country["country_title"]);  
+          //echo '*' . $location_string . '*'; die();
           $type="wikipediaSearch?q";
         }
       }
@@ -36,8 +37,10 @@ if (isLoggedIn())
         $errors[] = "Gender Error";
       }
       if (sizeof($errors) == 0) {
-        $location = $result["title"];
+        $location = $result["location"];
+        $state_id = get_state_id_from_code ($result["state_code"]);
         update_my_profile_info($user["first_name"], $user["last_name"], $gender, $location);
+        update_my_extended_location($state_id, $country_id);
         do_redirect( $url = get_domain() . '/process_login.php');
       }
       else {

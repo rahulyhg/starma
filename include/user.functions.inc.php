@@ -715,6 +715,20 @@ function update_my_profile_step ($step) {
   }
 }
 
+function update_my_extended_location($state_id, $country_id) {
+  if (isLoggedIn()) {
+    
+    $q = sprintf("update user set state_id = %d, country_id = %d where user_id = %d",
+        $state_id, $country_id, get_my_user_id());
+    $result = mysql_query($q) or die(mysql_error());
+    return true;
+     
+  }
+  else {
+    return false;
+  }
+}
+
 function update_my_profile_info($first_name, $last_name, $gender, $location) {
   if (isLoggedIn()) {
     

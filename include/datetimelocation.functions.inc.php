@@ -139,12 +139,7 @@ function planetForm ($longitude, $eTime, $the_date, $POIID, $method) {
 
 }
 
-function get_country ($country_id) {
-  $q = 'SELECT * from country WHERE country_id = ' . (int)$country_id;
-  $do_q = mysql_query ($q) or die(mysql_error());
-  $result = mysql_fetch_array($do_q);
-  return $result;
-}
+
 
 function DST ($timezone_id, $date) {
     $timezone = new DateTimeZone($timezone_id);
@@ -301,9 +296,13 @@ function geocode($address, $type)
       $coords['lng'] = $entry_list[0]->lng;
       if ($type=='wikipediaSearch?q') {
         $title = $entry_list[0]->title . ', ' . $entry_list[0]->countryCode;
+        $coords['state'] = 'NA';
+        $coords['location'] = $entry_list[0]->title;
       }
       else {
         $title = $entry_list[0]->name . ', ' . $entry_list[0]->adminCode1;
+        $coords['state_code'] = $entry_list[0]->adminCode1;
+        $coords['location'] = $entry_list[0]->name;
         
       }
       $country = $entry_list[0]->countryCode;
@@ -525,6 +524,39 @@ function get_country_list () {
   return $do_q;  
 }
 
+function get_country ($country_id) {
+  $q = 'SELECT * from country WHERE country_id = ' . (int)$country_id;
+  $do_q = mysql_query ($q) or die(mysql_error());
+  if ($result = mysql_fetch_array($do_q)) {
+    return $result;
+  } 
+  else {
+    return false;
+  }
+}
+
+
+function get_state ($state_id) {
+  $q = sprintf("SELECT * from state WHERE state_id = %d", $state_id);
+  $do_q = mysql_query ($q) or die(mysql_error());
+  if ($result = mysql_fetch_array($do_q)) {
+    return $result;
+  }
+  else {
+    return false;
+  }
+}
+
+function get_state_id_from_code ($state_code) {
+  $q = sprintf("SELECT * from state WHERE state_code = '%s'", mysql_real_escape_string($state_code));
+  $do_q = mysql_query ($q) or die(mysql_error());
+  if ($result = mysql_fetch_array($do_q)) {
+    return $result["state_id"];
+  }
+  else {
+    return 0;
+  }
+}
 
 
 function remove_letters ($target) {
@@ -536,7 +568,7 @@ function remove_letters ($target) {
 }
 
 function exceptionizer ($location_string) {
-  if (strtoupper($location_string) == "MEXICO CITY, MX" or $location_string == "MEXICO CITY, MEXICO" or $location_string == "MEXICO CITY MEXICO") {
+  if (strtoupper($location_string) == "MEXICO CITY, MX" or strtoupper($location_string) == "MEXICO CITY, MEXICO" or strtoupper($location_string) == "MEXICO CITY MEXICO") {
     $location_string = "Ciudad de Mexico, MX";
   }
   return $location_string;
