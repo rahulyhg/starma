@@ -524,7 +524,9 @@ function show_my_main_photo() {
      echo '<div id="main_photo">';
      
        $main_photo = get_my_main_photo();
-       echo format_image($main_photo, $type="profile");
+       echo '<div class="fitter">';
+         echo format_image($main_photo, $type="profile");
+       echo '</div>';
      echo '</div>';
     echo '</div>';
    echo '</div>';
@@ -656,7 +658,9 @@ function show_main_photo($chart_id) {
        //echo '* Chart ID: ' . $chart_id . ' - ' . get_user_id_from_chart_id ($chart_id) . '*';
        //die();
        $main_photo = get_main_photo(get_user_id_from_chart_id ($chart_id));
-       echo format_image($main_photo, $type="profile",get_user_id_from_chart_id ($chart_id));
+       echo '<div class="fitter">';
+         echo format_image($main_photo, $type="profile",get_user_id_from_chart_id ($chart_id));
+       echo '</div>';
      echo '</div>';
    echo '</div>';
   echo '</div>';

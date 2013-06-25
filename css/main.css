@@ -919,11 +919,11 @@ li.my_unknown_button a {
     font-size: 0.7em;
     margin: auto;
     position: relative;
-    width: 147px;
+    width: 139px;
 }
 
 .user_block .profile_info_area .nickname_area, #chart_1_pic .profile_info_area .nickname_area, #chart_2_pic .profile_info_area .nickname_area {
-  bottom: 138px;
+  bottom: 142px;
     font-weight: bold;
     position: relative;
 }
@@ -934,7 +934,7 @@ li.my_unknown_button a {
 }
 
 #chart_1_pic .profile_info_area .nickname_area, #chart_2_pic .profile_info_area .nickname_area {
-    bottom:130px;
+    bottom:134px;
 }
 
 #chart_1_pic .profile_info_area .name_area, #chart_2_pic .profile_info_area .name_area {
