@@ -12,6 +12,15 @@
     width: 775px;
 }
 
+#page_body #boundry {
+  height:790px;
+  overflow:hidden;
+}
+
+#js_more_link a {
+  padding:5px;
+}
+
 #welcome {
   padding-top:3px;
   padding-left:25px;
@@ -1051,8 +1060,7 @@ li.my_unknown_button a {
 /*//////////////// OTHER COMPARE PAGES ///////////////////////////////////////*/
 
 #js_celebrity_frame {
-  height:790px;
-  overflow:hidden;
+  
 }
 
 #search_bar_div {
@@ -1072,6 +1080,8 @@ li.my_unknown_button a {
     
     width: 300px;
 }
+
+
 
 /*//////////////// END OTHER COMPARE PAGES ///////////////////////////////////////*/
 
