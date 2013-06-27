@@ -17,6 +17,17 @@
   overflow:hidden;
 }
 
+#paging_links #link_current{
+  color:white;
+}
+
+#js_more_link {
+    left: 550px;
+    position: absolute;
+    width: 200px;
+    z-index: 1;
+}
+
 #js_more_link a {
   padding:5px;
 }

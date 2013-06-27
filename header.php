@@ -42,6 +42,7 @@ date_default_timezone_set('America/Chicago');
       
       <script type="text/javascript" src="../autoSuggest/jquery.autoSuggest.js"></script>
       <script type="text/javascript" src="../imgSelectArea/scripts/jquery.imgareaselect.pack.js"></script>
+      <script type="text/javascript" src="../js/paging_functions.js"></script>
       
     ';
   }
@@ -60,6 +61,7 @@ date_default_timezone_set('America/Chicago');
       <script type="text/javascript" src="/autoSuggest/jquery.autoSuggest.js"></script>
       <script type="text/javascript" src="imgSelectArea/scripts/jquery.imgareaselect.pack.js"></script>
       <script type="text/javascript" src="/chat/chat_all.js"></script>
+      <script type="text/javascript" src="/js/paging_functions.js"></script>
     ';
   }
 ?>

@@ -20,6 +20,139 @@ function javascript_submit ($form_name='formx', $action='', $hidden='', $value='
 
 }
 
+function js_more_link ($div_name, $num_pages, $current_page, $height_inc) {
+    
+  echo '<div id="js_more_link">';
+   
+   /*
+   if ($num_pages > 1) {
+     echo '<div id="paging_links">';  
+     echo '<a onclick="change_page( parseInt($(\'#current_page\').val())-1 ); animate_page_turn(\'' . $div_name . '\'); return false;" href="">Prev Page</a>';
+     
+     
+     
+     
+     if ($current_page >= 4) {
+       echo '<a id="left_end" onclick="change_page(1); animate_page_turn(\'' . $div_name . '\'); return false;" href="">1</a>';   
+       if ($current_page >= 5) {
+         echo '<a id="left_elip" onclick="return false;">...</a>';
+       }
+     }
+  
+     
+
+     // LINK BEHIND
+       
+     if ($current_page > 1) {
+       if ($current_page == $num_pages and $num_pages >= 3) {
+         echo '<a id="link_way_behind" onclick="change_page(' . (int)($current_page-2) . '); animate_page_turn(\'' . $div_name . '\'); return false;" href="">' . (int)($current_page-2) . '</a>';
+       }
+       echo '<a id="link_behind" onclick="change_page(' . (int)($current_page-1) . '); animate_page_turn(\'' . $div_name . '\'); return false;" href="">' . (int)($current_page-1) . '</a>';
+       
+     }
+   
+     // LINK CURRENT
+     echo '<a id="link_current" onclick="change_page(' . (int)($current_page) . '); animate_page_turn(\'' . $div_name . '\'); return false;" href="">' . (int)($current_page) . '</a>';
+
+     // LINK AHEAD
+     if ($current_page < $num_pages) {   
+       echo '<a id="link_ahead" onclick="change_page(' . (int)($current_page+1) . '); animate_page_turn(\'' . $div_name . '\'); return false;" href="">' . (int)($current_page+1) . '</a>';
+       if ($current_page == 1 and $num_pages >= 3) {
+         echo '<a id="link_way_ahead" onclick="change_page(' . (int)($current_page+2) . '); animate_page_turn(\'' . $div_name . '\'); return false;" href="">' . (int)($current_page+2) . '</a>';
+       }
+     }
+     
+      
+     if ($current_page <= $num_pages - 3) {
+       if ($current_page <= $num_pages - 2) {
+         echo '<a id="right_elip" onclick="return false;">...</a>';
+       }
+       echo '<a id="right_end" onclick="change_page(' . (int)($num_pages) . '); animate_page_turn(\'' . $div_name . '\'); return false;" href="">' . (int)($num_pages) . '</a>';
+     }
+  
+     echo '<a onclick="change_page(parseInt($(\'#current_page\').val())+1); animate_page_turn(\'' . $div_name . '\'); return false;" href="">Next Page</a>';
+    
+     //for ($i=0; $i<$num_pages; $i++) {
+       //echo $i;
+       //echo '<a onclick="
+       //                       $(\'#'. $div_name . '\').animate({\'margin-top\':' . (int)((-1) * $height_inc * $i) . ' +\'px\'}); 
+       //                       $(\'#current_page\').val(' . (int)($i+1) . '); 
+       //                       return false;
+       //                 " href="">' . (int)($i+1) . '</a>';       
+       
+     //}
+     echo '</div>';
+   }
+   */
+
+   
+     echo '<div id="paging_links">';  
+       echo '<a onclick="change_page( parseInt($(\'#current_page\').val())-1 ); animate_page_turn(\'' . $div_name . '\'); return false;" href=""><<</a>';
+     
+     
+     
+     
+     
+       echo '<a id="left_end" onclick="change_page(1); animate_page_turn(\'' . $div_name . '\'); return false;" href="">1</a>';   
+       
+       echo '<a id="left_elip" href="">...</a>';
+      
+  
+     
+
+       // LINK BEHIND
+       
+     
+       echo '<a id="link_way_behind" href=""></a>';
+       
+       echo '<a id="link_behind" href=""></a>';
+       
+     
+   
+       // LINK CURRENT
+       echo '<a id="link_current" href=""></a>';
+
+       // LINK AHEAD
+      
+       echo '<a id="link_ahead" href=""></a>';
+       
+       echo '<a id="link_way_ahead" href=""></a>';
+       
+     
+      
+     
+       echo '<a id="right_elip" href="">...</a>';
+       
+       echo '<a id="right_end" href="">' . $num_pages . '</a>';
+     
+  
+     echo '<a onclick="change_page(parseInt($(\'#current_page\').val())+1); animate_page_turn(\'' . $div_name . '\'); return false;" href="">>></a>';
+    
+     //for ($i=0; $i<$num_pages; $i++) {
+       //echo $i;
+       //echo '<a onclick="
+       //                       $(\'#'. $div_name . '\').animate({\'margin-top\':' . (int)((-1) * $height_inc * $i) . ' +\'px\'}); 
+       //                       $(\'#current_page\').val(' . (int)($i+1) . '); 
+       //                       return false;
+       //                 " href="">' . (int)($i+1) . '</a>';       
+       
+     //}
+     echo '</div>';
+   
+
+     echo '<input type="hidden" value="' . $current_page . '" name="current_page" id="current_page"/>';
+     echo '<input type="hidden" value="' . $num_pages . '" name="num_pages" id="num_pages"/>';
+     echo '<input type="hidden" value="' . $height_inc . '" name="height_inc" id="height_inc"/>';
+
+     echo '<script type="text/javascript">
+       $(document).ready(function() {
+          rebigulate_paging_links("' . $div_name . '",' . $num_pages . ',' . $current_page . ',' . $height_inc . ');
+       });
+     </script>';
+     
+ echo '</div>';   
+}
+
 function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_name, $y2_name, $w_name, $h_name) {
   $image = new SimpleImage();
   $image->load(ORIGINAL_IMAGE_PATH() . $img_name);
@@ -207,6 +340,24 @@ function addJSSearchEvents($input_id, $ftn="filterUsers") {
   				    $(".js_user_" + data.users_out[user_id]).hide();
                                     
 		      		}
+                                div_name = $("#boundry div:first-child").attr("id");
+                                num_users = data.users_in.length;
+                                height_inc = $("#boundry").height();
+                                users_per_page = Math.ceil(height_inc / 198) * 4; // CONSTANTS HERE
+                                num_pages = Math.ceil(num_users/users_per_page);
+                                current_page = 1;
+                              
+                                $("#current_page").val(current_page);
+                                $("#num_pages").val(num_pages);
+                                $("#height_inc").val(height_inc);
+                                
+                                change_page(1);
+                                animate_page_turn(div_name);
+                                //rebigulate_paging_links(div_name, num_pages, current_page, height_inc);
+
+                                 
+                                
+                                //alert("num_users: " + num_users + ", users_per_page: " + users_per_page + ", num_pages: " + num_pages);
 		          }  
                                                                     
 		 });

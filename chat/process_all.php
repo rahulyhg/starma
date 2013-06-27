@@ -32,7 +32,7 @@
                  break;
          case('search_favs'):
                  $filter = $_GET['q'];
-                 $included_users = get_filtered_user_list_no_celeb ($filter, $type="include", $_GET["limit"]);
+                 $included_users = get_filtered_user_list_no_celeb ($filter, $type="include", $_GET["limit"]); // THIS WILL CHANGE TO THE FAV ONLY QUERY EVENTUALLY
                  while ($row = mysql_fetch_array($included_users)) {
                    $json = array();
                    $json['value'] = $row['user_id'];

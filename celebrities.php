@@ -6,6 +6,10 @@ if (login_check_point($type="full")) {
 
   $celebs = get_celebrity_user_list();
   $num_celebs = mysql_num_rows($celebs);
+  $celebs_per_page = grab_var('celebs_per_page', 16);
+  $current_page = grab_var('current_page', 1);
+  $num_pages = ceil((float)($num_celebs/$celebs_per_page));
+  $height_inc = ceil((float)($celebs_per_page/USER_BLOCK_PER_ROW())) * (int)(USER_BLOCK_COMPARE_HEIGHT());
   //echo '*' . $num_celebs . '*<br>';
   clear_compare_data();
   //Log the Action
@@ -14,6 +18,7 @@ if (login_check_point($type="full")) {
     echo '<div id="compare_header">';
         flare_title ("Celebrities");
     echo '</div>';
+    js_more_link ("js_celebrity_frame", $num_pages, $current_page, $height_inc);
     echo '<div id="search_bar_div">';
       echo '<div id="search_bar_title">';
         echo 'Search:';
@@ -29,20 +34,9 @@ if (login_check_point($type="full")) {
         addJSSearchEvents("js_search_bar","filterCelebs");
      echo '</div>';
     echo '</div>';
-    echo '<div id="js_more_link">';
-     echo '<a onclick="$(\'#js_celebrity_frame\').animate({\'margin-top\': (-790 * ($(\'#current_page\').val() - 2))+\'px\'}); $(\'#current_page\').val(parseInt($(\'#current_page\').val())-parseInt(1)); return false;" href="">Prev Page</a>';
-     for ($i=0; $i<ceil((float)($num_celebs/16)); $i++) {
-       //echo $i;
-       echo '<a onclick="
-                              $(\'#js_celebrity_frame\').animate({\'margin-top\':' . (int)(-790 * $i) . ' +\'px\'}); 
-                              $(\'#current_page\').val(' . (int)($i+1) . '); 
-                              return false;
-                        " href="">' . (int)($i+1) . '</a>';       
-       
-     }
-     echo '<a onclick="$(\'#js_celebrity_frame\').animate({\'margin-top\':-790 * $(\'#current_page\').val()+\'px\'}); $(\'#current_page\').val(parseInt($(\'#current_page\').val())+parseInt(1)); return false;" href="">Next Page</a>';
-     echo '<input type="hidden" value="1" name="current_page" id="current_page"/>';
-    echo '</div>';
+   
+    
+
   echo '</div>';
   
   

@@ -9,6 +9,32 @@ function PERMISSIONS_ADMIN() {
 }
 /*/////////////////////////////// END PERMISSIONS ID CONSTANTS /////////////////////////////////*/
 
+/*////////////////////////////////// LAYOUT CONSTANTS //////////////////////////////////*/
+function USER_BLOCK_COMPARE_HEIGHT() {
+   return 198;
+}
+
+function USER_BLOCK_PER_ROW() {
+   return 4;
+}
+
+/*/////////////////////////////// END LAYOUT CONSTANTS /////////////////////////////////*/
+function grab_var($var_name, $initial_value=-1) {
+  if (isset($_SESSION[$var_name])) {
+    return $_SESSION[$var_name];
+  }
+  elseif (isset($_POST[$var_name])) {
+    return $_POST[$var_name];
+  }
+  elseif (isset($_GET[$var_name])) {
+    return $_GET[$var_name];
+  }
+  else {
+    return $initial_value;
+  }
+}
+
+
 function store_chart_input_vars() {
   // CALL THIS FUNCTION RIGHT AFTER A CHART SUBMITTEAL FORM POST
   $chart_vars = array();
