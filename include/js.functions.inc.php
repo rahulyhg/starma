@@ -87,6 +87,8 @@ function js_more_link ($div_name, $num_pages, $current_page, $height_inc) {
 
    
      echo '<div id="paging_links">';  
+       echo '<a onclick="change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); return false;" href="">|<</a>';
+
        echo '<a onclick="change_page( parseInt($(\'#current_page\').val())-1 ); animate_page_turn(\'' . $div_name . '\'); return false;" href=""><<</a>';
      
      
@@ -127,6 +129,8 @@ function js_more_link ($div_name, $num_pages, $current_page, $height_inc) {
      
   
      echo '<a onclick="change_page(parseInt($(\'#current_page\').val())+1); animate_page_turn(\'' . $div_name . '\'); return false;" href="">>></a>';
+
+     echo '<a id="right_end_most" onclick="change_page( parseInt(' . $num_pages . '); animate_page_turn(\'' . $div_name . '\'); return false;" href="">>|</a>';
     
      //for ($i=0; $i<$num_pages; $i++) {
        //echo $i;

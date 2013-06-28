@@ -33,22 +33,69 @@
            else {
                                   
              $("#paging_links").show();
-             //LEFT END
-             if (current_page >= 3 && num_pages > 3) {
-               $("#left_end").show();
-                         
-               if (current_page >= 4) {
-                 $("#left_elip").show();
-               }
-               else {
-                 $("#left_elip").hide();
-               }
-             }
-             else {
-               $("#left_end").hide();
-               $("#left_elip").hide();
-             }
 
+             $("#right_end_most").attr("onClick","change_page(" + parseInt(num_pages) + "); animate_page_turn('" + div_name + "'); return false;");
+
+             //HIDE EVERYTHING
+             $("#left_end").hide();
+             $("#left_elip").hide();
+             $("#right_end").hide();
+             $("#right_elip").hide();
+
+             
+             //LEFT END
+             if (num_pages == 5 || num_pages == 4) {
+               if (current_page == 5 || current_page == 4) { 
+                 
+
+                 $("#left_end").attr("onClick","change_page(" + parseInt(1) + "); animate_page_turn('" + div_name + "'); return false;");
+                 $("#left_end").text(1);             
+                 $("#left_end").show(); 
+                 if (num_pages == 5) {
+                   $("#left_elip").attr("onClick","change_page(" + parseInt(2) + "); animate_page_turn('" + div_name + "'); return false;");
+                   $("#left_elip").text(2);
+                   $("#left_elip").show();   
+                 }
+               }
+
+               else if (current_page == 3) { 
+                 
+
+                 $("#left_elip").attr("onClick","change_page(" + parseInt(1) + "); animate_page_turn('" + div_name + "'); return false;");
+                 $("#left_elip").text(1);             
+                 $("#left_elip").show(); 
+                 if (num_pages == 5) {
+                   $("#right_elip").attr("onClick","change_page(" + parseInt(5) + "); animate_page_turn('" + div_name + "'); return false;");
+                   $("#right_elip").text(5);
+                   $("#right_elip").show();   
+                 }
+               }
+ 
+               else if (current_page == 2 || current_page == 1) { 
+                 $("#right_elip").attr("onClick","change_page(" + parseInt(num_pages-4) + "); animate_page_turn('" + div_name + "'); return false;");
+                 $("#right_elip").text(4);             
+                 $("#right_elip").show(); 
+                 if (num_pages == 5) {
+                   $("#right_end").attr("onClick","change_page(" + parseInt(num_pages-3) + "); animate_page_turn('" + div_name + "'); return false;");
+                   $("#right_end").text(5);             
+                   $("#right_end").show(); 
+                 }
+  
+                 
+                   
+               }
+
+               
+
+             }
+             else if (num_pages == 4) {
+                $("#right_end").attr("onClick","change_page(" + parseInt(4) + "); animate_page_turn('" + div_name + "'); return false;");
+                $("#right_end").text(4);             
+                $("#right_end").show();
+             }
+             
+           
+  
              //LINK BEHIND
              if (current_page > 1) {
                if (current_page == num_pages && num_pages >= 3) {
@@ -93,22 +140,59 @@
              }
           
              //RIGHT END
-             if (current_page <= (num_pages - 2) && num_pages > 3) {
-               if (current_page <= (num_pages - 3)) {
-                 $("#right_elip").show(); 
-               }
-               else {
-                 $("#right_elip").hide(); 
-               }
+             
+             if (current_page <= (num_pages - 4) && num_pages > 5) {
+
+               $("#right_elip").attr("onClick","");
+               $("#right_elip").text('...');             
+               $("#right_elip").show(); 
+  
                $("#right_end").attr("onClick","change_page(" + parseInt(num_pages) + "); animate_page_turn('" + div_name + "'); return false;");
                $("#right_end").text(num_pages);
                $("#right_end").show(); 
              }
-             else {
-               $("#right_end").hide();
-               $("#right_elip").hide(); 
-             }
-     
+             else if (num_pages > 5) {
+               if (current_page == num_pages - 3) { 
+                 
+
+                 $("#right_elip").attr("onClick","change_page(" + parseInt(num_pages-1) + "); animate_page_turn('" + div_name + "'); return false;");
+                 $("#right_elip").text(num_pages-1);             
+                 $("#right_elip").show(); 
+  
+                 $("#right_end").attr("onClick","change_page(" + parseInt(num_pages) + "); animate_page_turn('" + div_name + "'); return false;");
+                 $("#right_end").text(num_pages);
+                 $("#right_end").show();   
+               }
+
+               else if (current_page == num_pages - 2) { 
+                 
+
+                 $("#left_elip").attr("onClick","change_page(" + parseInt(num_pages-4) + "); animate_page_turn('" + div_name + "'); return false;");
+                 $("#left_elip").text(num_pages-4);             
+                 $("#left_elip").show(); 
+  
+                 $("#right_end").attr("onClick","change_page(" + parseInt(num_pages) + "); animate_page_turn('" + div_name + "'); return false;");
+                 $("#right_end").text(num_pages);
+                 $("#right_end").show();   
+               }
+ 
+               else if (current_page == num_pages - 1 || current_page == num_pages) { 
+                 $("#left_end").attr("onClick","change_page(" + parseInt(num_pages-4) + "); animate_page_turn('" + div_name + "'); return false;");
+                 $("#left_end").text(num_pages-4);             
+                 $("#left_end").show(); 
+
+                 $("#left_elip").attr("onClick","change_page(" + parseInt(num_pages-3) + "); animate_page_turn('" + div_name + "'); return false;");
+                 $("#left_elip").text(num_pages-3);             
+                 $("#left_elip").show(); 
+  
+                 
+                 $("#right_end").hide();   
+               }
+
+               
+
+             } 
+             
 
            }
 
