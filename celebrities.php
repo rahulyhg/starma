@@ -18,7 +18,7 @@ if (login_check_point($type="full")) {
     echo '<div id="compare_header">';
         flare_title ("Celebrities");
     echo '</div>';
-    js_more_link ("js_celebrity_frame", $num_pages, $current_page, $height_inc);
+    js_more_link ("js_celebrity_frame", $num_pages, $current_page, $height_inc, $num_celebs);
     echo '<div id="search_bar_div">';
       echo '<div id="search_bar_title">';
         echo 'Search:';

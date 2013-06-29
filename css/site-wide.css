@@ -263,3 +263,33 @@ body select {
     top: 50px;
     width: 500px;
 }
+
+
+#page_body #boundry {
+  height:790px;
+  overflow:hidden;
+}
+
+#paging_links {
+  display:inline;
+}
+
+#paging_links #link_current{
+  color:white;
+}
+
+#js_more_link {
+    left: 470px;
+    position: absolute;
+    width: 400px;
+    z-index: 1;
+}
+
+#js_more_link a {
+  padding:5px;
+}
+
+#js_more_link #view_select {
+  display: inline;
+  width: 200px;
+}

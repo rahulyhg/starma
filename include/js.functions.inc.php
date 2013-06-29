@@ -20,7 +20,7 @@ function javascript_submit ($form_name='formx', $action='', $hidden='', $value='
 
 }
 
-function js_more_link ($div_name, $num_pages, $current_page, $height_inc) {
+function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_users) {
     
   echo '<div id="js_more_link">';
    
@@ -85,8 +85,15 @@ function js_more_link ($div_name, $num_pages, $current_page, $height_inc) {
    }
    */
 
+     echo '<div id="view_select">';
+         echo '<a id="view_all" onclick="change_height_inc(maxHeight_inc(' . $num_users . ')); change_num_pages (' .  $num_users . '); change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); $(\'#view_pages\').show(); $(\'#view_all\').hide(); return false;" href="">View All</a>';
+         echo '<a style="display:none"; id="view_pages" onclick="change_height_inc(792); change_num_pages (' .  $num_users . '); change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); $(\'#view_all\').show(); $(\'#view_pages\').hide(); return false;" href="">View Pages</a>';
+     echo '</div>';
    
      echo '<div id="paging_links">';  
+
+       
+
        echo '<a onclick="change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); return false;" href="">|<</a>';
 
        echo '<a onclick="change_page( parseInt($(\'#current_page\').val())-1 ); animate_page_turn(\'' . $div_name . '\'); return false;" href=""><<</a>';
@@ -347,19 +354,20 @@ function addJSSearchEvents($input_id, $ftn="filterUsers") {
                                 div_name = $("#boundry div:first-child").attr("id");
                                 num_users = data.users_in.length;
                                 height_inc = $("#boundry").height();
-                                users_per_page = Math.ceil(height_inc / 198) * 4; // CONSTANTS HERE
-                                num_pages = Math.ceil(num_users/users_per_page);
-                                current_page = 1;
-                              
-                                $("#current_page").val(current_page);
-                                $("#num_pages").val(num_pages);
-                                $("#height_inc").val(height_inc);
+                                if ($("#view_pages").is(":visible")) {
+                                  
+                                  height_inc = maxHeight_inc(num_users);
+                                  change_height_inc (height_inc);
+                                  
+                                }
                                 
+                                $("#view_all").attr("onClick","change_height_inc(maxHeight_inc(" + num_users + ")); change_num_pages (" + num_users + "); change_page( parseInt(1)); animate_page_turn(\'" + div_name + "\'); $(\'#view_pages\').show(); $(\'#view_all\').hide(); return false;");
+                                $("#view_pages").attr("onClick","change_height_inc(792); change_num_pages (" + num_users + "); change_page( parseInt(1)); animate_page_turn(\'" + div_name + "\'); $(\'#view_all\').show(); $(\'#view_pages\').hide(); return false;");
+                                change_num_pages (num_users);  
                                 change_page(1);
                                 animate_page_turn(div_name);
-                                //rebigulate_paging_links(div_name, num_pages, current_page, height_inc);
+                                
 
-                                 
                                 
                                 //alert("num_users: " + num_users + ", users_per_page: " + users_per_page + ", num_pages: " + num_pages);
 		          }  

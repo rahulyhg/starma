@@ -11,14 +11,36 @@
            }
            $("#current_page").val(page_number);
            
-         }       
+         } 
+
+         function maxHeight_inc (num_users) {
+           return (Math.ceil(num_users / 4)) * 198;
+         }      
+
+         function change_height_inc (height_inc) {
+           
+           if (height_inc < 198) {
+              page_number = 198;
+           }
+           $("#height_inc").val(height_inc);
+           $("#boundry").animate({"height":height_inc + "px"});
+         }
+
+         function change_num_pages (num_users) {
+           height_inc = $("#height_inc").val();
+           users_per_page = Math.ceil(height_inc / 198) * 4; // CONSTANTS HERE
+           num_pages = Math.ceil(num_users/users_per_page);
+           $("#num_pages").val(num_pages);
+         }
 
          function animate_page_turn(div_name) {
            current_page = parseInt($("#current_page").val());
            num_pages = parseInt($("#num_pages").val());
            height_inc = parseInt($("#height_inc").val());
            
-           $("#" + div_name).animate({"margin-top":((-1) * height_inc * (current_page-1)) +"px"});
+           $("#" + div_name).animate({"margin-top":((-1) * height_inc * (current_page-1)) +"px"}); //TURN TO THE RIGHT PAGE AND SET THE RIGHT HEIGHT
+                     
+ 
            rebigulate_paging_links(div_name, num_pages, current_page, height_inc);
            
          }
@@ -72,11 +94,11 @@
                }
  
                else if (current_page == 2 || current_page == 1) { 
-                 $("#right_elip").attr("onClick","change_page(" + parseInt(num_pages-4) + "); animate_page_turn('" + div_name + "'); return false;");
+                 $("#right_elip").attr("onClick","change_page(" + parseInt(4) + "); animate_page_turn('" + div_name + "'); return false;");
                  $("#right_elip").text(4);             
                  $("#right_elip").show(); 
                  if (num_pages == 5) {
-                   $("#right_end").attr("onClick","change_page(" + parseInt(num_pages-3) + "); animate_page_turn('" + div_name + "'); return false;");
+                   $("#right_end").attr("onClick","change_page(" + parseInt(5) + "); animate_page_turn('" + div_name + "'); return false;");
                    $("#right_end").text(5);             
                    $("#right_end").show(); 
                  }
