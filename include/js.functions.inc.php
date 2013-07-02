@@ -20,6 +20,21 @@ function javascript_submit ($form_name='formx', $action='', $hidden='', $value='
 
 }
 
+function addBackToTopHandler () {
+  echo '<script type="text/javascript">
+  
+           $(window).on(\'scroll\',function() {
+             
+             var vPos = $(window).scrollTop();
+                 
+             if ($("#js_back_to_top").is(":visible")) {
+               $("#js_back_to_top").fadeTo(0, parseFloat(vPos) / 700.00);
+             }
+           });
+  </script>';
+}
+
+
 function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_users) {
     
   echo '<div id="js_more_link">';
@@ -86,8 +101,8 @@ function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_u
    */
 
      echo '<div id="view_select">';
-         echo '<a id="view_all" onclick="change_height_inc(maxHeight_inc(' . $num_users . ')); change_num_pages (' .  $num_users . '); change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); $(\'#view_pages\').show(); $(\'#view_all\').hide(); return false;" href="">View All</a>';
-         echo '<a style="display:none"; id="view_pages" onclick="change_height_inc(792); change_num_pages (' .  $num_users . '); change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); $(\'#view_all\').show(); $(\'#view_pages\').hide(); return false;" href="">View Pages</a>';
+         echo '<a id="view_all" onclick="change_height_inc(maxHeight_inc(' . $num_users . ')); change_num_pages (' .  $num_users . '); change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); $(\'#view_pages\').show(); $(\'#view_all\').hide(); $(\'#js_back_to_top\').fadeTo(200,0); $(\'#js_back_to_top\').show(); return false;" href="">View All</a>';
+         echo '<a style="display:none"; id="view_pages" onclick="change_height_inc(792); change_num_pages (' .  $num_users . '); change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); $(\'#view_all\').show(); $(\'#view_pages\').hide(); $(\'#js_back_to_top\').fadeTo(200,0); $(\'#js_back_to_top\').hide(); return false;" href="">View Pages</a>';
      echo '</div>';
    
      echo '<div id="paging_links">';  
@@ -104,7 +119,7 @@ function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_u
      
        echo '<a id="left_end" onclick="change_page(1); animate_page_turn(\'' . $div_name . '\'); return false;" href="">1</a>';   
        
-       echo '<a id="left_elip" href="">...</a>';
+       echo '<a id="left_elip" onclick="return false;" href="">...</a>';
       
   
      
@@ -130,7 +145,7 @@ function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_u
      
       
      
-       echo '<a id="right_elip" href="">...</a>';
+       echo '<a id="right_elip" onclick="return false;" href="">...</a>';
        
        echo '<a id="right_end" href="">' . $num_pages . '</a>';
      
@@ -150,7 +165,10 @@ function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_u
      //}
      echo '</div>';
    
-
+     echo '<div id="js_back_to_top">';
+       echo '<a onclick="$(\'html,body\').animate({ scrollTop: 0 }, \'slow\'); return false;" href="">^<br>Back<br>To Top</a>';
+     echo '</div>';
+     addBackToTopHandler();
      echo '<input type="hidden" value="' . $current_page . '" name="current_page" id="current_page"/>';
      echo '<input type="hidden" value="' . $num_pages . '" name="num_pages" id="num_pages"/>';
      echo '<input type="hidden" value="' . $height_inc . '" name="height_inc" id="height_inc"/>';
@@ -158,6 +176,7 @@ function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_u
      echo '<script type="text/javascript">
        $(document).ready(function() {
           rebigulate_paging_links("' . $div_name . '",' . $num_pages . ',' . $current_page . ',' . $height_inc . ');
+          
        });
      </script>';
      

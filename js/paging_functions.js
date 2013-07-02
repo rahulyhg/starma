@@ -1,4 +1,5 @@
-   
+         
+
 
          function change_page(page_number) {
            current_page = parseInt($("#current_page").val());
@@ -165,7 +166,7 @@
              
              if (current_page <= (num_pages - 4) && num_pages > 5) {
 
-               $("#right_elip").attr("onClick","");
+               $("#right_elip").attr("onClick","return false;");
                $("#right_elip").text('...');             
                $("#right_elip").show(); 
   

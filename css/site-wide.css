@@ -293,3 +293,19 @@ body select {
   display: inline;
   width: 200px;
 }
+
+#js_back_to_top {
+  
+  display: none;
+  height: 100px;
+  left: 890px;
+  position: fixed;
+  text-align: center;
+  top: 200px;
+  width: 100px;
+}
+
+#js_back_to_top a {
+  
+  color:black;
+}
