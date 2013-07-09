@@ -31,7 +31,6 @@ else {
 
 if ($the_left=="nav1") {
   clean_session();
-  clear_compare_data();
 }
 
 //if ($the_page == "psel" and !is_my_profile_done()) {
