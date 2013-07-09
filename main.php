@@ -45,7 +45,24 @@ if ($the_left=="nav1") {
  $nav6 = "";
 
  $$the_left = "selected";
-
+ if (isset($_GET["chart_id2"])) {
+   $chart_id2_holder = $_GET["chart_id2"];
+ }
+ elseif (isset($_POST["chart_id2"])) {
+   $chart_id2_holder = $_POST["chart_id2"];   
+ }
+ else {
+   $chart_id2_holder = -1;
+ }
+ if ($chart_id2_holder != -1) {
+   
+   if (isCeleb(get_user_id_from_chart_id($chart_id2_holder))) {
+      
+      $$the_left = "";
+      $nav3 = "selected";  
+   }
+ }
+ 
 
 ?> 
 

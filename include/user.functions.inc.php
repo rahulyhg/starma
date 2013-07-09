@@ -15,7 +15,7 @@ function max_photos() {
 
 function isCeleb($user_id) {
   $info = profile_info($user_id);
-  return $info["permissions_id"] == PERMISSIONS_CELEB();
+  return ($info["permissions_id"] == PERMISSIONS_CELEB());
 }
 
 function update_my_last_action_made ($datetime) {

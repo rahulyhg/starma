@@ -178,6 +178,7 @@ function get_inputed_time ($type="default") {
 function clean_session() {
   unset($_SESSION["change_info"]);
   unset($_SESSION["chart_input_vars"]);
+  
 }
 
 

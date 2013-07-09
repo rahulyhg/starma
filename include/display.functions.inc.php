@@ -1,4 +1,5 @@
 <?php 
+
 function show_sheen ($flag=0, $form_function) {
    echo '<div id="sheen">';
     
