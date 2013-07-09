@@ -51,6 +51,10 @@ if ($the_left=="nav1") {
  elseif (isset($_POST["chart_id2"])) {
    $chart_id2_holder = $_POST["chart_id2"];   
  }
+ elseif (isset($_SESSION['compare_chart_ids'])) {
+   $chart_id2_holder = $_SESSION['compare_chart_ids'][1];
+   
+ }
  else {
    $chart_id2_holder = -1;
  }
