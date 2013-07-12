@@ -58,6 +58,7 @@ if ($the_left=="nav1") {
  else {
    $chart_id2_holder = -1;
  }
+/*
  if ($chart_id2_holder != -1) {
    
    if (isCeleb(get_user_id_from_chart_id($chart_id2_holder))) {
@@ -66,7 +67,7 @@ if ($the_left=="nav1") {
       $nav3 = "selected";  
    }
  }
- 
+*/
 
 ?> 
 

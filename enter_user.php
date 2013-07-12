@@ -35,23 +35,24 @@ if ($tier == "1") {
   //display_my_chart_list();
 }
 elseif ($tier == "2") {
-  if (isset($_GET["results_type"])) {
-    $results_type = $_GET["results_type"];
-  }
-  else { 
-    $results_type = "major";
-  }
-
-  if (isset($_GET["text_type"])) {
-    $text_type = $_GET["text_type"];
-  }
-  else { 
-    $text_type = "2";
-  }  
-  
-  $gotothe = "?the_page=" . $the_page . "&the_left=" . $the_left . "&results_type=" . $results_type . "&text_type=" . $text_type . "&tier=2";
-
   if ((string) $_GET["stage"] == "2" or (string) $_GET["stage"] == "3") {
+    if (isset($_GET["results_type"])) {
+      $results_type = $_GET["results_type"];
+    }
+    else { 
+      $results_type = "major";
+    }
+
+    if (isset($_GET["text_type"])) {
+      $text_type = $_GET["text_type"];
+    }
+    else { 
+      $text_type = "2";
+    }  
+  
+    $gotothe = "?the_page=" . $the_page . "&the_left=" . $the_left . "&results_type=" . $results_type . "&text_type=" . $text_type . "&tier=2";
+
+  
     if ($chart = get_chart_by_name("Freebie1")) {
       if (!isset($_SESSION['compare_data'])) {
         generate_compare_data ($chart_id1 = get_my_chart_id(), $chart_id2 = $chart["chart_id"]);

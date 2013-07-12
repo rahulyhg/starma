@@ -2624,7 +2624,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       echo '</div>';
       echo '<div id="profile_back_link">';
         if ($header != 'Custom Chart') {
-          echo '<a href="?the_page=cosel&the_left=nav1&tier=3&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id . '">< Back to Profile</a>';
+          echo '<a href="' . $goTo . '&tier=3&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id . '">< Back to Profile</a>';
         }
       echo '</div>';   
       //echo '<div id="explanation">';
