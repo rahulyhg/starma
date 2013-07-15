@@ -947,6 +947,47 @@ function edit_profile_form ($user_id) {  // FOR ADMINS ONLY
   }
 }
 
+function show_desc_photo_form($errors, $des_names,$action="birth_info_first_time.php") {
+  echo '<div id="desc_photo_form_div">';
+    echo '<div id="img_div">';
+      echo '<img id="desc_img_1" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
+      echo '<img id="desc_img_2" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
+      echo '<img id="desc_img_3" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
+    echo '</div>';
+ 
+    echo "What 3 Words describe you best?<br><br>";
+
+    echo '<div id="edit_descriptors">';
+
+      echo '<form name="descriptor_form" action="' . $action . '" method="post">';
+      $counter = 0;
+
+      while ($counter < max_descriptors()) {
+        echo '<div id="des_selector_' . (string)($counter+1) . '">';
+
+          echo '<div class="title">' . (string)($counter+1) . ':</div>';
+          echo '<div class="value">';
+            echo '<input type="text" name="des_name_' . (string)($counter+1) . '" value="' . $des_names[$counter+1] . '"/>';
+          echo '</div>';
+
+        echo '</div>';
+        $counter = $counter + 1;
+      }
+
+     echo '<div id="register_button_div">';
+       echo '<input id="bug_button" type="submit" value="" name="desc_photo_submit">';
+     echo '</div>';
+
+   echo '</form>';
+
+    echo '<form id="form_photo" action="process_photo_admin.php" method="post" enctype="multipart/form-data"> 
+      Upload Photo: <input type="file" name="image" onchange="$(\'#form_photo\').submit();"/>
+      <input name="user_id" value="' . get_my_user_id() . '" type="hidden"/>
+      <input name="first_time" value="1" type="hidden"/>
+    </form>';
+  echo '</div>';
+}
+
 function show_gender_location_form ($errors = array(), $title="", $country_id, $gender, $action="birth_info_first_time.php") {
   echo '<div id="gender_location_form_div">';
       echo '<div id="img_div">';

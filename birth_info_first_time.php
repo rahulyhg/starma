@@ -6,50 +6,26 @@
 
 if (isLoggedIn())
 {
-  if (get_my_location() == "") {
-    if (isset($_POST["location_gender_submit"]) and $user = my_profile_info()) {
-      $country_id = $_POST["js_country_id"];
+  // IF COMING FROM THE DECRIPTORS/PHOTO MANDATORY PAGE
+  if (!my_descriptors_loaded() or !get_my_main_photo()) {
+    if (isset($_POST["desc_photo_submit"]) and $user = my_profile_info()) {
+      
       $errors = array();
-      if ($country_id == 236) {
-        if (trim($_POST["zip"]) == "") {
-          $errors[] = "Geocode Error";
-        }
-        else {
-          $location_string = trim($_POST["zip"]) . ' US';
-          $type="postalCodeSearch?placename";
-        }
-      }
-      else {
-        if (trim($_POST["title"]) == "") {
-          $errors[] = "Geocode Error";
-        }
-        else {
-          $country = get_country($country_id = $country_id);
-          $location_string = exceptionizer($location_string = trim($_POST["title"]) . ', ' . $country["country_title"]);  
-          //echo '*' . $location_string . '*'; die();
-          $type="wikipediaSearch?q";
-        }
-      }
-      if (!$result = geocode($location_string, $type)) {
-        $errors[] = "Geocode Error";
-      }
-      if (!valid_gender($gender = trim($_POST["gender"]))) {
-        $errors[] = "Gender Error";
-      }
+      //VALIDATE INPUT GOES HERE
+      //   
+      //
       if (sizeof($errors) == 0) {
-        $location = $result["location"];
-        $state_id = get_state_id_from_code ($result["state_code"]);
-        update_my_profile_info($user["first_name"], $user["last_name"], $gender, $location);
-        update_my_extended_location($state_id, $country_id);
+        // UPDATE AND MOVE ALONG
         do_redirect( $url = get_domain() . '/process_login.php');
       }
       else {
+        // ERRORS ARE PRESENT
         $_SESSION["errors"] = $errors;
-        do_redirect( $url = get_domain() . '/gender_location_first_time.php?gender=' . $gender . '&title=' . trim($_POST["title"]) . '&country_id=' . $country_id);
+        do_redirect( $url = get_domain() . '/desc_photo_first_ime.php?des_name_1=' . $_GET['des_name_1'] . '&des_name_2=' . $_GET['des_name_2'] . '&des_name_3=' . $_GET['des_name_3']);
       }
     }
     else {
-      do_redirect( $url = get_domain() . '/gender_location_first_time.php');
+      do_redirect( $url = get_domain() . '/desc_photo_first_time.php');
     }
   }    
        
