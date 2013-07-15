@@ -52,7 +52,7 @@
 
 
 #welcome #horoscope_box_link {
-  top: 360px;
+  top: 390px;
   left:45px;
 }
 #welcome #horoscope_box_link a {
@@ -65,7 +65,7 @@
 
 #welcome #celebrities_box_link {
  left: 400px;
-    top: 360px;
+    top: 390px;
 }
 #welcome #celebrities_box_link a {
   background:url("/img/Starma-Astrology-CelebritiesBox.png") no-repeat scroll center center;
