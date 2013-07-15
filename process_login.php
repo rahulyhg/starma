@@ -21,11 +21,16 @@ if (!isLoggedIn())
             }
             else if (!sign_up_process_done()) {
               if (get_my_location() == "") {
-                //show_gender_location_form(); 
+                
                 require ("gender_location_first_time.php");
               }
+              else if (!my_descriptors_loaded() or !get_my_main_photo()) {
+                
+                require ("descriptors_photo_first_time.php");
+              
+              }
               else if (!get_my_chart()) {
-                //show_birth_info_form(); 
+                
                 require ("birth_info_first_time.php");
               
               }

@@ -34,7 +34,7 @@ function sign_up_process_done() {
     if (isAdmin()) {
       return true;
     }
-    else if (trim(get_my_location()) == "" or !get_my_chart()) {
+    else if (trim(get_my_location()) == "" or !get_my_chart() or !my_descriptors_loaded() or !get_my_main_photo()) {
       return false;
     } 
     else {
@@ -466,6 +466,22 @@ function is_female($user_id) {
    else {
      return false;
    }
+}
+
+function my_descriptors_loaded () {
+  return descriptions_loaded(get_my_user_id());
+}
+
+function descriptors_loaded ($user_id) {
+  
+  if ($descs = get_descriptors ($user_id)) {
+    $num = mysql_num_rows($descs);
+    return $num >= 3;
+     
+  }
+  else {
+    return false;
+  }
 }
 
 function get_my_descriptors () {
