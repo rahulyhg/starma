@@ -678,7 +678,8 @@ function associate_photo_with_me($pic_name) {
 function associate_photo_with_user($pic_name, $user_id) {
   if (isLoggedIn()) {
     if (num_photos($user_id) < max_photos()) {
-      if ((int)num_photos($user_id) == 0) {
+      //if ((int)num_photos($user_id) == 0) {
+      if (!get_main_photo($user_id)) {
         $main = 1;
       }
       else {
