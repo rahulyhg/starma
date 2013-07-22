@@ -71,7 +71,7 @@ $des_names[0]= grab_var('des_name_1', $init_des_names[0]);
 $des_names[1]= grab_var('des_name_2', $init_des_names[1]);
 $des_names[2]= grab_var('des_name_3', $init_des_names[2]);
 
-clear_session_first_time_vars();
+
 
 //print_r($des_names);
 
@@ -116,6 +116,7 @@ if (isset($_SESSION['errors'])) {
      
    }
    else {
+     clear_session_first_time_vars();
    ?>
   <div id="desc_photo_first_time">
   
