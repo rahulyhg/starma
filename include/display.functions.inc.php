@@ -1,4 +1,13 @@
 <?php 
+function isWord($word) {
+ if ((int)(strpos($word, ' ')) > 0 || strlen($word) == 0) {
+   return false;
+ }
+ else {
+   return true;
+ }
+}
+
 
 function show_sheen ($flag=0, $form_function) {
    echo '<div id="sheen">';
@@ -633,9 +642,9 @@ function show_photo_cropper($photo_to_crop) {
   $img_name = $photo_to_crop["picture"];
   echo '<div id="photo_cropping_area">';
     echo '<img id="photo_crop_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '?' . time() . '">';
-    echo '<input style="position: absolute; right: 35px; top: 240px;" type="submit" name="submit" value="Crop and Set"/>';
-    echo '<input style="position:absolute; top:212px; right:85px;" type="submit" name="submit" value="<- Rotate"/>';
-    echo '<input style="position:absolute; top:212px; right:10px;" type="submit" name="submit" value="Rotate ->"/>';
+    echo '<input id="crop_and_set" type="submit" name="submit" value="Crop and Set"/>';
+    echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
+    echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
     echo '<input type="hidden" name="x1" id="x1" value=""/>';
     echo '<input type="hidden" name="y1" id="y1" value=""/>';
     echo '<input type="hidden" name="x2" id="x2" value=""/>';
@@ -949,54 +958,101 @@ function edit_profile_form ($user_id) {  // FOR ADMINS ONLY
 
 function show_desc_photo_form($errors, $des_names,$action="birth_info_first_time.php") {
   echo '<div id="desc_photo_form_div">';
+    echo '<h1>';
+      echo "What 3 Words describe you best?";
+    echo '</h1>';
     echo '<div id="img_div">';
       echo '<img id="desc_img_1" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
       echo '<img id="desc_img_2" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
       echo '<img id="desc_img_3" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
     echo '</div>';
  
-    echo "What 3 Words describe you best?<br><br>";
+    
 
     echo '<div id="edit_descriptors">';
 
-      echo '<form name="descriptor_form" action="' . $action . '" method="post">';
+      echo '<form id="desc_form" name="descriptor_form" action="' . $action . '" method="post">';
       $counter = 0;
 
       while ($counter < max_descriptors()) {
-        echo '<div id="des_selector_' . (string)($counter+1) . '">';
+        echo '<div id="des_selector_' . (string)($counter+1) . '" class="selector">';
 
-          echo '<div class="title">' . (string)($counter+1) . ':</div>';
+          
           echo '<div class="value">';
-            echo '<input type="text" name="des_name_' . (string)($counter+1) . '" value="' . $des_names[$counter+1] . '"/>';
+            echo '<input type="text" name="des_name_' . (string)($counter+1) . '" value="' . $des_names[$counter] . '"/>';
           echo '</div>';
 
         echo '</div>';
         $counter = $counter + 1;
       }
 
-     echo '<div id="register_button_div">';
+      echo '<div id="register_button_div">';
        echo '<input id="bug_button" type="submit" value="" name="desc_photo_submit">';
-     echo '</div>';
+      echo '</div>';
 
-   echo '</form>';
+      echo '</form>';
+    echo '</div>';
 
-    echo '<form id="form_photo" action="process_photo_admin.php" method="post" enctype="multipart/form-data"> 
-      Upload Photo: <input type="file" name="image" onchange="$(\'#form_photo\').submit();"/>
-      <input name="user_id" value="' . get_my_user_id() . '" type="hidden"/>
-      <input name="first_time" value="1" type="hidden"/>
-    </form>';
+    echo '<div id="photo_form_div">';
+      
+        echo '<h1>';       
+          echo 'Upload your profile photo:';
+        echo '</h1>';
+        echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';
+          echo '<div id="photo_display">';
+            echo '<div id="my_tiny_photo"><div class="grid_photo_border_wrapper"><div class="grid_photo">';
+              show_user_inbox_picture ('', get_my_user_id());
+            echo '</div></div></div>';
+          echo '</div>';
+          echo '
+          <input type="file" name="image" onchange="
+                   $(\'#form_photo #des_1\').val($(\'#desc_form #des_selector_1 .value input\').val());
+                   $(\'#form_photo #des_2\').val($(\'#desc_form #des_selector_2 .value input\').val());
+                   $(\'#form_photo #des_3\').val($(\'#desc_form #des_selector_3 .value input\').val());
+                   $(\'#form_photo\').submit();
+                   $(this).prop( \'disabled\', true ); 
+                   $(\'#desc_photo_first_time #enter_info #desc_photo_form_div #register_button_div input\').prop( \'disabled\', true ); 
+          "/>
+          <input type="hidden" name="firsttime" value="1"/>
+          <input type="hidden" id="des_1" name="des_name_1" value=""/>
+          <input type="hidden" id="des_2" name="des_name_2" value=""/>
+          <input type="hidden" id="des_3" name="des_name_3" value=""/>
+        </form>';
+      
+      
+      
+    echo '</div>';
+
+   
+
+    $output = $errors;
+
+    echo '<div class="error';
+    if (!in_array(NOT_WORDS_ERROR(), $output)) {echo ' hidden_error';}
+    echo '" id="not_words_error">';
+    echo 'Words cannot contain spaces or be left blank';
+    echo '</div>';
+    
+    echo '<div class="error';
+    if (!in_array(PHOTO_ERROR(), $output)) {echo ' hidden_error';}
+    echo '" id="photo_first_time_error">';
+    echo 'You must upload a profile photo';
+    echo '</div>';
+    
+    //clear_error();
   echo '</div>';
 }
 
-function show_gender_location_form ($errors = array(), $title="", $country_id, $gender, $action="birth_info_first_time.php") {
+function show_gender_location_form ($errors = array(), $title="", $country_id, $gender, $action="desc_photo_first_time.php") {
   echo '<div id="gender_location_form_div">';
       echo '<div id="img_div">';
         echo '<img id="gender_img" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
         echo '<img id="country_img" src="img/account_info/Starma-Astrology-CountryBox.png"/>';
         echo '<img id="zip_img" src="img/account_info/Starma-Astrology-ZipBox.png"/>';
-        echo '<form id="gender_location_form" method="post" action="' . $action . '">';
+        
       echo '</div>';
       
+      echo '<form id="gender_location_form" method="post" action="' . $action . '">';
       echo '<div id="input_divs">';
         echo '<div id="gender_div">';
          
@@ -3637,8 +3693,12 @@ function show_user_compare_picture ($url, $user_id) {
 }
 
 function show_user_inbox_picture ($url, $user_id) {
-  
-  echo '<div class="user_inbox_button"><a href="' . $url . '">' . format_image($picture=get_main_photo($user_id), $type="thumbnail", $user_id) . '</a></div>';
+  if ($url == '') {
+    echo '<div class="user_inbox_button"><a>' . format_image($picture=get_main_photo($user_id), $type="thumbnail", $user_id) . '</a></div>'; 
+  }
+  else {
+    echo '<div class="user_inbox_button"><a href="' . $url . '">' . format_image($picture=get_main_photo($user_id), $type="thumbnail", $user_id) . '</a></div>';
+  }
 }
 
 function display_all_users ($url="", $filter=0) {

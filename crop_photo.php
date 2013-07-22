@@ -2,10 +2,19 @@
 require_once ("header.php");
 
 
-if (login_check_point($type="full", $domain=$domain)) {
+if (login_check_point($type="partial", $domain=$domain)) {
   
   $error=0;
   if (isset($_POST["submit"])) { 
+
+     if (isset($_POST["firsttime"])) {
+       $firsttime = $_POST["firsttime"];
+     }
+     else {
+       $firsttime = 0;
+     }
+
+     
      
      $imgName = $_POST["imgName"];
      $imgPath = ORIGINAL_IMAGE_PATH() . $imgName;
@@ -47,10 +56,20 @@ if (login_check_point($type="full", $domain=$domain)) {
 
   if ($error == 0) {
     log_this_action (profile_action_photos(), uploaded_basic_action());
-    do_redirect ( get_domain() . '/main.php?the_left=nav4&the_page=psel');
+    if ($firsttime == 0) {
+      do_redirect ( get_domain() . '/main.php?the_left=nav4&the_page=psel');
+    }
+    else {
+      do_redirect ( get_domain() . '/desc_photo_first_time.php');
+    }
   }
   else {
+    if ($firsttime == 0) {
       do_redirect ( get_domain() . '/main.php?the_left=nav4&the_page=psel&error=' . $error);
+    }
+    else {
+      do_redirect ( get_domain() . '/desc_photo_first_time.php');
+    }
   }
 
 }

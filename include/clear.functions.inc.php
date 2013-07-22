@@ -12,4 +12,15 @@ function clear_session_preferences() {
   //unset ($_SESSION["western_chart_more_info_flag"]);
 }
 
+function clear_session_first_time_vars() {
+  unset ($_SESSION["des_name_1"]);
+  unset ($_SESSION["des_name_2"]);
+  unset ($_SESSION["des_name_3"]);
+  
+}
+
+function clear_error() {
+  unset ($_SESSION["errors"]);
+}
+
 ?>

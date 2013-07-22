@@ -35,7 +35,7 @@
 }
 
 /****************LANDING PAGE****************************/
-#landing, #register, #birth_info_first_time, #gender_location_first_time {
+#landing, #register, #birth_info_first_time, #gender_location_first_time, #desc_photo_first_time {
   width:1200px;
   height:890px;
   margin-left:auto;
@@ -43,30 +43,30 @@
   position:relative;
 }
 
-#landing .bg, #register .bg, #birth_info_first_time .bg, #gender_location_first_time .bg {
+#landing .bg, #register .bg, #birth_info_first_time .bg, #gender_location_first_time .bg, #desc_photo_first_time .bg {
   position:relative;
   display:block;
 }
 
-#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #sign_in, #create_account, #enter_info {
+#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo, #sign_in, #create_account, #enter_info {
   margin-left:auto; 
   margin-right:auto
 }
 
-#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo {
+#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo {
   width:389px;
   height:132px;
   top:50px;
   
 }
 
-#landing #sign_in, #register #create_account, #birth_info_first_time #enter_info, #gender_location_first_time #enter_info {
+#landing #sign_in, #register #create_account, #birth_info_first_time #enter_info, #gender_location_first_time #enter_info, #desc_photo_first_time #enter_info {
   width:700px;
   top:100px;
   text-align:center;
 }
 
-#landing #sign_in img, #register #create_account img, #birth_info_first_time #enter_info img, #gender_location_first_time #enter_info img {
+#landing #sign_in img, #register #create_account img, #birth_info_first_time #enter_info img, #gender_location_first_time #enter_info img, #desc_photo_first_time #enter_info img {
  margin-right:auto;
  margin-left:auto;
 }
@@ -233,7 +233,18 @@ bottom: 280px;
   
 }
 
-/***************************************REGISTRATION PAGE ONLY****************************************/
+/***************************************REGISTRATION PAGE AND ERRORS****************************************/
+
+.error {
+  color:red;
+  z-index:1;
+  display:block;
+  width:435px;
+}
+
+#desc_photo_form_div .error {
+  position:absolute;
+}
 
 #register .error {
   color:red;
@@ -242,6 +253,10 @@ bottom: 280px;
   display:block;
   left:830px;
   width:435px;
+}
+
+.hidden_error {
+  visibility:hidden;
 }
 
 #register .hidden_error {
@@ -295,6 +310,16 @@ bottom: 280px;
     position: relative;
     width: 300px;
     z-index: 1;
+}
+
+#not_words_error.error {
+  bottom: 233px;
+    left: 128px;
+}
+
+#photo_first_time_error.error {
+  bottom: 81px;
+    left: 126px;
 }
 
 #register #create_account {
@@ -483,7 +508,161 @@ bottom: 280px;
   bottom:65px;
   left:335px;
 }
+/***************************DESC AND PHOTO FIRST TIME PAGE ONLY*******************************/
+#desc_photo_first_time #enter_info {
+  margin:auto;
+}
+
+#desc_photo_first_time .title {
+  position:relative;
+  font-size:1.3em;
+  margin:auto;
+  top:65px;
+}
+
+#desc_photo_form_div {
+  font-size:1.1em;
+}
+
+#desc_photo_form_div select, #desc_photo_form_div input {
+  font-size:0.7em;
+  border: 0;
+}
+
+
+#desc_photo_form_div div {
+ 
+  position:relative;
+}
+
+#desc_photo_form_div #img_div {
+   height: 160px;
+    position: relative;
+    width: 700px;
+   text-align:left;
+   margin:auto;
+   left:65px;
+}
+
+#enter_info #desc_photo_form_div img {
+   top:0px;
+}
+
+#desc_photo_first_time #enter_info #desc_photo_form_div img#gender_img {
+   right:7px;
+}
+
+#desc_photo_first_time #enter_info #desc_photo_form_div #register_button_div {
+    left: 220px;
+    top: 150px;
+    width: 100px;
+}
+
+#desc_photo_first_time #edit_descriptors {
+  bottom: 145px;
+    height: 30px;
+    left: 20px;
+    position: relative;
+}
+
+#desc_photo_first_time #edit_descriptors div {
+  padding:0px;
+  margin:auto;
+  bottom:0px;
+  left:0px;
+}
+
+#desc_photo_first_time #edit_descriptors .title {
+
+  left: auto;
+    right: 90px;
+    top: 20px;
+}
+
+#desc_photo_first_time #edit_descriptors div.selector {
+  display: inline-block;
+    padding-right: 55px;
+    width: 130px;
+}
+
+#desc_photo_first_time h1 {
+  padding-bottom:20px;
+}
+
+#desc_photo_first_time #photo_form_div {
+   bottom: 108px;
+    margin: auto;
+    
+    width: 600px;
+}
+
+#desc_photo_first_time #form_photo { 
+    position: relative;
+}
+
+#desc_photo_first_time #form_photo input {
+  bottom: 28px;
+    display: inline-block;
+    overflow: visible;
+    position: relative;
+    
+  zoom:1;
+  *display:inline;
+}
+
+
+
+#desc_photo_first_time #photo_display {
+  display:inline-block;
+  
+  zoom:1;
+  *display:inline;
+}
+
+#desc_photo_first_time #photo_cropper {
+  position:relative;
+  margin:auto;
+  width:775px;
+  top:100px;
+  
+  
+}
+
+#desc_photo_first_time #photo_cropper #photo_cropping_area  {
+  position:relative;
+  
+}
+
+#desc_photo_first_time #photo_cropper #photo_cropping_area #preview_div {
+  top:0px;
+  
+}
+
+#desc_photo_first_time #photo_cropper #photo_cropping_area #crop_and_set {
+  top:187px;
+  
+}
+
+#desc_photo_first_time #photo_cropper #photo_cropping_area #rotate_left,
+#desc_photo_first_time #photo_cropper #photo_cropping_area #rotate_right {
+  top:159px;
+  
+}
+
+ 
+  
+
+
+
+#desc_photo_first_time.crop {
+  
+  height:1180px;
+  
+}
+
+
 /***************************GENDER AND LOCATION FIRST TIME PAGE ONLY**************************/
+
 #gender_location_first_time #enter_info {
   margin:auto;
 }
@@ -495,6 +674,112 @@ bottom: 280px;
   top:65px;
 }
 
+#gender_location_form_div {
+  font-size:1.1em;
+}
+
+#gender_location_form_div select, #gender_location_form_div input {
+  font-size:0.7em;
+  border: 0;
+}
+
+#gender_location_form_div #js_city_div {
+  display:none;
+}
+
+#gender_location_form_div div {
+ 
+  position:relative;
+}
+
+#gender_location_form_div #img_div {
+   height: 160px;
+    position: relative;
+    width: 350px;
+   text-align:left;
+   margin:auto;
+   left:65px;
+}
+
+#gender_location_first_time #gender_location_form_div img {
+   top:0px;
+}
+
+#gender_location_form_div img#gender_img {
+   right:7px;
+}
+
+#gender_location_form_div img#country_img, #gender_location_form_div img#zip_img {
+   top:37px;
+}
+
+#gender_location_form_div #input_divs {
+   position:relative;
+   bottom:150px;
+}
+
+#gender_location_form_div #current_location_text {
+  position: relative;
+    right: 17px;
+    top: 27px;
+}
+
+#gender_location_form_div #gender_div {
+  right: 107px; 
+  
+}
+
+#gender_location_form_div #gender_div select {
+  left: 17px;
+  position:relative;
+}
+
+#gender_location_form_div #country_div {
+  right: 2px; 
+  top:44px;
+}
+
+#gender_location_form_div #country_div select {
+  left: 17px;
+  position:relative;
+}
+
+#gender_location_form_div #js_zip_div {
+  height: 23px;
+    right: 55px;
+    top: 74px;
+}
+
+#gender_location_form_div #js_zip_div input {
+  left: 25px;
+  position:relative;
+}
+
+#gender_location_form_div #js_zip_div #location_verification {
+  font-weight: bold;
+    height: 25px;
+    left: 325px;
+    position: relative;
+    text-align: left;
+    top: 20px;
+}
+
+#gender_location_form_div #js_city_div {
+  left: 9px;
+  top: 74px;
+}
+
+#gender_location_form_div #js_city_div input {
+  left: 20px;
+    position: relative;
+    width: 270px;
+}
+
+#gender_location_form_div #register_button_div {
+    left: 603px;
+    top: 60px;
+    width: 100px;
+}
 
 /***************************BIRTH INFO FIRST TIME PAGE ONLY**************************/
 #birth_info_first_time #submit_div {
@@ -572,7 +857,7 @@ bottom: 280px;
   top:65px;
 }
 
-#birth_info_first_time .description, #gender_location_first_time .description {
+#birth_info_first_time .description, #gender_location_first_time .description, #desc_photo_first_time .description {
   position:relative;
   width:500px;
   text-align:center;
@@ -592,7 +877,7 @@ bottom: 280px;
   
 }
 
-#birth_info_first_time input {
+#birth_info_first_time input, #desc_photo_first_time input {
   box-sizing: border-box; 
  -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
   font-size:0.8em;

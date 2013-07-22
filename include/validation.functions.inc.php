@@ -39,6 +39,14 @@ function EMAIL_NO_MATCH_ERROR() {
 function UNDERAGE_ERROR() {
   return 8;
 }
+
+function NOT_WORDS_ERROR() {
+  return 9;
+}
+
+function PHOTO_ERROR() {
+  return 10;
+}
     
 ### End Error Constants ###
 
