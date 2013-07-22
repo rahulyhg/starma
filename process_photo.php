@@ -36,6 +36,7 @@ if (login_check_point($type="partial", $domain=$domain)) {
             //LOG THE UPLOAD, BUT INDICATE THAT IT COULDNT BE ASSOCIATED
             log_this_action (profile_action_photos(), uploaded_basic_action(), -5);
           }
+          
         }
         
   }
