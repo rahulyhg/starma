@@ -31,6 +31,7 @@ function update_my_last_action_made ($datetime) {
 
 function sign_up_process_done() {
   if (isLoggedIn()) {
+    
     if (isAdmin()) {
       return true;
     }
@@ -469,14 +470,14 @@ function is_female($user_id) {
 }
 
 function my_descriptors_loaded () {
-  return descriptions_loaded(get_my_user_id());
+  return descriptors_loaded(get_my_user_id());
 }
 
 function descriptors_loaded ($user_id) {
   
   if ($descs = get_descriptors ($user_id)) {
     $num = mysql_num_rows($descs);
-    return $num >= 3;
+    return ($num >= max_descriptors());
      
   }
   else {
@@ -527,6 +528,19 @@ function update_descriptors ($descriptors) {
       $counter = $counter+1; 
     }
     return true;
+  }
+  else {
+    return false;
+  }
+}
+
+function get_my_main_photo_id() {
+  if (isLoggedIn()) {
+    $q = "SELECT user_pic_id from user_picture where user_id = " . $_SESSION["user_id"] . " and main = 1 and uncropped = 0";
+    $result = mysql_query($q) or die(mysql_error());
+    $row = mysql_fetch_array($result);
+    return $row["user_pic_id"];
+     
   }
   else {
     return false;

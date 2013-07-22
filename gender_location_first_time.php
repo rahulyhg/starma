@@ -43,8 +43,8 @@ if (isset($_SESSION['errors'])) {
 <div id="gender_location_first_time">
   
   <?php show_landing_logo();?>
-  <div class="title"><?php flare_title ("Create an Account")?></div>
-  <div class="description">You're almost there ...</div>
+  <div class="title"><?php flare_title ("Basic Info")?></div>
+  <div class="description">1/3</div>
   <div class="bg" id="enter_info">
 
     <?php if (isset($errors)) {show_gender_location_form($errors, $title, $country_id, $gender);}else{show_gender_location_form(array(), "", 236, $gender);}?>

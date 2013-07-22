@@ -234,20 +234,12 @@ function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_nam
           }
 
           $(document).ready(function () {
-            $(\'<div><img id="preview_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '?' . time() . '" style="position: relative; display:none;" /><div>\')
-                    .css({
-                            top: \'53px\',
-                            right: \'10px\',
-                            position: \'absolute\',
-                            overflow: \'hidden\',
-                            width: \'153px\',
-                            height: \'153px\'
-                         })
+            $(\'<div id="preview_div"><img id="preview_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '?' . time() . '" style="position: relative; display:none;" /><div>\')
                          .insertAfter($(\'img#photo_crop_' . $img_id . '\')); 
 
 
             $(\'img#photo_crop_' . $img_id . '\').imgAreaSelect({
-                 persistent: ' . $persistent . ', resizable: ' . $resizable . ', aspectRatio: \'1:1\', onInit: preview, onSelectChange: preview, handles:true,x1:' . $initStartX . ',y1:' . $initStartY . ',x2:' . $initSizeX . ',y2:' . $initSizeY . '
+                 persistent:true, minHeight:153, minWidth:153, persistent: ' . $persistent . ', resizable: ' . $resizable . ', aspectRatio: \'1:1\', onInit: preview, onSelectChange: preview, handles:true,x1:' . $initStartX . ',y1:' . $initStartY . ',x2:' . $initSizeX . ',y2:' . $initSizeY . '
                  
             });
           });

@@ -1,8 +1,6 @@
 <?php 
 
  require_once ("header.php");
-   
-
 
 
 if (isLoggedIn())
@@ -63,30 +61,19 @@ $des_names = array("","","");
 $descs = get_my_descriptors();
 $counter = 0;
 while ($desc = mysql_fetch_array($descs)) {
-  $init_des_names[$counter] = $desc;
+  $init_des_names[$counter] = $desc["descriptor"];
   $counter++;
 }
 
-if (isset($_GET['des_name_1'])) {
-    $des_names[1]= $_GET['des_name_1'];
-}
-else {
-    $des_names[1] = $init_des_name[0];
-}
 
-if (isset($_GET['des_name_2'])) {
-    $des_names[2] = $_GET['des_name_2'];
-}
-else {
-    $des_names[2] = $init_des_name[1];
-}
 
-if (isset($_GET['des_name_3'])) {
-    $des_names[3] = $_GET['des_name_3'];
-}
-else {
-    $des_names[3] = $init_des_name[2];
-}
+$des_names[0]= grab_var('des_name_1', $init_des_names[0]);
+$des_names[1]= grab_var('des_name_2', $init_des_names[1]);
+$des_names[2]= grab_var('des_name_3', $init_des_names[2]);
+
+clear_session_first_time_vars();
+
+//print_r($des_names);
 
 
 if (isset($_SESSION['errors'])) {
@@ -98,25 +85,55 @@ if (isset($_SESSION['errors'])) {
 
 <body>
 
+
 <div id="img_preloader">
   <img src="/img/account_info/Starma-Astrology-Space-BugHover.png"/>  
 </div>
 
 
-<div id="descriptor_photo_first_time">
+
+
+   <?php
+   $unc_photos = uncropped_photos(get_my_user_id());
+   if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
+       echo '<div id="desc_photo_first_time" class="crop">';
+  
+       show_landing_logo();
+
+
+       echo '<div class="title">';
+         flare_title ("Crop Your Photo");
+       echo '</div>';
+       
+       echo '<div id="photo_cropper">';
+         echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
+           show_photo_cropper($photo_to_crop);
+           echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
+           echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
+           echo '<input type="hidden" name="firsttime" value="1"/>';
+         echo '</div>';
+       echo '</div>';
+     
+   }
+   else {
+   ?>
+  <div id="desc_photo_first_time">
   
   <?php show_landing_logo();?>
-  <div class="title"><?php flare_title ("Create an Account")?></div>
-  <div class="description">You're almost there ...</div>
+
+  <div class="title"><?php flare_title ("About You")?></div>
+  <div class="description">2/3</div>
   <div class="bg" id="enter_info">
 
     <?php if (isset($errors)) {show_desc_photo_form($errors, $des_names);}else{show_desc_photo_form(array(), $des_names);}?>
   </div>
   
+  <?php } ?>
+
   <?php show_bugaboos();?>
   
 </div>
-
+  
 
 <?php 
   require_once ("landing_footer.php"); 
