@@ -239,7 +239,7 @@ function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_nam
 
 
             $(\'img#photo_crop_' . $img_id . '\').imgAreaSelect({
-                 persistent:true, minHeight:153, minWidth:153, persistent: ' . $persistent . ', resizable: ' . $resizable . ', aspectRatio: \'1:1\', onInit: preview, onSelectChange: preview, handles:true,x1:' . $initStartX . ',y1:' . $initStartY . ',x2:' . $initSizeX . ',y2:' . $initSizeY . '
+                 persistent:true, minHeight:140, minWidth:140, persistent: ' . $persistent . ', resizable: ' . $resizable . ', aspectRatio: \'1:1\', onInit: preview, onSelectChange: preview, handles:true,x1:' . $initStartX . ',y1:' . $initStartY . ',x2:' . $initSizeX . ',y2:' . $initSizeY . '
                  
             });
           });
