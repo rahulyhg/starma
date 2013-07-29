@@ -51,7 +51,7 @@ if (login_check_point($type="partial", $domain=$domain)) {
   if ($error == 0) {
     log_this_action (profile_action_photos(), uploaded_basic_action());
     if ($firsttime == 0) {
-      do_redirect ( get_domain() . '/main.php?the_left=nav4&the_page=psel');
+      do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
     }
     else { 
       do_redirect ( get_domain() . '/desc_photo_first_time.php');
@@ -60,7 +60,7 @@ if (login_check_point($type="partial", $domain=$domain)) {
   else {
    
     if ($firsttime == 0) {
-      do_redirect ( get_domain() . '/main.php?the_left=nav4&the_page=psel&error=' . $error);
+      do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
     }
     else { 
       do_redirect ( get_domain() . '/desc_photo_first_time.php?error=' . $error);

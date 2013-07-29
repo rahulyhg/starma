@@ -1,17 +1,22 @@
 body {
   background:#8393CA /*url('/img/Starma-Astrology-RightSide.png')*/;
-  font:1em "Comic Sans MS";
-  //font-family: "Comic Sans MS", "Marker Felt";
+  /*font:1em "Comic Sans MS";*/
+  /*font-family: "Comic Sans MS", "Marker Felt";*/
   line-height:23px;
-  //font:1em "cambria";
+  /*font:1em "cambria";*/
+  /*font:1em "ClarendonBT-Light";*/
+  font:1em "P22UndergroundBook","Helvetica","Arial","sans-serif";
   margin:0px;
 }
 
 body a {
-  font:1em "Comic Sans MS";
-  //font-family: "Comic Sans MS", "Marker Felt";
+  font:1em "ClarendonBT-Light";
+  letter-spacing:0.1em;
+  /*font:1em "Comic Sans MS";*/
+  /*font-family: "Comic Sans MS", "Marker Felt";*/
   line-height:23px;
-  //font:1em "cambria";
+  /*font:1em "cambria";*/
+  /*font:1em "P22UndergroundBook","Helvetica","Arial","sans-serif";*/
   text-decoration:none;
 }
 

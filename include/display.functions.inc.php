@@ -339,7 +339,7 @@ function edit_interests_info() {
       echo '</div>';
     echo '</div>';
     
-    move_on_buttons();
+    //move_on_buttons();
   echo '</form>';
   echo '</div>';
 }
@@ -836,23 +836,27 @@ function show_descriptors_info($chart_id) {
 
 function upload_photo_form() {
   
-  show_my_main_photo();
+  //show_my_main_photo();
   //echo num_my_photos();
   echo '<div id="upload_photo_form">
-    <br>You may upload <b><span style="color:red">' . (max_photos() - num_my_photos()) . '</span></b> more photo(s)<br><Br><br>
+    <br>You may upload <b><span style="color:red">' . (max_photos() - num_my_photos()) . '</span></b> more photo(s)<br><br>
     <form action="process_photo.php" method="post" enctype="multipart/form-data">
     Upload Photo: <input type="file" name="image" /><input type="submit" value="Upload" name="action" />
     </form>
   </div>';
+  echo '<div style="">
+    Click on a photo to set it as your profile picture.
+  </div>';
   show_my_photo_grid();
-  move_on_form();
+   
+  //move_on_form();
 }
 
 function upload_photo_form_admin($user_id) {
   $chart = get_chart_by_name('Main',$user_id);
   show_main_photo($chart["chart_id"]);
   echo '<div id="upload_photo_form">
-    <br>You may upload <b><span style="color:red">' . (max_photos() - num_photos($user_id)) . '</span></b> more photo(s)<br><Br><br>
+    <br>You may upload <b><span style="color:red">' . (max_photos() - num_photos($user_id)) . '</span></b> more photo(s)<br><br><br>
     <form action="process_photo_admin.php" method="post" enctype="multipart/form-data"> 
     Upload Photo: <input type="file" name="image" /><input type="submit" value="Upload" name="action" />
     <input name="user_id" value="' . $user_id . '" type="hidden"/>
@@ -2553,11 +2557,12 @@ function show_my_chart ($goTo = ".", $western=0) {
         show_circle_and_arrow_hilite("down");
        
       }
-   
+      /*
       echo '<div id="header" style="padding-bottom:23px;">';
         flare_title("Chart");
         //echo 'Chart';
       echo '</div>';
+      */
       //echo '<div id="explanation">';
       //  echo 'Your Starma Chart is calculated using Jyotish (Eastern Astrology).  You might notice have a different sign.  This is because Jyotish uses a different calendar thought to be more astronomically accurate.  To view your chart in a Western configuation click here.';
       //echo '</div>';
@@ -2574,7 +2579,7 @@ function show_my_chart ($goTo = ".", $western=0) {
           if ($poi_id == $poi["poi_id"]) { 
             echo ' selected';
           }
-          echo '"><a href="#" ';
+          echo '"><a ';
           
         
           echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span></a></li>';
@@ -2598,7 +2603,7 @@ function show_my_chart ($goTo = ".", $western=0) {
           }
           echo '<li class="' . $the_class;
           
-          echo '"><a href="#"></a></li>';
+          echo '"><a></a></li>';
           
         }
       }
@@ -2627,7 +2632,7 @@ function show_my_chart ($goTo = ".", $western=0) {
             echo ' selected';
           }
           
-          echo '"><a href="#" ';
+          echo '"><a ';
           
           echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
           if ($poi["poi_id"] == 9) {
@@ -2654,7 +2659,7 @@ function show_my_chart ($goTo = ".", $western=0) {
           }
           echo '<li class="' . $the_class;
           
-          echo '"><a href="#"></a></li>';
+          echo '"><a></a></li>';
         }
       }
       echo '</ul>';

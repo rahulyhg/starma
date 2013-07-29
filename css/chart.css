@@ -243,6 +243,7 @@
   width:75px;
   text-transform:uppercase;
   font-weight:bold;
+  cursor: pointer; cursor: hand;
 }
 
 
@@ -269,6 +270,7 @@
 #starma_chart .chart_tabs.chart_arrow ul a {
   width:34px;
   background:#d3dbf6;
+  cursor: pointer; cursor: hand;
 }
 
 #starma_chart .chart_tabs.left_side.chart_arrow ul li.arrow a {

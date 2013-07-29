@@ -5,7 +5,7 @@ require_once ("header.php");
 if (login_check_point($type="full", $domain=$domain)) {
 
 log_this_action (profile_action_photos(), viewed_basic_action());
-    
+    /*
     $unc_photos = uncropped_photos(get_my_user_id());
     if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
         echo '<div style="position:relative; top:3px">';
@@ -22,9 +22,10 @@ log_this_action (profile_action_photos(), viewed_basic_action());
       
     }
     else {
-      echo '<div style="position:relative; top:3px">';
-        flare_title ("Edit Photos");
-      echo '</div>';
+    */
+      //echo '<div style="position:relative; top:3px">';
+      //  flare_title ("Edit Photos");
+      //echo '</div>';
       //echo 'NUM MY PHOTOS: ' . num_my_photos();
       upload_photo_form();
  
@@ -38,7 +39,7 @@ log_this_action (profile_action_photos(), viewed_basic_action());
           }
         echo '</div>';
       }
-    }
+   // }
     
 }
 

@@ -23,7 +23,7 @@ if (isset($_GET["photo_id"])) {
     }
   }
   if ($user_id == get_my_user_id()) {
-    do_redirect ( get_domain() . '/main.php?the_left=nav4&the_page=psel&error=' . $error);
+    do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
   }
   else {
     do_redirect ( get_domain() . '/admin/edit_profile.php?user_id=' . $user_id . '&error=' . $error);

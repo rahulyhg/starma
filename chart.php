@@ -30,7 +30,7 @@ if (login_check_point($type="full", $domain=$domain)) {
       }
     }
   }
-
+/*
   if ($western == 0) {
       echo '<div id="chart_direction_link_west">';
         echo '<a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=1">Starma Western Chart --></a>';
@@ -41,7 +41,7 @@ if (login_check_point($type="full", $domain=$domain)) {
         echo '<a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0"><-- Starma Eastern Chart</a>';
       echo '</div>';
   }
-
+*/
   show_my_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&western=" . $western, $western);
 
   if ($western == 0) {
@@ -51,9 +51,11 @@ if (login_check_point($type="full", $domain=$domain)) {
     else {
       $flag = get_my_preferences("chart_more_info_flag", 1);
     }
+    /*
     if ($flag == 1) {
       show_sheen($flag, 'chart_info_form');
     }
+    */
   }
   
   

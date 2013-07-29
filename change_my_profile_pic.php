@@ -11,12 +11,12 @@ if (isset($_GET["photo_id"])) {
     change_my_profile_pic($_GET["photo_id"]);
     log_this_action (profile_action_photos(), editted_basic_action());
   }
-  do_redirect ( get_domain() . '/main.php?the_left=nav4&the_page=psel');
+  do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
   
    
 }
 else {
-  do_redirect ( get_domain() . '/main.php?the_left=nav4&the_page=psel');
+  do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
 }
 
 }

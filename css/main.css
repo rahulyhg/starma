@@ -147,7 +147,7 @@
 }
 
 #topnav ul li.home_link a {
-  background:url('/img/top_nav_shorter/Starma-Astrology-HomeTransparent.png') no-repeat #8393CA;
+  background:url('/img/top_nav_shorter/Starma-Astrology-Home.png') no-repeat #8393CA;
   width:113px;
 }
 
@@ -161,7 +161,7 @@
 }
 
 #topnav ul li.profile_link a {
-  background:url('/img/top_nav_shorter/Starma-Astrology-ProfileTransparent.png') no-repeat #8393CA;
+  background:url('/img/top_nav_shorter/Starma-Astrology-Profile.png') no-repeat #8393CA;
   width:113px;
 }
 
@@ -176,6 +176,7 @@
 }
 
 
+/*
 #topnav ul li.chart_link a {
   background:url('/img/top_nav_shorter/Starma-Astrology-ChartTransparent.png') no-repeat #8393CA;
   width:113px;
@@ -186,13 +187,15 @@
   background-color:#fbf0a4;
 }
 
+
 #topnav ul li.chart_link a span {
   top:27px;
   left:42px;
 }
+*/
 
 #topnav ul li.compare_link a {
-  background:url('/img/top_nav_shorter/Starma-Astrology-CompareTransparent.png') no-repeat #8393CA;
+  background:url('/img/top_nav_shorter/Starma-Astrology-Community.png') no-repeat #8393CA;
   width:113px;
 }
 
@@ -205,8 +208,18 @@
   left:35px;
 }
 
+#topnav ul li.celeb_link a {
+  background:url('/img/top_nav_shorter/Starma-Astrology-Celebrities.png') no-repeat #8393CA;
+  width:113px;
+}
+
+
+#topnav ul li.celeb_link:hover a {
+  background-color:#fbf0a4;
+}
+
 #topnav ul li.inbox_link a {
-  background:url('/img/top_nav_shorter/Starma-Astrology-MailTransparent.png') no-repeat #8393CA;
+  background:url('/img/top_nav_shorter/Starma-Astrology-Mail.png') no-repeat #8393CA;
   width:113px;
 }
 
@@ -887,7 +900,7 @@ li.my_unknown_button a {
 
 
 .my_page #interests {
-  bottom:188px;
+ 
 }
  
 #interests .column {
@@ -935,6 +948,58 @@ li.my_unknown_button a {
    height: 150px;
     width: 400px;
    padding:5px;
+}
+
+#profile_sections {
+    border-top: 1px solid black;
+    bottom: 150px;
+    float: left;
+    position: relative;
+    right: 10px;
+    width: 795px;
+}
+
+#profile_sections #profile_nav {
+   height: 20px;
+    left: 91px;
+    position: absolute;
+    top: -22px;
+}
+
+#profile_sections #profile_nav ul li {
+   display: inline;
+    float: left;
+    position: relative;
+}
+
+#profile_sections #profile_nav ul li a {
+  border:1px solid black;
+  border-right:0px;
+  padding:5px;
+  text-align:center;
+  margin:0px;
+  display:block;
+  width:100px;
+  font-size: 0.8em;
+    height: 10px;
+    line-height: 0.8em;
+  color:black;
+}
+
+#profile_sections #profile_nav ul li.end a {
+  border:1px solid black;
+  
+}
+
+#profile_sections #profile_nav ul li a.selected, #profile_sections #profile_nav ul li a:hover {
+  background:black;
+  color:white;
+  
+}
+
+#profile_sections #section {
+  padding:10px;
+  width:775px;
 }
 
 

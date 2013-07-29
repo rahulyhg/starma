@@ -18,9 +18,9 @@ if (login_check_point($type="full", $domain=$domain)) {
   //  show_general_info();
   //}
   //else {
-    echo '<div style="position:relative; top:3px">';
-      flare_title ("Edit Interests");
-    echo '</div>';
+    //echo '<div style="position:relative; top:3px">';
+    //  flare_title ("Edit Interests");
+    //echo '</div>';
     edit_interests_info();
   //}
 }
