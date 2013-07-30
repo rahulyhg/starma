@@ -19,7 +19,7 @@ if ($tier == "1") {
   log_this_action (compare_action_custom(), viewed_basic_action());
   clear_compare_data();
   
-    flare_title ("Custom Chart");
+    //flare_title ("Custom Chart");
     echo '<div id="header_desc">';
       echo 'Use the form below to enter the birth information of a friend or family member who\'s chart you would like to see.  You can even check compatibility between the two of you!';
     echo '</div>';

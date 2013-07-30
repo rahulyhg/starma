@@ -19,6 +19,11 @@ function USER_BLOCK_PER_ROW() {
 }
 
 /*/////////////////////////////// END LAYOUT CONSTANTS /////////////////////////////////*/
+function custom_chart_url() {
+  return '/main.php?the_left=nav3&the_page=cosel';
+}
+
+
 function grab_var($var_name, $initial_value=-1) {
   if (isset($_SESSION[$var_name])) {
     return $_SESSION[$var_name];

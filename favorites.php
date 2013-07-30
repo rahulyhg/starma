@@ -18,9 +18,9 @@ if ($tier == "1") {
   //Log the Action
   //log_this_action (compare_action_all(), viewed_basic_action());
   echo '<div id="all_users">';
-    echo '<div id="compare_header">';
-        flare_title ("Favorites");
-    echo '</div>';
+    //echo '<div id="compare_header">';
+    //    flare_title ("Favorites");
+    //echo '</div>';
     echo '<div id="search_bar_div">';
       echo '<div id="search_bar_title">';
         echo 'Search:';
@@ -64,9 +64,9 @@ elseif ($tier == "2") {
 elseif ($tier == "3") {
   require("non_chart_profile_others.php");
 }
-elseif ($tier == "4") {
-  require("chart_others.php");
-}
+//elseif ($tier == "4") {
+//  require("chart_others.php");
+//}
   
 }
 

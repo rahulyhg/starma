@@ -32,11 +32,11 @@ if (login_check_point($type="full", $domain=$domain)) {
     }
 
 
-    $show_links = true;
-    if (!is_freebie_chart($chart_id2)) {
-      if ( !chart_already_there("Alternate",get_user_id_from_chart_id($chart_id2)) ) {
-        $show_links = false;
-      }
+    $show_links = false;
+    if (is_freebie_chart($chart_id2)) {
+      //if ( !chart_already_there("Alternate",get_user_id_from_chart_id($chart_id2)) ) {
+        $show_links = true;
+      //}
     }
     if ($show_links) {
       if ($western == 0) {
@@ -58,9 +58,13 @@ if (login_check_point($type="full", $domain=$domain)) {
       
     
   
-    
-    show_others_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . '&tier=4&western=' . $western, $chart_id2, $western);
-
+    if (!is_freebie_chart($chart_id2)) {
+      $goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&western=" . $western; 
+    }
+    else {
+      $goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=4&western=" . $western; 
+    }
+    show_others_chart($goTo, $chart_id2, $western);
     // If Freebie Chart //////////////////
     if (is_freebie_chart($chart_id2)) { 
       if ($western == 0) {

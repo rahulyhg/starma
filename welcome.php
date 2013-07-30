@@ -17,10 +17,10 @@ require_once "header.php";
       <a href="main.php?the_page=cosel&the_left=nav1&the_tier=1"></a>
     </div>
     <div id="horoscope_box_link" class="homepage_div">
-      <a href="main.php?the_page=csel&the_left=nav1"></a>
+      <a href="main.php?the_page=psel&the_left=nav1"></a>
     </div>
     <div id="celebrities_box_link" class="homepage_div">
-      <a href="main.php?the_page=cosel&the_left=nav3"></a>
+      <a href="main.php?the_page=cesel&the_left=nav1"></a>
     </div>
  </div> 
 

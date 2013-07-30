@@ -702,7 +702,7 @@ function show_general_info($chart_id) {
         echo $user_info["first_name"] . ' ' . $user_info["last_name"];
       }
       else {
-        echo '<span style="font-size:2em; vertical-align:top; color:' . $online_color . '">•</span>';
+        echo '<span style="color:' . $online_color . '">•</span>';
         echo $user_info["nickname"];
       }
     echo '</div>';
@@ -869,28 +869,29 @@ function get_left_menu ($the_page) {
   for ($x=1; $x<=6; $x++) {
     $menu['nav' . $x] = array('','#'); 
   }
-  if ($the_page == 'csel') {
-    $menu['nav1'] = array('Chart&nbsp;&nbsp;','chart.php');
-    $menu['nav2'] = array('Houses&nbsp;&nbsp;','#');
-    $menu['nav3'] = array('Romantic Advice&nbsp;&nbsp;','#');
+  if ($the_page == 'cesel') {
+    $menu['nav1'] = array('celebrities&nbsp;&nbsp;','celebrities.php');
+    /*$menu['nav2'] = array('Houses&nbsp;&nbsp;','#');
+    $menu['nav3'] = array('&nbsp;&nbsp;','#');
     $menu['nav4'] = array('Career Advice&nbsp;&nbsp;','#');
     $menu['nav5'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
     $menu['nav6'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php');
+    */
   }
   elseif ($the_page == 'psel') {
-    $menu['nav1'] = array('View Profile&nbsp;&nbsp;','non_chart_profile.php');
-    $menu['nav2'] = array('General Information&nbsp;&nbsp;','general_information.php');
-    $menu['nav3'] = array('Three Words&nbsp;&nbsp;','descriptors.php');
-    $menu['nav4'] = array('Photos&nbsp;&nbsp;','photos.php');
-    $menu['nav5'] = array('Interests&nbsp;&nbsp;','interests.php');
+    $menu['nav1'] = array('profile&nbsp;&nbsp;','non_chart_profile.php');
+    $menu['nav2'] = array('houses&nbsp;&nbsp;','#');
+    $menu['nav3'] = array('romantic advice&nbsp;&nbsp;','#');
+    $menu['nav4'] = array('career advice&nbsp;&nbsp;','#');
+    $menu['nav5'] = array('my birth info&nbsp;&nbsp;','birth_info.php');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#');
-    $menu['nav6'] = array('Biography&nbsp;&nbsp;','biography.php');
+    $menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
   }
   elseif ($the_page == 'cosel') {
-    $menu['nav1'] = array('New to Starma&nbsp;&nbsp;','all_users.php');
-    $menu['nav2'] = array('My Favorites&nbsp;&nbsp;','favorites.php');
-    $menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
-    $menu['nav4'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php');
+    $menu['nav1'] = array('new to Starma&nbsp;&nbsp;','all_users.php');
+    $menu['nav2'] = array('favorites&nbsp;&nbsp;','favorites.php');
+    //$menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
+    $menu['nav3'] = array('custom chart&nbsp;&nbsp;', 'enter_user.php');
     
   }
   elseif ($the_page == 'hsel') {
@@ -1779,10 +1780,10 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '<div id="compare_results">';
       echo '<form name="connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
-      echo '<div id="header" class="compare">';
+      //echo '<div id="header" class="compare">';
         //echo 'Compare Chart';
-        flare_title("Compare Charts");
-      echo '</div>';
+        //flare_title("Compare Charts");
+      //echo '</div>';
       echo '<div id="star_rating">';
         if ((string)$score != '-1') {
           $rating = get_star_rating ($score);
@@ -2703,32 +2704,34 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       echo '<input type="hidden" name="chart_id"/>';
       echo '<input type="hidden" name="poi_id"/>';
       echo '<div id="starma_chart">';
-      echo '<div id="header">';
-        $header = "";
-        if (!is_freebie_chart($chart_id)) {
-          $user_info = profile_info(get_user_id_from_chart_id($chart_id));
-          
-          $user_title = $user_info["nickname"];
-          if (substr(strtoupper($user_info["nickname"]), -1) == "S") {
-            $user_title = $user_title . "'";
-          }
-          else {
-            $user_title = $user_title . "'s";
-          }
-          $header = $header . $user_title . " Chart";
-   
+      $header = "";
+      if (!is_freebie_chart($chart_id)) {
+        $user_info = profile_info(get_user_id_from_chart_id($chart_id));
+        
+        $user_title = $user_info["nickname"];
+        if (substr(strtoupper($user_info["nickname"]), -1) == "S") {
+          $user_title = $user_title . "'";
         }
         else {
-          $header = 'Custom Chart';
+          $user_title = $user_title . "'s";
         }
-        flare_title($header);
-        //echo $header;
-      echo '</div>';
-      echo '<div id="profile_back_link">';
-        if ($header != 'Custom Chart') {
-          echo '<a href="' . $goTo . '&tier=3&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id . '">< Back to Profile</a>';
-        }
-      echo '</div>';   
+        $header = $header . $user_title . " Chart";
+          }
+      else {
+        $header = 'Custom Chart';
+      }
+      if ($header == "Custom Chart") {
+        echo '<div id="header">';    
+          flare_title($header);
+          //echo $header;
+        echo '</div>';
+      }
+      //echo '<div id="profile_back_link">';
+      //  if ($header != 'Custom Chart') {
+      //    echo '<a href="' . $goTo . '&tier=3&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id . '">< Back to Profile</a>';
+      //  }
+      //echo '</div>';   
+
       //echo '<div id="explanation">';
       //  echo 'Your Starma Chart is calculated using Jyotish (Eastern Astrology).  You might notice have a different sign.  This is because Jyotish uses a different calendar thought to be more astronomically accurate.  To view your chart in a Western configuation click here.';
       //echo '</div>';
@@ -2745,7 +2748,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
           if ($poi_id == $poi["poi_id"]) { 
             echo ' selected';
           }
-          echo '"><a href="#" ';
+          echo '"><a ';
           
         
           echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span></a></li>';
@@ -2769,7 +2772,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
           }
           echo '<li class="' . $the_class;
           
-          echo '"><a href="#"></a></li>';
+          echo '"><a></a></li>';
           
         }
       }
@@ -2798,7 +2801,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
             echo ' selected';
           }
           
-          echo '"><a href="#" ';
+          echo '"><a ';
           
           echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
           if ($poi["poi_id"] == 9) {
@@ -2825,7 +2828,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
           }
           echo '<li class="' . $the_class;
           
-          echo '"><a href="#"></a></li>';
+          echo '"><a></a></li>';
         }
       }
       echo '</ul>';
@@ -3734,10 +3737,8 @@ function display_all_users ($url="", $filter=0) {
         echo '</div>'; 
         show_general_info($user["chart_id"]);
         //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
-      echo '</div>';
-           
+      echo '</div>';        
   }
-  
   
 }
 

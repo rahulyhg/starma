@@ -10,9 +10,9 @@ if (login_check_point($type="full", $domain=$domain)) {
   else {
     $other_user_id = $_GET["other_user_id"];
   }
-  echo '<div style="padding-top:3px; padding-bottom:10px;">';
-  flare_title ("Inbox");
-  echo '</div>';
+  //echo '<div style="padding-top:3px; padding-bottom:10px;">';
+  //flare_title ("Inbox");
+  //echo '</div>';
   echo '<div id="inbox_user_list">';
       echo '<div id="inbox_header">';
         echo 'Conversations';

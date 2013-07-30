@@ -1,7 +1,5 @@
 <?php 
-function custom_chart_url() {
-  return '/main.php?the_left=nav4&the_page=cosel';
-}
+
 
 
 function get_poi_sign_blurb ($poi_id, $sign_id, $other_chart_id=-1) {

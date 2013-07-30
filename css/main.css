@@ -156,8 +156,8 @@
 }
 
 #topnav ul li.home_link a span {
-  top:30px;
-  left:40px;
+  top:46px;
+  left:39px;
 }
 
 #topnav ul li.profile_link a {
@@ -171,8 +171,8 @@
 }
 
 #topnav ul li.profile_link a span {
-  top:47px;
-  left:40px;
+   left: 35px;
+    top: 46px;
 }
 
 
@@ -204,8 +204,8 @@
 }
 
 #topnav ul li.compare_link a span {
-  top:25px;
-  left:35px;
+  left: 21px;
+    top: 46px;
 }
 
 #topnav ul li.celeb_link a {
@@ -216,6 +216,11 @@
 
 #topnav ul li.celeb_link:hover a {
   background-color:#fbf0a4;
+}
+
+#topnav ul li.celeb_link a span {
+  left: 18px;
+    top: 46px;
 }
 
 #topnav ul li.inbox_link a {
@@ -229,7 +234,7 @@
 }
 
 #topnav ul li.inbox_link a span {
-  top:29px;
+  top:46px;
   left:40px;
 }
 
@@ -242,10 +247,9 @@
 }
 
 #topnav ul li span {
-  display:none;
-  background:white;
+  display:block;
   
-  font-size:0.7em;
+  font-size:0.8em;
 }
 
 #topnav ul li:hover span {
@@ -739,19 +743,19 @@ li.my_unknown_button a {
 }
 
 .profile_button.add_favorite_button {
-  bottom: 180px;
-    height: 40px;
-    left: 657px;
-    position: relative;
+  height: 40px;
+    left: 661px;
+    position: absolute;
+    top: 163px;
     width: 130px;
     
 }
 
 .profile_button.remove_favorite_button {
-  bottom: 180px;
-    height: 40px;
-    left: 657px;
-    position: relative;
+   height: 40px;
+    left: 661px;
+    position: absolute;
+    top: 163px;
     width: 130px;
     
 }
@@ -782,11 +786,9 @@ li.my_unknown_button a {
 }
 
 #profile_photo_grid #my_photos {
-    bottom: 136px;
-    float: right;
+    left: 33px;
     margin-top: 20px;
     position: relative;
-    right: 60px;
     width: 500px;
   
 }
@@ -808,8 +810,15 @@ li.my_unknown_button a {
 .profile_info_area {
   width:177px;
   position:relative;
+  bottom:6px;
   
 }
+
+.my_page .profile_info_area {
+  bottom: -5px;
+}
+
+
 
 .profile_info_area .nickname_area {
   font-size:1.1em;
@@ -842,8 +851,19 @@ li.my_unknown_button a {
     bottom:134px;
 }
 
+#chart_1_pic .profile_info_area .nickname_area span, #chart_2_pic .profile_info_area .nickname_area span, .nickname_area span {
+   bottom: 2px;
+    
+    font-size: 2em;
+    position: relative;
+    right: 2px;
+    vertical-align: middle;
+
+}
+
+
 #chart_1_pic .profile_info_area .name_area, #chart_2_pic .profile_info_area .name_area {
-    line-height: 1.3em;
+    line-height: 0;
     position: relative;
     top: 5px;
 }
@@ -856,7 +876,7 @@ li.my_unknown_button a {
 }
   
 #descriptors {
-   bottom: 325px;
+   bottom: 210px;
    float: right;
    position: relative;
    width:520px;
@@ -952,11 +972,18 @@ li.my_unknown_button a {
 
 #profile_sections {
     border-top: 1px solid black;
-    bottom: 150px;
+    bottom: 50px;
     float: left;
     position: relative;
     right: 10px;
     width: 795px;
+}
+
+.celeb_page #profile_sections {
+    
+    bottom: auto;
+    margin-top:25px;
+    
 }
 
 #profile_sections #profile_nav {

@@ -34,19 +34,19 @@ if (login_check_point($type="full")) {
   else {
 
     echo '<div id="profile_page" class="my_page">';
-    echo '<div class="header">';
+    //echo '<div class="header">';
       //echo 'Profile';
-      flare_title('Profile');
-    echo '</div>';
+      //flare_title('Profile');
+    //echo '</div>';
     
     echo '<div id="profile_photo_and_info">';
       show_my_main_photo();
       show_my_general_info();
     echo '</div>';
   
-    echo '<div id="profile_photo_grid">';
-        show_my_photo_grid($link=0);
-      echo '</div>';
+    //echo '<div id="profile_photo_grid">';
+    //    show_my_photo_grid($link=0);
+    //  echo '</div>';
  
     show_my_descriptors_info(); 
     

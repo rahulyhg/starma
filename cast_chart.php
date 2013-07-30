@@ -185,7 +185,7 @@
          $_SESSION["interval"] = $interval;
          $_SESSION["time_unknown"] = $time_unknown;
          $_SESSION["method"] = $method;
-         do_redirect ($url=get_domain() . "/main.php?the_left=nav5&the_page=csel");
+         do_redirect ($url=get_domain() . "/main.php?the_left=nav5&the_page=psel");
        }
        
        else {
@@ -212,7 +212,7 @@
        }
        elseif (get_my_chart_id()) { //IF UPDATING YOUR BIRTH INFO
          $_SESSION["errors"] = $errors;
-         do_redirect ($url=get_domain() . "/main.php?the_left=nav5&the_page=csel");
+         do_redirect ($url=get_domain() . "/main.php?the_left=nav5&the_page=psel");
        }
        elseif (isAdmin()) { //IF ADMIN CASTING ANOTHER CHART
          $_SESSION["errors"] = $errors;
