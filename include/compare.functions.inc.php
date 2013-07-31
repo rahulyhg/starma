@@ -1,4 +1,50 @@
-<?php 
+<?php
+function quicksort_users($user_array, $asc=0){
+	$loe = $gt = array();
+	if(count($user_array) < 2){
+		return $user_array;
+	}
+	$pivot_key = key($user_array);
+	$pivot = array_shift($user_array);
+	foreach($user_array as $val){
+           if ($asc == 1) {
+		if($val["score"] <= $pivot["score"]){
+			$loe[] = $val;
+		}elseif ($val["score"] > $pivot["score"]){
+			$gt[] = $val;
+		}
+           }
+           else {
+                if($val["score"] > $pivot["score"]){
+			$loe[] = $val;
+		}elseif ($val["score"] <= $pivot["score"]){
+			$gt[] = $val;
+		}
+           }
+	}
+	return array_merge(quicksort_users($loe, $asc),array($pivot_key=>$pivot),quicksort_users($gt, $asc));
+}
+ 
+
+function add_scores($user_list) {
+  $user_array = query_to_array($user_list);
+  $counter = 0;
+  foreach ($user_array as $user) {
+    $score = compare_charts (generate_compare_data (get_my_chart_id(), $user["chart_id"], $store=0), $error_check=false);
+    $user_array[$counter]["score"] = $score;
+    $counter = $counter + 1;
+  }
+  return $user_array;
+}
+
+
+function query_to_array($query) {
+  while( $row = mysql_fetch_assoc( $query)) {
+    $new_array[] = $row;
+  }
+  return $new_array;
+}
+
 function compare_tier_2 ($gotothe, $results_type, $text_type) {
           
       
@@ -77,7 +123,8 @@ function get_relationship_list () {
   return $do_q;  
 }
 
-function generate_compare_data ($chart_id1, $chart_id2) {
+
+function generate_compare_data ($chart_id1, $chart_id2, $store=1) {
   
 
   $chart1 = get_corner_stones ($chart_id1);
@@ -113,8 +160,13 @@ function generate_compare_data ($chart_id1, $chart_id2) {
   //echo "*";
   //print_r ($compare_results);
   //echo "*";
-  $_SESSION['compare_data'] = $compare_results;
-  $_SESSION['compare_chart_ids'] = array($chart_id1, $chart_id2);
+  if ($store == 1) {
+    $_SESSION['compare_data'] = $compare_results;
+    $_SESSION['compare_chart_ids'] = array($chart_id1, $chart_id2);
+  }
+  else {
+    return $compare_results;
+  }
 
 }
 

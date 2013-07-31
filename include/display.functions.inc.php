@@ -895,7 +895,7 @@ function get_left_menu ($the_page) {
     
   }
   elseif ($the_page == 'hsel') {
-    $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php');
+    $menu['nav1'] = array('welcome&nbsp;&nbsp;','welcome.php');
     //$menu['nav2'] = array('Log Out&nbsp;&nbsp;','main_logout.php');
     
   }
@@ -3723,9 +3723,12 @@ function display_all_users ($url="", $filter=0) {
     $user_list = get_celebrity_user_list ();
   }
   //$length = sizeof($user_list);
+  $user_array = query_to_array($user_list);
+  //$user_array = add_scores ($user_list);
+  //$user_array = quicksort_users($user_array);
   
-  
-  while ($user = mysql_fetch_array($user_list)) {
+  //while ($user = mysql_fetch_array($user_list)) {
+  foreach ($user_array as $user) {
  
       echo '<div class="user_block js_user_' . $user["user_id"] . '">';
         echo '<div class="photo_border_wrapper_compare">';
@@ -3737,11 +3740,51 @@ function display_all_users ($url="", $filter=0) {
         echo '</div>'; 
         show_general_info($user["chart_id"]);
         //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
+        echo '*' . $user["score"] . '*';
       echo '</div>';        
   }
   
 }
 
+
+/********************** ALL USERS TEST **********************************/
+function display_all_users_test ($url="", $filter=0) {
+    
+  if ($filter == 0) {
+    $user_list = get_user_list ();
+    
+  }
+  elseif ($filter == 1) {
+    $user_list = get_favorties_user_list ();
+    
+  }
+  else {
+    $user_list = get_celebrity_user_list ();
+  }
+  //$length = sizeof($user_list);
+  //$user_array = query_to_array($query);
+  $user_array = add_scores ($user_list);
+  $user_array = quicksort_users($user_array);
+  
+  //while ($user = mysql_fetch_array($user_list)) {
+  foreach ($user_array as $user) {
+ 
+      echo '<div class="user_block js_user_' . $user["user_id"] . '">';
+        echo '<div class="photo_border_wrapper_compare">';
+          echo '<div class="compare_photo">';
+            show_user_compare_picture($url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
+            //echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';
+         
+          echo '</div>';
+        echo '</div>'; 
+        show_general_info($user["chart_id"]);
+        //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
+        echo '*' . $user["score"] . '*';
+      echo '</div>';        
+  }
+  
+}
+/********************** ALL USERS TEST END*******************************/
 
 function display_my_chart_list () {
   echo '<div style="float:right">';
