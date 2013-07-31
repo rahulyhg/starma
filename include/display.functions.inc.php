@@ -3740,7 +3740,7 @@ function display_all_users ($url="", $filter=0) {
         echo '</div>'; 
         show_general_info($user["chart_id"]);
         //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
-        echo '*' . $user["score"] . '*';
+        //echo '*' . $user["score"] . '*';
       echo '</div>';        
   }
   
