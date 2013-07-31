@@ -253,6 +253,7 @@ bottom: 280px;
   display:block;
   left:830px;
   width:435px;
+  margin-top: 5px;
 }
 
 .hidden_error {
@@ -264,7 +265,7 @@ bottom: 280px;
 }
 
 #username_error {  
-  bottom:556px;
+  bottom:548px;
 }
 
 #date_error {  
@@ -395,10 +396,11 @@ bottom: 280px;
 #register_form {
   position: relative;
   display:block;
-  bottom: 217px;
+  bottom: 212px;
   right:20px;
   font-size:1.1em;
   text-align:left;
+  line-height:21px;
 }
 
 #register #register_form .reg_title {
@@ -411,7 +413,7 @@ bottom: 280px;
 }
 
 #register #email_title {
-  bottom:06px;
+  bottom:4px;
 }
 
 #register #email_input {
@@ -419,19 +421,19 @@ bottom: 280px;
 }
 
 #register #email2_title {
-  bottom:18px;
+  bottom:12px;
 }
 
 #register #email2_input {
-  bottom:36px;
+  bottom:30px;
 }
 
 #register #password_title {
-  bottom:27px;
+  bottom:20px;
 }
 
 #register #password_input {
-  bottom:46px;
+  bottom:37px;
 }
 
 #register img.token_img {
@@ -457,7 +459,7 @@ bottom: 280px;
   text-align:left;
   font-size:0.7em;
   left:190px;
-  bottom:25px;
+  bottom:18px;
 }
 
 #register #register_form #agreement_box input {
@@ -736,18 +738,18 @@ bottom: 280px;
 
 #gender_location_form_div #country_div {
   right: 2px; 
-  top:44px;
+  top:50px;
 }
 
 #gender_location_form_div #country_div select {
-  left: 17px;
+  left: 19px;
   position:relative;
 }
 
 #gender_location_form_div #js_zip_div {
   height: 23px;
     right: 55px;
-    top: 74px;
+    top: 81px;
 }
 
 #gender_location_form_div #js_zip_div input {
@@ -765,8 +767,9 @@ bottom: 280px;
 }
 
 #gender_location_form_div #js_city_div {
-  left: 9px;
-  top: 74px;
+  left: 11px;
+  top: 81px;
+  height: 23px;
 }
 
 #gender_location_form_div #js_city_div input {
@@ -908,13 +911,13 @@ bottom: 280px;
 
 #birth_info_first_time select[name="minute_time"] {
   position:relative;
-  left:240px;
+  left:250px;
   display:inline-block;
 }
 
 #birth_info_first_time select[name="meridiem_time"] {
   position:relative;
-  left:270px;
+  left:283px;
   display:inline-block;
 }
 
@@ -942,8 +945,8 @@ bottom: 280px;
 
 #birth_info_first_time #birth_time_title {
   position:relative;
-  bottom:8px;
-  left:67px;
+  bottom: 4px;
+    left: 70px;
 }
 
 #birth_info_first_time #birth_time_input {
@@ -983,12 +986,12 @@ bottom: 280px;
 
 #birth_info_first_time #birth_interval_title {
   position:relative;
-  bottom: 14px;
-  left: 38px;
+  bottom: 10px;
+    left: 34px;
 }
 
 #birth_info_first_time #birth_interval_input {
-    bottom: 14px;
+    bottom: 11px;
     position: relative;
     right: 10px;
 }
@@ -1004,9 +1007,9 @@ bottom: 280px;
 }
 
 #birth_info_first_time #birth_interval_box_title {
-    bottom: 20px;
-    left: 18px;
-    position: relative;
+    bottom: 16px;
+    left: 19px;
+    position:relative;
 }
 
 #birth_interval_box_input {
@@ -1017,7 +1020,7 @@ bottom: 280px;
 }
 
 #birth_info_first_time #birth_interval_box_input {
-   bottom: 37px;
+   bottom: 32px;
     position: relative;
     right: 35px;
 }
@@ -1069,7 +1072,7 @@ bottom: 280px;
 
 #birth_info_first_time #birth_info div#birth_time_hover_box {
       border: 1px solid black;
-    bottom: 130px;
+    bottom: 124px;
     font-size: 0.8em;
     left: 355px;
     line-height: 17px;
