@@ -101,8 +101,8 @@
 }
 
 #landing_footer #footer_links ul li a {
-  padding-left:56px;
-  padding-right:56px;
+  padding-left:50px;
+  padding-right:50px;
 
 }
 
@@ -195,7 +195,7 @@
 #landing #create_account {
   position:relative;
   text-align:center;
-  width:280px;
+  width:300px;
   left:300px;
   top:20px;
 }
