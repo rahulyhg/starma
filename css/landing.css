@@ -43,6 +43,10 @@
   position:relative;
 }
 
+#landing {
+  line-height:24px;
+}
+
 #landing .bg, #register .bg, #birth_info_first_time .bg, #gender_location_first_time .bg, #desc_photo_first_time .bg {
   position:relative;
   display:block;
@@ -184,7 +188,7 @@
 }
 
 #login_form #stay_logged_in_input {
-  bottom: 45px;
+  bottom: 41px;
     font-size: 0.8em;
     left: 230px;
     position: absolute;
