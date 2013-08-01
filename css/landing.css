@@ -124,19 +124,29 @@
 #login_form {
   position: relative;
   display:block;
-  bottom: 80px;
+  
   font-size:1.1em;
   text-align:left;
 }
 
+#login_form table {
+  margin: auto;
+    position: relative;
+    right: 45px;
+}
+
+#login_form table tr td{
+  padding:5px;
+}
+
+
+
+
 #login_form input[type="text"],
 #login_form input[type="password"] {
   position:relative;
-  border:0px;
   display:block;
-  left:250px;
-  padding:0px;
-  margin:0px;
+  width:200px;
   box-sizing: border-box; 
  -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
   font-size:0.8em;
@@ -178,13 +188,12 @@
 }
 
 #landing #login_button_div{
-  margin-right:auto;
-  margin-left:auto;
-  width:76px;
-  
-  left:160px;
-  
-  position:relative;
+    bottom: 20px;
+    left: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 76px;
 }
 
 #login_form #stay_logged_in_input {
@@ -201,13 +210,13 @@
   text-align:center;
   width:300px;
   left:300px;
-  top:20px;
+  top: 80px;
 }
 
 #landing #forgot_password {
-  bottom: 125px;
+bottom: 71px;
     font-size: 0.7em;
-    left: 730px;
+    left: 710px;
     position: relative;
     text-align: left;
     width: 200px;

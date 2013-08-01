@@ -34,6 +34,10 @@ body select {
   min-height:890px;
 }
 
+.align_right {
+  text-align:right;
+}
+
 #img_preloader {
   display:none;
 }

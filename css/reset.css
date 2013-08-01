@@ -10,23 +10,27 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, input {
+time, mark, audio, video, {
     margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    -webkit-appearance: none;
+    
 }
 
 input[type="checkbox"] {
   -webkit-appearance: checkbox;
-  pad
 }
 
 input[type="text"], input[type="password"] {
-  height:17px;
+  border-radius:5px;
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box;
+  height: 25px;
+  padding: 2px;
+  border:0px;
 }
 
 select {

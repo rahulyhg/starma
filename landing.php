@@ -42,14 +42,22 @@ if (isLoggedIn())
   <?php show_landing_logo();?>
   <div class="bg" id="sign_in">
     <div class="title">sign in</div>
-    <img src="img/account_info/Starma-Astrology-Sign-In-Boxes.png"/>
+    <!---<img src="img/account_info/Starma-Astrology-Sign-In-Boxes.png"/>--->
     <div id="login_form">
           <form name="login" method="post" action="./process_login.php">
-            <div id="email_title">email</div>
-            <div id="email_input"><input type="text" name="email" value="<?php echo $_GET['email'];?>"/></div>
-            <div id="password_title">password</div>
-            <div id="password_input"><input type="password" name="password"/></div>
-            <div id="stay_logged_in_input"><input type="checkbox" name="stay_logged_in"/>&nbsp;keep me signed in</div>
+            <table>
+              <tr>
+                <td class="align_right">email</td><td><input type="text" name="email" value="<?php echo $_GET['email'];?>"/></td>
+              </tr>
+              <tr>
+                <td class="align_right">password</td><td><input type="password" name="password"/></td>
+              </tr>
+              <tr>
+                <td class="align_right"><input type="checkbox" name="stay_logged_in"></td><td style="font-size: 0.7em;">keep me signed in</td>
+              </tr>
+              
+              
+            </table>
             <div id="login_button_div"><input type="submit" id="bug_button" name="Login" value=""/></div>
           </form>
       
