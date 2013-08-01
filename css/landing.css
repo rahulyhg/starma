@@ -137,7 +137,7 @@
 
 #login_form table tr td, #register_form table tr td, #gender_location_form table tr td{
   padding:5px;
-  text-align:left;
+  
 }
 
 
@@ -589,7 +589,9 @@ bottom: 71px;
 }
 
 #gender_location_form_div {
-  font-size:1.1em;
+   display: inline-block;
+    font-size: 1.1em;
+    text-align: left;
 }
 
 #gender_location_form_div select, #gender_location_form_div input {
@@ -667,7 +669,8 @@ bottom: 71px;
   
 }
 
-#gender_location_form_div #js_zip_div #location_verification {
+#gender_location_form_div #location_verification {
+  height: 35px;
  
 }
 
@@ -682,6 +685,7 @@ bottom: 71px;
 #gender_location_form_div #register_button_div {
      left: 323px;
     width: 100px;
+    bottom:35px;
 }
 
 /***************************BIRTH INFO FIRST TIME PAGE ONLY**************************/
