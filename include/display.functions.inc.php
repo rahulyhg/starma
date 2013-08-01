@@ -1050,42 +1050,59 @@ function show_desc_photo_form($errors, $des_names,$action="birth_info_first_time
 
 function show_gender_location_form ($errors = array(), $title="", $country_id, $gender, $action="desc_photo_first_time.php") {
   echo '<div id="gender_location_form_div">';
-      echo '<div id="img_div">';
-        echo '<img id="gender_img" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
-        echo '<img id="country_img" src="img/account_info/Starma-Astrology-CountryBox.png"/>';
-        echo '<img id="zip_img" src="img/account_info/Starma-Astrology-ZipBox.png"/>';
+      //echo '<div id="img_div">';
+      //  echo '<img id="gender_img" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
+      //  echo '<img id="country_img" src="img/account_info/Starma-Astrology-CountryBox.png"/>';
+      //  echo '<img id="zip_img" src="img/account_info/Starma-Astrology-ZipBox.png"/>';
         
-      echo '</div>';
+      //echo '</div>';
       
       echo '<form id="gender_location_form" method="post" action="' . $action . '">';
       echo '<div id="input_divs">';
-        echo '<div id="gender_div">';
-         
-          echo 'gender: ';
-          gender_select ($the_gender=$gender, $the_name="gender");
-        echo '</div>';
+        echo '<table>
+          <tr>
+           <td class="align_right">gender:</td>
+           <td>';
+              gender_select ($the_gender=$gender, $the_name="gender");
+            echo '</td>
+          </tr>
 
-        echo '<div id="current_location_text">';
-          echo 'Current Location';
-        echo '</div>';
+          <tr>
+           <td class="align_right"></td>
+           <td>
+              Current Location
+           </td>
+          </tr>
 
-        echo '<div id="country_div">';
-       
-          echo 'country: ';
-          country_select ($country_id, "js_country_id");
-          //echo '<input id="my_thing" type="text"/>';
-        echo '</div>';
-        echo '<div id="js_city_div">';
-          echo 'city: ';
-          echo '<input type="text" name="title" value="' . $title . '"/>';
-        echo '</div>';
+          <tr>
+           <td class="align_right">country:</td>
+           <td>';
+              country_select ($country_id, "js_country_id");
+           echo '</td>
+          </tr>
 
-        echo '<div id="js_zip_div">';
-          echo 'zip: ';
-          zipcode_input ("zip", "location_verification");
-          echo '<div id="location_verification">';
-          echo '</div>';
-        echo '</div>';
+          <tr id="js_city_div">
+           <td class="align_right">city:</td>
+           <td><input type="text" name="title" value="' . $title . '"/></td>
+          </tr>
+
+          <tr id="js_zip_div">
+           <td class="align_right">zip:</td>
+           <td>';
+             zipcode_input ("zip", "location_verification .location_text");
+           echo '</td>
+           
+            
+          </tr>
+          
+          <tr id="location_verification">
+           <td></td>
+           <td class="location_text"></td>
+           
+          </tr>
+         </table>';
+
+        
          
         echo '<div id="register_button_div">';
           echo '<input id="bug_button" type="submit" value="" name="location_gender_submit">';
@@ -1101,13 +1118,13 @@ function show_gender_location_form ($errors = array(), $title="", $country_id, $
       //alert ("stuff");
       if ($("select[name=js_country_id]").val() == "236") {
         $("#js_zip_div").show();
-        
+        $("#location_verification").css(\'visibility\', \'visible\');
         $("#js_city_div").hide();
         
       }
       else {
         $("#js_zip_div").hide();
-        
+        $("#location_verification").css(\'visibility\', \'hidden\');
         $("#js_city_div").show();
       }
     })';
@@ -1117,7 +1134,7 @@ function show_gender_location_form ($errors = array(), $title="", $country_id, $
     echo '<script type="text/javascript">';
      
        echo '$("#js_zip_div").hide();';
-        
+       echo '$("#location_verification").css(\'visibility\', \'hidden\')'; 
        echo '$("#js_city_div").show();';
        
   
@@ -4039,10 +4056,10 @@ function show_landing_logo() {
 
 function show_bugaboos() {
   echo '
-  <div class="bg" id="bug1">
+  <div id="bug1">
     <img src="img/account_info/Starma-Astrology-Feet-Bugaboo.png"/>
   </div>
-  <div class="bg" id="bug2">
+  <div id="bug2">
     <img src="img/account_info/Starma-Astrology-Planet-Bugaboo.png"/>
   </div>';
 }

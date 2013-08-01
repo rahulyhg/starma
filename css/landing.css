@@ -135,8 +135,9 @@
     right: 45px;
 }
 
-#login_form table tr td, #register_form table tr td{
+#login_form table tr td, #register_form table tr td, #gender_location_form table tr td{
   padding:5px;
+  text-align:left;
 }
 
 
@@ -200,7 +201,7 @@ bottom: 71px;
 }
 
 .landing_error {
-    bottom: 213px;
+    bottom: 131px;
     color: red;
     float: right;
     font-size: 0.8em;
@@ -224,6 +225,10 @@ bottom: 71px;
 }
 
 /***************************************REGISTRATION PAGE AND ERRORS****************************************/
+
+#register #create_account {
+  width:800px;
+}
 
 .error {
   color:red;
@@ -258,12 +263,12 @@ bottom: 71px;
 }
 
 #terms_error{
-  bottom: 50px;
-    color: red;
+  color: red;
     display: block;
     font-size: 0.7em;
-    left: 500px;
+    left: 505px;
     position: relative;
+    top: 30px;
     width: 300px;
     z-index: 1;
 }
@@ -297,7 +302,7 @@ bottom: 71px;
 #register input, #register select {
   position:relative;
   
-  padding:0px;
+  
   margin:0px;
   
 }
@@ -332,7 +337,7 @@ bottom: 71px;
 #register_form {
   display: block;
     font-size: 1.1em;
-    left: 78px;
+    left: 74px;
     position: relative;
     text-align: left;
   
@@ -414,7 +419,7 @@ bottom: 71px;
 }
 
 #register #register_button_div {
-  bottom: 30px;
+  
     left: 429px;
 }
 /***************************DESC AND PHOTO FIRST TIME PAGE ONLY*******************************/
@@ -623,8 +628,9 @@ bottom: 71px;
 }
 
 #gender_location_form_div #input_divs {
-   position:relative;
-   bottom:150px;
+   display: inline-block;
+    position: relative;
+  
 }
 
 #gender_location_form_div #current_location_text {
@@ -654,40 +660,27 @@ bottom: 71px;
 }
 
 #gender_location_form_div #js_zip_div {
-  height: 23px;
-  right: 64px;
-    top: 81px;
+  
 }
 
 #gender_location_form_div #js_zip_div input {
-  left: 27px;
-  position:relative;
+  
 }
 
 #gender_location_form_div #js_zip_div #location_verification {
-  font-weight: bold;
-    height: 25px;
-    left: 325px;
-    position: relative;
-    text-align: left;
-    top: 20px;
+ 
 }
 
 #gender_location_form_div #js_city_div {
-  left: 8px;
-  top: 81px;
-  height: 23px;
+  
 }
 
 #gender_location_form_div #js_city_div input {
-  left: 27px;
-    position: relative;
-    width: 270px;
+  
 }
 
 #gender_location_form_div #register_button_div {
-    left: 603px;
-    top: 60px;
+     left: 323px;
     width: 100px;
 }
 
@@ -1034,52 +1027,18 @@ bottom: 71px;
 /*********************BUGABOOS**************************/
 
 #bug1 {
-    position:relative;
-    width:69px;
-    height:75px;
-    bottom: 379px;
     float: right;
+    height: 75px;
+    position: absolute;
     right: 65px;
+    top: 36px;
+    width: 69px;
 }
 
 #bug2 {
-  position:relative;
-  bottom: 69px;
-    height: 81px;
+   height: 81px;
     left: 59px;
+    position: absolute;
     width: 149px;
-}
-
-#register #bug1 {
-  position:relative;
-    width:69px;
-    height:75px;
-    bottom: 611px;
-    float: right;
-    right: 65px;
-}
-
-#register #bug2 {
-  position:relative;
-  bottom: 301px;
-    height: 81px;
-    left: 59px;
-    width: 149px;
-}
-
-#birth_info_first_time #bug1 {
-  position:relative;
-    width:69px;
-    height:75px;
-    bottom: 489px;
-    float: right;
-    right: 65px;
-}
-
-#birth_info_first_time #bug2 {
-  position:relative;
-  bottom:179px;
-    height: 81px;
-    left: 59px;
-    width: 149px;
+    top: 450px;
 }
