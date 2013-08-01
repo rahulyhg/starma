@@ -22,9 +22,10 @@ time, mark, audio, video, input {
 
 input[type="checkbox"] {
   -webkit-appearance: checkbox;
+  pad
 }
 
-input[type="text"] {
+input[type="text"], input["password"] {
   height:17px;
 }
 

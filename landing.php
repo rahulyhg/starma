@@ -49,7 +49,7 @@ if (isLoggedIn())
             <div id="email_input"><input type="text" name="email" value="<?php echo $_GET['email'];?>"/></div>
             <div id="password_title">password</div>
             <div id="password_input"><input type="password" name="password"/></div>
-            <div id="stay_logged_in_input"><input type="checkbox" name="stay_logged_in"/>keep me signed in</div>
+            <div id="stay_logged_in_input"><input type="checkbox" name="stay_logged_in"/>&nbsp;keep me signed in</div>
             <div id="login_button_div"><input type="submit" id="bug_button" name="Login" value=""/></div>
           </form>
       
