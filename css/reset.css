@@ -20,6 +20,10 @@ time, mark, audio, video, input {
     -webkit-appearance: none;
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: auto;
+}
+
 input[type="text"] {
   height:17px;
 }
@@ -27,6 +31,8 @@ input[type="text"] {
 select {
   height:18px;
 }
+
+
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
