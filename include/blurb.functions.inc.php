@@ -11,7 +11,7 @@ function get_poi_sign_blurb ($poi_id, $sign_id, $other_chart_id=-1) {
   else {
     $poi_name = ucfirst(strtolower(get_poi_name($poi_id)));
     if ($other_chart_id == -1) { 
-      return "Oh no!  We can't tell you about your " . $poi_name . " sign with your current birth information.  To find your " . $poi_name . " sign, please enter a more precise <a href='main.php?the_left=nav5&the_page=csel'>time of birth.</a>";
+      return "Oh no!  We can't tell you about your " . $poi_name . " sign with your current birth information.  To find your " . $poi_name . " sign, please enter a more precise <a href='main.php?the_left=nav5&the_page=psel'>time of birth.</a>";
     }
     else {
       if ($other_user_id = get_user_id_from_chart_id($other_chart_id)) {
@@ -52,22 +52,22 @@ function get_poi_dynamic_blurb ($poi_id_A, $poi_id_B, $dynamic_id, $section_id=1
       if ($poi_id_A == $poi_id_B && ($poi_id_A != -1 || $poi_id_B != -1)) {
         //non-custom compare major
         $poi_name = ucfirst(strtolower(get_poi_name($poi_id_A))); //both poi ids are the same in this case, so it doesnt matter which one we use
-        return "On no!  We can't tell you about the dynamic between your " . $poi_name . " signs.  To see your " . $poi_name . " sign compatibility, please enter a more precise <a href='main.php?the_left=nav5&the_page=csel'>time of birth.</a>  If your birth information is already exact, please encourage " . $username2 . " to enter a more precise time of birth.";
+        return "On no!  We can't tell you about the dynamic between your " . $poi_name . " signs.  To see your " . $poi_name . " sign compatibility, please enter a more precise <a href='main.php?the_left=nav5&the_page=psel'>time of birth.</a>  If your birth information is already exact, please encourage " . $username2 . " to enter a more precise time of birth.";
       }
       else {
         //non-custom compare minor
-        return "On no!  We can't tell you about this dynamic.  Please enter a more precise <a href='main.php?the_left=nav5&the_page=csel'>time of birth.</a>  If your birth information is already exact, please encourage " . $username2 . " to enter a more precise time of birth.";
+        return "On no!  We can't tell you about this dynamic.  Please enter a more precise <a href='main.php?the_left=nav5&the_page=psel'>time of birth.</a>  If your birth information is already exact, please encourage " . $username2 . " to enter a more precise time of birth.";
       }
     }
     else {
       if ($poi_id_A == $poi_id_B && ($poi_id_A != -1 || $poi_id_B != -1)) {
         //custom compare major
         $poi_name = ucfirst(strtolower(get_poi_name($poi_id_A))); //both poi ids are the same in this case, so it doesnt matter which one we use
-        return "On no!  We can't tell you about the dynamic between your " . $poi_name . " signs because either <a href='main.php?the_left=nav5&the_page=csel'>your birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
+        return "On no!  We can't tell you about the dynamic between your " . $poi_name . " signs because either <a href='main.php?the_left=nav5&the_page=psel'>your birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
       }
       else {
         //custom compare minor
-        return "On no!  We can't tell you about this dynamic because either <a href='main.php?the_left=nav5&the_page=csel'>your birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
+        return "On no!  We can't tell you about this dynamic because either <a href='main.php?the_left=nav5&the_page=psel'>your birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
       }
     }
   }

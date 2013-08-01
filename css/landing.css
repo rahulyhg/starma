@@ -404,7 +404,7 @@ bottom: 280px;
   right:20px;
   font-size:1.1em;
   text-align:left;
-  line-height:21px;
+  line-height:20px;
 }
 
 #register #register_form .reg_title {
@@ -752,12 +752,12 @@ bottom: 280px;
 
 #gender_location_form_div #js_zip_div {
   height: 23px;
-    right: 55px;
+  right: 64px;
     top: 81px;
 }
 
 #gender_location_form_div #js_zip_div input {
-  left: 25px;
+  left: 27px;
   position:relative;
 }
 
@@ -771,13 +771,13 @@ bottom: 280px;
 }
 
 #gender_location_form_div #js_city_div {
-  left: 11px;
+  left: 8px;
   top: 81px;
   height: 23px;
 }
 
 #gender_location_form_div #js_city_div input {
-  left: 20px;
+  left: 27px;
     position: relative;
     width: 270px;
 }
