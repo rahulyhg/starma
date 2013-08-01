@@ -33,11 +33,6 @@ input[type="text"], input[type="password"] {
   border:0px;
 }
 
-select {
-  height:18px;
-}
-
-
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
