@@ -20,6 +20,14 @@ time, mark, audio, video, input {
     -webkit-appearance: none;
 }
 
+input[type="text"] {
+  height:17px;
+}
+
+select {
+  height:18px;
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
