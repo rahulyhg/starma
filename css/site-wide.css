@@ -38,6 +38,10 @@ body select {
   text-align:right;
 }
 
+.info_font {
+  font-size: 0.8em;
+}
+
 #img_preloader {
   display:none;
 }

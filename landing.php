@@ -53,7 +53,7 @@ if (isLoggedIn())
                 <td class="align_right">password</td><td><input type="password" name="password"/></td>
               </tr>
               <tr>
-                <td class="align_right"><input type="checkbox" name="stay_logged_in"></td><td style="font-size: 0.7em;">keep me signed in</td>
+                <td class="align_right"><input type="checkbox" name="stay_logged_in"></td><td class="info_font">keep me signed in</td>
               </tr>
               
               

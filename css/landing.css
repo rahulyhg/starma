@@ -135,7 +135,7 @@
     right: 45px;
 }
 
-#login_form table tr td{
+#login_form table tr td, #register_form table tr td{
   padding:5px;
 }
 
@@ -146,7 +146,7 @@
 #login_form input[type="password"] {
   position:relative;
   display:block;
-  width:200px;
+  
   box-sizing: border-box; 
  -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
   font-size:0.8em;
@@ -163,29 +163,6 @@
   position:relative;
 }
 
-#login_form #email_title {
-  position:relative;
-  height:26px;
-  bottom:2px;
-  right:485px;
-  text-align:right;
-}
-
-#login_form #email_input {
-  bottom:22px;
-}
-
-#login_form #password_title {
-  position:relative;
-  top:3px;
-  height:26px;
-  right:485px;
-  text-align:right;
-}
-
-#login_form #password_input {
-  bottom:19px;
-}
 
 #landing #login_button_div{
     bottom: 20px;
@@ -223,12 +200,12 @@ bottom: 71px;
 }
 
 .landing_error {
-bottom: 280px;
+    bottom: 213px;
     color: red;
     float: right;
     font-size: 0.8em;
     position: relative;
-    right: 170px;
+    right: 190px;
     width: 300px;
 }
 
@@ -252,7 +229,7 @@ bottom: 280px;
   color:red;
   z-index:1;
   display:block;
-  width:435px;
+  
 }
 
 #desc_photo_form_div .error {
@@ -264,10 +241,7 @@ bottom: 280px;
   position:relative;
   z-index:1;
   display:block;
-  left:830px;
   width:435px;
-  margin-top: 5px;
-  height:20px;
 }
 
 .hidden_error {
@@ -278,50 +252,17 @@ bottom: 280px;
   visibility:hidden;
 }
 
-#username_error {  
-  bottom:548px;
-}
-
-#date_error {  
-  bottom:541px;
-}
-
-#underage_error {  
-  bottom:564px;
-}
-
-#user_exists_error {  
-  bottom:626px;
-}
-
-#email_error {  
-  bottom:576px;
-}
-
-#email_no_match_error {  
-  bottom:569px;
-}
-
-#password_error {  
-  bottom:564px;
-}
-
-#token_error {  
-  bottom:456px;
-  color:red;
-  position:relative;
-  z-index:1;
-  display:block;
-  left:680px;
-  width:135px;
+#register #register_form #user_exists_error {
+ top: 7px;
+    position: absolute;
 }
 
 #terms_error{
-  bottom: 479px;
+  bottom: 50px;
     color: red;
     display: block;
     font-size: 0.7em;
-    left: 525px;
+    left: 500px;
     position: relative;
     width: 300px;
     z-index: 1;
@@ -355,9 +296,7 @@ bottom: 280px;
 
 #register input, #register select {
   position:relative;
-  border:0px;
-  display:block;
-  left:220px;
+  
   padding:0px;
   margin:0px;
   
@@ -367,7 +306,7 @@ bottom: 280px;
   box-sizing: border-box; 
  -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
   font-size:0.8em;
-  width:144px;
+  
   
 }
 
@@ -378,26 +317,9 @@ bottom: 280px;
 
 #register select {
   display:inline-block;
-  bottom:17px;
+  position:relative;
 }
 
-#register select[name="month_birthday"] {
-  position:relative;
-  left:210px;
-  display:inline-block;
-}
-
-#register select[name="day_birthday"] {
-  position:relative;
-  left:250px;
-  display:inline-block;
-}
-
-#register select[name="year_birthday"] {
-  position:relative;
-  left:300px;
-  display:inline-block;
-}
 
 #register #register_form div {
   position:relative;
@@ -408,47 +330,14 @@ bottom: 280px;
 }
 
 #register_form {
-  position: relative;
-  display:block;
-  bottom: 212px;
-  right:20px;
-  font-size:1.1em;
-  text-align:left;
-  line-height:20px;
+  display: block;
+    font-size: 1.1em;
+    left: 78px;
+    position: relative;
+    text-align: left;
+  
 }
 
-#register #register_form .reg_title {
-  text-align:right;
-  width:180px;
-}
-
-#register #nickname_input {
-  bottom:16px;
-}
-
-#register #email_title {
-  bottom:4px;
-}
-
-#register #email_input {
-  bottom:25px;
-}
-
-#register #email2_title {
-  bottom:12px;
-}
-
-#register #email2_input {
-  bottom:30px;
-}
-
-#register #password_title {
-  bottom:20px;
-}
-
-#register #password_input {
-  bottom:37px;
-}
 
 #register img.token_img {
   position:relative;
@@ -466,6 +355,10 @@ bottom: 280px;
   bottom:39px;
   left:165px;
   z-index:1;
+}
+
+#register #register_form .terms {
+  width:325px;
 }
 
 
@@ -521,8 +414,8 @@ bottom: 280px;
 }
 
 #register #register_button_div {
-  bottom:65px;
-  left:335px;
+  bottom: 30px;
+    left: 429px;
 }
 /***************************DESC AND PHOTO FIRST TIME PAGE ONLY*******************************/
 #desc_photo_first_time #enter_info {
