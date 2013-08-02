@@ -1190,7 +1190,7 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
                 echo 'time of birth
                </td>';
              
-  echo '       <td id="birth_time_input">';
+  echo '       <td id="birth_time_input" colspan="2">';
                 time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
          echo '</td>
               </tr>
@@ -1203,7 +1203,7 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
          echo '</td>';
     echo '     <td>
                  <div id="birth_time_hover_box" class="hover_box">             
-                   ?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please give as much information as possible!</span>
+                   ?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
                  </div>
                </td>
              </tr>';

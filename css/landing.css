@@ -751,6 +751,10 @@ bottom: 71px;
   position:relative;
 }
 
+#birth_info #time_zone_div, #birth_info #latitude_div, #birth_info #longitude_div {
+  width:250px;
+}
+
 #birth_info #time_zone_div input, #birth_info #latitude_div input, #birth_info #longitude_div input {
   width:25px;
 }
