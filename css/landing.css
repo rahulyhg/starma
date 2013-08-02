@@ -845,7 +845,6 @@ bottom: 71px;
 
 #birth_place_title, #birth_place_input {
   position:relative;
-  bottom:37px;
 }
 
 #birth_place_title.no_move, #birth_place_input.no_move {
