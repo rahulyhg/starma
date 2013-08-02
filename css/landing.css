@@ -797,7 +797,7 @@ bottom: 71px;
 
 #birth_info_first_time input[type="checkbox"] {
     position: relative;
-    right: 58px;
+    width:auto;
 }
 
 
@@ -861,7 +861,6 @@ bottom: 71px;
 
 #birth_interval_box_title {
     
-    left: 18px;
     position: relative;
 }
 
@@ -869,27 +868,26 @@ bottom: 71px;
 #birth_interval_box_input {
    
     position: relative;
-    right:3px; 
-    bottom:20px;
+    
 }
 
 
 #birth_interval_box_help_text {
-    bottom: 198px;
+    bottom: -2px;
     display: none;
-    left: 165px;
+    left: 23px;
     position: absolute;
 }
 
 #birth_interval_box_help_text.offset {
-  top:108px;
+  top: -21px;
 }
 
 
 #birth_info_first_time #birth_info div#birth_interval_box_help_text {
-    bottom: 67px;
+    bottom: -5px;
     display: none;
-    left: 180px;
+    left: 23px;
     position: absolute;
 }
 

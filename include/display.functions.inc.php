@@ -1217,13 +1217,13 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
                    echo 'CHECKED';
                  }
                  echo '/>';
-                 echo '     <div id="birth_interval_box_help_text" class="' . $help_text_offset . '" ';
+                 echo '<div style="position:relative"><div id="birth_interval_box_help_text" class="' . $help_text_offset . '" ';
                  if ((string)get_inputed_var("time_unknown",0,$type) == '1') {
                     echo 'style="display:block;"';
                  }
                  echo '>';
                  echo '       <a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">-> help!</a>';
-                 echo '     </div>';               
+                 echo '</div></div>';               
     echo '     </td>';
   echo '     </tr>';
   
