@@ -966,11 +966,11 @@ function show_desc_photo_form($errors, $des_names,$action="birth_info_first_time
     echo '<h1>';
       echo "What 3 Words describe you best?";
     echo '</h1>';
-    echo '<div id="img_div">';
-      echo '<img id="desc_img_1" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
-      echo '<img id="desc_img_2" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
-      echo '<img id="desc_img_3" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
-    echo '</div>';
+    //echo '<div id="img_div">';
+    //  echo '<img id="desc_img_1" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
+    //  echo '<img id="desc_img_2" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
+    //  echo '<img id="desc_img_3" src="img/account_info/Starma-Astrology-GenderBox.png"/>';
+    //echo '</div>';
  
     
 

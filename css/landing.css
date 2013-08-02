@@ -274,13 +274,15 @@ bottom: 71px;
 }
 
 #not_words_error.error {
-  bottom: 233px;
-    left: 128px;
+  
+    bottom: 107px;
+    left: 181px;
 }
 
 #photo_first_time_error.error {
-  bottom: 81px;
-    left: 126px;
+  
+    bottom: -60px;
+    left: 228px;
 }
 
 #register #create_account {
@@ -470,10 +472,11 @@ bottom: 71px;
     left: 220px;
     top: 150px;
     width: 100px;
+    z-index:10;
 }
 
 #desc_photo_first_time #edit_descriptors {
-  bottom: 145px;
+  
     height: 30px;
     left: 20px;
     position: relative;
@@ -500,13 +503,15 @@ bottom: 71px;
 }
 
 #desc_photo_first_time h1 {
-  padding-bottom:20px;
+  font-size: 1.2em;
+    font-weight: normal;
+    padding-bottom: 10px;
 }
 
 #desc_photo_first_time #photo_form_div {
-   bottom: 108px;
+   
     margin: auto;
-    
+    top: 30px;
     width: 600px;
 }
 
