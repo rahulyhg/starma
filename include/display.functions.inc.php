@@ -1157,76 +1157,91 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
   }
   //print_r ($_SESSION["chart_input_vars"]);
   echo '<div id="birth_info">
-          <form id="birth_info_form" method="post" action=' . $action . '>';
+          <form id="birth_info_form" method="post" action=' . $action . '>
+            <table>';
 //// THIS AREA ONLY APPLIES TO ENTERING SOMEONE ELSES USER INFORMATION (AS AN ADMIN OR OTHERWISE) OR UPDATING YOUR OWN ////
   if ($stage == 2 or isset($_SESSION["change_info"]) or (isAdmin() and isset($_SESSION["proxy_user_id"]))) {
-     echo '     <input type="hidden" name="stage" value="' . $stage . '"/>
-                <div id="birth_date_input">';
-                   echo 'date of birth<br>';
-                echo '</div>
-                <div id="birth_date_input">';
-                  date_select ($the_date=get_inputed_date($type), $the_name="birthday");
+     echo '     <tr>
+                  <td id="birth_date_input" class="align_right">';
+                     echo 'date of birth
+                     <input type="hidden" name="stage" value="' . $stage . '"/>';
+                  echo '</td>
+                  <td id="birth_date_input" colspan="2">';
+                    date_select ($the_date=get_inputed_date($type), $the_name="birthday");
   
-     echo '     </div>';
-     $help_text_offset = 'offset';
+       echo '     </td>
+               </tr>';
+       $help_text_offset = 'offset';
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////
   else {
-     echo  '<div id="birth_place_title" class="no_move">
+     echo  '<tr>
+             <td id="birth_place_title" class="no_move align_right">
                 place of birth
-             </div>
-             <div id="birth_place_input" class="no_move">
+             </td>
+             <td colspan="2" id="birth_place_input" class="no_move">
                 <input type="text" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>
-             </div>';
+             </td>
+            </tr>';
      $help_text_offset = '';
   }
-  echo '     <div id="birth_time_title">';
-                //echo '*' . time("H:i:s") . '*';
+  echo '     <tr>
+               <td id="birth_time_title" class="align_right">';
                 echo 'time of birth
-             </div>';
-  echo '     <div id="birth_time_input">';
-                time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
-             echo '</div>
-             <div id="birth_interval_title">';
-                echo 'accuracy of time
-             </div>';
+               </td>';
              
-             echo '<div id="birth_interval_input">';
-                time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
-             echo '</div>';
+  echo '       <td id="birth_time_input">';
+                time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
+         echo '</td>
+              </tr>
+             <tr>
+               <td id="birth_interval_title" class="align_right">';
+                  echo 'accuracy of time
+               </td>';             
+         echo '<td id="birth_interval_input">';
+                 time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
+         echo '</td>';
+    echo '     <td>
+                 <div id="birth_time_hover_box" class="hover_box">             
+                   ?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please give as much information as possible!</span>
+                 </div>
+               </td>
+             </tr>';
+  echo '     <tr>';
+  echo '       <td id="birth_interval_box_title" class="align_right">';
+    echo '       birthtime unknown';
+    echo '     </td>';
+  echo '       <td id="birth_interval_box_input">';
+    echo '       <input onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
+                 if ( (string)get_inputed_var("time_unknown",0,$type) == '1' ) {
+                   echo 'CHECKED';
+                 }
+                 echo '/>';
+                 echo '     <div id="birth_interval_box_help_text" class="' . $help_text_offset . '" ';
+                 if ((string)get_inputed_var("time_unknown",0,$type) == '1') {
+                    echo 'style="display:block;"';
+                 }
+                 echo '>';
+                 echo '       <a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">-> help!</a>';
+                 echo '     </div>';               
+    echo '     </td>';
+  echo '     </tr>';
   
-  echo '     <div id="birth_interval_box_title">';
-  echo '       birthtime unknown';
-  echo '     </div>';
-  echo '     <div id="birth_interval_box_input">';
-  echo '       <input onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
-               if ( (string)get_inputed_var("time_unknown",0,$type) == '1' ) {
-                 echo 'CHECKED';
-               }
-               echo '/>';
-  echo '     </div>';
 
-  echo '     <div id="birth_time_hover_box" class="hover_box">';
-  echo '       ?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please give as much information as possible!</span>';
-  echo '     </div>';
-
-  echo '     <div id="birth_interval_box_help_text" class="' . $help_text_offset . '" ';
-             if ((string)get_inputed_var("time_unknown",0,$type) == '1') {
-                echo 'style="display:block;"';
-             }
-  echo '>';
-  echo '       <a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">-> help!</a>';
-  echo '     </div>';
+  
   if ($stage == 2 or isset($_SESSION["change_info"]) or isAdmin() ) { //PLACE OF BIRTH IS LATER WHEN YOU UPDATE YOUR INFO OR COME FROM SOMEONE ELSE'S         
-      echo  '<div id="birth_place_title">
+      echo  '<tr>
+              <td id="birth_place_title" class="align_right">
                 place of birth
-             </div>
-             <div id="birth_place_input">
+              </td>
+              <td id="birth_place_input" colspan="2">
                 <input type="text" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>
-             </div>';
+              </td>
+             </tr>';
   }
             if ($sao == 1) {
-     echo '    <div id="daylight_div"> 
+     echo '  <tr>
+               <td colspan="3" id="daylight_div"> 
                  <span style="color:red">*</span><input type="radio" name="daylight" value="0"';
                  if ($_POST["daylight"] == "0") {
                    echo ' checked';
@@ -1237,14 +1252,22 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
                    echo ' checked';
                  }
                  echo '>Daylight Savings Time
-               </div>
-               <div id="time_zone_div">   
-                
-                  <span style="color:red">*</span>Time Zone: <input type="text" size=1 name="timezone" value="' . $_POST["timezone"] . '">
-               </div>
-               <div id="latitude_div">
+               </td>
+             </tr>
+             <tr>
+               <td id="time_zone_div_title" class="align_right">   
+                  <input type="hidden" name="sao" value=' . $sao . '/>';
+     echo '       <span style="color:red">*</span>Time Zone: 
+               </td>
+               <td id="time_zone_div">
+                  <input type="text" size=1 name="timezone" value="' . $_POST["timezone"] . '">
+               </td>
+             </tr>
+             <tr>
+               <td id="latitude_div_title" class="align_right">
                  <span style="color:red">*</span>Latitude:
-                 
+               </td>
+               <td colspan="2" id="latitude_div">  
                    <input type="text" size="1" name="c1d" value="' . $_POST["c1d"] . '"/>' . chr(176) .
                   '<input type="text" size="1" name="c1m" value="' . $_POST["c1m"] . '"/>\'
                    <input type="text" size="1" name="c1s" value="' . $_POST["c1s"] . '"/>"
@@ -1258,10 +1281,13 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
                      echo ' checked';
                    }
                    echo '/>South
-                </div>
-                <div id="longitude_div">
+                </td>
+              </tr>
+              <tr>
+                <td id="longitude_div_title" class="align_right">
                   <span style="color:red">*</span>Longitude:
-                
+                </td> 
+                <td colspan="2" id="longitude_div">
                    <input type="text" size="1" name="c2d" value="' . $_POST["c2d"] . '"/>' . chr(176) .
                   '<input type="text" size="1" name="c2m" value="' . $_POST["c2m"] . '"/>\'
                    <input type="text" size="1" name="c2s" value="' . $_POST["c2s"] . '"/>"
@@ -1275,8 +1301,9 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
                      echo ' checked';
                    }
                    echo '/>West
-                 </div>
-                 <input type="hidden" name="sao" value=' . $sao . '<Br>';
+                </td>
+              </tr>';
+                
             }
             else {
     echo '      
@@ -1297,6 +1324,7 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
                     <input type="hidden" size="1" name="c2s" value="' . $_POST["c2s"] . '"/>
                     <input type="hidden" name="LoDir" value="' . $_POST["LoDir"] . '"/>';
            }
+    echo '</table>';
 
 
 /////////////////////////////////////////////////////

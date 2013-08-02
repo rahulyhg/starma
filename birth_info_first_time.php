@@ -59,7 +59,7 @@ if (isLoggedIn())
   <!---<div class="description">You've successfully created your account!<br>In order to read your Starma&#174; chart with more accuracy,<br>we will need your TIME & PLACE of birth.</div>--->
   <div class="description">3/3</div>
   <div class="bg" id="enter_info">
-    <img src="img/account_info/Starma-Astrology-TimeandPlaceBoxes.png"/>
+    <!---<img src="img/account_info/Starma-Astrology-TimeandPlaceBoxes.png"/>--->
     <?php if (isset($errors)) {show_birth_info_form($errors = $errors, $sao=1, $title=$title);}else{show_birth_info_form();}?>
   </div>
   

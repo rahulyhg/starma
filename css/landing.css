@@ -135,7 +135,7 @@
     right: 45px;
 }
 
-#login_form table tr td, #register_form table tr td, #gender_location_form table tr td{
+#login_form table tr td, #register_form table tr td, #gender_location_form table tr td, #birth_info table tr td{
   padding:5px;
   
 }
@@ -695,8 +695,7 @@ bottom: 71px;
 
 /***************************BIRTH INFO FIRST TIME PAGE ONLY**************************/
 #birth_info_first_time #submit_div {
-  left:150px;
-  bottom:20px;
+  left: 300px;
 }
 
 /*
@@ -752,9 +751,8 @@ bottom: 71px;
   position:relative;
 }
 
-#birth_info_first_time #enter_info {
-  top:50px;
-  left:80px;
+#birth_info #time_zone_div input, #birth_info #latitude_div input, #birth_info #longitude_div input {
+  width:25px;
 }
 
 
@@ -783,8 +781,8 @@ bottom: 71px;
   position:relative;
   border:0px;
   display:block;
-  left:220px;
-  padding:0px;
+  
+ 
   margin:0px;
   
 }
@@ -792,15 +790,16 @@ bottom: 71px;
 #birth_info_first_time input, #desc_photo_first_time input {
   box-sizing: border-box; 
  -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
-  font-size:0.8em;
+  font-size:0.8em;  
   width:130px;
-  
 }
 
+
 #birth_info_first_time input[type="checkbox"] {
-  width:15px;
-  
+    position: relative;
+    right: 58px;
 }
+
 
 #birth_info_first_time input:focus {
   outline: 0 none;
@@ -809,26 +808,11 @@ bottom: 71px;
 
 #birth_info_first_time select {
   display:inline-block;
-  bottom:17px;
+  position:relative;
+ 
+  
 }
 
-#birth_info_first_time select[name="hour_time"] {
-  position:relative;
-  left:210px;
-  display:inline-block;
-}
-
-#birth_info_first_time select[name="minute_time"] {
-  position:relative;
-  left:250px;
-  display:inline-block;
-}
-
-#birth_info_first_time select[name="meridiem_time"] {
-  position:relative;
-  left:283px;
-  display:inline-block;
-}
 
 #birth_info_first_time #birth_info div {
   position:relative;
@@ -839,12 +823,10 @@ bottom: 71px;
 }
 
 #birth_info_first_time #birth_info {
-  position: relative;
-  display:block;
-  bottom: 70px;
-  font-size:1.1em;
-  text-align:left;
-  left:45px;
+  display: inline-block;
+    font-size: 1.1em;
+    position: relative;
+    text-align: left;
 }
 
 #birth_info_first_time #birth_info .reg_title {
@@ -852,16 +834,6 @@ bottom: 71px;
   width:180px;
 }
 
-#birth_info_first_time #birth_time_title {
-  position:relative;
-  bottom: 4px;
-    left: 70px;
-}
-
-#birth_info_first_time #birth_time_input {
-  position:relative;
-  bottom:8px;
-}
 
 #birth_info_first_time #birth_time_input select:disabled {
   background-color:white;
@@ -878,32 +850,10 @@ bottom: 71px;
 
 }
 
-#birth_info_first_time #birth_place_title {
-  position:relative;
-  left:62px;
-  bottom:4px;
+#birth_interval_input {
+  width:130px;
 }
 
-#birth_info_first_time #birth_place_input {
-  position:relative;
-  bottom:23px;
-  right:8px;
-}
-
-
-
-
-#birth_info_first_time #birth_interval_title {
-  position:relative;
-  bottom: 10px;
-    left: 34px;
-}
-
-#birth_info_first_time #birth_interval_input {
-    bottom: 11px;
-    position: relative;
-    right: 10px;
-}
 
 #birth_info_first_time #birth_interval_input select:disabled {
    background-color:white;
@@ -915,11 +865,6 @@ bottom: 71px;
     position: relative;
 }
 
-#birth_info_first_time #birth_interval_box_title {
-    bottom: 16px;
-    left: 19px;
-    position:relative;
-}
 
 #birth_interval_box_input {
    
@@ -928,11 +873,6 @@ bottom: 71px;
     bottom:20px;
 }
 
-#birth_info_first_time #birth_interval_box_input {
-   bottom: 32px;
-    position: relative;
-    right: 35px;
-}
 
 #birth_interval_box_help_text {
     bottom: 198px;
@@ -942,28 +882,27 @@ bottom: 71px;
 }
 
 #birth_interval_box_help_text.offset {
-  bottom:146px;
+  top:108px;
 }
 
+
 #birth_info_first_time #birth_info div#birth_interval_box_help_text {
-   display:none;
-   position:absolute;
-   left:210px;
-   bottom:90px;
+    bottom: 67px;
+    display: none;
+    left: 180px;
+    position: absolute;
 }
+
     
 #birth_time_hover_box {
+    background-color: white;
     border: 1px solid black;
-    bottom: 63px;
+    color: black;
     font-size: 0.8em;
-    left: 140px;
-    line-height: 17px;
     padding-left: 3px;
     padding-right: 3px;
     position: relative;
     width: 10px;
-    color:black;
-  background-color:white;
 }
 
 
@@ -977,17 +916,6 @@ bottom: 71px;
   left:15px;
   bottom:-180px;
   
-}
-
-#birth_info_first_time #birth_info div#birth_time_hover_box {
-      border: 1px solid black;
-    bottom: 124px;
-    font-size: 0.8em;
-    left: 355px;
-    line-height: 17px;
-    padding-left: 3px;
-    padding-right: 3px;
-    position: absolute;
 }
 
 #enter_info img {
