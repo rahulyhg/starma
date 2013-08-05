@@ -290,6 +290,13 @@ function edit_interests_info() {
   $user_info = my_profile_info();
   echo '<div id="edit_interests">';
   echo '<form name="interests_form" action="save_interests.php" method="post">';
+    echo '<div id="biography">';
+      echo '<div class="title">Biography</div>';
+      echo '<div class="value">';
+        echo '<textarea name="about_me">' . $user_info["about_me"] . '</textarea>';
+      echo '</div>';
+    echo '</div>';
+
     echo '<div id="activities">';
       echo '<div class="title">Activities</div>';
       echo '<div class="value">';
@@ -338,7 +345,7 @@ function edit_interests_info() {
         echo '<textarea name="inspirational_figures">' . $user_info["inspirational_figures"] . '</textarea>';
       echo '</div>';
     echo '</div>';
-    
+    echo '<input style="position: absolute; right: 20px; top: 18px;" type="submit" name="submit" value="Save My Info"/>';
     //move_on_buttons();
   echo '</form>';
   echo '</div>';

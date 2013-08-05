@@ -774,11 +774,11 @@ function update_my_profile_info($first_name, $last_name, $gender, $location) {
   }
 }
 
-function update_my_interests($activities, $music, $books, $FandT, $RandS, $political, $figures) {
+function update_my_interests($about_me, $activities, $music, $books, $FandT, $RandS, $political, $figures) {
   if (isLoggedIn()) {
     
-    $q = sprintf("update user set activities = '%s', music = '%s', books = '%s', film_television = '%s', spiritual = '%s', political = '%s', inspirational_figures = '%s' where user_id = %d",
-        mysql_real_escape_string($activities), mysql_real_escape_string($music), mysql_real_escape_string($books), mysql_real_escape_string($FandT), 
+    $q = sprintf("update user set about_me = '%s', activities = '%s', music = '%s', books = '%s', film_television = '%s', spiritual = '%s', political = '%s', inspirational_figures = '%s' where user_id = %d",
+        mysql_real_escape_string($about_me), mysql_real_escape_string($activities), mysql_real_escape_string($music), mysql_real_escape_string($books), mysql_real_escape_string($FandT), 
         mysql_real_escape_string($RandS), mysql_real_escape_string($political), mysql_real_escape_string($figures), $_SESSION["user_id"]);
     $result = mysql_query($q) or die(mysql_error());
     return true;

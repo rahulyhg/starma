@@ -66,12 +66,15 @@ if (login_check_point($type="full")) {
         elseif ($section == 'photos_selected') {
           require('photos.php');
         }
-         elseif ($section == 'about_selected') {
+        elseif ($section == 'about_selected') {
           
           if ($edit_profile == '0') {
             echo '<div style="width:100%; position:relative; top:75px">';
               show_my_interests_info();
             echo '</div>';
+            echo '<input style="position:absolute; right: 20px; top: 18px;" type="button" onclick="window.location=\'?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected&edit_profile=1\'" value="Edit My Info"/>';
+
+            
           }
           else {
             require('interests.php');
