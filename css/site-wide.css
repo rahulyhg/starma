@@ -288,7 +288,7 @@ body select {
 }
 
 #paging_links #link_current{
-  color:white;
+  text-decoration: underline;
 }
 
 #js_more_link {
@@ -301,6 +301,7 @@ body select {
 #js_more_link a {
   padding:5px;
   letter-spacing: 0;
+  color:black;
 }
 
 #js_more_link #view_select {

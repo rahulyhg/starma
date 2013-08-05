@@ -105,9 +105,9 @@
 }
 
 #landing_footer #footer_links ul li a {
-  padding-left:50px;
-  padding-right:50px;
-
+  padding-left: 45px;
+    padding-right: 45px;
+  color:black;
 }
 
 #landing #sign_in .title {
