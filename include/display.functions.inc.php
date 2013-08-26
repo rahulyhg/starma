@@ -3798,7 +3798,7 @@ function display_all_users ($url="", $filter=0) {
   
 }
 
-function display_welcome_page_thumbnails($celeb=0) {
+function display_welcome_page_thumbnails($celebs=0) {
   $my_info = my_profile_info();
 
   if ($celebs == 0) {
@@ -3811,7 +3811,7 @@ function display_welcome_page_thumbnails($celeb=0) {
     $old_user_array = query_to_array($user_list);
     //pick 6 random ones 
     $user_array = array();
-    while (sizeof($user_array < 6)) {
+    while (sizeof($user_array) < 6) {
       $new_item = $old_user_array[array_rand($old_user_array)];
       while (in_array($new_item, $user_array)) {
         $new_item = $old_user_array[array_rand($old_user_array)];

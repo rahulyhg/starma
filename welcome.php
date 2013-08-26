@@ -30,7 +30,7 @@ require_once "header.php";
       <a class="box_link" href="main.php?the_page=cesel&the_left=nav1"></a>
       <div id="homepage_thumbnails">
         <?php
-          display_welcome_page_thumbnails($celebs=1);
+          display_welcome_page_thumbnails(1);
         ?>
       </div>
     </div>
