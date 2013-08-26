@@ -3807,7 +3807,7 @@ function display_welcome_page_thumbnails($celebs=0) {
     $user_array = query_to_array($user_list);
   }
   else {
-    $user_list = get_celebrity_user_list ();
+    $user_list = get_pic_only_celebrity_user_list ();
     $old_user_array = query_to_array($user_list);
     //pick 6 random ones 
     $user_array = array();

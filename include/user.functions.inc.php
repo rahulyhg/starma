@@ -1034,13 +1034,13 @@ function get_celebrity_user_list () {
   }
 }
 
-function get_limited_celebrity_user_list ($limit=6) {
+function get_pic_only_celebrity_user_list () {
   if (isLoggedIn()) {
     $q = '
         SELECT *, chart.chart_id
  FROM user inner join chart on user.user_id = chart.user_id
  inner join user_picture on user.user_id = user_picture.user_id WHERE user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname = "main" and permissions_id = ' . PERMISSIONS_CELEB() . ' and not email like "%TestCeleb%"
- LIMIT ' . $limit; 
+';
     if ($result = mysql_query($q)) {
       return $result;
     }
