@@ -1,4 +1,5 @@
 <?php
+//stuff
  
 ##### User Functions #####
 function max_msgs() {
