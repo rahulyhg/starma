@@ -915,6 +915,31 @@ li.my_unknown_button a {
     position: relative
 }
 
+#homepage_profile_button_info #descriptors {
+   bottom:43px;
+   position: absolute;
+   right:89px;
+   
+   width:auto
+}
+
+#homepage_profile_button_info #descriptors div {
+   height:30px;
+   
+}
+
+#homepage_profile_button_info #descriptors div .value {
+   bottom: 46px;
+    left: 18px;
+    position: relatve;
+   
+}
+
+#welcome .homepage_div #homepage_profile_button_info span {
+  
+    font-size: 1em;
+    
+}
 
 #edit_descriptors {
    

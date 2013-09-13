@@ -11,7 +11,18 @@ require_once "header.php";
     </div>
  
     <div id="profile_box_link" class="homepage_div">
+      <span>Profile</span>
       <a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
+      <div id="homepage_profile_button_info">
+        <div class="user_block">
+          <div class="photo_border_wrapper_compare"><div class="compare_photo">
+      
+            <?php show_user_compare_picture ('', get_my_user_id()); ?>
+            
+          </div></div>
+        </div>
+        <?php show_descriptors_info(get_my_chart_id()); ?>
+      </div>
     </div>
     <div id="community_box_link" class="homepage_div">
       <span>Community</span>
