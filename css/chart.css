@@ -186,6 +186,26 @@
   top:65px;
 }
 
+#welcome .homepage_div #homepage_chart_button_info li a span {
+  position:relative;
+  top:65px;
+  font-size:1em;
+  
+}
+
+#welcome .homepage_div #homepage_chart_button_info #blurb {
+  left: 86px;
+    position: absolute;
+    bottom: 123px;
+    width: 200px;
+  
+}
+
+#welcome .homepage_div #homepage_chart_button_info #blurb span {
+  font-size:1em;
+  text-align:left;
+}
+
 #starma_chart .chart_tabs a span.ketu_text {
   display: block;
     position: relative;
@@ -231,7 +251,7 @@
 }
 
 
-#starma_chart .chart_tabs a {
+#starma_chart .chart_tabs a, #homepage_chart_button_info li a {
   border: 0px solid black;
   background-color:#ffffff;
   color:black;

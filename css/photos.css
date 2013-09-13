@@ -229,6 +229,13 @@
     width: 252px;
 }
 
+#homepage_chart_button_info {
+  bottom: 77px;
+    left: 41px;
+    position: absolute;
+    width: 252px;
+}
+
 #upload_photo_form {
    /*bottom: 175px;*/
     display: inline-block;

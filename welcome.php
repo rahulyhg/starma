@@ -34,7 +34,19 @@ require_once "header.php";
       </div>
     </div>
     <div id="horoscope_box_link" class="homepage_div">
+      <span>Chart</span>
       <a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
+      <div id="homepage_chart_button_info">
+        <?php
+          $button_sign_id = get_sign_from_poi (get_my_chart_id(), 2);
+          echo '<ul>';
+          echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><a><span>' . get_poi_name(2) . '</span></a></li>';
+          echo '</ul>';
+          echo '<div id="blurb">';
+            show_poi_sign_blurb_abbr (2, $button_sign_id);
+          echo '</div>';
+        ?>
+      </div>
     </div>
     <div id="celebrities_box_link" class="homepage_div">
       <span>Celebrities</span>

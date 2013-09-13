@@ -2464,6 +2464,15 @@ function show_poi_sign_blurb ($poi_id, $sign_id, $chart_id=-1) {
   
 }
 
+function show_poi_sign_blurb_abbr ($poi_id, $sign_id, $chart_id=-1) {
+  
+  $blurb = get_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
+  
+  echo "<span>" . substr($blurb, 0, 175) . " ...</span>";
+  
+  
+}
+
 
 function show_poi_info ($poi_id, $chart_id, $sign_id) {
   $poi_name = get_poi_name($poi_id);
