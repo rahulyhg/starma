@@ -1,7 +1,11 @@
 .chat_time {
-
+   margin-top: 0;
     float:right;
     color:#CCCCCC;
+}
+
+.chat_alert_list_div .chat_request .chat_block .chat_area p.chat_time, #inbox_chat_area .chat_area p.chat_time {
+  border:0px;
 }
 
 .chat_date {
@@ -171,7 +175,8 @@
 
 
 #inbox_chat_area {
-    
+    position: relative;
+    top: 20px;
 }
 
 

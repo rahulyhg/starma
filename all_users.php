@@ -14,13 +14,22 @@ else {
 }
 
 if ($tier == "1") {
+  
+  $users = get_user_list ();;
+  $num_users = mysql_num_rows($users);
+  $users_per_page = grab_var('users_per_page', 16);
+  $current_page = grab_var('current_page', 1);
+  $num_pages = ceil((float)($num_users/$users_per_page));
+  $height_inc = ceil((float)($users_per_page/USER_BLOCK_PER_ROW())) * (int)(USER_BLOCK_COMPARE_HEIGHT());
+
   clear_compare_data();
   //Log the Action
   log_this_action (compare_action_all(), viewed_basic_action());
   echo '<div id="all_users">';
-    echo '<div id="compare_header">';
-      flare_title ("New to Starma");
-    echo '</div>';
+    //echo '<div id="compare_header">';
+    //  flare_title ("New to Starma");
+    //echo '</div>';
+    js_more_link ("js_user_frame", $num_pages, $current_page, $height_inc, $num_users);
     echo '<div id="search_bar_div">';
       echo '<div id="search_bar_title">';
         echo 'Search:';
@@ -29,8 +38,12 @@ if ($tier == "1") {
         echo '<input type="text" id="js_search_bar">';
       echo '</div>';
     echo '</div>';
-    display_all_users($url="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&stage=2");
-    addJSSearchEvents("js_search_bar","filterAllUsers");
+    echo '<div id="boundry">';
+      echo '<div id="js_user_frame">';
+        display_all_users($url="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&stage=2");
+        addJSSearchEvents("js_search_bar","filterAllUsers");
+      echo '</div>';
+    echo '</div>';
   echo '</div>';
   //display_my_chart_list();
 }

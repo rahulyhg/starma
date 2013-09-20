@@ -951,7 +951,10 @@ function get_ruling_planet($chart_id) {
 function get_user_list () {
   
   if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" and permissions_id <> -1 ORDER BY user_id desc'; // where user_id = ' . $_SESSION["user_id"];
+    $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id from user 
+          inner join chart on user.user_id = chart.user_id 
+          left outer join user_picture on user.user_id = user_picture.user_id 
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) ORDER BY user_pic_id desc, user_id desc'; // where user_id = ' . $_SESSION["user_id"];
     
     if ($result = mysql_query($q)) {
       return $result;

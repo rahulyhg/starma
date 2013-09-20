@@ -3813,7 +3813,16 @@ function display_welcome_page_thumbnails($celebs=0) {
   if ($celebs == 0) {
     $age = calculate_age(substr((string)$my_info['birthday'], 0, 10));
     $user_list = get_weighted_user_list ($age-5, $age+5);
-    $user_array = query_to_array($user_list);
+    $old_user_array = query_to_array($user_list);
+    //$user_array = query_to_array($user_list);
+    $user_array = array();
+    while (sizeof($user_array) < 6) {
+      $new_item = $old_user_array[array_rand($old_user_array)];
+      while (in_array($new_item, $user_array)) {
+        $new_item = $old_user_array[array_rand($old_user_array)];
+      }
+      $user_array[] = $new_item;
+    }
   }
   else {
     $user_list = get_pic_only_celebrity_user_list ();
