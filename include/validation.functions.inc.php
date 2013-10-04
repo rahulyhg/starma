@@ -114,7 +114,7 @@ function do_redirect ($url) {
 
 
 function get_domain () {
-  return 'http://starma-staging.gopagoda.com';
+  return 'starma-staging.gopagoda.com';
   //return '192.168.1.141:8080';
 }
 
