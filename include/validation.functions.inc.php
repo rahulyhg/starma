@@ -152,8 +152,8 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: http://' . $url);
 }
-*/
 
+*/
 
 /**********************END LOCAL DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 

@@ -112,22 +112,29 @@ function testMailSansPHPMailer ($to, $subject, $message, $from) {
   echo "From: " . $from . '<br>';
   echo "Subject: " . $subject . '<br>';
   echo "Message: " . $message . '<br><br>';
-  return mail($to, $subject, $message, 'From: ' . $from);
+  //return mail($to, $subject, $message, 'From: ' . $from);
+  return sendMail($to, $subject, $message, $from);
 }
 
 function sendMail($to, $subject, $message, $from)
 {
     
-
     $mail = new PHPMailer(); 
    
     $mail->IsSMTP(); // send via SMTP
 
-    $mail->SMTPAuth   = false;
-    $mail->Host = 'relay-hosting.secureserver.net';
+    //$mail->SMTPAuth   = false;
+    //$mail->Host = 'relay-hosting.secureserver.net';
     //$mail->exceptions = false;
-    //$mail->Username = ""; // SMTP username
-    //$mail->Password = ""; // SMTP password
+
+//GMAIL SETTINGS//
+    $mail->SMTPAuth   = true;    
+    $mail->Host = 'ssl://smtp.gmail.com';
+    $mail->Port = 587;
+    $mail->SMTPSecure = "tls";    
+    $mail->Username = "teamstarma@gmail.com"; // SMTP username
+    $mail->Password = "squirreltime"; // SMTP password
+//////////////////
     $webmaster_email = $from; //Reply to this email ID
     $email=$to; // Recipients email ID
     
