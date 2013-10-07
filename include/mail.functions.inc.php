@@ -106,7 +106,7 @@ function sendMail($to, $subject, $message, $from)
 }
 */
  
-function testMailSansPHPMailer ($to, $subject, $message, $from) {
+function testSendingMail ($to, $subject, $message, $from) {
   echo "Attempting to send mail: <br><br>";
   echo "To: " . $to . '<br>';
   echo "From: " . $from . '<br>';
@@ -123,18 +123,20 @@ function sendMail($to, $subject, $message, $from)
    
     $mail->IsSMTP(); // send via SMTP
 
-    //$mail->SMTPAuth   = false;
-    //$mail->Host = 'relay-hosting.secureserver.net';
-    //$mail->exceptions = false;
+    $mail->SMTPAuth   = false;
+    $mail->Host = 'relay-hosting.secureserver.net';
+    $mail->exceptions = false;
 
 //GMAIL SETTINGS//
-    $mail->SMTPAuth   = true;    
-    $mail->Host = 'ssl://smtp.gmail.com';
-    $mail->Port = 587;
-    $mail->SMTPSecure = "tls";    
-    $mail->Username = "teamstarma@gmail.com"; // SMTP username
-    $mail->Password = "squirreltime"; // SMTP password
+//    $mail->SMTPDebug = 1;
+//    $mail->SMTPAuth   = true;    
+//    $mail->Host = 'ssl://smtp.gmail.com';
+//    $mail->Port = 465;
+    //$mail->SMTPSecure = "tls";    
+//    $mail->Username = "teamstarma@gmail.com"; // SMTP username
+//    $mail->Password = "squirreltime"; // SMTP password
 //////////////////
+
     $webmaster_email = $from; //Reply to this email ID
     $email=$to; // Recipients email ID
     

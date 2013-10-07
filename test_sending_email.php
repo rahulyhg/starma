@@ -10,7 +10,7 @@ $message = $_GET['message'];
 $subject = $_GET['subject'];
 
 
-if (testMailSansPHPMailer ($to, $subject, $message, $from)) {
+if (testSendingMail ($to, $subject, $message, $from)) {
   echo "Mail Sent";
 }
 else {
