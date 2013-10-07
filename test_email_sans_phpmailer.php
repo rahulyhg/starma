@@ -9,6 +9,7 @@ $from = $GET[$from];
 $message = $GET[$message];
 $subject = $GET[$subject];
 
+
 if (testMailSansPHPMailer ($to, $subject, $message, $from)) {
   echo "Mail Sent";
 }
