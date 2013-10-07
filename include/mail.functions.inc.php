@@ -106,7 +106,9 @@ function sendMail($to, $subject, $message, $from)
 }
 */
  
- 
+function testMailSansPHPMailer ($to, $subject, $message, $from) {
+  mail($to, $subject, $message, 'From: ' . $from);
+}
 
 function sendMail($to, $subject, $message, $from)
 {
