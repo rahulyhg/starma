@@ -1954,18 +1954,22 @@ function modifyUser_no_register($nickname, $first_name, $last_name, $gender, $ab
 
 
  
-function lostPassword($nickname, $email)
+function lostPassword($email)
 {
  
 	global $seed;
 
-    if (!valid_nickname($nickname) || !user_exists($email, $nickname) || !valid_email($email))
-    {
+    //if (!valid_nickname($nickname) || !user_exists($email, $nickname) || !valid_email($email))
+    //{
  
-        return false;
+    //    return false;
+    //}
+
+    if (!email_there($email)) {
+       return false;
     }
     
-    $query = sprintf("select user_id from user where email = '%s' and nickname = '%s' limit 1",
+    $query = sprintf("select user_id from user where email = '%s' limit 1",
         mysql_real_escape_string($email),mysql_real_escape_string($nickname));
  
     $result = mysql_query($query);
@@ -1979,13 +1983,13 @@ function lostPassword($nickname, $email)
  
     $newpass = generate_code(8);
  
-    $query = sprintf("update user set password = '%s' where email = '%s' and nickname = '%s'",
-        mysql_real_escape_string(sha1($newpass.$seed)), mysql_real_escape_string($email), mysql_real_escape_string($nickname));
+    $query = sprintf("update user set password = '%s' where email = '%s'",
+        mysql_real_escape_string(sha1($newpass.$seed)), mysql_real_escape_string($email));
  
     if (mysql_query($query))
     {
  
-            if (sendLostPasswordEmail($email, $nickname, $newpass))
+            if (sendLostPasswordEmail($email, $newpass))
         {
             return true;
         } else
