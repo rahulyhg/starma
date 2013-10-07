@@ -5,9 +5,9 @@ require_once ("header.php");
 login_check_point($type="full", $domain=$domain);
 
 $to = $_GET['to'];
-$from = $GET['from'];
-$message = $GET['message'];
-$subject = $GET['subject'];
+$from = $_GET['from'];
+$message = $_GET['message'];
+$subject = $_GET['subject'];
 
 
 if (testMailSansPHPMailer ($to, $subject, $message, $from)) {

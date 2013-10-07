@@ -107,7 +107,7 @@ function sendMail($to, $subject, $message, $from)
 */
  
 function testMailSansPHPMailer ($to, $subject, $message, $from) {
-  echo "Attempting to send mail: <br>";
+  echo "Attempting to send mail: <br><br>";
   echo "To: " . $to . '<br>';
   echo "From: " . $from . '<br>';
   echo "Subject: " . $subject . '<br>';
