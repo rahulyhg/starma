@@ -125,7 +125,8 @@ function sendMail($to, $subject, $message, $from)
 
     $mail->SMTPAuth   = false;
     $mail->Host = 'relay-hosting.secureserver.net';
-    $mail->exceptions = false;
+    $mail->SMTPDebug = 1;
+//    $mail->exceptions = false;
 
 //GMAIL SETTINGS//
 //    $mail->SMTPDebug = 1;

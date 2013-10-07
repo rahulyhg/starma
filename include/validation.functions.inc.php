@@ -92,7 +92,7 @@ function valid_photo($photo_id, $user_id) {
   return mysql_num_rows($result) >= 1;
 }
 
-/*
+
 function get_domain () {
   return 'starma.com';
 }
@@ -108,7 +108,7 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: https://www.' . $url);
 }
-*/
+
 
 /**********************BEGIN STAGING SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
@@ -135,7 +135,7 @@ function do_redirect ($url) {
 
 /**********************BEGIN LOCAL DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
-
+/*
 function get_domain () {
   return '127.0.0.1:8080';
   //return '192.168.1.141:8080';
@@ -152,7 +152,7 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: http://' . $url);
 }
-
+*/
 
 
 /**********************END LOCAL DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
