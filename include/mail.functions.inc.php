@@ -40,7 +40,7 @@ The Starma Team
 }
 
 
-function sendLostPasswordEmail($email, $nickname, $newpassword)
+function sendLostPasswordEmail($email, $newpassword)
 {
  
     global $domain;

@@ -3977,7 +3977,6 @@ if ($_GET["error"] == 1) {
     </dd> 
   </dl> 
   <p> 
-    <input name="reset" type="reset" value="Reset"> 
     <input name="change" type="submit" value="Reset Password"> 
   </p> 
   </fieldset> 
@@ -4019,18 +4018,19 @@ function show_lostpassword_form(){
  
 	echo '<form action="./lostpassword.php" method="post"> 
 	<fieldset><legend>Reset Password</legend>
+<!---
   <dl> 
     <dt><label for="nickname">Nickname:</label></dt> 
     <dd><input name="nickname" type="text" id="username" maxlength="30">
     </dd> 
   </dl> 
+--->
    <dl> 
     <dt><label for="email">email:</label></dt> 
     <dd><input name="email" type="text" id="email" maxlength="255">
     </dd> 
   </dl> 
   <p> 
-    <input name="reset" type="reset" value="Reset"> 
     <input name="lostpass" type="submit" value="Reset Password"> 
   </p> 
   </fieldset>

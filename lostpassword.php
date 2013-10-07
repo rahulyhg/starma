@@ -6,6 +6,8 @@ require_once "header.php";
  
 <?php
 if (isset($_POST['lostpass'])){
+
+        
  
 	if (lostPassword($_POST['nickname'],$_POST['email'])){
  
@@ -26,7 +28,3 @@ if (isset($_POST['lostpass'])){
 }
 ?>
 
-<?php 
-
- require_once "footer.php";
-?> 
