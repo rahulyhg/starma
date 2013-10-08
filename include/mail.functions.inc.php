@@ -73,7 +73,7 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message)
  
     $sender = basic_user_data($sender_id);
     $receiver = basic_user_data($receiver_id);
-    $message = $receiver_id . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="">Click Here</> to view it!
+    $message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="">Click Here</> to view it!
                <br>
                <br>
                Starma.com';
@@ -88,44 +88,7 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message)
  
  
 }
-/*
 
-function sendMail($to, $subject, $message, $from)
-{
-  
- 
- 
- $host = "relay-hosting.secureserver.net";
- //$host = "mail.mycer.com";
- $username = "contact@matthewticciati";
- $password = "1through9";
- 
- $headers = array ('From' => $from,
-   'To' => $to,
-   'Subject' => $subject);
- $mailer = new Mail();
- $smtp = $mailer->factory('smtp',
-   array ('host' => $host,
-     'auth' => true,
-     'SMTPAuth' => false,
-     'username' => $username,
-     'password' => $password,
-     'port' => '25'));
- 
- $mail = $smtp->send($to, $headers, $message);
- 
- $pear = new PEAR();
- 
- if ($pear->isError($mail)) {
-   echo("<p>" . $mail->getMessage() . "</p>");
-
-   return false;
-  } else {
-   //echo("<p>Message successfully sent!</p>");
-   return true;
-  }
-}
-*/
  
 function testSendingMail ($to, $subject, $message, $from) {
   echo "Attempting to send mail: <br><br>";
@@ -220,5 +183,44 @@ $link
         return false;
     }
 }
+
+/*
+
+function sendMail($to, $subject, $message, $from)
+{
+  
+ 
+ 
+ $host = "relay-hosting.secureserver.net";
+ //$host = "mail.mycer.com";
+ $username = "contact@matthewticciati";
+ $password = "1through9";
+ 
+ $headers = array ('From' => $from,
+   'To' => $to,
+   'Subject' => $subject);
+ $mailer = new Mail();
+ $smtp = $mailer->factory('smtp',
+   array ('host' => $host,
+     'auth' => true,
+     'SMTPAuth' => false,
+     'username' => $username,
+     'password' => $password,
+     'port' => '25'));
+ 
+ $mail = $smtp->send($to, $headers, $message);
+ 
+ $pear = new PEAR();
+ 
+ if ($pear->isError($mail)) {
+   echo("<p>" . $mail->getMessage() . "</p>");
+
+   return false;
+  } else {
+   //echo("<p>Message successfully sent!</p>");
+   return true;
+  }
+}
+*/
  
 ?>

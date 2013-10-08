@@ -190,9 +190,10 @@
 			} 
 			if (is_offline($receiver_id)) {
                           $is_message = 1;
-                          if (get_preferences ($receiver_id, "chat_emails", 1) == 1) {
-                            sendNewMessageEmail($sender_id, $receiver_id, $message);
-                          }
+                          //if (get_preferences ($receiver_id, "chat_emails", 1) == 1) {
+                          sendNewMessageEmail($sender_id, $receiver_id, $message);
+                          sendNewMessageEmail($receiver_id, $sender_id, $message);
+                          //}
                         }
                         else {
                           $is_message = 0;
