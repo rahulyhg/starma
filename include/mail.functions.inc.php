@@ -67,6 +67,27 @@ $domain Administration
  
  
 }
+
+function sendNewMessageEmail($sender_id, $receiver_id, $message)
+{
+ 
+    $sender = basic_user_data($sender_id);
+    $receiver = basic_user_data($receiver_id);
+    $message = $receiver_id . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="">Click Here</> to view it!
+               <br>
+               <br>
+               Starma.com';
+ 
+    if (sendMail($email, "You have received a new message from " . $sender["nickname"] . "!" , $message, "no-reply@" . get_domain()))
+    {
+        return true;
+    } else
+    {
+        return false;
+    }
+ 
+ 
+}
 /*
 
 function sendMail($to, $subject, $message, $from)
@@ -162,7 +183,7 @@ function sendMail($to, $subject, $message, $from)
     else
     {
        log_this_action (account_action_email(), error_basic_action());
-       echo "Mailer Error: " . $mail->ErrorInfo;
+       //echo "Mailer Error: " . $mail->ErrorInfo;
        return false;
     }
     

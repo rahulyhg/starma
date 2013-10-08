@@ -408,6 +408,24 @@ function get_my_preferences ($pref_name, $default) {
   }
 }
 
+function get_preferences ($user_id, $pref_name, $default) {
+  
+  if (isLoggedIn()) {
+    $q = "SELECT * from user_preferences where user_id = " . $user_id;
+    $result = mysql_query($q) or die(mysql_error());
+    if ($row = mysql_fetch_array($result)) {
+      return $row[$pref_name];
+    }
+    else {
+      return $default;
+    }
+     
+  }
+  else {
+    return false;
+  }
+}
+
 function get_my_location() {
   if (isLoggedIn()) {
      $user = my_profile_info();
