@@ -78,7 +78,7 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message)
                <br>
                Starma.com';
  
-    if (sendMail($email, "You have received a new message from " . $sender["nickname"] . "!" , $message, "no-reply@" . get_domain()))
+    if (sendMail($receiver["email"], "You have received a new message from " . $sender["nickname"] . "!" , $message, "no-reply@" . get_domain()))
     {
         return true;
     } else
