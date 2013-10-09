@@ -75,22 +75,23 @@ if (login_check_point($type="full")) {
         echo '</div>';
       echo '</div>';
  
-      //echo '<div class="profile_button chart_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=4&chart_id2=' . $_GET["chart_id2"] . '"></a></div>';
-      echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '"></a></div>';     
-      //echo '<div class="profile_button chat_button"><a href="#" onclick="chat_monitor.nowChatting(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ', 1); var chat_window = window.open(\'chat/chat_window.php?receiver_id=' . get_user_id_from_chart_id ($_GET["chart_id2"]) . '\',\'starma_chat_' . get_user_id_from_chart_id ($_GET["chart_id2"]) . '\',\'height=560px,width=540px\');chat_window.focus();"></a></div>';
+      echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '">Compare</a></div>';     
+      
       if (!$isCeleb) {
-        echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)"></a></div>';
+        echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)">Chat</a></div>';
       }
       echo '<div class="profile_button ';
       if (is_my_favorite(get_user_id_from_chart_id ($_GET["chart_id2"]))) {
         echo 'remove_favorite_button';
         $toggle = 0;
+        $button_text = "Remove From Favorites";
       }
       else {
         echo 'add_favorite_button';
         $toggle = 1;
+        $button_text = "Add to Favorites";
       }
-      echo '"><a href="toggle_favorite.php?favorite=' . $toggle . '&favorite_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">Toggle Favorite</a></div>';
+      echo '"><a href="toggle_favorite.php?favorite=' . $toggle . '&favorite_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">' . $button_text . '</a></div>';
            
          
     echo '</div>';
