@@ -38,14 +38,56 @@ function addBackToTopHandler () {
 function js_edit_framework($jquery_edit_object, $jquery_display_object, $type, $row_id_to_update, $desc_value) {
   if ($type=="user_descriptor") {
     echo '
-      <input type="text" class="js_edit_input_object" name="' . $jquery_edit_object . '" id="' . $jquery_edit_object . '" value="' . $desc_value . '"/>    
+      <input type="text" class="js_edit_input_object" name="' . $jquery_edit_object . '" id="' . $jquery_edit_object . '" />    
+    ';
+    echo '<script type="text/javascript">
+             $(\'#' . $jquery_edit_object . '\').keypress(function (e) {
+                   if (e.which == 13) {
+                     $.ajax({
+		          type: \'GET\',
+                          cache: false,
+	                  url: \'' .get_full_domain() . '/chat/process_all.php\',
+                          data: {  
+		   			\'function\': \'update_desc\',
+                                        \'user_des_id\':\'' . $row_id_to_update . '\',
+					\'value\': $(\'#' . $jquery_edit_object . '\').val()
+                                        
+					
+				},
+	                  dataType: \'json\',
+            	          success: function(data){
+				$(\'#' . $jquery_display_object . '\').text($(\'#' . $jquery_edit_object . '\').val());
+
+                                $(\'#' . $jquery_display_object . '\').show();
+                                $(\'#' . $jquery_edit_object . '\').hide();
+                                $(\'#pencil_' . $row_id_to_update . '\').addClass(\'edit_icon\');
+                                $(\'#pencil_' . $row_id_to_update . '\').removeClass(\'edit_icon_hidden\');
+		          }  
+                                                                    
+		     });
+                     return false;
+                   }
+                   else {
+                     return true;
+                   }
+                   
+                   
+             });
+         </script>
     ';
   }
-  echo '<a class="edit_icon" href="" onclick="
+  echo '<a id="pencil_' . $row_id_to_update . '" class="edit_icon" href="" onclick="
            $(\'#' . $jquery_display_object . '\').hide();
            $(\'#' . $jquery_edit_object . '\').show();
+           $(\'#' . $jquery_edit_object . '\').focus();
+           $(\'#' . $jquery_edit_object . '\').val($(\'#' . $jquery_display_object . '\').text());           
+           $(this).addClass(\'edit_icon_hidden\')
+           $(this).removeClass(\'edit_icon\');
            return false;
        "></a>';
+ 
+  
+  
 }
 
 function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_users) {

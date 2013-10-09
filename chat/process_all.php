@@ -13,6 +13,11 @@
     $log = array();
     
     switch($function) {
+         case ('update_desc'):
+                 $user_des_id = $_GET["user_des_id"];
+                 $value = $_GET["value"];
+                 update_my_single_descriptor ($user_des_id, $value);
+                 break;
          case('run_zip'):
                  $zip = $_GET['zip'];
                  if (!$log = geocode($zip . ' US', 'postalCodeSearch?placename')) {

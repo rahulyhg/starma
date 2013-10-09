@@ -659,14 +659,14 @@ li.my_unknown_button a {
 
 /*//////////////// MAIN PROFILE ///////////////////////////////////////*/
 
-.edit_icon {
+.edit_icon, .edit_icon_hidden {
   background:url('/img/Starma-Astrology-Edit-Pencil.png') no-repeat #D3DBF6;
   width:15px;
   height:16px;
   display:none;
 }
 
-#descriptors .value:hover a {
+#descriptors .value:hover a.edit_icon {
   display:inline-block;
 }
 

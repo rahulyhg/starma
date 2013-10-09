@@ -553,6 +553,21 @@ function update_descriptors ($descriptors) {
   }
 }
 
+function update_my_single_descriptor ($user_des_id, $value) {
+  if (isLoggedIn()) {
+    
+    
+    $q = sprintf("UPDATE user_descriptor set descriptor = '%s' WHERE user_des_id = %d and user_id = %d",
+         mysql_real_escape_string($value), $user_des_id, get_my_user_id());
+    $result = mysql_query($q) or die(mysql_error());
+   
+    
+  }
+  else {
+    return false;
+  }
+}
+
 function get_my_main_photo_id() {
   if (isLoggedIn()) {
     $q = "SELECT user_pic_id from user_picture where user_id = " . $_SESSION["user_id"] . " and main = 1 and uncropped = 0";
