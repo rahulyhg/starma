@@ -393,7 +393,7 @@ function show_my_descriptors_info() {
   $counter = 0;
 
   while ($word = mysql_fetch_array($words)) {
-    echo '<div id="des_selector_' . (string)($counter+1) . '">';
+    echo '<div id="des_selector_' . (string)($counter+1) . '" class="des_selector">';
       echo '<div class="title">' . (string)($counter+1) . '.</div>';
       echo '<div class="value">';
         echo '<span>' . $word["descriptor"] . '</span>';
@@ -817,7 +817,7 @@ function show_descriptors_info($chart_id) {
   $counter = 0;
 
   while ($word = mysql_fetch_array($words)) {
-    echo '<div id="des_selector_' . (string)($counter+1) . '">';
+    echo '<div id="des_selector_' . (string)($counter+1) . '" class="des_selector">';
       echo '<div class="title">' . (string)($counter+1) . '.</div>';
       echo '<div class="value">';
         echo '<span>' . $word["descriptor"] . '</span>';
