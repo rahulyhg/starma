@@ -942,9 +942,9 @@ li.my_unknown_button a {
 }
 
 #homepage_profile_button_info #descriptors {
-   bottom:43px;
+   bottom:0px;
    position: absolute;
-   right:89px;
+   right:-54px;
    
    width:auto
 }
@@ -962,7 +962,7 @@ li.my_unknown_button a {
 }
 
 #welcome .homepage_div #homepage_profile_button_info span {
-  
+    text-align: left;
     font-size: 1em;
     
 }
