@@ -659,6 +659,21 @@ li.my_unknown_button a {
 
 /*//////////////// MAIN PROFILE ///////////////////////////////////////*/
 
+.edit_icon {
+  background:url('/img/Starma-Astrology-Edit-Pencil.png') no-repeat #D3DBF6;
+  width:15px;
+  height:16px;
+  display:none;
+}
+
+#descriptors .value:hover a {
+  display:inline-block;
+}
+
+.js_edit_input_object {
+  display:none;
+}
+
 
 #profile_page .header {
   top:3px;
@@ -912,7 +927,8 @@ li.my_unknown_button a {
 #descriptors div .value {
    bottom: 25px;
     left: 20px;
-    position: relative
+    position: relative;
+   width: 150px;
 }
 
 #homepage_profile_button_info #descriptors {

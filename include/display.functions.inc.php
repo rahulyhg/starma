@@ -397,6 +397,7 @@ function show_my_descriptors_info() {
       echo '<div class="title">' . (string)($counter+1) . '.</div>';
       echo '<div class="value">';
         echo '<span>' . $word["descriptor"] . '</span>';
+        js_edit_framework("desc_" . (string)($counter+1) . "_edit_box", "des_selector_" . (string)($counter+1) . " .value span", "user_descriptor", $word["user_des_id"], $word["descriptor"]);
       echo '</div>';
     echo '</div>';
     $counter = $counter + 1;

@@ -35,6 +35,19 @@ function addBackToTopHandler () {
 }
 
 
+function js_edit_framework($jquery_edit_object, $jquery_display_object, $type, $row_id_to_update, $desc_value) {
+  if ($type=="user_descriptor") {
+    echo '
+      <input type="text" class="js_edit_input_object" name="' . $jquery_edit_object . '" id="' . $jquery_edit_object . '" value="' . $desc_value . '"/>    
+    ';
+  }
+  echo '<a class="edit_icon" href="" onclick="
+           $(\'#' . $jquery_display_object . '\').hide();
+           $(\'#' . $jquery_edit_object . '\').show();
+           return false;
+       "></a>';
+}
+
 function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_users) {
     
   echo '<div id="js_more_link">';
