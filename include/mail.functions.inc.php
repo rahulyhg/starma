@@ -98,7 +98,7 @@ function sendComparedAlertEmail($user_id, $number)
                <br>
                Starma.com';
  
-    if (sendMail($sender["email"], "" , $message, "no-reply@" . get_domain()))
+    if (sendMail($sender["email"], $number . " of people have compared themselves to you this week!" , $message, "no-reply@" . get_domain()))
     {
         return true;
     } else
