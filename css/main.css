@@ -688,7 +688,7 @@ li.my_unknown_button a {
   position:absolute;  
   color: #000000;
   display: block;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .profile_button a:hover {
@@ -698,9 +698,9 @@ li.my_unknown_button a {
 }
 
 .profile_button.chat_button {
-  bottom: 240px;
+  bottom: 241px;
     height: 25px;
-    left: 633px;
+    left: 620px;
     position: relative;
     width: 65px;
     
@@ -731,7 +731,7 @@ li.my_unknown_button a {
     background:url('/img/profile/Starma-Astrology-Compare.png') no-repeat ;
     
     height: 59px;
-    padding-left: 35px;
+    padding-left: 37px;
     padding-top: 39px;
     width: 155px;
 }
@@ -762,6 +762,29 @@ li.my_unknown_button a {
     
 }
 
+.profile_button.message_button {
+  bottom: 265px;
+    height: 25px;
+    left: 690px;
+    position: relative;
+    width: 84px;
+    
+}
+
+.profile_button.message_button a {
+    background:url('/img/profile/Starma-Astrology-Message.png') no-repeat ;
+    height:25px;
+    width:84px;
+    display:block;
+    padding-left: 4px;
+}
+
+.profile_button.message_button:hover a {
+    background:url('/img/profile/Starma-Astrology-MessageON.png') no-repeat ;
+    
+}
+
+
 .profile_button.custom_compare_button a {
     position:absolute;
     left: 520px;
@@ -770,11 +793,11 @@ li.my_unknown_button a {
 }
 
 .profile_button.add_favorite_button, .profile_button.remove_favorite_button {
+    bottom: 253px;
     height: 25px;
-    left: 584px;
-    bottom:227px;
+    left: 585px;
+    position: relative;
     width: 189px;
-    position:relative;
     
 }
 

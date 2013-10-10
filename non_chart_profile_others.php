@@ -76,10 +76,13 @@ if (login_check_point($type="full")) {
       echo '</div>';
  
       echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '">Compare</a></div>';     
-      
+
       if (!$isCeleb) {
         echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)">Chat</a></div>';
       }
+  
+      echo '<div class="profile_button message_button"><a href="?the_page=isel&the_left=nav1&other_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">Message</a></div>';     
+
       echo '<div class="profile_button ';
       if (is_my_favorite(get_user_id_from_chart_id ($_GET["chart_id2"]))) {
         echo 'remove_favorite_button';
@@ -109,10 +112,14 @@ if (login_check_point($type="full")) {
 
   
 
-  <img src="/img/Starma-Profile-View-Compatibility.png"/>
-  <img src="/img/Starma-Profile-View-CompatibilityON.png"/>
-  <img src="/img/Starma-Astrology-View-Chart.png"/>
-  <img src="/img/Starma-Astrology-View-ChartON.png"/>
+  <img src="/img/profile/Starma-Astrology-Compare.png"/>
+  <img src="/img/profile/Starma-Astrology-CompareON.png"/>
+  <img src="/img/profile/Starma-Astrology-Message.png"/>
+  <img src="/img/profile/Starma-Astrology-MessageON.png"/>
+  <img src="/img/profile/Starma-Astrology-Chat.png"/>
+  <img src="/img/profile/Starma-Astrology-ChatON.png"/>
 
+  <img src="/img/profile/Starma-Astrology-Favorites.png"/>
+  <img src="/img/profile/Starma-Astrology-FavoritesON.png"/>
 
 </div>
