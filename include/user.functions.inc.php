@@ -983,7 +983,7 @@ function get_ruling_planet($chart_id) {
 
 function get_user_list () {
   
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           left outer join user_picture on user.user_id = user_picture.user_id 
@@ -995,10 +995,10 @@ function get_user_list () {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function get_favorties_user_list () {

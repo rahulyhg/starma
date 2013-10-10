@@ -89,6 +89,25 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message)
  
 }
 
+function sendComparedAlertEmail($user_id, $number)
+{
+ 
+    $sender = basic_user_data($user_id);
+    $message = 'Hello ' . $sender["nickname"] . ',<br><br>' . $number . ' new people have compared themselves to you this week. <a href="' . get_full_domain() . '/main.php?the_page=cosel&the_left=nav1&the_tier=1">Login</a> to see who you\'re compatible with.
+               <br>
+               <br>
+               Starma.com';
+ 
+    if (sendMail($sender["email"], "" , $message, "no-reply@" . get_domain()))
+    {
+        return true;
+    } else
+    {
+        return false;
+    }
+}
+
+
  
 function testSendingMail ($to, $subject, $message, $from) {
   echo "Attempting to send mail: <br><br>";

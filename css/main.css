@@ -26,7 +26,7 @@
 
 #welcome .homepage_div {
   position:absolute;
-  height:255px;
+  height:275px;
   width:350px;
 }
 
@@ -72,8 +72,8 @@
 
 
 #welcome #horoscope_box_link {
-  top: 390px;
-  left:45px;
+left: 40px;
+    top: 411px;
 }
 #welcome #horoscope_box_link a.box_link {
   background:url("/img/Starma-Astrology-ChartBox.png") no-repeat scroll center center;
@@ -84,8 +84,8 @@
 
 
 #welcome #celebrities_box_link {
- left: 400px;
-    top: 390px;
+ left: 399px;
+    top: 412px;
 }
 #welcome #celebrities_box_link a.box_link {
   background:url("/img/Starma-Astrology-Celebrities.png") no-repeat scroll center center;
@@ -96,7 +96,7 @@
 
 #welcome .homepage_div a.box_link {
   display: block;
-    height: 255px;
+    height: 275px;
     position: relative;
     width: 350px;
     z-index: 2;
@@ -804,9 +804,19 @@ li.my_unknown_button a {
 .profile_button.add_favorite_button a, .profile_button.remove_favorite_button a {
     background:url('/img/profile/Starma-Astrology-Favorites.png') no-repeat ;
     height: 25px;
+    line-height: 18px;
+}
+
+.profile_button.remove_favorite_button a {
     width: 189px;
     padding-left: 16px;
-    line-height: 18px;
+    padding-top:0px;
+}
+
+.profile_button.add_favorite_button a {
+   padding-left: 29px;
+   padding-top: 1px;
+   width: 160px;
 }
 
 .profile_button.remove_favorite_button a {

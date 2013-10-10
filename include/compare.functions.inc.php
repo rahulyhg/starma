@@ -45,6 +45,22 @@ function query_to_array($query) {
   return $new_array;
 }
 
+function num_times_compared($user_id, $threshold) {
+  $date = (int)substr($threshold, 0, 8);
+  $time = (int)substr($threshold, 8, 6);
+  //echo $date . '<br>' . $time . '<br>';
+  $q = 'SELECT COUNT(*) as num_compares from user_action_log 
+        WHERE log_action_id = ' . compare_action_chart() . ' and log_basic_action_id = ' . compare_basic_action() . ' and data_2 = ' . $user_id . ' and date >= ' . $date . ' and time >= ' . $time;
+  //echo $q;
+  $result = mysql_query($q) or die(mysql_error());
+  if ($info = mysql_fetch_array($result)) {
+    return $info["num_compares"];
+  }
+  else {
+    return false;
+  }
+}
+
 function compare_tier_2 ($gotothe, $results_type, $text_type) {
           
       
