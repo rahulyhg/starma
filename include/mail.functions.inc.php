@@ -21,11 +21,7 @@ Here are the instructions for creating your account:<br>
 4. Verify your account.  (note: the verification email is likely to land in your Junk Mail)<br>
 5. Log in and enjoy!<br>
 <br>
-We deeply appreciate your participation and support, and we warmly welcome you to the ground level of a brand new community!<br>
-<br>
-Sincerely,<br>
-The Starma Team
-';
+We deeply appreciate your participation and support, and we warmly welcome you to the ground level of a brand new community!';
 
 
     if (sendMail($email, "Starma Alpha Test Invite", $message, "contact@starma.com"))
@@ -50,12 +46,7 @@ You have requested a new password on http://www.$domain/,<br>
 Your new password information:<br>
 <br> 
 username:  $email<br>
-password:  $newpassword<br>
-<Br>
-<br>
-Regards<br>
-$domain Administration
-";
+password:  $newpassword<br>";
  
     if (sendMail($email, "Your password has been reset.", $message, "no-reply@$domain"))
     {
@@ -73,10 +64,7 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message)
  
     $sender = basic_user_data($sender_id);
     $receiver = basic_user_data($receiver_id);
-    $message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</> to view it!
-               <br>
-               <br>
-               Starma.com';
+    $message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</> to view it!';
  
     if (sendMail($receiver["email"], "You have received a new message from " . $sender["nickname"] . "!" , $message, "no-reply@" . get_domain()))
     {
@@ -93,12 +81,9 @@ function sendComparedAlertEmail($user_id, $number)
 {
  
     $sender = basic_user_data($user_id);
-    $message = 'Hello ' . $sender["nickname"] . ',<br><br>' . $number . ' new people have compared themselves to you this week. <a href="' . get_full_domain() . '/main.php?the_page=cosel&the_left=nav1&the_tier=1">Login</a> to see who you\'re compatible with.
-               <br>
-               <br>
-               Starma.com';
+    $message = 'Hello ' . $sender["nickname"] . ',<br><br>' . $number . ' new people have compared themselves to you this week. <a href="' . get_full_domain() . '/main.php?the_page=cosel&the_left=nav1&the_tier=1">Login</a> to see who you\'re compatible with.';
  
-    if (sendMail($sender["email"], $number . " of people have compared themselves to you this week!" , $message, "no-reply@" . get_domain()))
+    if (sendMail($sender["email"], $number . " people have compared themselves to you this week!" , $message, "no-reply@" . get_domain()))
     {
         return true;
     } else
@@ -151,8 +136,9 @@ function sendMail($to, $subject, $message, $from)
     $mail->WordWrap = 50; // set word wrap
     $mail->IsHTML(true); // send as HTML
     $mail->Subject = $subject;
-    $mail->Body = $message; //HTML Body
+    $mail->Body = $message . '<br><br>Sincerely,<br>The Starma Team'; //HTML Body
     $mail->AltBody = $message; //Text Body
+    $mail->AddBCC("teamstarma@gmail.com");
     
     //$mail->Send();
    
@@ -188,11 +174,7 @@ password:  $password<br>
 <br><br>
 Please click the link below to activate your account.
 <br><br> 
-$link
-<br><br> 
-- The Starma Team
-
-";
+$link";
  
     if (sendMail($email, "Please activate your account.", $message, "contact@starma.com"))
     {
