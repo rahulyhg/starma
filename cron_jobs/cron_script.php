@@ -19,8 +19,8 @@ while ($user = mysql_fetch_array($users_to_check)) {
   $num_times_compared = num_times_compared($user["user_id"], $threshold);
   
   if ($num_times_compared >= 3) {
-    echo $user["nickname"] . ' is getting an email, he/she has been compared ' . $num_times_compared . ' time(s) since ' . $threshold . '<br>';
-    //sendComparedAlertEmail($user["user_id"], $num_times_compared);
+    //echo $user["nickname"] . ' is getting an email, he/she has been compared ' . $num_times_compared . ' time(s) since ' . $threshold . '<br>';
+    sendComparedAlertEmail($user["user_id"], $num_times_compared);
   }
   }  
   //if $last_action_made >= $threshold;
