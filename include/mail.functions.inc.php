@@ -51,7 +51,7 @@ function email_suggestions_block () {
     
     if (get_my_gender() != get_gender($new_item_array[0]["user_id"]) or $same_gender_added == 0) {
       $new_user_array[] = $new_item_array[0];
-      if (get_my_gender() == get_gender($new_item_array["user_id"])) {
+      if (get_my_gender() == get_gender($new_item_array[0]["user_id"])) {
         $same_gender_added = $same_gender_added + 1;
       }
     }

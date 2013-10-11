@@ -1112,7 +1112,7 @@ function get_filtered_celebrity_user_list ($filter, $type="include") {
 function get_weighted_user_list ($lowBound, $highBound) {
   
   if (isLoggedIn()) {
-    $q = 'SELECT DISTINCT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join user_picture on user.user_id = user_picture.user_id where user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname="main" and permissions_id <> -1 and user.birthday between DATE_SUB(NOW(), INTERVAL "' . $highBound . '" YEAR) and DATE_SUB(NOW(), INTERVAL "' . $lowBound . '" YEAR) ORDER BY user_id desc'; // where user_id = ' . $_SESSION["user_id"];
+    $q = 'SELECT DISTINCT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join user_picture on user.user_id = user_picture.user_id where user.user_id != ' . get_my_user_id() . ' and user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname="main" and permissions_id <> -1 and user.birthday between DATE_SUB(NOW(), INTERVAL "' . $highBound . '" YEAR) and DATE_SUB(NOW(), INTERVAL "' . $lowBound . '" YEAR) ORDER BY user_id desc'; // where user_id = ' . $_SESSION["user_id"];
     
     if ($result = mysql_query($q)) {
       return $result;
