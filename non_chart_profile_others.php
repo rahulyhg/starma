@@ -79,9 +79,10 @@ if (login_check_point($type="full")) {
 
       if (!$isCeleb) {
         echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)">Chat</a></div>';
+        echo '<div class="profile_button message_button"><a href="?the_page=isel&the_left=nav1&other_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">Message</a></div>';     
       }
   
-      echo '<div class="profile_button message_button"><a href="?the_page=isel&the_left=nav1&other_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">Message</a></div>';     
+      
 
       echo '<div class="profile_button ';
       if (is_my_favorite(get_user_id_from_chart_id ($_GET["chart_id2"]))) {
