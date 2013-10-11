@@ -44,14 +44,12 @@ function email_suggestions_block () {
   }
   $new_user_array = array();
   //pick 3 random ones
-  $counter = 0;
   $same_gender_added = 0;
   while (sizeof($new_user_array) < 3 and sizeof($old_user_array) > 0) {
-    $counter = $counter + 1;
     $random_index = array_rand($old_user_array);
     $new_item_array = array_splice($old_user_array, $random_index, 1);
     
-    if (get_my_gender() != get_gender($new_item_array["user_id"]) or $same_gender_added == 0) {
+    if (get_my_gender() != get_gender($new_item_array[0]["user_id"]) or $same_gender_added == 0) {
       $new_user_array[] = $new_item_array[0];
       if (get_my_gender() == get_gender($new_item_array["user_id"])) {
         $same_gender_added = $same_gender_added + 1;
