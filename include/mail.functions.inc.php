@@ -63,7 +63,7 @@ function email_suggestions_block () {
   echo '
   <div bgcolor="#8393CA" style="margin:0;padding:0;border:0">
     <div style="background:#D3DBF6;margin:0 auto;width: 455px; text-align:center;" align="center" bgcolor="#D3DBF6" border="0">
-      <div>Suggested Matches For You</div> 
+      <div>Suggestions For You</div> 
       <ul style="list-style: none outside none; padding: 0;">';
          foreach ($new_user_array as $user) {
            echo '<li style="display:block">' . email_profile_block($user["user_id"]) .'</li>';
