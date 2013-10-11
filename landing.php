@@ -17,7 +17,14 @@ if (isLoggedIn())
     }
     else if (sign_up_process_done()) {
       //header( 'Location: http://www.' . $domain . '/index.php');
-      do_redirect( $url = get_domain() . '/main.php');
+      if (isset($_SESSION["post_login_path"])) {
+        $path = $_SESSION["post_login_path"];
+        unset($_SESSION["post_login_path"]);
+        do_redirect( $url = get_domain() . $path);
+      }
+      else {
+        do_redirect( $url = get_domain() . '/main.php');
+      }
     }
     else {
       //header( 'Location: http://www.' . $domain . '/process_login.php'); 

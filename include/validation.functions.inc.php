@@ -224,9 +224,13 @@ function validate_registration ($nickname, $password, $password2, $email, $email
 }
 
 function login_check_point($type="partial") {
+  
   if (!isLoggedIn())
   {
-    
+    $path = $_SERVER['REQUEST_URI'];
+    if ($path != "/landing.php") {
+       $_SESSION["post_login_path"] = $path;
+    }
     do_redirect( $url = get_domain() . '/' . get_landing());
     return false;
   }
