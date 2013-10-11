@@ -3813,33 +3813,21 @@ function display_welcome_page_thumbnails($celebs=0) {
 
   if ($celebs == 0) {
     $age = calculate_age(substr((string)$my_info['birthday'], 0, 10));
-    $user_list = get_weighted_user_list ($age-5, $age+5);
-    $old_user_array = query_to_array($user_list);
-    //$user_array = query_to_array($user_list);
-    $user_array = array();
-    while (sizeof($user_array) < 6) {
-      $new_item = $old_user_array[array_rand($old_user_array)];
-      while (in_array($new_item, $user_array)) {
-        $new_item = $old_user_array[array_rand($old_user_array)];
-      }
-      $user_array[] = $new_item;
-    }
+    $user_list = get_weighted_user_list ($age-5, $age+5); 
   }
   else {
     $user_list = get_pic_only_celebrity_user_list ();
-    $old_user_array = query_to_array($user_list);
-    //pick 6 random ones 
-    $user_array = array();
-    while (sizeof($user_array) < 6) {
-      $new_item = $old_user_array[array_rand($old_user_array)];
-      while (in_array($new_item, $user_array)) {
-        $new_item = $old_user_array[array_rand($old_user_array)];
-      }
-      $user_array[] = $new_item;
-    }
-    
   }
   
+  $old_user_array = query_to_array($user_list);
+  $user_array = array();
+  //pick 6 random ones
+  while (sizeof($user_array) < 6 and sizeof($old_user_array) > 0) {
+    $random_index = array_rand($old_user_array);
+    $new_item_array = array_splice($old_user_array, $random_index, 1);
+    $user_array[] = $new_item_array[0];
+  }
+
   foreach ($user_array as $user) {
     echo '<div class="grid_photo_wrapper">';  
       echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';

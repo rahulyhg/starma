@@ -4,6 +4,68 @@
 
  
 ##### Mail functions #####
+function email_profile_block ($user_id) {
+  $block = '
+  <div style="position:relative; display:block; margin:auto; width: 71; padding-bottom:20px;">
+  <div style="background: url(\'/img/Starma-Astrology-Profile-Pic-Small-Frame.png\') no-repeat scroll 0 0 #D3DBF6;
+              border-spacing: 4px 4px;
+              display: table-cell;
+              height: 71px;
+              width: 71px;
+              z-index: 1;">
+    <div style="background-color: #000000;
+	        border-spacing: 0;
+		display: table-cell;
+	        height: 63px;
+		overflow: hidden;
+	        text-align: center;
+	        vertical-align: middle;
+                width: 63px;">
+       <a style="display: block; width: 63px; border-spacing: 0; text-align:center" href="' . get_full_domain () . '/main.php?the_page=cosel&the_left=nav1&tier=3&stage=2&chart_id1=' . get_my_user_id() . '&chart_id2=' . chart_already_there(get_nickname($user_id), $user_id) . '">
+         <img src="/img/user/thumbnail/thumb_' . get_main_photo($user_id) . '.jpg">
+       </a>
+    </div>
+  </div>
+  </div>';
+  return $block;
+}
+
+function email_suggestions_block () {
+  $user_list = $user_list = get_user_list ();
+  $user_array = add_scores ($user_list);
+  $user_array = quicksort_users($user_array);
+  $old_user_array = array();
+  foreach ($user_array as $user) {
+    if ($user["score"] >= 0.82) {
+      $old_user_array[] = $user;
+    }
+  }
+  $new_user_array = array();
+  //pick 3 random ones
+  $counter = 0;
+  while (sizeof($new_user_array) < 3 and sizeof($old_user_array) > 0) {
+    $counter = $counter + 1;
+    $random_index = array_rand($old_user_array);
+    $new_item_array = array_splice($old_user_array, $random_index, 1);
+    $new_user_array[] = $new_item_array[0];
+  }  
+
+
+  echo '
+  <div bgcolor="#8393CA" style="margin:0;padding:0;border:0">
+    <div style="background:#D3DBF6;margin:0 auto;width: 455px; text-align:center;" align="center" bgcolor="#D3DBF6" border="0">
+      <div>Suggested Matches For You</div> 
+      <ul style="list-style: none outside none; padding: 0;">';
+         foreach ($new_user_array as $user) {
+           echo '<li style="display:block">' . email_profile_block($user["user_id"]) .'</li>';
+         }
+  echo'
+        
+      </ul>
+    </div>
+  </div>
+  ';
+}
 
 function send_invite ($email, $to_line, $token)
 {
