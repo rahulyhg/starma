@@ -31,7 +31,9 @@ function email_profile_block ($user_id) {
 }
 
 function email_suggestions_block () {
-  $user_list = $user_list = get_user_list ();
+  $my_info = my_profile_info();
+  $age = calculate_age(substr((string)$my_info['birthday'], 0, 10));
+  $user_list = get_weighted_user_list ($age-5, $age+5);
   $user_array = add_scores ($user_list);
   $user_array = quicksort_users($user_array);
   $old_user_array = array();
@@ -43,11 +45,20 @@ function email_suggestions_block () {
   $new_user_array = array();
   //pick 3 random ones
   $counter = 0;
+  $same_gender_added = 0;
   while (sizeof($new_user_array) < 3 and sizeof($old_user_array) > 0) {
     $counter = $counter + 1;
     $random_index = array_rand($old_user_array);
     $new_item_array = array_splice($old_user_array, $random_index, 1);
-    $new_user_array[] = $new_item_array[0];
+    
+    if (get_my_gender() != get_gender($new_item_array["user_id"]) or $same_gender_added == 0) {
+      $new_user_array[] = $new_item_array[0];
+      if (get_my_gender() == get_gender($new_item_array["user_id"])) {
+        $same_gender_added = $same_gender_added + 1;
+      }
+    }
+    
+   
   }  
 
 
