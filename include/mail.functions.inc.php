@@ -7,7 +7,7 @@
 function email_profile_block ($user_id) {
   $block = '
   <div style="position:relative; display:block; margin:auto; width: 71px; padding-bottom:20px;">
-  <div style="background: url(\'/img/Starma-Astrology-Profile-Pic-Small-Frame.png\') no-repeat scroll 0 0 #D3DBF6;
+  <div style="background: url(\'' . get_full_domain () . '/img/Starma-Astrology-Profile-Pic-Small-Frame.png\') no-repeat scroll 0 0 #D3DBF6;
               border-spacing: 4px 4px;
               display: table-cell;
               height: 71px;
@@ -22,7 +22,7 @@ function email_profile_block ($user_id) {
 	        vertical-align: middle;
                 width: 63px;">
        <a style="display: block; width: 63px; border-spacing: 0; text-align:center" href="' . get_full_domain () . '/main.php?the_page=cosel&the_left=nav1&tier=3&stage=2&chart_id1=' . get_my_user_id() . '&chart_id2=' . chart_already_there("Main", $user_id) . '">
-         <img src="/img/user/thumbnail/thumb_' . get_main_photo($user_id) . '">
+         <img src="' . get_full_domain () . '/img/user/thumbnail/thumb_' . get_main_photo($user_id) . '">
        </a>
     </div>
   </div>

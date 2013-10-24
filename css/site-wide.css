@@ -20,6 +20,10 @@ body a {
   text-decoration:none;
 }
 
+img {
+  border:0px;
+}
+
 textarea {resize:none} 
 /*
 body select {
