@@ -154,7 +154,7 @@ function sendComparedAlertEmail($user_id, $number)
 {
  
     $sender = basic_user_data($user_id);
-    $message = 'Hello ' . $sender["nickname"] . ',<br><br>' . $number . ' new people have compared themselves to you this week. <a href="' . get_full_domain() . '/main.php?the_page=cosel&the_left=nav1&the_tier=1">Login</a> to see who you\'re compatible with.<br><br>' + email_suggestions_block();
+    $message = 'Hello ' . $sender["nickname"] . ',<br><br>' . $number . ' new people have compared themselves to you this week. <a href="' . get_full_domain() . '/main.php?the_page=cosel&the_left=nav1&the_tier=1">Login</a> to see who you\'re compatible with.<br><br>' . email_suggestions_block();
  
     if (sendMail($sender["email"], $number . " people have compared themselves to you this week!" , $message, "no-reply@" . get_domain()))
     {

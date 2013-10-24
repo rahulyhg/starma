@@ -24,10 +24,10 @@ while ($user = mysql_fetch_array($users_to_check)) {
     }
   }  
   //if $last_action_made >= $threshold;
-  echo 'Success';
+  
 }
 
-
+echo 'Success';
 
 
 ?> 
