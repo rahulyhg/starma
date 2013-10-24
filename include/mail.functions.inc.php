@@ -60,20 +60,22 @@ function email_suggestions_block () {
   }  
 
 
-  echo '
+  $returnString = '
   <div bgcolor="#8393CA" style="margin:0;padding:0;border:0">
     <div style="background:#D3DBF6;margin:0 auto;width: 455px; text-align:center;" align="center" bgcolor="#D3DBF6" border="0">
       <div>Suggestions For You</div> 
       <ul style="list-style: none outside none; padding: 0;">';
          foreach ($new_user_array as $user) {
-           echo '<li style="display:block">' . email_profile_block($user["user_id"]) .'</li>';
+           $returnString = $returnString . '<li style="display:block">' . email_profile_block($user["user_id"]) .'</li>';
          }
-  echo'
+  $returnString = $returnString . '
         
       </ul>
     </div>
   </div>
   ';
+
+  return $returnString;
 }
 
 function send_invite ($email, $to_line, $token)
@@ -152,7 +154,7 @@ function sendComparedAlertEmail($user_id, $number)
 {
  
     $sender = basic_user_data($user_id);
-    $message = 'Hello ' . $sender["nickname"] . ',<br><br>' . $number . ' new people have compared themselves to you this week. <a href="' . get_full_domain() . '/main.php?the_page=cosel&the_left=nav1&the_tier=1">Login</a> to see who you\'re compatible with.';
+    $message = 'Hello ' . $sender["nickname"] . ',<br><br>' . $number . ' new people have compared themselves to you this week. <a href="' . get_full_domain() . '/main.php?the_page=cosel&the_left=nav1&the_tier=1">Login</a> to see who you\'re compatible with.<br><br>' + email_suggestions_block();
  
     if (sendMail($sender["email"], $number . " people have compared themselves to you this week!" , $message, "no-reply@" . get_domain()))
     {

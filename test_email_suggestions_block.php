@@ -16,5 +16,5 @@
   //$new_user_array[] = $new_item_array[0];
   //print_r ($new_user_array);
   //print_r ($old_user_array);
-  email_suggestions_block();
+  echo email_suggestions_block();
 ?> 
