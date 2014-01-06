@@ -58,8 +58,10 @@
 }
 
 #landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo {
-  width:389px;
-  height:132px;
+  /*width:389px;*/
+  /*height:132px;*/
+  width:500px;
+  height:170px;
   top:50px;
   
 }
@@ -80,7 +82,7 @@
 
 #landing_footer {
   position:relative;
-  bottom:300px;
+  bottom:250px;
   width:100%;
   
 }
