@@ -1,6 +1,4 @@
 <?php
-
-##changed
  
 #### Validation functions ####
 
