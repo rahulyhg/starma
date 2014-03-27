@@ -303,9 +303,14 @@ body select {
 }
 
 #js_more_link a {
-  padding:5px;
+  padding:4px;
   letter-spacing: 0;
-  color:black;
+  color:#1D1D1D;
+  font-family: helvetica, arial;
+  font-size: 13px;
+}
+#js_more_link a:hover {
+  font-weight: bold;
 }
 
 #js_more_link #view_select {
@@ -325,6 +330,8 @@ body select {
 }
 
 #js_back_to_top a {
-  
-  color:black;
+  color:#1D1D1D;
+  font-family: helvetica, arial;
+  font-size: 14px;
+  font-weight: bold;
 }

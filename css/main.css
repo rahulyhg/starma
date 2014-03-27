@@ -1,9 +1,47 @@
+/********************* --Matt--
+
+input{
+    border-bottom: 1px solid #6275A7;
+    border-left: 1px solid #6376A9;
+    border-right: 1px solid #6B7FB6;
+    border-top: 1px solid #5A6683;
+    box-shadow: 1px 2px 4px #4A587E inset;
+    width: 200px;
+    padding: 4px;
+
+}
+
+//this is what Ariana likes sort of
+input{
+    border-color: #677AAE #768CC9 #768CC9 #677AAE;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 2px #677AAE inset;
+    width: 200px;
+}
+
+// For email and password login add deeper shadow to labels onfocus input field
+.login_labels {
+    background: none repeat scroll 0 0 #4A587E;
+    border-bottom: 1px solid #4A587E;
+    border-left: 1px solid #4A587E;
+    border-top: 1px solid #4A587E;
+    box-shadow: 1px 5px 5px #29334C inset;
+    color: #FFFFFF;
+    height: 25px;         // this is to match the padding 4px in the input field.  
+    padding-right: 5px;
+    padding-left: 25px;
+    text-shadow: -1px -1px #20283C;
+}
+
+
+*/
+
+/*   --Matt--  Changed border radius, added left and right borders as placeholders   */
 #page_body {
-       background-color: #D3DBF6;
-    
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    
+    background-color: #D3DBF6;
+    border-left: 2px solid #4A587E;
+    border-right: 1px solid #4A587E;
     float: right;
     min-height: 782px;
     padding: 10px;
@@ -871,7 +909,7 @@ li.my_unknown_button a {
   position:relative;
   height:250px;
   width:177px;
-  top:15px;
+  top:8px;
   left:30px;
   text-align:center;
   font-size:0.8em;
@@ -1087,7 +1125,7 @@ li.my_unknown_button a {
 
 #profile_sections {
     border-top: 1px solid black;
-    bottom: 80px;
+    bottom: 102px;
     float: left;
     position: relative;
     right: 10px;

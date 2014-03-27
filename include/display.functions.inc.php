@@ -2474,7 +2474,16 @@ function show_poi_sign_blurb_abbr ($poi_id, $sign_id, $chart_id=-1) {
   
 }
 
+/******************** --Matt-- Need to have Aries Rising instead of Rising in Aries 
 
+if($poi_id != 1) {
+  echo ucfirst(strtolower($poi_name)) . ' in ' . ucfirst(strtolower($sign_name)); 
+}
+else {
+  echo ucfirst(strtolower($sign_name) . ' ' . ucfirst(strtolower($poi_name))  );
+}
+
+*/
 function show_poi_info ($poi_id, $chart_id, $sign_id) {
   $poi_name = get_poi_name($poi_id);
   $house_id = get_house_from_poi ($chart_id, $poi_id);
@@ -2633,6 +2642,9 @@ function show_my_chart ($goTo = ".", $western=0) {
        //  echo 'Your Ad Here';
        //echo '</div>';
       //Left Side;
+
+/***  --Matt-- Can I add href="#" to the li generator to have it reload on further down the page? ***/
+
       echo '<div class="chart_tabs left_side"/>';
       echo '<ul>';
       while ($poi = mysql_fetch_array($poi_list)) {

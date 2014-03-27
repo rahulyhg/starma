@@ -1,6 +1,13 @@
 <?php
 require_once ("header.php");
 
+/***************** --Matt
+
+Need to move username and partial message from the last message to right of each user.  Message area smalle
+
+$last_msg = $user_msg_history[last];
+
+*/
   
 if (login_check_point($type="full", $domain=$domain)) {
   
