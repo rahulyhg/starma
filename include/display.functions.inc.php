@@ -2492,10 +2492,15 @@ function show_poi_info ($poi_id, $chart_id, $sign_id) {
 
   echo '<div id="planet_sign_title">';
     echo '<h>';
-    echo ucfirst(strtolower($poi_name)) . ' in ' . ucfirst(strtolower($sign_name));
+    if($poi_id != 1) {
+        echo ucfirst(strtolower($poi_name)) . ' in ' . ucfirst(strtolower($sign_name));
+    }
     if ($poi_id == 9) {
-       echo ' & ';
-       echo ucfirst(strtolower(get_poi_name($poi_id+1))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($chart_id, 10))));
+        echo ' & ';
+        echo ucfirst(strtolower(get_poi_name($poi_id+1))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($chart_id, 10))));
+    }
+    else {
+        echo ucfirst(strtolower($sign_name) . ' ' . ucfirst(strtolower($poi_name))  );
     }
     echo '</h><br>';
   echo '</div>';
