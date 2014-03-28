@@ -25,15 +25,23 @@ input[type="checkbox"] {
 }
 
 input[type="text"], input[type="password"], select {
-  border-radius:5px;
   -moz-box-sizing: border-box; 
   /*-webkit-box-sizing: border-box;*/
   height: 25px;
   padding: 2px;
   border:0px;
-  
 }
 
+input:focus {
+    -webkit-appearance: none;
+    outline:none;
+}
+/*
+input:-webkit-autofill, textarea:-webkit-autofill {
+-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+color:#ffffff !important;
+}
+*/
 input[type="text"], input[type="password"] {
   width:200px;
 }
