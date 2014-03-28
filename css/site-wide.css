@@ -295,6 +295,21 @@ body select {
   text-decoration: underline;
 }
 
+#js_search_bar{
+  border-top: 1px solid #A7B0CB;
+  border-bottom: 1px solid #C6D0EF;
+  border-left: 1px solid #B3BCD9;
+  border-right: 1px solid #C6D0EF;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 0.8em;
+  height: 27px;
+  border-radius: 2px;
+  box-shadow: 0 0 1px #969EB6 inset;
+  padding: 4px;
+}
+
 #js_more_link {
     left: 470px;
     position: absolute;
@@ -303,7 +318,7 @@ body select {
 }
 
 #js_more_link a {
-  padding:4px;
+  padding: 3px;
   letter-spacing: 0;
   color:#1D1D1D;
   font-family: helvetica, arial;
