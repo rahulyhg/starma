@@ -2499,7 +2499,7 @@ function show_poi_info ($poi_id, $chart_id, $sign_id) {
         echo ' & ';
         echo ucfirst(strtolower(get_poi_name($poi_id+1))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($chart_id, 10))));
     }
-    else {
+    elseif($poi_id == 1) {
         echo ucfirst(strtolower($sign_name) . ' ' . ucfirst(strtolower($poi_name))  );
     }
     echo '</h><br>';
