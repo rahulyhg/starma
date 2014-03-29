@@ -568,6 +568,7 @@ function update_my_single_descriptor ($user_des_id, $value) {
   }
 }
 
+
 function get_my_main_photo_id() {
   if (isLoggedIn()) {
     $q = "SELECT user_pic_id from user_picture where user_id = " . $_SESSION["user_id"] . " and main = 1 and uncropped = 0";
