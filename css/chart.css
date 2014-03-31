@@ -132,12 +132,12 @@
   margin-right:auto;
   padding-bottom:0px;
   position: relative;
-    top: 3px;
+  top: 3px;
 }
 
 #starma_chart #profile_back_link {
   /*background: url("/img/Starma-Astrology-Back-Arrow.png") no-repeat scroll 0 0 transparent;*/
-     bottom: 29px;
+    bottom: 29px;
     font-size: 0.8em;
     left: 30px;
     position: relative;
@@ -194,7 +194,7 @@
 }
 
 #welcome .homepage_div #homepage_chart_button_info #blurb {
-  left: 86px;
+    left: 86px;
     position: absolute;
     bottom: 123px;
     width: 200px;
@@ -207,7 +207,7 @@
 }
 
 #starma_chart .chart_tabs a span.ketu_text {
-  display: block;
+    display: block;
     position: relative;
     top: 132px;
 }
@@ -252,8 +252,8 @@
 
 
 #starma_chart .chart_tabs a, #homepage_chart_button_info li a {
-  border: 0px solid black;
-  background-color:#ffffff;
+  border: none;
+  background-color: none;
   color:black;
   display:block;
   text-align:center;
@@ -273,8 +273,8 @@
 
 
 #starma_chart .chart_tabs .selected a { 
-  background-color:#000000;
-  //color:white;
+  background-color: none;
+  /*color:white;*/
 }
 
 #starma_chart .chart_tabs.left_side.chart_arrow {
@@ -302,7 +302,7 @@
 }
 
 #chart_direction_link_east, #chart_direction_link_west {
-  left: 570px;
+    left: 570px;
     position: absolute;
     z-index: 1;
 }
@@ -317,7 +317,7 @@
 
 #chart_1_pic {
   
-   float: left;
+    float: left;
     height: 155px;
     margin-top: 35px;
     padding-right: 5px;
@@ -325,7 +325,7 @@
 }
 
 #chart_2_pic {
-float: right;
+    float: right;
     height: 155px;
     margin-top: 35px;
     padding-left: 5px;
@@ -357,7 +357,7 @@ float: right;
 }
 
 #compare_results_selector {
-  display: inline-block;
+   display: inline-block;
     height: 32px;
     left: 7px;
     margin-left: auto;
@@ -427,9 +427,8 @@ float: right;
 }
 
 #compare_results {
-  width:100%;
-  text-align:center;
-  
+    width:100%;
+    text-align:center;  
     position: relative;
     text-align: center;
     width: 100%;
@@ -447,7 +446,7 @@ float: right;
 }
 
 #compare_results #explanation {
-  font-size: 0.8em;
+    font-size: 0.8em;
     line-height: 1.6em;
     margin: auto;
     padding: 10px;
@@ -458,7 +457,7 @@ float: right;
 }
 
 #compare_results #explanation #text_selector {
-  bottom: 15px;
+    bottom: 15px;
     position: relative;
 }
 
@@ -503,7 +502,7 @@ float: right;
 }
 
 #detail_selector a {
- color:black;
+  color:black;
 }
 
 /*///////MAJOR CONNECTIONS//////*/
@@ -641,8 +640,8 @@ float: right;
 
 
 #major_connections .chart_tabs a {
-  border:0px;
-  background-color:#ffffff;
+  border: none;
+  background-color: none;
   color:black;
   display:block;
   text-align:center;
@@ -657,13 +656,12 @@ float: right;
 
 
 #major_connections .chart_tabs .selected a { 
-  background-color:#000000;
+  background-color: none;
   //color:white;
 }
 
 #major_connections .chart_tabs.middle li a {
   width:160px;
-  
   background-color:#D3DBF6;
 }
 
@@ -829,8 +827,8 @@ float: right;
 
 
 #minor_connections .chart_tabs a {
-  border:0px;
-  background-color:#ffffff;
+  border: none;
+  background-color: none;
   color:black;
   display:block;
   text-align:center;
@@ -843,8 +841,8 @@ float: right;
 }
 
 #minor_connections .chart_tabs .selected a { 
-  background-color:#000000;
-  //color:white;
+  background-color: none;
+  /*color:white;*/
 }
 
 #minor_connections .chart_tabs.middle li a {
@@ -999,8 +997,7 @@ float: right;
     height: 335px;
     right: 5px;
     margin-left: 0;
-    top: 25px;
-    
+    top: 25px;   
     background-color: #D3DBF6;
 }
 
@@ -1020,13 +1017,11 @@ float: right;
   background: url("/img/arrows/Starma-Astrology-Compatibility-Minor-ArrowLTextV-RSM.png") no-repeat scroll center center;
 }
 
-#minor_connections .chart_tabs.right_side.arrows.stage3 {
-  
+#minor_connections .chart_tabs.right_side.arrows.stage3 {  
     height: 335px;
     left: 5px;
     margin-right: 0;
-    top: 25px;
-    
+    top: 25px;    
     background-color: #D3DBF6;
 }
 
