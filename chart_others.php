@@ -29,6 +29,8 @@ if (login_check_point($type="full", $domain=$domain)) {
       else {
         $chart_id2 = chart_already_there("Freebie1",get_my_user_id());
       }
+
+    $section = $_GET["section"];
     }
 
 
@@ -41,12 +43,12 @@ if (login_check_point($type="full", $domain=$domain)) {
     if ($show_links) {
       if ($western == 0) {
         echo '<div id="chart_direction_link_west">';
-          echo '<a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=4&chart_id2=' . $chart_id2 . '&western=1">Starma Western Chart --></a>';
+          echo '<a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=4&chart_id2=' . $chart_id2 . '&western=1&section=' . $section . '">Starma Western Chart --></a>';
         echo '</div>';
       }
       else {
         echo '<div id="chart_direction_link_east">';
-          echo '<a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=4&chart_id2=' . $chart_id2 . '&western=0"><-- Starma Eastern Chart</a>';
+          echo '<a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=4&chart_id2=' . $chart_id2 . '&western=0section=' . $section . '"><-- Starma Eastern Chart</a>';
         echo '</div>';
       }
     }
@@ -59,10 +61,10 @@ if (login_check_point($type="full", $domain=$domain)) {
     
   
     if (!is_freebie_chart($chart_id2)) {
-      $goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&western=" . $western; 
+      $goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&western=" . $western . "&section=" . $section; 
     }
     else {
-      $goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=4&western=" . $western; 
+      $goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=4&western=" . $western . "&section=" . $section; 
     }
     show_others_chart($goTo, $chart_id2, $western);
     // If Freebie Chart //////////////////
