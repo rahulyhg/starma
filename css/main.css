@@ -324,7 +324,8 @@ left: 40px;
 
 #sidenav {
   width:185px;
-  position:relative;  
+  position:relative; 
+  z-index: 2; 
 }
 
 #sidenav ul li a {
@@ -942,7 +943,7 @@ li.my_unknown_button a {
 }
 
 .user_block .profile_info_area, #chart_1_pic .profile_info_area, #chart_2_pic .profile_info_area {
-  bottom: 12px;
+    bottom: 12px;
     font-size: 0.7em;
     margin: auto;
     position: relative;
@@ -950,7 +951,7 @@ li.my_unknown_button a {
 }
 
 .user_block .profile_info_area .nickname_area, #chart_1_pic .profile_info_area .nickname_area, #chart_2_pic .profile_info_area .nickname_area {
-  bottom: 142px;
+    bottom: 142px;
     font-weight: bold;
     position: relative;
 }
@@ -961,12 +962,11 @@ li.my_unknown_button a {
 }
 
 #chart_1_pic .profile_info_area .nickname_area, #chart_2_pic .profile_info_area .nickname_area {
-    bottom:134px;
+    bottom:132px;
 }
 
 #chart_1_pic .profile_info_area .nickname_area span, #chart_2_pic .profile_info_area .nickname_area span, .nickname_area span {
-   bottom: 2px;
-    
+    bottom: 2px;    
     font-size: 2em;
     position: relative;
     right: 2px;
@@ -976,9 +976,9 @@ li.my_unknown_button a {
 
 
 #chart_1_pic .profile_info_area .name_area, #chart_2_pic .profile_info_area .name_area {
-    line-height: 0;
+    line-height: 1;
     position: relative;
-    top: 5px;
+    top: 3px;
 }
 
 #profile_photo_and_info .profile_info_area .name_area {
