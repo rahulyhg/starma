@@ -31,6 +31,9 @@ if (login_check_point($type="full", $domain=$domain)) {
       foreach ($user_list as $user_id => $num_new_msgs) {
         if (profile_info($user_id)) {
           echo '<li>';
+          //Matt
+          echo '<div class="convoWrapper">';
+          //endMatt
             echo '<div class="new_ball_space';
             if ($num_new_msgs > 0) {
               echo ' new';
@@ -57,6 +60,24 @@ if (login_check_point($type="full", $domain=$domain)) {
             echo '<div class="nickname">'; 
               echo get_nickname($user_id);
             echo '</div>';
+
+            //*******---Matt adding teaser msg to Conversations
+
+                echo '<div class="last_msg">';
+                $last_msg = show_msg_last($user_id);
+                  if(strlen($last_msg) > 25){
+                    echo '<p>' . substr($last_msg, 0, 25) . '...</p>';
+                  }
+                  else {
+                    echo '<p>' . $last_msg . '</p>';
+                  }
+                echo '</div>';
+
+            
+            echo '</div>';      //closing convoWrapper
+            
+            //********---endMatt
+
           echo '</li>';  
         }
       }
