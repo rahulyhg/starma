@@ -157,6 +157,32 @@ function show_msg_area_inbox ($r_id) {
   return true;
 }
 
+//************---Matt add teaser blurb to Conversations
+
+function show_msg_last ($r_id) {
+
+  $my_msgs = get_my_msgs_with ($r_id);
+
+  //$msg = mysql_fetch_array($my_msgs)['text_body'];
+  
+      while($msgs = mysql_fetch_array($my_msgs)) {
+        extract($msgs);
+        $msg = [];
+        array_push($msg, $text_body);        
+      }
+/*
+      if(is_array($msg)){
+        $msg = $msg[0];
+      } 
+      else {
+        $msg = $msg;
+      } 
+ */ 
+  return end($msg);
+}
+
+//************---End Matt Stuff
+
 function show_msg_area_blank () {
   
     
