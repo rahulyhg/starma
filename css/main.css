@@ -40,14 +40,15 @@ input{
 /*   --Matt--  Changed border radius, added left and right borders as placeholders   */
 #page_body {
     background-color: #D3DBF6;
-    border-left: 2px solid #4A587E;
-    border-right: 1px solid #4A587E;
+    border-left: 2px solid #2C3447;
+    border-right: 2px solid #2C3447;
+    border-top: 1px solid #2C3447;
     float: right;
     min-height: 782px;
     padding: 10px;
     position: relative;
     top: -229px;
-    width: 774px;
+    width: 773px;
   }
 
 
