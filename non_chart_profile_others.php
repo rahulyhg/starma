@@ -16,6 +16,14 @@ if (login_check_point($type="full")) {
   
     $$section = 'selected';
 
+    //*************---Matt adding msg popup from Message button
+    
+    $chart_id1 = $_GET["chart_id1"];
+    $chart_id2 = $_GET["chart_id2"];
+    $other_user_id = get_user_id_from_chart_id ($chart_id2);
+
+    //*************---endMatt stuff
+
     log_this_action (profile_action_profile(), viewed_basic_action(), $_GET["chart_id2"], get_user_id_from_chart_id($_GET["chart_id2"]));
     echo '<div id="profile_page"';
       if ($isCeleb) { 
@@ -79,7 +87,31 @@ if (login_check_point($type="full")) {
 
       if (!$isCeleb) {
         echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)">Chat</a></div>';
-        echo '<div class="profile_button message_button"><a href="?the_page=isel&the_left=nav1&other_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">Message</a></div>';     
+        
+        //************---Matt adding jquery popup from Message button
+        echo '<div class="profile_button message_button"><a href="#" id="msg_pop">Message</a></div>';
+        echo '<div id="msg_sheen" class="pop">';
+    
+          echo '<div id="msg_sheen_screen" class="pop">';
+    
+            echo '</div>';
+              echo '<div id="msg_sheen_content" class="pop">';
+                echo '<div id="msg_type_area">';
+                  echo '<form id="send-message-area" action="send_msg_from_profile.php" method="post">
+                          <label for="msg_sendie">Send a Message</label>
+                          <textarea id="msg_sendie" name="text_body" maxlength = "500" ></textarea>
+                          <div><a href="#" class="cancel">Cancel</a></div>
+                          <input type="submit" name="submit" value="Send" class="msg_send"/>
+                          <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
+                          <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
+                          <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>                         
+                        </form>';
+                  echo '</div>';
+                echo '</div>';
+             echo '</div>';
+        //***********---endMatt Stuff
+
+        //echo '<div class="profile_button message_button"><a href="?the_page=isel&the_left=nav1&other_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">Message</a></div>';     
       }
   
       
@@ -105,7 +137,7 @@ if (login_check_point($type="full")) {
     echo "You are not authorized to view this profile.";
   }
   
-   
+   echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
 }
 ?> 
 
