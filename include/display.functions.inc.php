@@ -181,6 +181,27 @@ function show_msg_last ($r_id) {
   return end($msg);
 }
 
+//************---Matt add msg popup from other's profile Message button - Going to try with Jquery instead
+/*
+function show_sheen_msg_popup ($r_id) {
+   echo '<div id="sheen">';
+    
+     echo '<div id="sheen_screen">';
+    
+     echo '</div>';
+     echo '<div id="sheen_content">';
+       echo '<div id="type_area">';
+       echo '<form id="send-message-area" action="send_message.php" method="post">
+               <textarea id="sendie" name="text_body" maxlength = "500" ></textarea>
+               <input type="submit" name="submit" value="Reply"/>
+               <input type="hidden" value=' . $r_id . ' name="other_user_id"/>
+             </form>';
+     echo '</div>';
+     echo '</div>';
+    echo '</div>';
+    return true;
+}
+*/
 //************---End Matt Stuff
 
 function show_msg_area_blank () {
