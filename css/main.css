@@ -1184,6 +1184,93 @@ li.my_unknown_button a {
 }
 
 
+/************---Matt adding things to others Profile */
+
+#msg_sheen {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  z-index:100;
+  display:none;
+}
+
+#msg_sheen #msg_sheen_screen {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  background:#233388;
+  opacity:0.6;
+  display:none;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+
+#msg_sheen #msg_sheen_content {
+    background: none repeat scroll 0 0 white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size:0.8em;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    top: 50px;
+    width: 500px;
+    height: 150px;
+    display: none;
+}
+
+#msg_sendie {
+
+  background: none;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  box-shadow: 0 0 2px #313E5C inset;
+  height: 75px;
+  width: 380px;
+  display:block;
+
+}
+
+#msg_type_area {
+  height: 130px;
+  width: 400px;
+  margin: 10px 50px 10px 50px;
+}
+
+.msg_send {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+}
+
+.cancel {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  box-shadow: 0 0 1px #4B5A80;
+  background-color: #6F83BB;
+  font-family: arial;
+}
+
+
 /*//////////////// END MAIN PROFILE ///////////////////////////////////////*/
 
 /*//////////////// OTHER COMPARE PAGES ///////////////////////////////////////*/
