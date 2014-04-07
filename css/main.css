@@ -1254,6 +1254,7 @@ li.my_unknown_button a {
   color: white;
   background-color: #6F83BB;
   box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
 }
 
 .cancel {
@@ -1268,6 +1269,13 @@ li.my_unknown_button a {
   box-shadow: 0 0 1px #4B5A80;
   background-color: #6F83BB;
   font-family: arial;
+}
+
+#msg_sent {
+  display: none;
+  font-family: arial;
+  color: black;
+  font-size: 1em;
 }
 
 
