@@ -97,7 +97,7 @@ if (login_check_point($type="full")) {
             echo '</div>';
               echo '<div id="msg_sheen_content" class="pop">';
                 echo '<div id="msg_type_area">';
-                  echo '<form id="send-message-area" action="send_msg_from_profile.php" method="post">
+                  echo '<form id="send-message-area" action="send_msg_from_profile.php" method="POST">
                           <label for="msg_sendie">Send a Message</label>
                           <textarea id="msg_sendie" name="text_body" maxlength = "500" ></textarea>
                           <div><a href="#" class="cancel">Cancel</a></div>
@@ -106,9 +106,10 @@ if (login_check_point($type="full")) {
                           <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
                           <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>                         
                         </form>';
+                      echo '<span id="msg_sent"></span>';
                   echo '</div>';
                 echo '</div>';
-             echo '</div>';
+              echo '</div>';
         //***********---endMatt Stuff
 
         //echo '<div class="profile_button message_button"><a href="?the_page=isel&the_left=nav1&other_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">Message</a></div>';     
@@ -138,6 +139,45 @@ if (login_check_point($type="full")) {
   }
   
    echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
+   echo "<script type='text/javascript' src='js/ajax_msg_send_from_popup.js'></script>";
+
+/*
+   echo "<script type='text/javascript'>
+    
+    $(document).ready(function(){
+      $('#send-msg-area').submit(function(event){
+        var msg_data = {
+          'text_body           : $('input[name=text_body]').val(),
+          'other_user_id'     : $('input[name=other_user_id]').val(),
+          'chart_id1'         : $('input[name=chart_id1]').val(),
+          'chart_id2'         : $('input[name=chart_id2]').val(),
+        };
+      
+        $.ajax({
+            type      : 'POST',
+            url       : 'send_msg_from_profile.php',
+            data      : 'msg_data',
+            dataType  : 'json'
+        })
+          .done(function(data){
+            if(!data) {
+              $('#msg_sendie').val('There was no text to send!');
+            }
+            else {
+              $('#msg_sendie').hide();
+              $('input[name=submit').hide();
+              $('#msg_sent').show().html('<p>Message Sent!</p>')
+            }
+  
+          })
+        event.preventDefaul();
+
+      });
+    });
+
+   </script>";
+
+   */
 }
 ?> 
 
