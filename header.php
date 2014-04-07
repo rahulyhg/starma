@@ -22,7 +22,7 @@ date_default_timezone_set('America/Chicago');
 <html>
 <head>
 <title>Starma.com - </title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">   <!-- Matt should we change to charset=utf-8 so json_encode will work?  -->
 
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>  
