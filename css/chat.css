@@ -119,7 +119,7 @@
 }
 
 #list_body {
-  height:540px;
+  height:480px;
   overflow-y:hidden;
   padding-top:3px;
 }
@@ -206,14 +206,18 @@
   border: 0 none;
   height: 80px;
   padding: 10px;
-  width: 240px;
-  border-radius: 5px 5px 5px 5px;
-  
+  width: 238px;
+  border-radius: 2px;
 }
 
 #type_area.blank #sendie {
   margin-top:10px;
-  height:380px;
+  height: 180px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  box-shadow: 0 0 2px #313E5C inset;
 }
 
 #new_message_button {
