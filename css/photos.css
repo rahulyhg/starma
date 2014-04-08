@@ -216,21 +216,21 @@
 }
 
 #homepage_thumbnails {
-     bottom: 23px;
+     bottom: 45px;
     left: 54px;
     position: absolute;
     width: 252px;
 }
 
 #homepage_profile_button_info {
-     bottom: 41px;
+     bottom: 61px;
     left: 48px;
     position: absolute;
     width: 252px;
 }
 
 #homepage_chart_button_info {
-  bottom: 77px;
+  bottom: 87px;
     left: 41px;
     position: absolute;
     width: 252px;
