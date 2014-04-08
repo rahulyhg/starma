@@ -1278,6 +1278,126 @@ li.my_unknown_button a {
   font-size: 1em;
 }
 
+/*****************---Matt adding style to New Message section */
+
+#as-selections-fav_user_id {
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  font-size:0.8em;
+  height:27px;
+  border-radius: 2px;
+  box-shadow: 0 0 2px #313E5C inset;
+  padding: 4px;
+  margin: 0;
+  overflow: auto;
+  background-color: #fff;
+}
+
+#fav_user_id {
+  float:left;
+  width: 250px;
+  color: #636965;
+  font-size: .875em;
+  padding:7px 0 3px 0;
+  height: 20px;
+}
+
+#fav_user_id:focus {
+  color:black;
+  font:1em;
+  line-height: 1em;
+}
+
+ul.as-list {
+  position: absolute;
+  list-style-type: none;
+  margin: 2px 0 0 0;
+  padding: 0;
+  font-size: 14px;
+  color: #000;
+  font-family: "ClarendonBT-Light", "Lucida Grande", arial, sans-serif;
+  background-color: #8393CA;
+  /*background-color: rgba(255,255,255,0.95);*/
+  z-index: 2;
+  box-shadow: 0 2px 12px #222;
+  -webkit-box-shadow: 0 2px 12px #222;
+  -moz-box-shadow: 0 2px 12px #222;
+}
+
+.as-result-item {
+  margin: 0 0 0 0;
+  padding: 5px 12px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  }
+
+li:first-child.as-result-item {
+  margin: 0;
+}
+
+.as-result-item.active em { 
+  background: #253f7a;  
+  color: #fff;
+}
+
+.as-result-item.active {
+  background-color: #FBF0A4;
+  /*background-image: -webkit-gradient(linear, 0% 0%, 0% 64%, from(rgb(110, 129, 245)), to(rgb(62, 82, 242))); */
+  border-color: #8393CA;
+  color: #fff;
+  text-shadow: 0 1px 2px #A99E67;
+  box-shadow: 0 0 2px #222 inset;
+}
+
+.as-result-item em { 
+  font-style: normal; 
+  background: #8393CA;  
+  padding: 0 2px;
+  color: #fff;
+}
+
+/***************---Matt Homepage box blurbs*/
+#p_box_blurb {
+  display: inline-block;
+  position: relative;
+  bottom: 62px;
+  left: 33px;
+  width: 290px;
+}
+
+#h_box_blurb {
+  display: inline-block;
+  position: relative;
+  bottom: 62px;
+  left: 33px;
+  width: 290px;
+}
+
+#co_box_blurb {
+  display: inline-block;
+  position: relative;
+  bottom: 60px;
+  left: 33px;
+  width: 290px;
+}
+
+#ce_box_blurb {
+  display: inline-block;
+  position: relative;
+  bottom: 60px;
+  left: 33px;
+  width: 290px;
+}
+
+.hsel_box_blurb {
+  font-size: 0.875em;
+  text-align: center;
+  font-weight: bold;
+}
 
 /*//////////////// END MAIN PROFILE ///////////////////////////////////////*/
 
