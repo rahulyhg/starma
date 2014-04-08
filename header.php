@@ -36,7 +36,7 @@ date_default_timezone_set('America/Chicago');
     echo '<LINK REL="StyleSheet" HREF="../css/chart.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/main.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/photos.css" TYPE="text/css"/>';
-    echo '<LINK REL="StyleSheet" HREF="../autoSuggest/autoSuggest.css" TYPE="text/css"/>';
+    //echo '<LINK REL="StyleSheet" HREF="../autoSuggest/autoSuggest.css" TYPE="text/css"/>';
     echo '<link rel="stylesheet" type="text/css" href="../imgSelectArea/css/imgareaselect-default.css" />';
     echo '
       
@@ -46,6 +46,7 @@ date_default_timezone_set('America/Chicago');
       
     ';
   }
+  //Removed autoSuggest.css to restyle New Message area
   else {
     echo '
       <LINK REL="StyleSheet" HREF="css/reset.css" TYPE="text/css"/>
@@ -55,7 +56,7 @@ date_default_timezone_set('America/Chicago');
       <LINK REL="StyleSheet" HREF="css/main.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="css/photos.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="css/chat.css" TYPE="text/css"/>
-      <LINK REL="StyleSheet" HREF="autoSuggest/autoSuggest.css" TYPE="text/css"/>
+      
       <link rel="stylesheet" type="text/css" href="imgSelectArea/css/imgareaselect-default.css" />
       
       <script type="text/javascript" src="/autoSuggest/jquery.autoSuggest.js"></script>
