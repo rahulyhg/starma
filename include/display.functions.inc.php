@@ -935,7 +935,7 @@ function get_left_menu ($the_page) {
   }
   elseif ($the_page == 'psel') {
     $menu['nav1'] = array('profile&nbsp;&nbsp;','non_chart_profile.php');
-    $menu['nav2'] = array('houses&nbsp;&nbsp;','#');
+    $menu['nav2'] = array('houses&nbsp;&nbsp;','houses.php');
     $menu['nav3'] = array('romantic advice&nbsp;&nbsp;','#');
     $menu['nav4'] = array('career advice&nbsp;&nbsp;','#');
     $menu['nav5'] = array('my birth info&nbsp;&nbsp;','birth_info.php');
