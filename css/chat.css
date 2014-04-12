@@ -107,25 +107,44 @@
   color: #FF5C5C;
 }
 
+#inbox_chat_area .chat_area p {
+  font-size: 1.04em;
+  letter-spacing: .05px;
+  line-height: 1.5;
+}
+
 #inbox_user_list {
-  width:300px;
-  position:absolute;
-  height:700px;
+  width:265px;
+  left: 51px;
+  top: 38px;
+  position: absolute;
+  height: 700px;
 }
 
 #inbox_header{
-  text-align:center;
-  margin-bottom:10px;
+  text-align: left;
+  margin: 0;
+  border-bottom: 1px solid #C0C0C0;
+  width: 421px;
+  font-family: "ClarendonBT-Light";
+  letter-spacing: 2px;
+  font-weight: bold;  
 }
 
 #list_body {
   height:480px;
   overflow-y:hidden;
-  padding-top:3px;
+  padding: 0;
+  border-right: 1px solid #C0C0C0; 
 }
+
+#inbox_user_list  #list_body ul {
+  margin: 0;
+}
+
 #inbox_user_list #list_body ul li {
  
-    margin:8px 0 8px 0;
+    margin: 8px 0 8px 0;
     height: 73px;
     width: 112px;
 }
@@ -133,9 +152,9 @@
 #inbox_user_list #list_body ul li .nickname {
     bottom:79px;
     font-size: 0.8em;
-    left: 14px;
+    left: 8px;
     position: relative;
-    top: 10px;
+    top: 4px;
     text-align: left;
     font-weight: bold;
 }
@@ -143,7 +162,7 @@
 /*#inbox_user_list #list_body */
 .new_ball_space {
   height:73px;
-  width:30px;
+  width:0px;
   position:relative;
   float: left;
   display:inline;
@@ -157,7 +176,6 @@
   height:73px;
   width:72px;
   position:relative;
-  left:10px;
   /*bottom:76px; */
   border:none;
   display: inline;
@@ -171,63 +189,59 @@
 */
 
 #inbox_history {
-  width:260px;
-  left:410px;
-  position:absolute;
-  height:700px;
+  width: 438px;
+  left: 315px;
+  top: 38px;
+  position: absolute;
+  height: 700px;
   
 }
 
 
 #inbox_chat_area {
     position: relative;
-    top: 20px;
+    padding-left: 24px;
 }
 
 
 #inbox_chat_area .chat_area {
-  height:300px;
+  height: 261px;
   font-size:0.8em;
   border:0px solid black;
   overflow:auto;
   background:white;
-  padding: 20px;
-  border-radius: 5px 5px 5px 5px;
+  padding: 16px;
 }
 
 #inbox_chat_area #type_area {
-  margin:auto;
-  width: 260px;
+  margin-left: 16px;
+  width: 378px;
   position:relative;
-  padding-top:10px;
+  padding: 0;
 }
 
 #inbox_chat_area #sendie {
-  border: 0 none;
-  height: 80px;
+  border: 1px solid #C0C0C0;
+  height: 108px;
   padding: 10px;
-  width: 238px;
-  border-radius: 2px;
+  margin-top: 20px;
+  width: 361px;
 }
 
 #type_area.blank #sendie {
   margin-top:10px;
   height: 180px;
-  border-top: 1px solid #5F78B1;
-  border-bottom: 1px solid #6680BE;
-  border-left: 1px solid #6376A9;
-  border-right: 1px solid #6B7FB6;
-  box-shadow: 0 0 2px #313E5C inset;
+  border: 1px solid #C0C0C0;
 }
 
 #new_message_button {
   position:absolute;
   top:20px;
-  left:598px;
+  left:584px;
 }
 
 #new_message_alert {
-   background: none repeat scroll 0 0 red;
+    background: none repeat scroll 0 0 red;
     border-radius: 5px 5px 5px 5px;
     color: white;
     height: 20px;
@@ -246,20 +260,30 @@
   float: left;
   position: relative;
   font-size: 12px;
-  left: 20px;
-  padding-top: 3px;
+  left: 15px;
   width: 140px;
 }
 
 .convoWrapper {
-  width: 285px;     /* 15px less than li width */
+  width: 223px;     /* 15px less than li width */
   height: 75px;
+  border-bottom: 1px solid #C0C0C0;
+  position: relative;
 }
 
 .convoWrapper:hover {
-  background-color: #FFFFFF;
+  background-color: #E8E8E8;
 }
 
+.link_spanner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: transparent;
+}
 
 
 /*/////////////////////// END INBOX CHAT AND MESSSAGE SELECTORS ////////////////*/
