@@ -612,7 +612,7 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
 
   while ($photo = mysql_fetch_array($photo_grid)) {
       
-      if ($photo["main"] == 0) {
+      if ($photo["main"] == 0) {  
         
         if ($link==1) {
           echo '<div class="grid_photo_wrapper_link">';
@@ -691,6 +691,29 @@ function show_photo_grid ($user_id) {
   
   echo '</div>';
 }
+
+/************---Matt adding tiny photo on Homepage about you box----*/
+
+function show_tiny_photo ($user_id) {
+  
+  $tiny_photo = get_main_photo ($user_id);
+  //$length = sizeof($photo_list);
+       //echo '<div class="grid_photo_wrapper">';
+
+        //echo '<div class="grid_photo_border_wrapper profile_tiny">';
+          //echo '<div class="grid_photo">';
+            echo '<div class="user_button">';
+            //echo '<a href="#">' . format_image($photo["picture"], $type="thumbnail", $user_id) . '</a>';
+            echo '<a href="#">' . format_image($photo["picture"], $type="thumbnail", $user_id) . '</a>';
+            echo '</div>';
+          //echo '</div>';       
+        //echo '</div>';
+        
+       //echo '</div>';
+  
+}
+
+/*************EndMatt---*/
 
 function show_photo_cropper($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];
@@ -783,6 +806,210 @@ function show_general_info($chart_id) {
   echo '</div>';
 }
 
+//-----------------Matt added so Interests on Other's Profile only show up if filled out
+
+function show_interests_info($chart_id) {
+  $user_id = get_user_id_from_chart_id ($chart_id);
+  $my_user_id = get_my_user_id();
+  $user_info = profile_info($user_id);
+  $nickname = get_nickname($user_id);
+  $gender = get_gender($user_id);
+  if($gender == "M") {
+    $gender = "his";
+  }
+  elseif($gender == "F") {
+    $gender = "her";
+  }
+  else{
+    $gender = "their";
+  }
+
+  if($user_id == $my_user_id) {
+    echo '<div id="interests">';
+     echo '<div id="left_column" class="column">';
+
+     echo '<div id="biography" class="single_interest">';
+        echo '<div class="title">Biography</div>';
+         echo '<div class="value">';
+          echo '<span>' . $user_info["about_me"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div id="activities" class="single_interest">';
+        echo '<div class="title">Activities</div>';
+          echo '<div class="value">';
+            echo '<span>' . $user_info["activities"] . '</span>';
+       echo '</div>';
+     echo '</div>';
+
+     echo '<div id="music" class="single_interest">';
+        echo '<div class="title" ]>Music</div>';
+         echo '<div class="value">';
+          echo '<span>' . $user_info["music"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div id="film_television" class="single_interest">';
+        echo '<div class="title">Film & Television</div>';
+        echo '<div class="value">';
+          echo '<span>' . $user_info["film_television"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div id="books" class="single_interest">';
+        echo '<div class="title">Books</div>';
+        echo '<div class="value">';
+          echo '<span>' . $user_info["books"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div id="political" class="single_interest">';
+        echo '<div class="title">Political Views</div>';
+        echo '<div class="value">';
+          echo '<span>' . $user_info["political"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div id="spiritual" class="single_interest">';
+        echo '<div class="title">Religion/Spirituality</div>';
+        echo '<div class="value">';
+          echo '<span>' . $user_info["spiritual"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+  
+      echo '<div id="inspirational_figures" class="single_interest">';
+        echo '<div class="title">Inspirational Figures</div>';
+        echo '<div class="value">';
+          echo '<span>' . $user_info["inspirational_figures"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+     echo '</div>';
+
+   
+
+   /* 
+   echo '<div id="right_column" class="column">';
+    
+   
+    
+   echo '</div>';
+   */
+    echo '</div>';
+  }
+  else {
+     echo '<div id="interests">';
+     echo '<div id="left_column" class="column">';
+     if((strlen($user_info["about_me"]) + strlen($user_info["activities"]) + strlen($user_info["music"])
+          + strlen($user_info["film_television"]) + strlen($user_info["books"]) + strlen($user_info["political"]) 
+          + strlen($user_info["spiritual"]) + strlen($user_info["inspirational_figures"])) == 0 ) {
+      echo "<div id='profile_empty'>" . $nickname . " has not filled out " . $gender . " profile yet</div>";
+     }
+     else{
+        if(strlen($user_info["about_me"]) != 0) {
+           echo '<div id="biography" class="single_interest">';
+              echo '<div class="title">Biography</div>';
+               echo '<div class="value">';
+                echo '<span>' . $user_info["about_me"] . '</span>';
+              echo '</div>';
+            echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["activities"]) !=0) {
+          echo '<div id="activities" class="single_interest">';
+           echo '<div class="title">Activities</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["activities"] . '</span>';
+            echo '</div>';
+          echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["music"]) != 0) {
+          echo '<div id="music" class="single_interest">';
+              echo '<div class="title" ]>Music</div>';
+               echo '<div class="value">';
+                echo '<span>' . $user_info["music"] . '</span>';
+             echo '</div>';
+            echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["film_television"]) != 0) {
+            echo '<div id="film_television" class="single_interest">';
+              echo '<div class="title">Film & Television</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["film_television"] . '</span>';
+              echo '</div>';
+            echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["books"]) != 0) {
+            echo '<div id="books" class="single_interest">';
+              echo '<div class="title">Books</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["books"] . '</span>';
+             echo '</div>';
+            echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["political"]) != 0) {
+            echo '<div id="political" class="single_interest">';
+              echo '<div class="title">Political Views</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["political"] . '</span>';
+              echo '</div>';
+           echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["spiritual"]) != 0) {
+            echo '<div id="spiritual" class="single_interest">';
+              echo '<div class="title">Religion/Spirituality</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["spiritual"] . '</span>';
+              echo '</div>';
+            echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["inspirational_figures"]) != 0) {  
+            echo '<div id="inspirational_figures" class="single_interest">';
+              echo '<div class="title">Inspirational Figures</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["inspirational_figures"] . '</span>';
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+        }
+        else {
+          echo "";
+        }
+    }
+   
+
+   /* 
+   echo '<div id="right_column" class="column">';
+    
+   
+    
+   echo '</div>';
+   */
+    echo '</div>';
+  }
+}
+
+
+/*
 function show_interests_info($chart_id) {
   $user_info = profile_info(get_user_id_from_chart_id ($chart_id));
   echo '<div id="interests">';
@@ -847,15 +1074,18 @@ function show_interests_info($chart_id) {
 
    
 
-   /* 
-   echo '<div id="right_column" class="column">';
+    
+   //echo '<div id="right_column" class="column">';
     
    
     
-   echo '</div>';
-   */
+   //echo '</div>';
+   
   echo '</div>';
 }
+*/
+
+
 
 function show_descriptors_info($chart_id) {
   $words = get_descriptors(get_user_id_from_chart_id ($chart_id));
@@ -867,7 +1097,7 @@ function show_descriptors_info($chart_id) {
     echo '<div id="des_selector_' . (string)($counter+1) . '" class="des_selector">';
       echo '<div class="title">' . (string)($counter+1) . '.</div>';
       echo '<div class="value">';
-        echo '<span>' . $word["descriptor"] . '</span>';
+        echo '<p>' . $word["descriptor"] . '</p>';
       echo '</div>';
     echo '</div>';
     $counter = $counter + 1;
@@ -2516,7 +2746,7 @@ function show_poi_sign_blurb_abbr ($poi_id, $sign_id, $chart_id=-1) {
   
   $blurb = get_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
   
-  echo "<span>" . substr($blurb, 0, 175) . " ...</span>";
+  echo "<p>" . substr($blurb, 0, 175) . " ...</p>";
   
   
 }
@@ -3886,7 +4116,7 @@ function display_welcome_page_thumbnails($celebs=0) {
   $old_user_array = query_to_array($user_list);
   $user_array = array();
   //pick 6 random ones
-  while (sizeof($user_array) < 6 and sizeof($old_user_array) > 0) {
+  while (sizeof($user_array) < 8 and sizeof($old_user_array) > 0) {
     $random_index = array_rand($old_user_array);
     $new_item_array = array_splice($old_user_array, $random_index, 1);
     $user_array[] = $new_item_array[0];
