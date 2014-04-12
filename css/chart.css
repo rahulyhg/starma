@@ -116,12 +116,15 @@
     margin-left:auto;
     margin-right:auto;
     text-align:left;
-    border:1px solid black;
+    border: 2px solid #2C3447;
 }
 
 #starma_chart #blurb span {
-    padding:10px;
+    padding:10px 20px;
     display:block;
+    font-size: .93em;
+    letter-spacing: .05px;
+    line-height: 1.5;
 }
 
 #starma_chart #header {
@@ -163,7 +166,10 @@
 
 #starma_chart #planet_info {
   text-align:left;  
-  padding:10px;
+  padding:10px 20px;
+  font-size: .93em;
+  letter-spacing: .05px;
+  line-height: 1.5;
 }
 
 #starma_chart #planet_sign_title {
@@ -194,9 +200,9 @@
 }
 
 #welcome .homepage_div #homepage_chart_button_info #blurb {
-    left: 86px;
+    left: 85px;
     position: absolute;
-    bottom: 123px;
+    bottom: 7px;
     width: 200px;
   
 }
