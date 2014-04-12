@@ -48,8 +48,7 @@ if (login_check_point($type="full")) {
         show_descriptors_info($_GET["chart_id2"]); 
       }
 
-      echo '<div id="profile_sections"/>';
-        echo '<div id="profile_nav">
+      echo '<div id="profile_nav">
           <ul>
             <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=chart_selected">Birth Chart</a></li>';
             if (!$isCeleb)  {
@@ -65,6 +64,9 @@ if (login_check_point($type="full")) {
             }
           echo '</ul>
         </div>';
+
+      echo '<div id="profile_sections"/>';
+      
         echo '<div id="section"/>';
           if ($section == 'chart_selected') {
             require('chart_others.php');
