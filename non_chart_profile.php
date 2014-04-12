@@ -49,9 +49,8 @@ if (login_check_point($type="full")) {
     //  echo '</div>';
  
     show_my_descriptors_info(); 
-    
-    echo '<div id="profile_sections"/>';
-      echo '<div id="profile_nav">
+
+    echo '<div id="profile_nav">
         <ul>
           <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>
           <li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=photos_selected">Photos</a></li>
@@ -59,6 +58,16 @@ if (login_check_point($type="full")) {
           <li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=1&section=western_selected">Western View</a></li>
         </ul>
       </div>';
+    
+    echo '<div id="profile_sections"/>';
+     /* echo '<div id="profile_nav">
+        <ul>
+          <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>
+          <li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=photos_selected">Photos</a></li>
+          <li><a class="' . $about_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected">About</a></li>
+          <li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=1&section=western_selected">Western View</a></li>
+        </ul>
+      </div>';*/
       echo '<div id="section"/>';
         if ($section == 'chart_selected') {
           require('chart.php');
