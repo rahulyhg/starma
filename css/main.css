@@ -39,7 +39,7 @@ input{
 
 /*   --Matt--  Changed border radius, added left and right borders as placeholders   */
 #page_body {
-    background-color: #D3DBF6;
+    background-color: #FFFFFF;
     border-left: 2px solid #2C3447;
     border-right: 2px solid #2C3447;
     border-top: 1px solid #2C3447;
@@ -65,27 +65,40 @@ input{
 
 #welcome .homepage_div {
   position:absolute;
-  height:275px;
-  width:350px;
+  height:231px;
+  width:338px;
+  border-radius: 2px;
+  border: 2px solid black;
+  background-color: #D3DBF6;
 }
 
-#welcome .homepage_div span {
+#welcome .homepage_div:hover {
+  border-radius: 2px;
+  box-shadow: 0 0 2px 0 #404864;
+  background-color: #D3DBF6;
+  transition: .3s;
+}
+
+#welcome .homepage_div .header {
     display: block;
-    font-size: 1.9em;
+    font-size: 1.4em;
     position: absolute;
     text-align: center;
-    top: 16px;
+    top: 11px;
     width: 100%;
+    color: #2C3447;
+    font-family: helvetica;
+    letter-spacing: 2px;
 }
 
 #welcome #profile_box_link {
   left:40px;
 }
 #welcome #profile_box_link a.box_link {
-  background:url("/img/Starma-Astrology-ProfileBox.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-ProfileBox.png") no-repeat scroll center center;*/
 }
 #welcome #profile_box_link a.box_link:hover {
-  background:url("/img/Starma-Astrology-ProfileBoxH.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-ProfileBoxH.png") no-repeat scroll center center;*/
 }
 
 #welcome #compare_box_link {
@@ -103,55 +116,58 @@ input{
 }
 
 #welcome #community_box_link a.box_link {
-  background:url("/img/Starma-Astrology-Community.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-Community.png") no-repeat scroll center center;*/
 }
 #welcome #community_box_link a.box_link:hover {
-  background:url("/img/Starma-Astrology-CommunityH.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-CommunityH.png") no-repeat scroll center center;*/
 }
 
 
 #welcome #horoscope_box_link {
-left: 40px;
-    top: 411px;
+    left: 40px;
+    top: 326px;
 }
 #welcome #horoscope_box_link a.box_link {
-  background:url("/img/Starma-Astrology-ChartBox.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-ChartBox.png") no-repeat scroll center center;*/
 }
 #welcome #horoscope_box_link a.box_link:hover {
-  background:url("/img/Starma-Astrology-ChartBoxH.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-ChartBoxH.png") no-repeat scroll center center;*/
 }
 
 
 #welcome #celebrities_box_link {
- left: 399px;
-    top: 412px;
+  left: 399px;
+  top: 326px;
 }
 #welcome #celebrities_box_link a.box_link {
-  background:url("/img/Starma-Astrology-Celebrities.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-Celebrities.png") no-repeat scroll center center;*/
 }
 #welcome #celebrities_box_link a.box_link:hover {
-  background:url("/img/Starma-Astrology-CelebritiesH.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-CelebritiesH.png") no-repeat scroll center center;*/
 }
 
 #welcome .homepage_div a.box_link {
-  display: block;
-    height: 275px;
+    display: block;
+    height: 231px;
     position: relative;
-    width: 350px;
+    width: 338px;
     z-index: 2;
 }
 
 #welcome #header {
-  width:600px;
+  color: #272727;
+  width:688px;
   text-align:center;
   margin:auto;
-  margin-top:20px;
+  margin-top:11px;
   margin-bottom:10px;
-  -webkit-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%;
+  font-size: .93em;
+  letter-spacing: .05px;
 }
 
 #logout_link {
-   display: block;
+    display: block;
     position: absolute;
     right: 20px;
     top: 5px;
@@ -366,7 +382,8 @@ left: 40px;
 }
 
 #sidenav ul li.sidenav1 a {
-  background:url('/img/Starma-Astrology-SideNav1.png') no-repeat;
+  /*background:url('/img/Starma-Astrology-SideNav1.png') no-repeat;*/
+  background-color: #FFFFFF;
   height:37px;
   line-height:25px;
 }
@@ -376,7 +393,8 @@ left: 40px;
 }
 
 #sidenav ul li.sidenav1.selected.active a {
-  background:url('/img/Starma-Astrology-SideNav1On.png') no-repeat;
+  /*background:url('/img/Starma-Astrology-SideNav1On.png') no-repeat;*/
+  background-color: #FFFFFF;
 }
 
 #sidenav ul li.sidenav2 a {
@@ -700,7 +718,7 @@ li.my_unknown_button a {
 /*//////////////// MAIN PROFILE ///////////////////////////////////////*/
 
 .edit_icon, .edit_icon_hidden {
-  background:url('/img/Starma-Astrology-Edit-Pencil.png') no-repeat #D3DBF6;
+  background:url('/img/Starma-Astrology-Edit-Pencil.png') no-repeat #FFFFFF;
   width:15px;
   height:16px;
   display:none;
@@ -943,6 +961,10 @@ li.my_unknown_button a {
   
 }
 
+#user_block {
+  width: 250px;
+}
+
 .user_block .profile_info_area, #chart_1_pic .profile_info_area, #chart_2_pic .profile_info_area {
     bottom: 12px;
     font-size: 0.7em;
@@ -1023,10 +1045,9 @@ li.my_unknown_button a {
 }
 
 #homepage_profile_button_info #descriptors {
-   bottom:0px;
+   bottom:53px;
    position: absolute;
-   right:-54px;
-   
+   left: 152px;
    width:auto
 }
 
@@ -1079,7 +1100,10 @@ li.my_unknown_button a {
  
 #interests .column {
   width:450px;
-   
+  font-family: arial;
+  font-size: .93em;
+  letter-spacing: .05px;
+  line-height: 1.5;   
 }
 
 #interests #left_column {
@@ -1119,13 +1143,13 @@ li.my_unknown_button a {
 }
 
 #edit_interests textarea {
-   height: 150px;
+    height: 150px;
     width: 400px;
-   padding:5px;
+    padding:5px;
 }
 
 #profile_sections {
-    border-top: 1px solid black;
+    border-top: 2px solid #2C3447;
     bottom: 102px;
     float: left;
     position: relative;
@@ -1133,28 +1157,33 @@ li.my_unknown_button a {
     width: 795px;
 }
 
-.celeb_page #profile_sections {
-    
+.celeb_page #profile_sections {  
     bottom: auto;
-    margin-top:25px;
-    
+    margin-top:25px;  
 }
 
-#profile_sections #profile_nav {
-   height: 20px;
+#profile_nav {
+    height: 21px;
     left: 91px;
     position: absolute;
-    top: -38px;
+    top: 223px;
+    z-index: 2;
 }
 
-#profile_sections #profile_nav ul li {
-   display: inline;
+#profile_nav ul li {
+    display: inline;
     float: left;
     position: relative;
 }
 
-#profile_sections #profile_nav ul li a {
-  border:1px solid black;
+#profile_nav ul li a {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #8393CA;
   border-right:0px;
   padding:5px;
   text-align:center;
@@ -1162,25 +1191,33 @@ li.my_unknown_button a {
   display:block;
   width:100px;
   font-size: 0.8em;
-    height: 10px;
-    line-height: 0.8em;
+  height: 12px;
+  line-height: 0.8em;
   color:black;
 }
 
-#profile_sections #profile_nav ul li.end a {
-  border:1px solid black;
+#profile_nav ul li.end a {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
   
 }
 
-#profile_sections #profile_nav ul li a.selected, #profile_sections #profile_nav ul li a:hover {
-  background:black;
-  color:white;
-  
+#profile_nav ul li a.selected {
+  background-color:#D3DBF6;
+  border-bottom: #D3DBF6;
+  height: 14px;
+}
+
+#profile_nav ul li a:hover{
+  background-color:#D3DBF6;
 }
 
 #profile_sections #section {
   padding:10px;
-  width:775px;
+  width:773px;
+  background-color: #D3DBF6;
 }
 
 
@@ -1281,18 +1318,14 @@ li.my_unknown_button a {
 /*****************---Matt adding style to New Message section */
 
 #as-selections-fav_user_id {
-  border-top: 1px solid #5F78B1;
-  border-bottom: 1px solid #6680BE;
-  border-left: 1px solid #6376A9;
-  border-right: 1px solid #6B7FB6;
+  border: 1px solid #C0C0C0;
   font-size:0.8em;
   height:27px;
-  border-radius: 2px;
-  box-shadow: 0 0 2px #313E5C inset;
   padding: 4px;
   margin: 0;
   overflow: auto;
   background-color: #fff;
+  width: 373px;
 }
 
 #fav_user_id {
@@ -1313,26 +1346,24 @@ li.my_unknown_button a {
 ul.as-list {
   position: absolute;
   list-style-type: none;
-  margin: 2px 0 0 0;
+  margin: 0;
   padding: 0;
   font-size: 14px;
   color: #000;
   font-family: "ClarendonBT-Light", "Lucida Grande", arial, sans-serif;
-  background-color: #8393CA;
+  background-color: #FFFFFF;
   /*background-color: rgba(255,255,255,0.95);*/
   z-index: 2;
-  box-shadow: 0 2px 12px #222;
-  -webkit-box-shadow: 0 2px 12px #222;
-  -moz-box-shadow: 0 2px 12px #222;
 }
 
 .as-result-item {
   margin: 0 0 0 0;
   padding: 5px 12px;
-  background-color: transparent;
-  border: 1px solid #fff;
-  border-bottom: 1px solid #ddd;
+  background-color: #FFFFFF;
+  border: 1px solid #C0C0C0;
+  border-top: none;
   cursor: pointer;
+  letter-spacing: 1.5px
   }
 
 li:first-child.as-result-item {
@@ -1340,57 +1371,58 @@ li:first-child.as-result-item {
 }
 
 .as-result-item.active em { 
-  background: #253f7a;  
-  color: #fff;
+  /*background: #253f7a;
+  color: #253f7a;
+  font-weight: bold;
+  */  
+  font-style: normal;
 }
 
 .as-result-item.active {
-  background-color: #FBF0A4;
+  background-color: #D3DBF6;
   /*background-image: -webkit-gradient(linear, 0% 0%, 0% 64%, from(rgb(110, 129, 245)), to(rgb(62, 82, 242))); */
-  border-color: #8393CA;
-  color: #fff;
-  text-shadow: 0 1px 2px #A99E67;
-  box-shadow: 0 0 2px #222 inset;
+  border-color: #C0C0C0;
 }
 
 .as-result-item em { 
-  font-style: normal; 
-  background: #8393CA;  
-  padding: 0 2px;
-  color: #fff;
+  font-style: normal;
+  /*
+  font-weight: bold; 
+  color: #8393CA;
+  */
 }
 
 /***************---Matt Homepage box blurbs*/
+
 #p_box_blurb {
   display: inline-block;
   position: relative;
-  bottom: 62px;
-  left: 33px;
-  width: 290px;
+  right: 46px;
+  width: 332px;
 }
 
 #h_box_blurb {
   display: inline-block;
   position: relative;
-  bottom: 62px;
-  left: 33px;
-  width: 290px;
+  top: 37px;
+  right: 22px;
+  width: 319px;
 }
 
 #co_box_blurb {
   display: inline-block;
   position: relative;
-  bottom: 60px;
-  left: 33px;
-  width: 290px;
+  bottom: 0px;
+  right: 15px;
+  width: 330px;
 }
 
 #ce_box_blurb {
   display: inline-block;
   position: relative;
-  bottom: 60px;
-  left: 33px;
-  width: 290px;
+  bottom: 1px;
+  right: 8px;
+  width: 318px;
 }
 
 .hsel_box_blurb {
