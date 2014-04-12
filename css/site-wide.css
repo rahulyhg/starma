@@ -233,20 +233,20 @@ body select {
 }
 
 .starma_button a {
-  padding:5px 20px 5px 20px;
-  box-shadow: 5px 5px 5px #000000;
-  border-radius:5px;
+  padding:5px 20px;
   background-color:#8393CA;
   color:black;
-  font-weight:bold;
   position:relative;
+  cursor: pointer;
+  border: 2px solid #6476A9;
+}
+
+.starma_button a:hover {
+  background-color: #fbf0a4;
 }
 
 .starma_button a:active  {
-  
-  box-shadow: 0px 0px 0px #000000;
-  top:5px;
-  left:5px;
+  background-color: #fbf0a4;
 }
 
 #sheen {
