@@ -22,7 +22,7 @@ if (login_check_point($type="full", $domain=$domain)) {
   //echo '</div>';
   echo '<div id="inbox_user_list">';
       echo '<div id="inbox_header">';
-        echo 'Conversations';
+        echo 'Messages From:';
       echo '</div>';
       $user_msg_history = get_my_msgs();
       $user_list = extract_users_from_msgs_list($user_msg_history);
@@ -74,7 +74,8 @@ if (login_check_point($type="full", $domain=$domain)) {
                 echo '</div>';
 
             
-            echo '</div>';      //closing convoWrapper
+            echo '<a href="?the_page=isel&the_left=nav1&other_user_id=' . $user_id . '">
+                  <span class="link_spanner"></span></a></div>';      //closing convoWrapper
             
             //********---endMatt
 
