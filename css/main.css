@@ -382,8 +382,7 @@ input{
 }
 
 #sidenav ul li.sidenav1 a {
-  /*background:url('/img/Starma-Astrology-SideNav1.png') no-repeat;*/
-  background-color: #FFFFFF;
+  background:url('/img/Starma-Astrology-SideNav1.png') no-repeat;
   height:37px;
   line-height:25px;
 }
@@ -393,8 +392,7 @@ input{
 }
 
 #sidenav ul li.sidenav1.selected.active a {
-  /*background:url('/img/Starma-Astrology-SideNav1On.png') no-repeat;*/
-  background-color: #FFFFFF;
+  background:url('/img/Starma-Astrology-SideNav1On.png') no-repeat;
 }
 
 #sidenav ul li.sidenav2 a {
