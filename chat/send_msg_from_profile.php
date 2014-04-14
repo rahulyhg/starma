@@ -51,10 +51,10 @@ $logged_in = login_check_point($type="full");
       $msg = false;
     }
     if($msg) {
-      $json = 'hurray';
+      $json = 'Message Sent!';
     }
     else {
-      $json = 'damn';
+      $json = 'Empty';
     }
     //$print = json_encode($json, true);
 echo json_encode($json, true);
