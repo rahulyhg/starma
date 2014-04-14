@@ -1170,7 +1170,7 @@ function get_left_menu ($the_page) {
     $menu['nav4'] = array('career advice&nbsp;&nbsp;','#');
     $menu['nav5'] = array('my birth info&nbsp;&nbsp;','birth_info.php');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#');
-    $menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
+    //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
   }
   elseif ($the_page == 'cosel') {
     $menu['nav1'] = array('new to Starma&nbsp;&nbsp;','all_users.php');
@@ -1181,7 +1181,7 @@ function get_left_menu ($the_page) {
   }
   elseif ($the_page == 'hsel') {
     $menu['nav1'] = array('welcome&nbsp;&nbsp;','welcome.php');
-    //$menu['nav2'] = array('Log Out&nbsp;&nbsp;','main_logout.php');
+    $menu['nav2'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
     
   }
   elseif ($the_page == 'isel') {
@@ -2736,8 +2736,24 @@ function blurb_form ($blurb_type, $the_value1=1, $the_value2=1, $the_value3=1, $
 function show_poi_sign_blurb ($poi_id, $sign_id, $chart_id=-1) {
   
   $blurb = get_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
-  
-  echo "<span>" . $blurb . "</span>";
+
+/************---Matt added this to Blurb section*/
+  $poi_name = get_poi_name($poi_id);
+  $house_id = get_house_from_poi ($chart_id, $poi_id);
+  $house_name = get_house_name ($house_id);
+  $sign_name = get_sign_name ($sign_id);
+  echo "<span>"; 
+    if($poi_id != 1) {
+        echo '<strong>' . ucfirst(strtolower($poi_name)) . ' in ' . ucfirst(strtolower($sign_name) . ': </strong>');
+    }
+    if ($poi_id == 9) {
+        echo ' & ';
+        echo ucfirst(strtolower(get_poi_name($poi_id+1))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($chart_id, 10))) . ': </strong>');
+    }
+    elseif($poi_id == 1) {
+        echo '<strong>' .  ucfirst(strtolower($sign_name) . ' ' . ucfirst(strtolower($poi_name)) . ': </strong>');
+    }
+  echo $blurb . "</span>";
   
   
 }
@@ -2767,6 +2783,7 @@ function show_poi_info ($poi_id, $chart_id, $sign_id) {
   $house_name = get_house_name ($house_id);
   $sign_name = get_sign_name ($sign_id);
 
+/************---MATT moving this to beginning of Blurb 
   echo '<div id="planet_sign_title">';
     echo '<h>';
     if($poi_id != 1) {
@@ -2781,6 +2798,7 @@ function show_poi_info ($poi_id, $chart_id, $sign_id) {
     }
     echo '</h><br>';
   echo '</div>';
+*/
   
   echo '<div id="planet_info">';    
     echo get_poi_blurb ($poi_id);
