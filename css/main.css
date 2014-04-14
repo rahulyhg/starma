@@ -1028,6 +1028,13 @@ li.my_unknown_button a {
    width: 150px;
 }
 
+#descriptors div .value_others {
+   bottom: 41px;
+    left: 20px;
+    position: relative;
+   width: 150px;
+}
+
 .des_selector {
   padding-bottom:10px;
 }
@@ -1182,6 +1189,16 @@ li.my_unknown_button a {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   background-color: #8393CA;
+  /*background:-moz-linear-gradient(bottom, #4E5D84 0%, 
+    #8393CA 30%); /* FF3.6+ */
+  /*background: -webkit-gradient(linear, left bottom, left top, 
+    color-stop(0%, #4E5D84), 
+    color-stop(30%,#8393CA)); /* Chrome,Safari4+ */
+  /*background: -webkit-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* Chrome10+,Safari5.1+ */
+  /*background: -o-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* Opera 11.10+ */
+  /*background: -ms-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* IE10+ */
+  /*background: linear-gradient(to top, #4E5D84 0%, #8393CA 30%); /* W3C */
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4E5D84', endColorstr='#8393CA',GradientType=0 ); /* IE6-9 */
   border-right:0px;
   padding:5px;
   text-align:center;
@@ -1192,6 +1209,7 @@ li.my_unknown_button a {
   height: 12px;
   line-height: 0.8em;
   color:black;
+    transition: hover .5s;
 }
 
 #profile_nav ul li.end a {
@@ -1203,13 +1221,23 @@ li.my_unknown_button a {
 }
 
 #profile_nav ul li a.selected {
-  background-color:#D3DBF6;
+  background:#D3DBF6;
   border-bottom: #D3DBF6;
   height: 14px;
 }
 
 #profile_nav ul li a:hover{
-  background-color:#D3DBF6;
+  background:#D3DBF6;
+  /*background:-moz-linear-gradient(bottom, #B2BCD8 0%, 
+    #D3DBF6 30%); /* FF3.6+ */
+  /*background: -webkit-gradient(linear, left bottom, left top, 
+    color-stop(0%, #B2BCD8), 
+    color-stop(30%,#D3DBF6)); /* Chrome,Safari4+ */
+  /*background: -webkit-linear-gradient(bottom, #B2BCD8 0%, #D3DBF6 30%); /* Chrome10+,Safari5.1+ */
+  /*background: -o-linear-gradient(bottom, #B2BCD8 0%, #D3DBF6 30%); /* Opera 11.10+ */
+  /*background: -ms-linear-gradient(bottom, #B2BCD8 0%, #D3DBF6 30%); /* IE10+ */
+  /*background: linear-gradient(to top, #B2BCD8 0%, #D3DBF6 30%); /* W3C */
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B2BCD8', endColorstr='#D3DBF6',GradientType=0 ); /* IE6-9 */
 }
 
 #profile_sections #section {
@@ -1267,6 +1295,7 @@ li.my_unknown_button a {
   box-shadow: 0 0 2px #313E5C inset;
   height: 75px;
   width: 380px;
+  padding: 5px;
   display:block;
 
 }
@@ -1292,25 +1321,33 @@ li.my_unknown_button a {
   cursor: pointer;
 }
 
-.cancel {
+
+.msg_cancel {
   float: right;
   margin-right: 15px;
   margin-top: 3px;
+  width: 65px;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
   border-left: 1px solid #6376A9;
   border-right: 1px solid #6B7FB6;
   color: white;
-  box-shadow: 0 0 1px #4B5A80;
   background-color: #6F83BB;
-  font-family: arial;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
 }
 
 #msg_sent {
   display: none;
   font-family: arial;
   color: black;
-  font-size: 1em;
+  font-size: 1.3em;
+  text-align: center;
+  width:400px;
+}
+
+#ajax_loader{
+  position: relative;
 }
 
 /*****************---Matt adding style to New Message section */
