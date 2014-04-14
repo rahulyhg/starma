@@ -1096,7 +1096,7 @@ function show_descriptors_info($chart_id) {
   while ($word = mysql_fetch_array($words)) {
     echo '<div id="des_selector_' . (string)($counter+1) . '" class="des_selector">';
       echo '<div class="title">' . (string)($counter+1) . '.</div>';
-      echo '<div class="value">';
+      echo '<div class="value_others">';
         echo '<p>' . $word["descriptor"] . '</p>';
       echo '</div>';
     echo '</div>';
