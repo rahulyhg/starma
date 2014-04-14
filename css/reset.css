@@ -71,3 +71,22 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+select {
+  border: 1px solid #C0C0C0;
+  border-radius: 0;
+  background-color: #FFFFFF;
+  margin: 0;
+  color: #444444;
+  -moz-box-sizing: border-box;
+  -moz-user-select: none;
+  cursor: default;
+  display: inline-block;
+  line-height: normal !important;
+  overflow: -moz-hidden-unscrollable;
+  text-align: start;
+  text-indent: 0;
+  text-shadow: none;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+}
