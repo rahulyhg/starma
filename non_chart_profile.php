@@ -52,7 +52,8 @@ if (login_check_point($type="full")) {
 
     echo '<div id="profile_nav">
         <ul>
-          <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>
+          <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>     
+          <li><a class="' . $houses_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=houses_selected">Houses</a></li>
           <li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=photos_selected">Photos</a></li>
           <li><a class="' . $about_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected">About</a></li>
           <li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=1&section=western_selected">Western View</a></li>
@@ -71,6 +72,9 @@ if (login_check_point($type="full")) {
       echo '<div id="section"/>';
         if ($section == 'chart_selected') {
           require('chart.php');
+        }
+        elseif($section =='houses_selected') {
+          echo '<div><p>Houses coming soon...</p></div>';
         }
         elseif ($section == 'photos_selected') {
           require('photos.php');
