@@ -15,6 +15,7 @@ if (login_check_point($type="full")) {
     $western_selected = '';
   
     $$section = 'selected';
+    $$tab = 'not_selected';
 
     //*************---Matt adding msg popup from Message button
     
@@ -51,6 +52,7 @@ if (login_check_point($type="full")) {
       echo '<div id="profile_nav">
           <ul>
             <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=chart_selected">Birth Chart</a></li>';
+            echo '<li><a class="' . $houses_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=houses_selected">Houses</a></li>';
             if (!$isCeleb)  {
               echo '<li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=photos_selected">Photos</a></li>';
             }
@@ -70,6 +72,9 @@ if (login_check_point($type="full")) {
         echo '<div id="section"/>';
           if ($section == 'chart_selected') {
             require('chart_others.php');
+          }
+          elseif ($section == 'houses_selected') {
+            echo '<div><p>Houses coming soon...</p></div>';
           }
           elseif (($section == 'photos_selected') && (!$isCeleb)) {
             require('photos_others.php');
@@ -100,10 +105,10 @@ if (login_check_point($type="full")) {
               echo '<div id="msg_sheen_content" class="pop">';
                 echo '<div id="msg_type_area">';
                   echo '<form id="send-message-area" action="send_msg_from_profile.php" method="POST">
-                          <label for="msg_sendie">Send a Message</label>
+                          <label for="msg_sendie" id="msg_label">New Message</label>
                           <textarea id="msg_sendie" name="text_body" maxlength = "500" ></textarea>
-                          <div><a href="#" class="cancel">Cancel</a></div>
                           <input type="submit" name="submit" value="Send" class="msg_send"/>
+                          <button type="button" name="cancel" class="msg_cancel">Cancel</button>
                           <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
                           <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
                           <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>                         
