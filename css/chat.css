@@ -241,16 +241,17 @@
 }
 
 #new_message_alert {
-    background: none repeat scroll 0 0 red;
-    border-radius: 5px 5px 5px 5px;
+    background: #FF0F28;
+    border-radius: 2px;
     color: white;
-    height: 20px;
+    height: 16px;
     left: 710px;
-    line-height: 20px;
+    line-height: 16px;
     position: absolute;
     text-align: center;
-    top: 10px;
-    width: 20px;
+    top: 11px;
+    width: 16px;
+    font-size: 12px;
 }
 
 /*************---Matt adding teaser blurb to Conversations */
