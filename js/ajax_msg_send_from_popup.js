@@ -16,34 +16,49 @@ $(document).ready(function(){
             url       : 'chat/send_msg_from_profile.php',
             data      :  msg_data,
             dataType  : 'json',
+
+        })
+          .done(function(data){
+            console.log(data);
+
+            if(data == 'Empty') {
+              //alert('success: ' + data);
+              $('#msg_sent').hide();
+              $('#send-message-area').show();
+              $('#msg_label').text('Your Message is Empty');
+            }
+            else {
+              $('#send-message-area').hide();
+              $('#msg_sent').show();
+              $('#msg_sent').html('<p>Message Sent!</p>');
+              //alert(data);
+             
+               $('.pop').fadeOut(1700, function() {
+                      $('#msg_sendie').val('');
+                      $('#send-message-area').show();
+                      $('#msg_sent').hide();
+                      $('#msg_sent').html('');
+                      $('#msg_label').text('New Message');
+                  });
+               //$('#msg_sendie').val('');
+          
+            } 
+
+          })
+          .fail(function(data){
+              console.log(data);
+              alert('failure: ' + data + msg_data['text_body']);
+          });
+        event.preventDefault();
+
+      });
+    });
+
+   /*         
             success   :  function(data){
                             alert('sucess: ' + data);
                           },
             error     :  function(data){
                               alert('failure' + data + msg_data['text_body']);
                           }
-
-        })
-          //.done(function(data){
-          //  console.log(data);
-
-            //if(!data) {
-              //alert('success: ' + data);
-              //$('#msg_sendie').val('There was no text to send!');
-            //}
-            //else {
-              //$('#send-msg-area').hide();
-              //$('#msg_sent').show();
-              //$('#msg_sent').html('<p>Message Sent!</p>');
-              //alert(data.message);
-            //} 
-
-          //})
-          //.fail(function(data){
-          //    console.log(data);
-          //    alert('failure: ' + data + msg_data['text_body']);
-          //});
-        event.preventDefault();
-
-      });
-    });
+    */
