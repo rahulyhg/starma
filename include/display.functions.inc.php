@@ -464,6 +464,41 @@ function show_my_descriptors_info() {
   echo '</div>';
 }
 
+//**************---Matt added for Homepage spacing
+
+function show_my_descriptors_info_home() {
+  $words = get_my_descriptors();
+  echo '<div id="descriptors">';
+  
+  $counter = 0;
+
+  while ($word = mysql_fetch_array($words)) {
+    echo '<div id="des_selector_' . (string)($counter+1) . '" class="des_selector">';
+      echo '<div class="title">' . (string)($counter+1) . '.</div>';
+      echo '<div class="value_home">';
+        echo '<span>' . $word["descriptor"] . '</span>';
+        js_edit_framework("desc_" . (string)($counter+1) . "_edit_box", "des_selector_" . (string)($counter+1) . " .value span", "user_descriptor", $word["user_des_id"], $word["descriptor"]);
+      echo '</div>';
+    echo '</div>';
+    $counter = $counter + 1;
+  }
+
+  while ($counter < max_descriptors()) {
+    echo '<div id="des_selector_' . (string)($counter+1) . '">';
+
+      echo '<div class="title">' . (string)($counter+1) . '.</div>';
+      
+
+    echo '</div>';
+    $counter = $counter + 1;
+  }
+
+  
+  echo '</div>';
+}
+
+//**************ENDMatt
+
 function show_my_interests_info() {
   show_interests_info(get_my_chart_id());
   /*
@@ -2744,11 +2779,14 @@ function show_poi_sign_blurb ($poi_id, $sign_id, $chart_id=-1) {
   $sign_name = get_sign_name ($sign_id);
   echo "<span>"; 
     if($poi_id != 1) {
-        echo '<strong>' . ucfirst(strtolower($poi_name)) . ' in ' . ucfirst(strtolower($sign_name) . ': </strong>');
-    }
-    if ($poi_id == 9) {
-        echo ' & ';
-        echo ucfirst(strtolower(get_poi_name($poi_id+1))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($chart_id, 10))) . ': </strong>');
+        echo '<strong>' . ucfirst(strtolower($poi_name)) . ' in ' . ucfirst(strtolower($sign_name));
+          if ($poi_id == 9) {
+            echo ' & ';
+            echo ucfirst(strtolower(get_poi_name($poi_id+1))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($chart_id, 10))) . ': </strong>');
+          }
+          else {
+            echo ': </strong>';
+          }
     }
     elseif($poi_id == 1) {
         echo '<strong>' .  ucfirst(strtolower($sign_name) . ' ' . ucfirst(strtolower($poi_name)) . ': </strong>');
