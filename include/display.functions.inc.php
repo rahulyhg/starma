@@ -167,7 +167,7 @@ function show_msg_last ($r_id) {
   
       while($msgs = mysql_fetch_array($my_msgs)) {
         extract($msgs);
-        $msg = [];
+        $msg = array();
         array_push($msg, $text_body);        
       }
 /*

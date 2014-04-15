@@ -137,7 +137,7 @@ function do_redirect ($url) {
 
 
 function get_domain () {
-  return '127.0.0.1/';
+  return '127.0.0.1:8080';
   //return '192.168.1.141:8080';
 }
 
