@@ -1035,6 +1035,13 @@ li.my_unknown_button a {
    width: 150px;
 }
 
+#descriptors div .value_home {
+   bottom: 30px;
+    left: 20px;
+    position: relative;
+   width: 150px;
+}
+
 .des_selector {
   padding-bottom:10px;
 }
