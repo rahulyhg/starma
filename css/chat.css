@@ -242,15 +242,16 @@
 
 #new_message_alert {
     background: #FF0F28;
+    border: 1px solid #891A1D;
     border-radius: 2px;
     color: white;
-    height: 16px;
+    height: 14px;
     left: 710px;
-    line-height: 16px;
+    line-height: 14px;
     position: absolute;
     text-align: center;
     top: 11px;
-    width: 16px;
+    width: 14px;
     font-size: 12px;
 }
 
