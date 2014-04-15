@@ -1154,12 +1154,14 @@ li.my_unknown_button a {
 }
 
 #profile_sections {
+    background: #D3DBF6;
     border-top: 2px solid #2C3447;
+    border-right: 2px solid #2C3447;
     bottom: 102px;
     float: left;
     position: relative;
     right: 10px;
-    width: 795px;
+    width: 793px;
 }
 
 .celeb_page #profile_sections {  
