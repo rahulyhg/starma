@@ -110,7 +110,8 @@
 
 
 #starma_chart #blurb {
-    background:white;
+    /*background: url("/img/seed_paper.png");*/
+    background: white;
     width:510px;
     min-height:460px;
     margin-left:auto;
