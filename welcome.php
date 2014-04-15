@@ -32,7 +32,9 @@ require_once "header.php";
         </div>--> 
         </div>
         
-        <?php show_descriptors_info(get_my_chart_id()); ?>   
+        <?php //show_descriptors_info(get_my_chart_id()); 
+                show_my_descriptors_info_home();
+        ?>   
       </div>  
       <div id="p_box_blurb"><p class="hsel_box_blurb">Let others get to know your interests...</p></div>
     </div>
