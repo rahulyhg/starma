@@ -1458,7 +1458,7 @@ ul.as-selections li.as-original input {
   width: 250px;
   color: #636965;
   font-size: .875em;
-  padding:7px 0 3px 0;
+  margin: 3px 0;
   height: 23px;
 }
 
