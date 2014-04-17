@@ -1190,7 +1190,7 @@ function get_left_menu ($the_page) {
     $menu['nav' . $x] = array('','#'); 
   }
   if ($the_page == 'cesel') {
-    $menu['nav1'] = array('celebrities&nbsp;&nbsp;','celebrities.php');
+    $menu['nav1'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
     /*$menu['nav2'] = array('Houses&nbsp;&nbsp;','#');
     $menu['nav3'] = array('&nbsp;&nbsp;','#');
     $menu['nav4'] = array('Career Advice&nbsp;&nbsp;','#');
@@ -1199,24 +1199,24 @@ function get_left_menu ($the_page) {
     */
   }
   elseif ($the_page == 'psel') {
-    $menu['nav1'] = array('profile&nbsp;&nbsp;','non_chart_profile.php');
+    $menu['nav1'] = array('Profile&nbsp;&nbsp;','non_chart_profile.php');
     //$menu['nav2'] = array('houses&nbsp;&nbsp;','#');
-    $menu['nav2'] = array('romantic advice&nbsp;&nbsp;','#');
-    $menu['nav3'] = array('career advice&nbsp;&nbsp;','#');
-    $menu['nav4'] = array('my birth info&nbsp;&nbsp;','birth_info.php');
+    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','#');
+    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','#');
+    $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#');
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
   }
   elseif ($the_page == 'cosel') {
-    $menu['nav1'] = array('new to Starma&nbsp;&nbsp;','all_users.php');
-    $menu['nav2'] = array('favorites&nbsp;&nbsp;','favorites.php');
+    $menu['nav1'] = array('New to Starma&nbsp;&nbsp;','all_users.php');
+    $menu['nav2'] = array('Favorites&nbsp;&nbsp;','favorites.php');
     //$menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
-    $menu['nav3'] = array('custom chart&nbsp;&nbsp;', 'enter_user.php');
+    $menu['nav3'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php');
     
   }
   elseif ($the_page == 'hsel') {
-    $menu['nav1'] = array('welcome&nbsp;&nbsp;','welcome.php');
-    $menu['nav2'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
+    $menu['nav1'] = array('wWlcome&nbsp;&nbsp;','welcome.php');
+    $menu['nav2'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php');
     
   }
   elseif ($the_page == 'isel') {
@@ -2183,6 +2183,8 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         //echo '*' . $score . '*';
       echo '</div>';
       echo '<div id="explanation">';
+        
+        
         echo 'Display Text For:';
         //echo 'Below is the basic structure of compatibility.  It must be read as a whole with the understanding that a strong dynamic can compensate for a weak one.  The Major Connections have the strongest influence on compatibility and the Minor Connections have the potential to support or weaken them.';
         echo '<div id="text_selector">';
@@ -2204,23 +2206,26 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
           echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&text_type=1" . "&stage=" . $stage, $hidden="connection_type", $value="'" . $connection_type . "'", $hidden2="", $value2="") . '"';        
           echo '/>ROMANCE</a></div>';
         echo '</div>';
+        
       echo '</div>';
+
+    
   
        
       echo '<div id="compare_results_selector">';
       echo '<ul>';
       //Major
-      echo '<li class="major ';
+      echo '<li class="';    //took out class="major"
       if ($results_type == "major") {
         echo 'selected';
       }
       echo '">';
-      echo '<a href="#" ';
+      echo '<a href="#"';
       echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
       echo '/>Major</a></li>';
 
       //Minor
-      echo '<li class="minor ';
+      echo '<li class="';   //took out class="minor"
       if ($results_type == "minor") {
         echo 'selected';
       }
@@ -2229,11 +2234,11 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
       echo '/>Minor</a></li>';
       //Bonus
-      echo '<li class="bonus ';
+      echo '<li class="end ';   //took out class="bonus"
       if ($results_type == "bonus") {
         echo 'selected';
       }
-      echo '"><a href="' . $goto. '&stage=2' . '&results_type=bonus">Other</a></li>';
+      echo '"><a href="' . $goto . '&stage=2' . '&results_type=bonus">Other</a></li>';
    
       echo '</ul>';
       echo '</div>';
@@ -2253,10 +2258,168 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         }
         echo '/>More Info</a>';
       echo '</div>';
+
+      /***************---Matt REDESIGN------
+      $chart_id1 = $_GET["chart_id1"];
+      $chart_id2 = $_GET["chart_id2"];
+      echo '<div id="compare_results_selector">
+        <ul>
+          <li><input type="submit" id="major" value="Major" /></li>     
+          <li><input type="submit" id="minor" value="Minor" /></li>
+          <li class="end"><input type="submit" id="bonus" value="Bonus" /></li>
+        </ul>
+        <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
+        <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>  
+      </div>';
+
+      
+      echo '<script type="text/javascript" src="/js/ajax_compare_submit.js"></script>';
+      */
       echo '</form>';
       echo '</div>';
 }
 
+/**************---Matt Redesign Loading everything on one page per connection type */
+
+function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
+
+
+      $connection_type = "rising";
+      //if ( isset($_POST["connection_type"]) and in_array($_POST["connection_type"], get_cornerstones()) ) {
+      
+      //  $connection_type = $_POST["connection_type"];
+      //}
+
+      //Log the Action
+      log_this_action (compare_action_major(), viewed_basic_action(), $chart_id2, $stage, get_poi_id (strtoupper($connection_type)));
+  
+
+
+    echo '<div id="compare">';
+      echo'<div id="section">';
+  
+
+      echo '<form name="major_connection_browser" action="." method="post">';
+      echo '<input type="hidden" name="connection_type"/>';
+      echo '<div id="major_connections">'; 
+      
+             
+
+      //Left Side;
+      echo '<div class="poi_column">';
+      echo '<ul>';
+      //echo '*' . $connection_type . '*';
+      foreach (get_cornerstones() as $connection) {
+          $button_sign_id = get_sign_from_poi ($chart_id1, get_poi_id (ucfirst($connection)));
+          echo '<li>';
+          echo '<div class="poi_column_wrapper">';
+          echo '<div class="left ' . get_selector_name($button_sign_id);
+          //if ($connection_type == $connection or $stage==2) { 
+          //  echo ' selected';
+          //}
+          echo '"><a class="poi_button" href="#"><span>' . ucfirst($connection) . '</span></a></div>';
+
+            $button_sign_id2 = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
+              echo '<div class="right ' . get_selector_name($button_sign_id2);
+              //if ($connection_type == $connection or $stage==2) { 
+              //  echo ' selected';
+              //}
+              echo '"><a class="poi_button" href="#"><span>' . ucfirst($connection) . '</span></a></div>';
+
+              $relationship_id = $compare_data[$connection . '2' . $connection]["relationship_id"];
+              $relationship_name = $compare_data[$connection . '2' . $connection]["relationship_title"];
+              echo '<div class="dynamic_column ' . get_rela_selector_name($relationship_id);
+              echo '"><a class="dynamic_icon" href="#"><span>' . ucfirst($relationship_name) . '</span></a></div>';  
+            
+
+                  //blurb boxes
+                  //if ($connection_type != "none") {
+                    echo '<div id="blurb">';
+                    $connection_poi_id = get_poi_id (strtoupper($connection));
+                    $connection_data = $compare_data[$connection . '2' . $connection];
+                    $relationship_id = $connection_data["relationship_id"];
+                    //echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id) . "</span>";
+                    show_dynamic_info($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
+                    show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, $text_type, $chart_id1, $chart_id2);
+                    echo '</div>';
+          echo '</div>';  //closing poi_column_wrapper
+          echo '</li>';  
+        
+      }
+      echo '</ul>';
+      echo '</div>';
+      //End Left Side
+     /*
+      //Right Side
+      
+      echo '<div class="poi_column right_side"/>';
+      echo '<ul>';
+      
+      foreach (get_cornerstones() as $connection) {
+          $button_sign_id = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
+          echo '<li class="' . get_selector_name($button_sign_id);
+          //if ($connection_type == $connection or $stage==2) { 
+          //  echo ' selected';
+          //}
+          echo '"><a href="#"><span>' . ucfirst($connection) . '</span></a></li>';  
+        
+      }
+      echo '</ul>';
+      echo '</div>';
+      //End Right Side
+      
+      //Removed Arrows
+
+        //Middle Relationships
+        echo '<div class="middle"/>';
+        echo '<ul>';
+        
+        //dynamic images
+        foreach (get_cornerstones() as $connection) {
+            //$button_sign_id = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
+            $relationship_id = $compare_data[$connection . '2' . $connection]["relationship_id"];
+            $relationship_name = $compare_data[$connection . '2' . $connection]["relationship_title"];
+            echo '<li class="dynamic_icon ' . get_rela_selector_name($relationship_id);
+            echo '"><a href="#"><span>' . ucfirst($relationship_name) . '</span></a></li>';  
+            
+              echo '<li>';
+
+                  //blurb boxes
+                  //if ($connection_type != "none") {
+                    echo '<div id="blurb">';
+                    $connection_poi_id = get_poi_id (strtoupper($connection));
+                    $connection_data = $compare_data[$connection . '2' . $connection];
+                    $relationship_id = $connection_data["relationship_id"];
+                    //echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id) . "</span>";
+                    show_dynamic_info($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
+                    show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, $text_type, $chart_id1, $chart_id2);
+                    echo '</div>';
+                  //}
+                  //else {
+                    //echo '<div id="blurb">';
+                      //echo "<span>Please select a dynamic</span>";
+                    //echo '</div>';
+                  //} 
+
+              echo '</li>';
+
+        }
+        echo '</ul>';
+        echo '</div>';
+        //End Middle Relationships*/
+
+      //}
+      echo '</div>';
+      echo '</form>';
+  echo '</div>';   //closing #section
+  echo '</div>';  //closing #compare
+}
+
+
+/*****************EndMatt---*/
+
+
+/* Old Way
 function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
 
@@ -2268,7 +2431,12 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
       //Log the Action
       log_this_action (compare_action_major(), viewed_basic_action(), $chart_id2, $stage, get_poi_id (strtoupper($connection_type)));
-      
+  
+  //Matt Redesign
+
+    echo '<div id="compare">';
+      echo'<div id="section">';
+  //ENDMATT   
 
       echo '<form name="major_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
@@ -2348,7 +2516,7 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
         }
         echo '</ul>';
         echo '</div>';
-        //End right arrows
+        //End right arrows 
       //}
       
 
@@ -2390,8 +2558,11 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
       }
       echo '</div>';
       echo '</form>';
-  
+  echo '</div>';   //closing #section
+  echo '</div>';  //closing #compare
 }
+
+*/  //End Old Way
 
 function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
@@ -2404,6 +2575,12 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       
       //Log the Action
       log_this_action (compare_action_minor(), viewed_basic_action(), $chart_id2, $stage, get_poi_id (strtoupper($connection_type)));
+
+    /***********---Matt Added for Redesign---*/
+
+      echo '<div id="compare">';
+        echo'<div id="section">';
+    /*----ENDMATT---*/ 
 
       echo '<form name="minor_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
@@ -2451,13 +2628,13 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       //End Right Side
 
       
-      //left arrows
+      /*left arrows
         echo '<div class="chart_tabs left_side ' . $connection_type . ' arrows stage' . $stage . '"/>';
         
         echo '</div>';
-      //End left arrows
+      //End left arrows */
    
-      //right arrows
+      /*right arrows
         echo '<div class="chart_tabs right_side ' . $connection_type . ' arrows stage' . $stage . '"/>';
         if ($stage == 2) {
           echo '<ul>';
@@ -2474,7 +2651,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
           echo '</ul>';
         }
         echo '</div>';
-      //End right arrows
+      //End right arrows*/
       
       //Middle Relationships
       if ($stage=="3") {
@@ -2531,6 +2708,8 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       echo '</div>';
       echo '</form>';
   
+    echo '</div>';   //closing #section
+  echo '</div>';  //closing #compare
 }
 
 function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
@@ -2546,6 +2725,12 @@ function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
       //Log the Action
       log_this_action (compare_action_bonus(), viewed_basic_action(), $chart_id2, $stage, -2);
+
+    /***********---Matt Added for Redesign---*/
+
+      echo '<div id="compare">';
+        echo'<div id="section">';
+    /*----ENDMATT---*/ 
 
       echo '<form name="major_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
@@ -2689,6 +2874,9 @@ function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage=
       }
       echo '</div>';
       echo '</form>';
+
+    echo '</div>';   //closing #section
+  echo '</div>';  //closing #compare
   
 }
 
