@@ -1,9 +1,10 @@
+/*
 .blurb {
     border:1px solid black;
     width:500px;
     padding:10px;
 }
-
+*/
 
 
 
@@ -342,7 +343,7 @@ div.my_2_button a {
 }
 
 div.my_1_button a {
-  background:url('/img/Starma-Astrology-Compatibility-Peas-In-A-Pod.png') no-repeat center top;
+  background:url('/img/Starma-Astrology-Compatibility-Peas-In-A-Pod-Big.png') no-repeat center top;
 }
 
 div.my_unknown_button a {
@@ -627,7 +628,7 @@ div.my_unknown_button a {
     /*left: 69px;
     top: 100px;*/
     position: absolute;
-    left: 225px;
+    left: 19px;
     top: 165px;
     z-index: 2;
 }
@@ -637,7 +638,7 @@ div.my_unknown_button a {
     float: left;
     position: relative;
 }
-
+/* For future AJAX
 #compare_results_selector ul li input {
   border-left: 2px solid #2C3447;
   border-right: 2px solid #2C3447;
@@ -651,7 +652,7 @@ div.my_unknown_button a {
   text-align:center;
   margin:0px;
   display:block;
-  width:100px;
+  width:170px;
   height: 21px;
   font-size: .8em;
   line-height: 0.8em;
@@ -659,6 +660,8 @@ div.my_unknown_button a {
   cursor: pointer;
   font-family: "P22UndergroundBook", helvetica, arial;
 }
+
+*/
 
 /*  For old design  */
 #compare_results_selector ul li a {
@@ -674,7 +677,7 @@ div.my_unknown_button a {
   text-align:center;
   margin:0px;
   display:block;
-  width:100px;
+  width:171px;
   height: 12px;
   font-size: .8em;
   line-height: 0.8em;
@@ -903,11 +906,12 @@ div.my_unknown_button a {
 .dynamic_column {
   position: relative;
   float: left;
-  margin-bottom: 20px;
-  margin-left: 189px;
+  margin: 0 20px 20px 20px;
+  width: 478px;
+  border: 1px solid black;
 }
 
-#blurb {
+.blurb {
   position: relative;
 }
 
@@ -936,6 +940,20 @@ div.my_unknown_button a {
   display: inline;
 }
 
+.poi_column .blurb div.text {
+  font-size: .875em;
+  font-family: arial;
+  display: inline;
+  position: relative;
+  float: right;
+  cursor: pointer;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+
 /*///////MAJOR CONNECTIONS//////*/
 
 #major_connections {
@@ -945,29 +963,35 @@ div.my_unknown_button a {
 
 
 
-#major_connections #blurb {
+#major_connections .blurb {
     background-color:white;
     border:2px solid black;
-    width:666px;
-    min-height:403px;
-    margin-left:auto;
+    width:602px;
+    margin-left:31px;
     margin-right:auto;
     float: left;
+    height: auto;
 }
 
-#major_connections #blurb span {
+#major_connections .dynamic_blurb {
     padding:10px;
     display:block;
     text-align:left;
+    font-size: .93em;
+    line-height: 1.5;
+    letter-spacing: .05px;  
 }
 
-#major_connections #blurb #dynamic_info {
+#major_connections .dynamic_info {
   text-align:left;  
   padding:10px;
-  font-size:1em;
+  font-size:.93em;
+  line-height: 1.5;
+  letter-spacing: .05px;
+
 }
 
-#major_connections #blurb #dynamic_sign_title {
+#major_connections #dynamic_sign_title {
   font-size:1.1em;
   font-weight:bold; 
   text-align:center;
@@ -1011,7 +1035,7 @@ div.my_unknown_button a {
 }
 
 #major_connections .dynamic_icon{
-  width:160px;
+  width:478px;
   background-color:#D3DBF6;
   border: none;
   color:black;
