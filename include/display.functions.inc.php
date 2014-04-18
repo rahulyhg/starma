@@ -2222,7 +2222,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '">';
       echo '<a href="#"';
       echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
-      echo '/>Major</a></li>';
+      echo '/>Major Connections</a></li>';
 
       //Minor
       echo '<li class="';   //took out class="minor"
@@ -2232,13 +2232,19 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '">';
       echo '<a href="#" ';
       echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
-      echo '/>Minor</a></li>';
+      echo '/>Supporting Connections</a></li>';
       //Bonus
-      echo '<li class="end ';   //took out class="bonus"
-      if ($results_type == "bonus") {
+      echo '<li class="';   //took out class="bonus"
+      if ($results_type == "Ruling Planets") {
         echo 'selected';
       }
       echo '"><a href="' . $goto . '&stage=2' . '&results_type=bonus">Other</a></li>';
+
+      echo '<li class="end ';   //took out class="bonus"
+      if ($results_type == "jupiter") {
+        echo 'selected';
+      }
+      echo '"><a href="' . $goto . '&stage=2' . '&results_type=jupiter">Jupiter</a></li>';
    
       echo '</ul>';
       echo '</div>';
@@ -2308,19 +2314,19 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
       //Left Side;
       echo '<div class="poi_column">';
       echo '<ul>';
-      //echo '*' . $connection_type . '*';
+      
       foreach (get_cornerstones() as $connection) {
           $button_sign_id = get_sign_from_poi ($chart_id1, get_poi_id (ucfirst($connection)));
           echo '<li>';
           echo '<div class="poi_column_wrapper">';
-          echo '<div class="left ' . get_selector_name($button_sign_id);
+          echo '<div class="selected left ' . get_selector_name($button_sign_id);
           //if ($connection_type == $connection or $stage==2) { 
           //  echo ' selected';
           //}
           echo '"><a class="poi_button" href="#"><span>' . ucfirst($connection) . '</span></a></div>';
 
             $button_sign_id2 = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
-              echo '<div class="right ' . get_selector_name($button_sign_id2);
+              echo '<div class="selected right ' . get_selector_name($button_sign_id2);
               //if ($connection_type == $connection or $stage==2) { 
               //  echo ' selected';
               //}
@@ -2329,19 +2335,21 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
               $relationship_id = $compare_data[$connection . '2' . $connection]["relationship_id"];
               $relationship_name = $compare_data[$connection . '2' . $connection]["relationship_title"];
               echo '<div class="dynamic_column ' . get_rela_selector_name($relationship_id);
-              echo '"><a class="dynamic_icon" href="#"><span>' . ucfirst($relationship_name) . '</span></a></div>';  
+              echo '"><a class="dynamic_icon" href="#"><span></span></a></div>';  
             
 
                   //blurb boxes
-                  //if ($connection_type != "none") {
-                    echo '<div id="blurb">';
+                    echo '<div class="blurb">';
                     $connection_poi_id = get_poi_id (strtoupper($connection));
                     $connection_data = $compare_data[$connection . '2' . $connection];
                     $relationship_id = $connection_data["relationship_id"];
+                    echo '<div class="text"><span class="hide_show">Hide Text</span></div>';
                     //echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id) . "</span>";
                     show_dynamic_info($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
                     show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, $text_type, $chart_id1, $chart_id2);
                     echo '</div>';
+                    //' . ucfirst($relationship_name) . '  --TOOK OUT OF <A> SPAN DYNAMIC ICON
+
           echo '</div>';  //closing poi_column_wrapper
           echo '</li>';  
         
@@ -2413,6 +2421,8 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
       echo '</form>';
   echo '</div>';   //closing #section
   echo '</div>';  //closing #compare
+
+  echo '<script type="text/javascript" src="/js/compare_ui.js"></script>';
 }
 
 
@@ -3033,14 +3043,46 @@ function show_poi_info ($poi_id, $chart_id, $sign_id) {
 }
 
 function show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id=1, $chart_id1, $chart_id2) {
+  
+  //MATT REDESIGN
+     if ($connection_poi_id == -1) {
+      $rp_id1 = get_ruling_planet($chart_id1);
+      $poi_name1 = "Ruling Planet in";
+      $sign_name1 = get_sign_name (get_sign_from_poi ($chart_id1, $rp_id1));
+    }
+    else {
+      $poi_name1 = get_poi_name($connection_poi_id);
+      $sign_id1 = get_sign_from_poi ($chart_id1, $connection_poi_id);
+      $sign_name1 = get_sign_name ($sign_id1);
+    }
+    if ($connection_poi_id2 == -1) {
+      $rp_id2 = get_ruling_planet($chart_id2);
+      $poi_name2 = "Ruling Planet in";
+      $sign_name2 = get_sign_name (get_sign_from_poi ($chart_id2, $rp_id2));
+    }
+    else {
+      $poi_name2 = get_poi_name($connection_poi_id2);
+      $sign_id2 = get_sign_from_poi ($chart_id2, $connection_poi_id2);
+      $sign_name2 = get_sign_name ($sign_id2);
+    }
+
+
+  //END MATT
+
   if ($user_id2 = get_user_id_from_chart_id($chart_id2)) {
     $blurb = gender_converter_wrapper (get_gender($user_id2),get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2));
   }
   else {
     $blurb = get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2);
   }
-  echo "<span>" . $blurb . "</span>"; 
+  if($connection_poi_id == -1) {
+    echo "<span class='dynamic_blurb'><strong>" . $poi_name1 . ' ' . ucfirst(strtolower($sign_name1)) . ' to ' . $poi_name2 . ' ' . ucfirst(strtolower($sign_name2)) . ": </strong>" . $blurb . "</span>";
+  }
+  else {
+    echo "<span class='dynamic_blurb'><strong>" . ucfirst(strtolower($sign_name1)) . ' ' . ucfirst(strtolower($poi_name1)) . ' to ' . ucfirst(strtolower($sign_name2)) . ' ' . ucfirst(strtolower($poi_name2)) . ": </strong>" . $blurb . "</span>";
+  } 
 }
+
 
 function show_dynamic_info ($connection_poi_id, $connection_poi_id2, $relationship_id, $chart_id, $chart_id2) {
   if ($connection_poi_id == -1) {
@@ -3067,7 +3109,7 @@ function show_dynamic_info ($connection_poi_id, $connection_poi_id2, $relationsh
   //echo $connection_poi_id . '**' . $connection_poi_id2 . '**' . $chart_id . '**' . $chart_id2;
 
    
-  
+  /************---Matt Redesign
 
   echo '<div id="dynamic_sign_title"';
   if ($connection_poi_id == -1) {
@@ -3088,8 +3130,8 @@ function show_dynamic_info ($connection_poi_id, $connection_poi_id2, $relationsh
     //}
     echo '</h><br>';
   echo '</div>';
-
-  echo '<div id="dynamic_info">'; 
+*/
+  echo '<div class="dynamic_info">'; 
     if ($connection_poi_id == -1) {
       echo 'The relationship between the Ruling Planet signs further emphasizes the dynamic between the Rising Signs. If the Rising is the lens through which you see the world, the Ruling Planet is the filter that colors that lens.';
     }
