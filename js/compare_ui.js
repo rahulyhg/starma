@@ -8,7 +8,7 @@ $(document).ready(function(){
 	//	});
 		//alert(autoHeight);
 		
-		
+	//Major
 		$('.text').click(function(){
 			//$(this).toggleClass('hide show');
 			var intro = $(this).siblings('.dynamic_info').text();
@@ -33,4 +33,41 @@ $(document).ready(function(){
 					//});
 			
 		});
+
+
+
+	//Minor
+		$('.blurb_supporting').hide();
+
+
+		$('.to_leg1').click(function(){
+			$(this).parent().siblings('.leg1').toggle();
+			$(this).parent().siblings('.leg2').hide();
+			$(this).parent().siblings('.leg3').hide();
+		});
+
+		$('.to_leg2').click(function(){
+			$(this).parent().siblings('.leg2').toggle();
+			$(this).parent().siblings('.leg1').hide();
+			$(this).parent().siblings('.leg3').hide();
+		});
+
+		$('.to_leg3').click(function(){
+			$(this).parent().siblings('.leg3').toggle();
+			$(this).parent().siblings('.leg1').hide();
+			$(this).parent().siblings('.leg2').hide();
+		});
+
+
+
+
+
+
+
+
 });
+
+
+
+
+
