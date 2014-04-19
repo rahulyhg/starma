@@ -2356,67 +2356,7 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
       }
       echo '</ul>';
       echo '</div>';
-      //End Left Side
-     /*
-      //Right Side
-      
-      echo '<div class="poi_column right_side"/>';
-      echo '<ul>';
-      
-      foreach (get_cornerstones() as $connection) {
-          $button_sign_id = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
-          echo '<li class="' . get_selector_name($button_sign_id);
-          //if ($connection_type == $connection or $stage==2) { 
-          //  echo ' selected';
-          //}
-          echo '"><a href="#"><span>' . ucfirst($connection) . '</span></a></li>';  
-        
-      }
-      echo '</ul>';
-      echo '</div>';
-      //End Right Side
-      
-      //Removed Arrows
-
-        //Middle Relationships
-        echo '<div class="middle"/>';
-        echo '<ul>';
-        
-        //dynamic images
-        foreach (get_cornerstones() as $connection) {
-            //$button_sign_id = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
-            $relationship_id = $compare_data[$connection . '2' . $connection]["relationship_id"];
-            $relationship_name = $compare_data[$connection . '2' . $connection]["relationship_title"];
-            echo '<li class="dynamic_icon ' . get_rela_selector_name($relationship_id);
-            echo '"><a href="#"><span>' . ucfirst($relationship_name) . '</span></a></li>';  
-            
-              echo '<li>';
-
-                  //blurb boxes
-                  //if ($connection_type != "none") {
-                    echo '<div id="blurb">';
-                    $connection_poi_id = get_poi_id (strtoupper($connection));
-                    $connection_data = $compare_data[$connection . '2' . $connection];
-                    $relationship_id = $connection_data["relationship_id"];
-                    //echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id) . "</span>";
-                    show_dynamic_info($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
-                    show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, $text_type, $chart_id1, $chart_id2);
-                    echo '</div>';
-                  //}
-                  //else {
-                    //echo '<div id="blurb">';
-                      //echo "<span>Please select a dynamic</span>";
-                    //echo '</div>';
-                  //} 
-
-              echo '</li>';
-
-        }
-        echo '</ul>';
-        echo '</div>';
-        //End Middle Relationships*/
-
-      //}
+    
       echo '</div>';
       echo '</form>';
   echo '</div>';   //closing #section
@@ -2424,6 +2364,115 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
   echo '<script type="text/javascript" src="/js/compare_ui.js"></script>';
 }
+
+function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
+
+  //echo $chart_id1 . ' ' . $chart_id2;
+      
+      $connection_type = "rising";
+      //if ( isset($_POST["connection_type"]) and in_array($_POST["connection_type"], get_cornerstones()) ) {
+      //  $connection_type = $_POST["connection_type"];
+      //}
+      
+      //Log the Action
+      log_this_action (compare_action_minor(), viewed_basic_action(), $chart_id2, $stage, get_poi_id (strtoupper($connection_type)));
+
+    //***********---Matt Added for Redesign---
+
+      echo '<div id="compare">';
+        echo'<div id="section">';
+    //----ENDMATT--- 
+
+      echo '<form name="minor_connection_browser" action="." method="post">';
+      echo '<input type="hidden" name="connection_type"/>';
+      echo '<div id="minor_connections">'; 
+      
+             
+
+      
+      echo '<div class="poi_column">';
+      echo '<ul>';
+      //echo '*' . $connection_type . '*';
+      $x = 0;
+      foreach (get_cornerstones() as $connection) {
+
+        $connection_type = get_cornerstones()[$x];
+          echo '<li>'; 
+          echo '<div class="poi_column_wrapper">';
+          $button_sign_id = get_sign_from_poi ($chart_id1, get_poi_id (ucfirst($connection)));  //in user functions
+          $button_sign_id2 = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
+         
+          
+          //Left Side;
+            echo '<div class="selected left ' . get_selector_name($button_sign_id);
+            echo '"><a class="poi_button" href="#"><span>' . ucfirst($connection) . '</span></a></div>';  //End Left Side
+        
+          //Right Side
+            echo '<div class="selected right ' . get_selector_name($button_sign_id2);
+            echo '"><a class="poi_button" href="#"><span>' . ucfirst($connection) . '</span></a></div>';  //End Right Side
+
+            
+              //Middle Relationships
+
+                $relationship_id1 = $compare_data[$connection_type . '2' . $connection]["relationship_id"];
+                $relationship_name = $compare_data[$connection_type . '2' . $connection]["relationship_title"];
+                //$connection_poi_id_A = get_poi_id (strtoupper($connection_type));
+                //$connection_poi_id_B = get_poi_id (strtoupper($connection));
+                //echo 'rID1: ' . $relationship_id1;
+
+                echo '<div class="dynamic_column ' . get_rela_selector_name($relationship_id1);
+                echo '"><a class="dynamic_icon" href="#"><span></span></a></div>'; 
+
+                //Bridge Image
+
+                echo '<div class="bridge"><div class="main to_leg1"></div>
+                      <div class="main to_leg2"></div>
+                      <div class="main to_leg3"></div>
+                      </div>';
+
+                //Blurb Boxes
+                //$counter = 0;
+                  $z = 1;    
+                for ($y = 0; $y < count(get_cornerstones()); $y++) {
+                  $connection1 = get_cornerstones()[$x];
+                  $connection2 = get_cornerstones()[$y];
+                  if ($connection1 != $connection2) {
+                    //echo 'c1: ' . $connection1 . '<br>c2: ' . $connection2;
+                    //echo $connection1 . 'to';
+                    //echo $connection2 . '<br>';
+                 
+                        $relationship_id2 = $compare_data[$connection1 .'2' . $connection2]["relationship_id"];
+                        $connection_poi_id_A = get_poi_id (strtoupper($connection1));
+                        $connection_poi_id_B = get_poi_id (strtoupper($connection2));
+                        //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
+                          echo "<div class='blurb_supporting leg" . $z . "'>";
+                            if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
+                              echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
+                            }
+                            else {
+                              echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, $text_type, $chart_id1, $chart_id2) . "</span>";
+                            }
+                          echo '</div>'; //close Blurb   
+                          $z++; 
+                    }
+                    
+                  }
+                  
+                 echo "</div>"; //close poi_column_wrapper
+                 echo '</li>';
+              $x++;
+            } //end ForEach <li>
+
+          echo '</ul>';
+        echo '</div>'; //close poi_column
+       echo '</div>'; //close minor_connections
+      echo '</form>';
+  
+      echo '</div>';   //closing #section
+      echo '</div>';  //closing #compare
+      echo '<script type="text/javascript" src="/js/compare_ui.js"></script>';
+            
+    }
 
 
 /*****************EndMatt---*/
@@ -2572,7 +2621,7 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
   echo '</div>';  //closing #compare
 }
 
-*/  //End Old Way
+
 
 function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
@@ -2586,11 +2635,11 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       //Log the Action
       log_this_action (compare_action_minor(), viewed_basic_action(), $chart_id2, $stage, get_poi_id (strtoupper($connection_type)));
 
-    /***********---Matt Added for Redesign---*/
+    //***********---Matt Added for Redesign---
 
       echo '<div id="compare">';
         echo'<div id="section">';
-    /*----ENDMATT---*/ 
+    //----ENDMATT--- 
 
       echo '<form name="minor_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
@@ -2638,13 +2687,13 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       //End Right Side
 
       
-      /*left arrows
+      //left arrows
         echo '<div class="chart_tabs left_side ' . $connection_type . ' arrows stage' . $stage . '"/>';
         
         echo '</div>';
-      //End left arrows */
+      //End left arrows 
    
-      /*right arrows
+      //right arrows
         echo '<div class="chart_tabs right_side ' . $connection_type . ' arrows stage' . $stage . '"/>';
         if ($stage == 2) {
           echo '<ul>';
@@ -2661,7 +2710,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
           echo '</ul>';
         }
         echo '</div>';
-      //End right arrows*/
+      //End right arrows
       
       //Middle Relationships
       if ($stage=="3") {
@@ -2721,6 +2770,8 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
     echo '</div>';   //closing #section
   echo '</div>';  //closing #compare
 }
+
+*/  //End Old Way
 
 function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
