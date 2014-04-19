@@ -319,7 +319,7 @@ div.Virgo_Pisces_button.selected a, div.Virgo_Pisces_button:hover a {
 /*//////////////// DYNAMIC ICONS ///////////////////////////////////////////*/
 
 div.my_7_button a {
-  background:url('/img/Starma-Astrology-Compatibility-Challenges.png') no-repeat center top;
+  background:url('/img/Starma-Astrology-Compatibility-Challenges-Big.png') no-repeat center top;
 }
 
 div.my_6_button a {
@@ -331,7 +331,7 @@ div.my_5_button a {
 }
 
 div.my_4_button a {
-  background:url('/img/Starma-Astrology-Compatibility-Friends.png') no-repeat center top;
+  background:url('/img/Starma-Astrology-Compatibility-Friends-Big.png') no-repeat center top;
 }
 
 div.my_3_button a {
@@ -339,7 +339,7 @@ div.my_3_button a {
 }
 
 div.my_2_button a {
-  background:url('/img/Starma-Astrology-Compatibility-Magnetic-Attraction.png') no-repeat center top;
+  background:url('/img/Starma-Astrology-Compatibility-Magnetic-Attraction-Big.png') no-repeat center top;
 }
 
 div.my_1_button a {
@@ -908,7 +908,6 @@ div.my_unknown_button a {
   float: left;
   margin: 0 20px 20px 20px;
   width: 478px;
-  border: 1px solid black;
 }
 
 .blurb {
@@ -1067,6 +1066,104 @@ div.my_unknown_button a {
   position: relative;
   display: block;
   padding-bottom:25px;
+}
+
+#minor_connections {
+  width:100%;
+  text-align:center;
+}
+
+#minor_connections .blurb_supporting {
+    background-color:white;
+    border:2px solid black;
+    width:582px;
+    margin-left:31px;
+    margin-right:auto;
+    float: left;
+    height: auto;
+    position: relative;
+    padding: 10px;
+}
+
+#minor_connections .dynamic_blurb {
+    padding:10px;
+    display:block;
+    text-align:left;
+    font-size: .93em;
+    line-height: 1.5;
+    letter-spacing: .05px;  
+}
+
+#minor_connections .dynamic_info {
+  text-align:left;  
+  padding:10px;
+  font-size:.93em;
+  line-height: 1.5;
+  letter-spacing: .05px;
+}
+
+#minor_connections .dynamic_icon{
+  width:478px;
+  background-color:#D3DBF6;
+  border: none;
+  color:black;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-size:12px;
+  height:88px;
+  text-transform:uppercase;
+  font-weight:bold;
+  margin: auto;
+}
+
+#minor_connections .poi_button {
+  border: none;
+  background-color: none;
+  color:black;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-size:12px;
+  height:88px;
+  width:75px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+
+#minor_connections .bridge {
+  height: 100px;
+  width: 602px;
+  float: left;
+  margin: 0 0 40px 31px;
+  border: 2px solid black;
+}
+
+#minor_connections .bridge .main {
+  border: 1px solid black;
+  margin: 20px 30px;
+  width: 10px;
+  height: 50px;
+  cursor: pointer;
+  float: left;
+}
+
+#minor_connections .bridge .to_leg1 {
+
+}
+
+#minor_connections .bridge .to_leg2 {
+
+}
+
+#minor_connections .bridge .to_leg3 {
+
+}
+
+#minor_connections a span {
+  position:relative;
+  top:65px;
+  
 }
 
 /* Old Way
@@ -1283,10 +1380,10 @@ div.my_unknown_button a {
   background-color:#D3DBF6;
 }
 
-*/
 
 
-/*///////MINOR CONNECTIONS//////*/
+
+////////MINOR CONNECTIONS///////
 
 #minor_connections {
   width:100%;
@@ -1419,8 +1516,6 @@ div.my_unknown_button a {
   position: relative;
   display: inline;
   padding-bottom:5px;
-  /*padding-right:20px;*/
-  ;
 }
 
 #minor_connections .chart_tabs.left_side li {
@@ -1460,7 +1555,6 @@ div.my_unknown_button a {
 
 #minor_connections .chart_tabs .selected a { 
   background-color: none;
-  /*color:white;*/
 }
 
 #minor_connections .chart_tabs.middle li a {
@@ -1468,6 +1562,8 @@ div.my_unknown_button a {
   background-color:#D3DBF6;
   
 }
+
+*/
 
 /*///////ARROWS//////*/
 
