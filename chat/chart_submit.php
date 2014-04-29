@@ -41,21 +41,6 @@ if (preg_match('%[0-9]+%', $posted)) {
             $data["poi_in_sign2"] = ' & ' . ucfirst(strtolower(get_poi_name($ketu))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($data["chart_id"], 10)))) . ': </strong>';
         }
             
-            /*
-          if($data["poi_id"] != 1) {
-                $data["poi_in_sign"] = '<strong>' . ucfirst(strtolower($data["poi_name"])) . ' in ' . ucfirst(strtolower($data["sign_name"]));
-                if ($data["poi_id"] == 9) {
-                    $data["poi_in_sign2"] = ' & ' . ucfirst(strtolower(get_poi_name($ketu))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($data["chart_id"], 10)))) . ': </strong>';
-                }
-                else {
-                    $data["poi_in_sign_close"] = ': </strong>';
-                }
-            }
-            elseif($data["poi_id"] == 1) {
-                $data["poi_in_sign"] = '<strong>' .  ucfirst(strtolower($data["sign_name"])) . ' ' . ucfirst(strtolower($data["poi_name"]));
-            }
-            */
-
     echo json_encode($data);
   		
     }
