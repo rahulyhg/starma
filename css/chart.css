@@ -378,6 +378,7 @@ div.my_unknown_button a {
     line-height: 1.5;
 }
 
+
 #starma_chart #header {
   width: 100%;
   /*font-weight:bold;
@@ -444,6 +445,16 @@ div.my_unknown_button a {
   top:65px;
 }
 
+#starma_chart .chart_tabs span.poi_title {
+  position:relative;
+  top:68px;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
+}
+
 #welcome .homepage_div #homepage_chart_button_info li a span {
   position:relative;
   top:65px;
@@ -470,6 +481,18 @@ div.my_unknown_button a {
     top: 132px;
 }
 
+#starma_chart .chart_tabs span.ketu_text {
+    display: block;
+    position: relative;
+    top: 145px;
+    font-family: "ClarendonBT-Light";
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
 #starma_chart .chart_tabs.left_side {
   float:left;
  
@@ -479,6 +502,18 @@ div.my_unknown_button a {
 #starma_chart .chart_tabs.right_side {
   float:right;
 
+}
+
+.chart_tabs_wrapper {
+  width: 115px;
+  height: 90px;
+  position: relative;
+}
+
+.chart_tabs_rk_wrapper {
+  width: 115px;
+  height: 182px;
+  position: relative;
 }
 
 #starma_chart .chart_tabs ul {
@@ -549,6 +584,36 @@ div.my_unknown_button a {
   width:34px;
   background:#d3dbf6;
   cursor: pointer; cursor: hand;
+}
+
+#starma_chart .chart_tabs.left_side span.arrow {
+  width: 34px;
+  height: 88px;
+  display: inline-block;
+  position: relative;
+}
+
+#starma_chart .chart_tabs.right_side span.arrow {
+  width: 34px;
+  height: 88px;
+  display: inline-block;
+  position: relative;
+}
+
+#starma_chart .chart_tabs.left_side span.arrow_left_on {
+  background:url('/img/Starma-Astrology-Chart-ArrowL.png') no-repeat center center;
+  width: 34px;
+  height: 88px;
+  display: inline-block;
+  position: relative;
+}
+
+#starma_chart .chart_tabs.right_side span.arrow_right_on {
+  background:url('/img/Starma-Astrology-Chart-ArrowR.png') no-repeat center center;
+  width: 34px;
+  height: 88px;
+  display: inline-block;
+  position: relative;
 }
 
 #starma_chart .chart_tabs.left_side.chart_arrow ul li.arrow a {
