@@ -56,7 +56,7 @@ require_once "header.php";
         <?php
           $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
           echo '<ul>';
-          echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><a><span>' . get_poi_name(1) . '</span></a></li>';
+          echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><span class="poi_title">' . get_poi_name(1) . '</span></span></li>';
           echo '</ul>';
           echo '<div id="blurb">';
             show_poi_sign_blurb_abbr (1, $button_sign_id);
