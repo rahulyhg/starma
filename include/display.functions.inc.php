@@ -433,6 +433,40 @@ function edit_general_info() {
   echo '</div>';
 }
 
+//MATT ADDING AJAX TO SAVE DESCRIPTORS
+
+function show_my_descriptors_info() {
+  $words = get_my_descriptors();
+  echo '<div id="descriptors">';
+  echo '<form id="desc_submit" method="POST" action="save_descriptors.php">';
+  
+  $i = 0;
+
+  while ($word = mysql_fetch_array($words)) {
+    echo '<div id="des_selector_' . ($i+1) . '" class="des_selector">';
+      echo '<div class="title">' . ($i+1) . '.</div>';
+      echo '<input type="text" class="desc_input" name="' . ($i + 1) . '"/>';
+      echo '<input type="hidden" name="user_des_id" value="' . $word["user_des_id"] . '"/>';
+      echo '<div class="value">';
+        echo '<span class="word">' . $word["descriptor"] . '</span><span class="saved">Saved!</span>';
+        echo '<span class="edit_icon pencil"></span>';
+      echo '</div>';
+
+    echo '</div>';
+    $i = $i + 1;
+  }
+
+  //echo '<span id="hello">Hello!</span>'; //for testing ajax post
+
+  echo '</form>';
+  echo '</div>';
+
+}
+
+//END MATT DESCRIPTORS
+
+
+/*//OLD WAY
 function show_my_descriptors_info() {
   $words = get_my_descriptors();
   echo '<div id="descriptors">';
@@ -464,6 +498,8 @@ function show_my_descriptors_info() {
   echo '</div>';
 }
 
+*/
+
 //**************---Matt added for Homepage spacing
 
 function show_my_descriptors_info_home() {
@@ -477,7 +513,7 @@ function show_my_descriptors_info_home() {
       echo '<div class="title">' . (string)($counter+1) . '.</div>';
       echo '<div class="value_home">';
         echo '<span>' . $word["descriptor"] . '</span>';
-        js_edit_framework("desc_" . (string)($counter+1) . "_edit_box", "des_selector_" . (string)($counter+1) . " .value span", "user_descriptor", $word["user_des_id"], $word["descriptor"]);
+        //js_edit_framework("desc_" . (string)($counter+1) . "_edit_box", "des_selector_" . (string)($counter+1) . " .value span", "user_descriptor", $word["user_des_id"], $word["descriptor"]);
       echo '</div>';
     echo '</div>';
     $counter = $counter + 1;
@@ -1215,7 +1251,7 @@ function get_left_menu ($the_page) {
     
   }
   elseif ($the_page == 'hsel') {
-    $menu['nav1'] = array('wWlcome&nbsp;&nbsp;','welcome.php');
+    $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php');
     $menu['nav2'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php');
     
   }
@@ -3012,10 +3048,43 @@ function blurb_form ($blurb_type, $the_value1=1, $the_value2=1, $the_value3=1, $
    echo '</td>'; 
    echo '</tr>';
   }
+
+  //MATT ADDED HOUSESE
+  elseif ($blurb_type == 'poi_house_ruler') {
+   echo '<tr>';
+   echo '<td>Select a Rising Sign: </td>';
+   echo '<td>';
+   sign_select ($the_name="sign_id", $the_value=$the_value1, $auto_submit=true, $form="blurb_edit_form");
+   echo '</td>'; 
+   echo '</tr>';
+   echo '<tr>';
+   echo '<td>Select Ruler of the: </td>';
+   echo '<td>';
+   house_select ($the_name="house_id", $the_value=$the_value2, $auto_submit=true, $form="blurb_edit_form");
+   echo '</td>'; 
+   echo '</tr>';
+   echo '<tr>';
+   echo '<td>Residing in the: </td>';
+   echo '<td>';
+   house_select2 ($the_name="house_id2", $the_value=$the_value3, $auto_submit=true, $form="blurb_edit_form");
+   echo '</td>'; 
+   echo '</tr>';
+   echo '<tr>';
+   echo '<td>Ruling Planet Blurb:</td>';
+   echo '<td>';
+   //echo $the_value1 . ' and ' . $the_value2 . ' and ' . $the_value3;
+   //$poi_house_ruler_blurb = get_poi_house_ruler_blurb ($the_value1, $the_value2, $the_value3);
+   echo '<textarea style="width:300px; height:200px" name="blurb">' . get_house_ruler_blurb ($the_value1, $the_value2, $the_value3) . '</textarea>';
+   echo '</td>'; 
+   echo '</tr>';
+  }
+
   echo '</table>';
   echo '<input type="submit" value="Update" name="Update">';
   echo '</form>';
 }
+
+
 
 function show_poi_sign_blurb ($poi_id, $sign_id, $chart_id=-1) {
   
@@ -3240,7 +3309,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
       
       echo '<form name="chart_browser" action="." method="post">';
-      echo '<input type="hidden" name="chart_id"/>';
+      echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
       echo '<input type="hidden" name="poi_id"/>';
       echo '<div id="starma_chart">';
    
@@ -3269,20 +3338,34 @@ function show_my_chart ($goTo = ".", $western=0) {
       while ($poi = mysql_fetch_array($poi_list)) {
         if (in_array($poi["poi_id"], poi_left_side())) {
           $button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
-          echo '<li class="' . get_selector_name($button_sign_id);
+          echo '<li class="chart_li ' . get_selector_name($button_sign_id);
           if ($poi_id == $poi["poi_id"]) { 
             echo ' selected';
           }
-          echo '"><a ';
+          echo '">';
+          echo '<div class="chart_tabs_wrapper">';
+
+          echo '<span class="icon left"><span class="poi_title">' . $poi["poi_name"] . '</span></span>';
+          echo '<span class="arrow ';
+            if ($poi_id == $poi["poi_id"]) {
+              echo 'arrow_left_on';
+            }
+          echo '"></span>';
+          echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+          echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+          echo '</div>'; //close wrapper
+          echo '</li>';
+          //echo '<a ';
           
         
-          echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span></a></li>';
+          //echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span></a></li>';
           
         }
       }
       echo '</ul>';
       echo '</div>';
       //End Left Side
+      /*
       //Left Side Chart Arrow
       echo '<div class="chart_tabs left_side chart_arrow"/>';
       echo '<ul>';
@@ -3304,6 +3387,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '</ul>';
       echo '</div>';
       //End Left Side Chart Arrow
+      */
      
       //Right Side
       $poi_list = get_poi_list();
@@ -3315,30 +3399,52 @@ function show_my_chart ($goTo = ".", $western=0) {
           if ($poi["poi_id"] == 9) {
             $rahu_sign_id = get_sign_from_poi ($chart_id, 9);
             $ketu_sign_id = get_sign_from_poi ($chart_id, 10);
-            echo '<li class="' . get_selector_name($rahu_sign_id, $ketu_sign_id); 
+            echo '<li class="chart_li ' . get_selector_name($rahu_sign_id, $ketu_sign_id);           
+            echo '">';
+              echo '<div class="chart_tabs_rk_wrapper">';
+                echo '<span class="arrow ';
+                echo '"></span>';
+                echo '<span class="icon right"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+                echo '<span class="ketu_text">Ketu</span>';
+                echo '</span>';
+                echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+                echo '<input type="hidden" name="sign_id1" value="' . $rahu_sign_id . '" />';
+                echo '<input type="hidden" name="sign_id2" value="' . $ketu_sign_id . '" />';
+              echo '</div>';
+
           }
           else {
             $button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
-            echo '<li class="' . get_selector_name($button_sign_id);  
-          }
+            echo '<li class="chart_li ' . get_selector_name($button_sign_id);  
           
-          if ($poi_id == $poi["poi_id"]) { 
-            echo ' selected';
-          }
+              if ($poi_id == $poi["poi_id"]) { 
+               echo ' selected';
+              }
+              echo '">';
+              echo '<div class="chart_tabs_wrapper">';
           
-          echo '"><a ';
+              echo '<span class="arrow ';
+              echo '"></span>';
+
+              echo '<span class="icon right"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+              echo '</span>';
+          //echo '<a ';
           
-          echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
-          if ($poi["poi_id"] == 9) {
-            echo '<span class="ketu_text">Ketu</span>';
+          //echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
+    
+            echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+          
+            echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+            echo '</div>';
           }
-          echo '</a></li>';
+          echo '</li>';
           
         }
       }
       echo '</ul>';
       echo '</div>';
       //End Right Side
+      /*
       //Right Side Chart Arrow
       echo '<div class="chart_tabs right_side chart_arrow"/>';
       echo '<ul>';
@@ -3359,6 +3465,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '</ul>';
       echo '</div>';
       //End Right Side Chart Arrow
+      */
       echo '<div id="blurb">';
         if ($poi_id == 0) {
           show_intro_text();
@@ -3894,6 +4001,18 @@ function show_chart ($chart_id, $goTo = ".") {
     echo 'No Chart Found';
   }
 }
+
+/////////////////MATT ADD HOUSES
+
+function show_my_houses () {
+
+}
+
+function show_others_houses () {
+  
+}
+
+//////////////////ENDMATT
 
 function chart_entry_form($chart_id) {
   $show_advanced_options = 0;
