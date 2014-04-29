@@ -180,7 +180,8 @@ function section_select ($the_name="section_id", $the_value="", $auto_submit=fal
 
 function year_select ($the_year, $the_name="") {
   echo '<select name="year_' . $the_name . '">';
-  for ($x=1900; $x<=(int)date("Y");$x++) {
+  //for ($x=1900; $x<=(int)date("Y")+5;$x++) {
+  for ($x=1900; $x<=2020;$x++) {
     echo '<option value=' . $x;
     if ((int)$the_year == (int)$x) {
       echo ' SELECTED';
