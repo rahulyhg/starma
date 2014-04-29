@@ -72,6 +72,46 @@ function sign_select ($the_name="sign_id", $the_value="", $auto_submit=false, $f
   
 }
 
+
+//------------Matt Adding HOUSES section
+
+function house_select ($the_name="house_id", $the_value="", $auto_submit=false, $form="blurb_edit_form") {
+  $house_list = get_house_list ();
+  echo '<select name="' . $the_name . '"';
+  if ($auto_submit) {
+      echo ' onchange="document[\'' . $form . '\'].submit()"';
+  }
+  echo '>';
+  while ($house = mysql_fetch_array($house_list)) {
+    echo '<option value=' . $house["house_id"];
+    if ((string)$house["house_id"] == (string)$the_value) {
+      echo ' SELECTED';
+    }
+    
+    echo '>' . $house["house_name"] . '</option>';
+  }
+  echo '</select>';
+  
+}
+
+function house_select2 ($the_name="house_id2", $the_value="", $auto_submit=false, $form="blurb_edit_form") {
+  echo '<select name="' . $the_name . '"';
+    if ($auto_submit) {
+      echo ' onchange="document[\'' . $form . '\'].submit()"';
+    }
+   echo '>';
+    for($i = 1; $i <= 12; $i++) {
+      echo '<option value =' . $i;
+      if($i == $the_value) {
+        echo ' SELECTED';
+      }
+        echo '>House' . $i . '</option>';
+    }
+    echo '</select>';
+}
+
+//ENDMATT
+
 function cornerstone_select ($the_name="poi_id", $the_value="", $auto_submit=false, $form="blurb_edit_form") {
   $cornerstone_list = get_cornerstones(4);
   echo '<select name="' . $the_name . '"';
