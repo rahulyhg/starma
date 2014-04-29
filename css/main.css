@@ -134,6 +134,17 @@ input{
   /*background:url("/img/Starma-Astrology-ChartBoxH.png") no-repeat scroll center center;*/
 }
 
+#welcome #horoscope_box_link span.poi_title {
+  position:relative;
+  top:68px;
+  left: 12px;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
+}
+
 
 #welcome #celebrities_box_link {
   left: 399px;
@@ -1360,7 +1371,7 @@ li.my_unknown_button a {
    bottom: 25px;
     left: 20px;
     position: relative;
-   width: 150px;
+   width: 300px;
 }
 
 #descriptors div .value_others {
@@ -1396,6 +1407,7 @@ li.my_unknown_button a {
 .saved {
   display: none;
   margin-left: 5px;
+  width: 100px;
 }
 
 
@@ -1521,7 +1533,7 @@ li.my_unknown_button a {
 
 .celeb_page #profile_sections {  
     bottom: auto;
-    margin-top:25px;  
+    margin-top: 3px;  
 }
 
 #profile_nav {
