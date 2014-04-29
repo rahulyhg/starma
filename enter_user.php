@@ -105,6 +105,7 @@ elseif ($tier == "4") {
 }
 
 echo '</div>';
+echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
 
 }    
             
