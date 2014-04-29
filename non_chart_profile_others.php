@@ -147,44 +147,8 @@ if (login_check_point($type="full")) {
   
    echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_msg_send_from_popup.js'></script>";
+   echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
 
-/*
-   echo "<script type='text/javascript'>
-    
-    $(document).ready(function(){
-      $('#send-msg-area').submit(function(event){
-        var msg_data = {
-          'text_body           : $('input[name=text_body]').val(),
-          'other_user_id'     : $('input[name=other_user_id]').val(),
-          'chart_id1'         : $('input[name=chart_id1]').val(),
-          'chart_id2'         : $('input[name=chart_id2]').val(),
-        };
-      
-        $.ajax({
-            type      : 'POST',
-            url       : 'send_msg_from_profile.php',
-            data      : 'msg_data',
-            dataType  : 'json'
-        })
-          .done(function(data){
-            if(!data) {
-              $('#msg_sendie').val('There was no text to send!');
-            }
-            else {
-              $('#msg_sendie').hide();
-              $('input[name=submit').hide();
-              $('#msg_sent').show().html('<p>Message Sent!</p>')
-            }
-  
-          })
-        event.preventDefaul();
-
-      });
-    });
-
-   </script>";
-
-   */
 }
 ?> 
 
