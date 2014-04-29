@@ -5,7 +5,7 @@ $(document).ready(function(){
 	$('.chart_li').click(function(){
 
 		//$('#planet_info').html().fadeOut('fast');
-		$('#blurb').children().fadeOut(1000);
+		$('#blurb').children().fadeOut(300);
 
 		if($(this).hasClass('rahuketu')) {
 			var poi_id = {
