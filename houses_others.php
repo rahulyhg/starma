@@ -4,7 +4,8 @@ require_once ("header.php");
   
 if (login_check_point($type="full")) {
 
-$chart_id = get_my_chart_id();
+$chart_id = $_GET["chart_id2"];
+
 $rising_sign_id = get_sign_from_poi ($chart_id, 1); //in user functions
 
 echo '<div id="house_column">';
@@ -46,7 +47,9 @@ echo '<div id="house_column">';
 		}
 
 	echo '</ul>';
-echo '</div>';  //close house column1
+echo '</div>';  //close house column
+
+
 
 /*
 echo '<div id="house_column2">';
