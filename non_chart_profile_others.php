@@ -74,7 +74,7 @@ if (login_check_point($type="full")) {
             require('chart_others.php');
           }
           elseif ($section == 'houses_selected') {
-            echo '<div><p>Houses coming soon...</p></div>';
+            require('houses_others.php');
           }
           elseif (($section == 'photos_selected') && (!$isCeleb)) {
             require('photos_others.php');
@@ -90,7 +90,7 @@ if (login_check_point($type="full")) {
         echo '</div>';
       echo '</div>';
  
-      echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '">Compare</a></div>';     
+      echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare</a></div>';     
 
       if (!$isCeleb) {
         echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)">Chat</a></div>';

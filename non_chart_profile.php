@@ -74,7 +74,7 @@ if (login_check_point($type="full")) {
           require('chart.php');
         }
         elseif($section =='houses_selected') {
-          echo '<div><p>Houses coming soon...</p></div>';
+          require('houses.php');
         }
         elseif ($section == 'photos_selected') {
           require('photos.php');
@@ -102,6 +102,8 @@ if (login_check_point($type="full")) {
   
     
     echo '</div>';
+    echo'<script type="text/javascript" src="js/ajax_descriptors_submit.js"></script>';
+    echo'<script type="text/javascript" src="js/ajax_chart_submit.js"></script>';
   }
   
    
