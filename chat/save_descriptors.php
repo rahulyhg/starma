@@ -1,9 +1,5 @@
 <?php
-session_start();
-    require_once ('../include/db_connect.inc.php'); 
-    require_once ("../include/functions.inc.php"); 
-    require_once ("../PHPMailer_5.2.1/class.phpmailer.php");
-    date_default_timezone_set('America/Chicago');
+require_once("ajax_header.php");
  
 $logged_in = login_check_point($type="full");
 
@@ -18,7 +14,7 @@ $logged_in = login_check_point($type="full");
 		
 
 	if(isset($_POST["value"])) {
-		if(preg_match('%^[A-Za-z]{1,15}$%', $_POST["value"])) {
+		if(preg_match('%^[A-Za-z-\.]{1,15}$%', $_POST["value"])) {
 			$data["value"] = $_POST["value"];
 			$value = mysql_real_escape_string(trim($_POST["value"]));
 			$value = strip_tags($value);
