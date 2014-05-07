@@ -60,7 +60,7 @@ if (login_check_point($type="full")) {
         </ul>
       </div>';
     
-    echo '<div id="profile_sections"/>';
+    echo '<div id="profile_sections">';
      /* echo '<div id="profile_nav">
         <ul>
           <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>
@@ -69,7 +69,7 @@ if (login_check_point($type="full")) {
           <li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=1&section=western_selected">Western View</a></li>
         </ul>
       </div>';*/
-      echo '<div id="section"/>';
+      echo '<div id="section">';
         if ($section == 'chart_selected') {
           require('chart.php');
         }
