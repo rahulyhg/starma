@@ -4,7 +4,14 @@ require_once ("header.php");
   
 if (login_check_point($type="full")) {
 
-$chart_id = $_GET["chart_id2"];
+if(isset($_GET["chart_id2"])) {
+	$chart_id = $_GET["chart_id2"];
+}
+else {
+	$chart = get_chart_by_name ("Freebie1");
+	$chart_id = $chart["chart_id"];
+	//echo $chart_id;
+}
 
 $rising_sign_id = get_sign_from_poi ($chart_id, 1); //in user functions
 
