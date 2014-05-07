@@ -1122,7 +1122,7 @@ li.my_unknown_button a {
 }
 
 .profile_button.compare_button  {
-   bottom: 250px;
+    bottom: 250px;
     height: 97px;
     left: 622px;
     position: relative;
@@ -1130,8 +1130,7 @@ li.my_unknown_button a {
 }
 
 .profile_button.compare_button a {
-    background:url('/img/profile/Starma-Astrology-Compare.png') no-repeat ;
-    
+    background:url('/img/profile/Starma-Astrology-Compare.png') no-repeat ; 
     height: 59px;
     padding-left: 37px;
     padding-top: 39px;
@@ -1144,7 +1143,7 @@ li.my_unknown_button a {
 }
 
 .profile_button.chart_button {
-  bottom: 213px;
+    bottom: 213px;
     height: 40px;
     left: 647px;
     position: relative;
@@ -1654,6 +1653,20 @@ li.my_unknown_button a {
     display: none;
 }
 
+#msg_sheen #msg_sheen_content_custom {
+    background: none repeat scroll 0 0 white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size:0.8em;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    top: 50px;
+    width: 500px;
+    height: 195px;
+    display: none;
+}
+
 #msg_sendie {
 
   background: none;
@@ -1717,6 +1730,20 @@ li.my_unknown_button a {
 
 #ajax_loader{
   position: relative;
+}
+
+#email_invite {
+  background: none;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  box-shadow: 0 0 2px #313E5C inset;
+  height: 27px;
+  width: 392px;
+  padding: 5px;
+  display:block;
+  margin-bottom: 15px;
 }
 
 /*****************---Matt adding style to New Message section */
@@ -2027,6 +2054,211 @@ ul.as-list li.as-result-item em {
 END OLD WAY*/
 
 /*///////////// END HOUSES //////////////////////////////////*/
+
+/*////////////// CUSTOM CHART BIRTH INFO ///////////////////*/
+
+#birth_info_custom {
+    margin: auto;
+    position: relative;
+    width: 500px;
+    height: 260px;
+    border: 1px solid #c7c7c7;
+    padding: 15px 0;
+    background-color: #D3DBF6;
+}
+
+#birth_info_form_custom_heading {
+  font-size: 20px;
+  font-family: "ClarendonBT-Light";
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#birth_info_custom table tr td {
+  padding: 5px;
+}
+
+#birth_info_form_custom {
+  margin-left: 53px;
+}
+
+#birth_info_custom #time_zone_div, #birth_info #latitude_div, #birth_info #longitude_div {
+  width:250px;
+}
+
+#birth_info_custom #time_zone_div input, #birth_info #latitude_div input, #birth_info #longitude_div input {
+  width:25px;
+}
+
+#birth_time_hover_box_custom {
+    background-color: #FFFFFF;
+    border: 1px solid #C7C7C7;
+    color: #000000;
+    font-size: 0.8em;
+    padding: 3px;
+    padding-right: 3px;
+    position: relative;
+    width: 7px;
+}
+
+#birth_time_hover_box_custom:hover {
+  background-color: #D3DBF6;
+  cursor: pointer;
+}
+
+#birth_time_hover_box_custom span {
+    bottom: -180px;
+    left: 15px;
+}
+.hover_box span {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C7C7C7;
+    color: #000000;
+    display: none;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+    padding: 12px;
+    position: absolute;
+    width: 390px;
+    z-index: 5;
+}
+
+#birth_place_input_bar {
+  border: 1px solid #c7c7c7;
+}
+
+#bug_button, #birth_info_custom input[name="submit"]  {
+  background:url('/img/account_info/Starma-Astrology-Space-Bug.png') no-repeat;
+  width:76px;
+  height:63px;
+  border:0px;
+}
+
+#bug_button:hover, #birth_info_custom input[name="submit"]:hover{
+  cursor: hand; 
+  cursor: pointer;
+  background:url('/img/account_info/Starma-Astrology-Space-BugHover.png') no-repeat;
+  
+}
+
+#go_bug_path {
+  background: url('/img/Starma-Astrology-go-bug-path.png') no-repeat;
+  float:left;
+  width: 321px;
+  height: 63px;
+}
+
+#submit_div_custom {
+  width: 76px;
+  float: right; 
+  margin-right: 50px;
+}
+
+/*///////////// END CUSTOM BIRTH INFO //////////////////////////////////*/
+
+/*//////////// CUSTOM CHART /////////////////////*/
+
+#profile_photo_and_info_custom {
+  margin: 20px 0 20px 30px;
+  width: 171px;
+}
+
+#custom_nickname {
+  position: relative;
+  font-size: .875em;
+  width: 171px;
+  text-align: center;
+
+}
+
+#custom_nickname_compare {
+  position: relative;
+  font-size: .75em;
+  font-weight: bold;
+  text-align: center;
+  bottom: 152px;
+}
+
+.profile_button_custom a {
+  position:absolute;  
+  color: #000000;
+  display: block;
+  font-size: 1.1em;
+}
+
+.profile_button_custom.compare_button  {
+   bottom: 226px;
+    height: 97px;
+    left: 622px;
+    position: relative;
+    width: 155px;
+}
+
+.profile_button_custom.compare_button a {
+    background:url('/img/profile/Starma-Astrology-Compare.png') no-repeat ;  
+    height: 59px;
+    padding-left: 37px;
+    padding-top: 39px;
+    width: 155px;
+}
+
+.profile_button_custom.compare_button:hover a {
+    background:url('/img/profile/Starma-Astrology-CompareON.png') no-repeat ;
+    
+}
+
+.profile_button_custom.message_button {
+    bottom: 219px;
+    height: 25px;
+    left: 690px;
+    position: relative;
+    width: 84px;
+    
+}
+
+.profile_button_custom.message_button a {
+    background:url('/img/profile/Starma-Astrology-Message.png') no-repeat ;
+    height:25px;
+    width:84px;
+    display:block;
+    padding-left: 4px;
+}
+
+.profile_button_custom.message_button:hover a {
+    background:url('/img/profile/Starma-Astrology-MessageON.png') no-repeat ;
+    
+}
+
+span.div_link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+}
+
+#profile_sections_custom {
+    background: none repeat scroll 0 0 #D3DBF6;
+    border-right: 2px solid #2C3447;
+    border-top: 2px solid #2C3447;
+    float: left;
+    position: relative;
+    right: 10px;
+    bottom: 95px;
+    width: 793px;
+}
+
+#profile_sections_custom #section {
+    background-color: #D3DBF6;
+    padding: 10px;
+    width: 773px
+}
+
+
+/*///////////// END CUSTOM CHART //////////////////////////////////*/
+
 
 /*//////////////// SETTINGS ///////////////////////////////////////*/
 #settings_form {
