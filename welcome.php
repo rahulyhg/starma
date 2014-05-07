@@ -12,7 +12,7 @@ require_once "header.php";
  
     <div id="profile_box_link" class="homepage_div">
       <span class="header">Complete Your Profile</span>
-      <a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
+      <a class="box_link" href="main.php?the_page=psel&the_left=nav1&western=0&section=about_selected"></a>
       <div id="homepage_profile_button_info">
         <!--<div id="user_block">
            <div class="about_photo_wrapper"> 
