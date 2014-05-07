@@ -1,21 +1,5 @@
 <?php
-    //require_once ("/include/functions.inc.php"); 
-    //require_once ("../PHPMailer_5.2.1/class.phpmailer.php");
-    //date_default_timezone_set('America/Chicago');
-//require_once ("header.php");
-//header("Content-type: application/json");
-//if I comment out the header I get 'falure: [object Object]' and msg doesn't send
-//with header and login I get 'failure: undefined' msg sends
-//with header but no login I get 'falure: [object Object]' and msg sends
-
-//$data['message'] = "Hello";
-    //require_once ('../include/db_connect.inc.php'); 
-    //require_once ("../PHPMailer_5.2.1/class.phpmailer.php");   
-session_start();
-    require_once ('../include/db_connect.inc.php'); 
-    require_once ("../include/functions.inc.php"); 
-    require_once ("../PHPMailer_5.2.1/class.phpmailer.php");
-    date_default_timezone_set('America/Chicago');
+require_once("ajax_header.php");
  
 $logged_in = login_check_point($type="full");
 //***********---Matt adding in case message is sent from Message button popup
