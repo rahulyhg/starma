@@ -14,6 +14,8 @@ $(document).ready(function(){
         	$('#msg_sent').hide();
         	$('#msg_sent').html('');
         	$('#msg_label').text('New Message');
+        	$('#email_label').text('Email Address');
+        	$('#email_invite').val('');
         });
 	});
 
