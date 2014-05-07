@@ -67,9 +67,9 @@ if (login_check_point($type="full")) {
           echo '</ul>
         </div>';
 
-      echo '<div id="profile_sections"/>';
+      echo '<div id="profile_sections">';
       
-        echo '<div id="section"/>';
+        echo '<div id="section">';
           if ($section == 'chart_selected') {
             require('chart_others.php');
           }
