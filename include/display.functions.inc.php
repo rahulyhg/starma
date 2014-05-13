@@ -1702,6 +1702,8 @@ echo        '<div id="submit_div_custom">
     display_error_list ($errors);
   }
 
+echo '<script type="text/javascript" src="js/birth_form_ui.js"></script>';
+
 }
 
 
@@ -2330,6 +2332,7 @@ function test_form_time () {
 function show_compare_results ($score, $goto=".", $results_type, $text_type, $stage="2") {
       $freebie = is_freebie_chart($_SESSION['compare_chart_ids'][1]);
        
+       $text_type = $_GET["text_type"];
       //Picture of You
       echo '<div id="chart_1_pic">';
         if (!$user_id_1 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][0]))
@@ -2433,7 +2436,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '</div>';
       echo '<div id="explanation">';
         
-        
+        /*//TAKING OUT FOR REDESIGN
         echo 'Display Text For:';
         //echo 'Below is the basic structure of compatibility.  It must be read as a whole with the understanding that a strong dynamic can compensate for a weak one.  The Major Connections have the strongest influence on compatibility and the Minor Connections have the potential to support or weaken them.';
         echo '<div id="text_selector">';
@@ -2455,6 +2458,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
           echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&text_type=1" . "&stage=" . $stage, $hidden="connection_type", $value="'" . $connection_type . "'", $hidden2="", $value2="") . '"';        
           echo '/>ROMANCE</a></div>';
         echo '</div>';
+        */
         
       echo '</div>';
 
@@ -2487,7 +2491,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       if ($results_type == "Ruling Planets") {
         echo 'selected';
       }
-      echo '"><a href="' . $goto . '&stage=2' . '&results_type=bonus">Other</a></li>';
+      echo '"><a href="' . $goto . '&stage=2' . '&results_type=bonus">Ruling Planets</a></li>';
 
       echo '<li class="end ';   //took out class="bonus"
       if ($results_type == "jupiter") {
@@ -2497,6 +2501,8 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
    
       echo '</ul>';
       echo '</div>';
+
+      /*//REDESIGN
       
       echo '<div id="detail_selector">';
         echo '<a href="#" ';
@@ -2513,6 +2519,8 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         }
         echo '/>More Info</a>';
       echo '</div>';
+
+      */
 
       /***************---Matt REDESIGN------
       $chart_id1 = $_GET["chart_id1"];
@@ -2592,8 +2600,9 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
                     $connection_poi_id = get_poi_id (strtoupper($connection));
                     $connection_data = $compare_data[$connection . '2' . $connection];
                     $relationship_id = $connection_data["relationship_id"];
-                    echo '<div class="text"><span class="hide_show">Hide Text</span></div>';
-                    //echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id) . "</span>";
+                    echo '<div class="text"><span class="hide_show">HIDE TEXT</span></div>';
+                    echo "<span class='small_intro'>" . substr(get_dynamic_blurb ($connection_poi_id, $connection_poi_id), 0, 53); 
+                    echo "...</span>";
                     show_dynamic_info($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
                     show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, $text_type, $chart_id1, $chart_id2);
                     echo '</div>';
