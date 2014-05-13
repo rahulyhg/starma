@@ -90,11 +90,20 @@ if (login_check_point($type="full")) {
         echo '</div>';
       echo '</div>';
  
-      echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare</a></div>';     
+      //echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare</a></div>';     
+
+      //TEST FOR ADDING text_type to compare_button
+      echo '<div class="profile_button compare_button">
+              <select onchange="location = this.options[this.selectedIndex].value;">
+                <option value="">Choose Compatiblity Test</option>
+                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romance</option>
+                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Friends</option>
+              </select>
+            </div>';
 
       if (!$isCeleb) {
         echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)">Chat</a></div>';
-        
+
         //************---Matt adding jquery popup from Message button
         echo '<div class="profile_button message_button"><a href="#" id="msg_pop">Message</a></div>';
         echo '<div id="msg_sheen" class="pop">';
