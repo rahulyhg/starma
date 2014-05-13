@@ -13,17 +13,19 @@ $(document).ready(function(){
 			//$(this).toggleClass('hide show');
 			var intro = $(this).siblings('.dynamic_info').text();
 			var text = $(this).text();		
-			if(text == 'Hide Text') {
-				$(this).children('.hide_show').text('Show Text');
+			if(text == 'HIDE TEXT') {
+				$(this).children('.hide_show').text('SHOW TEXT');
 				//$(this).parent().css('height', 'auto');
 				$(this).siblings('.dynamic_blurb').hide();
-				$(this).siblings('.dynamic_info').text(intro + '..');
+				$(this).siblings('.dynamic_info').hide();
+				$(this).siblings('.small_intro').show();
 			}
 			else {
-				$(this).children('.hide_show').text('Hide Text');
+				$(this).children('.hide_show').text('HIDE TEXT');
 				$(this).siblings('.dynamic_blurb').show();
 				//$(this).parent().css('height', 'auto');	
-				$(this).siblings('.dynamic_info').text(intro.slice(0, -2));
+				$(this).siblings('.dynamic_info').show();
+				$(this).siblings('.small_intro').hide();
 			}
 
 					//var x = 0;
