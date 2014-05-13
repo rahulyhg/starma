@@ -1122,9 +1122,9 @@ li.my_unknown_button a {
 }
 
 .profile_button.compare_button  {
-    bottom: 250px;
+    bottom: 205px;
     height: 97px;
-    left: 622px;
+    left: 605px;
     position: relative;
     width: 155px;
 }
@@ -1719,6 +1719,21 @@ li.my_unknown_button a {
   cursor: pointer;
 }
 
+.msg_cancel_invite {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
 #msg_sent {
   display: none;
   font-family: arial;
@@ -2123,6 +2138,10 @@ END OLD WAY*/
     z-index: 5;
 }
 
+.grayed_out {
+  background-color: #c7c7c7;
+}
+
 #birth_place_input_bar {
   border: 1px solid #c7c7c7;
 }
@@ -2187,9 +2206,9 @@ END OLD WAY*/
 }
 
 .profile_button_custom.compare_button  {
-   bottom: 226px;
+    bottom: 188px;
     height: 97px;
-    left: 622px;
+    left: 605px;
     position: relative;
     width: 155px;
 }
@@ -2207,25 +2226,25 @@ END OLD WAY*/
     
 }
 
-.profile_button_custom.message_button {
-    bottom: 219px;
+.profile_button_custom.invite_button {
+    bottom: 213px;
     height: 25px;
-    left: 690px;
+    left: 605px;
     position: relative;
-    width: 84px;
     
 }
 
-.profile_button_custom.message_button a {
-    background:url('/img/profile/Starma-Astrology-Message.png') no-repeat ;
-    height:25px;
-    width:84px;
+.profile_button_custom.invite_button a {
+    background:url('/img/Starma-Astrology-Invite.png') no-repeat ;
+    height: 30px;
+    width: 170px;
     display:block;
-    padding-left: 4px;
+    padding-top: 3px;
+    text-align: center;
 }
 
-.profile_button_custom.message_button:hover a {
-    background:url('/img/profile/Starma-Astrology-MessageON.png') no-repeat ;
+.profile_button_custom.invite_button:hover a {
+    background:url('/img/Starma-Astrology-InviteON.png') no-repeat ;
     
 }
 
