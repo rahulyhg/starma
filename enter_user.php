@@ -137,10 +137,19 @@ elseif ($tier == "4") {
           </div>
           </div>';
 
-          echo '<div class="profile_button_custom compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2">Compare<span class="div_link"></span></a></div>';
+          //echo '<div class="profile_button_custom compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2">Compare<span class="div_link"></span></a></div>';
+
+          //REDESIGN
+          echo '<div class="profile_button compare_button">
+              <select onchange="location = this.options[this.selectedIndex].value;">
+                <option value="">Choose Compatiblity Test</option>
+                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romance</option>
+                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Friends</option>
+              </select>
+            </div>';
 
           //************---Matt adding jquery popup from Message button
-        echo '<div class="profile_button_custom message_button"><a href="#" id="msg_pop">Message<span class="div_link"></span></a></div>';
+        echo '<div class="profile_button_custom invite_button"><a href="#" id="msg_pop">Invite This Person<span class="div_link"></span></a></div>';
         echo '<div id="msg_sheen" class="pop">';
     
           echo '<div id="msg_sheen_screen" class="pop">';
@@ -155,7 +164,7 @@ elseif ($tier == "4") {
                           <textarea id="msg_sendie" name="text_body" maxlength = "500" >Hi there!' . PHP_EOL;  
                           echo get_my_nickname() . ' would like to invite you to join Starma.com.  Starma is a...</textarea>
                           <input type="submit" name="submit" value="Send" class="msg_send"/>
-                          <button type="button" name="cancel" class="msg_cancel">Cancel</button>
+                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
                           <input type="hidden" value=' . get_my_user_id() . ' name="other_user_id"/>                         
                         </form>';
                       echo '<span id="msg_sent"></span>';
