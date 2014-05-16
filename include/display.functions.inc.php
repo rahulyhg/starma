@@ -2679,9 +2679,6 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       $x = 0;
       foreach (get_cornerstones() as $connection) {
 
-        $cornerstones = get_cornerstones();
-        $connection_type = $cornerstones[$x];
-
 
         $connection_type = $support_con[$x];
 
