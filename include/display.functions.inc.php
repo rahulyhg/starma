@@ -1399,6 +1399,12 @@ function show_desc_photo_form($errors, $des_names,$action="birth_info_first_time
     echo '" id="photo_first_time_error">';
     echo 'You must upload a profile photo';
     echo '</div>';
+
+    echo '<div class="error';
+    if (!in_array(ILLEGAL_WORDS_ERROR(), $output)) {echo ' hidden_error';}
+    echo '" id="illegal_words_error">';
+    echo 'No naughty words please';
+    echo '</div>';
     
     //clear_error();
   echo '</div>';
