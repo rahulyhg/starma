@@ -815,7 +815,7 @@ div.my_unknown_button a {
 }
 
 #compare #section {
-  padding: 25px 10px;
+  padding: 10px;
   width:773px;
   background-color: #D3DBF6;
 }
@@ -1217,32 +1217,84 @@ div.my_unknown_button a {
 .poi_column div.poi_column_wrapper_minor {
   position: relative;
   display: inline-block;
-  height: 330px;
+  /*height: 400px;*/
+  width: 678px;
 }
 
 .bridge_top {
-  width: 520px;
+  width: 528px;
   height: 87px;
   float: left;
   position: relative;
+  right: 4px;
   background: url('/img/Starma-Astrology-Pillars-Top.png') no-repeat;
+  z-index: 2;
 }
 
-.bridge.pillar{
-  background: url('/img/Starma-Astrology-Pillar.png');
+.bridge_top_title {
+  position: relative;
+  font-family: "ClarendonBT-Light";
+  font-size: .85em;
+  letter-spacing: .1em;
+  font-weight: bold;
+  line-height: 1.5;
+  top: 44px;
+  width: 100%;
+  float: left;
+  text-align: center;
+  display: inline;
 }
 
-.bridge.pillar_broken{
-  background: url('/img/Starma-Astrology-Pillar-Broken.png');
+.pillar{
+  background: url('/img/Starma-Astrology-Pillar.png') no-repeat;
+  position: relative;
+  display: inline-block;
+  bottom: 4px;
 }
 
-.bridge.brdige_base {
-  background: url('/img/Starma-Astrology-Pillars-Base.png');
+.pillar_broken{
+  background: url('/img/Starma-Astrology-Pillar-Broken.png') no-repeat;
+  position: relative;
+  display: inline-block;
+  bottom: 4px;
+}
+
+.pillar_title {
+  position: relative;
+  font-family: "ClarendonBT-Light";
+  font-size: .7em;
+  letter-spacing: .1em;
+  top: 9px;
+  width: 85px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.bridge_base {
+  /*background: url('/img/Starma-Astrology-Pillars-Base.png') no-repeat;*/
+  position: relative;
+  bottom: 19px;
+  left: 49px;
+  width: 557px;
+  z-index: 2;
+}
+
+.pillar_icon_minor {
+  margin: 41px 11px 44px 1px;
+  cursor: pointer;
+  float: left;
+  display:inline-block;
+  z-index: 2;
+  position: relative;
 }
 
 
 #minor_connections {
   width:100%;
+}
+
+.right_icon_adjust {
+  right: 7px;
 }
 
 span.icon {
@@ -1263,8 +1315,8 @@ span.poi_title {
     width:517px;
     /*margin-left:31px;
     margin-right:auto;*/
-    top: 30px;
     left: 77px;
+    bottom: 13px;
     float: left;
     height: auto;
     position: relative;
@@ -1339,13 +1391,6 @@ span.poi_title {
   border: 2px solid black;
   background: url('/img/Starma-Astrology-Bridge.png') no-repeat scroll 0 0 ;
   background: url('/img/Starma-Astrology-Pillars.png') no-repeat scroll 0 0 ;*/
-}
-
-#minor_connections .pillar_icon {
-  margin: 50px 10px 0 0;
-  cursor: pointer;
-  float: left;
-  display:inline-block;
 }
 
 #minor_connections .bridge .main:hover {
