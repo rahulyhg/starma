@@ -2686,12 +2686,12 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
          
           
           //Left Side;
-            echo '<div class="selected left ' . get_selector_name($button_sign_id);
-            echo '"><a class="poi_button" href="#"><span>' . ucfirst($connection) . '</span></a></div>';  //End Left Side
+            echo '<div class="left no_hover ' . get_selector_name($button_sign_id);
+            echo '"><span class="icon"><span class="poi_title">' . strtoupper($connection) . '</span></span></div>';  //End Left Side
         
           //Right Side
-            echo '<div class="selected right ' . get_selector_name($button_sign_id2);
-            echo '"><a class="poi_button" href="#"><span>' . ucfirst($connection) . '</span></a></div>';  //End Right Side
+            echo '<div class="right no_hover right_icon_adjust ' . get_selector_name($button_sign_id2);
+            echo '"><span class="icon"><span class="poi_title">' . strtoupper($connection) . '</span></span></div>';  //End Right Side
 
             
               //Middle Relationships
@@ -2708,7 +2708,9 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                
                 //Pillars Images
 
-                echo '<div class="bridge_top"></div>';
+                echo '<div class="bridge_top"><div class="bridge_top_title">SUPPORT FOR YOUR ';
+                  echo strtoupper($connection);
+                echo ' SIGN CONNECTION</div></div>';
 
                 //Blurb Boxes and Pillars
                 //Your Y to their X
@@ -2718,11 +2720,23 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                     $con_y = $support_con[$y];
                     if ($con_x != $con_y) {
                       $button_sign_id3 = get_sign_from_poi ($chart_id1, get_poi_id (strtoupper($con_y)));
+                      $relationship_id2 = $compare_data[$con_y .'2' . $con_x]["relationship_id"];
                     //echo 'c1: ' . $connection1 . '<br>c2: ' . $connection2;
                     //echo $connection1 . 'to';
                     //echo $connection2 . '<br>';
-                      echo '<div class="pillar_icon ' . get_selector_name($button_sign_id3);
-                      echo '"><span class="icon main to_leg' . $z . '"><span class="poi_title">' . strtoupper($con_y) . '</span></span></div>';
+                      echo '<div class="';
+                        if($relationship_id2 < 5) {
+                          echo 'pillar">';
+                        }
+                        else {
+                          echo 'pillar_broken">';
+                        }
+                      echo '<div class="pillar_title">YOUR</div>';
+          
+                      //echo '">';
+                        echo '<div class="pillar_icon_minor pointer ' . get_selector_name($button_sign_id3);
+                        echo '"><span class="icon main to_leg' . $z . '"><span class="poi_title">' . strtoupper($con_y) . '</span></span></div>';                     
+                      echo '</div>'; //close pillar/pillar_broken
                           $z++; 
                     }
                     
@@ -2736,32 +2750,50 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                   $con_y = $support_con[$y];
                   if ($con_x != $con_y) {
                     $button_sign_id4 = get_sign_from_poi ($chart_id2, get_poi_id (strtoupper($con_y)));
+                    $relationship_id2 = $compare_data[$con_x .'2' . $con_y]["relationship_id"];
                     //echo 'c1: ' . $connection1 . '<br>c2: ' . $connection2;
                     //echo $connection1 . 'to';
                     //echo $connection2 . '<br>';
-                      echo '<div class="pillar_icon ' . get_selector_name($button_sign_id4);
-                      echo '"><span class="icon main to_leg' . $zz . '"><span class="poi_title">' . strtoupper($con_y) . '</span></span></div>';
+                     echo '<div class="';
+                        if($relationship_id2 < 5) {
+                          echo 'pillar">';
+                        }
+                        else {
+                          echo 'pillar_broken">';
+                        }
+                      
+                      echo '<div class="pillar_title">';
+
+                        if($temp_id = get_user_id_from_chart_id($chart_id2)) {
+                          if (get_gender($temp_id) == "M") {
+                            echo 'HIS';
+                          }
+                          elseif (get_gender($temp_id) == "F") {
+                            echo 'HER';
+                          }
+                          else {
+                            echo '';
+                          }
+                        }
+                        else {
+                          echo '';
+                        }
+
+                      echo '</div>';
+
+                        echo '<div class="pillar_icon_minor pointer ' . get_selector_name($button_sign_id4);
+                        echo '"><span class="icon main to_leg' . $zz . '"><span class="poi_title">' . strtoupper($con_y) . '</span></span></div>';
                     //echo 'c1: ' . $connection1 . '<br>c2: ' . $connection2;
                     //echo $connection1 . 'to';
                     //echo $connection2 . '<br>';
-                 /*
-                        $relationship_id2 = $compare_data[$con_x .'2' . $con_y]["relationship_id"];
-                        $connection_poi_id_A = get_poi_id (strtoupper($con_x));
-                        $connection_poi_id_B = get_poi_id (strtoupper($con_y));
-                        //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
-                          echo "<div class='blurb_supporting leg" . $zz . "'>";
-                            if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
-                              echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
-                            }
-                            else {
-                              echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, $text_type, $chart_id1, $chart_id2) . "</span>";
-                            }
-                          echo '</div>'; //close Blurb Box 
-                          */
+                        echo '</div>'; //close pillar/pillar_broken
                           $zz++; 
                     }
                     
                   } //close your X to their Y
+
+
+                echo '<div class="bridge_base"><img src="/img/Starma-Astrology-Pillars-Base.png" /></div>'; //Base
 
                   //Blurb Boxes for 1-3 (yours to theirs)
                 $zzz = 1;    
@@ -2813,7 +2845,6 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                   
                 //echo '</div>'; //close Pillars
                 //End Pillars
-
                   
                  echo "</div>"; //close poi_column_wrapper
                  echo '</li>';
@@ -3653,7 +3684,7 @@ function show_my_chart ($goTo = ".", $western=0) {
           echo '">';
           echo '<div class="chart_tabs_wrapper">';
 
-          echo '<span class="icon left"><span class="poi_title">' . $poi["poi_name"] . '</span></span>';
+          echo '<span class="icon left pointer"><span class="poi_title">' . $poi["poi_name"] . '</span></span>';
           echo '<span class="arrow ';
             if ($poi_id == $poi["poi_id"]) {
               echo 'arrow_left_on';
@@ -3712,7 +3743,7 @@ function show_my_chart ($goTo = ".", $western=0) {
               echo '<div class="chart_tabs_rk_wrapper">';
                 echo '<span class="arrow ';
                 echo '"></span>';
-                echo '<span class="icon right"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+                echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
                 echo '<span class="ketu_text">Ketu</span>';
                 echo '</span>';
                 echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
@@ -3734,7 +3765,7 @@ function show_my_chart ($goTo = ".", $western=0) {
               echo '<span class="arrow ';
               echo '"></span>';
 
-              echo '<span class="icon right"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+              echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
               echo '</span>';
           //echo '<a ';
           
@@ -3858,7 +3889,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
           echo '">';
           echo '<div class="chart_tabs_wrapper">';
 
-          echo '<span class="icon left"><span class="poi_title">' . $poi["poi_name"] . '</span></span>';
+          echo '<span class="icon left pointer"><span class="poi_title">' . $poi["poi_name"] . '</span></span>';
           echo '<span class="arrow ';
             if ($poi_id == $poi["poi_id"]) {
               echo 'arrow_left_on';
@@ -3890,7 +3921,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
               echo '<div class="chart_tabs_rk_wrapper">';
                 echo '<span class="arrow ';
                 echo '"></span>';
-                echo '<span class="icon right"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+                echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
                 echo '<span class="ketu_text">Ketu</span>';
                 echo '</span>';
                 echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
@@ -3912,7 +3943,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
               echo '<span class="arrow ';
               echo '"></span>';
 
-              echo '<span class="icon right"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+              echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
               echo '</span>';
           //echo '<a ';
           
