@@ -480,7 +480,7 @@ input{
 /*//////////////// SIGN ICONS ///////////////////////////////////////////*/
 
 span.icon {
-  cursor: pointer;
+  /*cursor: pointer;*/
   display: inline-block;
 }
 
@@ -577,14 +577,14 @@ span.right {
   width: 75px;
 }
 
-.bra_button span.icon, .bra_button.no_hover:hover span.icon {
-  background:url('/img/sign_buttons/Starma-Astrology-bra-OFF.png') no-repeat;
+.Libra_button span.icon, .Libra_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Libra-OFF.png') no-repeat;
   height: 88px;
   width: 75px;
 }
 
-.bra_button.selected span.icon, .bra_button:hover span.icon {
-  background:url('/img/sign_buttons/Starma-Astrology-bra-ON.png') no-repeat;
+.Libra_button.selected span.icon, .Libra_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Libra-ON.png') no-repeat;
   height: 88px;
   width: 75px;
 }
@@ -685,14 +685,14 @@ span.right {
   width: 75px;
 }
 
-.Aries_bra_button span.icon {
-  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aries-bra-OFF.png') no-repeat;
+.Aries_Libra_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aries-Libra-OFF.png') no-repeat;
   height: 180px;
   width: 75px;
 }
 
-.Aries_bra_button.selected span.icon, .Aries_bra_button:hover span.icon {
-  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aries-bra-ON.png') no-repeat;
+.Aries_Libra_button.selected span.icon, .Aries_Libra_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aries-Libra-ON.png') no-repeat;
   height: 180px;
   width: 75px;
 }
@@ -733,14 +733,14 @@ span.right {
   width: 75px;
 }
 
-.bra_Aries_button span.icon {
-  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-bra-Aries-OFF.png') no-repeat;
+.Libra_Aries_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Libra-Aries-OFF.png') no-repeat;
   height: 180px;
   width: 75px;
 }
 
-.bra_Aries_button.selected span.icon, .bra_Aries_button:hover span.icon {
-  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-bra-Aries-ON.png') no-repeat;
+.Libra_Aries_button.selected span.icon, .Libra_Aries_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Libra-Aries-ON.png') no-repeat;
   height: 180px;
   width: 75px;
 }
