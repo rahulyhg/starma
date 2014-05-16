@@ -2672,13 +2672,13 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       $support_con = get_cornerstones();
       $x = 0;
       foreach (get_cornerstones() as $connection) {
-<<<<<<< HEAD
+
         $cornerstones = get_cornerstones();
         $connection_type = $cornerstones[$x];
-=======
+
 
         $connection_type = $support_con[$x];
->>>>>>> a81b1c1b38bf0b0ae53762690cbbd8eb090542c8
+
           echo '<li>'; 
           echo '<div class="poi_column_wrapper_minor">';
           $button_sign_id = get_sign_from_poi ($chart_id1, get_poi_id (ucfirst($connection)));  //in user functions
