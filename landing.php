@@ -5,7 +5,13 @@
  //   header( 'Location: http://www.' . $domain . '/underconstruction.php');
  //}  
 
+ echo '<script type="text/javascript">
 
+            $(document).ready(function(){
+              $("input[name=email]").focus();
+            });
+
+          </script>';
 
 if (isLoggedIn())
 {
