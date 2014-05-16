@@ -1722,41 +1722,49 @@ function get_user_nickname_from_email ($email) {
 }
 
 function changePassword($email,$currentpassword,$newpassword,$newpassword2){
-global $seed;	
-	if (!valid_email($email) || !user_exists($email,get_user_nickname_from_email ($email)))
-    {
+  global $seed;	
+  //echo 'call changePassword';
+	if (!valid_email($email) || !user_exists($email,get_user_nickname_from_email ($email))) {   
+        //echo 'invalid email';
         //echo "invalid email or user doesnt exist: *" . get_user_nickname_from_email ($email) . "*";
         //die();
         return false;
-    }
-    if (! valid_password($newpassword) || ($newpassword != $newpassword2)){
+  }
+  if (! valid_password($newpassword) || ($newpassword != $newpassword2)){
                 //echo "invaid password or passwords dont match";
                 //die();
- 
+      //echo 'invalid password or new passwords are not the same';
 		return false;
 	}
  
 	// we get the current password from the database
-    $query = sprintf("SELECT password FROM user WHERE email = '%s' LIMIT 1",
-        mysql_real_escape_string($email));
+  $query = sprintf("SELECT password FROM user WHERE email = '%s' LIMIT 1",
+    mysql_real_escape_string($email));
  
-    $result = mysql_query($query);
+  $result = mysql_query($query);
 	$row= mysql_fetch_row($result);
+  //print_r($row);
  
 	// compare it with the password the user entered, if they don't match, we return false, he needs to enter the correct password.
 	if ($row[0] != sha1($currentpassword.$seed)){
- 
+    //echo 'row not equal to currentpasswordseed<br>';
+    //echo $row[0] . '<br><br>';
+    //echo sha1($currentpassword.$seed);
+
 		return false;	
 	}
- 
+  //echo 'about to update <br>';
 	// now we update the password in the database
-    $query = sprintf("update user set password = '%s' where email = '%s'",
-        mysql_real_escape_string(sha1($newpassword.$seed)), mysql_real_escape_string($email));
+  $query = sprintf("update user set password = '%s' where email = '%s'",
+    mysql_real_escape_string(sha1($newpassword.$seed)), mysql_real_escape_string($email));
  
-    if (mysql_query($query))
-    {
+  if (mysql_query($query)) {
 		return true;
-	}else {return false;}
+	}
+  else {
+    return false;
+  } 
+  //echo 'updated';
 	return false;
 }
  

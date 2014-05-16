@@ -35,7 +35,7 @@ if (login_check_point($type="full", $domain=$domain)) {
     
   }
   else {
-    show_birth_info_form();
+    show_birth_info_form_custom();
   }
   //show_birth_info_form();
 }

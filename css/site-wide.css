@@ -311,8 +311,9 @@ body select {
 }
 
 #js_more_link {
-    left: 470px;
+    left: 500px;
     position: absolute;
+    top: 13px;
     width: 400px;
     z-index: 1;
 }
@@ -320,12 +321,13 @@ body select {
 #js_more_link a {
   padding: 3px;
   letter-spacing: 0;
+  font-size: .9em;
   color:#1D1D1D;
-  font-family: helvetica, arial;
+  font-family: "P22UndergroundBook", helvetica, arial;
   font-size: 13px;
 }
 #js_more_link a:hover {
-  font-weight: bold;
+  text-shadow: 0 0 1px gray;
 }
 
 #js_more_link #view_select {

@@ -11,12 +11,13 @@ session_start();
 require_once ('include/db_connect.inc.php'); // include the database connection
 require_once ("PHPMailer_5.2.1/class.phpmailer.php");
 require_once ("include/functions.inc.php"); // include all the functions
-$seed="0dAfghRqSTgx"; // the seed for the passwords
+//$seed="0dAfghRqSTgx"; // the seed for the passwords
 $domain =  "starma.com"; // the domain name without http://www.
 $landing =  "landing.php";
 //ini_set('display_errors',1);
 //error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('America/Chicago');
+//mb_internal_encoding("utf-8");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

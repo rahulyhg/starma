@@ -15,4 +15,6 @@ $conn = mysql_connect(HOST, DBUSER, PASS) or  die('Could not connect !<br />Plea
  
 $db = mysql_select_db(DB) or  die('Could not connect to database !<br />Please contact the site\'s administrator.');
  
+$seed="0dAfghRqSTgx";
+ 
 ?>

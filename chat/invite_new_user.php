@@ -11,7 +11,7 @@ if(trim($_POST["email"]) != "" and trim($_POST["text_body"]) != "") {
 
 }
 
-if(trim($_POST["email"]) == "") {
+if(trim($_POST["email"]) == "" or !preg_match('%^[a-zA-Z0-9-_.]+@[a-zA-Z0-9-_.]+\.[A-Za-z]{2,4}$%', trim($_POST["email"]))) {
 	$errors["email"] = "Please Enter a Valid Email";
 }
 
@@ -25,7 +25,7 @@ if(!empty($errors)) {
 }
 else {
 	$data["success"] = true;
-	$data["message"] = "Message Sent!";
+	$data["message"] = $_POST["text_body"];
 }
 
 

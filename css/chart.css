@@ -320,34 +320,42 @@ div.Virgo_Pisces_button.selected a, div.Virgo_Pisces_button:hover a {
 
 div.my_7_button a {
   background:url('/img/Starma-Astrology-Compatibility-Challenges-Big.png') no-repeat center top;
+  cursor: default;
 }
 
 div.my_6_button a {
   background:url('/img/Starma-Astrology-Compatibility-Disappointments.png') no-repeat center top;
+  cursor: default;
 }
 
 div.my_5_button a {
   background:url('/img/Starma-Astrology-Compatibility-Power-Sharing-Big.png') no-repeat center top;
+  cursor: default;
 }
 
 div.my_4_button a {
   background:url('/img/Starma-Astrology-Compatibility-Friends-Big.png') no-repeat center top;
+  cursor: default;
 }
 
 div.my_3_button a {
   background:url('/img/Starma-Astrology-Compatibility-Great-Admirers.png') no-repeat center top;
+  cursor: default;
 }
 
 div.my_2_button a {
   background:url('/img/Starma-Astrology-Compatibility-Magnetic-Attraction-Big.png') no-repeat center top;
+  cursor: default;
 }
 
 div.my_1_button a {
   background:url('/img/Starma-Astrology-Compatibility-Peas-In-A-Pod-Big.png') no-repeat center top;
+  cursor: default;
 }
 
 div.my_unknown_button a {
   background:url('/img/Starma-Astrology-Compatibility-Unknown.png') no-repeat center top;
+  cursor: default;
 }
 /*//////////////// DYNAMIC ICONS ///////////////////////////////////////*/
 
@@ -662,9 +670,9 @@ div.my_unknown_button a {
   position:relative;
   /*top:13px;*/
   /* Matt adding for mockup*/
-  border: 1px solid black;
+  display: inline-block;
   height: 38px;
-  left: 167px;
+  /*left: 167px;*/
   top: 29px;
   width: 438px;
 }
@@ -694,7 +702,7 @@ div.my_unknown_button a {
     top: 100px;*/
     position: absolute;
     left: 19px;
-    top: 165px;
+    top: 179px;
     z-index: 2;
 }
 
@@ -744,11 +752,11 @@ div.my_unknown_button a {
   display:block;
   width:171px;
   height: 12px;
-  font-size: .8em;
-  line-height: 0.8em;
+  font-size: 0.9em;
+  line-height: 0.9em;
   color:black;
   cursor: pointer;
-  font-family: "P22UndergroundBook", helvetica, arial;
+  font-family: "P22UndergroundBook";
 }
 
 #compare_results_selector ul li.end a {
@@ -799,7 +807,7 @@ div.my_unknown_button a {
     background: #D3DBF6;
     border-top: 2px solid #2C3447;
     border-right: 2px solid #2C3447;
-    top: 22px;
+    top: 36px;
     float: left;
     position: relative;
     right: 10px;
@@ -903,18 +911,67 @@ div.my_unknown_button a {
 }
 
 #compare_results #explanation {
-    font-size: 0.8em;
-    line-height: 1.6em;
+    font-size: 0.93em;
+    line-height: 1.5em;
+    letter-spacing: .05px;
     margin: auto;
-    padding: 10px;
-    position: relative;
-    text-align: center;
+    padding: 15px 0 12px 25px;
+    position: absolute;
+    text-align: left;
     /*top: 8px;
     width: 465px;  MATT REDESIGN*/
-    top: 30px;
-    width: 418px;
-    height: 75px;
-    border: 1px solid black;
+    top: 75px;
+    left: 165px;
+    width: 421px;
+    /*height: 110px;*/
+}
+
+.explanation_less {
+  background: url("/img/Starma-Astrology-Thought-Bubble.png") no-repeat scroll 0 0 / 450px 110px rgba(0, 0, 0, 0);
+}
+
+.explanation_more {
+  /*background: url("/img/Starma-Astrology-Thought-Bubble-Big.png") no-repeat scroll 0 0 / 450px 110px rgba(0, 0, 0, 0);*/
+  height: auto;
+  border: 1px solid black;
+  background: white;
+  position: absolute;
+  z-index: 3;
+}
+
+.exp_more {
+  display: none;
+}
+
+#explain_more {
+  font-size: .73em;
+  font-family: "P22UndergroundBook";
+  display: inline;
+  position: relative;
+  float: right;
+  cursor: pointer;
+  /*border-left: 2px solid black;
+  border-bottom: 2px solid black;*/
+  padding-top: 13px;
+  font-weight: bold;
+  margin-right: 40px;
+  bottom: 13px;
+}
+
+#explain_more:hover {
+  text-shadow: 0 0 1px gray;
+}
+
+#major_small_bubble {
+  position: absolute;
+  left: 156px;
+  top: 182px;
+}
+
+#major_medium_bubble {
+  position: absolute;
+  left: 165px;
+  top: 166px;
 }
 
 #compare_results #explanation #text_selector {
@@ -966,12 +1023,18 @@ div.my_unknown_button a {
   color:black;
 }
 
+.star {
+  position: relative;
+  float: left;
+  margin-left: 42px;
+}
+
 /*///////GENERAL COMPARE PAGE/////*/
 
 .dynamic_column {
   position: relative;
   float: left;
-  margin: 0 20px 20px 20px;
+  margin: 0 20px;
   width: 478px;
 }
 
@@ -1005,16 +1068,30 @@ div.my_unknown_button a {
 }
 
 .poi_column .blurb div.text {
-  font-size: .875em;
-  font-family: arial;
+  font-size: .73em;
+  font-family: "P22UndergroundBook";
   display: inline;
   position: relative;
   float: right;
   cursor: pointer;
-  border-left: 2px solid black;
-  border-bottom: 2px solid black;
-  padding: 5px 10px;
-  margin-left: 10px;
+  /*border-left: 2px solid black;
+  border-bottom: 2px solid black;*/
+  padding-top: 15px;
+  font-weight: bold;
+}
+
+.text:hover {
+  text-shadow: 0 0 1px gray;
+}
+
+.small_intro {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  float: left;
+  font-size: .93em;
+  line-height: 1.5;
+  letter-spacing: .05px;  
 }
 
 
@@ -1028,10 +1105,11 @@ div.my_unknown_button a {
 
 
 #major_connections .blurb {
-    background-color:white;
+    /*background-color:white;
     border:2px solid black;
-    width:602px;
-    margin-left:31px;
+    width:602px;*/
+    width: 496px;
+    margin-left:85px;
     margin-right:auto;
     float: left;
     height: auto;
@@ -1039,7 +1117,7 @@ div.my_unknown_button a {
 
 #major_connections .dynamic_blurb {
     padding:10px;
-    display:block;
+    display:none;
     text-align:left;
     font-size: .93em;
     line-height: 1.5;
@@ -1052,6 +1130,7 @@ div.my_unknown_button a {
   font-size:.93em;
   line-height: 1.5;
   letter-spacing: .05px;
+  display: none;
 
 }
 
@@ -1096,6 +1175,7 @@ div.my_unknown_button a {
   width:75px;
   text-transform:uppercase;
   font-weight:bold;
+  cursor: default;
 }
 
 #major_connections .dynamic_icon{
@@ -1133,21 +1213,73 @@ div.my_unknown_button a {
   padding-bottom:25px;
 }
 
+
+.poi_column div.poi_column_wrapper_minor {
+  position: relative;
+  display: inline-block;
+  height: 330px;
+}
+
+.bridge_top {
+  width: 520px;
+  height: 87px;
+  float: left;
+  position: relative;
+  background: url('/img/Starma-Astrology-Pillars-Top.png') no-repeat;
+}
+
+.bridge.pillar{
+  background: url('/img/Starma-Astrology-Pillar.png');
+}
+
+.bridge.pillar_broken{
+  background: url('/img/Starma-Astrology-Pillar-Broken.png');
+}
+
+.bridge.brdige_base {
+  background: url('/img/Starma-Astrology-Pillars-Base.png');
+}
+
+
 #minor_connections {
   width:100%;
-  text-align:center;
+}
+
+span.icon {
+  text-align: center;
+}
+
+span.poi_title {
+  position:relative;
+  top:68px;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
 }
 
 #minor_connections .blurb_supporting {
-    background-color:white;
-    border:2px solid black;
-    width:582px;
-    margin-left:31px;
-    margin-right:auto;
+    width:517px;
+    /*margin-left:31px;
+    margin-right:auto;*/
+    top: 30px;
+    left: 77px;
     float: left;
     height: auto;
     position: relative;
-    padding: 10px;
+    text-align:left;
+    display: none;
+}
+
+.blurb_supporting_show{
+  display: inline;
+}
+
+#minor_connections .blurb_supporting span {
+  font-size:.93em;
+  line-height: 1.5;
+  letter-spacing: .05px;
 }
 
 #minor_connections .dynamic_blurb {
@@ -1197,20 +1329,27 @@ div.my_unknown_button a {
 }
 
 #minor_connections .bridge {
-  height: 100px;
-  width: 602px;
+  /*height: 100px;*/
+  width: 520px;
+  height: 315px;
+  margin-bottom: 20px;
   float: left;
-  margin: 0 0 40px 31px;
+  position: relative;
+  /*margin: 0 0 40px 31px;
   border: 2px solid black;
+  background: url('/img/Starma-Astrology-Bridge.png') no-repeat scroll 0 0 ;
+  background: url('/img/Starma-Astrology-Pillars.png') no-repeat scroll 0 0 ;*/
 }
 
-#minor_connections .bridge .main {
-  border: 1px solid black;
-  margin: 20px 30px;
-  width: 10px;
-  height: 50px;
+#minor_connections .pillar_icon {
+  margin: 50px 10px 0 0;
   cursor: pointer;
   float: left;
+  display:inline-block;
+}
+
+#minor_connections .bridge .main:hover {
+  box-shadow: 0 0 1px #36405B;
 }
 
 #minor_connections .bridge .to_leg1 {

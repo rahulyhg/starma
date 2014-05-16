@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+      var $invite = $('#msg_sendie').val();
+
       $('#send-message-area').submit(function(event){
         //alert('submitting...');
              
@@ -41,17 +44,17 @@ $(document).ready(function(){
               $('#send-message-area').hide();
               $('#msg_sent').show();
               $('#msg_sent').html('<p>Message Sent!</p>');
-              //alert(data);
+              //alert(data.message);
              
                $('.pop').fadeOut(1700, function() {
-                      $('#msg_sendie').val('');
+                      $('#msg_sendie').val($invite);
                       $('#send-message-area').show();
                       $('#msg_sent').hide();
                       $('#msg_sent').html('');
                       $('#msg_label').text('New Message');
-                      $('#email_label').text('Email');
+                      $('#email_label').text('Email Address');
+                      $('#email_invite').val('');
                   });
-               //$('#msg_sendie').val('');
           
             } 
 
