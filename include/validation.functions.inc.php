@@ -257,6 +257,22 @@ function login_check_point($type="partial") {
   
 }
 
+function contains_illegal_words($nickname) {
+  $q = 'SELECT * from banned_words';
+  $do_q = mysql_query ($q) or die(mysql_error());
+  //echo mysql_num_rows($do_q);
+  while ($row = mysql_fetch_array($do_q)) {
+    //echo $row["word"] . ' ---> ';
+    //echo strpos(strtolower($nickname), $row["word"]);
+    //echo '<br>';
+    if (strpos(strtolower($nickname), $row["word"]) !== false) {
+      return true;
+    }
+  }
+  //die();
+  return false;
+}
+
 function token_valid ($token) {
   $q = 'SELECT * from token where token = "' . $token . '" and user_id = -1';
   $do_q = mysql_query ($q) or die(mysql_error());
@@ -347,6 +363,10 @@ function valid_nickname($nickname, $minlength = 3, $maxlength = 30)
  
         return false; //toshort
     }
+    if (contains_illegal_words($nickname)) {
+      return false;
+    }
+ 
     //return true;
     $result = preg_match("/^[A-Za-z0-9_-]+$/", $nickname); //only A-Z, a-z and 0-9 are allowed (and _ and - )
     //$result = preg_match("/^[A-Za-z]+([A-Za-z0-9]*[_|-]?)*[A-Za-z0-9]+$/", $nickname); //only A-Z, a-z and 0-9 are allowed (and _ and - )
@@ -357,7 +377,8 @@ function valid_nickname($nickname, $minlength = 3, $maxlength = 30)
     {
         return false; //invalid chars found
     }
- 
+
+    
     return false;
  
 }
