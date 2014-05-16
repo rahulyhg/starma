@@ -141,7 +141,8 @@ elseif ($tier == "4") {
 
           //REDESIGN
           echo '<div class="profile_button compare_button">
-              <select onchange="location = this.options[this.selectedIndex].value;">
+          <span class="compare_button_title">Compare</span>
+              <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
                 <option value="">Choose Compatiblity Test</option>
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romance</option>
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Friends</option>
