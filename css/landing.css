@@ -287,6 +287,12 @@ bottom: 71px;
     left: 228px;
 }
 
+#illegal_words_error.error {
+  
+    bottom: 107px;
+    left: 242px;
+}
+
 #register #create_account {
   top:85px;
   left:80px;

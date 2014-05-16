@@ -24,6 +24,10 @@ if (isLoggedIn())
         $error[] = NOT_WORDS_ERROR();
       }
 
+      if (contains_illegal_words($des_name_1) || contains_illegal_words($des_name_2) ||  contains_illegal_words($des_name_3)) {
+        $error[] = ILLEGAL_WORDS_ERROR();
+      }
+
       
       
       if (sizeof($error) == 0) {

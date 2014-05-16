@@ -47,6 +47,10 @@ function NOT_WORDS_ERROR() {
 function PHOTO_ERROR() {
   return 10;
 }
+
+function ILLEGAL_WORDS_ERROR() {
+  return 11;
+}
     
 ### End Error Constants ###
 
@@ -258,7 +262,7 @@ function login_check_point($type="partial") {
 }
 
 function contains_illegal_words($nickname) {
-  $q = 'SELECT * from banned_words';
+  $q = 'SELECT * from banned_words WHERE disabled = 0';
   $do_q = mysql_query ($q) or die(mysql_error());
   //echo mysql_num_rows($do_q);
   while ($row = mysql_fetch_array($do_q)) {
