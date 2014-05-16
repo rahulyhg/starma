@@ -1721,6 +1721,33 @@ function get_user_nickname_from_email ($email) {
   }
 }
 
+function validate_current_password($email, $currentpassword) {
+  global $seed;
+  if (!valid_email($email) || !user_exists($email,get_user_nickname_from_email ($email))) {   
+        //echo 'invalid email';
+        //echo "invalid email or user doesnt exist: *" . get_user_nickname_from_email ($email) . "*";
+        //die();
+        return false;
+  }
+  else {
+    $query = sprintf("SELECT password FROM user WHERE email = '%s' LIMIT 1",
+      mysql_real_escape_string($email));
+ 
+    $result = mysql_query($query);
+    $row= mysql_fetch_row($result);
+  }
+  if ($row[0] != sha1($currentpassword.$seed)){
+    //echo 'row not equal to currentpasswordseed<br>';
+    //echo $row[0] . '<br><br>';
+    //echo sha1($currentpassword.$seed);
+
+    return false; 
+  }
+  else {
+    return true;
+  }
+}
+
 function changePassword($email,$currentpassword,$newpassword,$newpassword2){
   global $seed;	
   //echo 'call changePassword';
