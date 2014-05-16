@@ -46,6 +46,10 @@ body select {
   font-size: 0.8em;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 #img_preloader {
   display:none;
 }
