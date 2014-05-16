@@ -2644,8 +2644,8 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       //echo '*' . $connection_type . '*';
       $x = 0;
       foreach (get_cornerstones() as $connection) {
-
-        $connection_type = get_cornerstones()[$x];
+        $cornerstones = get_cornerstones();
+        $connection_type = $cornerstones[$x];
           echo '<li>'; 
           echo '<div class="poi_column_wrapper">';
           $button_sign_id = get_sign_from_poi ($chart_id1, get_poi_id (ucfirst($connection)));  //in user functions
@@ -2683,8 +2683,9 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                 //$counter = 0;
                   $z = 1;    
                 for ($y = 0; $y < count(get_cornerstones()); $y++) {
-                  $connection1 = get_cornerstones()[$x];
-                  $connection2 = get_cornerstones()[$y];
+                  $cornerstones = get_cornerstones(); 
+                  $connection1 = $cornerstones[$x];
+                  $connection2 = $cornerstones[$y];
                   if ($connection1 != $connection2) {
                     //echo 'c1: ' . $connection1 . '<br>c2: ' . $connection2;
                     //echo $connection1 . 'to';
