@@ -1214,6 +1214,8 @@ div.my_unknown_button a {
 }
 
 
+/*////////////////////// Minor ///////////////////*/
+
 .poi_column div.poi_column_wrapper_minor {
   position: relative;
   display: inline-block;
@@ -1295,6 +1297,32 @@ div.my_unknown_button a {
 
 .right_icon_adjust {
   right: 7px;
+}
+
+.arrow_topR_test {
+  background: url('/img/Starma-Astrology-Arrow-TopR.png') no-repeat;
+  display: inline;
+  position: relative;
+}
+
+.arrow_topL_test {
+  background: url('/img/Starma-Astrology-Arrow-TopL.png') no-repeat;
+  display: inline;
+  position: relative;
+}
+
+.arrow_test {
+  background: url('/img/Starma-Astrology-Arrow.png') no-repeat;
+  display: inline;
+  position: relative;
+}
+
+.add_arrow_top {
+  display: none;
+}
+
+.add_arrow_bottom {
+  display: none;
 }
 
 span.icon {
