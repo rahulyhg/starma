@@ -2680,7 +2680,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       foreach (get_cornerstones() as $connection) {
 
 
-        $connection_type = $support_con[$x];
+        //$connection_type = $support_con[$x];
 
           echo '<li>'; 
           echo '<div class="poi_column_wrapper_minor">';
@@ -2711,9 +2711,17 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                
                 //Pillars Images
 
+                //Bridge top
                 echo '<div class="bridge_top"><div class="bridge_top_title">SUPPORT FOR YOUR ';
                   echo strtoupper($connection);
                 echo ' SIGN CONNECTION</div></div>';
+
+                //End Bridge top
+
+                //Arrow Test
+                echo '<div class="add_arrow_top"></div>';
+
+                //End Arrow Test
 
                 //Blurb Boxes and Pillars
                 //Your Y to their X
@@ -2734,6 +2742,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         else {
                           echo 'pillar_broken">';
                         }
+                      echo '<div class"add_arrow_bottom"></div>';
                       echo '<div class="pillar_title">YOUR</div>';
           
                       //echo '">';
