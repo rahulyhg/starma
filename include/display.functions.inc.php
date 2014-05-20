@@ -2714,12 +2714,14 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                 //Bridge top
                 echo '<div class="bridge_top"><div class="bridge_top_title">SUPPORT FOR YOUR ';
                   echo strtoupper($connection);
-                echo ' SIGN CONNECTION</div></div>';
+                echo ' SIGN CONNECTION</div>';
 
                 //End Bridge top
 
                 //Arrow Test
-                echo '<div class="add_arrow_top"></div>';
+                echo '<span class="add_arrow_top"><span></span></span>';
+
+                echo '</div>';  //close Bridge Top
 
                 //End Arrow Test
 
@@ -2742,12 +2744,12 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         else {
                           echo 'pillar_broken">';
                         }
-                      echo '<div class"add_arrow_bottom"></div>';
+                      //echo '<div class="add_arrow_bottom"><img src="/img/Starma-Astrology-Arrow.png" /></div>';
                       echo '<div class="pillar_title">YOUR</div>';
           
                       //echo '">';
-                        echo '<div class="pillar_icon_minor pointer ' . get_selector_name($button_sign_id3);
-                        echo '"><span class="icon main to_leg' . $z . '"><span class="poi_title">' . strtoupper($con_y) . '</span></span></div>';                     
+                        echo '<div class="pillar_icon_minor L ' . get_selector_name($button_sign_id3);
+                        echo '"><span class="icon pointer main to_leg' . $z . '"><span class="poi_title">' . strtoupper($con_y) . '</span></span></div>';                     
                       echo '</div>'; //close pillar/pillar_broken
                           $z++; 
                     }
@@ -2793,8 +2795,8 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
                       echo '</div>';
 
-                        echo '<div class="pillar_icon_minor pointer ' . get_selector_name($button_sign_id4);
-                        echo '"><span class="icon main to_leg' . $zz . '"><span class="poi_title">' . strtoupper($con_y) . '</span></span></div>';
+                        echo '<div class="pillar_icon_minor R ' . get_selector_name($button_sign_id4);
+                        echo '"><span class="icon pointer main to_leg' . $zz . '"><span class="poi_title">' . strtoupper($con_y) . '</span></span></div>';
                     //echo 'c1: ' . $connection1 . '<br>c2: ' . $connection2;
                     //echo $connection1 . 'to';
                     //echo $connection2 . '<br>';
@@ -5127,7 +5129,7 @@ echo '<div id="settings_form">';
 
 echo '<br>';  
 //if ($_GET["error"] == 1) {
-  echo '<div>Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
+  echo '<div id="settings_header">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
   echo '<div id="pass_validation"></div>';
   //echo '<br><br>';
   //global $seed;
@@ -5159,7 +5161,7 @@ echo '<br>';
         <td><span class="pass_correct">Correct!</span>
       </tr>
   <tr> 
-    <td><input name="change_pass" id="change_pass" type="button" value="Reset Password"> </td>
+    <td><input name="change_pass" id="change_pass" type="button" value="Reset Password"><span id="ajax_loader"></span> </td>
   </tr> 
   </tbody>
 </form>
