@@ -1254,8 +1254,22 @@ div.my_unknown_button a {
   bottom: 4px;
 }
 
+.pillar_arrow {
+  background: url('/img/Starma-Astrology-Pillar-Arrow.png') no-repeat;
+  position: relative;
+  display: inline-block;
+  bottom: 4px;
+}
+
 .pillar_broken{
   background: url('/img/Starma-Astrology-Pillar-Broken.png') no-repeat;
+  position: relative;
+  display: inline-block;
+  bottom: 4px;
+}
+
+.pillar_broken_arrow {
+  background: url('/img/Starma-Astrology-Pillar-Broken-Arrow.png') no-repeat;
   position: relative;
   display: inline-block;
   bottom: 4px;
@@ -1299,16 +1313,43 @@ div.my_unknown_button a {
   right: 7px;
 }
 
-.arrow_topR_test {
+.arrow_topR {
   background: url('/img/Starma-Astrology-Arrow-TopR.png') no-repeat;
-  display: inline;
+  display: none;
   position: relative;
+  height: 27px;
+  top: 43px;
+  float: right;
 }
 
-.arrow_topL_test {
-  background: url('/img/Starma-Astrology-Arrow-TopL.png') no-repeat;
+.arrow_topL3 {
+  background: url('/img/Starma-Astrology-Arrow-TopL3.png') no-repeat;
   display: inline;
   position: relative;
+  height: 20px;
+  top: 46px;
+  float: left;
+  left: 1px;
+}
+
+.arrow_topL2 {
+  background: url('/img/Starma-Astrology-Arrow-TopL2.png') no-repeat;
+  display: inline;
+  position: relative;
+  height: 20px;
+  top: 46px;
+  float: left;
+  left: 1px;
+}
+
+.arrow_topL1 {
+  background: url('/img/Starma-Astrology-Arrow-TopL1.png') no-repeat;
+  display: inline;
+  position: relative;
+  height: 20px;
+  top: 46px;
+  float: left;
+  left: 1px;
 }
 
 .arrow_test {
@@ -1317,12 +1358,24 @@ div.my_unknown_button a {
   position: relative;
 }
 
+.show_arrow {
+  display: inline;
+}
+
+
+/*
 .add_arrow_top {
   display: none;
 }
 
 .add_arrow_bottom {
   display: none;
+}
+*/
+.arrow_show {
+  display: inline;
+  position: relative;
+  z-index: 1;
 }
 
 span.icon {
