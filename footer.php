@@ -1,6 +1,8 @@
 <?php
+//echo '<div id="footer">';
  showChat();
  showNewMessageAlert();
- echo '</html>';
- ob_flush();
+ //echo '</div>'; //close footer div
+ //echo '</html>';
+ //ob_flush();
 ?>
