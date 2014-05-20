@@ -2617,6 +2617,10 @@ span.div_link {
   padding:10px;
 }
 
+#settings_header {
+  margin-bottom: 15px;
+}
+
 #settings .flare_title {
   top:3px;
   position:relative;
@@ -2637,6 +2641,11 @@ span.div_link {
   position: relative;
   bottom: 7px;
   padding-left: 11px;
+}
+
+#change_pass {
+  margin-right: 15px;
+  margin-top: 3px;
 }
 
 /*//////////////// SETTINGS ///////////////////////////////////////*/
