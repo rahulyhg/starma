@@ -5121,7 +5121,7 @@ function show_userbox()
 function show_changepassword_form(){
 
 echo '<div id="settings">';
-  flare_title("Change My Password");
+  //flare_title("Change My Password");
 echo '<div id="settings_form">';
 
 
@@ -5164,11 +5164,11 @@ echo '<br>';
     <td><input name="change_pass" id="change_pass" type="button" value="Reset Password"><span id="ajax_loader"></span> </td>
   </tr> 
   </tbody>
+  </table>
 </form>
 </div>
 </div>
-<script typt="text/javascript" src="/js/settings_ui.js"></script>
-';
+<script typt="text/javascript" src="/js/settings_ui.js"></script>';
 }
  
 function show_loginform($disabled = false)
