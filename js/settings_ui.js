@@ -21,7 +21,7 @@ $(document).ready(function(){
 	//if ($('input[name=change_pass]').prop('disabled', false)) {
 		
 		$('#change_pass').click(function(){
-
+			$('#ajax_loader').html('<img src="/js/ajax_loader.gif" />');
 			var data_pass = {
 				'oldpassword'  : $('input[name=oldpassword]').val(),
 				'password'     : $('input[name=password]').val(),
@@ -39,16 +39,21 @@ $(document).ready(function(){
 				.done(function(data) {
 					//alert(data);
 					if (data.success) {
+						$('#ajax_loader').html('');
 						$('#pass_validation').show().html('Your password has been updated!').css('color', 'green');
-						//alert('success');
+						//alert(data.pass);
 					}
 					if (data.errors) {
+						$('#ajax_loader').html('');
 						$('#pass_validation').css('color', 'red');
 						if(data.errors.pass_length){	
 							$('#pass_validation').show().text('*' + data.errors.pass_length);
 						}
 						if(data.errors.oldpass) {
 							$('#pass_validation').show().text('*' + data.errors.oldpass);
+						}
+						if(data.errors.mismatch) {
+							$('#pass_validation').show().text('*' + data.errors.mismatch);
 						}
 					}
 					$('input[name=oldpassword]').val('');
