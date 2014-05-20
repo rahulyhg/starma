@@ -48,7 +48,73 @@ $(document).ready(function(){
 		$('.pillar_icon_minor').click(function() {
 			$(this).parent().siblings().children('.pillar_icon_minor').not(this).removeClass('selected');
 			$(this).toggleClass('selected');
-			$(this).siblings('.add_arrow_bottom').show().toggleClass('arrow_test');
+			
+			if ($(this).parent().hasClass('pillar')) {
+				$(this).parent().toggleClass('pillar_arrow');
+				$(this).parent().siblings().removeClass('pillar_arrow pillar_broken_arrow');
+			}
+			else {
+				$(this).parent().toggleClass('pillar_broken_arrow');
+				$(this).parent().siblings().removeClass('pillar_arrow pillar_broken_arrow');
+			}
+			var classes = $(this).children().attr('class');
+			var index = classes[24];	//index of the to_leg(n)
+			if ($(this).parent().siblings().children('.add_arrow_top').children('span').hasClass(index)) {
+				$(this).parent().siblings().children('.add_arrow_top').children('span').removeClass();
+				if($(this).hasClass('L')) {
+					$(this).parent().siblings().children('.add_arrow_top').hide();
+				}
+				else {
+					$(this).parent().siblings().children('.add_arrow_top').hide();
+				}
+			}
+			else {
+				$(this).parent().siblings().children('.add_arrow_top').children('span').removeClass();
+				$(this).parent().siblings().children('.add_arrow_top').children('span').addClass(index);
+				if ($(this).hasClass('L')) {
+					$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL1');
+					$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL2');
+					$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL3');
+					$(this).parent().siblings().children('.add_arrow_top').addClass('arrow_topR');
+					$(this).parent().siblings().children('.arrow_topR').show();
+				
+					if($(this).children().hasClass('to_leg1')) {
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 490);
+					}
+					if($(this).children().hasClass('to_leg2')) {
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 403);
+					}
+					if($(this).children().hasClass('to_leg3')) {
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 316);
+					}
+				}
+				else {
+					$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topR');
+					if($(this).children().hasClass('to_leg6')) {
+						$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL1');
+						$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL2');
+						$(this).parent().siblings().children('.add_arrow_top').addClass('arrow_topL3');
+						$(this).parent().siblings().children('.arrow_topL3').show();
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 491);
+					}
+					if($(this).children().hasClass('to_leg5')) {
+						$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL1');
+						$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL3');
+						$(this).parent().siblings().children('.add_arrow_top').addClass('arrow_topL2');
+						$(this).parent().siblings().children('.arrow_topL2').show();
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 404);
+					}
+					if($(this).children().hasClass('to_leg4')) {
+						$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL2');
+						$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL3');
+						$(this).parent().siblings().children('.add_arrow_top').addClass('arrow_topL1');
+						$(this).parent().siblings().children('.arrow_topL1').show();
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 317);
+					}
+				}
+			}
+			//alert(index);
+			
 		});
 
 		$('.to_leg1').click(function(){
