@@ -179,10 +179,18 @@ if ($the_left=="nav1") {
       
     ?>
   </div>
-  
+  <div id="clear"></div>
+  <div id="footer">
+    <div style="text-align:center; width:100%;">Footer!</div>
 </div>
 
+    
+  </div>
 <?php
  require_once "footer.php";
 ?> 
 </body>
+</html>
+<?php ob_flush(); ?>
+
+
