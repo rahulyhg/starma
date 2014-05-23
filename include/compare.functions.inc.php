@@ -85,6 +85,9 @@ function compare_tier_2 ($gotothe, $results_type, $text_type) {
         case "minor": 
           show_minor_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
           break;            
+        case "ruler": 
+          show_rp_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
+          break;
         case "bonus": 
           show_bonus_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
           break;
