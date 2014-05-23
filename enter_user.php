@@ -55,6 +55,9 @@ if ($tier == "1") {
 }
 elseif ($tier == "2") {
   if ((string) $_GET["stage"] == "2" or (string) $_GET["stage"] == "3") {
+    if(isset($_GET['from_profile'])) {
+      clear_compare_data();
+    }
     if (isset($_GET["results_type"])) {
       $results_type = $_GET["results_type"];
     }
@@ -124,6 +127,8 @@ elseif ($tier == "4") {
   else {
     $chart_id2 = $_GET["chart_id2"];
   }
+
+echo '<div id="profile_top_bar">';
   echo '<div id="profile_photo_and_info_custom">
         <div id="custom_nickname">Custom Chart</div>
           <div id="main_photo_box">
@@ -144,8 +149,8 @@ elseif ($tier == "4") {
           <span class="compare_button_title">Compare</span>
               <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
                 <option value="">Choose Compatiblity Test</option>
-                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romance</option>
-                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Friends</option>
+                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Romance</option>
+                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Friends</option>
               </select>
             </div>';
 
@@ -172,6 +177,9 @@ elseif ($tier == "4") {
                   echo '</div>';
                 echo '</div>';
               echo '</div>';
+
+
+        echo '</div>';  //close profile_top_bar
         //***********---endMatt Stuff
 
           echo '<div id="profile_nav">
