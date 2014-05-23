@@ -42,13 +42,14 @@ input{
     background-color: #FFFFFF;
     border-left: 2px solid #2C3447;
     border-right: 2px solid #2C3447;
-    border-top: 1px solid #2C3447;
+    /*border-top: 1px solid #2C3447;*/
     float: right;
     min-height: 582px;
     padding: 10px;
     position: relative;
-    top: -229px;
+    /*top: -229px;*/
     width: 773px;
+    right: 2px;
   }
 
 
@@ -213,6 +214,7 @@ input{
   position: relative;
   display: inline;
   float: left;
+  margin-bottom: -4px;
   /*padding-right:20px;*/
 
 }
@@ -354,6 +356,8 @@ input{
   width:185px;
   position:relative; 
   z-index: 2; 
+  display: inline;
+  float: left;
 }
 
 #sidenav ul li a {
@@ -373,7 +377,7 @@ input{
   margin: 0;
   padding: 0;
   padding-left:0px;
-
+  display: inline-block;
 }
 
 
@@ -1415,11 +1419,11 @@ li.my_unknown_button a {
 }
 
 .profile_button.chat_button {
-  bottom: 197px;
     height: 25px;
-    left: 620px;
     position: relative;
     width: 65px;
+    float: right;
+    margin-top: 8px;
     
 }
 
@@ -1437,14 +1441,14 @@ li.my_unknown_button a {
 }
 
 .profile_button.compare_button  {
-    bottom: 205px;
-    left: 596px;
     position: relative;
     width: 167px;
     border: 1px solid black;
     background-color: #8393CA;
     padding: 4px;
     text-align: center;
+    margin-top: 38px;
+    float: right;
 }
 
 .profile_button.compare_button:hover  {
@@ -1496,12 +1500,12 @@ li.my_unknown_button a {
 }
 
 .profile_button.message_button {
-  bottom: 221px;
     height: 25px;
-    left: 690px;
     position: relative;
     width: 84px;
-    
+    float: right;
+    margin-top: 7px;
+    margin-right: 18px;
 }
 
 .profile_button.message_button a {
@@ -1526,12 +1530,11 @@ li.my_unknown_button a {
 }
 
 .profile_button.add_favorite_button, .profile_button.remove_favorite_button {
-    bottom: 210px;
     height: 25px;
-    left: 585px;
     position: relative;
     width: 189px;
-    
+    float: right;
+    margin-top: 10px;
 }
 
 .profile_button.add_favorite_button a, .profile_button.remove_favorite_button a {
@@ -1588,6 +1591,11 @@ li.my_unknown_button a {
   text-align:center;
 }
 
+#photos {
+  position: relative;
+  height: 300px;
+}
+
 #profile_photo_grid #my_photos {
     left: 33px;
     margin-top: 20px;
@@ -1602,12 +1610,13 @@ li.my_unknown_button a {
 
 #profile_page #profile_photo_and_info {
   position:relative;
-  height:250px;
+  height:240px;
   width:177px;
-  top:8px;
-  left:30px;
   text-align:center;
   font-size:0.8em;
+  display: inline-block;
+  float: left;
+  margin: 8px 15px 0 30px;
 }
 
 .profile_info_area {
@@ -1687,11 +1696,10 @@ li.my_unknown_button a {
 }
   
 #descriptors {
-   bottom: 210px;
-   float: right;
-   position: relative;
-   width:520px;
-   right:35px;
+  float: left;
+  position: relative;
+  width:320px;
+  margin-top: 38px;
 }
 
 #descriptors div {
@@ -1791,7 +1799,8 @@ li.my_unknown_button a {
   width:670px;
   margin:auto;
   position:relative;
-  bottom:68px;
+  margin-bottom: 30px;
+  min-height: 200px;
 }
 
 
@@ -1810,7 +1819,7 @@ li.my_unknown_button a {
 }
 
 #interests #left_column {
-  float:left;  
+  /*float:left; */ 
    
 }
 
@@ -1855,7 +1864,7 @@ li.my_unknown_button a {
     background: #D3DBF6;
     border-top: 2px solid #2C3447;
     border-right: 2px solid #2C3447;
-    bottom: 102px;
+    top: 19px;
     float: left;
     position: relative;
     right: 10px;
@@ -1870,8 +1879,8 @@ li.my_unknown_button a {
 #profile_nav {
     height: 21px;
     left: 91px;
-    position: absolute;
-    top: 223px;
+    position: relative;
+    float: left;
     z-index: 2;
 }
 
@@ -1944,6 +1953,11 @@ li.my_unknown_button a {
   padding:10px;
   width:773px;
   background-color: #D3DBF6;
+}
+
+#profile_chart {
+  height:500px;
+  position: relative;
 }
 
 
@@ -2510,9 +2524,17 @@ END OLD WAY*/
 
 /*//////////// CUSTOM CHART /////////////////////*/
 
+#profile_top_bar {
+  position: relative;
+  width: 773px;
+  height: 240px;
+}
+
 #profile_photo_and_info_custom {
-  margin: 20px 0 20px 30px;
+  margin: 8px 0 0 30px;
   width: 171px;
+  display: inline-block;
+  float: left;
 }
 
 #custom_nickname {
@@ -2560,11 +2582,10 @@ END OLD WAY*/
 }
 
 .profile_button_custom.invite_button {
-    bottom: 195px;
     height: 25px;
-    left: 605px;
     position: relative;
-    
+    float: right;
+    margin-top: 104px;
 }
 
 .profile_button_custom.invite_button a {
@@ -2598,7 +2619,7 @@ span.div_link {
     float: left;
     position: relative;
     right: 10px;
-    bottom: 53px;
+    top: 19px;
     width: 793px;
 }
 
@@ -2663,7 +2684,7 @@ span.div_link {
   height: 100px;
   width: 793px;
   margin-left: 183px;
-  top: -229px;
+  /*top: -229px;*/
 }
 
 
