@@ -13,7 +13,7 @@
     font-style: italic;
     font-weight: bold;
     text-align: right;
-  margin-right:2px;
+    margin-right:2px;
 }
 
 .chat_alert_list_div {
@@ -118,7 +118,7 @@
   left: 51px;
   top: 38px;
   position: absolute;
-  height: 700px;
+  /*height: 700px;*/
 }
 
 #inbox_header{
@@ -193,7 +193,7 @@
   left: 315px;
   top: 38px;
   position: absolute;
-  height: 700px;
+  /*height: 700px;*/
   
 }
 
