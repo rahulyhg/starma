@@ -1540,6 +1540,21 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
        echo '     </td>
                </tr>';
        $help_text_offset = 'offset';
+        if($type == "freebie") {
+          if(isset($_SESSION['alternate_chart_gender'])) {
+            $gender = $_SESSION['alternate_chart_gender'];
+          }
+          else {
+            $gender = "";
+          }
+          //echo $gender;
+          echo '<tr>
+              <td id="gender_select_title" class="no_move align_right">gender</td>
+              <td colspan="1" id="gender_select_input" class="no_move">';
+                echo gender_select($gender);
+          echo  '</td><td><span class="gender_validation"></span></td>
+            </tr>';
+        }
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////
   else {
@@ -2336,7 +2351,17 @@ function test_form_time () {
 }
 
 function show_compare_results ($score, $goto=".", $results_type, $text_type, $stage="2") {
+
+
+
       $freebie = is_freebie_chart($_SESSION['compare_chart_ids'][1]);
+
+      if ($freebie) {
+        if(isset($_SESSION['alternate_chart_gender'])) {
+          $alt_gender = $_SESSION['alternate_chart_gender'];
+          //echo $_SESSION['alternate_chart_gender'];
+        } 
+      }
        
        $text_type = $_GET["text_type"];
 
@@ -2569,6 +2594,10 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
 
 function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
+      if(isset($_SESSION['alternate_chart_gender'])) {
+        $alt_gender = $_SESSION['alternate_chart_gender'];
+        //echo $_SESSION['alternate_chart_gender'];
+      }
 
       $connection_type = "rising";
       //if ( isset($_POST["connection_type"]) and in_array($_POST["connection_type"], get_cornerstones()) ) {
@@ -2649,6 +2678,10 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
 function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
   //echo $chart_id1 . ' ' . $chart_id2;
+  if(isset($_SESSION['alternate_chart_gender'])) {
+    $alt_gender = $_SESSION['alternate_chart_gender'];
+    //echo $_SESSION['alternate_chart_gender'];
+  }
       
       $connection_type = "rising";
       //if ( isset($_POST["connection_type"]) and in_array($_POST["connection_type"], get_cornerstones()) ) {
@@ -2789,6 +2822,17 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                             echo '';
                           }
                         }
+                        elseif ($alt_gender) {
+                          if ($alt_gender == "M") {
+                            echo 'HIS';
+                          }
+                          elseif ($alt_gender == "F") {
+                            echo 'HER';
+                          }
+                          else {
+                            echo '';
+                          }
+                        }
                         else {
                           echo '';
                         }
@@ -2824,6 +2868,9 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                                 if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
                                   echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
                                 }
+                                elseif ($alt_gender) {
+                                  echo "<span>" . gender_converter_wrapper ($alt_gender, get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
+                                }
                                 else {
                                   echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, $text_type, $chart_id1, $chart_id2) . "</span>";
                                 }
@@ -2847,6 +2894,9 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                             if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
                               echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
                             }
+                            elseif ($alt_gender) {
+                                  echo "<span>" . gender_converter_wrapper ($alt_gender, get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
+                                }
                             else {
                               echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, $text_type, $chart_id1, $chart_id2) . "</span>";
                             }
@@ -3549,6 +3599,11 @@ function show_poi_info ($poi_id, $chart_id, $sign_id) {
 
 function show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id=1, $chart_id1, $chart_id2) {
   
+  if(isset($_SESSION['alternate_chart_gender'])) {
+    $alt_gender = $_SESSION['alternate_chart_gender'];
+    //echo $_SESSION['alternate_chart_gender'];
+  }
+
   //MATT REDESIGN
      if ($connection_poi_id == -1) {
       $rp_id1 = get_ruling_planet($chart_id1);
@@ -3578,7 +3633,7 @@ function show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relat
     $blurb = gender_converter_wrapper (get_gender($user_id2),get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2));
   }
   else {
-    $blurb = get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2);
+    $blurb = gender_converter_wrapper ($alt_gender, get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2));
   }
   if($connection_poi_id == -1) {
     echo "<span class='dynamic_blurb'><strong>" . $poi_name1 . ' ' . ucfirst(strtolower($sign_name1)) . ' to ' . $poi_name2 . ' ' . ucfirst(strtolower($sign_name2)) . ": </strong>" . $blurb . "</span>";
@@ -4950,7 +5005,19 @@ function format_image ($picture, $type, $user_id=-2) {
       }
     else {
       if ($user_id == -1) {
-        return '<img src="/img/Starma-Astrology-Compatibility-Male-Pic.png"/>';
+        if (isset($_SESSION['alternate_chart_gender'])) {
+          $alt_gender = $_SESSION['alternate_chart_gender'];
+          if($alt_gender == "M") {
+            $gender = "Male";
+          }
+          else {
+            $gender = "Female";
+          }
+        }
+        else {
+          $gender = "Male";
+        }
+        return '<img src="/img/Starma-Astrology-Compatibility-' . $gender . '-Pic.png"/>';
       }
       else {
         if (is_male($user_id)) {
