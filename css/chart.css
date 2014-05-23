@@ -822,7 +822,8 @@ div.poi_title {
     position: relative;
     right: 10px;
     width: 793px;
-}
+    padding-bottom: 65px;
+} 
 
 #compare #section {
   padding: 10px;
@@ -1262,6 +1263,7 @@ div.poi_title {
   position: relative;
   display: inline-block;
   bottom: 4px;
+  float: left;
 }
 
 .pillar_arrow {
@@ -1276,6 +1278,7 @@ div.poi_title {
   position: relative;
   display: inline-block;
   bottom: 4px;
+  float: left;
 }
 
 .pillar_broken_arrow {
@@ -1310,7 +1313,7 @@ div.poi_title {
   cursor: pointer;
   float: left;
   display:inline-block;
-  z-index: 2;
+  z-index: 3;
   position: relative;
 }
 
