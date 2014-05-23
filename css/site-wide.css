@@ -32,10 +32,10 @@ body select {
 */
 
 #frame {
-  width:980px;
+  width:982px;
   position:relative;
   border:0px solid black;
-  min-height:890px;
+  /*min-height:890px;*/
 }
 
 .align_right {
