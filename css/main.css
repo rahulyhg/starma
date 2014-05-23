@@ -1800,7 +1800,7 @@ li.my_unknown_button a {
   margin:auto;
   position:relative;
   margin-bottom: 30px;
-  min-height: 200px;
+  min-height: 252px;
 }
 
 
@@ -2342,6 +2342,7 @@ ul.as-list li.as-result-item em {
   display: inline-block;
   margin: 10px 20px;
   border: 1px solid black;
+  min-height: 252px;
 }
 
 #house_column div.ruled_house {
@@ -2423,7 +2424,7 @@ END OLD WAY*/
     margin: auto;
     position: relative;
     width: 500px;
-    height: 260px;
+    height: 295px;
     border: 1px solid #c7c7c7;
     padding: 15px 0;
     background-color: #D3DBF6;
@@ -2629,6 +2630,12 @@ span.div_link {
     width: 773px
 }
 
+.gender_validation {
+  display: none;
+  margin-bottom: 20px;
+  font-size: .8em;
+}
+
 
 /*///////////// END CUSTOM CHART //////////////////////////////////*/
 
@@ -2684,6 +2691,7 @@ span.div_link {
   height: 100px;
   width: 793px;
   margin-left: 183px;
+  float: left;
   /*top: -229px;*/
 }
 
