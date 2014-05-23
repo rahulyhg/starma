@@ -2435,7 +2435,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
           }
           echo '<div class="hover_box">';
           for ($x=1; $x<=5; $x++) {
-            echo '<img src="/img/Starma-Astrology-Compare-Star-Unknown.png"/>';
+            echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-Unknown.png"/></div>';
           }
           echo '<span>' . $help_text . '</span>';
           echo '</div>';
@@ -2511,16 +2511,16 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '/>Supporting Connections</a></li>';
       //Bonus
       echo '<li class="';   //took out class="bonus"
-      if ($results_type == "Ruling Planets") {
+      if ($results_type == "ruler") {
         echo 'selected';
       }
-      echo '"><a href="' . $goto . '&stage=2' . '&results_type=bonus">Ruling Planets</a></li>';
+      echo '"><a href="' . $goto . '&stage=2' . '&results_type=ruler">Ruling Planets</a></li>';   //NEED TO MAKE IT'S OWN AND NOT BONUS
 
       echo '<li class="end ';   //took out class="bonus"
-      if ($results_type == "jupiter") {
+      if ($results_type == "bonus") {
         echo 'selected';
-      }
-      echo '"><a href="' . $goto . '&stage=2' . '&results_type=jupiter">Jupiter</a></li>';
+      } 
+      echo '"><a href="' . $goto . '&stage=2' . '&results_type=bonus">Bonus Connections</a></li>';  //NEED TO MAKE INTO BONUS
    
       echo '</ul>';
       echo '</div>';
@@ -3175,8 +3175,15 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
 */  //End Old Way
 
-function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
+function show_rp_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
+echo '<div id="compare">';
+    echo'<div id="section">';
+      echo '<div>Under Construction...</div>';
+    echo '</div>';
+  echo '</div>';
+
+/*//NEEDS TO BE REBUILD
       $bonus_connections = array('ruling');
       $connection_type = "ruling";
       if ( isset($_POST["connection_type"]) and in_array($_POST["connection_type"], $bonus_connections) ) {
@@ -3189,11 +3196,11 @@ function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage=
       //Log the Action
       log_this_action (compare_action_bonus(), viewed_basic_action(), $chart_id2, $stage, -2);
 
-    /***********---Matt Added for Redesign---*/
+    //---Matt Added for Redesign---
 
       echo '<div id="compare">';
         echo'<div id="section">';
-    /*----ENDMATT---*/ 
+    //----ENDMATT--- 
 
       echo '<form name="major_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
@@ -3341,6 +3348,18 @@ function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage=
     echo '</div>';   //closing #section
   echo '</div>';  //closing #compare
   
+*/
+
+}
+
+function show_bonus_connections () {
+
+  echo '<div id="compare">';
+    echo'<div id="section">';
+      echo '<div>Coming Soon...</div>';
+    echo '</div>';
+  echo '</div>';
+
 }
 
 function gender_converter_wrapper ($gender, $blurb) {
@@ -3673,6 +3692,8 @@ function show_my_chart ($goTo = ".", $western=0) {
       $poi_list = get_poi_list();
      
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
+
+    echo '<div id="profile_chart">';
       
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
@@ -3830,6 +3851,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '</div>';
       echo '</div>';
       echo '</form>';
+    echo '</div>';  //close #profile_chart
   }
 }
 
@@ -3853,6 +3875,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
      
       $sign_id = get_sign_from_poi ($calc_chart_id, $poi_id);
       //echo '&&' . $sign_id . '&&<br>';
+    echo '<div id="profile_chart">';
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $calc_chart_id . '"/>';
       echo '<input type="hidden" name="poi_id"/>';
@@ -4084,6 +4107,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       echo '</div>';
       echo '</div>';
       echo '</form>';
+    echo '</div>';  //close #profile_chart
   }
 }
 
