@@ -463,6 +463,16 @@ div.my_unknown_button a {
   letter-spacing: .1em;
 }
 
+div.poi_title {
+  position:relative;
+  top:68px;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
+}
+
 #welcome .homepage_div #homepage_chart_button_info li a span {
   position:relative;
   top:65px;
