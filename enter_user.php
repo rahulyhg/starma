@@ -22,6 +22,19 @@ if (login_check_point($type="full")) {
     }
   */
 
+  if(isset($_SESSION['alternate_chart_gender'])) {
+    $alt_gender = $_SESSION['alternate_chart_gender'];
+    if ($alt_gender == "M") {
+      $gender = "Male";
+    }
+    else {
+      $gender = "Female";
+    }
+  }
+  else {
+    $gender = "Female";
+  }
+
 unset($_SESSION["change_info"]);
 
 if (isset($_GET["tier"])) {
@@ -101,13 +114,13 @@ elseif ($tier == "2") {
         break;            
       }    
       // If we're comparing to a Freebie Chart ////
-      if (is_freebie_chart($chart["chart_id"])) {
-        echo '<div class="profile_button custom_chart_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=4&chart_id2=' . $chart["chart_id"] . '">View This Person\'s Chart</a></div>';
-      }
+      //if (is_freebie_chart($chart["chart_id"])) {
+        //echo '<div class="profile_button custom_chart_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=4&chart_id2=' . $chart["chart_id"] . '">View This Person\'s Chart</a></div>';
+      //}
       /////////////////////////////////////////////
     }
     else {
-      show_birth_info_form($errors=array("Failed to Retrieve User Entered Chart"), $sao=0, $title="", $action="cast_chart.php", $stage=2);
+      show_birth_info_form_custom($errors=array("Failed to Retrieve User Entered Chart"), $sao=0, $title="", $action="cast_chart.php", $stage=2);
     }
    
   }
@@ -135,7 +148,7 @@ echo '<div id="profile_top_bar">';
             <div id="border_wrapper">
               <div id="main_photo">
                 <div class="fitter">
-                  <img src="/img/Starma-Astrology-Large-Default-Pic-Female.png">
+                  <img src="/img/Starma-Astrology-Large-Default-Pic-' . $gender . '.png">
                 </div>
               </div>
             </div>
