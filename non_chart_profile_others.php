@@ -35,7 +35,7 @@ if (login_check_point($type="full")) {
       //echo 'Profile';
       //  flare_title('Profile');
       //echo '</div>';
-
+    echo '<div id="profile_top_bar">';
       echo '<div id="profile_photo_and_info">';
         show_main_photo($_GET["chart_id2"]);
         show_general_info($_GET["chart_id2"]);
@@ -49,50 +49,7 @@ if (login_check_point($type="full")) {
         show_descriptors_info($_GET["chart_id2"]); 
       }
 
-      echo '<div id="profile_nav">
-          <ul>
-            <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=chart_selected">Birth Chart</a></li>';
-            echo '<li><a class="' . $houses_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=houses_selected">Houses</a></li>';
-            if (!$isCeleb)  {
-              echo '<li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=photos_selected">Photos</a></li>';
-            }
-            echo '<li';
-            if (!$western_there) {
-              echo ' class="end"';
-            } 
-            echo '><a class="' . $about_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=about_selected">About</a></li>';
-            if ($western_there)  {        
-              echo '<li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=1&tier=3&section=western_selected">Western View</a></li>';
-            }
-          echo '</ul>
-        </div>';
-
-      echo '<div id="profile_sections">';
-      
-        echo '<div id="section">';
-          if ($section == 'chart_selected') {
-            require('chart_others.php');
-          }
-          elseif ($section == 'houses_selected') {
-            require('houses_others.php');
-          }
-          elseif (($section == 'photos_selected') && (!$isCeleb)) {
-            require('photos_others.php');
-          }
-          elseif ($section == 'about_selected') {
-            echo '<div style="position:relative; top:75px;width:100%;">';
-              show_interests_info($_GET["chart_id2"]);
-            echo '</div>';   
-          }
-          elseif ($section == 'western_selected') {
-            require('chart_others.php');
-          }
-        echo '</div>';
-      echo '</div>';
- 
-      //echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare</a></div>';     
-
-      //TEST FOR ADDING text_type to compare_button
+       //TEST FOR ADDING text_type to compare_button
       echo '<div class="profile_button compare_button">
             <span class="compare_button_title">Compare</span>
               <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
@@ -154,6 +111,52 @@ if (login_check_point($type="full")) {
   else {
     echo "You are not authorized to view this profile.";
   }
+
+  echo '</div>';  //close profile_top_bar
+      echo '<div id="profile_nav">
+          <ul>
+            <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=chart_selected">Birth Chart</a></li>';
+            echo '<li><a class="' . $houses_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=houses_selected">Houses</a></li>';
+            if (!$isCeleb)  {
+              echo '<li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=photos_selected">Photos</a></li>';
+            }
+            echo '<li';
+            if (!$western_there) {
+              echo ' class="end"';
+            } 
+            echo '><a class="' . $about_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=about_selected">About</a></li>';
+            if ($western_there)  {        
+              echo '<li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=1&tier=3&section=western_selected">Western View</a></li>';
+            }
+          echo '</ul>
+        </div>';
+
+      echo '<div id="profile_sections">';
+      
+        echo '<div id="section">';
+          if ($section == 'chart_selected') {
+            require('chart_others.php');
+          }
+          elseif ($section == 'houses_selected') {
+            require('houses_others.php');
+          }
+          elseif (($section == 'photos_selected') && (!$isCeleb)) {
+            require('photos_others.php');
+          }
+          elseif ($section == 'about_selected') {
+            //echo '<div style="position:relative; top:75px;width:100%;">';
+              show_interests_info($_GET["chart_id2"]);
+            //echo '</div>';   
+          }
+          elseif ($section == 'western_selected') {
+            require('chart_others.php');
+          }
+        echo '</div>';
+      echo '</div>';
+ 
+      //echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare</a></div>';     
+
+     
   
    echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_msg_send_from_popup.js'></script>";
