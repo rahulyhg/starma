@@ -19,6 +19,7 @@
      $sao = $_POST["sao"];
      $errors = array();
      $interval = $_POST["interval"];
+     $_SESSION['alternate_chart_gender'] = $_POST["gender"];
      $method = "E"; // EASTERN CHART
      if (!$time_unknown = $_POST["time_unknown"]) {
        $time_unknown = 0;
