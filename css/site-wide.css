@@ -1,5 +1,5 @@
 body {
-  background:#8393CA /*url('/img/Starma-Astrology-RightSide.png')*/;
+  background:#8393CA url('/img/Starma-Astrology-RightSide.png') repeat;
   /*font:1em "Comic Sans MS";*/
   /*font-family: "Comic Sans MS", "Marker Felt";*/
   line-height:23px;
@@ -48,6 +48,10 @@ body select {
 
 .pointer {
   cursor: pointer;
+}
+
+.defaut_cursor {
+  cursor: default;
 }
 
 #img_preloader {
