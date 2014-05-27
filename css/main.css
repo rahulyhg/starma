@@ -2114,7 +2114,7 @@ li.my_unknown_button a {
 }
 
 #profile_sections #section {
-  padding:10px;
+  padding:25px 10px;
   width:773px;
   background-color: #D3DBF6;
 }
@@ -2790,7 +2790,7 @@ span.div_link {
 
 #profile_sections_custom #section {
     background-color: #D3DBF6;
-    padding: 10px;
+    padding: 25px 10px;
     width: 773px
 }
 
