@@ -78,20 +78,24 @@ function compare_tier_2 ($gotothe, $results_type, $text_type) {
       }
       //echo $total_score;
       show_compare_results ($score = $total_score, $goto=$gotothe, $results_type=$results_type, $text_type=$text_type, $stage = $_GET["stage"]);
-      switch ($results_type) {
-        case "major": 
+      //switch ($results_type) {
+        //case "major":
+        echo '<div id="section>">';
+          echo '<div id="compare">'; 
           show_major_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
-          break;
-        case "minor": 
+          //break;
+        //case "minor": 
           show_minor_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
-          break;            
-        case "ruler": 
+          //break;            
+        //case "ruler": 
           show_rp_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
-          break;
-        case "bonus": 
+          //break;
+        //case "bonus": 
           show_bonus_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
-          break;
-      }
+          //break;
+          echo '</div>'; //close #compare
+        echo '</div>'; //close #section
+      //}
       //compare_charts_old($chart_id1 = $_GET["chart_id1"], $chart_id2 = $_GET["chart_id2"]);
 }
 
