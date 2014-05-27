@@ -1042,6 +1042,8 @@ div.poi_title {
   width: 100%;
   float: left;
   display: none;
+  min-height: 282px;
+  text-align: center;
 }
 
 #bonus {
@@ -1049,6 +1051,8 @@ div.poi_title {
   width: 100%;
   float: left;
   display: none;
+  min-height: 282px;
+  text-align: center;
 }
 
 #explain_more:hover {
@@ -1391,7 +1395,7 @@ div.poi_title {
 }
 
 .pillar_icon_minor {
-  margin: 41px 8px 44px 5px;
+  margin: 38px 8px 48px 5px;
   cursor: pointer;
   float: left;
   display:inline-block;
@@ -1516,12 +1520,13 @@ span.minor_poi_title {
     /*margin-left:31px;
     margin-right:auto;*/
     left: 77px;
-    bottom: 13px;
+    bottom: 56px;
     float: left;
     height: auto;
     position: relative;
     text-align:left;
     display: none;
+    z-index: 2;
 }
 
 .blurb_supporting_show{
