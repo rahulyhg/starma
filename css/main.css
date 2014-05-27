@@ -496,6 +496,8 @@ span.right {
   float:right;
 }
 
+/*/////////// TALL SIGN ICONS /////////////////////////////////////*/
+
 .Unknown_button span.icon, .Unknown_button.no_hover:hover span.icon {
   background:url('/img/sign_buttons/Starma-Astrology-Unknown-OFF.png') no-repeat;
   height: 88px;
@@ -808,6 +810,168 @@ span.right {
   height: 180px;
   width: 75px;
 }
+
+
+
+/*/////////// TALL SIGN ICONS FOR COMPARE /////////////////////////////////////*/
+
+.Unknown_button_tall span.icon, .Unknown_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Unknown_button_tall.selected span.icon, .Unknown_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+
+.Aries_button_tall span.icon, .Aries_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Aries-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Aries_button_tall.selected span.icon, .Aries_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Aries-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Taurus_button_tall span.icon, .Taurus_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Taurus-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Taurus_button_tall.selected span.icon, .Taurus_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Taurus-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Gemini_button_tall span.icon, .Gemini_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Gemini-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Gemini_button_tall.selected span.icon, .Gemini_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Gemini-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Cancer_button_tall span.icon, .Cancer_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Cancer-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Cancer_button_tall.selected span.icon, .Cancer_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Cancer-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Leo_button_tall span.icon, .Leo_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Leo-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Leo_button_tall.selected span.icon, .Leo_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Leo-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Virgo_button_tall span.icon, .Virgo_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Virgo-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Virgo_button_tall.selected span.icon, .Virgo_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Virgo-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Libra_button_tall span.icon, .Libra_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Libra-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Libra_button_tall.selected span.icon, .Libra_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Libra-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Scorpio_button_tall span.icon, .Scorpio_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Scorpio-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Scorpio_button_tall.selected span.icon, .Scorpio_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Scorpio-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Sagittarius_button_tall span.icon, .Sagittarius_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Sagittarius-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Sagittarius_button_tall.selected span.icon, .Sagittarius_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Sagittarius-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Capricorn_button_tall span.icon, .Capricorn_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Capricorn-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Capricorn_button_tall.selected span.icon, .Capricorn_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Capricorn-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Aquarius_button_tall span.icon, .Aquarius_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Aquarius-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Aquarius_button_tall.selected span.icon, .Aquarius_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Aquarius-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Pisces_button_tall span.icon, .Pisces_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Pisces-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Pisces_button_tall.selected span.icon, .Pisces_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Pisces-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
 
 /* Removed li
 
