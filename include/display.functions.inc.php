@@ -2516,36 +2516,41 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '<div id="compare_results_selector">';
       echo '<ul>';
       //Major
-      echo '<li class="';    //took out class="major"
-      if ($results_type == "major") {
-        echo 'selected';
-      }
-      echo '">';
-      echo '<a href="#"';
-      echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
-      echo '/>Major Connections</a></li>';
+      echo '<li class="selector selected';    //took out class="major"
+      //if ($results_type == "major") {
+        //echo 'selected';
+      //}
+      echo '" id="major_select">';
+      echo '<span';
+      //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
+      echo '/>Major Connections</span></li>';
 
       //Minor
-      echo '<li class="';   //took out class="minor"
-      if ($results_type == "minor") {
-        echo 'selected';
-      }
-      echo '">';
-      echo '<a href="#" ';
-      echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
-      echo '/>Supporting Connections</a></li>';
+      echo '<li class="selector ';   //took out class="minor"
+      //if ($results_type == "minor") {
+        //echo 'selected';
+      //}
+      echo '" id="minor_select">';
+      echo '<span ';
+      //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
+      echo '/>Supporting Connections</span></li>';
       //Bonus
-      echo '<li class="';   //took out class="bonus"
-      if ($results_type == "ruler") {
-        echo 'selected';
-      }
-      echo '"><a href="' . $goto . '&stage=2' . '&results_type=ruler">Ruling Planets</a></li>';   //NEED TO MAKE IT'S OWN AND NOT BONUS
+      echo '<li class="selector ';   //took out class="bonus"
+      //if ($results_type == "ruler") {
+        //echo 'selected';
+      //}
+      echo '" id="ruler_select">';
+        echo '<span>';
+          //' . $goto . '&stage=2' . '&results_type=ruler">Ruling Planets</a></li>';   //NEED TO MAKE IT'S OWN AND NOT BONUS
+        echo 'Ruling Planets</span></li>';
 
-      echo '<li class="end ';   //took out class="bonus"
-      if ($results_type == "bonus") {
-        echo 'selected';
-      } 
-      echo '"><a href="' . $goto . '&stage=2' . '&results_type=bonus">Bonus Connections</a></li>';  //NEED TO MAKE INTO BONUS
+      echo '<li class="end selector ';   //took out class="bonus"
+      //if ($results_type == "bonus") {
+        //echo 'selected';
+      //} 
+      echo '" id="bonus_select"><span>';
+        //echo . $goto . '&stage=2' . '&results_type=bonus">';
+      echo 'Bonus Connections</span></li>';  //NEED TO MAKE INTO BONUS
    
       echo '</ul>';
       echo '</div>';
@@ -2610,10 +2615,10 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
   
 
 
-    echo '<div id="compare">';
-      echo'<div id="section">';
+    //echo '<div id="compare">';
+      //echo'<div id="section">';
   
-
+    echo '<div id="major">';
       echo '<form name="major_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
       echo '<div id="major_connections">'; 
@@ -2669,8 +2674,9 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
     
       echo '</div>';
       echo '</form>';
-  echo '</div>';   //closing #section
-  echo '</div>';  //closing #compare
+    echo '</div>'; //close #major
+  //echo '</div>';   //closing #section
+  //echo '</div>';  //closing #compare
 
   
 }
@@ -2682,7 +2688,31 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
     $alt_gender = $_SESSION['alternate_chart_gender'];
     //echo $_SESSION['alternate_chart_gender'];
   }
-      
+  if($temp_id = get_user_id_from_chart_id($chart_id2)) {
+              if (get_gender($temp_id) == "M") {
+                  $gender = 'HIS';
+              }
+              elseif (get_gender($temp_id) == "F") {
+                 $gender = 'HER';
+              }
+              else {
+                  $gender = '';
+              }
+      }
+      elseif ($alt_gender) {
+              if ($alt_gender == "M") {
+                  $gender = 'HIS';
+              }
+              elseif ($alt_gender == "F") {
+                   $gender = 'HER';
+              }
+              else {
+                  $gender = '';
+              }
+      }
+      else {
+         $gender = '';
+      }    
       $connection_type = "rising";
       //if ( isset($_POST["connection_type"]) and in_array($_POST["connection_type"], get_cornerstones()) ) {
       //  $connection_type = $_POST["connection_type"];
@@ -2693,8 +2723,9 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
     //***********---Matt Added for Redesign---
 
-      echo '<div id="compare">';
-        echo'<div id="section">';
+      //echo '<div id="compare">';
+        //echo'<div id="section">';
+      echo '<div id="minor">';
     //----ENDMATT--- 
 
       echo '<form name="minor_connection_browser" action="." method="post">';
@@ -2722,12 +2753,12 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
          
           
           //Left Side;
-            echo '<div class="left no_hover ' . get_selector_name($button_sign_id);
-            echo '"><span class="icon"><span class="poi_title">' . strtoupper($connection) . '</span></span></div>';  //End Left Side
+            echo '<div class="left no_hover ' . get_selector_name($button_sign_id) . '_tall';
+            echo '"><span class="icon"><span class="minor_poi_title">YOUR</span><span class="poi_title_tall">' . strtoupper($connection) . '</span></span></div>';  //End Left Side
         
           //Right Side
-            echo '<div class="right no_hover right_icon_adjust ' . get_selector_name($button_sign_id2);
-            echo '"><span class="icon"><span class="poi_title">' . strtoupper($connection) . '</span></span></div>';  //End Right Side
+            echo '<div class="right no_hover right_icon_adjust ' . get_selector_name($button_sign_id2) . '_tall';
+            echo '"><span class="icon"><span class="minor_poi_title">' . $gender . '</span><span class="poi_title_tall">' . strtoupper($connection) . '</span></span></div>';  //End Right Side
 
             
               //Middle Relationships
@@ -2778,11 +2809,11 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                           echo 'pillar_broken">';
                         }
                       //echo '<div class="add_arrow_bottom"><img src="/img/Starma-Astrology-Arrow.png" /></div>';
-                      echo '<div class="pillar_title">YOUR</div>';
+                      //echo '<div class="pillar_title">YOUR</div>';
           
                       //echo '">';
-                        echo '<div class="pillar_icon_minor L ' . get_selector_name($button_sign_id3);
-                        echo '"><span class="icon pointer main to_leg' . $z . '"><span class="poi_title">' . strtoupper($con_y) . '</span></span></div>';                     
+                        echo '<div class="pillar_icon_minor L ' . get_selector_name($button_sign_id3) . '_tall';
+                        echo '"><span class="icon pointer main to_leg' . $z . '"><span class="minor_poi_title">YOUR</span><span class="poi_title_tall">' . strtoupper($con_y) . '</span></span></div>';                     
                       echo '</div>'; //close pillar/pillar_broken
                           $z++; 
                     }
@@ -2808,7 +2839,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         else {
                           echo 'pillar_broken">';
                         }
-                      
+                      /*
                       echo '<div class="pillar_title">';
 
                         if($temp_id = get_user_id_from_chart_id($chart_id2)) {
@@ -2838,9 +2869,11 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         }
 
                       echo '</div>';
+                    */
+                        echo '<div class="pillar_icon_minor R ' . get_selector_name($button_sign_id4) . '_tall';
+                        echo '"><span class="icon pointer main to_leg' . $zz . '"><span class="minor_poi_title">' . $gender . '</span>';
 
-                        echo '<div class="pillar_icon_minor R ' . get_selector_name($button_sign_id4);
-                        echo '"><span class="icon pointer main to_leg' . $zz . '"><span class="poi_title">' . strtoupper($con_y) . '</span></span></div>';
+                        echo '<span class="poi_title_tall">' . strtoupper($con_y) . '</span></span></div>';
                     //echo 'c1: ' . $connection1 . '<br>c2: ' . $connection2;
                     //echo $connection1 . 'to';
                     //echo $connection2 . '<br>';
@@ -2919,9 +2952,9 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
         echo '</div>'; //close poi_column
        echo '</div>'; //close minor_connections
       echo '</form>';
-  
-      echo '</div>';   //closing #section
-      echo '</div>';  //closing #compare
+    echo '</div>'; //close #minor
+      //echo '</div>';   //closing #section
+      //echo '</div>';  //closing #compare
       
             
     }
@@ -3227,11 +3260,13 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
 function show_rp_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
-echo '<div id="compare">';
-    echo'<div id="section">';
+//echo '<div id="compare">';
+    //echo'<div id="section">';
+    echo '<div id="ruler">';
       echo '<div>Under Construction...</div>';
-    echo '</div>';
-  echo '</div>';
+    echo '</div>'; //close #ruler
+    //echo '</div>';
+  //echo '</div>';
 
 /*//NEEDS TO BE REBUILD
       $bonus_connections = array('ruling');
@@ -3404,11 +3439,13 @@ echo '<div id="compare">';
 
 function show_bonus_connections () {
 
-  echo '<div id="compare">';
-    echo'<div id="section">';
+  //echo '<div id="compare">';
+    //echo'<div id="section">';
+    echo '<div id="bonus">';
       echo '<div>Coming Soon...</div>';
-    echo '</div>';
-  echo '</div>';
+    echo '</div>'; //close #bonus
+    //echo '</div>';
+  //echo '</div>';
 
 }
 
