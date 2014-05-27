@@ -303,6 +303,50 @@ body select {
   text-decoration: underline;
 }
 
+#dblB {
+  position: relative;
+  background: url('/img/Starma-Astrology-DblB.png') no-repeat;
+  height: 19px;
+  width: 17px;
+}
+
+#dblB:hover {
+  background: url('/img/Starma-Astrology-DblBH.png') no-repeat;
+}
+
+#snglB {
+  position: relative;
+  background: url('/img/Starma-Astrology-SnglB.png') no-repeat;
+  height: 19px;
+  width: 13px;
+}
+
+#snglB:hover {
+  background: url('/img/Starma-Astrology-SnglBH.png') no-repeat;
+}
+
+#dblF {
+  position: relative;
+  background: url('/img/Starma-Astrology-DblF.png') no-repeat;
+  height: 19px;
+  width: 17px;
+}
+
+#dblF:hover {
+  background: url('/img/Starma-Astrology-DblFH.png') no-repeat;
+}
+
+#snglF {
+  position: relative;
+  background: url('/img/Starma-Astrology-SnglF.png') no-repeat;
+  height: 19px;
+  width: 13px;
+}
+
+#snglF:hover {
+  background: url('/img/Starma-Astrology-SnglFH.png') no-repeat;
+}
+
 #js_search_bar{
   border-top: 1px solid #A7B0CB;
   border-bottom: 1px solid #C6D0EF;
@@ -327,12 +371,14 @@ body select {
 }
 
 #js_more_link a {
+  float: left;
   padding: 3px;
   letter-spacing: 0;
   font-size: .9em;
   color:#1D1D1D;
   font-family: "P22UndergroundBook", helvetica, arial;
   font-size: 13px;
+  float:left;
 }
 #js_more_link a:hover {
   text-shadow: 0 0 1px gray;
