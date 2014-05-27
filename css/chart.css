@@ -721,6 +721,55 @@ div.poi_title {
     float: left;
     position: relative;
 }
+
+#compare_results_selector ul li span {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #8393CA;
+  border-right:0px;
+  padding:5px;
+  text-align:center;
+  margin:0px;
+  display:block;
+  width:171px;
+  height: 12px;
+  font-size: 0.9em;
+  line-height: 0.9em;
+  color:black;
+  cursor: pointer;
+  font-family: "P22UndergroundBook";
+}
+
+#compare_results_selector ul li.end span {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
+  
+}
+
+
+
+#compare_results_selector ul li.selected span{
+  background:#D3DBF6;
+  border-bottom: #D3DBF6;
+  height: 14px;
+}
+
+#compare_results_selector ul li span:hover{
+  background:#D3DBF6;
+  
+}
+
+#compare_results_selector ul li.active span{
+  background:#D3DBF6;
+  border-bottom: #D3DBF6;
+  height: 14px;
+}
 /* For future AJAX
 #compare_results_selector ul li input {
   border-left: 2px solid #2C3447;
@@ -790,6 +839,12 @@ div.poi_title {
   
 }
 
+#compare_results_selector ul li.active a{
+  background:#D3DBF6;
+  border-bottom: #D3DBF6;
+  height: 14px;
+}
+
 /*  End old design  */
 
 #compare_results_selector ul li.end input {
@@ -822,7 +877,7 @@ div.poi_title {
     position: relative;
     right: 10px;
     width: 793px;
-    padding-bottom: 65px;
+    padding: 25px 0 65px 0;
 } 
 
 #compare #section {
@@ -967,6 +1022,33 @@ div.poi_title {
   font-weight: bold;
   margin-right: 40px;
   bottom: 13px;
+}
+
+#major {
+  position: relative;
+  width: 100%;
+  float: left;
+}
+
+#minor {
+  position: relative;
+  width: 100%;
+  float: left;
+  display: none;
+}
+
+#ruler {
+  position: relative;
+  width: 100%;
+  float: left;
+  display: none;
+}
+
+#bonus {
+  position: relative;
+  width: 100%;
+  float: left;
+  display: none;
 }
 
 #explain_more:hover {
@@ -1309,7 +1391,7 @@ div.poi_title {
 }
 
 .pillar_icon_minor {
-  margin: 41px 11px 44px 1px;
+  margin: 41px 8px 44px 5px;
   cursor: pointer;
   float: left;
   display:inline-block;
@@ -1403,6 +1485,30 @@ span.poi_title {
   font-weight: bold;
   text-align: center;
   letter-spacing: .1em;
+}
+
+span.poi_title_tall {
+  position:relative;
+  top: 73px;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
+  width: 100%;
+  display: inline-block;  
+}
+
+span.minor_poi_title {
+  position:relative;
+  top: 11px;
+  font-family: "ClarendonBT-Light";
+  font-size: .59em;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
+   width: 100%;
+  display: inline-block;
 }
 
 #minor_connections .blurb_supporting {
