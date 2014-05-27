@@ -102,20 +102,24 @@ elseif ($tier == "2") {
         $total_score = -1;
       }
       show_compare_results ($score = $total_score, $goto=$gotothe, $results_type=$results_type, $text_type=$text_type, $stage = $_GET["stage"]);
-      switch ($results_type) {
-      case "major": 
+      //switch ($results_type) {
+      //case "major": 
+    echo '<div id="section>">';
+      echo '<div id="compare">'; 
         show_major_connections ($compare_data=$_SESSION["compare_data"], $text_type=$text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
-        break;
-      case "minor": 
+        //break;
+      //case "minor": 
         show_minor_connections ($compare_data=$_SESSION["compare_data"], $text_type=$text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
-        break;
-      case "ruler": 
+        //break;
+      //case "ruler": 
         show_rp_connections ($compare_data=$_SESSION["compare_data"], $text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
-        break;
-      case "bonus": 
+        //break;
+      //case "bonus": 
         show_bonus_connections ($compare_data=$_SESSION["compare_data"], $text_type=$text_type, $goTo = $gotothe, $stage=$_GET["stage"], $chart_id1=$_SESSION['compare_chart_ids'][0], $chart_id2=$_SESSION['compare_chart_ids'][1]);
-        break;            
-      }    
+        //break; 
+    echo '</div>'; //close #compare
+  echo '</div>'; //close #section           
+      //}    
       // If we're comparing to a Freebie Chart ////
       //if (is_freebie_chart($chart["chart_id"])) {
         //echo '<div class="profile_button custom_chart_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=4&chart_id2=' . $chart["chart_id"] . '">View This Person\'s Chart</a></div>';
