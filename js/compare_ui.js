@@ -116,13 +116,13 @@ $(document).ready(function(){
 					$(this).parent().siblings().children('.arrow_topR').show();
 				
 					if($(this).children().hasClass('to_leg1')) {
-						$(this).parent().siblings().children('.add_arrow_top').css('width', 490);
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 489);
 					}
 					if($(this).children().hasClass('to_leg2')) {
 						$(this).parent().siblings().children('.add_arrow_top').css('width', 403);
 					}
 					if($(this).children().hasClass('to_leg3')) {
-						$(this).parent().siblings().children('.add_arrow_top').css('width', 316);
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 313);
 					}
 				}
 				else {
@@ -132,14 +132,14 @@ $(document).ready(function(){
 						$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL2');
 						$(this).parent().siblings().children('.add_arrow_top').addClass('arrow_topL3');
 						$(this).parent().siblings().children('.arrow_topL3').show();
-						$(this).parent().siblings().children('.add_arrow_top').css('width', 491);
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 495);
 					}
 					if($(this).children().hasClass('to_leg5')) {
 						$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL1');
 						$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL3');
 						$(this).parent().siblings().children('.add_arrow_top').addClass('arrow_topL2');
 						$(this).parent().siblings().children('.arrow_topL2').show();
-						$(this).parent().siblings().children('.add_arrow_top').css('width', 404);
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 409);
 					}
 					if($(this).children().hasClass('to_leg4')) {
 						$(this).parent().siblings().children('.add_arrow_top').removeClass('arrow_topL2');
@@ -156,6 +156,7 @@ $(document).ready(function(){
 
 		$('.to_leg1').click(function(){
 			$(this).parent().parent().siblings('.right, .left').removeClass('selected');
+			$(this).parent().parent().siblings('.left').addClass('no_hover');
 				if($(this).parent('.pillar_icon_minor').hasClass('selected')) {
 					$(this).parent().parent().siblings('.right').removeClass('selected');
 					$(this).parent().parent().siblings('.right').addClass('no_hover');
@@ -174,6 +175,7 @@ $(document).ready(function(){
 
 		$('.to_leg2').click(function(){
 			$(this).parent().parent().siblings('.right, .left').removeClass('selected');
+			$(this).parent().parent().siblings('.left').addClass('no_hover');
 				if($(this).parent('.pillar_icon_minor').hasClass('selected')) {
 					$(this).parent().parent().siblings('.right').removeClass('selected');
 					$(this).parent().parent().siblings('.right').addClass('no_hover');
@@ -194,6 +196,7 @@ $(document).ready(function(){
 
 		$('.to_leg3').click(function(){
 			$(this).parent().parent().siblings('.right, .left').removeClass('selected');
+			$(this).parent().parent().siblings('.left').addClass('no_hover');
 				if($(this).parent('.pillar_icon_minor').hasClass('selected')) {
 					$(this).parent().parent().siblings('.right').removeClass('selected');
 					$(this).parent().parent().siblings('.right').addClass('no_hover');
@@ -214,6 +217,7 @@ $(document).ready(function(){
 
 		$('.to_leg4').click(function(){
 			$(this).parent().parent().siblings('.right, .left').removeClass('selected');
+			$(this).parent().parent().siblings('.right').addClass('no_hover');
 				if($(this).parent('.pillar_icon_minor').hasClass('selected')) {
 					$(this).parent().parent().siblings('.left').removeClass('selected');
 					$(this).parent().parent().siblings('.left').addClass('no_hover');
@@ -234,6 +238,7 @@ $(document).ready(function(){
 
 		$('.to_leg5').click(function(){
 			$(this).parent().parent().siblings('.right, .left').removeClass('selected');
+			$(this).parent().parent().siblings('.right').addClass('no_hover');
 				if($(this).parent('.pillar_icon_minor').hasClass('selected')) {
 					$(this).parent().parent().siblings('.left').removeClass('selected');
 					$(this).parent().parent().siblings('.left').addClass('no_hover');
@@ -255,6 +260,7 @@ $(document).ready(function(){
 
 		$('.to_leg6').click(function(){
 			$(this).parent().parent().siblings('.right, .left').removeClass('selected');
+			$(this).parent().parent().siblings('.right').addClass('no_hover');
 				if($(this).parent('.pillar_icon_minor').hasClass('selected')) {
 					$(this).parent().parent().siblings('.left').removeClass('selected');
 					$(this).parent().parent().siblings('.left').addClass('no_hover');
