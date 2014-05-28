@@ -2505,10 +2505,10 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         
       echo '</div>';
 
-      if ($results_type == "major") {
-        echo '<div id="major_small_bubble"><img src="/img/Starma-Astrology-Major-Small-Bubble.png" height="10px" width="10px" /></div>';
-        echo '<div id="major_medium_bubble"><img src="/img/Starma-Astrology-Major-Small-Bubble.png" height="15px" width="15px" /></div>';
-      }
+      //if ($results_type == "major") {
+        //echo '<div id="major_small_bubble"><img src="/img/Starma-Astrology-Major-Small-Bubble.png" height="10px" width="10px" /></div>';
+        //echo '<div id="major_medium_bubble"><img src="/img/Starma-Astrology-Major-Small-Bubble.png" height="15px" width="15px" /></div>';
+      //}
 
     
   
@@ -2603,6 +2603,31 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
         $alt_gender = $_SESSION['alternate_chart_gender'];
         //echo $_SESSION['alternate_chart_gender'];
       }
+      if($temp_id = get_user_id_from_chart_id($chart_id2)) {
+              if (get_gender($temp_id) == "M") {
+                  $gender = 'HIS';
+              }
+              elseif (get_gender($temp_id) == "F") {
+                 $gender = 'HER';
+              }
+              else {
+                  $gender = '';
+              }
+      }
+      elseif ($alt_gender) {
+              if ($alt_gender == "M") {
+                  $gender = 'HIS';
+              }
+              elseif ($alt_gender == "F") {
+                   $gender = 'HER';
+              }
+              else {
+                  $gender = '';
+              }
+      }
+      else {
+         $gender = '';
+      }    
 
       $connection_type = "rising";
       //if ( isset($_POST["connection_type"]) and in_array($_POST["connection_type"], get_cornerstones()) ) {
@@ -2633,18 +2658,18 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
           $button_sign_id = get_sign_from_poi ($chart_id1, get_poi_id (ucfirst($connection)));
           echo '<li>';
           echo '<div class="poi_column_wrapper">';
-          echo '<div class="selected left ' . get_selector_name($button_sign_id);
+          echo '<div class="selected left ' . get_selector_name($button_sign_id) . '_tall';
           //if ($connection_type == $connection or $stage==2) { 
           //  echo ' selected';
           //}
-          echo '"><a class="poi_button" href="#"><span>' . ucfirst($connection) . '</span></a></div>';
+          echo '"><span class="icon"><span class="minor_poi_title">YOUR</span><span class="poi_title_tall">' . strtoupper($connection) . '</span></span></div>';
 
             $button_sign_id2 = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
-              echo '<div class="selected right ' . get_selector_name($button_sign_id2);
+              echo '<div class="selected right ' . get_selector_name($button_sign_id2) . '_tall';
               //if ($connection_type == $connection or $stage==2) { 
               //  echo ' selected';
               //}
-              echo '"><a class="poi_button" href="#"><span>' . ucfirst($connection) . '</span></a></div>';
+              echo '"><span class="icon"><span class="minor_poi_title">' . $gender . '</span><span class="poi_title_tall">' . strtoupper($connection) . '</span></span></div>';
 
               $relationship_id = $compare_data[$connection . '2' . $connection]["relationship_id"];
               $relationship_name = $compare_data[$connection . '2' . $connection]["relationship_title"];
