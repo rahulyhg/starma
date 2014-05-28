@@ -116,13 +116,13 @@ $(document).ready(function(){
 					$(this).parent().siblings().children('.arrow_topR').show();
 				
 					if($(this).children().hasClass('to_leg1')) {
-						$(this).parent().siblings().children('.add_arrow_top').css('width', 489);
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 491);
 					}
 					if($(this).children().hasClass('to_leg2')) {
 						$(this).parent().siblings().children('.add_arrow_top').css('width', 403);
 					}
 					if($(this).children().hasClass('to_leg3')) {
-						$(this).parent().siblings().children('.add_arrow_top').css('width', 313);
+						$(this).parent().siblings().children('.add_arrow_top').css('width', 315);
 					}
 				}
 				else {
