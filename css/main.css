@@ -1727,6 +1727,11 @@ li.my_unknown_button a {
   cursor: pointer;
 }
 
+.profile_button.celeb_favorites {
+  left: 178px;
+  top: 95px;
+}
+
 /*
 .profile_button.remove_favorite_button span {
     
@@ -1841,9 +1846,13 @@ li.my_unknown_button a {
 .profile_info_area .nickname_area {
   font-size:1.1em;
   position:relative;
-  bottom:165px;
-  
-  
+  bottom:165px;  
+}
+
+.profile_info_area .nickname_area_celeb {
+  font-size:1.1em;
+  position:relative;
+  bottom:154px;  
 }
 
 #user_block {
@@ -1871,6 +1880,11 @@ li.my_unknown_button a {
 
 #chart_1_pic .profile_info_area .nickname_area, #chart_2_pic .profile_info_area .nickname_area {
     bottom:132px;
+}
+
+#chart_2_pic .profile_info_area .nickname_area_celeb {
+  bottom: 126px;
+  font-weight: bold;
 }
 
 #chart_1_pic .profile_info_area .nickname_area span, #chart_2_pic .profile_info_area .nickname_area span, .nickname_area span {
@@ -2072,10 +2086,12 @@ li.my_unknown_button a {
     width: 793px;
 }
 
+/*
 .celeb_page #profile_sections {  
     bottom: auto;
     margin-top: 3px;  
 }
+*/
 
 #profile_nav {
     height: 21px;
@@ -2303,7 +2319,7 @@ li.my_unknown_button a {
   box-shadow: 0 0 2px #313E5C inset;
   height: 27px;
   width: 392px;
-  padding: 5px;
+  padding: 1px 5px;
   display:block;
   margin-bottom: 15px;
 }
