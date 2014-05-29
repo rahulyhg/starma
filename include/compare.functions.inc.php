@@ -63,7 +63,9 @@ function num_times_compared($user_id, $threshold) {
 
 function compare_tier_2 ($gotothe, $results_type, $text_type) {
           
-      
+      if(isset($_GET['from_profile'])) {
+        clear_compare_data();
+      }
  
       if (!isset($_SESSION['compare_data'])) {
         generate_compare_data ($_GET["chart_id1"], $chart_id2 = $_GET["chart_id2"]);
