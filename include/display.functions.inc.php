@@ -735,7 +735,6 @@ function show_photo_grid ($user_id) {
   $photo_grid = get_photos ($user_id);
   //$length = sizeof($photo_list);
   
-  
   while ($photo = mysql_fetch_array($photo_grid)) {
  
       if ($photo["main"] == 0) { 
@@ -755,8 +754,10 @@ function show_photo_grid ($user_id) {
         echo '</div>';
         
        echo '</div>';
-      }
-      
+      }  
+      else {
+        echo '<div>' . get_nickname($user_id) . ' has no photos yet.</div>';
+      } 
            
   }
   
@@ -846,11 +847,13 @@ function show_general_info($chart_id) {
   }
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
   echo '<div class="profile_info_area">';
-    echo '<div class="nickname_area">';
+    echo '<div class="nickname_area';
       if ($is_celeb) {
+        echo '_celeb">';
         echo $user_info["first_name"] . ' ' . $user_info["last_name"];
       }
       else {
+        echo '">';
         echo '<span style="color:' . $online_color . '">•</span>';
         echo $user_info["nickname"];
       }
@@ -2353,7 +2356,7 @@ function test_form_time () {
 function show_compare_results ($score, $goto=".", $results_type, $text_type, $stage="2") {
 
 
-
+      //$isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($_GET["chart_id2"])));
       $freebie = is_freebie_chart($_SESSION['compare_chart_ids'][1]);
 
       if ($freebie) {
