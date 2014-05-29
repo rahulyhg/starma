@@ -183,9 +183,21 @@ if ($the_left=="nav1") {
 
     
   </div>
+
+  <!-- Footer -->
    <div id="footer">
-    <div style="text-align:center; width:100%;">Footer!</div>
+    <div class="footer_links">
+      <ul>
+        <li>Starma<span class="small_symbol">&reg;</span> LLC 2014</li>
+        <li><a href="docs/privacyPolicy.htm" target="_blank">Privacy Policy</a></li>
+        <li><a href="docs/termsOfUse.htm" target="_blank">Terms Of Use</a></li>
+        <li><a href="mailto:contact@starma.com">Contact</a></li>
+      </ul>  
+    </div>
   </div>
+  
+  <!-- End Footer -->
+
 <?php
  require_once "footer.php";
 ?> 
