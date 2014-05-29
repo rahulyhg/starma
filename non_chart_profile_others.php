@@ -92,7 +92,9 @@ if (login_check_point($type="full")) {
       
 
       echo '<div id="add_to_favorites" class="profile_button ';
-      
+      if ($isCeleb) {
+        echo 'celeb_favorites ';
+      }
       if (is_my_favorite(get_user_id_from_chart_id ($_GET["chart_id2"]))) {
         echo 'remove_favorite_button';
         //$toggle = 0;
@@ -117,6 +119,9 @@ if (login_check_point($type="full")) {
   }
 
   echo '</div>';  //close profile_top_bar
+  if($isCeleb) {
+    echo '<div style="clear:both;"></div>';
+  }
       echo '<div id="profile_nav">
           <ul>
             <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=chart_selected">Birth Chart</a></li>';
