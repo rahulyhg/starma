@@ -91,18 +91,22 @@ if (login_check_point($type="full")) {
   
       
 
-      echo '<div class="profile_button ';
+      echo '<div id="add_to_favorites" class="profile_button ';
+      
       if (is_my_favorite(get_user_id_from_chart_id ($_GET["chart_id2"]))) {
         echo 'remove_favorite_button';
-        $toggle = 0;
+        //$toggle = 0;
         $button_text = "Remove From Favorites";
       }
       else {
         echo 'add_favorite_button';
-        $toggle = 1;
+        //$toggle = 1;
         $button_text = "Add to Favorites";
       }
-      echo '"><a href="toggle_favorite.php?favorite=' . $toggle . '&favorite_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">' . $button_text . '</a></div>';
+      
+      echo '"><span>' . $button_text . '</span>';
+      //echo '<input type="hidden" value=' . $toggle . ' name="toggle"/></div>';
+      //echo 'href="toggle_favorite.php?favorite=' . $toggle . '&favorite_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">' . $button_text . '</a></div>';
            
          
     echo '</div>';
@@ -161,6 +165,7 @@ if (login_check_point($type="full")) {
    echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_msg_send_from_popup.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
+   echo "<script type='text/javascript' src='js/ajax_add_favs.js'></script>";
 
 }
 ?> 
