@@ -108,6 +108,21 @@ We deeply appreciate your participation and support, and we warmly welcome you t
  
 }
 
+//MATT INVITE USER
+function send_invite_user ($email, $message, $sender_id) {
+  global $domain;
+
+  $sender = basic_user_data($sender_id);
+
+  if(sendMail($email, $sender["nickname"] . " has invited you to join Starma", $message, "no-reply@$domain")) {
+    return true;
+  }
+  else {
+    return false;
+  }
+
+}
+
 
 function sendLostPasswordEmail($email, $newpassword)
 {
