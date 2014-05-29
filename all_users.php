@@ -48,9 +48,9 @@ if ($tier == "1") {
   //display_my_chart_list();
 }
 elseif ($tier == "2") {
-    if(isset($_GET['from_profile'])) {
-      clear_compare_data();
-    }
+    //if(isset($_GET['from_profile'])) {    // in compare_tier_2 now
+      //clear_compare_data();
+    //}
     if (isset($_GET["results_type"])) {
        $results_type = $_GET["results_type"];
     }
