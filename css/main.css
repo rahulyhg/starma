@@ -1822,7 +1822,7 @@ li.my_unknown_button a {
   font-size:0.8em;
   display: inline-block;
   float: left;
-  margin: 8px 15px 0 30px;
+  margin: 4px 15px 0 30px;
 }
 
 .profile_info_area {
@@ -1884,6 +1884,11 @@ li.my_unknown_button a {
 
 #chart_2_pic .profile_info_area .nickname_area_celeb {
   bottom: 126px;
+  font-weight: bold;
+}
+
+.user_block .profile_info_area .nickname_area_celeb {
+  bottom: 141px;
   font-weight: bold;
 }
 
@@ -2099,6 +2104,7 @@ li.my_unknown_button a {
     position: relative;
     float: left;
     z-index: 2;
+    margin-top: -21px;
 }
 
 #profile_nav ul li {
