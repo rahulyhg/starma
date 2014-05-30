@@ -2545,7 +2545,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '" id="ruler_select">';
         echo '<span>';
           //' . $goto . '&stage=2' . '&results_type=ruler">Ruling Planets</a></li>';   //NEED TO MAKE IT'S OWN AND NOT BONUS
-        echo 'Ruling Planets</span></li>';
+        echo '1st House Lords</span></li>';
 
       echo '<li class="end selector ';   //took out class="bonus"
       //if ($results_type == "bonus") {
