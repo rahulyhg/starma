@@ -363,10 +363,10 @@ body select {
 }
 
 #js_more_link {
-    left: 500px;
+    right: 50px;
     position: absolute;
     top: 13px;
-    width: 400px;
+    /*width: 400px;*/
     z-index: 1;
 }
 
