@@ -977,6 +977,7 @@ function show_interests_info($chart_id) {
           + strlen($user_info["film_television"]) + strlen($user_info["books"]) + strlen($user_info["political"]) 
           + strlen($user_info["spiritual"]) + strlen($user_info["inspirational_figures"])) == 0 ) {
       echo "<div id='profile_empty'>" . $nickname . " has not filled out " . $gender . " profile yet</div>";
+      echo "</div>";
      }
      else{
         if(strlen($user_info["about_me"]) != 0) {
