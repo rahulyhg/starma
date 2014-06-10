@@ -2481,7 +2481,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
             }
 
           echo '</span>';
-          echo '<span class="exp_more">The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account. Your Major Connections represent the primary such and such such and such such and such such and such such and such such and such such and such </span>';
+          echo '<span class="exp_more">The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.  Your Major Connections represent the direct relationships between the four primary points of influence: Rising Sign, Sun Sign, Moon Sign, and Venus Sign.</span>';
         echo '<div id="explain_more">MORE</div>';
         /*//TAKING OUT FOR REDESIGN
         echo 'Display Text For:';
@@ -3292,7 +3292,7 @@ function show_rp_connections ($compare_data, $text_type, $goTo = ".", $stage="2"
 //echo '<div id="compare">';
     //echo'<div id="section">';
     echo '<div id="ruler">';
-      echo '<div>Under Construction...</div>';
+      echo '<div>Coming Soon...</div>';
     echo '</div>'; //close #ruler
     //echo '</div>';
   //echo '</div>';
