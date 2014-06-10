@@ -67,9 +67,10 @@
 }
 
 #landing #sign_in, #register #create_account, #birth_info_first_time #enter_info, #gender_location_first_time #enter_info, #desc_photo_first_time #enter_info {
-  width:700px;
+  width:668px;
   top:100px;
   text-align:center;
+  background: #8393CA;
 }
 
 #landing #sign_in img, #register #create_account img, #birth_info_first_time #enter_info img, #gender_location_first_time #enter_info img, #desc_photo_first_time #enter_info img {
@@ -114,7 +115,7 @@
 
 #landing #sign_in .title {
   font-size: 1.1em;
-    left: 225px;
+    left: 208px;
     position: relative;
     text-align: center;
     width: 100px;
@@ -198,6 +199,7 @@
   width:300px;
   left:300px;
   top: 80px;
+  background: #8393CA;
 }
 
 #landing #forgot_password {
