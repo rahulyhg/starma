@@ -957,7 +957,7 @@ function show_interests_info($chart_id) {
           echo '<span>' . $user_info["inspirational_figures"] . '</span>';
         echo '</div>';
       echo '</div>';
-     echo '</div>';
+     echo '</div>'; //closing left_column
 
    
 
@@ -968,7 +968,7 @@ function show_interests_info($chart_id) {
     
    echo '</div>';
    */
-    echo '</div>';
+    echo '</div>'; //closing #interests
   }
   else {
      echo '<div id="interests">';
@@ -1079,7 +1079,8 @@ function show_interests_info($chart_id) {
     
    echo '</div>';
    */
-    echo '</div>';
+    echo '</div>'; //closing left_column
+    echo '</div>'; //closing #interests
   }
 }
 
