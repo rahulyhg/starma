@@ -25,6 +25,9 @@ $(document).ready(function(){
 		$('#major_select').click(function(){
 			$('.selector').removeClass('selected');
 			$('#major_select').addClass('selected');
+			$('.exp_less').text('The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.');
+			$('.exp_more').text('The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.  Your Major Connections represent the direct relationships between the four primary points of influence: Rising Sign, Sun Sign, Moon Sign, and Venus Sign.');
+			$('#explain_more').show();
 			$('#major').show();
 			$('#minor').hide();
 			$('#ruler').hide();
@@ -33,6 +36,9 @@ $(document).ready(function(){
 		$('#minor_select').click(function(){
 			$('.selector').removeClass('selected');
 			$('#minor_select').addClass('selected');
+			$('.exp_less').text('The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.');
+			$('.exp_more').text('The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.  Your Minor Connections represent cross compatibility between the primary points of influence.  This section shows how cross compatibility can support or detract from your Major Connections.  For example, if your Rising Signs are in the dynamic of "Challenges", but your Sun, Moon and Venus signs are all in positive dynamics with his or her Rising Sign, this will lend great support to the connection between your Rising Signs.');
+			$('#explain_more').show();
 			$('#minor').show();
 			$('#major').hide();
 			$('#ruler').hide();
@@ -41,6 +47,9 @@ $(document).ready(function(){
 		$('#ruler_select').click(function(){
 			$('.selector').removeClass('selected');
 			$('#ruler_select').addClass('selected');
+			$('.exp_less').text('This area is coming soon!');
+			$('.exp_more').text('This area is coming soon!');
+			$('#explain_more').hide();
 			$('#ruler').show();
 			$('#major').hide();
 			$('#minor').hide();
@@ -49,6 +58,9 @@ $(document).ready(function(){
 		$('#bonus_select').click(function(){
 			$('.selector').removeClass('selected');
 			$('#bonus_select').addClass('selected');
+			$('.exp_less').text('This area is coming soon!');
+			$('.exp_more').text('This area is coming soon!');
+			$('#explain_more').hide();
 			$('#bonus').show();
 			$('#major').hide();
 			$('#minor').hide();
