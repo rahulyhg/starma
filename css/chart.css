@@ -990,6 +990,7 @@ div.poi_title {
     top: 75px;
     left: 165px;
     width: 429px;
+    min-height: 81px;
     /*height: 110px;*/
 }
 
@@ -1013,6 +1014,7 @@ div.poi_title {
 
 .exp_more {
   display: none;
+  padding: 0 6px 0 0;
 }
 
 #explain_more {
