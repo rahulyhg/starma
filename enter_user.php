@@ -187,7 +187,7 @@ echo '<div id="profile_top_bar">';
                           <label for="email" id="email_label">Email Address</label>
                           <input type="text" value="" id="email_invite" name="email" />
                           <label for="msg_sendie" id="msg_label">New Message</label>
-                          <textarea id="msg_sendie" name="text_body" maxlength = "500" >Hi there!' . PHP_EOL;  
+                          <textarea id="msg_sendie" name="text_body" maxlength = "255" >Hi there!' . PHP_EOL;  
                           echo get_my_nickname() . ' would like to invite you to join Starma.com.  Starma is a...</textarea>
                           <input type="submit" name="submit" value="Send" class="msg_send"/>
                           <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
