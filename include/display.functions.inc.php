@@ -3620,7 +3620,7 @@ function show_poi_sign_blurb_abbr ($poi_id, $sign_id, $chart_id=-1) {
   
   $blurb = get_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
   
-  echo "<p>" . substr($blurb, 0, 175) . " ...</p>";
+  echo substr($blurb, 0, 175) . " ...";
   
   
 }
