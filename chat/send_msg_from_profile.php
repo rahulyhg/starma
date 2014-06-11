@@ -41,7 +41,7 @@ $logged_in = login_check_point($type="full");
       $json = 'Empty';
     }
     //$print = json_encode($json, true);
-echo json_encode($json, true);
+echo json_encode($json);
 //echo json_last_error();
 //print_r($print);
 ?>

@@ -21,11 +21,11 @@ $logged_in = login_check_point($type="full");
 				$value = mysql_real_escape_string(trim($_POST["value"]));
 				$value = strip_tags($value);
 				update_my_single_descriptor ($user_des_id, $value);
-				echo json_encode($data, true);
+				echo json_encode($data);
 			}
 			else {
 				$data["errors"] = 'Letters only please';
-				echo json_encode($data, true);
+				echo json_encode($data);
 			}
 		}
 		
@@ -33,12 +33,12 @@ $logged_in = login_check_point($type="full");
 
 		else {
 			$data["errors"] = 'That post was invalid';
-			echo json_encode($data, true);
+			echo json_encode($data);
 		}
 	}
 	else {
 		$data["errors"] = 'No naughty words please!';
-		echo json_encode($data, true);
+		echo json_encode($data);
 	}
 	
 	//$data = 'hello';
