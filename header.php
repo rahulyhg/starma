@@ -131,8 +131,8 @@ date_default_timezone_set('America/Chicago');
         var chat_all =  new Chat_All();
     	
         $(document).ready(function() {
-            //chat_all.refresh();            
-            //chat_all.update();
+            chat_all.refresh();            
+            chat_all.update();
             setTimeout('chat_all.update()', chat_all.refreshTime());
         });
 </script>
