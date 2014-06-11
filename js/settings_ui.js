@@ -55,6 +55,9 @@ $(document).ready(function(){
 						if(data.errors.mismatch) {
 							$('#pass_validation').show().text('*' + data.errors.mismatch);
 						}
+						if(data.errors.characters) {
+							$('#pass_validation').show().text('*' + data.errors.characters);
+						}
 					}
 					$('input[name=oldpassword]').val('');
 					$('input[name=password]').val('');
