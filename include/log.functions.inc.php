@@ -23,6 +23,16 @@ function log_this_action ($log_action_id, $log_basic_action_id, $data_1=-1, $dat
   return true;
 }
 
+function log_user_invite ($inviting_user_id, $receiver_email, $text_body) {
+    $log_query = 'INSERT INTO user_invite_log (inviting_user_id, receiver_id, text_body) VALUES
+                 (' . $inviting_user_id . ',"' . $receiver_id . '","' . $text_body . ')';
+    if (mysql_query($log_query)) {
+      return mysql_insert_id();
+    }
+    else {
+      return -1;
+    }
+}
 
 /// LOG ACTIONS
 function login_action () {
@@ -92,6 +102,11 @@ function profile_action_biography () {
 function profile_action_favorite () {
   return 17;
 }
+
+function blogosphere_action_user () {
+  return 18;
+}
+
 /// LOG BASIC ACTIONS
 function login_basic_action() {
   return 1;
@@ -135,5 +150,9 @@ function deleted_basic_action() {
 
 function error_basic_action() {
   return 11;
+}
+
+function invited_basic_action () {
+  return 12;
 }
 ?>
