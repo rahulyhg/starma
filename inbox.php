@@ -1,6 +1,13 @@
 <?php
 require_once ("header.php");
 
+/***************** --Matt
+
+Need to move username and partial message from the last message to right of each user.  Message area smalle
+
+$last_msg = $user_msg_history[last];
+
+*/
   
 if (login_check_point($type="full", $domain=$domain)) {
   
@@ -15,7 +22,7 @@ if (login_check_point($type="full", $domain=$domain)) {
   //echo '</div>';
   echo '<div id="inbox_user_list">';
       echo '<div id="inbox_header">';
-        echo 'Conversations';
+        echo 'Messages From:';
       echo '</div>';
       $user_msg_history = get_my_msgs();
       $user_list = extract_users_from_msgs_list($user_msg_history);
@@ -24,6 +31,9 @@ if (login_check_point($type="full", $domain=$domain)) {
       foreach ($user_list as $user_id => $num_new_msgs) {
         if (profile_info($user_id)) {
           echo '<li>';
+          //Matt
+          echo '<div class="convoWrapper">';
+          //endMatt
             echo '<div class="new_ball_space';
             if ($num_new_msgs > 0) {
               echo ' new';
@@ -50,6 +60,25 @@ if (login_check_point($type="full", $domain=$domain)) {
             echo '<div class="nickname">'; 
               echo get_nickname($user_id);
             echo '</div>';
+
+            //*******---Matt adding teaser msg to Conversations
+
+                echo '<div class="last_msg">';
+                $last_msg = show_msg_last($user_id);
+                  if(strlen($last_msg) > 25){
+                    echo '<p>' . substr($last_msg, 0, 25) . '...</p>';
+                  }
+                  else {
+                    echo '<p>' . $last_msg . '</p>';
+                  }
+                echo '</div>';
+
+            
+            echo '<a href="?the_page=isel&the_left=nav1&other_user_id=' . $user_id . '">
+                  <span class="link_spanner"></span></a></div>';      //closing convoWrapper
+            
+            //********---endMatt
+
           echo '</li>';  
         }
       }

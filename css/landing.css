@@ -67,9 +67,10 @@
 }
 
 #landing #sign_in, #register #create_account, #birth_info_first_time #enter_info, #gender_location_first_time #enter_info, #desc_photo_first_time #enter_info {
-  width:700px;
+  width:668px;
   top:100px;
   text-align:center;
+  background: #8393CA;
 }
 
 #landing #sign_in img, #register #create_account img, #birth_info_first_time #enter_info img, #gender_location_first_time #enter_info img, #desc_photo_first_time #enter_info img {
@@ -114,7 +115,7 @@
 
 #landing #sign_in .title {
   font-size: 1.1em;
-    left: 225px;
+    left: 208px;
     position: relative;
     text-align: center;
     width: 100px;
@@ -149,10 +150,17 @@
 #login_form input[type="password"] {
   position:relative;
   display:block;
-  
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
   box-sizing: border-box; 
  -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
   font-size:0.8em;
+  height:27px;
+  border-radius: 2px;
+  box-shadow: 0 0 2px #313E5C inset;
+  padding: 4px;
 }
 
 #login_form input[type="text"]:focus,
@@ -191,6 +199,7 @@
   width:300px;
   left:300px;
   top: 80px;
+  background: #8393CA;
 }
 
 #landing #forgot_password {
@@ -285,6 +294,12 @@ bottom: 71px;
   
     bottom: -60px;
     left: 228px;
+}
+
+#illegal_words_error.error {
+  
+    bottom: 107px;
+    left: 242px;
 }
 
 #register #create_account {

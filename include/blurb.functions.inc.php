@@ -1,6 +1,40 @@
 <?php 
 
+//MATT ADDED FOR HOUSES
+function get_r_sign_x_ruled_house_id ($rising_sign_id, $ruled_house_id) {
+  $q = 'SELECT r_sign_x_ruled_house_id from r_sign_x_ruled_house WHERE rising_sign_id = ' . $rising_sign_id . ' and ruled_house_id = ' . $ruled_house_id;
+  $do_q = mysql_query ($q) or die(mysql_error());
+  if ($r_sign_x_ruled_house_id = mysql_fetch_array($do_q)) {
+    return $r_sign_x_ruled_house_id[0];
+  }
+  
+}
 
+function get_house_ruler_blurb ($rising_sign_id, $ruled_house_id, $residing_house_id, $other_chart_id=-1) {
+  $r_sign_x_ruled_house_id = get_r_sign_x_ruled_house_id($rising_sign_id, $ruled_house_id);
+  $q = 'SELECT blurb from r_sign_x_ruled_house_x_house WHERE residing_house_id = ' . $residing_house_id . ' and r_sign_x_ruled_house_id = ' . $r_sign_x_ruled_house_id;
+  $do_q = mysql_query($q) or die(mysql_error());
+  if ($results = mysql_fetch_array($do_q)) {
+    return $results["blurb"];
+    //return $poi_x_ruled_house_id;
+  }
+}
+
+
+function edit_house_ruler_blurb ($rising_sign_id, $ruled_house_id, $residing_house_id, $blurb) {
+  $r_sign_x_ruled_house_id = get_r_sign_x_ruled_house_id($rising_sign_id, $ruled_house_id);
+  $q = 'SELECT blurb from r_sign_x_ruled_house_x_house WHERE residing_house_id = ' . $residing_house_id . ' and r_sign_x_ruled_house_id = ' . $r_sign_x_ruled_house_id;
+  $do_q = mysql_query($q) or die(mysql_error());
+  if (mysql_num_rows($do_q) == 0) {
+    $q = 'INSERT INTO r_sign_x_ruled_house_x_house (r_sign_x_ruled_house_id, residing_house_id, blurb) VALUES (' . $r_sign_x_ruled_house_id . ',' . $residing_house_id . ',"' . mysql_real_escape_string($blurb) . '")';    
+  }
+  else {
+    $q = 'UPDATE r_sign_x_ruled_house_x_house SET blurb="' . mysql_real_escape_string($blurb) . '" WHERE r_sign_x_ruled_house_id = ' . $r_sign_x_ruled_house_id . ' and residing_house_id = ' . $residing_house_id; 
+  }
+  $do_q = mysql_query ($q) or die(mysql_error());
+}
+
+//ENDMATT HOUSES
 
 function get_poi_sign_blurb ($poi_id, $sign_id, $other_chart_id=-1) {
   $q = 'SELECT blurb from poi_sign_blurb WHERE poi_id = ' . $poi_id . ' and sign_id = ' . $sign_id;

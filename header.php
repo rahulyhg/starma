@@ -11,21 +11,24 @@ session_start();
 require_once ('include/db_connect.inc.php'); // include the database connection
 require_once ("PHPMailer_5.2.1/class.phpmailer.php");
 require_once ("include/functions.inc.php"); // include all the functions
-$seed="0dAfghRqSTgx"; // the seed for the passwords
+//$seed="0dAfghRqSTgx"; // the seed for the passwords
 $domain =  "starma.com"; // the domain name without http://www.
 $landing =  "landing.php";
 //ini_set('display_errors',1);
 //error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('America/Chicago');
+//mb_internal_encoding("utf-8");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Starma.com - </title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">   <!-- Matt should we change to charset=utf-8 so json_encode will work?  -->
 
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>  
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  <!-- Matt updated jquery -->
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script> 
 
 <?php 
   if (isAdmin()) {
@@ -36,7 +39,7 @@ date_default_timezone_set('America/Chicago');
     echo '<LINK REL="StyleSheet" HREF="../css/chart.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/main.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/photos.css" TYPE="text/css"/>';
-    echo '<LINK REL="StyleSheet" HREF="../autoSuggest/autoSuggest.css" TYPE="text/css"/>';
+    //echo '<LINK REL="StyleSheet" HREF="../autoSuggest/autoSuggest.css" TYPE="text/css"/>';
     echo '<link rel="stylesheet" type="text/css" href="../imgSelectArea/css/imgareaselect-default.css" />';
     echo '
       
@@ -46,6 +49,7 @@ date_default_timezone_set('America/Chicago');
       
     ';
   }
+  //Removed autoSuggest.css to restyle New Message area
   else {
     echo '
       <LINK REL="StyleSheet" HREF="css/reset.css" TYPE="text/css"/>
@@ -55,12 +59,12 @@ date_default_timezone_set('America/Chicago');
       <LINK REL="StyleSheet" HREF="css/main.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="css/photos.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="css/chat.css" TYPE="text/css"/>
-      <LINK REL="StyleSheet" HREF="autoSuggest/autoSuggest.css" TYPE="text/css"/>
+      
       <link rel="stylesheet" type="text/css" href="imgSelectArea/css/imgareaselect-default.css" />
       
       <script type="text/javascript" src="/autoSuggest/jquery.autoSuggest.js"></script>
       <script type="text/javascript" src="imgSelectArea/scripts/jquery.imgareaselect.pack.js"></script>
-      <script type="text/javascript" src="/chat/chat_all.js"></script>
+      <!--<script type="text/javascript" src="/chat/chat_all.js"></script>-->
       <script type="text/javascript" src="/js/paging_functions.js"></script>
     ';
   }
@@ -127,8 +131,8 @@ date_default_timezone_set('America/Chicago');
         var chat_all =  new Chat_All();
     	
         $(document).ready(function() {
-            //chat_all.refresh();            
-            //chat_all.update();
+            chat_all.refresh();            
+            chat_all.update();
             setTimeout('chat_all.update()', chat_all.refreshTime());
         });
 </script>

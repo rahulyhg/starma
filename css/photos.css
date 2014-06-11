@@ -75,12 +75,12 @@
 
 
 #homepage_thumbnails .grid_photo_wrapper {
-  border-spacing: 0;
+    border-spacing: 0;
     display: inline-block;
-    height: 80px;
+    height: 70px;
     padding: 2px;
     vertical-align: top;
-    width: 80px;
+    width: 70px;
 }
 
 #my_photos .grid_photo_wrapper {
@@ -203,6 +203,10 @@
     width: 139px;
 }
 
+#my_photos .grid_photo_wrapper .grid_photo_border_wrapper.profile_mouseover, .photo_border_wrapper_compare:hover {
+  box-shadow: 1px 1px 15px #37406F inset;
+}
+
 .photo_border_wrapper_compare .compare_photo .user_button a, #my_photos .grid_photo_wrapper .grid_photo_border_wrapper.profile_mouseover a {
   display:block;
   width:123px;
@@ -216,22 +220,31 @@
 }
 
 #homepage_thumbnails {
-     bottom: 23px;
-    left: 54px;
+    top: 40px;
+    left: 20px;
     position: absolute;
-    width: 252px;
+    width: 300px;
+    height: 200px;
 }
 
 #homepage_profile_button_info {
-     bottom: 41px;
+    bottom: 1px;
     left: 48px;
     position: absolute;
     width: 252px;
 }
 
+#homepage_profile_button_info .about_photo_wrapper {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  display: block;
+  width: 123px;
+}
+
 #homepage_chart_button_info {
-  bottom: 77px;
-    left: 41px;
+    bottom: 39px;
+    left: 31px;
     position: absolute;
     width: 252px;
 }
@@ -243,7 +256,7 @@
     position: relative;
     right: 0;
     text-align:center;
-     margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .user_button {

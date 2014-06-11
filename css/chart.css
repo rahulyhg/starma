@@ -1,8 +1,10 @@
+/*
 .blurb {
     border:1px solid black;
     width:500px;
     padding:10px;
 }
+*/
 
 
 
@@ -102,6 +104,262 @@
 
 
 
+/*//////////////// SIGN ICONS ///////////////////////////////////////////*/
+div.Unknown_button a, div.Unknown_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Unknown-OFF.png') no-repeat;
+}
+
+div.Unknown_button.selected a, div.Unknown_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Unknown-ON.png') no-repeat;
+}
+
+
+div.Aries_button a, div.Aries_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Aries-OFF.png') no-repeat;
+}
+
+div.Aries_button.selected a, div.Aries_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Aries-ON.png') no-repeat;
+}
+
+div.Taurus_button a, div.Taurus_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Taurus-OFF.png') no-repeat;
+}
+
+div.Taurus_button.selected a, div.Taurus_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Taurus-ON.png') no-repeat;
+}
+
+div.Gemini_button a, div.Gemini_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Gemini-OFF.png') no-repeat;
+}
+
+div.Gemini_button.selected a, div.Gemini_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Gemini-ON.png') no-repeat;
+}
+
+div.Cancer_button a, div.Cancer_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Cancer-OFF.png') no-repeat;
+}
+
+div.Cancer_button.selected a, div.Cancer_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Cancer-ON.png') no-repeat;
+}
+
+div.Leo_button a, div.Leo_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Leo-OFF.png') no-repeat;
+}
+
+div.Leo_button.selected a, div.Leo_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Leo-ON.png') no-repeat;
+}
+
+div.Virgo_button a, div.Virgo_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Virgo-OFF.png') no-repeat;
+}
+
+div.Virgo_button.selected a, div.Virgo_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Virgo-ON.png') no-repeat;
+}
+
+div.Libra_button a, div.Libra_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Libra-OFF.png') no-repeat;
+}
+
+div.Libra_button.selected a, div.Libra_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Libra-ON.png') no-repeat;
+}
+
+div.Scorpio_button a, div.Scorpio_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Scorpio-OFF.png') no-repeat;
+}
+
+div.Scorpio_button.selected a, div.Scorpio_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Scorpio-ON.png') no-repeat;
+}
+
+div.Sagittarius_button a, div.Sagittarius_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Sagittarius-OFF.png') no-repeat;
+}
+
+div.Sagittarius_button.selected a, div.Sagittarius_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Sagittarius-ON.png') no-repeat;
+}
+
+div.Capricorn_button a, div.Capricorn_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Capricorn-OFF.png') no-repeat;
+}
+
+div.Capricorn_button.selected a, div.Capricorn_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Capricorn-ON.png') no-repeat;
+}
+
+div.Aquarius_button a, div.Aquarius_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Aquarius-OFF.png') no-repeat;
+}
+
+div.Aquarius_button.selected a, div.Aquarius_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Aquarius-ON.png') no-repeat;
+}
+
+div.Pisces_button a, div.Pisces_button.no_hover:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Pisces-OFF.png') no-repeat;
+}
+
+div.Pisces_button.selected a, div.Pisces_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Pisces-ON.png') no-repeat;
+}
+
+div.Unknown_button.rahuketu a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Unknown-OFF.png') no-repeat;
+}
+
+div.Unknown_button.rahuketu.selected a, div.Unknown_button.rahuketu:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Unknown-ON.png') no-repeat;
+}
+
+div.Aquarius_Leo_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aquarius-Leo-OFF.png') no-repeat;
+}
+
+div.Aquarius_Leo_button.selected a, div.Aquarius_Leo_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aquarius-Leo-ON.png') no-repeat;
+}
+
+div.Cancer_Capricorn_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Cancer-Capricorn-OFF.png') no-repeat;
+}
+
+div.Cancer_Capricorn_button.selected a, div.Cancer_Capricorn_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Cancer-Capricorn-ON.png') no-repeat;
+}
+
+div.Aries_Libra_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aries-Libra-OFF.png') no-repeat;
+}
+
+div.Aries_Libra_button.selected a, div.Aries_Libra_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aries-Libra-ON.png') no-repeat;
+}
+
+div.Capricorn_Cancer_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Capricorn-Cancer-OFF.png') no-repeat;
+}
+
+div.Capricorn_Cancer_button.selected a, div.Capricorn_Cancer_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Capricorn-Cancer-ON.png') no-repeat;
+}
+
+div.Gemini_Sagittarius_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Gemini-Sagittarius-OFF.png') no-repeat;
+}
+
+div.Gemini_Sagittarius_button.selected a, div.Gemini_Sagittarius_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Gemini-Sagittarius-ON.png') no-repeat;
+}
+
+div.Leo_Aquarius_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Leo-Aquarius-OFF.png') no-repeat;
+}
+
+div.Leo_Aquarius_button.selected a, div.Leo_Aquarius_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Leo-Aquarius-ON.png') no-repeat;
+}
+
+div.Libra_Aries_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Libra-Aries-OFF.png') no-repeat;
+}
+
+div.Libra_Aries_button.selected a, div.Libra_Aries_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Libra-Aries-ON.png') no-repeat;
+}
+
+div.Pisces_Virgo_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Pisces-Virgo-OFF.png') no-repeat;
+}
+
+div.Pisces_Virgo_button.selected a, div.Pisces_Virgo_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Pisces-Virgo-ON.png') no-repeat;
+}
+
+div.Sagittarius_Gemini_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Sagittarius-Gemini-OFF.png') no-repeat;
+}
+
+div.Sagittarius_Gemini_button.selected a, div.Sagittarius_Gemini_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Sagittarius-Gemini-ON.png') no-repeat;
+}
+
+div.Scorpio_Taurus_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Scorpio-Taurus-OFF.png') no-repeat;
+}
+
+div.Scorpio_Taurus_button.selected a, div.Scorpio_Taurus_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Scorpio-Taurus-ON.png') no-repeat;
+}
+
+div.Taurus_Scorpio_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Taurus-Scorpio-OFF.png') no-repeat;
+}
+
+div.Taurus_Scorpio_button.selected a, div.Taurus_Scorpio_button:hover a  {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Taurus-Scorpio-ON.png') no-repeat;
+}
+
+div.Virgo_Pisces_button a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Virgo-Pisces-OFF.png') no-repeat;
+}
+
+div.Virgo_Pisces_button.selected a, div.Virgo_Pisces_button:hover a {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Virgo-Pisces-ON.png') no-repeat;
+}
+
+/*//////////////// END SIGN ICONS ///////////////////////////////////////*/
+
+/*//////////////// DYNAMIC ICONS ///////////////////////////////////////////*/
+
+div.my_7_button a {
+  background:url('/img/Starma-Astrology-Compatibility-Challenges-Big.png') no-repeat center top;
+  cursor: default;
+}
+
+div.my_6_button a {
+  background:url('/img/Starma-Astrology-Compatibility-Disappointments.png') no-repeat center top;
+  cursor: default;
+}
+
+div.my_5_button a {
+  background:url('/img/Starma-Astrology-Compatibility-Power-Sharing-Big.png') no-repeat center top;
+  cursor: default;
+}
+
+div.my_4_button a {
+  background:url('/img/Starma-Astrology-Compatibility-Friends-Big.png') no-repeat center top;
+  cursor: default;
+}
+
+div.my_3_button a {
+  background:url('/img/Starma-Astrology-Compatibility-Great-Admirers.png') no-repeat center top;
+  cursor: default;
+}
+
+div.my_2_button a {
+  background:url('/img/Starma-Astrology-Compatibility-Magnetic-Attraction-Big.png') no-repeat center top;
+  cursor: default;
+}
+
+div.my_1_button a {
+  background:url('/img/Starma-Astrology-Compatibility-Peas-In-A-Pod-Big.png') no-repeat center top;
+  cursor: default;
+}
+
+div.my_unknown_button a {
+  background:url('/img/Starma-Astrology-Compatibility-Unknown.png') no-repeat center top;
+  cursor: default;
+}
+/*//////////////// DYNAMIC ICONS ///////////////////////////////////////*/
+
+
 /*///////////////////////////ACTUAL, USER VIEW OF CHART//////////////////////////////*/
 #starma_chart {
   width:100%;
@@ -110,19 +368,24 @@
 
 
 #starma_chart #blurb {
-    background:white;
+    /*background: url("/img/seed_paper.png");*/
+    background: white;
     width:510px;
     min-height:460px;
     margin-left:auto;
     margin-right:auto;
     text-align:left;
-    border:1px solid black;
+    border: 2px solid #2C3447;
 }
 
 #starma_chart #blurb span {
-    padding:10px;
+    padding:10px 20px;
     display:block;
+    font-size: .93em;
+    letter-spacing: .05px;
+    line-height: 1.5;
 }
+
 
 #starma_chart #header {
   width: 100%;
@@ -132,12 +395,12 @@
   margin-right:auto;
   padding-bottom:0px;
   position: relative;
-    top: 3px;
+  top: 3px;
 }
 
 #starma_chart #profile_back_link {
   /*background: url("/img/Starma-Astrology-Back-Arrow.png") no-repeat scroll 0 0 transparent;*/
-     bottom: 29px;
+    bottom: 29px;
     font-size: 0.8em;
     left: 30px;
     position: relative;
@@ -163,14 +426,18 @@
 
 #starma_chart #planet_info {
   text-align:left;  
-  padding:10px;
+  padding:10px 20px;
+  font-size: .93em;
+  letter-spacing: .05px;
+  line-height: 1.5;
 }
 
+/* not in use */
 #starma_chart #planet_sign_title {
   font-size:1.1em;
   font-weight:bold; 
   text-align:center;
-  padding:10px;
+  padding-right: 10px;
 }
 
 
@@ -186,6 +453,26 @@
   top:65px;
 }
 
+#starma_chart .chart_tabs span.poi_title {
+  position:relative;
+  top:68px;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
+}
+
+div.poi_title {
+  position:relative;
+  top:68px;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
+}
+
 #welcome .homepage_div #homepage_chart_button_info li a span {
   position:relative;
   top:65px;
@@ -194,9 +481,9 @@
 }
 
 #welcome .homepage_div #homepage_chart_button_info #blurb {
-  left: 86px;
+    left: 85px;
     position: absolute;
-    bottom: 123px;
+    bottom: 7px;
     width: 200px;
   
 }
@@ -207,9 +494,21 @@
 }
 
 #starma_chart .chart_tabs a span.ketu_text {
-  display: block;
+    display: block;
     position: relative;
     top: 132px;
+}
+
+#starma_chart .chart_tabs span.ketu_text {
+    display: block;
+    position: relative;
+    top: 145px;
+    font-family: "ClarendonBT-Light";
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: .1em;
+    text-transform: uppercase;
 }
 
 #starma_chart .chart_tabs.left_side {
@@ -221,6 +520,18 @@
 #starma_chart .chart_tabs.right_side {
   float:right;
 
+}
+
+.chart_tabs_wrapper {
+  width: 115px;
+  height: 90px;
+  position: relative;
+}
+
+.chart_tabs_rk_wrapper {
+  width: 115px;
+  height: 182px;
+  position: relative;
 }
 
 #starma_chart .chart_tabs ul {
@@ -252,8 +563,8 @@
 
 
 #starma_chart .chart_tabs a, #homepage_chart_button_info li a {
-  border: 0px solid black;
-  background-color:#ffffff;
+  border: none;
+  background-color: none;
   color:black;
   display:block;
   text-align:center;
@@ -273,8 +584,8 @@
 
 
 #starma_chart .chart_tabs .selected a { 
-  background-color:#000000;
-  //color:white;
+  background-color: none;
+  /*color:white;*/
 }
 
 #starma_chart .chart_tabs.left_side.chart_arrow {
@@ -293,6 +604,36 @@
   cursor: pointer; cursor: hand;
 }
 
+#starma_chart .chart_tabs.left_side span.arrow {
+  width: 34px;
+  height: 88px;
+  display: inline-block;
+  position: relative;
+}
+
+#starma_chart .chart_tabs.right_side span.arrow {
+  width: 34px;
+  height: 88px;
+  display: inline-block;
+  position: relative;
+}
+
+#starma_chart .chart_tabs.left_side span.arrow_left_on {
+  background:url('/img/Starma-Astrology-Chart-ArrowL.png') no-repeat center center;
+  width: 34px;
+  height: 88px;
+  display: inline-block;
+  position: relative;
+}
+
+#starma_chart .chart_tabs.right_side span.arrow_right_on {
+  background:url('/img/Starma-Astrology-Chart-ArrowR.png') no-repeat center center;
+  width: 34px;
+  height: 88px;
+  display: inline-block;
+  position: relative;
+}
+
 #starma_chart .chart_tabs.left_side.chart_arrow ul li.arrow a {
   background:url('/img/Starma-Astrology-Chart-ArrowL.png') no-repeat center center;
 }
@@ -302,7 +643,7 @@
 }
 
 #chart_direction_link_east, #chart_direction_link_west {
-  left: 570px;
+    left: 570px;
     position: absolute;
     z-index: 1;
 }
@@ -317,17 +658,19 @@
 
 #chart_1_pic {
   
-   float: left;
+    float: left;
     height: 155px;
-    margin-top: 35px;
+    margin-top: 28px;
+    margin-left: 20px;
     padding-right: 5px;
     text-align: center;
 }
 
 #chart_2_pic {
-float: right;
+    float: right;
     height: 155px;
-    margin-top: 35px;
+    margin-top: 28px;
+    margin-right: 20px;
     padding-left: 5px;
     text-align: center;
 }
@@ -335,7 +678,13 @@ float: right;
 
 #star_rating {
   position:relative;
-  top:13px;
+  /*top:13px;*/
+  /* Matt adding for mockup*/
+  display: inline-block;
+  height: 38px;
+  /*left: 167px;*/
+  top: 29px;
+  width: 438px;
 }
 
 #star_rating .hover_box span {
@@ -356,8 +705,191 @@ float: right;
   padding-bottom:20px;
 }
 
+
 #compare_results_selector {
-  display: inline-block;
+    height: 14px;
+    /*left: 69px;
+    top: 100px;*/
+    position: absolute;
+    left: 19px;
+    top: 179px;
+    z-index: 2;
+}
+
+#compare_results_selector ul li {
+    display: inline;
+    float: left;
+    position: relative;
+}
+
+#compare_results_selector ul li span {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #8393CA;
+  border-right:0px;
+  padding:5px;
+  text-align:center;
+  margin:0px;
+  display:block;
+  width:171px;
+  height: 12px;
+  font-size: 0.9em;
+  line-height: 0.9em;
+  letter-spacing: .1em;
+  color:black;
+  cursor: pointer;
+  font-family: "P22UndergroundBook";
+}
+
+#compare_results_selector ul li.end span {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
+  
+}
+
+
+
+#compare_results_selector ul li.selected span{
+  background:#D3DBF6;
+  border-bottom: #D3DBF6;
+  height: 14px;
+}
+
+#compare_results_selector ul li span:hover{
+  background:#D3DBF6;
+  
+}
+
+#compare_results_selector ul li.active span{
+  background:#D3DBF6;
+  border-bottom: #D3DBF6;
+  height: 14px;
+}
+/* For future AJAX
+#compare_results_selector ul li input {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #8393CA;
+  border-right:0px;
+  padding:5px;
+  text-align:center;
+  margin:0px;
+  display:block;
+  width:170px;
+  height: 21px;
+  font-size: .8em;
+  line-height: 0.8em;
+  color:black;
+  cursor: pointer;
+  font-family: "P22UndergroundBook", helvetica, arial;
+}
+
+*/
+
+/*  For old design  */
+#compare_results_selector ul li a {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #8393CA;
+  border-right:0px;
+  padding:5px;
+  text-align:center;
+  margin:0px;
+  display:block;
+  width:171px;
+  height: 12px;
+  font-size: 0.9em;
+  line-height: 0.9em;
+  color:black;
+  cursor: pointer;
+  font-family: "P22UndergroundBook";
+}
+
+#compare_results_selector ul li.end a {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
+  
+}
+
+
+
+#compare_results_selector ul li.selected a{
+  background:#D3DBF6;
+  border-bottom: #D3DBF6;
+  height: 14px;
+}
+
+#compare_results_selector ul li a:hover{
+  background:#D3DBF6;
+  
+}
+
+#compare_results_selector ul li.active a{
+  background:#D3DBF6;
+  border-bottom: #D3DBF6;
+  height: 14px;
+}
+
+/*  End old design  */
+
+#compare_results_selector ul li.end input {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
+  
+}
+
+
+
+#compare_results_selector ul li input.selected {
+  background:#D3DBF6;
+  border-bottom: #D3DBF6;
+  height: 14px;
+}
+
+#compare_results_selector ul li input:hover{
+  background:#D3DBF6;
+  
+}
+
+#compare {
+    background: #D3DBF6;
+    border-top: 2px solid #2C3447;
+    border-right: 2px solid #2C3447;
+    top: 36px;
+    float: left;
+    position: relative;
+    right: 10px;
+    width: 793px;
+    padding: 25px 0 65px 0;
+} 
+
+#compare #section {
+  padding: 10px;
+  width:773px;
+  background-color: #D3DBF6;
+}
+
+/*
+#compare_results_selector {
+    display: inline-block;
     height: 32px;
     left: 7px;
     margin-left: auto;
@@ -365,13 +897,13 @@ float: right;
     padding-top: 10px;
     position: relative;
     /*width: 320px;*/
-    width:290px;
+   /* width:290px;
 }
 
 
 #compare_results_selector ul li a {
   /*border: 1px solid black;*/
-  background:#8393CA;
+ /* background:#8393CA;
   color:black;
   display:block;
   text-align:center;
@@ -398,7 +930,7 @@ float: right;
   display: inline;
   float: left;
   /*padding-right:20px;*/
-
+/*
 }
 
 #compare_results_selector ul li.selected a, #compare_results_selector ul li a:hover { 
@@ -425,11 +957,10 @@ float: right;
   bottom:5px;
   margin-bottom:5px;
 }
-
+*/
 #compare_results {
-  width:100%;
-  text-align:center;
-  
+    width:100%;
+    text-align:center;  
     position: relative;
     text-align: center;
     width: 100%;
@@ -447,18 +978,109 @@ float: right;
 }
 
 #compare_results #explanation {
-  font-size: 0.8em;
-    line-height: 1.6em;
+    font-size: 0.93em;
+    line-height: 1.5em;
+    letter-spacing: .05px;
     margin: auto;
-    padding: 10px;
-    position: relative;
-    text-align: center;
-    top: 8px;
-    width: 465px;
+    padding: 8px 0 0 12px;
+    position: absolute;
+    text-align: left;
+    /*top: 8px;
+    width: 465px;  MATT REDESIGN*/
+    top: 75px;
+    left: 165px;
+    width: 429px;
+    min-height: 81px;
+    /*height: 110px;*/
+}
+
+.explanation_less {
+ /* background: url("/img/Starma-Astrology-Thought-Bubble.png") no-repeat scroll 0 0 / 450px 110px rgba(0, 0, 0, 0); */
+  height: auto;
+  border: 1px solid black;
+  background: white;
+  position: absolute;
+  z-index: 3;
+}
+
+.explanation_more {
+  /*background: url("/img/Starma-Astrology-Thought-Bubble-Big.png") no-repeat scroll 0 0 / 450px 110px rgba(0, 0, 0, 0);*/
+  height: auto;
+  border: 1px solid black;
+  background: white;
+  position: absolute;
+  z-index: 3;
+}
+
+.exp_more {
+  display: none;
+  padding: 0 6px 0 0;
+}
+
+#explain_more {
+  font-size: .73em;
+  font-family: "P22UndergroundBook";
+  display: inline;
+  position: relative;
+  float: right;
+  cursor: pointer;
+  /*border-left: 2px solid black;
+  border-bottom: 2px solid black;*/
+  padding-top: 13px;
+  font-weight: bold;
+  margin-right: 32px;
+  bottom: 13px;
+}
+
+#major {
+  position: relative;
+  width: 100%;
+  float: left;
+}
+
+#minor {
+  position: relative;
+  width: 100%;
+  float: left;
+  display: none;
+}
+
+#ruler {
+  position: relative;
+  width: 100%;
+  float: left;
+  display: none;
+  min-height: 282px;
+  text-align: center;
+}
+
+#bonus {
+  position: relative;
+  width: 100%;
+  float: left;
+  display: none;
+  min-height: 282px;
+  text-align: center;
+}
+
+#explain_more:hover {
+  text-shadow: 0 0 1px gray;
+}
+
+#major_small_bubble {
+  position: absolute;
+  left: 156px;
+  top: 182px;
+}
+
+#major_medium_bubble {
+  position: absolute;
+  left: 165px;
+  top: 166px;
 }
 
 #compare_results #explanation #text_selector {
-  bottom: 15px;
+    bottom: 15px;
     position: relative;
 }
 
@@ -503,8 +1125,81 @@ float: right;
 }
 
 #detail_selector a {
- color:black;
+  color:black;
 }
+
+.star {
+  position: relative;
+  float: left;
+  margin-left: 42px;
+}
+
+/*///////GENERAL COMPARE PAGE/////*/
+
+.dynamic_column {
+  position: relative;
+  float: left;
+  margin: 0 20px;
+  width: 478px;
+}
+
+.blurb {
+  position: relative;
+}
+
+.poi_column {
+  display:block;
+  margin-left:50px;
+  width: 670px; 
+  float: left;
+  height:100%; 
+}
+
+.poi_column div.poi_column_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.poi_column div.left {
+  float: left;
+  position: relative;
+  display: inline;
+}
+
+.poi_column div.right {
+  float: right;
+  position: relative;
+  display: inline;
+}
+
+.poi_column .blurb div.text {
+  font-size: .73em;
+  font-family: "P22UndergroundBook";
+  display: inline;
+  position: relative;
+  float: right;
+  cursor: pointer;
+  /*border-left: 2px solid black;
+  border-bottom: 2px solid black;*/
+  padding-top: 15px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.text:hover {
+  text-shadow: 0 0 1px gray;
+}
+
+.small_intro {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  float: left;
+  font-size: .93em;
+  line-height: 1.5;
+  letter-spacing: .05px;  
+}
+
 
 /*///////MAJOR CONNECTIONS//////*/
 
@@ -515,28 +1210,38 @@ float: right;
 
 
 
-#major_connections #blurb {
-    background-color:white;
-    border:1px solid black;
-    width:510px;
-    min-height:403px;
-    margin-left:auto;
+#major_connections .blurb {
+    /*background-color:white;
+    border:2px solid black;
+    width:602px;*/
+    bottom: 29px;
+    width: 496px;
+    margin-left:85px;
     margin-right:auto;
+    float: left;
+    height: auto;
 }
 
-#major_connections #blurb span {
+#major_connections .dynamic_blurb {
     padding:10px;
-    display:block;
+    display:none;
     text-align:left;
+    font-size: .93em;
+    line-height: 1.5;
+    letter-spacing: .05px;  
 }
 
-#major_connections #blurb #dynamic_info {
+#major_connections .dynamic_info {
   text-align:left;  
   padding:10px;
-  font-size:1em;
+  font-size:.93em;
+  line-height: 1.5;
+  letter-spacing: .05px;
+  display: none;
+
 }
 
-#major_connections #blurb #dynamic_sign_title {
+#major_connections #dynamic_sign_title {
   font-size:1.1em;
   font-weight:bold; 
   text-align:center;
@@ -565,6 +1270,480 @@ float: right;
   padding:10px;
 }
 
+#major_connections .poi_button {
+  border: none;
+  background-color: none;
+  color:black;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-size:12px;
+  height:88px;
+  width:75px;
+  text-transform:uppercase;
+  font-weight:bold;
+  cursor: default;
+}
+
+#major_connections .dynamic_icon{
+  width:478px;
+  background-color:#D3DBF6;
+  border: none;
+  color:black;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-size:12px;
+  height:88px;
+  text-transform:uppercase;
+  font-weight:bold;
+  margin: auto;
+}
+
+#major_connections a span {
+  position:relative;
+  top:65px;
+  
+}
+
+#major_connections .poi_column ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  padding-left:0px;
+}
+
+
+#major_connections .poi_column ul li {
+  position: relative;
+  display: block;
+  margin-bottom: -6px;
+}
+
+
+/*////////////////////// Minor ///////////////////*/
+
+.poi_column div.poi_column_wrapper_minor {
+  position: relative;
+  display: inline-block;
+  /*height: 400px;*/
+  width: 678px;
+}
+
+.bridge_top {
+  width: 528px;
+  height: 87px;
+  float: left;
+  position: relative;
+  right: 4px;
+  background: url('/img/Starma-Astrology-Pillars-Top.png') no-repeat;
+  z-index: 2;
+}
+
+.bridge_top_title {
+  position: relative;
+  font-family: "ClarendonBT-Light";
+  font-size: .85em;
+  letter-spacing: .1em;
+  font-weight: bold;
+  line-height: 1.5;
+  top: 44px;
+  width: 100%;
+  float: left;
+  text-align: center;
+  display: inline;
+}
+
+.pillar{
+  background: url('/img/Starma-Astrology-Pillar.png') no-repeat;
+  position: relative;
+  display: inline-block;
+  bottom: 4px;
+  float: left;
+}
+
+.pillar_arrow {
+  background: url('/img/Starma-Astrology-Pillar-Arrow.png') no-repeat;
+  position: relative;
+  display: inline-block;
+  bottom: 4px;
+}
+
+.pillar_broken{
+  background: url('/img/Starma-Astrology-Pillar-Broken.png') no-repeat;
+  position: relative;
+  display: inline-block;
+  bottom: 4px;
+  float: left;
+}
+
+.pillar_broken_arrow {
+  background: url('/img/Starma-Astrology-Pillar-Broken-Arrow.png') no-repeat;
+  position: relative;
+  display: inline-block;
+  bottom: 4px;
+}
+
+.pillar_title {
+  position: relative;
+  font-family: "ClarendonBT-Light";
+  font-size: .7em;
+  letter-spacing: .1em;
+  top: 9px;
+  width: 85px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.bridge_base {
+  /*background: url('/img/Starma-Astrology-Pillars-Base.png') no-repeat;*/
+  position: relative;
+  bottom: 19px;
+  left: 49px;
+  width: 557px;
+  z-index: 2;
+}
+
+.pillar_icon_minor {
+  margin: 38px 8px 48px 5px;
+  cursor: pointer;
+  float: left;
+  display:inline-block;
+  z-index: 3;
+  position: relative;
+}
+
+
+#minor_connections {
+  width:100%;
+}
+
+.right_icon_adjust {
+  right: 7px;
+}
+
+.arrow_topR {
+  background: url('/img/Starma-Astrology-Arrow-TopR.png') no-repeat;
+  display: none;
+  position: relative;
+  height: 27px;
+  top: 43px;
+  float: right;
+}
+
+.arrow_topL3 {
+  background: url('/img/Starma-Astrology-Arrow-TopL3.png') no-repeat;
+  display: inline;
+  position: relative;
+  height: 20px;
+  top: 46px;
+  float: left;
+  left: 1px;
+}
+
+.arrow_topL2 {
+  background: url('/img/Starma-Astrology-Arrow-TopL2.png') no-repeat;
+  display: inline;
+  position: relative;
+  height: 20px;
+  top: 46px;
+  float: left;
+  left: 1px;
+}
+
+.arrow_topL1 {
+  background: url('/img/Starma-Astrology-Arrow-TopL1.png') no-repeat;
+  display: inline;
+  position: relative;
+  height: 20px;
+  top: 46px;
+  float: left;
+  left: 1px;
+}
+
+.arrow_test {
+  background: url('/img/Starma-Astrology-Arrow.png') no-repeat;
+  display: inline;
+  position: relative;
+}
+
+.show_arrow {
+  display: inline;
+}
+
+
+/*
+.add_arrow_top {
+  display: none;
+}
+
+.add_arrow_bottom {
+  display: none;
+}
+*/
+.arrow_show {
+  display: inline;
+  position: relative;
+  z-index: 1;
+}
+
+span.icon {
+  text-align: center;
+}
+
+span.poi_title {
+  position:relative;
+  top:68px;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
+}
+
+span.poi_title_tall {
+  position:relative;
+  top: 73px;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
+  width: 100%;
+  display: inline-block;  
+}
+
+span.minor_poi_title {
+  position:relative;
+  top: 11px;
+  font-family: "ClarendonBT-Light";
+  font-size: .59em;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
+   width: 100%;
+  display: inline-block;
+}
+
+#minor_connections .blurb_supporting {
+    width:517px;
+    /*margin-left:31px;
+    margin-right:auto;*/
+    left: 77px;
+    bottom: 56px;
+    float: left;
+    height: auto;
+    position: relative;
+    text-align:left;
+    display: none;
+    z-index: 2;
+}
+
+.blurb_supporting_show{
+  display: inline;
+}
+
+#minor_connections .blurb_supporting span {
+  font-size:.93em;
+  line-height: 1.5;
+  letter-spacing: .05px;
+}
+
+#minor_connections .dynamic_blurb {
+    padding:10px;
+    display:block;
+    text-align:left;
+    font-size: .93em;
+    line-height: 1.5;
+    letter-spacing: .05px;  
+}
+
+#minor_connections .dynamic_info {
+  text-align:left;  
+  padding:10px;
+  font-size:.93em;
+  line-height: 1.5;
+  letter-spacing: .05px;
+}
+
+#minor_connections .dynamic_icon{
+  width:478px;
+  background-color:#D3DBF6;
+  border: none;
+  color:black;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-size:12px;
+  height:88px;
+  text-transform:uppercase;
+  font-weight:bold;
+  margin: auto;
+}
+
+#minor_connections .poi_button {
+  border: none;
+  background-color: none;
+  color:black;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-size:12px;
+  height:88px;
+  width:75px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+
+#minor_connections .bridge {
+  /*height: 100px;*/
+  width: 520px;
+  height: 315px;
+  margin-bottom: 20px;
+  float: left;
+  position: relative;
+  /*margin: 0 0 40px 31px;
+  border: 2px solid black;
+  background: url('/img/Starma-Astrology-Bridge.png') no-repeat scroll 0 0 ;
+  background: url('/img/Starma-Astrology-Pillars.png') no-repeat scroll 0 0 ;*/
+}
+
+#minor_connections .bridge .main:hover {
+  box-shadow: 0 0 1px #36405B;
+}
+
+#minor_connections .bridge .to_leg1 {
+
+}
+
+#minor_connections .bridge .to_leg2 {
+
+}
+
+#minor_connections .bridge .to_leg3 {
+
+}
+
+#minor_connections a span {
+  position:relative;
+  top:65px;
+  
+}
+
+/* Old Way
+#major_connections .left_side, .right_side {
+  position:relative;
+  height:100%;
+  width:75px; 
+}
+
+#major_connections a span {
+  position:relative;
+  top:65px;
+  
+}
+
+#major_connections .left_side {
+  float:left; 
+}
+
+#major_connections .left_side {
+  margin-left: 50px
+  
+}
+
+#major_connections .right_side {
+  float:right;
+  
+}
+
+#major_connections .right_side {
+  margin-right: 50px;
+  
+}
+
+#major_connections .middle {
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  width:510px;  
+}
+
+#major_connections .poi_column ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  padding-left:0px;
+
+}
+
+
+#major_connections .poi_column li {
+  position: relative;
+  display: inline;
+  padding-bottom:25px;
+}
+
+#major_connections .left_side li {
+  float:left;
+  
+}
+
+#major_connections .right_side li {
+  float:right;
+  
+}
+
+#major_connections .left_side a {
+  border: none;
+  background-color: none;
+  color:black;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-size:12px;
+  height:88px;
+  width:75px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+
+#major_connections .right_side a {
+  border: none;
+  background-color: none;
+  color:black;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-size:12px;
+  height:88px;
+  width:75px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+
+
+#major_connections .selected a { 
+  background-color: none;
+  color:white;
+}
+
+#major_connections .middle li a {
+  width:160px;
+  background-color:#D3DBF6;
+  border: none;
+  color:black;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  font-size:12px;
+  height:88px;
+  text-transform:uppercase;
+  font-weight:bold;
+  margin: auto;
+}
+
+
 #major_connections .chart_tabs {
   position:relative;
   height:100%;
@@ -585,7 +1764,7 @@ float: right;
 
 
 #major_connections .chart_tabs.left_side.stage2 {
-  margin-left:150px
+  margin-left: 50px
   
 }
 
@@ -598,12 +1777,12 @@ float: right;
   display:block;
   margin-right:auto;
   margin-left:auto;
-  width:160px;  
+  width:510px;  
 }
 
 
 #major_connections .chart_tabs.right_side.stage2 {
-  margin-right:150px;
+  margin-right: 50px;
   
 }
 
@@ -619,9 +1798,8 @@ float: right;
 #major_connections .chart_tabs li {
   position: relative;
   display: inline;
-  padding-bottom:5px;
-  /*padding-right:20px;*/
-  ;
+  padding-bottom:25px;
+  padding-right:20px;
 }
 
 #major_connections .chart_tabs.left_side li {
@@ -640,9 +1818,9 @@ float: right;
 }
 
 
-#major_connections .chart_tabs a {
-  border:0px;
-  background-color:#ffffff;
+#major_connections .chart_tabs .left_side .right_side a {
+  border: none;
+  background-color: none;
   color:black;
   display:block;
   text-align:center;
@@ -657,20 +1835,19 @@ float: right;
 
 
 #major_connections .chart_tabs .selected a { 
-  background-color:#000000;
+  background-color: none;
   //color:white;
 }
 
 #major_connections .chart_tabs.middle li a {
   width:160px;
-  
   background-color:#D3DBF6;
 }
 
 
 
 
-/*///////MINOR CONNECTIONS//////*/
+////////MINOR CONNECTIONS///////
 
 #minor_connections {
   width:100%;
@@ -803,8 +1980,6 @@ float: right;
   position: relative;
   display: inline;
   padding-bottom:5px;
-  /*padding-right:20px;*/
-  ;
 }
 
 #minor_connections .chart_tabs.left_side li {
@@ -829,8 +2004,8 @@ float: right;
 
 
 #minor_connections .chart_tabs a {
-  border:0px;
-  background-color:#ffffff;
+  border: none;
+  background-color: none;
   color:black;
   display:block;
   text-align:center;
@@ -843,8 +2018,7 @@ float: right;
 }
 
 #minor_connections .chart_tabs .selected a { 
-  background-color:#000000;
-  //color:white;
+  background-color: none;
 }
 
 #minor_connections .chart_tabs.middle li a {
@@ -852,6 +2026,8 @@ float: right;
   background-color:#D3DBF6;
   
 }
+
+*/
 
 /*///////ARROWS//////*/
 
@@ -999,8 +2175,7 @@ float: right;
     height: 335px;
     right: 5px;
     margin-left: 0;
-    top: 25px;
-    
+    top: 25px;   
     background-color: #D3DBF6;
 }
 
@@ -1020,13 +2195,11 @@ float: right;
   background: url("/img/arrows/Starma-Astrology-Compatibility-Minor-ArrowLTextV-RSM.png") no-repeat scroll center center;
 }
 
-#minor_connections .chart_tabs.right_side.arrows.stage3 {
-  
+#minor_connections .chart_tabs.right_side.arrows.stage3 {  
     height: 335px;
     left: 5px;
     margin-right: 0;
-    top: 25px;
-    
+    top: 25px;    
     background-color: #D3DBF6;
 }
 

@@ -27,6 +27,7 @@ log_this_action (profile_action_photos(), viewed_basic_action());
       //  flare_title ("Edit Photos");
       //echo '</div>';
       //echo 'NUM MY PHOTOS: ' . num_my_photos();
+      echo '<div id="photos">';
       upload_photo_form();
  
       if (isset($_GET["error"])) {
@@ -40,6 +41,7 @@ log_this_action (profile_action_photos(), viewed_basic_action());
         echo '</div>';
       }
    // }
+    echo '</div>';  //close wrapper
     
 }
 

@@ -13,7 +13,7 @@
     font-style: italic;
     font-weight: bold;
     text-align: right;
-  margin-right:2px;
+    margin-right:2px;
 }
 
 .chat_alert_list_div {
@@ -104,46 +104,68 @@
 }
 
 #inbox_chat_area p.chat_time.is_new  {
-  color:FF5C5C;
+  color: #FF5C5C;
+}
+
+#inbox_chat_area .chat_area p {
+  font-size: 1.04em;
+  letter-spacing: .05px;
+  line-height: 1.5;
 }
 
 #inbox_user_list {
-  width:160px;
-  position:absolute;
-  height:700px;
+  width:265px;
+  left: 51px;
+  top: 38px;
+  position: absolute;
+  /*height: 700px;*/
 }
 
 #inbox_header{
-  text-align:center;
-  margin-bottom:10px;
+  text-align: left;
+  margin: 0;
+  border-bottom: 1px solid #C0C0C0;
+  width: 421px;
+  font-family: "ClarendonBT-Light";
+  letter-spacing: 2px;
+  font-weight: bold;  
 }
 
 #list_body {
-  height:540px;
+  height:480px;
   overflow-y:hidden;
-  padding-top:3px;
+  padding: 0;
+  border-right: 1px solid #C0C0C0; 
 }
+
+#inbox_user_list  #list_body ul {
+  margin: 0;
+}
+
 #inbox_user_list #list_body ul li {
  
-  margin-bottom:35px;
-  height: 73px;
+    margin: 8px 0 8px 0;
+    height: 73px;
     width: 112px;
 }
 
 #inbox_user_list #list_body ul li .nickname {
-  bottom:79px;
-  font-size: 0.8em;
-    left: 17px;
+    bottom:79px;
+    font-size: 0.8em;
+    left: 8px;
     position: relative;
-    text-align: center;
-  
+    top: 4px;
+    text-align: left;
+    font-weight: bold;
 }
 
-#inbox_user_list #list_body .new_ball_space {
+/*#inbox_user_list #list_body */
+.new_ball_space {
   height:73px;
-  width:30px;
- 
+  width:0px;
   position:relative;
+  float: left;
+  display:inline;
 }
 
 #inbox_user_list .new_ball_space.new {
@@ -152,82 +174,118 @@
 
 #inbox_user_list .hover_box {
   height:73px;
-  width:80px;
+  width:72px;
   position:relative;
-  left:30px;
-  bottom:76px; 
-  border:6px solid #D3DBF6;
+  /*bottom:76px; */
+  border:none;
+  display: inline;
+  float:left;
 }
-
+/*
 #inbox_user_list .hover_box.selected {
 
   border:6px solid #fbf0a4;
 }
-
+*/
 
 #inbox_history {
-  width:540px;
-  left:210px;
-  position:absolute;
-  height:700px;
+  width: 438px;
+  left: 315px;
+  top: 38px;
+  position: absolute;
+  /*height: 700px;*/
   
 }
 
 
 #inbox_chat_area {
     position: relative;
-    top: 20px;
+    padding-left: 24px;
 }
 
 
 #inbox_chat_area .chat_area {
-  height:300px;
+  height: 261px;
   font-size:0.8em;
   border:0px solid black;
   overflow:auto;
   background:white;
-  padding: 20px;
-  border-radius: 5px 5px 5px 5px;
+  padding: 16px;
 }
 
 #inbox_chat_area #type_area {
-  margin:auto;
-  width:540px;
+  margin-left: 16px;
+  width: 378px;
   position:relative;
-  padding-top:10px;
+  padding: 0;
 }
 
 #inbox_chat_area #sendie {
-  border: 0 none;
-  height: 80px;
+  border: 1px solid #C0C0C0;
+  height: 108px;
   padding: 10px;
-  width: 520px;
-  border-radius: 5px 5px 5px 5px;
-  
+  margin-top: 20px;
+  width: 359px;
 }
 
 #type_area.blank #sendie {
   margin-top:10px;
-  height:380px;
+  height: 180px;
+  border: 1px solid #C0C0C0;
 }
 
 #new_message_button {
   position:absolute;
   top:20px;
-  left:598px;
+  left:584px;
 }
 
 #new_message_alert {
-   background: none repeat scroll 0 0 red;
-    border-radius: 5px 5px 5px 5px;
+    background: #FF0F28;
+    border: 1px solid #891A1D;
+    border-radius: 2px;
     color: white;
-    height: 20px;
+    height: 14px;
     left: 710px;
-    line-height: 20px;
+    line-height: 14px;
     position: absolute;
     text-align: center;
-    top: 10px;
-    width: 20px;
+    top: 11px;
+    width: 14px;
+    font-size: 12px;
 }
+
+/*************---Matt adding teaser blurb to Conversations */
+
+.last_msg {
+  display: inline;
+  float: left;
+  position: relative;
+  font-size: 12px;
+  left: 15px;
+  width: 140px;
+}
+
+.convoWrapper {
+  width: 223px;     /* 15px less than li width */
+  height: 75px;
+  border-bottom: 1px solid #C0C0C0;
+  position: relative;
+}
+
+.convoWrapper:hover {
+  background-color: #E8E8E8;
+}
+
+.link_spanner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: transparent;
+}
+
 
 /*/////////////////////// END INBOX CHAT AND MESSSAGE SELECTORS ////////////////*/

@@ -19,6 +19,10 @@ if (login_check_point($type="full", $domain=$domain)) {
     $western = $_GET["western"];
   }
 
+    $section = $_GET["section"];
+  
+
+
   //Log the Action
   log_this_action (chart_action(), viewed_basic_action(), $log_poi_id, $western);
 
@@ -42,7 +46,7 @@ if (login_check_point($type="full", $domain=$domain)) {
       echo '</div>';
   }
 */
-  show_my_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&western=" . $western, $western);
+  show_my_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&western=" . $western . "&section=" . $section, $western);
 
   if ($western == 0) {
     if (isset($_SESSION["chart_more_info_flag"])) {

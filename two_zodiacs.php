@@ -1,10 +1,12 @@
 <?php
 require_once "header.php"; 
-?>
- <div id="welcome">
+
+ echo '<div id="welcome">
     <span style="font-size:2em">A Tale of Two Zodiacs</span>
     <br><br>
-    Coming Soon...
+    Coming Soon...';
+
+?>
 <!---The Tropical Zodiac and the Sidereal Zodiac have been a topic of much discussion and debate amongst astrologers for about 1800 years.  But there once was a time when this debate did not exist because there was only one Zodiac, the Sidereal Zodiac.  In this article we will examine the history of the Zodiac, how one became two, and why we at Starma.com have chosen to stick with the Sidereal Zodiac. 
 <Br><br>
 Today, it is generally assumed that Hindu astrology (or Jyotish) uses the Sidereal Zodiac, and Western astrology uses the Tropical Zodiac.  However, many Western astrologers have been converting to the Sidereal Zodiac over the last 60 years or so.  In order to understand why we have chosen to use the Sidereal Zodiac, we have to back track a little and share with you the same path of information that led us to this decision.
@@ -51,5 +53,5 @@ We sincerely hope that by reading this article you will understand why we have c
     The Starma Team--->
  </div> 
 <?php
- require_once "footer.php";
+ //require_once "footer.php";
 ?> 

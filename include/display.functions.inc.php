@@ -157,6 +157,53 @@ function show_msg_area_inbox ($r_id) {
   return true;
 }
 
+//************---Matt add teaser blurb to Conversations
+
+function show_msg_last ($r_id) {
+
+  $my_msgs = get_my_msgs_with ($r_id);
+
+  //$msg = mysql_fetch_array($my_msgs)['text_body'];
+  
+      while($msgs = mysql_fetch_array($my_msgs)) {
+        extract($msgs);
+        $msg = array();
+        array_push($msg, $text_body);        
+      }
+/*
+      if(is_array($msg)){
+        $msg = $msg[0];
+      } 
+      else {
+        $msg = $msg;
+      } 
+ */ 
+  return end($msg);
+}
+
+//************---Matt add msg popup from other's profile Message button - Going to try with Jquery instead
+/*
+function show_sheen_msg_popup ($r_id) {
+   echo '<div id="sheen">';
+    
+     echo '<div id="sheen_screen">';
+    
+     echo '</div>';
+     echo '<div id="sheen_content">';
+       echo '<div id="type_area">';
+       echo '<form id="send-message-area" action="send_message.php" method="post">
+               <textarea id="sendie" name="text_body" maxlength = "500" ></textarea>
+               <input type="submit" name="submit" value="Reply"/>
+               <input type="hidden" value=' . $r_id . ' name="other_user_id"/>
+             </form>';
+     echo '</div>';
+     echo '</div>';
+    echo '</div>';
+    return true;
+}
+*/
+//************---End Matt Stuff
+
 function show_msg_area_blank () {
   
     
@@ -386,6 +433,40 @@ function edit_general_info() {
   echo '</div>';
 }
 
+//MATT ADDING AJAX TO SAVE DESCRIPTORS
+
+function show_my_descriptors_info() {
+  $words = get_my_descriptors();
+  echo '<div id="descriptors">';
+  echo '<form id="desc_submit" method="POST" action="save_descriptors.php">';
+  
+  $i = 0;
+
+  while ($word = mysql_fetch_array($words)) {
+    echo '<div id="des_selector_' . ($i+1) . '" class="des_selector">';
+      echo '<div class="title">' . ($i+1) . '.</div>';
+      echo '<input type="text" class="desc_input" name="' . ($i + 1) . '" maxlength="15"/>';
+      echo '<input type="hidden" name="user_des_id" value="' . $word["user_des_id"] . '"/>';
+      echo '<div class="value">';
+        echo '<span class="word">' . $word["descriptor"] . '</span><span class="saved"></span>';
+        echo '<span class="edit_icon pencil"></span>';
+      echo '</div>';
+
+    echo '</div>';
+    $i = $i + 1;
+  }
+
+  //echo '<span id="hello">Hello!</span>'; //for testing ajax post
+
+  echo '</form>';
+  echo '</div>';
+
+}
+
+//END MATT DESCRIPTORS
+
+
+/*//OLD WAY
 function show_my_descriptors_info() {
   $words = get_my_descriptors();
   echo '<div id="descriptors">';
@@ -416,6 +497,43 @@ function show_my_descriptors_info() {
   
   echo '</div>';
 }
+
+*/
+
+//**************---Matt added for Homepage spacing
+
+function show_my_descriptors_info_home() {
+  $words = get_my_descriptors();
+  echo '<div id="descriptors">';
+  
+  $counter = 0;
+
+  while ($word = mysql_fetch_array($words)) {
+    echo '<div id="des_selector_' . (string)($counter+1) . '" class="des_selector">';
+      echo '<div class="title">' . (string)($counter+1) . '.</div>';
+      echo '<div class="value_home">';
+        echo '<span>' . $word["descriptor"] . '</span>';
+        //js_edit_framework("desc_" . (string)($counter+1) . "_edit_box", "des_selector_" . (string)($counter+1) . " .value span", "user_descriptor", $word["user_des_id"], $word["descriptor"]);
+      echo '</div>';
+    echo '</div>';
+    $counter = $counter + 1;
+  }
+
+  while ($counter < max_descriptors()) {
+    echo '<div id="des_selector_' . (string)($counter+1) . '">';
+
+      echo '<div class="title">' . (string)($counter+1) . '.</div>';
+      
+
+    echo '</div>';
+    $counter = $counter + 1;
+  }
+
+  
+  echo '</div>';
+}
+
+//**************ENDMatt
 
 function show_my_interests_info() {
   show_interests_info(get_my_chart_id());
@@ -565,7 +683,7 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
 
   while ($photo = mysql_fetch_array($photo_grid)) {
       
-      if ($photo["main"] == 0) {
+      if ($photo["main"] == 0) {  
         
         if ($link==1) {
           echo '<div class="grid_photo_wrapper_link">';
@@ -617,7 +735,6 @@ function show_photo_grid ($user_id) {
   $photo_grid = get_photos ($user_id);
   //$length = sizeof($photo_list);
   
-  
   while ($photo = mysql_fetch_array($photo_grid)) {
  
       if ($photo["main"] == 0) { 
@@ -637,13 +754,38 @@ function show_photo_grid ($user_id) {
         echo '</div>';
         
        echo '</div>';
-      }
-      
+      }  
+      else {
+        echo '<div>' . get_nickname($user_id) . ' has no photos yet.</div>';
+      } 
            
   }
   
   echo '</div>';
 }
+
+/************---Matt adding tiny photo on Homepage about you box----*/
+
+function show_tiny_photo ($user_id) {
+  
+  $tiny_photo = get_main_photo ($user_id);
+  //$length = sizeof($photo_list);
+       //echo '<div class="grid_photo_wrapper">';
+
+        //echo '<div class="grid_photo_border_wrapper profile_tiny">';
+          //echo '<div class="grid_photo">';
+            echo '<div class="user_button">';
+            //echo '<a href="#">' . format_image($photo["picture"], $type="thumbnail", $user_id) . '</a>';
+            echo '<a href="#">' . format_image($photo["picture"], $type="thumbnail", $user_id) . '</a>';
+            echo '</div>';
+          //echo '</div>';       
+        //echo '</div>';
+        
+       //echo '</div>';
+  
+}
+
+/*************EndMatt---*/
 
 function show_photo_cropper($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];
@@ -705,11 +847,13 @@ function show_general_info($chart_id) {
   }
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
   echo '<div class="profile_info_area">';
-    echo '<div class="nickname_area">';
+    echo '<div class="nickname_area';
       if ($is_celeb) {
+        echo '_celeb">';
         echo $user_info["first_name"] . ' ' . $user_info["last_name"];
       }
       else {
+        echo '">';
         echo '<span style="color:' . $online_color . '">•</span>';
         echo $user_info["nickname"];
       }
@@ -736,6 +880,212 @@ function show_general_info($chart_id) {
   echo '</div>';
 }
 
+//-----------------Matt added so Interests on Other's Profile only show up if filled out
+
+function show_interests_info($chart_id) {
+  $user_id = get_user_id_from_chart_id ($chart_id);
+  $my_user_id = get_my_user_id();
+  $user_info = profile_info($user_id);
+  $nickname = get_nickname($user_id);
+  $gender = get_gender($user_id);
+  if($gender == "M") {
+    $gender = "his";
+  }
+  elseif($gender == "F") {
+    $gender = "her";
+  }
+  else{
+    $gender = "their";
+  }
+
+  if($user_id == $my_user_id) {
+    echo '<div id="interests">';
+     echo '<div id="left_column" class="column">';
+
+     echo '<div id="biography" class="single_interest">';
+        echo '<div class="title">Biography</div>';
+         echo '<div class="value">';
+          echo '<span>' . $user_info["about_me"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div id="activities" class="single_interest">';
+        echo '<div class="title">Activities</div>';
+          echo '<div class="value">';
+            echo '<span>' . $user_info["activities"] . '</span>';
+       echo '</div>';
+     echo '</div>';
+
+     echo '<div id="music" class="single_interest">';
+        echo '<div class="title" ]>Music</div>';
+         echo '<div class="value">';
+          echo '<span>' . $user_info["music"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div id="film_television" class="single_interest">';
+        echo '<div class="title">Film & Television</div>';
+        echo '<div class="value">';
+          echo '<span>' . $user_info["film_television"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div id="books" class="single_interest">';
+        echo '<div class="title">Books</div>';
+        echo '<div class="value">';
+          echo '<span>' . $user_info["books"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div id="political" class="single_interest">';
+        echo '<div class="title">Political Views</div>';
+        echo '<div class="value">';
+          echo '<span>' . $user_info["political"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div id="spiritual" class="single_interest">';
+        echo '<div class="title">Religion/Spirituality</div>';
+        echo '<div class="value">';
+          echo '<span>' . $user_info["spiritual"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+  
+      echo '<div id="inspirational_figures" class="single_interest">';
+        echo '<div class="title">Inspirational Figures</div>';
+        echo '<div class="value">';
+          echo '<span>' . $user_info["inspirational_figures"] . '</span>';
+        echo '</div>';
+      echo '</div>';
+     echo '</div>'; //closing left_column
+
+   
+
+   /* 
+   echo '<div id="right_column" class="column">';
+    
+   
+    
+   echo '</div>';
+   */
+    echo '</div>'; //closing #interests
+  }
+  else {
+     echo '<div id="interests">';
+     echo '<div id="left_column" class="column">';
+     if((strlen($user_info["about_me"]) + strlen($user_info["activities"]) + strlen($user_info["music"])
+          + strlen($user_info["film_television"]) + strlen($user_info["books"]) + strlen($user_info["political"]) 
+          + strlen($user_info["spiritual"]) + strlen($user_info["inspirational_figures"])) == 0 ) {
+      echo "<div id='profile_empty'>" . $nickname . " has not filled out " . $gender . " profile yet</div>";
+      echo "</div>";
+     }
+     else{
+        if(strlen($user_info["about_me"]) != 0) {
+           echo '<div id="biography" class="single_interest">';
+              echo '<div class="title">Biography</div>';
+               echo '<div class="value">';
+                echo '<span>' . $user_info["about_me"] . '</span>';
+              echo '</div>';
+            echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["activities"]) !=0) {
+          echo '<div id="activities" class="single_interest">';
+           echo '<div class="title">Activities</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["activities"] . '</span>';
+            echo '</div>';
+          echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["music"]) != 0) {
+          echo '<div id="music" class="single_interest">';
+              echo '<div class="title" ]>Music</div>';
+               echo '<div class="value">';
+                echo '<span>' . $user_info["music"] . '</span>';
+             echo '</div>';
+            echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["film_television"]) != 0) {
+            echo '<div id="film_television" class="single_interest">';
+              echo '<div class="title">Film & Television</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["film_television"] . '</span>';
+              echo '</div>';
+            echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["books"]) != 0) {
+            echo '<div id="books" class="single_interest">';
+              echo '<div class="title">Books</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["books"] . '</span>';
+             echo '</div>';
+            echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["political"]) != 0) {
+            echo '<div id="political" class="single_interest">';
+              echo '<div class="title">Political Views</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["political"] . '</span>';
+              echo '</div>';
+           echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["spiritual"]) != 0) {
+            echo '<div id="spiritual" class="single_interest">';
+              echo '<div class="title">Religion/Spirituality</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["spiritual"] . '</span>';
+              echo '</div>';
+            echo '</div>';
+        }
+        else {
+          echo "";
+        }
+        if(strlen($user_info["inspirational_figures"]) != 0) {  
+            echo '<div id="inspirational_figures" class="single_interest">';
+              echo '<div class="title">Inspirational Figures</div>';
+              echo '<div class="value">';
+                echo '<span>' . $user_info["inspirational_figures"] . '</span>';
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+        }
+        else {
+          echo "";
+        }
+    }
+   
+
+   /* 
+   echo '<div id="right_column" class="column">';
+    
+   
+    
+   echo '</div>';
+   */
+    echo '</div>'; //closing left_column
+    echo '</div>'; //closing #interests
+  }
+}
+
+
+/*
 function show_interests_info($chart_id) {
   $user_info = profile_info(get_user_id_from_chart_id ($chart_id));
   echo '<div id="interests">';
@@ -800,15 +1150,18 @@ function show_interests_info($chart_id) {
 
    
 
-   /* 
-   echo '<div id="right_column" class="column">';
+    
+   //echo '<div id="right_column" class="column">';
     
    
     
-   echo '</div>';
-   */
+   //echo '</div>';
+   
   echo '</div>';
 }
+*/
+
+
 
 function show_descriptors_info($chart_id) {
   $words = get_descriptors(get_user_id_from_chart_id ($chart_id));
@@ -819,8 +1172,8 @@ function show_descriptors_info($chart_id) {
   while ($word = mysql_fetch_array($words)) {
     echo '<div id="des_selector_' . (string)($counter+1) . '" class="des_selector">';
       echo '<div class="title">' . (string)($counter+1) . '.</div>';
-      echo '<div class="value">';
-        echo '<span>' . $word["descriptor"] . '</span>';
+      echo '<div class="value_others">';
+        echo '<p>' . $word["descriptor"] . '</p>';
       echo '</div>';
     echo '</div>';
     $counter = $counter + 1;
@@ -878,7 +1231,7 @@ function get_left_menu ($the_page) {
     $menu['nav' . $x] = array('','#'); 
   }
   if ($the_page == 'cesel') {
-    $menu['nav1'] = array('celebrities&nbsp;&nbsp;','celebrities.php');
+    $menu['nav1'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
     /*$menu['nav2'] = array('Houses&nbsp;&nbsp;','#');
     $menu['nav3'] = array('&nbsp;&nbsp;','#');
     $menu['nav4'] = array('Career Advice&nbsp;&nbsp;','#');
@@ -887,24 +1240,24 @@ function get_left_menu ($the_page) {
     */
   }
   elseif ($the_page == 'psel') {
-    $menu['nav1'] = array('profile&nbsp;&nbsp;','non_chart_profile.php');
-    $menu['nav2'] = array('houses&nbsp;&nbsp;','#');
-    $menu['nav3'] = array('romantic advice&nbsp;&nbsp;','#');
-    $menu['nav4'] = array('career advice&nbsp;&nbsp;','#');
-    $menu['nav5'] = array('my birth info&nbsp;&nbsp;','birth_info.php');
+    $menu['nav1'] = array('Profile&nbsp;&nbsp;','non_chart_profile.php');
+    //$menu['nav2'] = array('houses&nbsp;&nbsp;','#');
+    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','#');
+    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','#');
+    $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#');
-    $menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
+    //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
   }
   elseif ($the_page == 'cosel') {
-    $menu['nav1'] = array('new to Starma&nbsp;&nbsp;','all_users.php');
-    $menu['nav2'] = array('favorites&nbsp;&nbsp;','favorites.php');
+    $menu['nav1'] = array('New to Starma&nbsp;&nbsp;','all_users.php');
+    $menu['nav2'] = array('Favorites&nbsp;&nbsp;','favorites.php');
     //$menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
-    $menu['nav3'] = array('custom chart&nbsp;&nbsp;', 'enter_user.php');
+    $menu['nav3'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php');
     
   }
   elseif ($the_page == 'hsel') {
-    $menu['nav1'] = array('welcome&nbsp;&nbsp;','welcome.php');
-    //$menu['nav2'] = array('Log Out&nbsp;&nbsp;','main_logout.php');
+    $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php');
+    $menu['nav2'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php');
     
   }
   elseif ($the_page == 'isel') {
@@ -912,7 +1265,7 @@ function get_left_menu ($the_page) {
     
   }
   elseif ($the_page == 'ssel') {
-    $menu['nav1'] = array('Settings&nbsp;&nbsp;','change_my_password.php');
+    $menu['nav1'] = array('Settings&nbsp;&nbsp;','settings.php');
     //$menu['nav2'] = array('Log Out&nbsp;&nbsp;','main_logout.php');
     
   }
@@ -1051,6 +1404,12 @@ function show_desc_photo_form($errors, $des_names,$action="birth_info_first_time
     echo '" id="photo_first_time_error">';
     echo 'You must upload a profile photo';
     echo '</div>';
+
+    echo '<div class="error';
+    if (!in_array(ILLEGAL_WORDS_ERROR(), $output)) {echo ' hidden_error';}
+    echo '" id="illegal_words_error">';
+    echo 'No naughty words please';
+    echo '</div>';
     
     //clear_error();
   echo '</div>';
@@ -1149,6 +1508,233 @@ function show_gender_location_form ($errors = array(), $title="", $country_id, $
     echo '</script>';
   }
 }
+
+
+///MATT ADDED FUNCTION TO STYLE CUSTOM BIRTH FORM
+
+function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $action="cast_chart.php", $stage=1) {
+  
+  if (isset($_SESSION["change_info"])) {
+    $type="mine";
+  }
+  else if ($stage==2 && get_chart_by_name("Freebie1")) {
+    $type="freebie";
+  }
+  else if (isset($_SESSION["proxy_user_id"]) and get_chart_by_name("Main",$_SESSION["proxy_user_id"]) and isAdmin()) {
+    $type=$_SESSION["proxy_user_id"];
+  }
+  else {
+    $type="default";
+  }
+  //print_r ($_SESSION["chart_input_vars"]);
+  echo '<div id="birth_info_custom">';
+    echo '<div id="birth_info_form_custom_heading">Birth Info</div>';
+    echo '<div id="birth_info_form_custom">
+          <form id="birth_info_form" method="post" action=' . $action . '>
+            <table>';
+//// THIS AREA ONLY APPLIES TO ENTERING SOMEONE ELSES USER INFORMATION (AS AN ADMIN OR OTHERWISE) OR UPDATING YOUR OWN ////
+  if ($stage == 2 or isset($_SESSION["change_info"]) or (isAdmin() and isset($_SESSION["proxy_user_id"]))) {
+     echo '     <tr>
+                  <td id="birth_date_input" class="align_right">';
+                     echo 'date of birth
+                     <input type="hidden" name="stage" value="' . $stage . '"/>';
+                  echo '</td>
+                  <td id="birth_date_input" colspan="2">';
+                    date_select ($the_date=get_inputed_date($type), $the_name="birthday");
+  
+       echo '     </td>
+               </tr>';
+       $help_text_offset = 'offset';
+        if($type == "freebie") {
+          if(isset($_SESSION['alternate_chart_gender'])) {
+            $gender = $_SESSION['alternate_chart_gender'];
+          }
+          else {
+            $gender = "";
+          }
+          //echo $gender;
+          echo '<tr>
+              <td id="gender_select_title" class="no_move align_right">gender</td>
+              <td colspan="1" id="gender_select_input" class="no_move">';
+                echo gender_select($gender);
+          echo  '</td><td><span class="gender_validation"></span></td>
+            </tr>';
+        }
+  }
+////////////////////////////////////////////////////////////////////////////////////////////////
+  else {
+     echo  '<tr>
+             <td id="birth_place_title" class="no_move align_right">
+                place of birth
+             </td>
+             <td colspan="2" id="birth_place_input" class="no_move">
+                <input type="text" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>
+             </td>
+            </tr>';
+     $help_text_offset = '';
+  }
+  echo '     <tr>
+               <td id="birth_time_title" class="align_right">';
+                echo 'time of birth
+               </td>';
+             
+  echo '       <td id="birth_time_input" colspan="2">';
+                time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
+         echo '</td>
+              </tr>
+             <tr>
+               <td id="birth_interval_title" class="align_right">';
+                  echo 'accuracy of time
+               </td>';             
+         echo '<td id="birth_interval_input">';
+                 time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
+         echo '</td>';
+    echo '     <td>
+                 <div id="birth_time_hover_box_custom" class="hover_box">             
+                   ?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
+                 </div>
+               </td>
+             </tr>';
+  echo '     <tr>';
+  echo '       <td id="birth_interval_box_title" class="align_right">';
+    echo '       birthtime unknown';
+    echo '     </td>';
+  echo '       <td id="birth_interval_box_input">';
+    echo '       <input onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
+                 if ( (string)get_inputed_var("time_unknown",0,$type) == '1' ) {
+                   echo 'CHECKED';
+                 }
+                 echo '/>';
+                 echo '<div style="position:relative"><div id="birth_interval_box_help_text" class="' . $help_text_offset . '" ';
+                 if ((string)get_inputed_var("time_unknown",0,$type) == '1') {
+                    echo 'style="display:block;"';
+                 }
+                 echo '>';
+                 echo '       <a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">-> help!</a>';
+                 echo '</div></div>';               
+    echo '     </td>';
+  echo '     </tr>';
+  
+
+  
+  if ($stage == 2 or isset($_SESSION["change_info"]) or isAdmin() ) { //PLACE OF BIRTH IS LATER WHEN YOU UPDATE YOUR INFO OR COME FROM SOMEONE ELSE'S         
+      echo  '<tr>
+              <td id="birth_place_title" class="align_right">
+                place of birth
+              </td>
+              <td id="birth_place_input" colspan="2">
+                <input type="text" name="address" value="' . get_inputed_var("location", $title, $type) . '" id="birth_place_input_bar"/>
+              </td>
+             </tr>';
+  }
+            if ($sao == 1) {
+     echo '  <tr>
+               <td colspan="3" id="daylight_div"> 
+                 <span style="color:red">*</span><input type="radio" name="daylight" value="0"';
+                 if ($_POST["daylight"] == "0") {
+                   echo ' checked';
+                 }
+                 echo '>Standard Time
+                 <input type="radio" name="daylight" value="1"';
+                 if ($_POST["daylight"] == "1") {
+                   echo ' checked';
+                 }
+                 echo '>Daylight Savings Time
+               </td>
+             </tr>
+             <tr>
+               <td id="time_zone_div_title" class="align_right">   
+                  <input type="hidden" name="sao" value=' . $sao . '/>';
+     echo '       <span style="color:red">*</span>Time Zone: 
+               </td>
+               <td id="time_zone_div">
+                  <input type="text" size=1 name="timezone" value="' . $_POST["timezone"] . '">
+               </td>
+             </tr>
+             <tr>
+               <td id="latitude_div_title" class="align_right">
+                 <span style="color:red">*</span>Latitude:
+               </td>
+               <td colspan="2" id="latitude_div">  
+                   <input type="text" size="1" name="c1d" value="' . $_POST["c1d"] . '"/>' . chr(176) .
+                  '<input type="text" size="1" name="c1m" value="' . $_POST["c1m"] . '"/>\'
+                   <input type="text" size="1" name="c1s" value="' . $_POST["c1s"] . '"/>"
+                   <input type="radio" name="LaDir" value="North"';
+                   if ($_POST["LaDir"] == "North") {
+                     echo ' checked';
+                   }
+                   echo '/>North
+                   <input type="radio" name="LaDir" value="South"';
+                   if ($_POST["LaDir"] == "South") {
+                     echo ' checked';
+                   }
+                   echo '/>South
+                </td>
+              </tr>
+              <tr>
+                <td id="longitude_div_title" class="align_right">
+                  <span style="color:red">*</span>Longitude:
+                </td> 
+                <td colspan="2" id="longitude_div">
+                   <input type="text" size="1" name="c2d" value="' . $_POST["c2d"] . '"/>' . chr(176) .
+                  '<input type="text" size="1" name="c2m" value="' . $_POST["c2m"] . '"/>\'
+                   <input type="text" size="1" name="c2s" value="' . $_POST["c2s"] . '"/>"
+                   <input type="radio" name="LoDir" value="East"';
+                   if ($_POST["LoDir"] == "East") {
+                     echo ' checked';
+                   }
+                   echo '/>East
+                   <input type="radio" name="LoDir" value="West"';
+                   if ($_POST["LoDir"] == "West") {
+                     echo ' checked';
+                   }
+                   echo '/>West
+                </td>
+              </tr>';
+                
+            }
+            else {
+    echo '      
+                    
+                    <input type="text" name="blarg" value="" style="display:none">
+                    
+                    <input type="hidden" name="daylight" value="' . $_POST["daylight"] . '">
+                    <input type="hidden" name="timezone" value="' . $_POST["timezone"] . '">
+            
+            
+                    <input type="hidden" name="c1d" value="' . $_POST["c1d"] . '"/>
+                    <input type="hidden" name="c1m" value="' . $_POST["c1m"] . '"/>
+                    <input type="hidden" name="c1s" value="' . $_POST["c1s"] . '"/>
+                    <input type="hidden" name="LaDir" value="' . $_POST["LaDir"] . '"/>
+                
+                    <input type="hidden" size="1" name="c2d" value="' . $_POST["c2d"] . '"/>
+                    <input type="hidden" size="1" name="c2m" value="' . $_POST["c2m"] . '"/>
+                    <input type="hidden" size="1" name="c2s" value="' . $_POST["c2s"] . '"/>
+                    <input type="hidden" name="LoDir" value="' . $_POST["LoDir"] . '"/>';
+           }
+    echo '</table>';
+
+
+/////////////////////////////////////////////////////
+echo '<div id="go_bug_path"></div>';
+echo        '<div id="submit_div_custom">
+                <input type="submit" name="submit" value=""/>
+             </div>
+             </div>
+          </form>
+        </div>
+        ';
+  if (sizeof($errors) > 0) { 
+    display_error_list ($errors);
+  }
+
+echo '<script type="text/javascript" src="js/birth_form_ui.js"></script>';
+
+}
+
+
+
+///END MATT CUSTOM BIRTH FORM
 
 function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="cast_chart.php", $stage=1) {
   if (isset($_SESSION["change_info"])) {
@@ -1770,8 +2356,22 @@ function test_form_time () {
 }
 
 function show_compare_results ($score, $goto=".", $results_type, $text_type, $stage="2") {
+
+
+      //$isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($_GET["chart_id2"])));
       $freebie = is_freebie_chart($_SESSION['compare_chart_ids'][1]);
+
+      if ($freebie) {
+        if(isset($_SESSION['alternate_chart_gender'])) {
+          $alt_gender = $_SESSION['alternate_chart_gender'];
+          //echo $_SESSION['alternate_chart_gender'];
+        } 
+      }
        
+       $text_type = $_GET["text_type"];
+
+      echo '<script type="text/javascript" src="/js/compare_ui.js"></script>';
+      
       //Picture of You
       echo '<div id="chart_1_pic">';
         if (!$user_id_1 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][0]))
@@ -1808,7 +2408,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
           
         }
         else {
-          $Gurl = '#';
+          $Gurl = '?the_left=nav3&the_page=cosel&tier=4';
         }
      
         //show_user_compare_picture ($Gurl, $user_id_2);
@@ -1820,6 +2420,9 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         echo '</div>'; 
         if (!$freebie) {
           show_general_info($_SESSION['compare_chart_ids'][1]);
+        }
+        else {      //ADDED FOR FREEBIE
+          echo '<div id="custom_nickname_compare">Custom Chart</div>';
         }
       echo '</div>';
    
@@ -1842,15 +2445,15 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
           $rating = get_star_rating ($score);
           for ($x=1; $x<=5; $x++) {
             if ($rating >= $x) 
-              echo '<img src="/img/Starma-Astrology-Compare-Star-1.png"/>';
+              echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-1.png"/></div>';
             elseif ($rating >= ($x - 0.25))
-              echo '<img src="/img/Starma-Astrology-Compare-Star-.75.png"/>';
+              echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-.75.png"/></div>';
             elseif ($rating >= ($x - 0.50))
-              echo '<img src="/img/Starma-Astrology-Compare-Star-.5.png"/>';
+              echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-.5.png"/></div>';
             elseif ($rating >= ($x - 0.75))
-              echo '<img src="/img/Starma-Astrology-Compare-Star-.25.png"/>';
+              echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-.25.png"/></div>';
             else 
-              echo '<img src="/img/Starma-Astrology-Compare-Star-0.png"/>';
+              echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-0.png"/></div>';
           }
         }
         else {
@@ -1862,7 +2465,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
           }
           echo '<div class="hover_box">';
           for ($x=1; $x<=5; $x++) {
-            echo '<img src="/img/Starma-Astrology-Compare-Star-Unknown.png"/>';
+            echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-Unknown.png"/></div>';
           }
           echo '<span>' . $help_text . '</span>';
           echo '</div>';
@@ -1870,7 +2473,18 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         //echo '<br>';
         //echo '*' . $score . '*';
       echo '</div>';
-      echo '<div id="explanation">';
+      
+      echo '<div id="explanation" class="explanation_less">';
+          echo '<span class="exp_less">The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.'; 
+            
+            if($results_type == 'major') {
+              echo 'Your Major Connections...'; 
+            }
+
+          echo '</span>';
+          echo '<span class="exp_more">The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.  Your Major Connections represent the direct relationships between the four primary points of influence: Rising Sign, Sun Sign, Moon Sign, and Venus Sign.</span>';
+        echo '<div id="explain_more">MORE</div>';
+        /*//TAKING OUT FOR REDESIGN
         echo 'Display Text For:';
         //echo 'Below is the basic structure of compatibility.  It must be read as a whole with the understanding that a strong dynamic can compensate for a weak one.  The Major Connections have the strongest influence on compatibility and the Minor Connections have the potential to support or weaken them.';
         echo '<div id="text_selector">';
@@ -1892,39 +2506,61 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
           echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&text_type=1" . "&stage=" . $stage, $hidden="connection_type", $value="'" . $connection_type . "'", $hidden2="", $value2="") . '"';        
           echo '/>ROMANCE</a></div>';
         echo '</div>';
+        */
+        
       echo '</div>';
+
+      //if ($results_type == "major") {
+        //echo '<div id="major_small_bubble"><img src="/img/Starma-Astrology-Major-Small-Bubble.png" height="10px" width="10px" /></div>';
+        //echo '<div id="major_medium_bubble"><img src="/img/Starma-Astrology-Major-Small-Bubble.png" height="15px" width="15px" /></div>';
+      //}
+
+    
   
        
       echo '<div id="compare_results_selector">';
       echo '<ul>';
       //Major
-      echo '<li class="major ';
-      if ($results_type == "major") {
-        echo 'selected';
-      }
-      echo '">';
-      echo '<a href="#" ';
-      echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
-      echo '/>Major</a></li>';
+      echo '<li class="selector selected';    //took out class="major"
+      //if ($results_type == "major") {
+        //echo 'selected';
+      //}
+      echo '" id="major_select">';
+      echo '<span';
+      //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
+      echo '/>Major Connections</span></li>';
 
       //Minor
-      echo '<li class="minor ';
-      if ($results_type == "minor") {
-        echo 'selected';
-      }
-      echo '">';
-      echo '<a href="#" ';
-      echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
-      echo '/>Minor</a></li>';
+      echo '<li class="selector ';   //took out class="minor"
+      //if ($results_type == "minor") {
+        //echo 'selected';
+      //}
+      echo '" id="minor_select">';
+      echo '<span ';
+      //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
+      echo '/>Supporting Connections</span></li>';
       //Bonus
-      echo '<li class="bonus ';
-      if ($results_type == "bonus") {
-        echo 'selected';
-      }
-      echo '"><a href="' . $goto. '&stage=2' . '&results_type=bonus">Other</a></li>';
+      echo '<li class="selector ';   //took out class="bonus"
+      //if ($results_type == "ruler") {
+        //echo 'selected';
+      //}
+      echo '" id="ruler_select">';
+        echo '<span>';
+          //' . $goto . '&stage=2' . '&results_type=ruler">Ruling Planets</a></li>';   //NEED TO MAKE IT'S OWN AND NOT BONUS
+        echo '1st House Lords</span></li>';
+
+      echo '<li class="end selector ';   //took out class="bonus"
+      //if ($results_type == "bonus") {
+        //echo 'selected';
+      //} 
+      echo '" id="bonus_select"><span>';
+        //echo . $goto . '&stage=2' . '&results_type=bonus">';
+      echo 'Bonus Connections</span></li>';  //NEED TO MAKE INTO BONUS
    
       echo '</ul>';
       echo '</div>';
+
+      /*//REDESIGN
       
       echo '<div id="detail_selector">';
         echo '<a href="#" ';
@@ -1941,10 +2577,423 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         }
         echo '/>More Info</a>';
       echo '</div>';
+
+      */
+
+      /***************---Matt REDESIGN------
+      $chart_id1 = $_GET["chart_id1"];
+      $chart_id2 = $_GET["chart_id2"];
+      echo '<div id="compare_results_selector">
+        <ul>
+          <li><input type="submit" id="major" value="Major" /></li>     
+          <li><input type="submit" id="minor" value="Minor" /></li>
+          <li class="end"><input type="submit" id="bonus" value="Bonus" /></li>
+        </ul>
+        <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
+        <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>  
+      </div>';
+
+      
+      echo '<script type="text/javascript" src="/js/ajax_compare_submit.js"></script>';
+      */
       echo '</form>';
       echo '</div>';
 }
 
+/**************---Matt Redesign Loading everything on one page per connection type */
+
+function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
+
+      if(isset($_SESSION['alternate_chart_gender'])) {
+        $alt_gender = $_SESSION['alternate_chart_gender'];
+        //echo $_SESSION['alternate_chart_gender'];
+      }
+      if($temp_id = get_user_id_from_chart_id($chart_id2)) {
+              if (get_gender($temp_id) == "M") {
+                  $gender = 'HIS';
+              }
+              elseif (get_gender($temp_id) == "F") {
+                 $gender = 'HER';
+              }
+              else {
+                  $gender = '';
+              }
+      }
+      elseif ($alt_gender) {
+              if ($alt_gender == "M") {
+                  $gender = 'HIS';
+              }
+              elseif ($alt_gender == "F") {
+                   $gender = 'HER';
+              }
+              else {
+                  $gender = '';
+              }
+      }
+      else {
+         $gender = '';
+      }    
+
+      $connection_type = "rising";
+      //if ( isset($_POST["connection_type"]) and in_array($_POST["connection_type"], get_cornerstones()) ) {
+      
+      //  $connection_type = $_POST["connection_type"];
+      //}
+
+      //Log the Action
+      log_this_action (compare_action_major(), viewed_basic_action(), $chart_id2, $stage, get_poi_id (strtoupper($connection_type)));
+  
+
+
+    //echo '<div id="compare">';
+      //echo'<div id="section">';
+  
+    echo '<div id="major">';
+      echo '<form name="major_connection_browser" action="." method="post">';
+      echo '<input type="hidden" name="connection_type"/>';
+      echo '<div id="major_connections">'; 
+      
+             
+
+      //Left Side;
+      echo '<div class="poi_column">';
+      echo '<ul>';
+      
+      foreach (get_cornerstones() as $connection) {
+          $button_sign_id = get_sign_from_poi ($chart_id1, get_poi_id (ucfirst($connection)));
+          echo '<li>';
+          echo '<div class="poi_column_wrapper">';
+          echo '<div class="selected left ' . get_selector_name($button_sign_id) . '_tall';
+          //if ($connection_type == $connection or $stage==2) { 
+          //  echo ' selected';
+          //}
+          echo '"><span class="icon"><span class="minor_poi_title">YOUR</span><span class="poi_title_tall">' . strtoupper($connection) . '</span></span></div>';
+
+            $button_sign_id2 = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
+              echo '<div class="selected right ' . get_selector_name($button_sign_id2) . '_tall';
+              //if ($connection_type == $connection or $stage==2) { 
+              //  echo ' selected';
+              //}
+              echo '"><span class="icon"><span class="minor_poi_title">' . $gender . '</span><span class="poi_title_tall">' . strtoupper($connection) . '</span></span></div>';
+
+              $relationship_id = $compare_data[$connection . '2' . $connection]["relationship_id"];
+              $relationship_name = $compare_data[$connection . '2' . $connection]["relationship_title"];
+              echo '<div class="dynamic_column ' . get_rela_selector_name($relationship_id);
+              echo '"><a class="dynamic_icon" href="#"><span></span></a></div>';  
+            
+
+                  //blurb boxes
+                    echo '<div class="blurb">';
+                    $connection_poi_id = get_poi_id (strtoupper($connection));
+                    $connection_data = $compare_data[$connection . '2' . $connection];
+                    $relationship_id = $connection_data["relationship_id"];
+                    echo '<div class="text"><span class="hide_show">SHOW TEXT</span></div>';
+                    echo "<span class='small_intro'>" . substr(get_dynamic_blurb ($connection_poi_id, $connection_poi_id), 0, 53); 
+                    echo "...</span>";
+                    show_dynamic_info($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
+                    show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, $text_type, $chart_id1, $chart_id2);
+                    echo '</div>';
+                    //' . ucfirst($relationship_name) . '  --TOOK OUT OF <A> SPAN DYNAMIC ICON
+
+          echo '</div>';  //closing poi_column_wrapper
+          echo '</li>';  
+        
+      }
+      echo '</ul>';
+      echo '</div>';
+    
+      echo '</div>';
+      echo '</form>';
+    echo '</div>'; //close #major
+  //echo '</div>';   //closing #section
+  //echo '</div>';  //closing #compare
+
+  
+}
+
+function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
+
+  //echo $chart_id1 . ' ' . $chart_id2;
+  if(isset($_SESSION['alternate_chart_gender'])) {
+    $alt_gender = $_SESSION['alternate_chart_gender'];
+    //echo $_SESSION['alternate_chart_gender'];
+  }
+  if($temp_id = get_user_id_from_chart_id($chart_id2)) {
+              if (get_gender($temp_id) == "M") {
+                  $gender = 'HIS';
+              }
+              elseif (get_gender($temp_id) == "F") {
+                 $gender = 'HER';
+              }
+              else {
+                  $gender = '';
+              }
+      }
+      elseif ($alt_gender) {
+              if ($alt_gender == "M") {
+                  $gender = 'HIS';
+              }
+              elseif ($alt_gender == "F") {
+                   $gender = 'HER';
+              }
+              else {
+                  $gender = '';
+              }
+      }
+      else {
+         $gender = '';
+      }    
+      $connection_type = "rising";
+      //if ( isset($_POST["connection_type"]) and in_array($_POST["connection_type"], get_cornerstones()) ) {
+      //  $connection_type = $_POST["connection_type"];
+      //}
+      
+      //Log the Action
+      log_this_action (compare_action_minor(), viewed_basic_action(), $chart_id2, $stage, get_poi_id (strtoupper($connection_type)));
+
+    //***********---Matt Added for Redesign---
+
+      //echo '<div id="compare">';
+        //echo'<div id="section">';
+      echo '<div id="minor">';
+    //----ENDMATT--- 
+
+      echo '<form name="minor_connection_browser" action="." method="post">';
+      echo '<input type="hidden" name="connection_type"/>';
+      echo '<div id="minor_connections">'; 
+      
+             
+
+      
+      echo '<div class="poi_column">';
+      echo '<ul>';
+      //echo '*' . $connection_type . '*';
+      $support_con = array();
+      $support_con = get_cornerstones();
+      $x = 0;
+      foreach (get_cornerstones() as $connection) {
+
+
+        //$connection_type = $support_con[$x];
+
+          echo '<li>'; 
+          echo '<div class="poi_column_wrapper_minor">';
+          $button_sign_id = get_sign_from_poi ($chart_id1, get_poi_id (ucfirst($connection)));  //in user functions
+          $button_sign_id2 = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
+         
+          
+          //Left Side;
+            echo '<div class="left no_hover ' . get_selector_name($button_sign_id) . '_tall';
+            echo '"><span class="icon"><span class="minor_poi_title">YOUR</span><span class="poi_title_tall">' . strtoupper($connection) . '</span></span></div>';  //End Left Side
+        
+          //Right Side
+            echo '<div class="right no_hover right_icon_adjust ' . get_selector_name($button_sign_id2) . '_tall';
+            echo '"><span class="icon"><span class="minor_poi_title">' . $gender . '</span><span class="poi_title_tall">' . strtoupper($connection) . '</span></span></div>';  //End Right Side
+
+            
+              //Middle Relationships
+              /*
+                $relationship_id1 = $compare_data[$connection_type . '2' . $connection]["relationship_id"];
+                $relationship_name = $compare_data[$connection_type . '2' . $connection]["relationship_title"];
+                //$connection_poi_id_A = get_poi_id (strtoupper($connection_type));
+                //$connection_poi_id_B = get_poi_id (strtoupper($connection));
+                //echo 'rID1: ' . $relationship_id1;
+
+                echo '<div class="dynamic_column ' . get_rela_selector_name($relationship_id1);
+                echo '"><a class="dynamic_icon" href="#"><span></span></a></div>'; 
+              */
+               
+                //Pillars Images
+
+                //Bridge top
+                echo '<div class="bridge_top"><div class="bridge_top_title">SUPPORT FOR YOUR ';
+                  echo strtoupper($connection);
+                echo ' SIGN CONNECTION</div>';
+
+                //End Bridge top
+
+                //Arrow Test
+                echo '<span class="add_arrow_top"><span></span></span>';
+
+                echo '</div>';  //close Bridge Top
+
+                //End Arrow Test
+
+                //Blurb Boxes and Pillars
+                //Your Y to their X
+                  $z = 1;
+                  for ($y = 0; $y < count(get_cornerstones()); $y++) {
+                    $con_x = $support_con[$x];
+                    $con_y = $support_con[$y];
+                    if ($con_x != $con_y) {
+                      $button_sign_id3 = get_sign_from_poi ($chart_id1, get_poi_id (strtoupper($con_y)));
+                      $relationship_id2 = $compare_data[$con_y .'2' . $con_x]["relationship_id"];
+                    //echo 'c1: ' . $connection1 . '<br>c2: ' . $connection2;
+                    //echo $connection1 . 'to';
+                    //echo $connection2 . '<br>';
+                      echo '<div class="';
+                        if($relationship_id2 < 5) {
+                          echo 'pillar">';
+                        }
+                        else {
+                          echo 'pillar_broken">';
+                        }
+                      //echo '<div class="add_arrow_bottom"><img src="/img/Starma-Astrology-Arrow.png" /></div>';
+                      //echo '<div class="pillar_title">YOUR</div>';
+          
+                      //echo '">';
+                        echo '<div class="pillar_icon_minor L ' . get_selector_name($button_sign_id3) . '_tall';
+                        echo '"><span class="icon pointer main to_leg' . $z . '"><span class="minor_poi_title">YOUR</span><span class="poi_title_tall">' . strtoupper($con_y) . '</span></span></div>';                     
+                      echo '</div>'; //close pillar/pillar_broken
+                          $z++; 
+                    }
+                    
+                  } //close your Y to their X
+                
+                //Your X to their Y
+                $zz = 4;    
+                for ($y = 0; $y < count(get_cornerstones()); $y++) {
+
+                  $con_x = $support_con[$x];
+                  $con_y = $support_con[$y];
+                  if ($con_x != $con_y) {
+                    $button_sign_id4 = get_sign_from_poi ($chart_id2, get_poi_id (strtoupper($con_y)));
+                    $relationship_id2 = $compare_data[$con_x .'2' . $con_y]["relationship_id"];
+                    //echo 'c1: ' . $connection1 . '<br>c2: ' . $connection2;
+                    //echo $connection1 . 'to';
+                    //echo $connection2 . '<br>';
+                     echo '<div class="';
+                        if($relationship_id2 < 5) {
+                          echo 'pillar">';
+                        }
+                        else {
+                          echo 'pillar_broken">';
+                        }
+                      /*
+                      echo '<div class="pillar_title">';
+
+                        if($temp_id = get_user_id_from_chart_id($chart_id2)) {
+                          if (get_gender($temp_id) == "M") {
+                            echo 'HIS';
+                          }
+                          elseif (get_gender($temp_id) == "F") {
+                            echo 'HER';
+                          }
+                          else {
+                            echo '';
+                          }
+                        }
+                        elseif ($alt_gender) {
+                          if ($alt_gender == "M") {
+                            echo 'HIS';
+                          }
+                          elseif ($alt_gender == "F") {
+                            echo 'HER';
+                          }
+                          else {
+                            echo '';
+                          }
+                        }
+                        else {
+                          echo '';
+                        }
+
+                      echo '</div>';
+                    */
+                        echo '<div class="pillar_icon_minor R ' . get_selector_name($button_sign_id4) . '_tall';
+                        echo '"><span class="icon pointer main to_leg' . $zz . '"><span class="minor_poi_title">' . $gender . '</span>';
+
+                        echo '<span class="poi_title_tall">' . strtoupper($con_y) . '</span></span></div>';
+                    //echo 'c1: ' . $connection1 . '<br>c2: ' . $connection2;
+                    //echo $connection1 . 'to';
+                    //echo $connection2 . '<br>';
+                        echo '</div>'; //close pillar/pillar_broken
+                          $zz++; 
+                    }
+                    
+                  } //close your X to their Y
+
+
+                echo '<div class="bridge_base"><img src="/img/Starma-Astrology-Pillars-Base.png" /></div>'; //Base
+
+                  //Blurb Boxes for 1-3 (yours to theirs)
+                $zzz = 1;    
+                for ($y = 0; $y < count(get_cornerstones()); $y++) {
+                  $con_x = $support_con[$x];
+                  $con_y = $support_con[$y];
+                    if ($con_x != $con_y) {
+                          $relationship_id2 = $compare_data[$con_y .'2' . $con_x]["relationship_id"];
+                          $connection_poi_id_A = get_poi_id (strtoupper($con_y));
+                          $connection_poi_id_B = get_poi_id (strtoupper($con_x));
+                            //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
+                              //Blurb box
+                              echo "<div class='blurb_supporting leg" . $zzz . "'>";
+                                if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
+                                  echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
+                                }
+                                elseif ($alt_gender) {
+                                  echo "<span>" . gender_converter_wrapper ($alt_gender, get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
+                                }
+                                else {
+                                  echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, $text_type, $chart_id1, $chart_id2) . "</span>";
+                                }
+                              echo '</div>'; //close Blurb Box
+                             $zzz++;
+                    }
+                   
+                  }
+
+                  //Blurb Boxes for 4-6 (theirs to yours)
+                  $zzzz = 4;    
+                  for ($y = 0; $y < count(get_cornerstones()); $y++) {
+                    $con_x = $support_con[$x];
+                    $con_y = $support_con[$y];
+                      if ($con_x != $con_y) {
+                        $relationship_id2 = $compare_data[$con_x .'2' . $con_y]["relationship_id"];
+                        $connection_poi_id_A = get_poi_id (strtoupper($con_x));
+                        $connection_poi_id_B = get_poi_id (strtoupper($con_y));
+                        //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
+                          echo "<div class='blurb_supporting leg" . $zzzz . "'>";
+                            if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
+                              echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
+                            }
+                            elseif ($alt_gender) {
+                                  echo "<span>" . gender_converter_wrapper ($alt_gender, get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
+                                }
+                            else {
+                              echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, $text_type, $chart_id1, $chart_id2) . "</span>";
+                            }
+                          echo '</div>'; //close Blurb Box 
+                          $zzzz++;
+                      }
+                      
+                    }
+
+                  
+                //echo '</div>'; //close Pillars
+                //End Pillars
+                  
+                 echo "</div>"; //close poi_column_wrapper
+                 echo '</li>';
+              $x++;
+            } //end ForEach <li>
+
+          echo '</ul>';
+        echo '</div>'; //close poi_column
+       echo '</div>'; //close minor_connections
+      echo '</form>';
+    echo '</div>'; //close #minor
+      //echo '</div>';   //closing #section
+      //echo '</div>';  //closing #compare
+      
+            
+    }
+
+
+/*****************EndMatt---*/
+
+
+/* Old Way
 function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
 
@@ -1956,7 +3005,12 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
       //Log the Action
       log_this_action (compare_action_major(), viewed_basic_action(), $chart_id2, $stage, get_poi_id (strtoupper($connection_type)));
-      
+  
+  //Matt Redesign
+
+    echo '<div id="compare">';
+      echo'<div id="section">';
+  //ENDMATT   
 
       echo '<form name="major_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
@@ -2036,7 +3090,7 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
         }
         echo '</ul>';
         echo '</div>';
-        //End right arrows
+        //End right arrows 
       //}
       
 
@@ -2078,8 +3132,11 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
       }
       echo '</div>';
       echo '</form>';
-  
+  echo '</div>';   //closing #section
+  echo '</div>';  //closing #compare
 }
+
+
 
 function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
@@ -2092,6 +3149,12 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       
       //Log the Action
       log_this_action (compare_action_minor(), viewed_basic_action(), $chart_id2, $stage, get_poi_id (strtoupper($connection_type)));
+
+    //***********---Matt Added for Redesign---
+
+      echo '<div id="compare">';
+        echo'<div id="section">';
+    //----ENDMATT--- 
 
       echo '<form name="minor_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
@@ -2143,7 +3206,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
         echo '<div class="chart_tabs left_side ' . $connection_type . ' arrows stage' . $stage . '"/>';
         
         echo '</div>';
-      //End left arrows
+      //End left arrows 
    
       //right arrows
         echo '<div class="chart_tabs right_side ' . $connection_type . ' arrows stage' . $stage . '"/>';
@@ -2219,10 +3282,23 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       echo '</div>';
       echo '</form>';
   
+    echo '</div>';   //closing #section
+  echo '</div>';  //closing #compare
 }
 
-function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
+*/  //End Old Way
 
+function show_rp_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
+
+//echo '<div id="compare">';
+    //echo'<div id="section">';
+    echo '<div id="ruler">';
+      echo '<div>Coming Soon...</div>';
+    echo '</div>'; //close #ruler
+    //echo '</div>';
+  //echo '</div>';
+
+/*//NEEDS TO BE REBUILD
       $bonus_connections = array('ruling');
       $connection_type = "ruling";
       if ( isset($_POST["connection_type"]) and in_array($_POST["connection_type"], $bonus_connections) ) {
@@ -2234,6 +3310,12 @@ function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
       //Log the Action
       log_this_action (compare_action_bonus(), viewed_basic_action(), $chart_id2, $stage, -2);
+
+    //---Matt Added for Redesign---
+
+      echo '<div id="compare">';
+        echo'<div id="section">';
+    //----ENDMATT--- 
 
       echo '<form name="major_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
@@ -2377,7 +3459,24 @@ function show_bonus_connections ($compare_data, $text_type, $goTo = ".", $stage=
       }
       echo '</div>';
       echo '</form>';
+
+    echo '</div>';   //closing #section
+  echo '</div>';  //closing #compare
   
+*/
+
+}
+
+function show_bonus_connections () {
+
+  //echo '<div id="compare">';
+    //echo'<div id="section">';
+    echo '<div id="bonus">';
+      echo '<div>Coming Soon...</div>';
+    echo '</div>'; //close #bonus
+    //echo '</div>';
+  //echo '</div>';
+
 }
 
 function gender_converter_wrapper ($gender, $blurb) {
@@ -2451,16 +3550,68 @@ function blurb_form ($blurb_type, $the_value1=1, $the_value2=1, $the_value3=1, $
    echo '</td>'; 
    echo '</tr>';
   }
+
+  //MATT ADDED HOUSESE
+  elseif ($blurb_type == 'poi_house_ruler') {
+   echo '<tr>';
+   echo '<td>Select a Rising Sign: </td>';
+   echo '<td>';
+   sign_select ($the_name="sign_id", $the_value=$the_value1, $auto_submit=true, $form="blurb_edit_form");
+   echo '</td>'; 
+   echo '</tr>';
+   echo '<tr>';
+   echo '<td>Select Ruler of the: </td>';
+   echo '<td>';
+   house_select ($the_name="house_id", $the_value=$the_value2, $auto_submit=true, $form="blurb_edit_form");
+   echo '</td>'; 
+   echo '</tr>';
+   echo '<tr>';
+   echo '<td>Residing in the: </td>';
+   echo '<td>';
+   house_select2 ($the_name="house_id2", $the_value=$the_value3, $auto_submit=true, $form="blurb_edit_form");
+   echo '</td>'; 
+   echo '</tr>';
+   echo '<tr>';
+   echo '<td>Ruling Planet Blurb:</td>';
+   echo '<td>';
+   //echo $the_value1 . ' and ' . $the_value2 . ' and ' . $the_value3;
+   //$poi_house_ruler_blurb = get_poi_house_ruler_blurb ($the_value1, $the_value2, $the_value3);
+   echo '<textarea style="width:300px; height:200px" name="blurb">' . get_house_ruler_blurb ($the_value1, $the_value2, $the_value3) . '</textarea>';
+   echo '</td>'; 
+   echo '</tr>';
+  }
+
   echo '</table>';
   echo '<input type="submit" value="Update" name="Update">';
   echo '</form>';
 }
 
+
+
 function show_poi_sign_blurb ($poi_id, $sign_id, $chart_id=-1) {
   
   $blurb = get_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
-  
-  echo "<span>" . $blurb . "</span>";
+
+/************---Matt added this to Blurb section*/
+  $poi_name = get_poi_name($poi_id);
+  $house_id = get_house_from_poi ($chart_id, $poi_id);
+  $house_name = get_house_name ($house_id);
+  $sign_name = get_sign_name ($sign_id);
+  echo "<span>"; 
+    if($poi_id != 1) {
+        echo '<strong>' . ucfirst(strtolower($poi_name)) . ' in ' . ucfirst(strtolower($sign_name));
+          if ($poi_id == 9) {
+            echo ' & ';
+            echo ucfirst(strtolower(get_poi_name($poi_id+1))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($chart_id, 10))) . ': </strong>');
+          }
+          else {
+            echo ': </strong>';
+          }
+    }
+    elseif($poi_id == 1) {
+        echo '<strong>' .  ucfirst(strtolower($sign_name) . ' ' . ucfirst(strtolower($poi_name)) . ': </strong>');
+    }
+  echo $blurb . "</span>";
   
   
 }
@@ -2469,27 +3620,43 @@ function show_poi_sign_blurb_abbr ($poi_id, $sign_id, $chart_id=-1) {
   
   $blurb = get_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
   
-  echo "<span>" . substr($blurb, 0, 175) . " ...</span>";
+  echo "<p>" . substr($blurb, 0, 175) . " ...</p>";
   
   
 }
 
+/******************** --Matt-- Need to have Aries Rising instead of Rising in Aries 
 
+if($poi_id != 1) {
+  echo ucfirst(strtolower($poi_name)) . ' in ' . ucfirst(strtolower($sign_name)); 
+}
+else {
+  echo ucfirst(strtolower($sign_name) . ' ' . ucfirst(strtolower($poi_name))  );
+}
+
+*/
 function show_poi_info ($poi_id, $chart_id, $sign_id) {
   $poi_name = get_poi_name($poi_id);
   $house_id = get_house_from_poi ($chart_id, $poi_id);
   $house_name = get_house_name ($house_id);
   $sign_name = get_sign_name ($sign_id);
 
+/************---MATT moving this to beginning of Blurb 
   echo '<div id="planet_sign_title">';
     echo '<h>';
-    echo ucfirst(strtolower($poi_name)) . ' in ' . ucfirst(strtolower($sign_name));
+    if($poi_id != 1) {
+        echo ucfirst(strtolower($poi_name)) . ' in ' . ucfirst(strtolower($sign_name));
+    }
     if ($poi_id == 9) {
-       echo ' & ';
-       echo ucfirst(strtolower(get_poi_name($poi_id+1))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($chart_id, 10))));
+        echo ' & ';
+        echo ucfirst(strtolower(get_poi_name($poi_id+1))) . ' in ' . ucfirst(strtolower(get_sign_name (get_sign_from_poi ($chart_id, 10))));
+    }
+    elseif($poi_id == 1) {
+        echo ucfirst(strtolower($sign_name) . ' ' . ucfirst(strtolower($poi_name))  );
     }
     echo '</h><br>';
   echo '</div>';
+*/
   
   echo '<div id="planet_info">';    
     echo get_poi_blurb ($poi_id);
@@ -2498,14 +3665,51 @@ function show_poi_info ($poi_id, $chart_id, $sign_id) {
 }
 
 function show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id=1, $chart_id1, $chart_id2) {
+  
+  if(isset($_SESSION['alternate_chart_gender'])) {
+    $alt_gender = $_SESSION['alternate_chart_gender'];
+    //echo $_SESSION['alternate_chart_gender'];
+  }
+
+  //MATT REDESIGN
+     if ($connection_poi_id == -1) {
+      $rp_id1 = get_ruling_planet($chart_id1);
+      $poi_name1 = "Ruling Planet in";
+      $sign_name1 = get_sign_name (get_sign_from_poi ($chart_id1, $rp_id1));
+    }
+    else {
+      $poi_name1 = get_poi_name($connection_poi_id);
+      $sign_id1 = get_sign_from_poi ($chart_id1, $connection_poi_id);
+      $sign_name1 = get_sign_name ($sign_id1);
+    }
+    if ($connection_poi_id2 == -1) {
+      $rp_id2 = get_ruling_planet($chart_id2);
+      $poi_name2 = "Ruling Planet in";
+      $sign_name2 = get_sign_name (get_sign_from_poi ($chart_id2, $rp_id2));
+    }
+    else {
+      $poi_name2 = get_poi_name($connection_poi_id2);
+      $sign_id2 = get_sign_from_poi ($chart_id2, $connection_poi_id2);
+      $sign_name2 = get_sign_name ($sign_id2);
+    }
+
+
+  //END MATT
+
   if ($user_id2 = get_user_id_from_chart_id($chart_id2)) {
     $blurb = gender_converter_wrapper (get_gender($user_id2),get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2));
   }
   else {
-    $blurb = get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2);
+    $blurb = gender_converter_wrapper ($alt_gender, get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2));
   }
-  echo "<span>" . $blurb . "</span>"; 
+  if($connection_poi_id == -1) {
+    echo "<span class='dynamic_blurb'><strong>" . $poi_name1 . ' ' . ucfirst(strtolower($sign_name1)) . ' to ' . $poi_name2 . ' ' . ucfirst(strtolower($sign_name2)) . ": </strong>" . $blurb . "</span>";
+  }
+  else {
+    echo "<span class='dynamic_blurb'><strong>" . ucfirst(strtolower($sign_name1)) . ' ' . ucfirst(strtolower($poi_name1)) . ' to ' . ucfirst(strtolower($sign_name2)) . ' ' . ucfirst(strtolower($poi_name2)) . ": </strong>" . $blurb . "</span>";
+  } 
 }
+
 
 function show_dynamic_info ($connection_poi_id, $connection_poi_id2, $relationship_id, $chart_id, $chart_id2) {
   if ($connection_poi_id == -1) {
@@ -2532,7 +3736,7 @@ function show_dynamic_info ($connection_poi_id, $connection_poi_id2, $relationsh
   //echo $connection_poi_id . '**' . $connection_poi_id2 . '**' . $chart_id . '**' . $chart_id2;
 
    
-  
+  /************---Matt Redesign
 
   echo '<div id="dynamic_sign_title"';
   if ($connection_poi_id == -1) {
@@ -2553,8 +3757,8 @@ function show_dynamic_info ($connection_poi_id, $connection_poi_id2, $relationsh
     //}
     echo '</h><br>';
   echo '</div>';
-
-  echo '<div id="dynamic_info">'; 
+*/
+  echo '<div class="dynamic_info">'; 
     if ($connection_poi_id == -1) {
       echo 'The relationship between the Ruling Planet signs further emphasizes the dynamic between the Rising Signs. If the Rising is the lens through which you see the world, the Ruling Planet is the filter that colors that lens.';
     }
@@ -2610,9 +3814,11 @@ function show_my_chart ($goTo = ".", $western=0) {
       $poi_list = get_poi_list();
      
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
+
+    echo '<div id="profile_chart">';
       
       echo '<form name="chart_browser" action="." method="post">';
-      echo '<input type="hidden" name="chart_id"/>';
+      echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
       echo '<input type="hidden" name="poi_id"/>';
       echo '<div id="starma_chart">';
    
@@ -2620,38 +3826,42 @@ function show_my_chart ($goTo = ".", $western=0) {
         show_circle_and_arrow_hilite("down");
        
       }
-      /*
-      echo '<div id="header" style="padding-bottom:23px;">';
-        flare_title("Chart");
-        //echo 'Chart';
-      echo '</div>';
-      */
-      //echo '<div id="explanation">';
-      //  echo 'Your Starma Chart is calculated using Jyotish (Eastern Astrology).  You might notice have a different sign.  This is because Jyotish uses a different calendar thought to be more astronomically accurate.  To view your chart in a Western configuation click here.';
-      //echo '</div>';
-       //echo '<div id="top_ad_space">';
-       //  echo 'Your Ad Here';
-       //echo '</div>';
-      //Left Side;
+
+/***  --Matt-- Rebuilt with span icons for ajax submit ***/
+
       echo '<div class="chart_tabs left_side"/>';
       echo '<ul>';
       while ($poi = mysql_fetch_array($poi_list)) {
         if (in_array($poi["poi_id"], poi_left_side())) {
           $button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
-          echo '<li class="' . get_selector_name($button_sign_id);
+          echo '<li class="chart_li ' . get_selector_name($button_sign_id);
           if ($poi_id == $poi["poi_id"]) { 
             echo ' selected';
           }
-          echo '"><a ';
+          echo '">';
+          echo '<div class="chart_tabs_wrapper">';
+
+          echo '<span class="icon left pointer"><span class="poi_title">' . $poi["poi_name"] . '</span></span>';
+          echo '<span class="arrow ';
+            if ($poi_id == $poi["poi_id"]) {
+              echo 'arrow_left_on';
+            }
+          echo '"></span>';
+          echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+          echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+          echo '</div>'; //close wrapper
+          echo '</li>';
+          //echo '<a ';
           
         
-          echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span></a></li>';
+          //echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span></a></li>';
           
         }
       }
       echo '</ul>';
       echo '</div>';
       //End Left Side
+      /*
       //Left Side Chart Arrow
       echo '<div class="chart_tabs left_side chart_arrow"/>';
       echo '<ul>';
@@ -2673,6 +3883,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '</ul>';
       echo '</div>';
       //End Left Side Chart Arrow
+      */
      
       //Right Side
       $poi_list = get_poi_list();
@@ -2684,30 +3895,52 @@ function show_my_chart ($goTo = ".", $western=0) {
           if ($poi["poi_id"] == 9) {
             $rahu_sign_id = get_sign_from_poi ($chart_id, 9);
             $ketu_sign_id = get_sign_from_poi ($chart_id, 10);
-            echo '<li class="' . get_selector_name($rahu_sign_id, $ketu_sign_id); 
+            echo '<li class="chart_li ' . get_selector_name($rahu_sign_id, $ketu_sign_id);           
+            echo '">';
+              echo '<div class="chart_tabs_rk_wrapper">';
+                echo '<span class="arrow ';
+                echo '"></span>';
+                echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+                echo '<span class="ketu_text">Ketu</span>';
+                echo '</span>';
+                echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+                echo '<input type="hidden" name="sign_id1" value="' . $rahu_sign_id . '" />';
+                echo '<input type="hidden" name="sign_id2" value="' . $ketu_sign_id . '" />';
+              echo '</div>';
+
           }
           else {
             $button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
-            echo '<li class="' . get_selector_name($button_sign_id);  
-          }
+            echo '<li class="chart_li ' . get_selector_name($button_sign_id);  
           
-          if ($poi_id == $poi["poi_id"]) { 
-            echo ' selected';
-          }
+              if ($poi_id == $poi["poi_id"]) { 
+               echo ' selected';
+              }
+              echo '">';
+              echo '<div class="chart_tabs_wrapper">';
           
-          echo '"><a ';
+              echo '<span class="arrow ';
+              echo '"></span>';
+
+              echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+              echo '</span>';
+          //echo '<a ';
           
-          echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
-          if ($poi["poi_id"] == 9) {
-            echo '<span class="ketu_text">Ketu</span>';
+          //echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
+    
+            echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+          
+            echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+            echo '</div>';
           }
-          echo '</a></li>';
+          echo '</li>';
           
         }
       }
       echo '</ul>';
       echo '</div>';
       //End Right Side
+      /*
       //Right Side Chart Arrow
       echo '<div class="chart_tabs right_side chart_arrow"/>';
       echo '<ul>';
@@ -2728,6 +3961,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '</ul>';
       echo '</div>';
       //End Right Side Chart Arrow
+      */
       echo '<div id="blurb">';
         if ($poi_id == 0) {
           show_intro_text();
@@ -2739,6 +3973,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '</div>';
       echo '</div>';
       echo '</form>';
+    echo '</div>';  //close #profile_chart
   }
 }
 
@@ -2762,8 +3997,9 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
      
       $sign_id = get_sign_from_poi ($calc_chart_id, $poi_id);
       //echo '&&' . $sign_id . '&&<br>';
+    echo '<div id="profile_chart">';
       echo '<form name="chart_browser" action="." method="post">';
-      echo '<input type="hidden" name="chart_id"/>';
+      echo '<input type="hidden" name="chart_id" value="' . $calc_chart_id . '"/>';
       echo '<input type="hidden" name="poi_id"/>';
       echo '<div id="starma_chart">';
       $header = "";
@@ -2779,15 +4015,15 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         }
         $header = $header . $user_title . " Chart";
           }
-      else {
-        $header = 'Custom Chart';
-      }
-      if ($header == "Custom Chart") {
-        echo '<div id="header">';    
-          flare_title($header);
-          //echo $header;
-        echo '</div>';
-      }
+      //else {
+      //  $header = 'Custom Chart';     //TOOK OUT CUSTOM CHART HEADER
+      //}
+      //if ($header == "Custom Chart") {
+      //  echo '<div id="header">';    
+      //    flare_title($header);
+      //    //echo $header;
+      //  echo '</div>';
+      //}
       //echo '<div id="profile_back_link">';
       //  if ($header != 'Custom Chart') {
       //    echo '<a href="' . $goTo . '&tier=3&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id . '">< Back to Profile</a>';
@@ -2800,6 +4036,92 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
        //echo '<div id="top_ad_space">';
        //  echo 'Your Ad Here';
        //echo '</div>';
+      echo '<div class="chart_tabs left_side"/>';
+      echo '<ul>';
+      while ($poi = mysql_fetch_array($poi_list)) {
+        if (in_array($poi["poi_id"], poi_left_side())) {
+          $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
+          echo '<li class="chart_li ' . get_selector_name($button_sign_id);
+          if ($poi_id == $poi["poi_id"]) { 
+            echo ' selected';
+          }
+          echo '">';
+          echo '<div class="chart_tabs_wrapper">';
+
+          echo '<span class="icon left pointer"><span class="poi_title">' . $poi["poi_name"] . '</span></span>';
+          echo '<span class="arrow ';
+            if ($poi_id == $poi["poi_id"]) {
+              echo 'arrow_left_on';
+            }
+          echo '"></span>';
+          echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+          echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+          echo '</div>'; //close wrapper
+          echo '</li>';
+          
+        }
+      }
+      echo '</ul>';
+      echo '</div>';
+      //End Left Side
+
+      //Right Side
+      $poi_list = get_poi_list();
+      echo '<div class="chart_tabs right_side"/>';
+      echo '<ul>';
+      
+      while ($poi = mysql_fetch_array($poi_list)) {
+        if (in_array($poi["poi_id"], poi_right_side())) {
+          if ($poi["poi_id"] == 9) {
+            $rahu_sign_id = get_sign_from_poi ($calc_chart_id, 9);
+            $ketu_sign_id = get_sign_from_poi ($calc_chart_id, 10);
+            echo '<li class="chart_li ' . get_selector_name($rahu_sign_id, $ketu_sign_id);           
+            echo '">';
+              echo '<div class="chart_tabs_rk_wrapper">';
+                echo '<span class="arrow ';
+                echo '"></span>';
+                echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+                echo '<span class="ketu_text">Ketu</span>';
+                echo '</span>';
+                echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+                echo '<input type="hidden" name="sign_id1" value="' . $rahu_sign_id . '" />';
+                echo '<input type="hidden" name="sign_id2" value="' . $ketu_sign_id . '" />';
+              echo '</div>';
+
+          }
+          else {
+            $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
+            echo '<li class="chart_li ' . get_selector_name($button_sign_id);  
+          
+              if ($poi_id == $poi["poi_id"]) { 
+               echo ' selected';
+              }
+              echo '">';
+              echo '<div class="chart_tabs_wrapper">';
+          
+              echo '<span class="arrow ';
+              echo '"></span>';
+
+              echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+              echo '</span>';
+          //echo '<a ';
+          
+          //echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
+    
+            echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+          
+            echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+            echo '</div>';
+          }
+          echo '</li>';
+          
+        }
+      }
+      echo '</ul>';
+      echo '</div>';
+      //End Right Side
+
+      /* //OLD WAY
      //Left Side;
       echo '<div class="chart_tabs left_side"/>';
       echo '<ul>';
@@ -2841,6 +4163,8 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       echo '</ul>';
       echo '</div>';
       //End Left Side Chart Arrow
+
+      
       //Right Side
       $poi_list = get_poi_list();
       echo '<div class="chart_tabs right_side"/>';
@@ -2896,6 +4220,8 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       echo '</ul>';
       echo '</div>';
       //End Right Side Chart Arrow
+
+      */
       echo '<div id="blurb">';
         show_poi_info($poi_id, $calc_chart_id, $sign_id);
         show_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
@@ -2903,6 +4229,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       echo '</div>';
       echo '</div>';
       echo '</form>';
+    echo '</div>';  //close #profile_chart
   }
 }
 
@@ -3263,6 +4590,18 @@ function show_chart ($chart_id, $goTo = ".") {
     echo 'No Chart Found';
   }
 }
+
+/////////////////MATT ADD HOUSES
+
+function show_my_houses () {
+
+}
+
+function show_others_houses () {
+  
+}
+
+//////////////////ENDMATT
 
 function chart_entry_form($chart_id) {
   $show_advanced_options = 0;
@@ -3733,7 +5072,19 @@ function format_image ($picture, $type, $user_id=-2) {
       }
     else {
       if ($user_id == -1) {
-        return '<img src="/img/Starma-Astrology-Compatibility-Male-Pic.png"/>';
+        if (isset($_SESSION['alternate_chart_gender'])) {
+          $alt_gender = $_SESSION['alternate_chart_gender'];
+          if($alt_gender == "M") {
+            $gender = "Male";
+          }
+          else {
+            $gender = "Female";
+          }
+        }
+        else {
+          $gender = "Male";
+        }
+        return '<img src="/img/Starma-Astrology-Compatibility-' . $gender . '-Pic.png"/>';
       }
       else {
         if (is_male($user_id)) {
@@ -3822,7 +5173,7 @@ function display_welcome_page_thumbnails($celebs=0) {
   $old_user_array = query_to_array($user_list);
   $user_array = array();
   //pick 6 random ones
-  while (sizeof($user_array) < 6 and sizeof($old_user_array) > 0) {
+  while (sizeof($user_array) < 8 and sizeof($old_user_array) > 0) {
     $random_index = array_rand($old_user_array);
     $new_item_array = array_splice($old_user_array, $random_index, 1);
     $user_array[] = $new_item_array[0];
@@ -3928,56 +5279,59 @@ function show_userbox()
 function show_changepassword_form(){
 
 echo '<div id="settings">';
-  flare_title("Change My Password");
+  //flare_title("Change My Password");
 echo '<div id="settings_form">';
 
 
- 
+ //CHANGED ALL ID's TO js_search_bar MAKE SURE THIS ISN'T A PROBLEM
 
 echo '<br>';  
-if ($_GET["error"] == 1) {
-  echo '<span style="color:red">Invalid password!<br><br>A password must between 6 and 15 characters long - letters and numbers only, please.</span>';
-  echo '<br><br>';
-}
-  echo '<form action="./change_my_password.php" method="post"> 
-  <fieldset>
-  <dl> 
-    <dt> 
-      <label for="oldpassword">Current Password:</label> 
-    </dt> 
-    <dd> 
-      <input name="oldpassword" type="password" id="oldpassword" maxlength="15"> 
-    </dd> 
-  </dl> 
-  <dl> 
-    <dt> 
-      <label for="password">New Password:</label> 
-    </dt> 
-    <dd> 
-      <input name="password" type="password" id="password" maxlength="15"> 
-    </dd> 
-  </dl> 
-  <dl> 
-    <dt> 
-      <label for="password2">Re-type new password:</label> 
-    </dt> 
-    <dd> 
-      <input name="password2" type="password" id="password2" maxlength="15"> 
-    </dd> 
-  </dl> 
-  <p> 
-    <input name="change" type="submit" value="Reset Password"> 
-  </p> 
-  </fieldset> 
+//if ($_GET["error"] == 1) {
+  echo '<div id="settings_header">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
+  echo '<div id="pass_validation"></div>';
+  //echo '<br><br>';
+  //global $seed;
+  //echo mysql_real_escape_string(sha1('1crowon1toad'.$seed)) . '<br>';
+  //echo '*'.$seed.'*';
+//}
+  echo '<form action="." method="POST">  
+    <table id="reset_pass">
+      <tbody>
+      <tr>
+        <td><label for="oldpassword">Current Password:</label></td> 
+      </tr>
+      <tr>    
+        <td><input name="oldpassword" type="password" id="js_search_bar" maxlength="15" class="settings_pass"></td>
+      </tr>
+
+      <tr>
+        <td><label for="password">New Password:</label> </td>
+      </tr>
+      <tr>
+        <td><input name="password" type="password" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+      </tr>
+
+      <tr>
+        <td><label for="password2">Re-type new password:</label> </td>
+      </tr>
+      <tr>
+        <td><input name="password2" type="password" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+        <td><span class="pass_correct">Correct!</span>
+      </tr>
+  <tr> 
+    <td><input name="change_pass" id="change_pass" type="button" value="Reset Password"><span id="ajax_loader"></span> </td>
+  </tr> 
+  </tbody>
+  </table>
 </form>
 </div>
 </div>
-';
+<script typt="text/javascript" src="/js/settings_ui.js"></script>';
 }
  
 function show_loginform($disabled = false)
 {
- 
+
     echo '<form name="login-form" id="login-form" method="post" action="./login_page.php"> 
   <fieldset> 
   <legend>Please login</legend> 
@@ -3999,6 +5353,13 @@ function show_loginform($disabled = false)
         echo 'disabled="disabled"';
     }
     echo ' /></p></fieldset></form>';
+    echo '<script type="text/javascript">
+
+            $(document).ready(function(){
+              $("#username").focus();
+            });
+
+          </script>';
  
  
 }

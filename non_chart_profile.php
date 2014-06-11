@@ -49,19 +49,33 @@ if (login_check_point($type="full")) {
     //  echo '</div>';
  
     show_my_descriptors_info(); 
+
+    echo '<div id="profile_nav">
+        <ul>
+          <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>     
+          <li><a class="' . $houses_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=houses_selected">House Lords</a></li>
+          <li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=photos_selected">Photos</a></li>
+          <li><a class="' . $about_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected">About</a></li>
+          <li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=1&section=western_selected">Western View</a></li>
+        </ul>
+      </div>';
     
-    echo '<div id="profile_sections"/>';
-      echo '<div id="profile_nav">
+    echo '<div id="profile_sections">';
+     /* echo '<div id="profile_nav">
         <ul>
           <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>
           <li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=photos_selected">Photos</a></li>
           <li><a class="' . $about_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected">About</a></li>
           <li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=1&section=western_selected">Western View</a></li>
         </ul>
-      </div>';
-      echo '<div id="section"/>';
+      </div>';*/
+      echo '<div id="section">';
         if ($section == 'chart_selected') {
           require('chart.php');
+        }
+        elseif($section =='houses_selected') {
+          //require('houses.php');
+          echo '<div style="height:300px;">Coming Soon...</div>';
         }
         elseif ($section == 'photos_selected') {
           require('photos.php');
@@ -69,9 +83,9 @@ if (login_check_point($type="full")) {
         elseif ($section == 'about_selected') {
           
           if ($edit_profile == '0') {
-            echo '<div style="width:100%; position:relative; top:75px">';
+            //echo '<div style="width:100%; position:relative; top:75px">';
               show_my_interests_info();
-            echo '</div>';
+            //echo '</div>';
             echo '<input style="position:absolute; right: 20px; top: 18px;" type="button" onclick="window.location=\'?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected&edit_profile=1\'" value="Edit My Info"/>';
 
             
@@ -89,6 +103,8 @@ if (login_check_point($type="full")) {
   
     
     echo '</div>';
+    echo'<script type="text/javascript" src="js/ajax_descriptors_submit.js"></script>';
+    echo'<script type="text/javascript" src="js/ajax_chart_submit.js"></script>';
   }
   
    

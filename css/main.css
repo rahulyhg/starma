@@ -1,16 +1,56 @@
+/********************* --Matt--
+
+input{
+    border-bottom: 1px solid #6275A7;
+    border-left: 1px solid #6376A9;
+    border-right: 1px solid #6B7FB6;
+    border-top: 1px solid #5A6683;
+    box-shadow: 1px 2px 4px #4A587E inset;
+    width: 200px;
+    padding: 4px;
+
+}
+
+//this is what Ariana likes sort of
+input{
+    border-color: #677AAE #768CC9 #768CC9 #677AAE;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 0 2px #677AAE inset;
+    width: 200px;
+}
+
+// For email and password login add deeper shadow to labels onfocus input field
+.login_labels {
+    background: none repeat scroll 0 0 #4A587E;
+    border-bottom: 1px solid #4A587E;
+    border-left: 1px solid #4A587E;
+    border-top: 1px solid #4A587E;
+    box-shadow: 1px 5px 5px #29334C inset;
+    color: #FFFFFF;
+    height: 25px;         // this is to match the padding 4px in the input field.  
+    padding-right: 5px;
+    padding-left: 25px;
+    text-shadow: -1px -1px #20283C;
+}
+
+
+*/
+
+/*   --Matt--  Changed border radius, added left and right borders as placeholders   */
 #page_body {
-       background-color: #D3DBF6;
-    
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    
+    background-color: #FFFFFF;
+    border-left: 2px solid #2C3447;
+    border-right: 2px solid #2C3447;
+    /*border-top: 1px solid #2C3447;*/
     float: right;
-    min-height: 782px;
+    min-height: 582px;
     padding: 10px;
     position: relative;
-    top: -229px;
-    width: 775px;
-}
+    /*top: -229px;*/
+    width: 773px;
+    right: 2px;
+  }
 
 
 #welcome {
@@ -26,27 +66,40 @@
 
 #welcome .homepage_div {
   position:absolute;
-  height:275px;
-  width:350px;
+  height:231px;
+  width:338px;
+  border-radius: 2px;
+  border: 2px solid black;
+  background-color: #D3DBF6;
 }
 
-#welcome .homepage_div span {
+#welcome .homepage_div:hover {
+  border-radius: 2px;
+  box-shadow: 0 0 2px 0 #404864;
+  background-color: #D3DBF6;
+  transition: .3s;
+}
+
+#welcome .homepage_div .header {
     display: block;
-    font-size: 1.9em;
+    font-size: 1.4em;
     position: absolute;
     text-align: center;
-    top: 16px;
+    top: 11px;
     width: 100%;
+    color: #2C3447;
+    font-family: helvetica;
+    letter-spacing: 2px;
 }
 
 #welcome #profile_box_link {
   left:40px;
 }
 #welcome #profile_box_link a.box_link {
-  background:url("/img/Starma-Astrology-ProfileBox.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-ProfileBox.png") no-repeat scroll center center;*/
 }
 #welcome #profile_box_link a.box_link:hover {
-  background:url("/img/Starma-Astrology-ProfileBoxH.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-ProfileBoxH.png") no-repeat scroll center center;*/
 }
 
 #welcome #compare_box_link {
@@ -64,55 +117,69 @@
 }
 
 #welcome #community_box_link a.box_link {
-  background:url("/img/Starma-Astrology-Community.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-Community.png") no-repeat scroll center center;*/
 }
 #welcome #community_box_link a.box_link:hover {
-  background:url("/img/Starma-Astrology-CommunityH.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-CommunityH.png") no-repeat scroll center center;*/
 }
 
 
 #welcome #horoscope_box_link {
-left: 40px;
-    top: 411px;
+    left: 40px;
+    top: 326px;
 }
 #welcome #horoscope_box_link a.box_link {
-  background:url("/img/Starma-Astrology-ChartBox.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-ChartBox.png") no-repeat scroll center center;*/
 }
 #welcome #horoscope_box_link a.box_link:hover {
-  background:url("/img/Starma-Astrology-ChartBoxH.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-ChartBoxH.png") no-repeat scroll center center;*/
+}
+
+#welcome #horoscope_box_link span.poi_title {
+  position:relative;
+  top:68px;
+  left: 12px;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: .1em;
 }
 
 
 #welcome #celebrities_box_link {
- left: 399px;
-    top: 412px;
+  left: 399px;
+  top: 326px;
 }
 #welcome #celebrities_box_link a.box_link {
-  background:url("/img/Starma-Astrology-Celebrities.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-Celebrities.png") no-repeat scroll center center;*/
 }
 #welcome #celebrities_box_link a.box_link:hover {
-  background:url("/img/Starma-Astrology-CelebritiesH.png") no-repeat scroll center center;
+  /*background:url("/img/Starma-Astrology-CelebritiesH.png") no-repeat scroll center center;*/
 }
 
 #welcome .homepage_div a.box_link {
-  display: block;
-    height: 275px;
+    display: block;
+    height: 231px;
     position: relative;
-    width: 350px;
+    width: 338px;
     z-index: 2;
 }
 
 #welcome #header {
-  width:600px;
+  color: #272727;
+  width:688px;
   text-align:center;
   margin:auto;
-  margin-top:20px;
+  margin-top:11px;
   margin-bottom:10px;
-  -webkit-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%;
+  font-size: .93em;
+  letter-spacing: .05px;
 }
 
 #logout_link {
-   display: block;
+    display: block;
     position: absolute;
     right: 20px;
     top: 5px;
@@ -147,6 +214,7 @@ left: 40px;
   position: relative;
   display: inline;
   float: left;
+  margin-bottom: -4px;
   /*padding-right:20px;*/
 
 }
@@ -286,7 +354,10 @@ left: 40px;
 
 #sidenav {
   width:185px;
-  position:relative;  
+  position:relative; 
+  z-index: 2; 
+  display: inline;
+  float: left;
 }
 
 #sidenav ul li a {
@@ -306,7 +377,7 @@ left: 40px;
   margin: 0;
   padding: 0;
   padding-left:0px;
-
+  display: inline-block;
 }
 
 
@@ -411,6 +482,814 @@ left: 40px;
 /*//////////////// END SIDE NAV BAR /////////////////////////////////////*/
 
 /*//////////////// SIGN ICONS ///////////////////////////////////////////*/
+
+span.icon {
+  /*cursor: pointer;*/
+  display: inline-block;
+}
+
+span.left{
+  float:left;
+}
+
+span.right {
+  float:right;
+}
+
+/*/////////// TALL SIGN ICONS /////////////////////////////////////*/
+
+.Unknown_button span.icon, .Unknown_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Unknown-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Unknown_button.selected span.icon, .Unknown_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Unknown-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+
+.Aries_button span.icon, .Aries_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Aries-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Aries_button.selected span.icon, .Aries_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Aries-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Taurus_button span.icon, .Taurus_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Taurus-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Taurus_button.selected span.icon, .Taurus_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Taurus-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Gemini_button span.icon, .Gemini_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Gemini-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Gemini_button.selected span.icon, .Gemini_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Gemini-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Cancer_button span.icon, .Cancer_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Cancer-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Cancer_button.selected span.icon, .Cancer_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Cancer-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Leo_button span.icon, .Leo_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Leo-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Leo_button.selected span.icon, .Leo_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Leo-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Virgo_button span.icon, .Virgo_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Virgo-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Virgo_button.selected span.icon, .Virgo_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Virgo-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Libra_button span.icon, .Libra_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Libra-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Libra_button.selected span.icon, .Libra_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Libra-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Scorpio_button span.icon, .Scorpio_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Scorpio-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Scorpio_button.selected span.icon, .Scorpio_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Scorpio-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Sagittarius_button span.icon, .Sagittarius_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Sagittarius-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Sagittarius_button.selected span.icon, .Sagittarius_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Sagittarius-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Capricorn_button span.icon, .Capricorn_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Capricorn-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Capricorn_button.selected span.icon, .Capricorn_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Capricorn-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Aquarius_button span.icon, .Aquarius_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Aquarius-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Aquarius_button.selected span.icon, .Aquarius_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Aquarius-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Pisces_button span.icon, .Pisces_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Pisces-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Pisces_button.selected span.icon, .Pisces_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Pisces-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Unknown_button.rahuketu span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Unknown-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Unknown_button.rahuketu.selected span.icon, .Unknown_button.rahuketu:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Unknown-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Aquarius_Leo_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aquarius-Leo-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Aquarius_Leo_button.selected span.icon, .Aquarius_Leo_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aquarius-Leo-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Cancer_Capricorn_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Cancer-Capricorn-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Cancer_Capricorn_button.selected span.icon, .Cancer_Capricorn_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Cancer-Capricorn-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Aries_Libra_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aries-Libra-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Aries_Libra_button.selected span.icon, .Aries_Libra_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aries-Libra-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Capricorn_Cancer_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Capricorn-Cancer-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Capricorn_Cancer_button.selected span.icon, .Capricorn_Cancer_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Capricorn-Cancer-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Gemini_Sagittarius_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Gemini-Sagittarius-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Gemini_Sagittarius_button.selected span.icon, .Gemini_Sagittarius_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Gemini-Sagittarius-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Leo_Aquarius_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Leo-Aquarius-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Leo_Aquarius_button.selected span.icon, .Leo_Aquarius_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Leo-Aquarius-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Libra_Aries_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Libra-Aries-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Libra_Aries_button.selected span.icon, .Libra_Aries_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Libra-Aries-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Pisces_Virgo_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Pisces-Virgo-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Pisces_Virgo_button.selected span.icon, .Pisces_Virgo_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Pisces-Virgo-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Sagittarius_Gemini_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Sagittarius-Gemini-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Sagittarius_Gemini_button.selected span.icon, .Sagittarius_Gemini_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Sagittarius-Gemini-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Scorpio_Taurus_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Scorpio-Taurus-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Scorpio_Taurus_button.selected span.icon, .Scorpio_Taurus_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Scorpio-Taurus-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Taurus_Scorpio_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Taurus-Scorpio-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Taurus_Scorpio_button.selected span.icon, .Taurus_Scorpio_button:hover span.icon  {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Taurus-Scorpio-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Virgo_Pisces_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Virgo-Pisces-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Virgo_Pisces_button.selected span.icon, .Virgo_Pisces_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Virgo-Pisces-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+
+
+/*/////////// TALL SIGN ICONS FOR COMPARE /////////////////////////////////////*/
+
+.Unknown_button_tall span.icon, .Unknown_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Unknown_button_tall.selected span.icon, .Unknown_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+
+.Aries_button_tall span.icon, .Aries_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Aries-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Aries_button_tall.selected span.icon, .Aries_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Aries-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Taurus_button_tall span.icon, .Taurus_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Taurus-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Taurus_button_tall.selected span.icon, .Taurus_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Taurus-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Gemini_button_tall span.icon, .Gemini_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Gemini-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Gemini_button_tall.selected span.icon, .Gemini_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Gemini-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Cancer_button_tall span.icon, .Cancer_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Cancer-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Cancer_button_tall.selected span.icon, .Cancer_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Cancer-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Leo_button_tall span.icon, .Leo_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Leo-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Leo_button_tall.selected span.icon, .Leo_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Leo-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Virgo_button_tall span.icon, .Virgo_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Virgo-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Virgo_button_tall.selected span.icon, .Virgo_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Virgo-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Libra_button_tall span.icon, .Libra_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Libra-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Libra_button_tall.selected span.icon, .Libra_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Libra-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Scorpio_button_tall span.icon, .Scorpio_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Scorpio-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Scorpio_button_tall.selected span.icon, .Scorpio_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Scorpio-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Sagittarius_button_tall span.icon, .Sagittarius_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Sagittarius-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Sagittarius_button_tall.selected span.icon, .Sagittarius_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Sagittarius-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Capricorn_button_tall span.icon, .Capricorn_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Capricorn-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Capricorn_button_tall.selected span.icon, .Capricorn_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Capricorn-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Aquarius_button_tall span.icon, .Aquarius_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Aquarius-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Aquarius_button_tall.selected span.icon, .Aquarius_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Aquarius-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Pisces_button_tall span.icon, .Pisces_button_tall.no_hover:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Pisces-Tall-OFF.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+.Pisces_button_tall.selected span.icon, .Pisces_button_tall:hover span.icon {
+  background:url('/img/sign_buttons_tall/Starma-Astrology-Pisces-Tall-ON.png') no-repeat;
+  height: 108px;
+  width: 75px;
+}
+
+
+/* Removed li
+
+li.Unknown_button span.icon, li.Unknown_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Unknown-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Unknown_button.selected span.icon, li.Unknown_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Unknown-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+
+li.Aries_button span.icon, li.Aries_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Aries-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Aries_button.selected span.icon, li.Aries_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Aries-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Taurus_button span.icon, li.Taurus_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Taurus-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Taurus_button.selected span.icon, li.Taurus_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Taurus-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Gemini_button span.icon, li.Gemini_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Gemini-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Gemini_button.selected span.icon, li.Gemini_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Gemini-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Cancer_button span.icon, li.Cancer_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Cancer-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Cancer_button.selected span.icon, li.Cancer_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Cancer-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Leo_button span.icon, .Leo_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Leo-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Leo_button.selected span.icon, .Leo_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Leo-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Virgo_button span.icon, li.Virgo_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Virgo-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Virgo_button.selected span.icon, li.Virgo_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Virgo-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Libra_button span.icon, li.Libra_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Libra-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Libra_button.selected span.icon, li.Libra_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Libra-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Scorpio_button span.icon, li.Scorpio_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Scorpio-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Scorpio_button.selected span.icon, li.Scorpio_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Scorpio-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Sagittarius_button span.icon, li.Sagittarius_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Sagittarius-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Sagittarius_button.selected span.icon, li.Sagittarius_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Sagittarius-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Capricorn_button span.icon, li.Capricorn_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Capricorn-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Capricorn_button.selected span.icon, li.Capricorn_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Capricorn-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Aquarius_button span.icon, li.Aquarius_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Aquarius-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Aquarius_button.selected span.icon, li.Aquarius_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Aquarius-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Pisces_button span.icon, li.Pisces_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Pisces-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Pisces_button.selected span.icon, li.Pisces_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Pisces-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+li.Unknown_button.rahuketu span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Unknown-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Unknown_button.rahuketu.selected span.icon, li.Unknown_button.rahuketu:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Unknown-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Aquarius_Leo_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aquarius-Leo-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Aquarius_Leo_button.selected span.icon, li.Aquarius_Leo_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aquarius-Leo-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Cancer_Capricorn_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Cancer-Capricorn-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Cancer_Capricorn_button.selected span.icon, li.Cancer_Capricorn_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Cancer-Capricorn-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Aries_Libra_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aries-Libra-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Aries_Libra_button.selected span.icon, li.Aries_Libra_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Aries-Libra-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Capricorn_Cancer_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Capricorn-Cancer-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Capricorn_Cancer_button.selected span.icon, li.Capricorn_Cancer_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Capricorn-Cancer-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Gemini_Sagittarius_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Gemini-Sagittarius-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Gemini_Sagittarius_button.selected span.icon, li.Gemini_Sagittarius_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Gemini-Sagittarius-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Leo_Aquarius_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Leo-Aquarius-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Leo_Aquarius_button.selected span.icon, li.Leo_Aquarius_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Leo-Aquarius-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Libra_Aries_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Libra-Aries-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Libra_Aries_button.selected span.icon, li.Libra_Aries_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Libra-Aries-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Pisces_Virgo_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Pisces-Virgo-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Pisces_Virgo_button.selected span.icon, li.Pisces_Virgo_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Pisces-Virgo-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Sagittarius_Gemini_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Sagittarius-Gemini-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Sagittarius_Gemini_button.selected span.icon, li.Sagittarius_Gemini_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Sagittarius-Gemini-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Scorpio_Taurus_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Scorpio-Taurus-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Scorpio_Taurus_button.selected span.icon, li.Scorpio_Taurus_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Scorpio-Taurus-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Taurus_Scorpio_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Taurus-Scorpio-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Taurus_Scorpio_button.selected span.icon, li.Taurus_Scorpio_button:hover span.icon  {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Taurus-Scorpio-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Virgo_Pisces_button span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Virgo-Pisces-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+li.Virgo_Pisces_button.selected span.icon, li.Virgo_Pisces_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Virgo-Pisces-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+*/
+
+/* OLD WAY WITH a INSTEAD OF span
 li.Unknown_button a, li.Unknown_button.no_hover:hover a {
   background:url('/img/sign_buttons/Starma-Astrology-Unknown-OFF.png') no-repeat;
 }
@@ -619,6 +1498,7 @@ li.Virgo_Pisces_button a {
 li.Virgo_Pisces_button.selected a, li.Virgo_Pisces_button:hover a {
   background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Virgo-Pisces-ON.png') no-repeat;
 }
+*/
 
 /*//////////////// END SIGN ICONS ///////////////////////////////////////*/
 
@@ -660,13 +1540,18 @@ li.my_unknown_button a {
 /*//////////////// MAIN PROFILE ///////////////////////////////////////*/
 
 .edit_icon, .edit_icon_hidden {
-  background:url('/img/Starma-Astrology-Edit-Pencil.png') no-repeat #D3DBF6;
+  background:url('/img/Starma-Astrology-Edit-Pencil.png') no-repeat #FFFFFF;
   width:15px;
   height:16px;
   display:none;
+  margin-left: 3px;
 }
 
-.js_edit_input_object {
+.edit_icon:hover {
+  cursor: pointer;
+}
+
+.desc_input {
   display:none;
 }
 
@@ -698,11 +1583,11 @@ li.my_unknown_button a {
 }
 
 .profile_button.chat_button {
-  bottom: 241px;
     height: 25px;
-    left: 620px;
     position: relative;
     width: 65px;
+    float: right;
+    margin-top: 8px;
     
 }
 
@@ -720,16 +1605,23 @@ li.my_unknown_button a {
 }
 
 .profile_button.compare_button  {
-   bottom: 250px;
-    height: 97px;
-    left: 622px;
     position: relative;
-    width: 155px;
+    width: 167px;
+    border: 1px solid black;
+    background-color: #8393CA;
+    padding: 4px;
+    text-align: center;
+    margin-top: 38px;
+    float: right;
+}
+
+.profile_button.compare_button:hover  {
+    background-color: #FBF0A4;
+    
 }
 
 .profile_button.compare_button a {
-    background:url('/img/profile/Starma-Astrology-Compare.png') no-repeat ;
-    
+    background:url('/img/profile/Starma-Astrology-Compare.png') no-repeat ; 
     height: 59px;
     padding-left: 37px;
     padding-top: 39px;
@@ -737,12 +1629,21 @@ li.my_unknown_button a {
 }
 
 .profile_button.compare_button:hover a {
-    background:url('/img/profile/Starma-Astrology-CompareON.png') no-repeat ;
+    background:url('/img/profile/Starma-Astrology-CompareON.png') no-repeat;
     
 }
 
+.compare_button_title {
+  font:1.2em "ClarendonBT-Light";
+  letter-spacing: 2px;
+}
+
+.profile_button.compare_button#compare_select {
+
+}
+
 .profile_button.chart_button {
-  bottom: 213px;
+    bottom: 213px;
     height: 40px;
     left: 647px;
     position: relative;
@@ -763,12 +1664,12 @@ li.my_unknown_button a {
 }
 
 .profile_button.message_button {
-  bottom: 265px;
     height: 25px;
-    left: 690px;
     position: relative;
     width: 84px;
-    
+    float: right;
+    margin-top: 7px;
+    margin-right: 18px;
 }
 
 .profile_button.message_button a {
@@ -793,14 +1694,55 @@ li.my_unknown_button a {
 }
 
 .profile_button.add_favorite_button, .profile_button.remove_favorite_button {
-    bottom: 253px;
     height: 25px;
-    left: 585px;
     position: relative;
     width: 189px;
-    
+    float: right;
+    margin-top: 10px;
+    text-align: center;
 }
 
+.profile_button.add_favorite_button span, .profile_button.remove_favorite_button span {
+    background:url('/img/profile/Starma-Astrology-Favorites.png') no-repeat ;
+    height: 25px;
+    line-height: 18px;
+}
+
+.profile_button.remove_favorite_button span {
+    width: 100%;
+    /*padding-left: 16px;*/
+    padding-top:0px;
+    font-size:0.9em;
+    line-height: 21px;
+    /*padding-left: 14px;*/
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile_button.add_favorite_button span {
+  /*padding-left: 29px;*/
+  padding-top: 1px;
+  width: 100%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.profile_button.celeb_favorites {
+  left: 178px;
+  top: 95px;
+}
+
+/*
+.profile_button.remove_favorite_button span {
+    
+}
+*/
+
+.profile_button.add_favorite_button:hover span, .profile_button.remove_favorite_button:hover span {
+    background:url('/img/profile/Starma-Astrology-FavoritesON.png') no-repeat ;    
+}
+
+/*
 .profile_button.add_favorite_button a, .profile_button.remove_favorite_button a {
     background:url('/img/profile/Starma-Astrology-Favorites.png') no-repeat ;
     height: 25px;
@@ -828,7 +1770,7 @@ li.my_unknown_button a {
 .profile_button.add_favorite_button:hover a, .profile_button.remove_favorite_button:hover a {
     background:url('/img/profile/Starma-Astrology-FavoritesON.png') no-repeat ;    
 }
-
+*/
 
 
 .profile_button.custom_chart_button a {
@@ -855,6 +1797,11 @@ li.my_unknown_button a {
   text-align:center;
 }
 
+#photos {
+  position: relative;
+  height: 300px;
+}
+
 #profile_photo_grid #my_photos {
     left: 33px;
     margin-top: 20px;
@@ -869,12 +1816,13 @@ li.my_unknown_button a {
 
 #profile_page #profile_photo_and_info {
   position:relative;
-  height:250px;
+  height:240px;
   width:177px;
-  top:15px;
-  left:30px;
   text-align:center;
   font-size:0.8em;
+  display: inline-block;
+  float: left;
+  margin: 4px 15px 0 30px;
 }
 
 .profile_info_area {
@@ -898,13 +1846,21 @@ li.my_unknown_button a {
 .profile_info_area .nickname_area {
   font-size:1.1em;
   position:relative;
-  bottom:165px;
-  
-  
+  bottom:165px;  
+}
+
+.profile_info_area .nickname_area_celeb {
+  font-size:1.1em;
+  position:relative;
+  bottom:154px;  
+}
+
+#user_block {
+  width: 250px;
 }
 
 .user_block .profile_info_area, #chart_1_pic .profile_info_area, #chart_2_pic .profile_info_area {
-  bottom: 12px;
+    bottom: 12px;
     font-size: 0.7em;
     margin: auto;
     position: relative;
@@ -912,7 +1868,7 @@ li.my_unknown_button a {
 }
 
 .user_block .profile_info_area .nickname_area, #chart_1_pic .profile_info_area .nickname_area, #chart_2_pic .profile_info_area .nickname_area {
-  bottom: 142px;
+    bottom: 142px;
     font-weight: bold;
     position: relative;
 }
@@ -923,12 +1879,21 @@ li.my_unknown_button a {
 }
 
 #chart_1_pic .profile_info_area .nickname_area, #chart_2_pic .profile_info_area .nickname_area {
-    bottom:134px;
+    bottom:132px;
+}
+
+#chart_2_pic .profile_info_area .nickname_area_celeb {
+  bottom: 126px;
+  font-weight: bold;
+}
+
+.user_block .profile_info_area .nickname_area_celeb {
+  bottom: 141px;
+  font-weight: bold;
 }
 
 #chart_1_pic .profile_info_area .nickname_area span, #chart_2_pic .profile_info_area .nickname_area span, .nickname_area span {
-   bottom: 2px;
-    
+    bottom: 2px;    
     font-size: 2em;
     position: relative;
     right: 2px;
@@ -938,9 +1903,9 @@ li.my_unknown_button a {
 
 
 #chart_1_pic .profile_info_area .name_area, #chart_2_pic .profile_info_area .name_area {
-    line-height: 0;
+    line-height: 1;
     position: relative;
-    top: 5px;
+    top: 3px;
 }
 
 #profile_photo_and_info .profile_info_area .name_area {
@@ -951,11 +1916,10 @@ li.my_unknown_button a {
 }
   
 #descriptors {
-   bottom: 210px;
-   float: right;
-   position: relative;
-   width:520px;
-   right:35px;
+  float: left;
+  position: relative;
+  width:320px;
+  margin-top: 38px;
 }
 
 #descriptors div {
@@ -964,6 +1928,20 @@ li.my_unknown_button a {
 
 #descriptors div .value {
    bottom: 25px;
+    left: 20px;
+    position: relative;
+   width: 300px;
+}
+
+#descriptors div .value_others {
+   bottom: 41px;
+    left: 20px;
+    position: relative;
+   width: 150px;
+}
+
+#descriptors div .value_home {
+   bottom: 30px;
     left: 20px;
     position: relative;
    width: 150px;
@@ -975,19 +1953,32 @@ li.my_unknown_button a {
 
 .des_selector input{
   position:relative;
-  bottom:3px;
+  border: 1px solid #C0C0C0;
+  width: 150px;
+  display: none;
+}
+
+/* This is for testing descriptor ajax saving */
+#hello {
+  display: none;
+}
+
+.saved {
+  display: none;
+  margin-left: 5px;
+  width: 100px;
 }
 
 
-#descriptors .value:hover a.edit_icon {
+#descriptors .value:hover span.edit_icon {
   display:inline-block;
 }
 
+
 #homepage_profile_button_info #descriptors {
-   bottom:0px;
+   bottom:53px;
    position: absolute;
-   right:-54px;
-   
+   left: 152px;
    width:auto
 }
 
@@ -999,7 +1990,7 @@ li.my_unknown_button a {
 #homepage_profile_button_info #descriptors div .value {
    bottom: 46px;
     left: 18px;
-    position: relatve;
+    position: relative;
    
 }
 
@@ -1028,7 +2019,8 @@ li.my_unknown_button a {
   width:670px;
   margin:auto;
   position:relative;
-  bottom:68px;
+  margin-bottom: 30px;
+  min-height: 252px;
 }
 
 
@@ -1040,11 +2032,14 @@ li.my_unknown_button a {
  
 #interests .column {
   width:450px;
-   
+  font-family: arial;
+  font-size: .93em;
+  letter-spacing: .05px;
+  line-height: 1.5;   
 }
 
 #interests #left_column {
-  float:left;  
+  /*float:left; */ 
    
 }
 
@@ -1080,42 +2075,62 @@ li.my_unknown_button a {
 }
 
 #edit_interests textarea {
-   height: 150px;
+    height: 150px;
     width: 400px;
-   padding:5px;
+    padding:5px;
 }
 
 #profile_sections {
-    border-top: 1px solid black;
-    bottom: 80px;
+    background: #D3DBF6;
+    border-top: 2px solid #2C3447;
+    border-right: 2px solid #2C3447;
+    top: 19px;
     float: left;
     position: relative;
     right: 10px;
-    width: 795px;
+    width: 793px;
 }
 
-.celeb_page #profile_sections {
-    
+/*
+.celeb_page #profile_sections {  
     bottom: auto;
-    margin-top:25px;
-    
+    margin-top: 3px;  
 }
+*/
 
-#profile_sections #profile_nav {
-   height: 20px;
+#profile_nav {
+    height: 21px;
     left: 91px;
-    position: absolute;
-    top: -38px;
+    position: relative;
+    float: left;
+    z-index: 2;
+    margin-top: -21px;
 }
 
-#profile_sections #profile_nav ul li {
-   display: inline;
+#profile_nav ul li {
+    display: inline;
     float: left;
     position: relative;
 }
 
-#profile_sections #profile_nav ul li a {
-  border:1px solid black;
+#profile_nav ul li a {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #8393CA;
+  /*background:-moz-linear-gradient(bottom, #4E5D84 0%, 
+    #8393CA 30%); /* FF3.6+ */
+  /*background: -webkit-gradient(linear, left bottom, left top, 
+    color-stop(0%, #4E5D84), 
+    color-stop(30%,#8393CA)); /* Chrome,Safari4+ */
+  /*background: -webkit-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* Chrome10+,Safari5.1+ */
+  /*background: -o-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* Opera 11.10+ */
+  /*background: -ms-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* IE10+ */
+  /*background: linear-gradient(to top, #4E5D84 0%, #8393CA 30%); /* W3C */
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4E5D84', endColorstr='#8393CA',GradientType=0 ); /* IE6-9 */
   border-right:0px;
   padding:5px;
   text-align:center;
@@ -1123,27 +2138,394 @@ li.my_unknown_button a {
   display:block;
   width:100px;
   font-size: 0.8em;
-    height: 10px;
-    line-height: 0.8em;
+  height: 12px;
+  line-height: 0.8em;
   color:black;
+    transition: hover .5s;
 }
 
-#profile_sections #profile_nav ul li.end a {
-  border:1px solid black;
+#profile_nav ul li.end a {
+  border-left: 2px solid #2C3447;
+  border-right: 2px solid #2C3447;
+  border-top: 2px solid #2C3447;
+  border-bottom: none;
   
 }
 
-#profile_sections #profile_nav ul li a.selected, #profile_sections #profile_nav ul li a:hover {
-  background:black;
-  color:white;
-  
+#profile_nav ul li a.selected {
+  background:#D3DBF6;
+  border-bottom: #D3DBF6;
+  height: 14px;
+}
+
+#profile_nav ul li a:hover{
+  background:#D3DBF6;
+  /*background:-moz-linear-gradient(bottom, #B2BCD8 0%, 
+    #D3DBF6 30%); /* FF3.6+ */
+  /*background: -webkit-gradient(linear, left bottom, left top, 
+    color-stop(0%, #B2BCD8), 
+    color-stop(30%,#D3DBF6)); /* Chrome,Safari4+ */
+  /*background: -webkit-linear-gradient(bottom, #B2BCD8 0%, #D3DBF6 30%); /* Chrome10+,Safari5.1+ */
+  /*background: -o-linear-gradient(bottom, #B2BCD8 0%, #D3DBF6 30%); /* Opera 11.10+ */
+  /*background: -ms-linear-gradient(bottom, #B2BCD8 0%, #D3DBF6 30%); /* IE10+ */
+  /*background: linear-gradient(to top, #B2BCD8 0%, #D3DBF6 30%); /* W3C */
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B2BCD8', endColorstr='#D3DBF6',GradientType=0 ); /* IE6-9 */
 }
 
 #profile_sections #section {
-  padding:10px;
-  width:775px;
+  padding:25px 10px;
+  width:773px;
+  background-color: #D3DBF6;
 }
 
+#profile_chart {
+  height:500px;
+  position: relative;
+}
+
+
+/************---Matt adding things to others Profile */
+
+#msg_sheen {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  z-index:100;
+  display:none;
+}
+
+#msg_sheen #msg_sheen_screen {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  background:#233388;
+  opacity:0.6;
+  display:none;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+
+#msg_sheen #msg_sheen_content {
+    background: none repeat scroll 0 0 white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size:0.8em;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    top: 50px;
+    width: 500px;
+    height: 150px;
+    display: none;
+}
+
+#msg_sheen #msg_sheen_content_custom {
+    background: none repeat scroll 0 0 white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size:0.8em;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    top: 50px;
+    width: 500px;
+    height: 195px;
+    display: none;
+}
+
+#msg_sendie {
+
+  background: none;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  box-shadow: 0 0 2px #313E5C inset;
+  height: 75px;
+  width: 380px;
+  padding: 5px;
+  display:block;
+
+}
+
+#msg_type_area {
+  height: 130px;
+  width: 400px;
+  margin: 10px 50px 10px 50px;
+}
+
+.msg_send {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
+
+.msg_cancel {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
+.msg_cancel_invite {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
+#msg_sent {
+  display: none;
+  font-family: arial;
+  color: black;
+  font-size: 1.3em;
+  text-align: center;
+  width:400px;
+}
+
+#ajax_loader{
+  position: relative;
+}
+
+#email_invite {
+  background: none;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  box-shadow: 0 0 2px #313E5C inset;
+  height: 27px;
+  width: 392px;
+  padding: 1px 5px;
+  display:block;
+  margin-bottom: 15px;
+}
+
+/*****************---Matt adding style to New Message section */
+
+#as-selections-fav_user_id {
+  border: 1px solid #C0C0C0;
+  font-size:0.8em;
+  height:27px;
+  padding: 4px;
+  margin: 0;
+  overflow: auto;
+  background-color: #fff;
+  width: 371px;
+  margin-top: 8px;
+}
+
+ul.as-selections li {
+  float: left;
+  margin-right: 8px;
+}
+
+ul.as-selections li.as-selection-item {
+  color: black;
+  font-size: 13px;
+  font-family: arial, helvetica, sans-serif;
+  background-color: #8393CA;
+  padding: 2px 10px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+}
+
+ul.as-selections li.as-selection-item:last-child {
+  margin-left: 30px;
+}
+
+ul.as-selections li.as-selection-item a.as-close {
+  margin-right: 1px;
+  cursor: pointer;
+  color: black;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 13px;
+}
+
+/* NOT IN USE
+ul.as-selections li.as-selection-item.blur {
+  color: #666666;
+  background-color: #f4f4f4;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f4f4f4), to(#d5d5d5));
+  border-color: #bbb;
+  border-top-color: #ccc;
+  box-shadow: 0 1px 1px #e9e9e9;
+  -webkit-box-shadow: 0 1px 1px #e9e9e9;
+  -moz-box-shadow: 0 1px 1px #e9e9e9;
+}
+
+
+ul.as-selections li.as-selection-item.blur a.as-close {
+  color: #999;
+}
+
+*/
+
+ul.as-selections li:hover.as-selection-item {
+  background-color: #D3DBF6;
+}
+
+ul.as-selections li:hover.as-selection-item a.as-close {
+  color: black;
+}
+
+ul.as-selections li.as-selection-item.selected {
+  border-color: #1f30e4;
+}
+
+ul.as-selections li.as-selection-item a:hover.as-close {
+  color: black;
+}
+
+ul.as-selections li.as-selection-item a:active.as-close {
+  color: black;
+}
+
+ul.as-selections li.as-original {
+  margin-left: 0;
+}
+
+ul.as-selections li.as-original input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  width: 371px;
+  height: 27px;
+  padding: 4px;
+}
+
+#fav_user_id {
+  float:left;
+  width: 250px;
+  color: #636965;
+  font-size: .875em;
+  margin: 3px 0;
+  height: 23px;
+}
+
+#fav_user_id:focus {
+  color:black;
+  font:1em;
+  line-height: 1em;
+}
+
+ul.as-list {
+  position: absolute;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #000;
+  font-family: "ClarendonBT-Light", "Lucida Grande", arial, sans-serif;
+  background-color: #FFFFFF;
+  /*background-color: rgba(255,255,255,0.95);*/
+  z-index: 2;
+}
+
+ul.as-list li.as-result-item {
+  margin: 0 0 0 0;
+  padding: 5px 12px;
+  background-color: #FFFFFF;
+  border: 1px solid #C0C0C0;
+  border-top: none;
+  cursor: pointer;
+  letter-spacing: 1.5px
+  }
+
+ul.as-list li:first-child.as-result-item {
+  margin: 0;
+}
+
+ul.as-list li.as-result-item.active em { 
+  /*background: #253f7a;
+  color: #253f7a;
+  font-weight: bold;
+  */  
+  font-style: normal;
+}
+
+ul.as-list li.as-result-item.active {
+  background-color: #D3DBF6;
+  /*background-image: -webkit-gradient(linear, 0% 0%, 0% 64%, from(rgb(110, 129, 245)), to(rgb(62, 82, 242))); */
+  border-color: #C0C0C0;
+}
+
+ul.as-list li.as-result-item em { 
+  font-style: normal;
+  /*
+  font-weight: bold; 
+  color: #8393CA;
+  */
+}
+
+/***************---Matt Homepage box blurbs*/
+
+#p_box_blurb {
+  display: inline-block;
+  position: relative;
+  right: 46px;
+  width: 332px;
+}
+
+#h_box_blurb {
+  display: inline-block;
+  position: relative;
+  top: 37px;
+  right: 22px;
+  width: 319px;
+}
+
+#co_box_blurb {
+  display: inline-block;
+  position: relative;
+  bottom: 0px;
+  right: 15px;
+  width: 330px;
+}
+
+#ce_box_blurb {
+  display: inline-block;
+  position: relative;
+  bottom: 1px;
+  right: 8px;
+  width: 318px;
+}
+
+.hsel_box_blurb {
+  font-size: 0.875em;
+  text-align: center;
+  font-weight: bold;
+}
 
 /*//////////////// END MAIN PROFILE ///////////////////////////////////////*/
 
@@ -1160,14 +2542,15 @@ li.my_unknown_button a {
 }
 
 #search_bar_div #search_bar_input {
-    bottom: 20px;
-    left: 60px;
+    top: 8px;
+    right: 165px;
+    margin-bottom: 26px;
     position: relative;
     width: 500px;
 }
 
 #search_bar_div #search_bar_input input[type="text"]{
-    
+    color: #c0c0c0;
     width: 200px;
 }
 
@@ -1175,9 +2558,318 @@ li.my_unknown_button a {
 
 /*//////////////// END OTHER COMPARE PAGES ///////////////////////////////////////*/
 
+
+/*///////////// MATT ADDED HOUSES SECTION /////////////////////////*/
+
+#house_column {
+  display: inline-block;
+  margin: 10px 20px;
+  border: 1px solid black;
+  min-height: 252px;
+}
+
+#house_column div.ruled_house {
+  display: inline-block;
+  padding: 0 2px;
+  border: 1px solid black;
+}
+
+#house_column div.residence {
+  display: inline-block;
+  padding: 0 2px;
+  border: 1px solid black;
+  float:left;
+}
+
+#house_column div.house_blurb {
+  padding: 10px;
+  height: auto;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#house_column ul li {
+  margin: 10px;
+}
+
+
+/*OLDWAY
+#section div.house {
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  float: left;
+  margin: 10px 30px;
+}
+
+#section div.blurb_area_wrapper {
+  border: 1px solid black;
+  height: 150px;
+  width: 450px;
+  display: inline-block;
+  margin: 10px;
+}
+
+#section div.subnav {
+  border: 1px solid black;
+  height: 30px;
+  width: 448px;
+}
+
+#section div.subnav ul li {
+  display: inline;
+  border: 1px solid black;
+  float:left;
+}
+
+#section div.blurb_section{
+  border: 1px solid black;
+  height: 112px;
+  width: 444px;
+  padding: 2px;
+}
+
+#section div.blurb{
+  border: 1px solid black;
+  height: 90px;
+  padding: 10px;
+  width: 422px;
+  background-color: white;
+}
+END OLD WAY*/
+
+/*///////////// END HOUSES //////////////////////////////////*/
+
+/*////////////// CUSTOM CHART BIRTH INFO ///////////////////*/
+
+#birth_info_custom {
+    margin: auto;
+    position: relative;
+    width: 500px;
+    height: 295px;
+    border: 1px solid #c7c7c7;
+    padding: 15px 0;
+    background-color: #D3DBF6;
+}
+
+#birth_info_form_custom_heading {
+  font-size: 20px;
+  font-family: "ClarendonBT-Light";
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#birth_info_custom table tr td {
+  padding: 5px;
+}
+
+#birth_info_form_custom {
+  margin-left: 53px;
+}
+
+#birth_info_custom #time_zone_div, #birth_info #latitude_div, #birth_info #longitude_div {
+  width:250px;
+}
+
+#birth_info_custom #time_zone_div input, #birth_info #latitude_div input, #birth_info #longitude_div input {
+  width:25px;
+}
+
+#birth_time_hover_box_custom {
+    background-color: #FFFFFF;
+    border: 1px solid #C7C7C7;
+    color: #000000;
+    font-size: 0.8em;
+    padding: 3px;
+    padding-right: 3px;
+    position: relative;
+    width: 7px;
+}
+
+#birth_time_hover_box_custom:hover {
+  background-color: #D3DBF6;
+  cursor: pointer;
+}
+
+#birth_time_hover_box_custom span {
+    bottom: -180px;
+    left: 15px;
+}
+.hover_box span {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C7C7C7;
+    color: #000000;
+    display: none;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+    padding: 12px;
+    position: absolute;
+    width: 390px;
+    z-index: 5;
+}
+
+.grayed_out {
+  background-color: #c7c7c7;
+}
+
+#birth_place_input_bar {
+  border: 1px solid #c7c7c7;
+}
+
+#bug_button, #birth_info_custom input[name="submit"]  {
+  background:url('/img/account_info/Starma-Astrology-Space-Bug.png') no-repeat;
+  width:76px;
+  height:63px;
+  border:0px;
+}
+
+#bug_button:hover, #birth_info_custom input[name="submit"]:hover{
+  cursor: hand; 
+  cursor: pointer;
+  background:url('/img/account_info/Starma-Astrology-Space-BugHover.png') no-repeat;
+  
+}
+
+#go_bug_path {
+  background: url('/img/Starma-Astrology-go-bug-path.png') no-repeat;
+  float:left;
+  width: 321px;
+  height: 63px;
+}
+
+#submit_div_custom {
+  width: 76px;
+  float: right; 
+  margin-right: 50px;
+}
+
+/*///////////// END CUSTOM BIRTH INFO //////////////////////////////////*/
+
+/*//////////// CUSTOM CHART /////////////////////*/
+
+#profile_top_bar {
+  position: relative;
+  width: 773px;
+  height: 240px;
+}
+
+#profile_photo_and_info_custom {
+  margin: 8px 0 0 30px;
+  width: 171px;
+  display: inline-block;
+  float: left;
+}
+
+#custom_nickname {
+  position: relative;
+  font-size: .875em;
+  width: 171px;
+  text-align: center;
+
+}
+
+#custom_nickname_compare {
+  position: relative;
+  font-size: .75em;
+  font-weight: bold;
+  text-align: center;
+  bottom: 152px;
+}
+
+.profile_button_custom a {
+  position:absolute;  
+  color: #000000;
+  display: block;
+  font-size: 1.1em;
+}
+
+.profile_button_custom.compare_button  {
+    bottom: 188px;
+    height: 97px;
+    left: 605px;
+    position: relative;
+    width: 155px;
+}
+
+.profile_button_custom.compare_button a {
+    background:url('/img/profile/Starma-Astrology-Compare.png') no-repeat ;  
+    height: 59px;
+    padding-left: 37px;
+    padding-top: 39px;
+    width: 155px;
+}
+
+.profile_button_custom.compare_button:hover a {
+    background:url('/img/profile/Starma-Astrology-CompareON.png') no-repeat ;
+    
+}
+
+.profile_button_custom.invite_button {
+    height: 25px;
+    position: relative;
+    float: right;
+    margin-top: 104px;
+}
+
+.profile_button_custom.invite_button a {
+    background:url('/img/Starma-Astrology-Invite.png') no-repeat ;
+    height: 30px;
+    width: 170px;
+    display:block;
+    padding-top: 3px;
+    text-align: center;
+}
+
+.profile_button_custom.invite_button:hover a {
+    background:url('/img/Starma-Astrology-InviteON.png') no-repeat ;
+    
+}
+
+span.div_link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+}
+
+#profile_sections_custom {
+    background: none repeat scroll 0 0 #D3DBF6;
+    border-right: 2px solid #2C3447;
+    border-top: 2px solid #2C3447;
+    float: left;
+    position: relative;
+    right: 10px;
+    top: 19px;
+    width: 793px;
+}
+
+#profile_sections_custom #section {
+    background-color: #D3DBF6;
+    padding: 25px 10px;
+    width: 773px
+}
+
+.gender_validation {
+  display: none;
+  margin-bottom: 20px;
+  font-size: .8em;
+}
+
+
+/*///////////// END CUSTOM CHART //////////////////////////////////*/
+
+
 /*//////////////// SETTINGS ///////////////////////////////////////*/
 #settings_form {
   padding:10px;
+}
+
+#settings_header {
+  margin-bottom: 15px;
 }
 
 #settings .flare_title {
@@ -1185,5 +2877,85 @@ li.my_unknown_button a {
   position:relative;
 }
 
+.settings_pass {
+  margin-bottom: 18px;
+}
 
-/*//////////////// SETTINGS ///////////////////////////////////////*/
+#pass_validation {
+  display: none;
+  margin-bottom: 20px;
+  font-size: .8em;
+}
+
+.pass_correct {
+  display: none;
+  position: relative;
+  bottom: 7px;
+  padding-left: 11px;
+}
+
+#change_pass {
+  margin-right: 15px;
+  margin-top: 3px;
+}
+
+/*//////////////// END SETTINGS ///////////////////////////////////////*/
+
+/*//////////////// FOOTER ///////////////////////////////////////*/
+
+#clear {
+  clear:both;
+}
+
+#footer {
+  background-color: #8393CA;
+  border: 2px solid #2C3447;
+  position: relative;
+  width: 793px;
+  margin-left: 183px;
+  float: left;
+  /*top: -229px;*/
+}
+
+.footer_links {
+  position: relative;
+  float: left;
+  margin: 20px 30px;
+  z-index: 250;
+}
+
+.small_symbol {
+  font-family: "ClarendonBT-Light";
+  font-size: .7em;
+}
+
+.footer_links ul {
+  margin: 0;
+}
+
+.footer_links ul li {
+  position: relative;
+  float: left;
+  font-family: "ClarendonBT-Light";
+  font-size: 1em;
+  letter-spacing: .1em;
+  line-height: 1.5;
+  margin: 0 37px;
+}
+
+.footer_links ul li a {
+  font-family: "ClarendonBT-Light";
+  font-size: 1em;
+  letter-spacing: .1em;
+  line-height: 1.5;
+  text-decoration: none;
+  color: black;
+}
+
+.footer_links ul li a:hover {
+  text-shadow: 0 0 1px gray;
+  cursor: pointer;
+}
+
+/*//////////////// END FOOTER ///////////////////////////////////////*/
+

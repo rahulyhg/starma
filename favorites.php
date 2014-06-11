@@ -22,11 +22,11 @@ if ($tier == "1") {
     //    flare_title ("Favorites");
     //echo '</div>';
     echo '<div id="search_bar_div">';
-      echo '<div id="search_bar_title">';
-        echo 'Search:';
-      echo '</div>';
+      //echo '<div id="search_bar_title">';
+        //echo 'Search:';
+      //echo '</div>';
       echo '<div id="search_bar_input">';
-        echo '<input type="text" id="js_search_bar">';
+        echo '<input type="text" id="js_search_bar" value="Search">';
       echo '</div>';
     echo '</div>';
     display_all_users($url="?the_page=" . $the_page . "&the_left=nav2&tier=3&stage=2", 1);
@@ -69,5 +69,7 @@ elseif ($tier == "3") {
 //}
   
 }
+
+echo '<script type="text/javascript" src="/js/favorites_ui.js"></script>';
 
 ?> 

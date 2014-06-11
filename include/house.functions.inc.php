@@ -49,4 +49,51 @@ function get_house_list () {
   return $do_q;  
 }
 
+
+function get_sign_in_house_id ($house_id) {
+  $chart_id = get_my_chart_id();
+  $q = 'SELECT sign_id from chart_x_house WHERE chart_id = ' . $chart_id . ' and house_id = ' . $house_id;
+  $do_q = mysql_query($q) or die(mysql_error());
+  if ($results = mysql_fetch_array($do_q)) {
+    return $results["sign_id"];
+  }
+  else {
+    return false;
+  }
+}
+
+
+
+//MATT
+
+function get_ruler_of_sign ($sign_id) {
+  $q = 'SELECT ruling_poi_id from sign WHERE sign_id = ' . $sign_id;
+  $do_q = mysql_query($q) or die(mysql_error());
+  if(mysql_num_rows($do_q) > 0) {
+    return $do_q;
+  }
+  else {
+    return false;
+  }
+}
+
+
+//MATT OLD WAY FOR ORIGINAL DESIGN
+// get_chart_x_house_id exists in ephemeris functions
+
+
+function get_poi_in_house ($house_id) {
+  $chart_x_house_id = get_chart_x_house_id($house_id);
+  $q = 'SELECT poi_id from chart_x_house_x_poi where chart_x_house_id = ' . $chart_x_house_id;
+  $do_q = mysql_query($q) or die(mysql_error());
+  if (mysql_num_rows($do_q) > 0) {
+    return $do_q;
+  }
+  else {
+    return false;
+  }
+}
+
+//END OLD WAY
+
 ?>

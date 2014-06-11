@@ -6,7 +6,7 @@ log_this_action (login_action(), logout_basic_action());
 // Nuke the cookies
 setcookie("email", $_POST['email'], time()-60*60*24*30, '/', get_domain(), true, true);
 setcookie("password", $_POST['password'], time()-60*60*24*30, '/', get_domain(), true, true);
-if( session_unregister('user_id') == true && session_unregister('username')==true && session_unregister('permissions_id') == true && session_unregister('email')==true ) {
+if( session_unset('user_id') == true && session_unset('username')==true && session_unset('permissions_id') == true && session_unset('email')==true ) {
     session_destroy();
 	header('Location: index.php');
   } else {

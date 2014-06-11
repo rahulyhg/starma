@@ -15,11 +15,15 @@
       elseif ($_POST["blurb_type"] == 'poi_dynamic') {
         edit_poi_dynamic_blurb ($_POST["poi_id_A"], $_POST["poi_id_B"], $_POST["dynamic_id"], $_POST["section_id"], $_POST["blurb"]);
       }
+      elseif ($_POST["blurb_type"] == 'poi_house_ruler') {
+        edit_house_ruler_blurb ($_POST["sign_id"], $_POST["house_id"], $_POST["house_id2"], $_POST["blurb"]);
+      }
     }
     echo '<div class="page_title">Edit Blurbs</div>';
     echo '<br>';
     echo '<a href="?blurb_type=poi_sign"/>Edit Poi:Sign Blurbs</a><br>';
-    echo '<a href="?blurb_type=poi_dynamic"/>Edit Poi:Dynamic Blurbs</a>';
+    echo '<a href="?blurb_type=poi_dynamic"/>Edit Poi:Dynamic Blurbs</a><br>';
+    echo '<a href="?blurb_type=poi_house_ruler">Edit Poi:Ruling Planet Blurbs</a>';
     echo '<br><hr><br>';
     if (isset($_GET["blurb_type"])) {
       $blurb_type = $_GET["blurb_type"];
@@ -32,6 +36,9 @@
       }
       elseif ($_POST["blurb_type"] == 'poi_dynamic') {
         blurb_form($blurb_type, $the_value1=$_POST["poi_id_A"], $the_value2=$_POST["poi_id_B"], $the_value3=$_POST["dynamic_id"], $the_value4=$_POST["section_id"]);
+      }
+      elseif ($_POST["blurb_type"] == 'poi_house_ruler') {
+        blurb_form ($blurb_type, $the_value1=$_POST["sign_id"], $the_value2=$_POST["house_id"], $the_valu3=$_POST["house_id2"]);
       }
     }
     else {

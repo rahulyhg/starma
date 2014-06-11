@@ -85,7 +85,7 @@ if ($the_left=="nav1") {
         </style>
     <![endif]-->
     
-<body>
+<body id="bg_stars">
 <div id="img_preloader">
 
   
@@ -179,10 +179,30 @@ if ($the_left=="nav1") {
       
     ?>
   </div>
+  <div id="clear"></div>
+
+    
+  </div>
+
+  <!-- Footer -->
+   <div id="footer">
+    <div class="footer_links">
+      <ul>
+        <li>Starma<span class="small_symbol">&reg;</span> LLC 2014</li>
+        <li><a href="docs/privacyPolicy.htm" target="_blank">Privacy Policy</a></li>
+        <li><a href="docs/termsOfUse.htm" target="_blank">Terms Of Use</a></li>
+        <li><a href="mailto:contact@starma.com">Contact</a></li>
+      </ul>  
+    </div>
+  </div>
   
-</div>
+  <!-- End Footer -->
 
 <?php
  require_once "footer.php";
 ?> 
 </body>
+</html>
+<?php ob_flush(); ?>
+
+

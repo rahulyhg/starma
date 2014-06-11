@@ -8,6 +8,8 @@
     //echo '*'. get_my_nickname() . '*';
     //print_r ($_SESSION);
     //die();
+
+    if(isLoggedIn()) {
     $function = $_GET['function'];
     
     $log = array();
@@ -209,7 +211,9 @@
         	 break;
     	
     }
+
     //fwrite(fopen('debug.txt', 'a'), 'Returning to AJAX after ' . $_GET["function"] . '\r\n');
     echo json_encode($log);
     //fwrite(fopen('debug.txt', 'a'), 'Returned\r\n');
+    }
 ?>

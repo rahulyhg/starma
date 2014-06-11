@@ -31,11 +31,11 @@ if ($tier == "1") {
     //echo '</div>';
     js_more_link ("js_user_frame", $num_pages, $current_page, $height_inc, $num_users);
     echo '<div id="search_bar_div">';
-      echo '<div id="search_bar_title">';
-        echo 'Search:';
-      echo '</div>';
+      //echo '<div id="search_bar_title">';
+        //echo 'Search:';
+      //echo '</div>';
       echo '<div id="search_bar_input">';
-        echo '<input type="text" id="js_search_bar">';
+        echo '<input type="text" id="js_search_bar" value="Search">';
       echo '</div>';
     echo '</div>';
     echo '<div id="boundry">';
@@ -48,6 +48,9 @@ if ($tier == "1") {
   //display_my_chart_list();
 }
 elseif ($tier == "2") {
+    //if(isset($_GET['from_profile'])) {    // in compare_tier_2 now
+      //clear_compare_data();
+    //}
     if (isset($_GET["results_type"])) {
        $results_type = $_GET["results_type"];
     }
@@ -81,6 +84,8 @@ elseif ($tier == "3") {
 elseif ($tier == "4") {
   require("chart_others.php");
 }
+
+echo '<script type="text/javascript" src="/js/all_users_ui.js"></script>';
 
 }
 ?> 
