@@ -483,7 +483,7 @@ div.poi_title {
 #welcome .homepage_div #homepage_chart_button_info #blurb {
     left: 85px;
     position: absolute;
-    bottom: 7px;
+    top: 19px;
     width: 200px;
   
 }
