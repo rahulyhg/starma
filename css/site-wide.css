@@ -1,5 +1,5 @@
 body {
-  background:#8393CA url('/img/Starma-Astrology-RightSide.png') repeat;
+  background:#8393CA;
   /*font:1em "Comic Sans MS";*/
   /*font-family: "Comic Sans MS", "Marker Felt";*/
   line-height:23px;
@@ -7,6 +7,10 @@ body {
   /*font:1em "ClarendonBT-Light";*/
   font:1em "P22UndergroundBook","Helvetica","Arial","sans-serif";
   margin:0px;
+}
+
+body#bg_stars {
+  background:#8393CA url('/img/Starma-Astrology-RightSide.png') repeat;
   background-position: left center;
 }
 

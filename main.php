@@ -85,7 +85,7 @@ if ($the_left=="nav1") {
         </style>
     <![endif]-->
     
-<body>
+<body id="bg_stars">
 <div id="img_preloader">
 
   
