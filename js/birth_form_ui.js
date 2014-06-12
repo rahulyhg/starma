@@ -8,7 +8,7 @@ $(document).ready(function(){
 		}
 	});
 
-	if ($('input[name=time_unknown]').attr('checked', true)) {
+	if ($('input[name=time_unknown]').is(':checked')) {
 	//$('input[name=time_unknown]').click(function(){
 		$('#hour_time').addClass('grayed_out');
 		$('#minute_time').addClass('grayed_out');
