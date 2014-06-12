@@ -17,6 +17,9 @@ if (login_check_point($type="full", $domain=$domain)) {
   else {
     $other_user_id = $_GET["other_user_id"];
   }
+
+  $my_user_id = get_my_user_id();
+  $my_chart_id = get_my_chart_id();
   //echo '<div style="padding-top:3px; padding-bottom:10px;">';
   //flare_title ("Inbox");
   //echo '</div>';
@@ -58,7 +61,7 @@ if (login_check_point($type="full", $domain=$domain)) {
               echo '</div></div>';
             echo '</div>';
             echo '<div class="nickname">'; 
-              echo get_nickname($user_id);
+              echo '<a href="?the_page=cosel&the_left=nav1&tier=3&stage=2&chart_id1="' . $my_chart_id . '&chart_id2="' . get_chart_id_from_user_id($user_id) . '">' . get_nickname($user_id) . '</a>';
             echo '</div>';
 
             //*******---Matt adding teaser msg to Conversations
