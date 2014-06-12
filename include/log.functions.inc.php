@@ -23,9 +23,9 @@ function log_this_action ($log_action_id, $log_basic_action_id, $data_1=-1, $dat
   return true;
 }
 
-function log_user_invite ($inviting_user_id, $receiver_email, $text_body) {
-    $log_query = 'INSERT INTO user_invite_log (inviting_user_id, receiver_id, text_body) VALUES
-                 (' . $inviting_user_id . ',"' . $receiver_id . '","' . $text_body . ')';
+function log_user_invite ($inviting_user_id, $receiving_user_email, $text_body) {
+    $log_query = sprintf('INSERT INTO user_invite_log (inviting_user_id, receiving_user_email, text_body) VALUES
+                 (%d,"%s","%s")', $inviting_user_id, mysql_real_escape_string($receiving_user_email), mysql_real_escape_string($text_body));
     if (mysql_query($log_query)) {
       return mysql_insert_id();
     }
