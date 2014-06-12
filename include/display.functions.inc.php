@@ -2458,10 +2458,10 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         }
         else {
           if ($freebie) {
-            $help_text="Oh no!  We can't give you an accurate Starma Rating because either your <a href='main.php?the_left=nav5&the_page=csel'>birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
+            $help_text="Oh no!  We can't give you an accurate Starma Rating because either your <a href='main.php?the_left=nav4&the_page=psel'>birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
           }
           else {
-            $help_text="Oh no!  We can't give you an accurate Starma Rating without a more accurate <a href='main.php?the_left=nav5&the_page=csel'>time of birth</a>.  If your time of birth is already exact, please encourage " . $username2 = get_nickname ($user_id_2) . " to enter a more accurate time of birth.";
+            $help_text="Oh no!  We can't give you an accurate Starma Rating without a more accurate <a href='main.php?the_left=nav4&the_page=psel'>time of birth</a>.  If your time of birth is already exact, please encourage " . $username2 = get_nickname ($user_id_2) . " to enter a more accurate time of birth.";
           }
           echo '<div class="hover_box">';
           for ($x=1; $x<=5; $x++) {
