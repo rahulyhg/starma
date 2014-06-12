@@ -151,12 +151,21 @@
 
 #inbox_user_list #list_body ul li .nickname {
     bottom:79px;
-    font-size: 0.8em;
     left: 8px;
     position: relative;
     top: 4px;
+}
+
+#inbox_user_list #list_body ul li .nickname a {
     text-align: left;
     font-weight: bold;
+    font-size: 0.8em;
+    text-decoration: none;
+    color: black;
+}
+
+#inbox_user_list #list_body ul li .nickname a:hover {
+    text-decoration: underline;
 }
 
 /*#inbox_user_list #list_body */
