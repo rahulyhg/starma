@@ -8,13 +8,12 @@ $(document).ready(function(){
 		}
 	});
 
-	if ($('input[name=time_unknown]').is(':checked')) {
-	//$('input[name=time_unknown]').click(function(){
+
+	if ($('input[name=time_unknown]').is(':checked')) {	
 		$('#hour_time').addClass('grayed_out');
 		$('#minute_time').addClass('grayed_out');
 		$('#meridiem_time').addClass('grayed_out');
 		$('#interval').addClass('grayed_out');
-	//});
 	}
 	else {
 		$('#hour_time').removeClass('grayed_out');
@@ -30,5 +29,19 @@ $(document).ready(function(){
 		}
 	})
 
+	$('input[name=time_unknown]').click(function(){
+		if ($('input[name=time_unknown]').is(':checked')) {	
+			$('#hour_time').addClass('grayed_out');
+			$('#minute_time').addClass('grayed_out');
+			$('#meridiem_time').addClass('grayed_out');
+			$('#interval').addClass('grayed_out');
+		}
+		else {
+			$('#hour_time').removeClass('grayed_out');
+			$('#minute_time').removeClass('grayed_out');
+			$('#meridiem_time').removeClass('grayed_out');
+			$('#interval').removeClass('grayed_out');
+		}
+	});
 
 });
