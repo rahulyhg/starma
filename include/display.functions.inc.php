@@ -734,8 +734,10 @@ function show_photo_grid ($user_id) {
   
   $photo_grid = get_photos ($user_id);
   //$length = sizeof($photo_list);
+
+  if (mysql_num_rows($photo_grid) > 1) {
   
-  while ($photo = mysql_fetch_array($photo_grid)) {
+    while ($photo = mysql_fetch_array($photo_grid)) {
  
       if ($photo["main"] == 0) { 
        echo '<div class="grid_photo_wrapper">';
@@ -755,11 +757,13 @@ function show_photo_grid ($user_id) {
         
        echo '</div>';
       }  
-      else {
-        echo '<div>' . get_nickname($user_id) . ' has no photos yet.</div>';
-      } 
+      
            
+    }
   }
+  else {
+    echo '<div>' . get_nickname($user_id) . ' has no other photos.</div>';
+  } 
   
   echo '</div>';
 }
