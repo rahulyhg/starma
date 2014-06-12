@@ -40,6 +40,7 @@ function get_poi_sign_blurb ($poi_id, $sign_id, $other_chart_id=-1) {
   $q = 'SELECT blurb from poi_sign_blurb WHERE poi_id = ' . $poi_id . ' and sign_id = ' . $sign_id;
   $do_q = mysql_query ($q) or die(mysql_error());
   if ($results = mysql_fetch_array($do_q)) {
+    echo $results["blurb"];
     return $results["blurb"];
   }
   else {
