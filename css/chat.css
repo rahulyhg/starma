@@ -154,6 +154,7 @@
     left: 8px;
     position: relative;
     top: 4px;
+    z-index: 100;
 }
 
 #inbox_user_list #list_body ul li .nickname a {
