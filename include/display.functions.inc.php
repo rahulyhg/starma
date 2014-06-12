@@ -5146,7 +5146,7 @@ function display_all_users ($url="", $filter=0) {
   
   //while ($user = mysql_fetch_array($user_list)) {
 
-  if (!$user_array = "") {
+  if (count($user_array) > 0) {
 
     foreach ($user_array as $user) {
  
