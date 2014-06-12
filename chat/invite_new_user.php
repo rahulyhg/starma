@@ -30,7 +30,7 @@ else {
 	$data["success"] = true;
 	$data["message"] = $_POST["text_body"];
 	$data["sender_id"] = $_POST["other_user_id"];
-	$data['message'] = $data["message"] + '<br><br><a href="' . get_domain() . '">Join Starma!</a><br><br><br>Sincerly,<br>The Starma Team<br><a href="' . get_domain() . '">www.starma.com</a>';
+	//$data['message'] = $data["message"] + '<br><br><a href="' . get_domain() . '">Join Starma!</a><br><br><br>Sincerly,<br>The Starma Team<br><a href="' . get_domain() . '">www.starma.com</a>';
 	send_invite_user($data["email"], $data["message"], $data["sender_id"]);
 }
 

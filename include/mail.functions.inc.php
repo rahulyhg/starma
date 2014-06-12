@@ -226,7 +226,7 @@ function sendMail($to, $subject, $message, $from)
     $mail->WordWrap = 50; // set word wrap
     $mail->IsHTML(true); // send as HTML
     $mail->Subject = $subject;
-    $mail->Body = $message . '<br><br>Sincerely,<br>The Starma Team'; //HTML Body
+    $mail->Body = $message . '<br><br>Sincerely,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>'; //HTML Body
     $mail->AltBody = $message; //Text Body
     $mail->AddBCC("teamstarma@gmail.com");
     
