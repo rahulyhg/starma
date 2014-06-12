@@ -29,7 +29,7 @@ if (login_check_point($type="full", $domain=$domain)) {
       echo '</div>';
       $user_msg_history = get_my_msgs();
       $user_list = extract_users_from_msgs_list($user_msg_history);
-      echo '<div id="list_body>';  //onmouseover="this.style.overflowY=\'scroll\'" onmouseout="this.style.overflowY=\'hidden\'"
+      echo '<div id="list_body">';  //onmouseover="this.style.overflowY=\'scroll\'" onmouseout="this.style.overflowY=\'hidden\'"
       echo '<ul>';
       foreach ($user_list as $user_id => $num_new_msgs) {
         if (profile_info($user_id)) {
