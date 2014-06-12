@@ -9,7 +9,7 @@ if (isLoggedIn())
     {
       if ($_POST['submit'] == "My Place of Birth is Incorrect") {
         if (get_my_chart_id()) { // IF UPDATING YOUR BIRTH INFO
-          do_redirect ($url=get_domain() . "/main.php?the_left=nav5&the_page=psel");
+          do_redirect ($url=get_domain() . "/main.php?the_left=nav4&the_page=psel");
         }
         else {
           //show_birth_info_form();
