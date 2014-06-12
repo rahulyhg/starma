@@ -71,7 +71,7 @@ if (login_check_point($type="full", $domain=$domain)) {
                   if(strlen($last_msg) > 25){
                     echo '<p'; 
                       if ($num_new_msgs > 0) {
-                        echo 'style="color:red;"'
+                        echo 'style="color:red;"';
                       }
 
                     echo '>' . substr($last_msg, 0, 25) . '...</p>';
@@ -79,7 +79,7 @@ if (login_check_point($type="full", $domain=$domain)) {
                   else {
                     echo '<p'
                       if ($num_new_msgs > 0) {
-                        echo 'style="color:red;"'
+                        echo 'style="color:red;"';
                       }
 
                     echo '>' . $last_msg . '</p>';
