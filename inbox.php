@@ -77,7 +77,7 @@ if (login_check_point($type="full", $domain=$domain)) {
                     echo '>' . substr($last_msg, 0, 25) . '...</p>';
                   }
                   else {
-                    echo '<p'
+                    echo '<p';
                       if ($num_new_msgs > 0) {
                         echo 'style="color:red;"';
                       }
