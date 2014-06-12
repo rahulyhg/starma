@@ -109,7 +109,10 @@ if (login_check_point($type="full")) {
       echo '"><span>' . $button_text . '</span>';
       //echo '<input type="hidden" value=' . $toggle . ' name="toggle"/></div>';
       //echo 'href="toggle_favorite.php?favorite=' . $toggle . '&favorite_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">' . $button_text . '</a></div>';
-           
+      
+      if($isCeleb) {
+        echo '<input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>';
+      }  
          
     echo '</div>';
     
