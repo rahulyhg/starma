@@ -5145,7 +5145,10 @@ function display_all_users ($url="", $filter=0) {
   //$user_array = quicksort_users($user_array);
   
   //while ($user = mysql_fetch_array($user_list)) {
-  foreach ($user_array as $user) {
+
+  if (!$user_array = "") {
+
+    foreach ($user_array as $user) {
  
       echo '<div class="user_block js_user_' . $user["user_id"] . '">';
         echo '<div class="photo_border_wrapper_compare">';
@@ -5159,6 +5162,10 @@ function display_all_users ($url="", $filter=0) {
         //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
         //echo '*' . $user["score"] . '*';
       echo '</div>';        
+    }
+  }
+  else {
+    echo '<div>You have no favorites yet!  Add members of Starma or celebrities to your Favorites by clicking the "add to favorites button" on their profiles.</div>';
   }
   
 }
