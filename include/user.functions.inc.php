@@ -1670,6 +1670,26 @@ function get_user_id_from_chart_id ($chart_id) {
   }
 }
 
+function get_chart_id_from_user_id ($user_id) {
+  if (isLoggedIn()) {
+    $q = 'SELECT chart_id from chart where user_id=' . $user_id . ' and nickname = "main"';
+    if($result = mysql_query($q)) {
+      if ($row = mysql_fetch_array($result)) {
+        return $row["chart_id"];
+      }
+      else {
+        return false;
+      }
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
 function get_any_user_id_from_chart_id ($chart_id) {
   if (isLoggedIn()) {
     $q = 'SELECT user.user_id from user inner join chart on user.user_id = chart.user_id where chart.chart_id = ' . $chart_id;
