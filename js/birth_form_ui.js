@@ -8,12 +8,20 @@ $(document).ready(function(){
 		}
 	});
 
-	$('input[name=time_unknown]').click(function(){
-		$('#hour_time').toggleClass('grayed_out');
-		$('#minute_time').toggleClass('grayed_out');
-		$('#meridiem_time').toggleClass('grayed_out');
-		$('#interval').toggleClass('grayed_out');
-	});
+	if ($('input[name=time_unknown]').attr('checked', true)) {
+	//$('input[name=time_unknown]').click(function(){
+		$('#hour_time').addClass('grayed_out');
+		$('#minute_time').addClass('grayed_out');
+		$('#meridiem_time').addClass('grayed_out');
+		$('#interval').addClass('grayed_out');
+	//});
+	}
+	else {
+		$('#hour_time').removeClass('grayed_out');
+		$('#minute_time').removeClass('grayed_out');
+		$('#meridiem_time').removeClass('grayed_out');
+		$('#interval').removeClass('grayed_out');
+	}
 
 	$('input[type=submit]').click(function(event){
 		if($('select[name=gender]').val() == 'none') {
