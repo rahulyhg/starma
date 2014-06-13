@@ -121,6 +121,32 @@ if (login_check_point($type="full")) {
     echo "You are not authorized to view this profile.";
   }
 
+  //Report User
+  /*
+  if(!$isCeleb) {
+    echo '<div class="profile_button report_user"><a href="#" id="msg_pop">Report User</a></div>';
+        echo '<div id="msg_sheen" class="pop">';
+    
+          echo '<div id="msg_sheen_screen" class="pop">';
+    
+            echo '</div>';
+              echo '<div id="msg_sheen_content" class="pop">';
+                echo '<div id="msg_type_area">';
+                  echo '<form id="report_user" action="report_user.php" method="POST">
+                          <div>Report User</div>
+                          <div>If this is an emergency, contact your local authorities immediately.<br>Otherwise, are you sure you want to report this user?</div>
+                          <input type="submit" name="submit" value="Yes" class="msg_send"/>
+                          <button type="button" name="cancel" class="msg_cancel">Cancel</button>
+                          <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
+                          <input type="hidden" value=' . get_my_user_id() . ' name="my_user_id"/>                       
+                        </form>';
+                      echo '<span id="msg_sent"></span>';
+                  echo '</div>';
+                echo '</div>';
+              echo '</div>';
+  }
+  */
+
   echo '</div>';  //close profile_top_bar
   if($isCeleb) {
     echo '<div style="clear:both;"></div>';
