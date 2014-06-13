@@ -57,20 +57,25 @@
 }
 
 #my_photos .delete_grid_photo {
-  background-color: #CCCCCC;
-    border: 1px solid black;
-    border-radius: 5px 5px 5px 5px;
+    background-color: #8393CA;
+    border: 1px solid #c7c7c7;
     font-size: 0.6em;
     height: 15px;
+    width: 45px;
     margin: 5px auto auto;
     text-align: center;
-    width: 34px;
+}
+
+#my_photos .delete_grid_photo:hover {
+  background-color: #FBF0A4;
+  cursor: pointer;
 }
 
 
 #my_photos .delete_grid_photo a {
-    color: red;
+    color: black;
     line-height: 15px;
+    font-weight: bold;
 }
 
 
@@ -117,8 +122,8 @@
     display: inline-block;
     height: 100px;
     padding: 2px;
-    width: 80px;
     vertical-align:top;
+    margin: 0 10px 0 0;
 }
 
 #my_photos .grid_photo_wrapper_link .grid_photo_border_wrapper {
