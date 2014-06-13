@@ -74,8 +74,7 @@ table {
 
 select {
   border: 1px solid #C0C0C0;
-  border-radius: 0;
-  background-color: #FFFFFF;
+  /*border-radius: 0;*/
   margin: 0;
   color: #444444;
   -moz-box-sizing: border-box;
@@ -89,4 +88,5 @@ select {
   text-shadow: none;
   white-space: nowrap !important;
   word-wrap: normal !important;
+  background: #ffffff;
 }
