@@ -43,6 +43,10 @@ body select {
   /*min-height:890px;*/
 }
 
+.styled_select {
+  background: url("/img/arrows/dropdownArrow.png") no-repeat top right #ffffff;
+}
+
 .align_right {
   text-align:right;
 }
