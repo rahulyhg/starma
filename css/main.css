@@ -1742,6 +1742,27 @@ li.my_unknown_button a {
     background:url('/img/profile/Starma-Astrology-FavoritesON.png') no-repeat ;    
 }
 
+.profile_button.report_button {
+    position: relative;
+    float: right;
+    margin-top: 42px;
+    margin-right: -20px;
+}
+
+.profile_button.report_button a {
+    background:url('/img/Starma-Astrology-Report-User.png') no-repeat ;
+    height: 30px;
+    width: 170px;
+    display:block;
+    padding-top: 3px;
+    text-align: center;
+}
+
+.profile_button.report_button:hover a {
+    background:url('/img/Starma-Astrology-Report-UserON.png') no-repeat ;
+    
+}
+
 /*
 .profile_button.add_favorite_button a, .profile_button.remove_favorite_button a {
     background:url('/img/profile/Starma-Astrology-Favorites.png') no-repeat ;
@@ -2288,6 +2309,32 @@ li.my_unknown_button a {
   cursor: pointer;
 }
 
+.report_cancel {
+  margin: 12px auto 0;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
+.report_send {
+  margin-right: 4px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
 .msg_cancel_invite {
   float: right;
   margin-right: 15px;
@@ -2304,6 +2351,15 @@ li.my_unknown_button a {
 }
 
 #msg_sent {
+  display: none;
+  font-family: arial;
+  color: black;
+  font-size: 1.3em;
+  text-align: center;
+  width:400px;
+}
+
+#report_sent {
   display: none;
   font-family: arial;
   color: black;

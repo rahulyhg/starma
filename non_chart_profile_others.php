@@ -80,7 +80,7 @@ if (login_check_point($type="full")) {
                           <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
                           <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>                         
                         </form>';
-                      echo '<span id="msg_sent"></span>';
+                      echo '<div id="msg_sent"></div>';
                   echo '</div>';
                 echo '</div>';
               echo '</div>';
@@ -122,30 +122,30 @@ if (login_check_point($type="full")) {
   }
 
   //Report User
-  /*
+  
   if(!$isCeleb) {
-    echo '<div class="profile_button report_user"><a href="#" id="msg_pop">Report User</a></div>';
-        echo '<div id="msg_sheen" class="pop">';
+    echo '<div class="profile_button report_button"><a href="#" id="report_pop">Report User</a></div>';
+        echo '<div id="msg_sheen" class="pop_report">';
     
-          echo '<div id="msg_sheen_screen" class="pop">';
+          echo '<div id="msg_sheen_screen" class="pop_report">';
     
             echo '</div>';
-              echo '<div id="msg_sheen_content" class="pop">';
+              echo '<div id="msg_sheen_content" class="pop_report">';
                 echo '<div id="msg_type_area">';
                   echo '<form id="report_user" action="report_user.php" method="POST">
-                          <div>Report User</div>
-                          <div>If this is an emergency, contact your local authorities immediately.<br>Otherwise, are you sure you want to report this user?</div>
-                          <input type="submit" name="submit" value="Yes" class="msg_send"/>
-                          <button type="button" name="cancel" class="msg_cancel">Cancel</button>
+                          <div class="report_text"><strong>Report User</strong><br><br><br></div>
+                          <div class="report_text">If this is an emergency, contact your local authorities immediately.<br><br>Otherwise, would you like to report ' . get_nickname($other_user_id) . '?<br><br></div>
+                          <input type="submit" name="submit" value="Yes" class="report_send"/>
+                          <button type="button" name="cancel" class="report_cancel">Cancel</button>
                           <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
                           <input type="hidden" value=' . get_my_user_id() . ' name="my_user_id"/>                       
                         </form>';
-                      echo '<span id="msg_sent"></span>';
+                      echo '<div id="report_sent"></div>';
                   echo '</div>';
                 echo '</div>';
               echo '</div>';
   }
-  */
+  
 
   echo '</div>';  //close profile_top_bar
   if($isCeleb) {
