@@ -2667,14 +2667,14 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
           $button_sign_id = get_sign_from_poi ($chart_id1, get_poi_id (ucfirst($connection)));
           echo '<li>';
           echo '<div class="poi_column_wrapper">';
-          echo '<div class="selected left ' . get_selector_name($button_sign_id) . '_tall';
+          echo '<div class="left pointer ' . get_selector_name($button_sign_id) . '_tall';
           //if ($connection_type == $connection or $stage==2) { 
           //  echo ' selected';
           //}
           echo '"><span class="icon"><span class="minor_poi_title">YOUR</span><span class="poi_title_tall">' . strtoupper($connection) . '</span></span></div>';
 
             $button_sign_id2 = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
-              echo '<div class="selected right ' . get_selector_name($button_sign_id2) . '_tall';
+              echo '<div class="right pointer ' . get_selector_name($button_sign_id2) . '_tall';
               //if ($connection_type == $connection or $stage==2) { 
               //  echo ' selected';
               //}
