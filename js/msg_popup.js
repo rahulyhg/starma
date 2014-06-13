@@ -41,4 +41,8 @@ $(document).ready(function(){
 							$('#msg_sent').html('<div id="ajax_loader"><img src="/js/ajax_loader.gif" /><p>Sending...</p></div>');
 					});
 
+
+	//Report User
+
+	
 });
