@@ -7,14 +7,16 @@ if (isLoggedIn()) {
   $other_user_id = $_POST['other_user_id'];  
   $sender_name = get_nickname($user_id);
   $reported_user = get_nickname($other_user_id);
-  $message = $sender_name . ' is reporting ' . $reported_user . '.';
+  $message = $sender_name . ' user id: ' . $user_id .', is reporting ' . $reported_user . ' user id: ' . $other_user_id . '.';
 
 /*
   if (sendReportUserEmail($sender_name, $reported_user, $message)) {
-    $data = 'User has been reported.';
+    $data = 'Your report has been sent.';
+    $data['success'] = true;
   }
   else {
-    $data = 'There was an error when reporting this user.  Please try again later.';
+    $data = 'There was an error when reporting this user.  Please try again later or contact Starma directly.';
+    $data['errors'] = true;
   }
 */
   $data = $message;

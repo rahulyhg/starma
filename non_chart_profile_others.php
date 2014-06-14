@@ -132,7 +132,7 @@ if (login_check_point($type="full")) {
             echo '</div>';
               echo '<div id="msg_sheen_content" class="pop_report">';
                 echo '<div id="msg_type_area">';
-                  echo '<form id="report_user" action="report_user.php" method="POST">
+                  echo '<form id="report_user" action="chat/report_user.php" method="POST">
                           <div class="report_text"><strong>Report User</strong><br><br><br></div>
                           <div class="report_text">If this is an emergency, contact your local authorities immediately.<br><br>Otherwise, would you like to report ' . get_nickname($other_user_id) . '?<br><br></div>
                           <input type="submit" name="submit" value="Yes" class="report_send"/>
@@ -201,6 +201,7 @@ if (login_check_point($type="full")) {
    echo "<script type='text/javascript' src='js/ajax_msg_send_from_popup.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_add_favs.js'></script>";
+   echo "<script type='text/javascript' src='js/ajax_report_user.js'></script>";
 
 }
 ?> 
