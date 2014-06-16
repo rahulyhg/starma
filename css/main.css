@@ -2309,6 +2309,20 @@ li.my_unknown_button a {
   cursor: pointer;
 }
 
+.report_close {
+  margin: 12px auto 0;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+  display: none;
+}
+
 .report_cancel {
   margin: 12px auto 0;
   width: 65px;
