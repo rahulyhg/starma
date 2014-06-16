@@ -141,6 +141,7 @@ if (login_check_point($type="full")) {
                           <input type="hidden" value=' . get_my_user_id() . ' name="my_user_id"/>                       
                         </form>';
                       echo '<div id="report_sent"></div>';
+                      echo '<button type="button" name="cancel" class="report_close">Close</button>';
                   echo '</div>';
                 echo '</div>';
               echo '</div>';
