@@ -61,4 +61,14 @@ $(document).ready(function(){
 		$('#report_sent').html('<div id="ajax_loader"><img src="/js/ajax_loader.gif" /><p>Sending...</p></div>');
 	});
 
+	$('.report_close').click(function(){
+		$('.pop_report').slideFadeToggle(function(){
+			$('.report_close').hide();
+			$('#report_sent').hide();
+			$('.report_text').show();
+			$('.report_send').show();
+			$('.report_cancel').show();
+		});
+	});
+
 });
