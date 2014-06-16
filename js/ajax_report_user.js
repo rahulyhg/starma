@@ -16,12 +16,15 @@ $(document).ready(function(){
 		.done(function(data){
 			console.log(data);
 			//alert(data);
-			if(data) {
-				$('#report_sent').html('<p>' + data + '</p>');
+			if(data.success) {
+				$('#report_sent').html('<p>' + data.message + '</p>');
+				$('.report_close').show();
 			}
-			if (data) {
+			if (data.errors) {
 				$('#report_sent').html('<p>' + data + '</p>');
+				$('.report_close').show();
 			}
+			/*
 				$('.pop_report').fadeOut(1900, function(){
 					$('#report_sent').hide();
 					$('.report_send').show();
@@ -29,6 +32,7 @@ $(document).ready(function(){
 					$('.report_text').show();
 				
 			});
+			*/
 		})
 		.fail(function(data){
 			$('#report_sent').html('<p>There was an error sending the report.  Please try again later or contact Starma directly.</p>')
