@@ -19,7 +19,9 @@ if (isLoggedIn()) {
     $data['errors'] = true;
   }
 */
-  $data = $message;
+  $data = array();
+  $data['success'] = true;
+  $data['message'] = $message;
   echo json_encode($data);
 }
  
