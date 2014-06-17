@@ -11,11 +11,11 @@ if (isLoggedIn()) {
 
 /*
   if (sendReportUserEmail($sender_name, $reported_user, $message)) {
-    $data = 'Your report has been sent.';
+    $data['message'] = 'Your report has been sent.  We will contact you soon if we have any further questions.  Thank you for helping to keep our community safe for everyone.';
     $data['success'] = true;
   }
   else {
-    $data = 'There was an error when reporting this user.  Please try again later or contact Starma directly.';
+    $data['message'] = 'There was an error when reporting this user.  Please try again later or contact Starma directly.';
     $data['errors'] = true;
   }
 */
