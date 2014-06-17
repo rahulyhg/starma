@@ -44,7 +44,7 @@ if (isLoggedIn())
 ?>
 
 <body>
-
+<script type="text/javascript" src="/js/browser_detect.js"></script>
 <div id="img_preloader">
   <img src="/img/account_info/Starma-Astrology-Space-BugHover.png"/>  
 </div>
@@ -95,7 +95,7 @@ if (isLoggedIn())
    ?>
 </div>
 
-
+  
 <?php 
   require_once ("landing_footer.php"); 
 ?>
