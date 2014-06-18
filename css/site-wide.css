@@ -167,7 +167,7 @@ body select {
 #account_menu {
   position:a;
   background:url('/img/arrows/AccountArrow.png') no-repeat top right;
-  width:165px;
+  width:213px;
   text-align:right;
     
 }
@@ -178,7 +178,7 @@ body select {
 
 #account_menu .dropdown {
   display:none;
-  width:165px;
+  /*width:165px;*/
 }
 
 #account_menu:hover .dropdown {
@@ -203,12 +203,12 @@ body select {
 #account_menu .dropdown ul li a {
   text-align:right;
   display:block;
-  width:150px;
+  width:187px;
   color:black;
   margin: 0px;
   padding:0px;
-  padding-right:10px;
-  line-height:37px;
+  padding-right:40px;
+  line-height:32px;
   border:2px solid black;
   border-bottom:0px;
   background-color:#8393CA;
