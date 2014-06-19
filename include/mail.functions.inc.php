@@ -150,7 +150,7 @@ password:  $newpassword<br>";
 }
 
 function sendReportUserEmail($sender, $reported_user, $message) {
-  if (sendMail('mticciati@gmail.com, arouda@gmail.com, jeemaill@gmail.com', 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_domain())) {
+  if (sendMail('mticciati@gmail.com arouda@gmail.com jeemaill@gmail.com', 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_domain())) {
     return true;
   }
   else {
