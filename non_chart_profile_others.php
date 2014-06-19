@@ -134,7 +134,7 @@ if (login_check_point($type="full")) {
                 echo '<div id="msg_type_area">';
                   echo '<form id="report_user" action="chat/report_user.php" method="POST">
                           <div class="report_text"><strong>Report User</strong><br/><br/></div>
-                          <div class="report_text">You are about to report ' . get_nickname($other_user_id) . ' for violating our <a href="docs/termsOfUse.htm" taget="_blank">Terms of Use</a>.  <strong>All reports are strictly confidential.</strong><br/><br/></div>
+                          <div class="report_text">You are about to report ' . get_nickname($other_user_id) . ' for violating our <a href="docs/termsOfUse.htm" target="_blank">Terms of Use</a>.  <strong>All reports are strictly confidential.</strong><br/><br/></div>
                           <label for="additional_comments" id="comments_label"><strong>Additional Comments</strong> (not required)</label><br/>
                           <textarea maxlength="500" name="additional_comments" id="additional_comments"></textarea><br/>
                           <input type="submit" name="submit" value="Send" class="report_send"/>
