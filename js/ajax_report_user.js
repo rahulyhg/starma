@@ -23,7 +23,7 @@ $(document).ready(function(){
 			}
 			if (data.errors) {
 				$('#report_sent').html('<p>' + data + '</p>');
-				$('#report_close').show();
+				$('.report_close').show();
 			}
 			/*
 				$('.pop_report').fadeOut(1900, function(){
@@ -37,9 +37,14 @@ $(document).ready(function(){
 		})
 		.fail(function(data){
 			$('#report_sent').html('<p>There was an error sending the report.  Please try again later or contact Starma directly.</p>')
+<<<<<<< HEAD
 			$('#report_close').show();
 
 			/*$('.pop_report').fadeOut(3000, function(){
+=======
+			$('.report_close').show();
+			/*$('.pop_report').fadeOut(2300, function(){
+>>>>>>> Version-2.0-updates
 				$('#report_sent').hide();
 				$('.report_send').show();
 				$('.report_cancel').show();
