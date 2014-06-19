@@ -1749,15 +1749,15 @@ li.my_unknown_button a {
     position: relative;
     float: right;
     margin-top: 42px;
-    margin-right: -20px;
+    margin-right: -37px;
 }
 
 .profile_button.report_button a {
     background:url('/img/Starma-Astrology-Report-User.png') no-repeat ;
     height: 30px;
-    width: 170px;
+    width: 154px;
     display:block;
-    padding-top: 3px;
+    padding-top: 2px;
     text-align: center;
 }
 
@@ -2246,6 +2246,20 @@ li.my_unknown_button a {
     display: none;
 }
 
+#msg_sheen #msg_sheen_content_report {
+    background: none repeat scroll 0 0 white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size:0.8em;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    top: 9px;
+    width: 500px;
+    height: 212px;
+    display: none;
+}
+
 #msg_sheen #msg_sheen_content_custom {
     background: none repeat scroll 0 0 white;
     border: 2px solid black;
@@ -2279,6 +2293,12 @@ li.my_unknown_button a {
   height: 130px;
   width: 400px;
   margin: 10px 50px 10px 50px;
+}
+
+#additional_comments {
+  height: 70px;
+  width: 400px;
+  margin: 2px 0;
 }
 
 .msg_send {
@@ -2365,6 +2385,11 @@ li.my_unknown_button a {
   background-color: #6F83BB;
   box-shadow: 0 0 1px #4B5A80;
   cursor: pointer;
+}
+
+#report_close {
+  width: 100%;
+  margin: 10px auto;
 }
 
 #msg_sent {

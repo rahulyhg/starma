@@ -51,6 +51,7 @@ $(document).ready(function(){
 
 	$('.report_cancel').click(function(){
 		$('.pop_report').slideFadeToggle();
+		$('#additional_comments').val('');
 	});
 
 	$('.report_send').click(function(){
@@ -59,6 +60,9 @@ $(document).ready(function(){
 		$('.report_cancel').hide();
 		$('#report_sent').show();
 		$('#report_sent').html('<div id="ajax_loader"><img src="/js/ajax_loader.gif" /><p>Sending...</p></div>');
+		$('#additional_comments').hide();
+		$('#comments_label').hide();
+		$('#msg_sheen_content_report').height('auto');
 	});
 
 	$('.report_close').click(function(){
@@ -68,6 +72,10 @@ $(document).ready(function(){
 			$('.report_text').show();
 			$('.report_send').show();
 			$('.report_cancel').show();
+			$('#additional_comments').show();
+			$('#additional_comments').val('');
+			$('#comments_label').show();
+			$('#msg_sheen_content_report').height('212px');
 		});
 	});
 
