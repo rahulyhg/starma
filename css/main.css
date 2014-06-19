@@ -2333,7 +2333,7 @@ li.my_unknown_button a {
 }
 
 .report_close {
-  margin: 12px auto 0;
+  margin: 1px auto;
   width: 65px;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
