@@ -1706,17 +1706,19 @@ li.my_unknown_button a {
     background:url('/img/profile/Starma-Astrology-Favorites.png') no-repeat ;
     height: 25px;
     line-height: 18px;
+    font: 1em "P22UndergroundBook";
 }
 
 .profile_button.remove_favorite_button span {
     width: 100%;
     /*padding-left: 16px;*/
-    padding-top:0px;
+    padding-top:1px;
     font-size:0.9em;
     line-height: 21px;
     /*padding-left: 14px;*/
     display: inline-block;
     cursor: pointer;
+    font: 1em "P22UndergroundBook";
 }
 
 .profile_button.add_favorite_button span {
@@ -1725,6 +1727,7 @@ li.my_unknown_button a {
   width: 100%;
   display: inline-block;
   cursor: pointer;
+  font: 1em "P22UndergroundBook";
 }
 
 .profile_button.celeb_favorites {
@@ -1740,6 +1743,27 @@ li.my_unknown_button a {
 
 .profile_button.add_favorite_button:hover span, .profile_button.remove_favorite_button:hover span {
     background:url('/img/profile/Starma-Astrology-FavoritesON.png') no-repeat ;    
+}
+
+.profile_button.report_button {
+    position: relative;
+    float: right;
+    margin-top: 42px;
+    margin-right: -37px;
+}
+
+.profile_button.report_button a {
+    background:url('/img/Starma-Astrology-Report-User.png') no-repeat ;
+    height: 30px;
+    width: 154px;
+    display:block;
+    padding-top: 2px;
+    text-align: center;
+}
+
+.profile_button.report_button:hover a {
+    background:url('/img/Starma-Astrology-Report-UserON.png') no-repeat ;
+    
 }
 
 /*
@@ -2222,6 +2246,20 @@ li.my_unknown_button a {
     display: none;
 }
 
+#msg_sheen #msg_sheen_content_report {
+    background: none repeat scroll 0 0 white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size:0.8em;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    top: 9px;
+    width: 500px;
+    height: 212px;
+    display: none;
+}
+
 #msg_sheen #msg_sheen_content_custom {
     background: none repeat scroll 0 0 white;
     border: 2px solid black;
@@ -2257,6 +2295,12 @@ li.my_unknown_button a {
   margin: 10px 50px 10px 50px;
 }
 
+#additional_comments {
+  height: 70px;
+  width: 400px;
+  margin: 2px 0;
+}
+
 .msg_send {
   float: right;
   margin-right: 15px;
@@ -2288,6 +2332,46 @@ li.my_unknown_button a {
   cursor: pointer;
 }
 
+.report_close {
+  margin: 12px auto 0;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+  display: none;
+}
+
+.report_cancel {
+  margin: 12px auto 0;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
+.report_send {
+  margin-right: 4px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
 .msg_cancel_invite {
   float: right;
   margin-right: 15px;
@@ -2303,7 +2387,21 @@ li.my_unknown_button a {
   cursor: pointer;
 }
 
+#report_close {
+  width: 100%;
+  margin: 10px auto;
+}
+
 #msg_sent {
+  display: none;
+  font-family: arial;
+  color: black;
+  font-size: 1.3em;
+  text-align: center;
+  width:400px;
+}
+
+#report_sent {
   display: none;
   font-family: arial;
   color: black;

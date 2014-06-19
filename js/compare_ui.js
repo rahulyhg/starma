@@ -69,6 +69,42 @@ $(document).ready(function(){
 
 		
 	//Major
+
+		$('.right, .left').click(function(){
+			var text = $(this).siblings('.blurb').children('.text').children().text();
+			//alert(text);
+			var intro = $(this).siblings('.blurb').children('.dynamic_info').text();
+			$(this).toggleClass('selected');
+			$(this).siblings('.right').toggleClass('selected');
+			if(text == 'HIDE TEXT') {
+				$(this).siblings('.blurb').children('.text').children('.hide_show').text('SHOW TEXT');
+				$(this).siblings('.blurb').children('.dynamic_blurb').hide();
+				$(this).siblings('.blurb').children('.dynamic_info').hide();
+				$(this).siblings('.blurb').children('.small_intro').show();
+				$(this).removeClass('selected');
+				if ($(this).hasClass('left')) {
+					$(this).siblings('.right').removeClass('selected');
+				}
+				else {
+					$(this).siblings('.left').removeClass('selected');
+				}
+			}
+			else {
+				$(this).siblings('.blurb').children('.text').children('.hide_show').text('HIDE TEXT');
+				$(this).siblings('.blurb').children('.dynamic_blurb').show().css('display','block');	
+				$(this).siblings('.blurb').children('.dynamic_info').show();
+				$(this).siblings('.blurb').children('.small_intro').hide();
+				$(this).addClass('selected');
+				if ($(this).hasClass('left')) {	
+					$(this).siblings('.right').addClass('selected');
+				}
+				else {
+					$(this).siblings('.left').addClass('selected');
+				}
+			}
+		});
+
+
 		$('.text').click(function(){
 			var intro = $(this).siblings('.dynamic_info').text();
 			var text = $(this).text();		
@@ -77,12 +113,16 @@ $(document).ready(function(){
 				$(this).siblings('.dynamic_blurb').hide();
 				$(this).siblings('.dynamic_info').hide();
 				$(this).siblings('.small_intro').show();
+				$(this).parent().siblings('.left').removeClass('selected');
+				$(this).parent().siblings('.right').removeClass('selected');
 			}
 			else {
 				$(this).children('.hide_show').text('HIDE TEXT');
 				$(this).siblings('.dynamic_blurb').show().css('display','block');	
 				$(this).siblings('.dynamic_info').show();
 				$(this).siblings('.small_intro').hide();
+				$(this).parent().siblings('.left').addClass('selected');
+				$(this).parent().siblings('.right').addClass('selected');
 			}
 
 			

@@ -80,7 +80,7 @@ if (login_check_point($type="full")) {
                           <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
                           <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>                         
                         </form>';
-                      echo '<span id="msg_sent"></span>';
+                      echo '<div id="msg_sent"></div>';
                   echo '</div>';
                 echo '</div>';
               echo '</div>';
@@ -120,6 +120,35 @@ if (login_check_point($type="full")) {
   else {
     echo "You are not authorized to view this profile.";
   }
+
+  //Report User
+  
+  if(!$isCeleb) {
+    echo '<div class="profile_button report_button"><a href="#" id="report_pop">Report User</a></div>';
+        echo '<div id="msg_sheen" class="pop_report">';
+    
+          echo '<div id="msg_sheen_screen" class="pop_report">';
+    
+            echo '</div>';
+              echo '<div id="msg_sheen_content_report" class="pop_report">';
+                echo '<div id="msg_type_area">';
+                  echo '<form id="report_user" action="chat/report_user.php" method="POST">
+                          <div class="report_text"><strong>Report User</strong><br/><br/></div>
+                          <div class="report_text">You are about to report ' . get_nickname($other_user_id) . ' for violating our <a href="docs/termsOfUse.htm" taget="_blank">Terms of Use</a>.  <strong>All reports are strictly confidential.</strong><br/><br/></div>
+                          <label for="additional_comments" id="comments_label"><strong>Additional Comments</strong> (not required)</label><br/>
+                          <textarea maxlength="500" name="additional_comments" id="additional_comments"></textarea><br/>
+                          <input type="submit" name="submit" value="Send" class="report_send"/>
+                          <button type="button" name="cancel" class="report_cancel">Cancel</button>
+                          <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
+                          <input type="hidden" value=' . get_my_user_id() . ' name="my_user_id"/>                       
+                        </form>';
+                      echo '<div id="report_sent"></div>';
+                      echo '<div id="report_close"><button type="button" name="close" class="report_close">Close</button></div>';
+                  echo '</div>';
+                echo '</div>';
+              echo '</div>';
+  }
+  
 
   echo '</div>';  //close profile_top_bar
   if($isCeleb) {
@@ -175,6 +204,7 @@ if (login_check_point($type="full")) {
    echo "<script type='text/javascript' src='js/ajax_msg_send_from_popup.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_add_favs.js'></script>";
+   echo "<script type='text/javascript' src='js/ajax_report_user.js'></script>";
 
 }
 ?> 

@@ -371,11 +371,12 @@ div.my_unknown_button a {
     /*background: url("/img/seed_paper.png");*/
     background: white;
     width:510px;
-    min-height:460px;
+    height:460px;
     margin-left:auto;
     margin-right:auto;
     text-align:left;
     border: 2px solid #2C3447;
+    overflow-y: scroll;
 }
 
 #starma_chart #blurb span {

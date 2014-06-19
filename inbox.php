@@ -69,10 +69,20 @@ if (login_check_point($type="full", $domain=$domain)) {
                 echo '<div class="last_msg">';
                 $last_msg = show_msg_last($user_id);
                   if(strlen($last_msg) > 25){
-                    echo '<p>' . substr($last_msg, 0, 25) . '...</p>';
+                    echo '<p '; 
+                      if ($num_new_msgs > 0) {
+                        echo 'style="color:red;"';
+                      }
+
+                    echo '>' . substr($last_msg, 0, 25) . '...</p>';
                   }
                   else {
-                    echo '<p>' . $last_msg . '</p>';
+                    echo '<p ';
+                      if ($num_new_msgs > 0) {
+                        echo 'style="color:red;"';
+                      }
+
+                    echo '>' . $last_msg . '</p>';
                   }
                 echo '</div>';
 

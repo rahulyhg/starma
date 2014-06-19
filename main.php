@@ -198,6 +198,14 @@ if ($the_left=="nav1") {
   
   <!-- End Footer -->
 
+<!--<script type="text/javascript">
+  
+  $(document).ready(function(){
+    $('select').addClass('styled_select');
+  });
+
+</script>-->
+
 <?php
  require_once "footer.php";
 ?> 
