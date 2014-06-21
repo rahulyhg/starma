@@ -96,7 +96,7 @@ function valid_photo($photo_id, $user_id) {
   return mysql_num_rows($result) >= 1;
 }
 
-
+/*
 function get_domain () {
   return 'starma.com';
 }
@@ -112,7 +112,7 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: https://www.' . $url);
 }
-
+*/
 
 /**********************BEGIN STAGING SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
@@ -139,7 +139,7 @@ function do_redirect ($url) {
 
 /**********************BEGIN LOCAL DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
-/*
+
 function get_domain () {
   return '127.0.0.1:8080';
   //return '192.168.1.141:8080';
@@ -156,7 +156,7 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: http://' . $url);
 }
-*/
+
 
 
 /**********************END LOCAL DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
@@ -348,7 +348,97 @@ function valid_email($email)
     return true;
 }
 
+//************* Matt Added for Ajax Sign Up ******************//
+
+function valid_username($username)
+{
+    $maxlength = 14;
+    $minlength = 3;
+    $username = trim($username);
  
+    if (empty($username)) {
+        return false; // it was empty
+    }
+    if (strlen($username) > $maxlength) {
+        return 'long'; // to long
+    }
+    if (strlen($username) < $minlength) {
+ 
+        return 'short'; //toshort
+    }
+    if (contains_illegal_words($username)) {
+      return 'naughty';
+    }
+
+    if(username_exists($username)) {
+      return 'taken';
+    }
+ 
+    //return true;
+    $result = preg_match("/^[A-Za-z0-9_-]+$/", $username); //only A-Z, a-z and 0-9 are allowed (and _ and - )
+    //$result = preg_match("/^[A-Za-z]+([A-Za-z0-9]*[_|-]?)*[A-Za-z0-9]+$/", $nickname); //only A-Z, a-z and 0-9 are allowed (and _ and - )
+    if ($result) {
+      return 'good'; // ok no invalid chars
+    } 
+    else {
+      return 'characters'; //invalid chars found
+    }
+
+    
+    return false;
+ 
+}
+
+function username_exists($username) {
+  $q = sprintf("SELECT user_id FROM user WHERE nickname = '%s' LIMIT 1",
+        mysql_real_escape_string($username));
+ 
+    $result = mysql_query($q) or die();
+ 
+    if (mysql_num_rows($result) > 0) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+ 
+    return false;
+}
+
+function valid_password($pass, $minlength = 6, $maxlength = 15)
+{
+    $pass = trim($pass);
+ 
+    if (empty($pass))
+    {
+        return 'empty';
+    }
+ 
+    if (strlen($pass) < $minlength)
+    {
+        return 'short';
+    }
+ 
+    if (strlen($pass) > $maxlength)
+    {
+        return 'long';
+    }
+ 
+    $result = preg_match("^[A-Za-z0-9_\-@!]+$", $pass);
+ 
+    if ($result)
+    {
+        return 'good';
+    } else
+    {
+        return 'characters';
+    }
+ 
+    return false;
+ 
+}
+
+/* 
 function valid_nickname($nickname, $minlength = 3, $maxlength = 30)
 {
  
@@ -386,6 +476,7 @@ function valid_nickname($nickname, $minlength = 3, $maxlength = 30)
     return false;
  
 }
+
  
 function valid_password($pass, $minlength = 6, $maxlength = 15)
 {
@@ -406,7 +497,7 @@ function valid_password($pass, $minlength = 6, $maxlength = 15)
         return false;
     }
  
-    $result = ereg("^[A-Za-z0-9_\-]+$", $pass);
+    $result = preg_match("^[A-Za-z0-9_\-@!]+$", $pass);
  
     if ($result)
     {
@@ -419,6 +510,7 @@ function valid_password($pass, $minlength = 6, $maxlength = 15)
     return false;
  
 }
+*/
 
 function permissions_check ($req) {
   if (isLoggedIn() and isset($_SESSION["permissions_id"])) {

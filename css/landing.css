@@ -36,7 +36,7 @@
 
 /****************LANDING PAGE****************************/
 #landing, #register, #birth_info_first_time, #gender_location_first_time, #desc_photo_first_time {
-  width:1200px;
+  /*width:1200px;*/
   height:890px;
   margin-left:auto;
   margin-right:auto;
@@ -176,12 +176,9 @@
 
 
 #landing #login_button_div{
-    bottom: 20px;
-    left: 160px;
-    margin-left: auto;
-    margin-right: auto;
+    bottom: 10px;
+    margin-left: 99px;
     position: relative;
-    width: 76px;
 }
 
 #login_form #stay_logged_in_input {
@@ -199,7 +196,6 @@
   width:300px;
   left:300px;
   top: 80px;
-  background: #8393CA;
 }
 
 #landing #forgot_password {
@@ -238,7 +234,27 @@ bottom: 71px;
 /***************************************REGISTRATION PAGE AND ERRORS****************************************/
 
 #register #create_account {
-  width:800px;
+  /*width:800px;*/
+}
+
+#errors {
+  display: inline-block;
+  float: left;
+  margin-left: 15px;
+}
+
+.register_error_area {
+  display: none;
+  font-size: .75em;
+  text-align: left;
+  height: 25px;
+  width: 300px;
+}
+
+.register_error {
+  display: none;
+  z-index: 1;
+  color: #C82923;
 }
 
 .error {
@@ -246,6 +262,12 @@ bottom: 71px;
   z-index:1;
   display:block;
   
+}
+
+.check {
+  z-index: 1;
+  color: green;
+  text-align: left;
 }
 
 #desc_photo_form_div .error {
@@ -304,7 +326,8 @@ bottom: 71px;
 
 #register #create_account {
   top:85px;
-  left:80px;
+  width: 100%;
+  /*left:80px;*/
 }
 
 #register .title {
@@ -326,13 +349,13 @@ bottom: 71px;
   
 }
 
+
 #register input {
   box-sizing: border-box; 
  -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
-  font-size:0.8em;
-  
-  
+  font-size:0.65em; 
 }
+
 
 #register input:focus {
   outline: 0 none;
@@ -354,12 +377,13 @@ bottom: 71px;
 }
 
 #register_form {
-  display: block;
+    display: block;
     font-size: 1.1em;
-    left: 74px;
+    /*left: 74px;*/
     position: relative;
     text-align: left;
-  
+    margin: 0 auto;
+    width: 725px;
 }
 
 
@@ -438,8 +462,9 @@ bottom: 71px;
 }
 
 #register #register_button_div {
-  
-    left: 429px;
+  position: relative;
+  display: inline-block;
+  margin-left: 75px;
 }
 /***************************DESC AND PHOTO FIRST TIME PAGE ONLY*******************************/
 #desc_photo_first_time #enter_info {

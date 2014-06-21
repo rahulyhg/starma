@@ -5400,12 +5400,14 @@ function show_registration_form($output=array(-1)){
   echo '<div class="bg" id="create_account">';  
   //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
   echo '<div id="register_form">';
-    echo '<form action="./register.php" method="post"> 
+    echo '<form name="register_form" action="./register.php" method="post"> 
     <table> 
       <tr>	
         <td style="width:200px" class="align_right">username</td> 
-        <td><input name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td> 
+        <td><input class="input_style" name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td> 
         <td>';
+        echo '<div class="register_error_area" id="username_error"></div>';
+        /*
           echo '<div class="error';
           if (!in_array(USERNAME_ERROR(), $output)) {echo ' hidden_error';}
           echo '" id="username_error">';
@@ -5416,6 +5418,7 @@ function show_registration_form($output=array(-1)){
           echo '" id="user_exists_error">';
           echo 'Nickname or Email already in use';
           echo '</div>';
+        */
         echo '</td>
       </tr>
       <tr>
@@ -5424,44 +5427,56 @@ function show_registration_form($output=array(-1)){
           date_select ($the_date=get_inputed_date ($type="default"), $the_name="birthday");
         echo '</td>   
         <td>';
+        echo '<div class="register_error_area" id="underage_error"></div>';
+        /*
           echo '<div class="error';
           if (!in_array(UNDERAGE_ERROR(), $output)) {echo ' hidden_error';}
           echo '" id="underage_error">';
           echo 'You must be at least 18 years old';
           echo '</div>';
+        */
         echo '</td>  
       </tr>
       <tr>
         <td class="align_right">email</td> 
-        <td><input name="email" type="text" id="email" maxlength="30" value="' . $_POST["email"] . '"></td>        
+        <td><input class="input_style" name="email" type="text" id="email" maxlength="30" value="' . $_POST["email"] . '"></td>        
         <td>';
+        echo '<div class="register_error_area" id="email_error"></div>';
+        /*
           echo '<div class="error';
           if (!in_array(EMAIL_ERROR(), $output)) {echo ' hidden_error';}
           echo '" id="email_error">';
           echo 'Invalid Email Address';
           echo '</div>';
+        */
         echo '</td>
       </tr>
       <tr>
         <td class="align_right">confirm email</td> 
-        <td><input name="email2" type="text" id="email2" maxlength="30"></td>        
+        <td><input class="input_style" name="email2" type="text" id="email2" maxlength="30"></td>        
         <td>';
+        echo '<div class="register_error_area" id="email2_error"></div>';
+        /*
           echo '<div class="error';
           if (!in_array(EMAIL_NO_MATCH_ERROR(), $output)) {echo ' hidden_error';}
           echo '" id="email_no_match_error">';
           echo 'Email addresses do not match';
           echo '</div>';
+        */
         echo '</td>
       </tr>
       <tr>
         <td class="align_right">password</td> 
-        <td><input name="password" type="password" id="password" maxlength="15"></td>        
+        <td><input class="input_style" name="password" type="password" id="password" maxlength="15"></td>        
         <td>';
+        echo '<div class="register_error_area" id="password_error"></div>';
+        /*
           echo '<div class="error';
           if (!in_array(PASSWORD_ERROR(), $output)) {echo ' hidden_error';}
           echo '" id="password_error">';
           echo 'Invalid or Empty Password';
           echo '</div>';
+        */
         echo '</td>
       </tr>
     
@@ -5473,18 +5488,22 @@ function show_registration_form($output=array(-1)){
     
 
     <div id="register_button_div"> 
-      <input id="bug_button" name="register" type="submit" value=""> 
+      <div id="go_bug_path"></div><input id="bug_button" name="register" type="submit" value=""> 
     </div>
   </form></div>';
   //echo '<img class="token_img" src="img/account_info/Starma-Astrology-Token-Box.png"/>';
 echo '</div>';
 show_bugaboos();
+echo '<div class="register_error_area" id="terms_error"></div>';
+/*
 echo '<div';
    if (!in_array(TERMS_ERROR(), $output)) {echo ' class="hidden_error"';}
    echo ' id="terms_error">';
    echo 'You must indicate that you agree to the above terms';
    echo '</div>';
+  */
 echo '</div>';
+echo '<script type="text/javascript" src="js/ajax_register.js"></script>';
 require_once ("landing_footer.php"); 
 }
 
