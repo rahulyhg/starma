@@ -846,7 +846,7 @@ function show_general_info($chart_id) {
     $my_info = my_profile_info();
     if (!($user_info["country_id"] == $my_info["country_id"])) {
       $country = get_country ($user_info["country_id"]);
-      $location = $location . '<br>' . format_country_name ($country["country_title"]);
+      $location = $location . ', ' . format_country_name ($country["country_title"]);
     }
   }
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
@@ -886,7 +886,7 @@ function show_general_info($chart_id) {
 
 //-----------------Matt added so Interests on Other's Profile only show up if filled out
 
-function show_interests_info($chart_id) {
+function show_interests_info($chart_id, $isCeleb) {
   $user_id = get_user_id_from_chart_id ($chart_id);
   $my_user_id = get_my_user_id();
   $user_info = profile_info($user_id);
@@ -980,8 +980,14 @@ function show_interests_info($chart_id) {
      if((strlen($user_info["about_me"]) + strlen($user_info["activities"]) + strlen($user_info["music"])
           + strlen($user_info["film_television"]) + strlen($user_info["books"]) + strlen($user_info["political"]) 
           + strlen($user_info["spiritual"]) + strlen($user_info["inspirational_figures"])) == 0 ) {
-      echo "<div id='profile_empty'>" . $nickname . " has not filled out " . $gender . " profile yet</div>";
-      echo "</div>";
+      if (!$isCeleb) {
+        echo "<div id='profile_empty'>" . $nickname . " has not filled out " . $gender . " profile yet</div>";
+        echo "</div>";
+      }
+      else {
+        echo "<div id='profile_empty'>We have not added content for " . $user_info['first_name'] . " " . $user_info['last_name'] . " yet.</div>";
+        echo "</div>";
+      }
      }
      else{
         if(strlen($user_info["about_me"]) != 0) {

@@ -186,9 +186,14 @@ if (login_check_point($type="full")) {
             require('photos_others.php');
           }
           elseif ($section == 'about_selected') {
+            if ($isCeleb) {
+              show_interests_info($_GET["chart_id2"], $isCeleb);
+            }
+            else {
             //echo '<div style="position:relative; top:75px;width:100%;">';
-              show_interests_info($_GET["chart_id2"]);
+              show_interests_info($_GET["chart_id2"], false);
             //echo '</div>';   
+            }
           }
           elseif ($section == 'western_selected') {
             require('chart_others.php');

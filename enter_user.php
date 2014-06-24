@@ -175,7 +175,7 @@ echo '<div id="profile_top_bar">';
             </div>';
 
           //************---Matt adding jquery popup from Message button
-        echo '<div class="profile_button_custom invite_button"><a href="#" id="msg_pop">Invite This Person<span class="div_link"></span></a></div>';
+        echo '<div class="profile_button_custom invite_button"><a href="#" id="msg_pop">Invite to Starma<span class="div_link"></span></a></div>';
         echo '<div id="msg_sheen" class="pop">';
     
           echo '<div id="msg_sheen_screen" class="pop">';
