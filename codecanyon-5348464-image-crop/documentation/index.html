@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html dir="ltr" lang="en-US"><!--<![endif]-->
+<head>
+
+  <title>Image Crop Documentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen" />
+  <script src='assets/js/jquery.min.js'></script>
+
+  <!--[if lt IE 9]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script src="assets/js/selectivizr.min.js"></script>
+  <![endif]-->
+
+</head>
+<body id="start">
+
+  <nav>
+    <ul>
+      <li class="active"><a href="#start">Install</a></li>
+      <li><a href="#how">1. How Does It Work?</a></li>
+      <li><a href="#php">2. PHP</a></li>
+      <li><a href="#css">3. CSS</a></li>
+    </ul>
+  </nav>
+
+  <article>
+
+
+    <!-- Header -->
+    <header>
+
+		<h1><em>Image Crop</em> Documentation <span class="version">v1.5</span></h1>
+
+		<p>Thanks for purchasing <a href="http://codecanyon.net/item/image-crop/5348464">my script</a>! If you have any questions that are beyond the scope of this documentation, please do feel free to <a href="http://codecanyon.net/user/rabona">contact me</a>.</p>
+
+		<p class="details">Author: <a href="http://themeforest.net/user/rabona">Rabona</a> &#8226; Created: 11  August 2013 &#8226; Updated: 4  May 2014</p>
+
+		</div>
+
+    </header>
+
+
+    <!-- Getting Started -->
+    <section>
+
+		<h2>Install</h2>
+
+		<p>This script requires <a href="http://php.net/downloads.php">PHP</a> and <a href="http://www.imagemagick.org/script/download.php">ImageMagick</a> to run.</p>
+
+		<p>Extract the downloaded Image Crop file from CodeCanyon and upload it's contents to your webhost. You must update the file permissions of the <em>/example/<strong>img</strong>/</em> and <em>/example/<strong>temp</strong>/</em> directories to <strong>777</strong>. Now run the script in your browser and it will work!</p>
+
+    </section>
+
+
+    <!-- 1. How -->
+    <section id="how">
+
+		<h2>How does it work?</h2>
+
+		<p>To create a new instance of the cropper, begin with adding the following HTML to your page:</p>
+
+		<ul>
+			<li>line 1: classname must be a unique class, as it'll be passed into the init(); function that initializes a new instance of the cropper.</li>
+		</ul>
+
+		<pre><code class="prettyprint linenums">&lt;div class=&quot;classname&quot;&gt;
+	&lt;div class=&quot;cropMain&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;cropSlider&gt;&lt;/div&gt;
+	&lt;button class=&quot;cropButton&quot; /&gt;Crop&lt;/button&gt;
+&lt;/div&gt;</pre></code>
+
+		<p>Next we must give this cropper an aspect ratio. You may do this through CSS:</p>
+
+		<ul>
+			<li>line 3: .classname should be the same class name given above.</li>
+		</ul>
+
+		<pre><code class="prettyprint linenums">&lt;style&gt;
+
+	.classname .cropMain {
+		width:500px;
+		height:300px;
+	}
+
+&lt;/stye&gt;</pre></code>
+
+		<p>Finally we initiate the cropper with JavaScript:</p>
+
+		<ul>
+			<li>line 3: foo is the variable name of the new CROP instance. It needs to be a unique variable.</li>
+			<li>line 4: pass the .classname into the init(); function. This initiates the cropper.</li>
+			<li>line 5: set an image to crop by loading it into loadImg(), you may even use a base64 string.</li>
+			<li>line 7: this function sends the coordinate data through ajax to save.php and returns json data.</li>
+			<li>line 13: Feed the coordinates() function your foo variable name. This function grabs the image cropper coordinates.</li>
+			<li>line 17: data.url is the returned URL of the saved image.</li>
+		</ul>
+
+		<pre><code class="prettyprint linenums">&lt;script&gt;
+
+	var foo = new CROP());
+	foo.init('.classname');
+	foo.loadImg('path/to/img.jpg');
+
+	$(document).on('click', 'button', function() {
+
+		$.ajax({
+			type: &quot;post&quot;,
+			dataType: &quot;json&quot;,
+			url: &quot;save.php&quot;,
+			data: $.param(coordinates(foo))
+		})
+		.done(function(data) {
+
+			alert(data.url);
+
+		});
+
+	});
+
+&lt;/script&gt;</pre></code>
+
+		<p>Lastly, add the .js and .css files into the header:</p>
+
+		<ul>
+			<li>line 1: the meta tag is used to filter different screen sizes, and work the media queries.</li>
+		</ul>
+
+		<pre><code class="prettyprint linenums">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, minimum-scale=1.0&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;crop.css&quot;&gt;
+&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;crop.js&quot;&gt;&lt;/script&gt;</pre></code>
+
+
+		<h3>Putting it all together</h3>
+
+		<pre><code class="prettyprint linenums">&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+	&lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, minimum-scale=1.0&quot; /&gt;
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;crop.css&quot;&gt;
+	&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;crop.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;div class=&quot;classname&quot;&gt;
+	&lt;div class=&quot;cropMain&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;cropSlider&gt;&lt;/div&gt;
+	&lt;button class=&quot;cropButton&quot; /&gt;Crop&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+
+	.classname .cropMain {
+		width:500px;
+		height:300px;
+	}
+
+&lt;/stye&gt;
+
+&lt;script&gt;
+
+	var foo = new CROP('');
+	foo.init('.classname');
+	foo.loadImg('path/to/img.jpg');
+
+	$(document).on('click', 'button', function() {
+
+		$.ajax({
+			type: &quot;post&quot;,
+			dataType: &quot;json&quot;,
+			url: &quot;save.php&quot;,
+			data: $.param(coordinates(foo))
+		})
+		.done(function(data) {
+
+			alert(data.url);
+
+		});
+
+	});
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    </section>
+
+
+    <!-- 2. PHP: Resizing, Cropping, and Saving the image -->
+    <section id="php">
+
+		<h2>PHP: Resizing, Cropping, and Saving the image</h2>
+
+		<p>Now you must process the coordinates and crop the image. Here is the full PHP code from save.php:</p>
+
+		<pre><code class="prettyprint linenums">&lt;?php
+
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+
+	$dst_x = 0;
+	$dst_y = 0;
+
+	$src_x = $_POST['x']; // crop Start x
+	$src_y = $_POST['y']; // crop Srart y
+
+	$src_w = $_POST['w']; // $src_x + $dst_w
+	$src_h = $_POST['h']; // $src_y + $dst_h
+
+	// resize image
+	// currentlty the default width and height of image from aspect ratio
+	$dst_w = $_GET['w']; // image width
+	$dst_h = $_GET['h']; // image height
+
+	// resize image variable
+	$image = imagecreatetruecolor($dst_w,$dst_h);
+
+	// create image
+	$source = imagecreatefromjpeg($_POST['image']);
+
+	// crop
+	imagecopyresampled($image, $source, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
+
+	// image name
+	$name = sha1(uniqid(mt_rand(), true));
+
+	// location to save cropped image
+	$url = 'temp/'.$name.'.jpg';
+
+	// save image
+	imagejpeg($image, $url, 100);
+
+	// return URL
+	$validation = array (
+		'url'     => $url
+	);
+	echo json_encode($validation);
+}</pre></code>
+
+		<h3>How to resize image?</h3>
+
+		<p>Replace lines 14-17:</p>
+
+		<pre><code class="prettyprint linenums">// resize image
+// -80 to offset the cropper padding around the image
+$dst_w = 320 - 80;
+$dst_h = 320 - 80;</code></pre>
+
+		<h3>How to rename the image?</h3>
+
+		<p>By default the script will rename each cropped image with a random string. You can change this and give the image a specific name by editing lines 28-19:</p>
+
+		<pre><code class="prettyprint linenums">// image name
+$name = 'new_image_name';</code></pre>
+
+		<h3>How to change the saved image location?</h3>
+
+		<p>The script currently saves each cropped image into a <em>/temp/</em> directory. You can rename this, and if you do please make sure you change the file permissions of the new directory to 777. Find lines 34-35.</p>
+
+		<pre><code class="prettyprint linenums">// location to save cropped image
+$url = 'new_image_location/'.$name.'.jpg';</code></pre>
+
+
+	</section>
+
+
+    <!-- 3. CSS Customisation -->
+    <section id="css">
+
+		<h2>CSS Customisation</h2>
+
+		<p>You may edit the cropper's CSS from <em>crop.css</em>, I've commented the sections so it's relatively simple.</p>
+
+		<p>If for example, you want to change the slider's progress bar from grey to yellow, you would do:</p>
+
+		<pre><code class="prettyprint linenums">.cropSlider {
+	background:yellow;
+}</code></pre>
+
+		<p>Change the slider's icon:</p>
+
+		<pre><code class="prettyprint linenums">.cropSlider div {
+	background:black;
+}</code></pre>
+
+		<p>The croppers background pattern:</p>
+
+		<pre><code class="prettyprint linenums">.cropMain {
+    background: blue;
+}</code></pre>
+
+		<p>Change the faded white border around the image:</p>
+
+		<pre><code class="prettyprint linenums">.cropMain .crop-container:after {
+    box-shadow: inset 0 0 0 40px red;
+}</code></pre>
+
+		<p>Edit the crop button styling:</p>
+
+		<pre><code class="prettyprint linenums">.cropButton {
+    background: blue;
+    color: white;
+    font-size: 18px;
+}</code></pre>
+
+		<p>A good guide for learning CSS can be <a href="https://developer.mozilla.org/en-US/learn/css">found here</a>.</a>
+
+	</section>
+
+
+    <!-- 4. Notes -->
+    <section id="notes">
+
+		<h2>Notes</h2>
+
+    	<p>The script utilizes <a href="http://refreshless.com/nouislider/">nouislider.min.js</a> for the slider.</p>
+
+    </section>
+
+
+
+
+
+  </article>
+
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/initialize.js"></script>
+</body>
+</html>
