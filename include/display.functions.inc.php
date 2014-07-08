@@ -791,7 +791,7 @@ function show_tiny_photo ($user_id) {
 
 /*************EndMatt---*/
 
-function show_photo_cropper($photo_to_crop) {
+function show_photo_cropper_old($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];
   $img_name = $photo_to_crop["picture"];
   echo '<div id="photo_cropping_area">';
@@ -812,6 +812,39 @@ function show_photo_cropper($photo_to_crop) {
   //echo '</div>';
 
   activate_photo_cropper ($img_id, $img_name, 'x1', 'y1', 'x2', 'y2', 'w', 'h');
+}
+
+function show_photo_cropper($photo_to_crop) {
+  $img_id = $photo_to_crop["user_pic_id"];
+  $img_name = $photo_to_crop["picture"];
+  echo '<div class="photo_cropper_content">';
+    echo '<div class="cropMain"></div>';
+    echo '<div class="cropSlider"></div>';
+    echo '<button class="cropButton" />Crop and Set</button>';
+    echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
+    echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
+
+    echo '<style>
+ 
+   	    .photo_cropper_content .cropMain {
+		width:500px;
+		height:500px;
+	    }
+ 
+          </style>
+
+    ';
+
+    //echo '<img id="photo_crop_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '?' . time() . '">';    
+    //echo '<input type="hidden" name="x1" id="x1" value=""/>';
+    //echo '<input type="hidden" name="y1" id="y1" value=""/>';
+    //echo '<input type="hidden" name="x2" id="x2" value=""/>';
+    //echo '<input type="hidden" name="y2" id="x2" value=""/>';
+    //echo '<input type="hidden" name="w" id="w" value=""/>';
+    //echo '<input type="hidden" name="h" id="h" value=""/>';
+  echo '</div>';
+
+  activate_photo_cropper ($img_id, $img_name);
 }
 
 

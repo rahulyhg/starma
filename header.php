@@ -39,6 +39,7 @@ date_default_timezone_set('America/Chicago');
     echo '<LINK REL="StyleSheet" HREF="../css/chart.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/main.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/photos.css" TYPE="text/css"/>';
+    echo '<LINK REL="StyleSheet" HREF="../css/crop.css" TYPE="text/css"/>';
     //echo '<LINK REL="StyleSheet" HREF="../autoSuggest/autoSuggest.css" TYPE="text/css"/>';
     echo '<link rel="stylesheet" type="text/css" href="../imgSelectArea/css/imgareaselect-default.css" />';
     echo '
@@ -46,6 +47,7 @@ date_default_timezone_set('America/Chicago');
       <script type="text/javascript" src="../autoSuggest/jquery.autoSuggest.js"></script>
       <script type="text/javascript" src="../imgSelectArea/scripts/jquery.imgareaselect.pack.js"></script>
       <script type="text/javascript" src="../js/paging_functions.js"></script>
+      <script type="text/javascript" src="../js/crop.js"></script>
       
     ';
   }
@@ -59,13 +61,14 @@ date_default_timezone_set('America/Chicago');
       <LINK REL="StyleSheet" HREF="css/main.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="css/photos.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="css/chat.css" TYPE="text/css"/>
-      
+      <LINK REL="StyleSheet" HREF="css/crop.css" TYPE="text/css"/>
       <link rel="stylesheet" type="text/css" href="imgSelectArea/css/imgareaselect-default.css" />
       
       <script type="text/javascript" src="/autoSuggest/jquery.autoSuggest.js"></script>
       <script type="text/javascript" src="imgSelectArea/scripts/jquery.imgareaselect.pack.js"></script>
       <script type="text/javascript" src="/chat/chat_all.js"></script>
       <script type="text/javascript" src="/js/paging_functions.js"></script>
+      <script type="text/javascript" src="/js/crop.js"></script>
     ';
   }
 ?>

@@ -240,7 +240,7 @@ function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_u
  echo '</div>';   
 }
 
-function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_name, $y2_name, $w_name, $h_name) {
+function activate_photo_cropper_old ($img_id, $img_name, $x1_name, $y1_name, $x2_name, $y2_name, $w_name, $h_name) {
   $image = new SimpleImage();
   $image->load(ORIGINAL_IMAGE_PATH() . $img_name);
   
@@ -304,6 +304,37 @@ function activate_photo_cropper ($img_id, $img_name, $x1_name, $y1_name, $x2_nam
           
        </script>';
 }
+
+function activate_photo_cropper ($img_id, $img_name) {
+  //$image = new SimpleImage();
+  //$image->load(ORIGINAL_IMAGE_PATH() . $img_name);
+
+  echo '<script type="text/javascript">
+ 
+   	  var foo = new CROP(\'\');
+	  foo.init(\'.photo_cropper_content\');
+	  foo.loadImg("' . ORIGINAL_IMAGE_PATH() . $img_name . '");
+ 
+	  $(document).on(\'click\', \'button\', function() {
+                
+		$.ajax({
+			type: "post",
+			dataType: "json",
+			url: "' .get_full_domain() . '/chat/ajax_crop_photo.php",
+			data: $.param(coordinates(foo)) + \'&imgName=' . $img_name . '&imgID=' . $img_id . '\'
+		})
+		.done(function(data) {
+ 
+			alert("Photo Cropped.  Please refresh.");
+ 
+		});  return false;
+ 
+	  });
+ 
+        </script>
+  ';
+}
+
 
 function hide_info_box($flag, $name) {
   echo '<input type="checkbox" name="hide_info_box" id="hide_info_box"/> Don\'t show this again<br><br>';
