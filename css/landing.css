@@ -243,16 +243,19 @@ bottom: 71px;
   margin-left: 15px;
 }
 
+#register_form_errors {
+  display: inline-block;
+}
+
 .register_error_area {
-  display: none;
   font-size: .75em;
   text-align: left;
-  height: 25px;
-  width: 300px;
+  height: 15px;
+  width: 450px;
+  float: left;
 }
 
 .register_error {
-  display: none;
   z-index: 1;
   color: #C82923;
 }
@@ -326,7 +329,7 @@ bottom: 71px;
 
 #register #create_account {
   top:85px;
-  width: 100%;
+  width: 1000px;
   /*left:80px;*/
 }
 
@@ -377,13 +380,13 @@ bottom: 71px;
 }
 
 #register_form {
-    display: block;
+    display: inline-block;
     font-size: 1.1em;
     /*left: 74px;*/
     position: relative;
     text-align: left;
-    margin: 0 auto;
-    width: 725px;
+    margin-left: 223px;
+    width: 612px;
 }
 
 
@@ -464,7 +467,7 @@ bottom: 71px;
 #register #register_button_div {
   position: relative;
   display: inline-block;
-  margin-left: 75px;
+  margin-left: 50px;
 }
 /***************************DESC AND PHOTO FIRST TIME PAGE ONLY*******************************/
 #desc_photo_first_time #enter_info {
