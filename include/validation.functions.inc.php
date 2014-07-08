@@ -424,7 +424,7 @@ function valid_password($pass, $minlength = 6, $maxlength = 15)
         return 'long';
     }
  
-    $result = preg_match("^[A-Za-z0-9_\-@!]+$", $pass);
+    $result = preg_match("/^[A-Za-z0-9_\-@!]+$/", $pass);
  
     if ($result)
     {
