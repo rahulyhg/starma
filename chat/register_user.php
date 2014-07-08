@@ -24,8 +24,8 @@ require_once("ajax_header.php");
 		$data['strtotime'] = 'There was an error storing your birthday';
 	}
 	elseif ((int)(calculate_age(substr((string)$birthday, 0, 10))) < 18) {
-		$errors['age'] = true;
-		$data['age'] = 'You must be at least 18 to join Starma.com';
+		$errors['underage'] = true;
+		$data['underage'] = 'You must be at least 18 to join Starma.com';
 	}
 	elseif ($email != $email2) {
 		$errors['email_match'] = true;
@@ -49,7 +49,7 @@ require_once("ajax_header.php");
 	}
 	elseif ($valid_password == 'characters') {
 		$errors['pass_characters'] = true;
-		$data['pass_characters'] = 'Your password may only include letters, numbers, underscores (_), hyphens (-), !, @';
+		$data['pass_characters'] = 'You may only include letters, numbers, underscores (_), hyphens (-), !, @';
 	}
 
 	if (!empty($errors)) {
