@@ -5410,9 +5410,8 @@ function show_registration_form($output=array(-1)){
     <table> 
       <tr>	
         <td style="width:200px" class="align_right">username</td> 
-        <td><input class="input_style" name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td> 
-        <td>';
-        echo '<div class="register_error_area" id="username_error"></div>';
+        <td><input class="input_style" name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td>';
+        echo '<td><span class="register_error_area" id="username_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(USERNAME_ERROR(), $output)) {echo ' hidden_error';}
@@ -5425,15 +5424,13 @@ function show_registration_form($output=array(-1)){
           echo 'Nickname or Email already in use';
           echo '</div>';
         */
-        echo '</td>
-      </tr>
+        echo '</tr>
       <tr>
         <td class="align_right">birthday</td> 
         <td>';
           date_select ($the_date=get_inputed_date ($type="default"), $the_name="birthday");
-        echo '</td>   
-        <td>';
-        echo '<div class="register_error_area" id="underage_error"></div>';
+        echo '</td>';
+        echo '<td><span class="register_error_area" id="underage_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(UNDERAGE_ERROR(), $output)) {echo ' hidden_error';}
@@ -5441,13 +5438,12 @@ function show_registration_form($output=array(-1)){
           echo 'You must be at least 18 years old';
           echo '</div>';
         */
-        echo '</td>  
+        echo '  
       </tr>
       <tr>
         <td class="align_right">email</td> 
-        <td><input class="input_style" name="email" type="text" id="email" maxlength="30" value="' . $_POST["email"] . '"></td>        
-        <td>';
-        echo '<div class="register_error_area" id="email_error"></div>';
+        <td><input class="input_style" name="email" type="text" id="email" maxlength="30" value="' . $_POST["email"] . '"></td>';
+        echo '<td><span class="register_error_area" id="email_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(EMAIL_ERROR(), $output)) {echo ' hidden_error';}
@@ -5455,13 +5451,11 @@ function show_registration_form($output=array(-1)){
           echo 'Invalid Email Address';
           echo '</div>';
         */
-        echo '</td>
-      </tr>
+        echo '</tr>
       <tr>
         <td class="align_right">confirm email</td> 
-        <td><input class="input_style" name="email2" type="text" id="email2" maxlength="30"></td>        
-        <td>';
-        echo '<div class="register_error_area" id="email2_error"></div>';
+        <td><input class="input_style" name="email2" type="text" id="email2" maxlength="30"></td>';
+        echo '<td><span class="register_error_area" id="email2_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(EMAIL_NO_MATCH_ERROR(), $output)) {echo ' hidden_error';}
@@ -5469,13 +5463,11 @@ function show_registration_form($output=array(-1)){
           echo 'Email addresses do not match';
           echo '</div>';
         */
-        echo '</td>
-      </tr>
+        echo '</tr>
       <tr>
         <td class="align_right">password</td> 
-        <td><input class="input_style" name="password" type="password" id="password" maxlength="15"></td>        
-        <td>';
-        echo '<div class="register_error_area" id="password_error"></div>';
+        <td><input class="input_style" name="password" type="password" id="password" maxlength="15"></td>';
+        echo '<td><span class="register_error_area" id="password_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(PASSWORD_ERROR(), $output)) {echo ' hidden_error';}
@@ -5483,8 +5475,7 @@ function show_registration_form($output=array(-1)){
           echo 'Invalid or Empty Password';
           echo '</div>';
         */
-        echo '</td>
-      </tr>
+        echo '</tr>
     
       <tr>
         <td style="vertical-align:top;" class="align_right"><input style="top:5px" type="checkbox" name="agreement" value="1"/></td>
@@ -5496,11 +5487,21 @@ function show_registration_form($output=array(-1)){
     <div id="register_button_div"> 
       <div id="go_bug_path"></div><input id="bug_button" name="register" type="submit" value=""> 
     </div>
-  </form></div>';
+  </form></div>'; //close #register_form
+/*
+  echo '<div id="register_form_errors">';
+    echo '<div class="register_error_area" id="username_error"></div>';
+    echo '<div class="register_error_area" id="underage_error"></div>';
+    echo '<div class="register_error_area" id="email_error"></div>';
+    echo '<div class="register_error_area" id="email2_error"></div>';
+    echo '<div class="register_error_area" id="password_error"></div>';
+    echo '<div class="register_error_area" id="terms_error"></div>';
+  echo '</div>'; //close #register_form_errors
+*/
   //echo '<img class="token_img" src="img/account_info/Starma-Astrology-Token-Box.png"/>';
-echo '</div>';
+echo '</div>';  //close #create_account
 show_bugaboos();
-echo '<div class="register_error_area" id="terms_error"></div>';
+//echo '<div class="register_error_area" id="terms_error"></div>';
 /*
 echo '<div';
    if (!in_array(TERMS_ERROR(), $output)) {echo ' class="hidden_error"';}
