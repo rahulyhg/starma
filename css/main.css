@@ -1551,6 +1551,18 @@ li.my_unknown_button a {
   cursor: pointer;
 }
 
+.location_edit {
+  background:url('/img/Starma-Astrology-Edit-Pencil.png') no-repeat #FFFFFF;
+  width:15px;
+  height:16px;
+  margin-left: 3px;
+  position: absolute;
+  right: 15px;
+  bottom: -2px;
+  cursor: pointer;
+  display: none;
+}
+
 .desc_input {
   display:none;
 }
