@@ -55,12 +55,24 @@ require_once("ajax_header.php");
 	if (!empty($errors)) {
 		$data['success'] = false;
 		$data['errors'] = $errors;
+		echo json_encode($data)
 	}
 	else {
-		$data['success'] = true;
+		registerNewUser($username, $password, $password, $email, $email2, $year, $month, $day, $agreement);
+		//$data['success'] = true;
+		log_this_action (account_action_user(), registered_basic_action(), -1, -1, -1, $output[0]);
+		if ($user = basic_user_data($output[0])) {
+            echo 'User ' . $user["user_id"] . 'is there.<br>';
+        }
+        else {
+            echo 'Failed to obtain User profile<br>';
+        }
+
+		loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id']);
+        do_redirect( $url = get_domain() . '/' . get_landing());
 	}
 
-	echo json_encode($data)
+	
 
 
 ?>
