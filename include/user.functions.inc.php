@@ -1925,7 +1925,7 @@ function registerNewUser($nickname, $password, $password2, $email, $email2, $yea
  
     global $seed;
         
-    
+    /*//All done with Ajax beforehand
     $errors = validate_registration($nickname, $password, $password2, $email, $email2, $year, $month, $day, $agreement);
 
     if (sizeof($errors) > 1)
@@ -1934,7 +1934,7 @@ function registerNewUser($nickname, $password, $password2, $email, $email2, $yea
         //die();
         return $errors;
     }
-
+    */
     $birthday = strtotime($year . "-" . $month . "-" . $day);
     
     //$token_id = token_valid($token);   
