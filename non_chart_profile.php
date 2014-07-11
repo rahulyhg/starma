@@ -50,6 +50,31 @@ if (login_check_point($type="full")) {
  
     show_my_descriptors_info(); 
 
+
+    //************ Edit current location popup **********************//
+    echo '<div id="msg_sheen" class="pop">';
+    
+          echo '<div id="msg_sheen_screen" class="pop">';
+    
+            echo '</div>';
+              echo '<div id="msg_sheen_content" class="pop">';
+                echo '<div id="msg_type_area">';
+                  echo '<form id="send-message-area" action="send_msg_from_profile.php" method="POST">
+                          <label for="msg_sendie" id="msg_label">New Message</label>
+                          <textarea id="msg_sendie" name="text_body" maxlength = "500" ></textarea>
+                          <input type="submit" name="submit" value="Send" class="msg_send"/>
+                          <button type="button" name="cancel" class="msg_cancel">Cancel</button>
+                          <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
+                          <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
+                          <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>                         
+                        </form>';
+                      echo '<div id="msg_sent"></div>';
+                  echo '</div>';
+                echo '</div>';
+              echo '</div>';
+
+      //End edit current location
+
     echo '<div id="profile_nav">
         <ul>
           <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>     
@@ -105,6 +130,7 @@ if (login_check_point($type="full")) {
     echo '</div>';
     echo'<script type="text/javascript" src="js/ajax_descriptors_submit.js"></script>';
     echo'<script type="text/javascript" src="js/ajax_chart_submit.js"></script>';
+    echo'<script type="text/javascript" src="js/profile_edit.js"></script>';
   }
   
    
