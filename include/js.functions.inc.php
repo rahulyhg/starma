@@ -324,8 +324,7 @@ function activate_photo_cropper ($img_id, $img_name) {
 			data: $.param(coordinates(foo)) + \'&imgName=' . $img_name . '&imgID=' . $img_id . '\'
 		})
 		.done(function(data) {
- 
-			alert("Photo Cropped.  Please refresh.");
+                        window.location.replace("' . get_full_domain () . '/main.php?the_page=psel&the_left=nav1&western=0&section=photos_selected");
  
 		});  return false;
  
