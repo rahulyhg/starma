@@ -2,7 +2,16 @@ $(document).ready(function(){
 
 	var timer;
 
-	$('input[name=nickname]').keyup(function(){
+	$('#bug_button').prop('disabled', true).css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
+
+	$('input[name=nickname]').on('keyup blur', function(){
+		var name = $('#username_error');
+		var email_error1 = $('#email_error');
+		var email_error2 = $('#email2_error');
+		var pass = $('#password_error');
 		clearInterval(timer);
 		timer = setTimeout(function() {
 			var username = { 'username' : $('input[name=nickname]').val()};
@@ -10,15 +19,31 @@ $(document).ready(function(){
 			$.post('chat/register_form_fields.php', username, function(data){
 				if(data.errors) {	
 					$('#username_error').show().addClass('register_error').removeClass('check').text(data.message);
+					$('#bug_button').prop('disabled', true).css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
 				}
 				if(data.success) {
 					$('#username_error').show().removeClass('register_error').addClass('check').text(data.message);
+					if (name.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+						if ($('input[name=agreement]').is(':checked')) {
+							$('#bug_button').prop('disabled', false).css({
+																'opacity' : 1,
+																'cursor'  : 'pointer'
+															});
+						}
+					}
 				}
 			}, 'json');
-		}, 1000);
+		}, 800);
 	});
 
-	$('input[name=email]').keyup(function(){
+	$('input[name=email]').on('keyup blur', function(){
+		var name = $('#username_error');
+		var email_error1 = $('#email_error');
+		var email_error2 = $('#email2_error');
+		var pass = $('#password_error');
 		clearInterval(timer);
 		timer = setTimeout(function() {
 			var email = { 'email' : $('input[name=email]').val()};
@@ -26,26 +51,61 @@ $(document).ready(function(){
 			$.post('chat/register_form_fields.php', email, function(data){
 				if(data.errors) {	
 					$('#email_error').show().addClass('register_error').removeClass('check').text(data.message);
+					$('#bug_button').prop('disabled', true).css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
 				}
 				if(data.success) {
 					$('#email_error').show().removeClass('register_error').addClass('check').text(data.message);
+					if (name.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+						if ($('input[name=agreement]').is(':checked')) {
+							$('#bug_button').prop('disabled', false).css({
+																'opacity' : 1,
+																'cursor'  : 'pointer'
+															});
+						}
+					}
 				}
 			}, 'json');
-		}, 1000);
+		}, 800);
 	});
 
-	$('input[name=email2]').keyup(function(){
+	$('input[name=email2]').on('keyup blur', function(){
+		var name = $('#username_error');
+		var email_error1 = $('#email_error');
+		var email_error2 = $('#email2_error');
+		var pass = $('#password_error');
 		clearInterval(timer);
 		timer = setTimeout(function() {
 			var email2 = $('input[name=email2]').val();
 			var email = $('input[name=email]').val();
 			if (email != email2) {
 				$('#email2_error').show().addClass('register_error').removeClass('check').text('The two emails must match');
+				$('#bug_button').prop('disabled', true).css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
+			}
+			if (email == '') {
+				$('#email_error').show().addClass('register_error').removeClass('check').text('Please enter a valid email');
+				$('#bug_button').prop('disabled', true).css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
 			}
 			else {
 				$('#email2_error').show().removeClass('register_error').addClass('check').text('All Good');
+					if (name.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+						if ($('input[name=agreement]').is(':checked')) {
+							$('#bug_button').prop('disabled', false).css({
+																'opacity' : 1,
+																'cursor'  : 'pointer'
+															});
+						}
+					}
 			}
-		}, 1500);
+		}, 800);
 	});
 /*
 	$('input[name=password]').focus(function(){
@@ -53,7 +113,12 @@ $(document).ready(function(){
 		$('#password_error').show().addClass('register_error').removeClass('check').text(default_text);
 	});
 */
-	$('input[name=password]').keyup(function(){
+
+	$('input[name=password]').on('keyup blur', function(){
+		var name = $('#username_error');
+		var email_error1 = $('#email_error');
+		var email_error2 = $('#email2_error');
+		var pass = $('#password_error');
 		clearInterval(timer);
 		timer = setTimeout(function() {
 			var password = { 'password' : $('input[name=password]').val()};
@@ -61,12 +126,46 @@ $(document).ready(function(){
 				//$('#password_error').show().addClass('register_error').removeClass('check').text(data);
 				if(data.errors) {	
 					$('#password_error').show().addClass('register_error').removeClass('check').text(data.message);
+					$('#bug_button').prop('disabled', true).css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
 				}
 				if(data.success) {
 					$('#password_error').show().removeClass('register_error').addClass('check').text(data.message);
+					if (name.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+						if ($('input[name=agreement]').is(':checked')) {
+							$('#bug_button').prop('disabled', false).css({
+																'opacity' : 1,
+																'cursor'  : 'pointer'
+															});
+						}
+					}
 				}
 			}, 'json');
-		}, 1500);
+		}, 800);
+
+	});
+
+	$('input[name=agreement]').on('change', function(){
+		var name = $('#username_error');
+		var email_error1 = $('#email_error');
+		var email_error2 = $('#email2_error');
+		var pass = $('#password_error');
+		var agreement = $('input[name=agreement]');
+
+		if (name.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check') && agreement.is(':checked')) {
+				$('#bug_button').prop('disabled', false).css({
+																'opacity' : 1,
+																'cursor'  : 'pointer'
+															});
+		}
+		else {
+			$('#bug_button').prop('disabled', true).css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
+		}
 	});
 
 
