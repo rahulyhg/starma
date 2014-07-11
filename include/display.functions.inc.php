@@ -630,7 +630,10 @@ function show_my_general_info() {
         echo '/' . get_my_gender();
       }
       echo ' ' . $location;
+      
     echo '</div>';
+    //Adding editable location
+      echo '<span class="location_edit"></span>';
     //echo '<div class="location_area">';
     //  echo $location;
     //echo '</div>';
@@ -5453,7 +5456,7 @@ function show_registration_form($output=array(-1)){
         */
         echo '</tr>
       <tr>
-        <td class="align_right">confirm email</td> 
+        <td class="align_right"><div style="width:105px;">confirm email</div></td> 
         <td><input class="input_style" name="email2" type="text" id="email2" maxlength="30"></td>';
         echo '<td><span class="register_error_area" id="email2_error"></span></td>';
         /*
