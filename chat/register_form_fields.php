@@ -30,7 +30,7 @@ require_once("ajax_header.php");
 			}
 			elseif($valid_username == 'good') {
 				$data['success'] = true;
-				$data['message'] = 'All Good';
+				$data['message'] = 'Great!';
 			}
 		}
 		else {

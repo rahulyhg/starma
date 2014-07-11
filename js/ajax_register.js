@@ -68,7 +68,7 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 800);
+		}, 300);
 	});
 
 	$('input[name=email2]').on('keyup blur', function(){
@@ -105,7 +105,7 @@ $(document).ready(function(){
 						}
 					}
 			}
-		}, 800);
+		}, 300);
 	});
 /*
 	$('input[name=password]').focus(function(){
