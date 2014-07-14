@@ -536,7 +536,8 @@ function show_my_descriptors_info_home() {
 //**************ENDMatt
 
 function show_my_interests_info() {
-  show_interests_info(get_my_chart_id());
+  $isCeleb = null;
+  show_interests_info(get_my_chart_id(), $isCeleb);
   /*
   $user_info = my_profile_info();
   echo '<div id="interests">';
@@ -630,10 +631,10 @@ function show_my_general_info() {
         echo '/' . get_my_gender();
       }
       echo ' ' . $location;
-      
-    echo '</div>';
-    //Adding editable location
+       //Adding editable location
       echo '<span class="location_edit"></span>';
+    echo '</div>';
+   
     //echo '<div class="location_area">';
     //  echo $location;
     //echo '</div>';
