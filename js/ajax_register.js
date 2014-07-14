@@ -6,9 +6,10 @@ $(document).ready(function(){
 												'opacity' : 0.5,
 												'cursor'  : 'default'
 												});
-
+	//Username
 	$('input[name=nickname]').on('keyup blur', function(){
 		var name = $('#username_error');
+		var age = $('#underage_error');
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
@@ -26,7 +27,7 @@ $(document).ready(function(){
 				}
 				if(data.success) {
 					$('#username_error').show().removeClass('register_error').addClass('check').text(data.message);
-					if (name.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
 						if ($('input[name=agreement]').is(':checked')) {
 							$('#bug_button').prop('disabled', false).css({
 																'opacity' : 1,
@@ -39,12 +40,53 @@ $(document).ready(function(){
 		}, 800);
 	});
 
-	$('input[name=email]').on('keyup blur', function(){
+	//Birthday
+	$('#year, #month, #day').on('change', function(){
 		var name = $('#username_error');
+		var age = $('#underage_error');
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
 		clearInterval(timer);
+		timer = setTimeout(function() {
+			var birthday = { 'year_birthday'  : $('#year').val(),
+							 'month_birthday' : $('#month').val(),
+							 'day_birthday'   : $('#day').val()
+							};
+
+			$.post('chat/register_form_fields.php', birthday, function(data){
+				if(data.errors) {	
+					$('#underage_error').show().addClass('register_error').removeClass('check').text(data.message);
+					$('#bug_button').prop('disabled', true).css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
+				}
+				if(data.success) {
+					$('#underage_error').show().removeClass('register_error').addClass('check').text(data.message);
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+						if ($('input[name=agreement]').is(':checked')) {
+							$('#bug_button').prop('disabled', false).css({
+																'opacity' : 1,
+																'cursor'  : 'pointer'
+															});
+						}
+					}
+				}
+			}, 'json');
+		}, 800);
+	});
+
+	//Email1
+	$('input[name=email]').on('keyup blur', function(){
+		var name = $('#username_error');
+		var age = $('#underage_error');
+		var email_error1 = $('#email_error');
+		var email_error2 = $('#email2_error');
+		var pass = $('#password_error');
+		clearInterval(timer);
+		var email1 = $('input[name=email]').val();
+		var email2 = $('input[name=email2]').val();
 		timer = setTimeout(function() {
 			var email = { 'email' : $('input[name=email]').val()};
 
@@ -58,7 +100,10 @@ $(document).ready(function(){
 				}
 				if(data.success) {
 					$('#email_error').show().removeClass('register_error').addClass('check').text(data.message);
-					if (name.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+					if(email_error1.hasClass('check') && (email1 == email2)) { 
+						$('#email2_error').show().removeClass('register_error').addClass('check').text('Great!');
+					}
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
 						if ($('input[name=agreement]').is(':checked')) {
 							$('#bug_button').prop('disabled', false).css({
 																'opacity' : 1,
@@ -71,16 +116,19 @@ $(document).ready(function(){
 		}, 300);
 	});
 
-	$('input[name=email2]').on('keyup blur', function(){
+	//Email2
+	$('input[name=email2]').on('keyup blur focus', function(){
 		var name = $('#username_error');
+		var age = $('#underage_error');
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
 		clearInterval(timer);
+		var email = $('input[name=email]').val();
+		var email2 = $('input[name=email2]').val();
 		timer = setTimeout(function() {
-			var email2 = $('input[name=email2]').val();
-			var email = $('input[name=email]').val();
-			if (email != email2) {
+			
+			if (!(email == email2)) {
 				$('#email2_error').show().addClass('register_error').removeClass('check').text('The two emails must match');
 				$('#bug_button').prop('disabled', true).css({
 												'opacity' : 0.5,
@@ -94,9 +142,9 @@ $(document).ready(function(){
 												'cursor'  : 'default'
 												});
 			}
-			else {
-				$('#email2_error').show().removeClass('register_error').addClass('check').text('All Good');
-					if (name.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+			if(email_error1.hasClass('check') && (email == email2)) { 
+				$('#email2_error').show().removeClass('register_error').addClass('check').text('Great!');
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
 						if ($('input[name=agreement]').is(':checked')) {
 							$('#bug_button').prop('disabled', false).css({
 																'opacity' : 1,
@@ -107,15 +155,11 @@ $(document).ready(function(){
 			}
 		}, 300);
 	});
-/*
-	$('input[name=password]').focus(function(){
-		var default_text = 'Your password must be between 6 and 15 characters, and include only letters, numbers, underscores (_), hyphens (-), !, @';
-		$('#password_error').show().addClass('register_error').removeClass('check').text(default_text);
-	});
-*/
 
+	//Password
 	$('input[name=password]').on('keyup blur', function(){
 		var name = $('#username_error');
+		var age = $('#underage_error');
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
@@ -133,7 +177,7 @@ $(document).ready(function(){
 				}
 				if(data.success) {
 					$('#password_error').show().removeClass('register_error').addClass('check').text(data.message);
-					if (name.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
 						if ($('input[name=agreement]').is(':checked')) {
 							$('#bug_button').prop('disabled', false).css({
 																'opacity' : 1,
@@ -147,14 +191,16 @@ $(document).ready(function(){
 
 	});
 
+	//Agreement
 	$('input[name=agreement]').on('change', function(){
 		var name = $('#username_error');
+		var age = $('#underage_error');
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
 		var agreement = $('input[name=agreement]');
 
-		if (name.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check') && agreement.is(':checked')) {
+		if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check') && agreement.is(':checked')) {
 				$('#bug_button').prop('disabled', false).css({
 																'opacity' : 1,
 																'cursor'  : 'pointer'
@@ -168,7 +214,7 @@ $(document).ready(function(){
 		}
 	});
 
-
+	//Post
 	$('form[name=register_form]').submit(function(event){
 
 		var data = {
