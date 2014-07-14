@@ -1,5 +1,5 @@
 <?php
- //bam, comment
+
 require_once "header.php";
 ?>
 
