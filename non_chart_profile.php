@@ -59,8 +59,8 @@ if (login_check_point($type="full")) {
             echo '</div>';
               echo '<div id="msg_sheen_content" class="pop">';
                 echo '<div id="msg_type_area">';
-                  echo '<form id="send-message-area" action="send_msg_from_profile.php" method="POST">
-                          <label for="msg_sendie" id="msg_label">New Message</label>
+                  echo '<form id="edit-location-area" action="edit_location.php" method="POST">
+                          <label for="msg_sendie" id="msg_label">New Current Location</label>
                           <textarea id="msg_sendie" name="text_body" maxlength = "500" ></textarea>
                           <input type="submit" name="submit" value="Send" class="msg_send"/>
                           <button type="button" name="cancel" class="msg_cancel">Cancel</button>
