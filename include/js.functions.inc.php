@@ -313,7 +313,7 @@ function activate_photo_cropper ($img_id, $img_name) {
  
    	  var foo = new CROP(\'\');
 	  foo.init(\'.photo_cropper_content\');
-	  foo.loadImg("' . ORIGINAL_IMAGE_PATH() . $img_name . '");
+	  foo.loadImg("' . ORIGINAL_IMAGE_PATH() . $img_name . '?m=' . filemtime(ORIGINAL_IMAGE_PATH() . $img_name) . '");
  
 	  $(document).on(\'click\', \'button\', function() {
                 
@@ -329,6 +329,8 @@ function activate_photo_cropper ($img_id, $img_name) {
 		});  return false;
  
 	  });
+
+          $(\'.crop-img\').rotate(360);
  
         </script>
   ';

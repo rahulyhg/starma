@@ -823,6 +823,9 @@ function show_photo_cropper($photo_to_crop) {
     echo '<button class="cropButton" />Crop and Set</button>';
     echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
     echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
+    
+    
+
 
     echo '<style>
  
