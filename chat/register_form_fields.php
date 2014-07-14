@@ -42,6 +42,33 @@ require_once("ajax_header.php");
 
 	}
 
+	if(isset($_POST['year_birthday'])) {
+
+		$year = $_POST['year_birthday'];
+		$month = $_POST['month_birthday'];
+		$day = $_POST['day_birthday'];
+		$birthday = $year . "-" . $month . "-" . $day; 
+		$data = array();
+		//$data['message'] = $birthday;
+		//$data['success'] = true;
+		
+		if (!strtotime($birthday)) {
+			$data['errors'] = true;
+			$data['message'] = 'There was an error storing your birthday';
+		}
+		elseif ((int)(calculate_age(substr((string)$birthday, 0, 10))) < 18) {
+			$data['errors'] = true;
+			$data['message'] = 'You must be at least 18 to join Starma.com';
+		}
+		else {
+			$data['success'] = true;
+			$data['message'] = 'Great!';
+		}
+	
+		echo json_encode($data);
+	}
+
+
 	if(isset($_POST['email'])) {
 
 		$email = $_POST['email'];
@@ -50,7 +77,7 @@ require_once("ajax_header.php");
 
 		if($valid_email) {
 			$data['success'] = true;
-			$data['message'] = 'All Good';
+			$data['message'] = 'Great!';
 		}
 		else {
 			$data['errors'] = true;
@@ -82,7 +109,7 @@ require_once("ajax_header.php");
 			}
 			if($valid_password == 'good') {
 				$data['success'] = true;
-				$data['message'] = 'All Good';
+				$data['message'] = 'Great!';
 			}			
 		
 		    if($valid_password == 'empty') {
