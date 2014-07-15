@@ -9,7 +9,11 @@ $(document).ready(function(){
 	});
 
 	$('.location_edit').click(function(){
+		$('.location_pop').slideFadeToggle();
+	});
 
+	$('.location_cancel').click(function(){
+		$('.location_pop').slideFadeToggle();
 	});
 
 	jQuery.fn.slideFadeToggle = function(easing, callback) {
