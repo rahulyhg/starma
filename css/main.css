@@ -1557,7 +1557,7 @@ li.my_unknown_button a {
   height:19px;
   margin-left: 3px;
   position: absolute;
-  right: 15px;
+  right: 0px;
   bottom: -2px;
   cursor: pointer;
   display: none;
@@ -1590,6 +1590,19 @@ li.my_unknown_button a {
   background-color: #6F83BB;
   box-shadow: 0 0 1px #4B5A80;
   cursor: pointer;
+}
+
+.location_error_area {
+  display:inline-block;
+  font-size: .75em;
+  text-align: left;
+  height: 15px;
+  width: 250px;
+  float: left;
+}
+.location_error {
+  z-index: 1;
+  color: #C82923;
 }
 
 .desc_input {
