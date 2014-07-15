@@ -296,7 +296,7 @@ function geocode($address, $type)
       $coords['lng'] = $entry_list[0]->lng;
       if ($type=='wikipediaSearch?q') {
         $title = $entry_list[0]->title . ', ' . $entry_list[0]->countryCode;
-        $coords['state'] = 'NA';
+        $coords['state_code'] = 'NA';
         $coords['location'] = $entry_list[0]->title;
       }
       else {
@@ -570,6 +570,9 @@ function remove_letters ($target) {
 function exceptionizer ($location_string) {
   if (strtoupper($location_string) == "MEXICO CITY, MX" or strtoupper($location_string) == "MEXICO CITY, MEXICO" or strtoupper($location_string) == "MEXICO CITY MEXICO") {
     $location_string = "Ciudad de Mexico, MX";
+  }
+  elseif (strtoupper($location_string) == 'PARIS, FR' or strtoupper($location_string) == 'PARIS, FRANCE') {
+    $location_string = 'Paris City, France';
   }
   return $location_string;
 }
