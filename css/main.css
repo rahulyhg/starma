@@ -1563,6 +1563,35 @@ li.my_unknown_button a {
   display: none;
 }
 
+.location_send {
+  float: right;
+  margin: 15px 220px 10px auto;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
+
+.location_cancel {
+  float: right;
+  margin: 15px 15px 10px auto;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
 .desc_input {
   display:none;
 }
