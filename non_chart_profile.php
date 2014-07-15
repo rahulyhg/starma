@@ -52,22 +52,13 @@ if (login_check_point($type="full")) {
 
 
     //************ Edit current location popup **********************//
-    echo '<div id="msg_sheen" class="pop">';
+    echo '<div id="msg_sheen" class="location_pop">';
     
-          echo '<div id="msg_sheen_screen" class="pop">';
+          echo '<div id="msg_sheen_screen" class="location_pop">';
     
             echo '</div>';
-              echo '<div id="msg_sheen_content" class="pop">';
-                echo '<div id="msg_type_area">';
-                  echo '<form id="edit-location-area" action="edit_location.php" method="POST">
-                          <label for="msg_sendie" id="msg_label">New Current Location</label>
-                          <textarea id="msg_sendie" name="text_body" maxlength = "500" ></textarea>
-                          <input type="submit" name="submit" value="Send" class="msg_send"/>
-                          <button type="button" name="cancel" class="msg_cancel">Cancel</button>
-                          <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
-                          <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
-                          <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>                         
-                        </form>';
+              echo '<div id="msg_sheen_content" class="location_pop">';
+                show_current_location_form();
                       echo '<div id="msg_sent"></div>';
                   echo '</div>';
                 echo '</div>';
