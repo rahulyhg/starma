@@ -608,10 +608,10 @@ function show_my_general_info() {
       $state = get_state ($user_info["state_id"]);
       $location = $user_info["location"] . ', ' . strtoupper($state["state_code"]);
     }
-    //else {
-    //  $country = get_country ($user_info["country_id"]);
-    //  $location = $location . '<br>' . format_country_name ($country["country_title"]);
-    //}
+    else {
+      $country = get_country ($user_info["country_id"]);
+      $location = $location . '<br>' . format_country_name ($country["country_title"]);
+    }
   }
   echo '<div class="profile_info_area">';
     echo '<div class="nickname_area">';
@@ -630,7 +630,7 @@ function show_my_general_info() {
       if (get_my_gender() != "U") {
         echo '/' . get_my_gender();
       }
-      echo ' ' . $location;
+      echo '<span id="location">&nbsp;' . $location . '</span>';
        //Adding editable location
       echo '<span class="location_edit"></span>';
     echo '</div>';
@@ -1530,9 +1530,9 @@ function show_current_location_form() {
   //$title = get_my_location();
   $country_id = get_my_country_id();
       echo '<div id="current_location">
-            <div style="margin:auto; text-align:center; font-weight:bold; padding-bottom: 10px;">Current Location</div>
-            <form id="current_location_form" action="change_current_location.php" method="POST">
-            <table style="margin:auto;">
+            <div style="margin:auto; text-align:center; font-weight:bold; padding-bottom: 10px;">Current Location</div>';
+            //<form id="current_location_form" action="chat/ajax_update_current_location.php" method="POST">
+       echo  '<table style="margin:auto;">
 
               <tr>
                 <td class="align_right">country:</td>
@@ -1545,6 +1545,7 @@ function show_current_location_form() {
               echo '<tr id="js_city_div">
                 <td class="align_right">city:</td>
                 <td><input type="text" name="title" value=""/></td>
+                <td><span class="location_error_area" id="title_error"></span></td>
               </tr>';
             //}
              echo '<tr id="js_zip_div">
@@ -1553,7 +1554,7 @@ function show_current_location_form() {
               
               echo zipcode_input ("zip", "location_verification .location_text");
            echo '</td>
-           
+                <td><span class="location_error_area" id="zip_error"></span></td>
             
               </tr>
           
@@ -1572,7 +1573,7 @@ function show_current_location_form() {
             </div>';
 
      echo '</div>'; //close current_location
-    echo '</form>';
+    //echo '</form>';
 
 
   //Javascript handler for changing if you select a different country
