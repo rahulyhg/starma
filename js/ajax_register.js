@@ -214,7 +214,7 @@ $(document).ready(function(){
 		}
 	});
 
-	//Post
+	/*//Post 
 	$('form[name=register_form]').submit(function(event){
 
 		var data = {
@@ -243,6 +243,9 @@ $(document).ready(function(){
 					$('#underage_error').show().addClass('register_error').removeClass('check').text(data.underage);
 				}
 			}
+			if (data.failed) {
+				$('#username_error').show().addClass('register_error').removeClass('check').text(data.failed);
+			}
 
 		})
 		.fail(function(data){
@@ -252,5 +255,6 @@ $(document).ready(function(){
 		event.preventDefault();
 
 	});
+	*/
 
 });
