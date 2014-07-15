@@ -1523,6 +1523,63 @@ function show_gender_location_form ($errors = array(), $title="", $country_id, $
   }
 }
 
+//MATT ADDED FOR CHANGING LOCATION ONLY
+
+function show_current_location_form() {
+
+  //$title = get_my_location();
+  $country_id = get_my_country_id();
+      echo '<div id="current_location">
+            <div style="margin:auto; text-align:center; font-weight:bold; padding-bottom: 10px;">Current Location</div>
+            <form id="current_location_form" action="change_current_location.php" method="POST">
+            <table style="margin:auto;">
+
+              <tr>
+                <td class="align_right">country:</td>
+                <td>';
+                  country_select ($country_id, "js_country_id");
+                  echo '<input type="hidden" name="country_id" value="' . $country_id . '">';
+          echo '</td>
+              </tr>';
+            //if(!$country_id == 236) {
+              echo '<tr id="js_city_div">
+                <td class="align_right">city:</td>
+                <td><input type="text" name="title" value=""/></td>
+              </tr>';
+            //}
+             echo '<tr id="js_zip_div">
+                <td class="align_right">zip:</td>
+                <td>';
+              
+              echo zipcode_input ("zip", "location_verification .location_text");
+           echo '</td>
+           
+            
+              </tr>
+          
+              <tr id="location_verification">
+                <td></td>
+                <td class="location_text"></td>
+           
+              </tr>
+          </table>';
+
+        
+         
+       echo '<div style="width:100%;">
+              <input type="submit" name="submit" value="Send" class="location_send"/>
+              <button type="button" name="cancel" class="location_cancel">Cancel</button>
+            </div>';
+
+     echo '</div>'; //close current_location
+    echo '</form>';
+
+
+  //Javascript handler for changing if you select a different country
+    echo '<script type="text/javascript" src="js/current_location.js"></script>';
+}
+
+
 
 ///MATT ADDED FUNCTION TO STYLE CUSTOM BIRTH FORM
 
