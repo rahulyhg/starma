@@ -436,6 +436,16 @@ function get_my_location() {
   }
 }
 
+function get_my_country_id(){
+  if(isLoggedIn()) {
+    $user = my_profile_info();
+    return $user['country_id'];
+  }
+  else {
+    return false;
+  }
+}
+
 function get_my_gender () {
   return get_gender(get_my_user_id());  
 }
