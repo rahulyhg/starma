@@ -405,7 +405,7 @@ function username_exists($username) {
     return false;
 }
 
-function valid_password($pass, $minlength = 6, $maxlength = 15)
+function valid_pass($pass, $minlength = 6, $maxlength = 15)
 {
     $pass = trim($pass);
  
@@ -438,7 +438,7 @@ function valid_password($pass, $minlength = 6, $maxlength = 15)
  
 }
 
-/* 
+
 function valid_nickname($nickname, $minlength = 3, $maxlength = 30)
 {
  
@@ -497,7 +497,7 @@ function valid_password($pass, $minlength = 6, $maxlength = 15)
         return false;
     }
  
-    $result = preg_match("^[A-Za-z0-9_\-@!]+$", $pass);
+    $result = preg_match("%^[A-Za-z0-9_\-@!]+$%", $pass);
  
     if ($result)
     {
@@ -510,7 +510,7 @@ function valid_password($pass, $minlength = 6, $maxlength = 15)
     return false;
  
 }
-*/
+
 
 function permissions_check ($req) {
   if (isLoggedIn() and isset($_SESSION["permissions_id"])) {
