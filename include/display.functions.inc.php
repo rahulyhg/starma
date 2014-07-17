@@ -5514,9 +5514,9 @@ function show_registration_form($output=array(-1)){
     echo '<div class="register_error_area register_error">There was an error, please try again</div><br/>';
   }
     echo '<form name="register_form" action="./register.php" method="post"> 
-    <table> 
+    <table style="width:800px;"> 
       <tr>	
-        <td style="width:200px" class="align_right">username</td> 
+        <td style="width:106px" class="align_right">username</td> 
         <td><input class="input_style" name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td>';
         echo '<td><span class="register_error_area" id="username_error"></span></td>';
         /*
