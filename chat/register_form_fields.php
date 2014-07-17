@@ -91,7 +91,7 @@ require_once("ajax_header.php");
 
 		$password = $_POST['password'];
 		$data = array();
-		$valid_password = valid_password($password);
+		$valid_password = valid_pass($password);
 		//$default_text = 'Your password must be between 6 and 15 characters, and include only letters, numbers, underscores (_), hyphens (-), !, @';
 
 		if($valid_password) {
