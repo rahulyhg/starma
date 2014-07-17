@@ -1373,6 +1373,7 @@ function show_desc_photo_form($errors, $des_names,$action="birth_info_first_time
       echo '</form>';
     echo '</div>';
 
+
     echo '<div id="photo_form_div">';
       
         echo '<h1>';       
@@ -1402,6 +1403,8 @@ function show_desc_photo_form($errors, $des_names,$action="birth_info_first_time
       
       
     echo '</div>';
+
+     echo '<div id="go_bug_path" class="go_bug_path_fix_desc_photo"></div>';
 
    
 
@@ -1484,7 +1487,7 @@ function show_gender_location_form ($errors = array(), $title="", $country_id, $
          </table>';
 
         
-         
+         echo '<div id="go_bug_path"></div>';
         echo '<div id="register_button_div">';
           echo '<input id="bug_button" type="submit" value="" name="location_gender_submit">';
         echo '</div>';
@@ -1994,6 +1997,7 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
 
 
 /////////////////////////////////////////////////////
+     echo '<div id="go_bug_path"></div>';
 echo        '<div id="submit_div">
                 <input type="submit" name="submit" value=""/>
              </div>
@@ -2108,6 +2112,8 @@ function confirm_form ($return_vars, $location, $birthtime, $return_vars2=0, $in
     } 
   }
 
+  show_landing_logo();
+
   echo '<div id="confirm_form">';
   echo '<form name="formx" action="save_chart.php" method="post">';
       // A MILLION FORM VARIABLES GO HERE TO STORE CHART
@@ -2178,8 +2184,8 @@ function confirm_form ($return_vars, $location, $birthtime, $return_vars2=0, $in
       //echo '<div id="rising_text">Your Rising Sign: ' . get_sign_name ($return_vars[7]) . '</div>';
       echo '<input type="hidden" name="chart_name" value="Main"/>';
       echo '<input type="hidden" name="personal" value="1"/>';
-      echo '<input type="submit" name="submit" value="Continue"/>';
-      echo '<input type="submit" name="submit" value="My Place of Birth is Incorrect"/>';
+      echo '<input type="submit" name="submit" value="Continue" id="confirm_form_button"/>';
+      echo '<input type="submit" name="submit" value="My Place of Birth is Incorrect" id="confirm_form_button"/>';
       
       
    echo '</form>';
@@ -5468,6 +5474,9 @@ function show_registration_form($output=array(-1)){
   echo '<div class="bg" id="create_account">';  
   //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
   echo '<div id="register_form">';
+  if(sizeof($output) > 1) {
+    echo '<div class="register_error_area register_error">There was an error, please try again</div><br/>';
+  }
     echo '<form name="register_form" action="./register.php" method="post"> 
     <table> 
       <tr>	
