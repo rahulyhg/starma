@@ -79,10 +79,11 @@ if (isLoggedIn())
   <div id="create_account">
     Not a member?<br>
     <?php flare_title ('<a style="color:black;" href="register.php">Create a FREE account!</a>');?>
+    <div id="forgot_password">
+      <a style="color:black;" href="lostpassword.php">forgot your password?</a>
+    </div>
   </div>
-  <div id="forgot_password">
-    <a style="color:black;" href="lostpassword.php">forgot your password?</a>
-  </div>
+  
   
   
   
