@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	$('input[name=nickname]').focus();
+
 	var timer;
 
 	$('#bug_button').prop('disabled', true).css({
@@ -37,18 +39,18 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 800);
+		}, 500);
 	});
 
 	//Birthday
-	$('#year, #month, #day').on('change', function(){
+	$('#year, #month, #day').on('change blur', function(){
 		var name = $('#username_error');
 		var age = $('#underage_error');
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
-		clearInterval(timer);
-		timer = setTimeout(function() {
+		//clearInterval(timer);
+		//timer = setTimeout(function() {
 			var birthday = { 'year_birthday'  : $('#year').val(),
 							 'month_birthday' : $('#month').val(),
 							 'day_birthday'   : $('#day').val()
@@ -74,7 +76,7 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 800);
+		//}, 100);
 	});
 
 	//Email1
@@ -113,7 +115,7 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 300);
+		}, 100);
 	});
 
 	//Email2
@@ -153,7 +155,7 @@ $(document).ready(function(){
 						}
 					}
 			}
-		}, 300);
+		}, 100);
 	});
 
 	//Password
@@ -187,7 +189,7 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 800);
+		}, 300);
 
 	});
 
