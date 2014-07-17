@@ -2,7 +2,10 @@ $(document).ready(function(){
 
 	$('input[name=nickname]').focus();
 
-	var timer;
+	var timer_username;
+	var timer_email;
+	var timer_email2;
+	var timer_password;
 
 	$('#bug_button').prop('disabled', true).css({
 												'opacity' : 0.5,
@@ -15,8 +18,8 @@ $(document).ready(function(){
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
-		clearInterval(timer);
-		timer = setTimeout(function() {
+		clearInterval(timer_username);
+		timer_username = setTimeout(function() {
 			var username = { 'username' : $('input[name=nickname]').val()};
 
 			$.post('chat/register_form_fields.php', username, function(data){
@@ -86,10 +89,10 @@ $(document).ready(function(){
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
-		clearInterval(timer);
+		clearInterval(timer_email);
 		var email1 = $('input[name=email]').val();
 		var email2 = $('input[name=email2]').val();
-		timer = setTimeout(function() {
+		timer_email = setTimeout(function() {
 			var email = { 'email' : $('input[name=email]').val()};
 
 			$.post('chat/register_form_fields.php', email, function(data){
@@ -125,10 +128,10 @@ $(document).ready(function(){
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
-		clearInterval(timer);
+		clearInterval(timer_email2);
 		var email = $('input[name=email]').val();
 		var email2 = $('input[name=email2]').val();
-		timer = setTimeout(function() {
+		timer_email2 = setTimeout(function() {
 			
 			if (!(email == email2)) {
 				$('#email2_error').show().addClass('register_error').removeClass('check').text('The two emails must match');
@@ -165,8 +168,8 @@ $(document).ready(function(){
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
-		clearInterval(timer);
-		timer = setTimeout(function() {
+		clearInterval(timer_password);
+		timer_password = setTimeout(function() {
 			var password = { 'password' : $('input[name=password]').val()};
 			$.post('chat/register_form_fields.php', password, function(data){
 				//$('#password_error').show().addClass('register_error').removeClass('check').text(data);

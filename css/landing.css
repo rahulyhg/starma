@@ -87,7 +87,7 @@
 
 #register #create_account, #birth_info_first_time #enter_info, #gender_location_first_time #enter_info, #desc_photo_first_time #enter_info {
   width:668px;
-  top:25px;
+  top:50px;
   text-align:center;
   background: #8393CA;
 }
