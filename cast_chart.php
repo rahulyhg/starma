@@ -204,6 +204,7 @@
            }
            
          echo '</div>';
+         //require_once ("landing_footer.php"); 
        }
      }
      else {

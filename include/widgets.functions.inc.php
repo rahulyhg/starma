@@ -179,7 +179,7 @@ function section_select ($the_name="section_id", $the_value="", $auto_submit=fal
 
 
 function year_select ($the_year, $the_name="") {
-  echo '<select name="year_' . $the_name . '">';
+  echo '<select name="year_' . $the_name . '" id="year">';
   //for ($x=1900; $x<=(int)date("Y")+5;$x++) {
   for ($x=1900; $x<=2020;$x++) {
     echo '<option value=' . $x;
@@ -194,7 +194,7 @@ function year_select ($the_year, $the_name="") {
 
 function month_select ($the_month, $the_name="") {
   $months = array (1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December');
-  echo '<select name="month_' . $the_name . '">';
+  echo '<select name="month_' . $the_name . '" id="month">';
   for ($x=1; $x<=12;$x++) {
     echo '<option value=' . format_piece($x);
     if ((int)$the_month == (int)$x) {
@@ -206,7 +206,7 @@ function month_select ($the_month, $the_name="") {
 }
 
 function day_select ($the_day, $the_name="") {
-  echo '<select name="day_' . $the_name . '">';
+  echo '<select name="day_' . $the_name . '" id="day">';
   for ($x=1; $x<=31;$x++) {
     echo '<option value=' . format_piece($x);
     if ((int)$the_day == (int)$x) {
@@ -332,7 +332,7 @@ function gender_select ($the_gender, $the_name="gender") {
 
 function country_select ($country_id, $the_name="country_id") {
   $country_list = get_country_list ();
-  echo '<select name="' . $the_name . '" >';
+  echo '<select name="' . $the_name . '" id="country_id">';
   while ($country = mysql_fetch_array($country_list)) {
     echo '<option value=' . $country["country_id"];
     if ((string)$country["country_id"] == (string)$country_id) {

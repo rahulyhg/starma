@@ -50,6 +50,22 @@ if (login_check_point($type="full")) {
  
     show_my_descriptors_info(); 
 
+
+    //************ Edit current location popup **********************//
+    echo '<div id="msg_sheen" class="location_pop">';
+    
+          echo '<div id="msg_sheen_screen" class="location_pop">';
+    
+            echo '</div>';
+              echo '<div id="msg_sheen_content" class="location_pop">';
+                show_current_location_form();
+                      echo '<div id="msg_sent"></div>';
+                  echo '</div>';
+                echo '</div>';
+              echo '</div>';
+
+      //End edit current location
+
     echo '<div id="profile_nav">
         <ul>
           <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>     
@@ -105,6 +121,7 @@ if (login_check_point($type="full")) {
     echo '</div>';
     echo'<script type="text/javascript" src="js/ajax_descriptors_submit.js"></script>';
     echo'<script type="text/javascript" src="js/ajax_chart_submit.js"></script>';
+    echo'<script type="text/javascript" src="js/profile_edit.js"></script>';
   }
   
    

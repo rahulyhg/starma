@@ -55,7 +55,7 @@ if (isLoggedIn())
   <?php show_landing_logo();?>
   <div class="bg" id="sign_in">
     <div class="title">sign in</div>
-    <!---<img src="img/account_info/Starma-Astrology-Sign-In-Boxes.png"/>--->
+    <!--<img src="img/account_info/Starma-Astrology-Sign-In-Boxes.png"/>-->
     <div id="login_form">
           <form name="login" method="post" action="./process_login.php">
             <table>
@@ -71,7 +71,7 @@ if (isLoggedIn())
               
               
             </table>
-            <div id="login_button_div"><input type="submit" id="bug_button" name="Login" value=""/></div>
+            <div id="login_button_div"><div id="go_bug_path"></div><input type="submit" id="bug_button" name="Login" value=""/></div>
           </form>
       
      </div>

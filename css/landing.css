@@ -1,27 +1,46 @@
+#initial_confirm_form{
+  width: 100%;
+}
+
 #initial_confirm_form #confirm_form {
   font-size:1.5em;
   line-height: 1.5em;
   margin:auto;
-  margin-top:50px;
   padding:10px;
-  padding-top:30px;
+  padding-top:15px;
   width:500px;
   height:270px;
-  border-radius:25px;
-  background-color:#d3dbf6;
+  /*background-color:#d3dbf6;*/
   text-align:center;
+  margin-top: 20px;
 }
 
-#initial_confirm_form input[type="submit"], #inbox_chat_area input[type="submit"] {
+#inbox_chat_area input[type="submit"] {
   padding:5px;
   margin:5px;
-  margin-top:50px;
+  margin-top:30px;
   width:230px;
   height:30px;
-  border-radius:5px;
-  background-color:#8393CA;
   text-transform:capitalize;
   font-weight:bold;
+  cursor: pointer;
+}
+
+/*#initial_confirm_form input[type="submit"], */
+
+#confirm_form_button {
+  padding:5px;
+  margin:5px;
+  margin-top:30px;
+  width:230px;
+  height:30px;
+  text-transform:capitalize;
+  font-weight:bold;
+  cursor: pointer;
+}
+
+#confirm_form_button:hover {
+  box-shadow: -15px -15px -15px gray inset;
 }
 
 #initial_confirm_form #confirm_form span {
@@ -36,7 +55,7 @@
 
 /****************LANDING PAGE****************************/
 #landing, #register, #birth_info_first_time, #gender_location_first_time, #desc_photo_first_time {
-  width:1200px;
+  /*width:1200px;*/
   height:890px;
   margin-left:auto;
   margin-right:auto;
@@ -47,28 +66,35 @@
   line-height:24px;
 }
 
-#landing .bg, #register .bg, #birth_info_first_time .bg, #gender_location_first_time .bg, #desc_photo_first_time .bg {
+#landing .bg, #register .bg, #birth_info_first_time .bg, #gender_location_first_time .bg, #desc_photo_first_time .bg, #initial_confirm_form #logo {
   position:relative;
   display:block;
 }
 
-#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo, #sign_in, #create_account, #enter_info {
+#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo, #sign_in, #create_account, #enter_info, #initial_confirm_form #logo {
   margin-left:auto; 
   margin-right:auto
 }
 
-#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo {
+#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo, #initial_confirm_form #logo {
   /*width:389px;*/
   /*height:132px;*/
   width:500px;
   height:170px;
-  top:50px;
+  top:25px;
   
 }
 
-#landing #sign_in, #register #create_account, #birth_info_first_time #enter_info, #gender_location_first_time #enter_info, #desc_photo_first_time #enter_info {
+#register #create_account, #birth_info_first_time #enter_info, #gender_location_first_time #enter_info, #desc_photo_first_time #enter_info {
   width:668px;
-  top:100px;
+  top:50px;
+  text-align:center;
+  background: #8393CA;
+}
+
+#landing #sign_in {
+  width:668px;
+  top:40px;
   text-align:center;
   background: #8393CA;
 }
@@ -83,7 +109,7 @@
 
 #landing_footer {
   position:relative;
-  bottom:250px;
+  bottom:275px;
   width:100%;
   
 }
@@ -109,12 +135,12 @@
 
 #landing_footer #footer_links ul li a {
   padding-left: 45px;
-    padding-right: 45px;
+  padding-right: 45px;
   color:black;
 }
 
 #landing #sign_in .title {
-  font-size: 1.1em;
+    font-size: 1.1em;
     left: 208px;
     position: relative;
     text-align: center;
@@ -176,12 +202,9 @@
 
 
 #landing #login_button_div{
-    bottom: 20px;
-    left: 160px;
-    margin-left: auto;
-    margin-right: auto;
+    bottom: 10px;
+    margin-left: 99px;
     position: relative;
-    width: 76px;
 }
 
 #login_form #stay_logged_in_input {
@@ -198,12 +221,11 @@
   text-align:center;
   width:300px;
   left:300px;
-  top: 80px;
-  background: #8393CA;
+  top: 65px;
 }
 
 #landing #forgot_password {
-bottom: 71px;
+    bottom: 131px;
     font-size: 0.7em;
     left: 710px;
     position: relative;
@@ -238,7 +260,30 @@ bottom: 71px;
 /***************************************REGISTRATION PAGE AND ERRORS****************************************/
 
 #register #create_account {
-  width:800px;
+  /*width:800px;*/
+}
+
+#errors {
+  display: inline-block;
+  float: left;
+  margin-left: 15px;
+}
+
+#register_form_errors {
+  display: inline-block;
+}
+
+.register_error_area {
+  font-size: .75em;
+  text-align: left;
+  height: 15px;
+  width: 450px;
+  float: left;
+}
+
+.register_error {
+  z-index: 1;
+  color: #C82923;
 }
 
 .error {
@@ -246,6 +291,12 @@ bottom: 71px;
   z-index:1;
   display:block;
   
+}
+
+.check {
+  z-index: 1;
+  color: green;
+  text-align: left;
 }
 
 #desc_photo_form_div .error {
@@ -303,8 +354,9 @@ bottom: 71px;
 }
 
 #register #create_account {
-  top:85px;
-  left:80px;
+  top:60px;
+  width: 1000px;
+  /*left:80px;*/
 }
 
 #register .title {
@@ -315,7 +367,7 @@ bottom: 71px;
   height:22px;
   text-align:center;
   margin:auto;
-  top:65px;
+  top:40px;
 }
 
 #register input, #register select {
@@ -326,13 +378,13 @@ bottom: 71px;
   
 }
 
+
 #register input {
   box-sizing: border-box; 
  -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
-  font-size:0.8em;
-  
-  
+  font-size:0.65em; 
 }
+
 
 #register input:focus {
   outline: 0 none;
@@ -354,12 +406,13 @@ bottom: 71px;
 }
 
 #register_form {
-  display: block;
+    display: inline-block;
     font-size: 1.1em;
-    left: 74px;
+    /*left: 74px;*/
     position: relative;
     text-align: left;
-  
+    margin-left: 190px;
+    width: 612px;
 }
 
 
@@ -438,8 +491,9 @@ bottom: 71px;
 }
 
 #register #register_button_div {
-  
-    left: 429px;
+  position: relative;
+  display: inline-block;
+  margin-left: 50px;
 }
 /***************************DESC AND PHOTO FIRST TIME PAGE ONLY*******************************/
 #desc_photo_first_time #enter_info {
@@ -450,18 +504,24 @@ bottom: 71px;
   position:relative;
   font-size:1.3em;
   margin:auto;
-  top:65px;
+  top:40px;
 }
 
 #desc_photo_form_div {
   font-size:1.1em;
 }
 
+.go_bug_path_fix_desc_photo {
+  top: 44px;
+  left: 174px;
+}
+
+/*
 #desc_photo_form_div select, #desc_photo_form_div input {
   font-size:0.7em;
   border: 0;
 }
-
+*/
 
 #desc_photo_form_div div {
  
@@ -486,8 +546,8 @@ bottom: 71px;
 }
 
 #desc_photo_first_time #enter_info #desc_photo_form_div #register_button_div {
-    left: 220px;
-    top: 150px;
+    left: 190px;
+    top: 185px;
     width: 100px;
     z-index:10;
 }
@@ -615,12 +675,12 @@ bottom: 71px;
     font-size: 1.1em;
     text-align: left;
 }
-
+/*
 #gender_location_form_div select, #gender_location_form_div input {
   font-size:0.7em;
   border: 0;
 }
-
+*/
 #gender_location_form_div #js_city_div {
   display:none;
 }
@@ -705,17 +765,18 @@ bottom: 71px;
 }
 
 #gender_location_form_div #register_button_div {
-     left: 323px;
+    left: 318px;
     width: 100px;
-    bottom:35px;
+    bottom:64px;
 }
 
 /***************************BIRTH INFO FIRST TIME PAGE ONLY**************************/
+/*
 #birth_info_first_time #submit_div {
   left: 300px;
 }
 
-/*
+
 #birth_info_first_time .error {
   color:red;
   position:relative;
@@ -785,7 +846,7 @@ bottom: 71px;
   height:22px;
   text-align:center;
   margin:auto;
-  top:65px;
+  top:40px;
 }
 
 #birth_info_first_time .description, #gender_location_first_time .description, #desc_photo_first_time .description {
@@ -793,17 +854,14 @@ bottom: 71px;
   width:500px;
   text-align:center;
   margin:auto;
-  top:75px;
+  top:50px;
 }
 
 
 
 #birth_info_first_time input, #birth_info_first_time select {
   position:relative;
-  border:0px;
   display:block;
-  
- 
   margin:0px;
   
 }
@@ -919,6 +977,7 @@ bottom: 71px;
     font-size: 0.8em;
     padding-left: 3px;
     padding-right: 3px;
+    padding-top: 3px;
     position: relative;
     width: 10px;
 }
@@ -995,5 +1054,5 @@ bottom: 71px;
     left: 59px;
     position: absolute;
     width: 149px;
-    top: 450px;
+    top: 415px;
 }

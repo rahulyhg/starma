@@ -29,7 +29,7 @@ input[type="text"], input[type="password"], select {
   /*-webkit-box-sizing: border-box;*/
   height: 25px;
   padding: 2px;
-  border:0px;
+  /*border:0px;*/
 }
 
 input:focus {
@@ -43,7 +43,7 @@ color:#ffffff !important;
 }
 */
 input[type="text"], input[type="password"] {
-  width:200px;
+  width:195px;
 }
 
 

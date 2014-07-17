@@ -536,7 +536,8 @@ function show_my_descriptors_info_home() {
 //**************ENDMatt
 
 function show_my_interests_info() {
-  show_interests_info(get_my_chart_id());
+  $isCeleb = null;
+  show_interests_info(get_my_chart_id(), $isCeleb);
   /*
   $user_info = my_profile_info();
   echo '<div id="interests">';
@@ -607,10 +608,10 @@ function show_my_general_info() {
       $state = get_state ($user_info["state_id"]);
       $location = $user_info["location"] . ', ' . strtoupper($state["state_code"]);
     }
-    //else {
-    //  $country = get_country ($user_info["country_id"]);
-    //  $location = $location . '<br>' . format_country_name ($country["country_title"]);
-    //}
+    else {
+      $country = get_country ($user_info["country_id"]);
+      $location = $location . '<br>' . format_country_name ($country["country_title"]);
+    }
   }
   echo '<div class="profile_info_area">';
     echo '<div class="nickname_area">';
@@ -629,8 +630,11 @@ function show_my_general_info() {
       if (get_my_gender() != "U") {
         echo '/' . get_my_gender();
       }
-      echo ' ' . $location;
+      echo '<span id="location">&nbsp;' . $location . '</span>';
+       //Adding editable location
+      echo '<span class="location_edit"></span>';
     echo '</div>';
+   
     //echo '<div class="location_area">';
     //  echo $location;
     //echo '</div>';
@@ -882,7 +886,7 @@ function show_general_info($chart_id) {
     $my_info = my_profile_info();
     if (!($user_info["country_id"] == $my_info["country_id"])) {
       $country = get_country ($user_info["country_id"]);
-      $location = $location . '<br>' . format_country_name ($country["country_title"]);
+      $location = $location . ', ' . format_country_name ($country["country_title"]);
     }
   }
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
@@ -922,7 +926,7 @@ function show_general_info($chart_id) {
 
 //-----------------Matt added so Interests on Other's Profile only show up if filled out
 
-function show_interests_info($chart_id) {
+function show_interests_info($chart_id, $isCeleb) {
   $user_id = get_user_id_from_chart_id ($chart_id);
   $my_user_id = get_my_user_id();
   $user_info = profile_info($user_id);
@@ -1016,8 +1020,14 @@ function show_interests_info($chart_id) {
      if((strlen($user_info["about_me"]) + strlen($user_info["activities"]) + strlen($user_info["music"])
           + strlen($user_info["film_television"]) + strlen($user_info["books"]) + strlen($user_info["political"]) 
           + strlen($user_info["spiritual"]) + strlen($user_info["inspirational_figures"])) == 0 ) {
-      echo "<div id='profile_empty'>" . $nickname . " has not filled out " . $gender . " profile yet</div>";
-      echo "</div>";
+      if (!$isCeleb) {
+        echo "<div id='profile_empty'>" . $nickname . " has not filled out " . $gender . " profile yet</div>";
+        echo "</div>";
+      }
+      else {
+        echo "<div id='profile_empty'>We have not added content for " . $user_info['first_name'] . " " . $user_info['last_name'] . " yet.</div>";
+        echo "</div>";
+      }
      }
      else{
         if(strlen($user_info["about_me"]) != 0) {
@@ -1399,6 +1409,7 @@ function show_desc_photo_form($errors, $des_names,$action="birth_info_first_time
       echo '</form>';
     echo '</div>';
 
+
     echo '<div id="photo_form_div">';
       
         echo '<h1>';       
@@ -1428,6 +1439,8 @@ function show_desc_photo_form($errors, $des_names,$action="birth_info_first_time
       
       
     echo '</div>';
+
+     echo '<div id="go_bug_path" class="go_bug_path_fix_desc_photo"></div>';
 
    
 
@@ -1510,7 +1523,7 @@ function show_gender_location_form ($errors = array(), $title="", $country_id, $
          </table>';
 
         
-         
+         echo '<div id="go_bug_path"></div>';
         echo '<div id="register_button_div">';
           echo '<input id="bug_button" type="submit" value="" name="location_gender_submit">';
         echo '</div>';
@@ -1548,6 +1561,64 @@ function show_gender_location_form ($errors = array(), $title="", $country_id, $
     echo '</script>';
   }
 }
+
+//MATT ADDED FOR CHANGING LOCATION ONLY
+
+function show_current_location_form() {
+
+  //$title = get_my_location();
+  $country_id = get_my_country_id();
+      echo '<div id="current_location">
+            <div style="margin:auto; text-align:center; font-weight:bold; padding-bottom: 10px;">Current Location</div>';
+            //<form id="current_location_form" action="chat/ajax_update_current_location.php" method="POST">
+       echo  '<table style="margin:auto;">
+
+              <tr>
+                <td class="align_right">country:</td>
+                <td>';
+                  country_select ($country_id, "js_country_id");
+                  echo '<input type="hidden" name="country_id" value="' . $country_id . '">';
+          echo '</td>
+              </tr>';
+            //if(!$country_id == 236) {
+              echo '<tr id="js_city_div">
+                <td class="align_right">city:</td>
+                <td><input type="text" name="title" value=""/></td>
+                <td><span class="location_error_area" id="title_error"></span></td>
+              </tr>';
+            //}
+             echo '<tr id="js_zip_div">
+                <td class="align_right">zip:</td>
+                <td>';
+              
+              echo zipcode_input ("zip", "location_verification .location_text");
+           echo '</td>
+                <td><span class="location_error_area" id="zip_error"></span></td>
+            
+              </tr>
+          
+              <tr id="location_verification">
+                <td></td>
+                <td class="location_text"></td>
+           
+              </tr>
+          </table>';
+
+        
+         
+       echo '<div style="width:100%;">
+              <input type="submit" name="submit" value="Send" class="location_send"/>
+              <button type="button" name="cancel" class="location_cancel">Cancel</button>
+            </div>';
+
+     echo '</div>'; //close current_location
+    //echo '</form>';
+
+
+  //Javascript handler for changing if you select a different country
+    echo '<script type="text/javascript" src="js/current_location.js"></script>';
+}
+
 
 
 ///MATT ADDED FUNCTION TO STYLE CUSTOM BIRTH FORM
@@ -1962,6 +2033,7 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
 
 
 /////////////////////////////////////////////////////
+     echo '<div id="go_bug_path"></div>';
 echo        '<div id="submit_div">
                 <input type="submit" name="submit" value=""/>
              </div>
@@ -2076,6 +2148,8 @@ function confirm_form ($return_vars, $location, $birthtime, $return_vars2=0, $in
     } 
   }
 
+  show_landing_logo();
+
   echo '<div id="confirm_form">';
   echo '<form name="formx" action="save_chart.php" method="post">';
       // A MILLION FORM VARIABLES GO HERE TO STORE CHART
@@ -2146,8 +2220,8 @@ function confirm_form ($return_vars, $location, $birthtime, $return_vars2=0, $in
       //echo '<div id="rising_text">Your Rising Sign: ' . get_sign_name ($return_vars[7]) . '</div>';
       echo '<input type="hidden" name="chart_name" value="Main"/>';
       echo '<input type="hidden" name="personal" value="1"/>';
-      echo '<input type="submit" name="submit" value="Continue"/>';
-      echo '<input type="submit" name="submit" value="My Place of Birth is Incorrect"/>';
+      echo '<input type="submit" name="submit" value="Continue" id="confirm_form_button"/>';
+      echo '<input type="submit" name="submit" value="My Place of Birth is Incorrect" id="confirm_form_button"/>';
       
       
    echo '</form>';
@@ -5436,12 +5510,16 @@ function show_registration_form($output=array(-1)){
   echo '<div class="bg" id="create_account">';  
   //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
   echo '<div id="register_form">';
-    echo '<form action="./register.php" method="post"> 
+  if(sizeof($output) > 1) {
+    echo '<div class="register_error_area register_error">There was an error, please try again</div><br/>';
+  }
+    echo '<form name="register_form" action="./register.php" method="post"> 
     <table> 
       <tr>	
         <td style="width:200px" class="align_right">username</td> 
-        <td><input name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td> 
-        <td>';
+        <td><input class="input_style" name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td>';
+        echo '<td><span class="register_error_area" id="username_error"></span></td>';
+        /*
           echo '<div class="error';
           if (!in_array(USERNAME_ERROR(), $output)) {echo ' hidden_error';}
           echo '" id="username_error">';
@@ -5452,54 +5530,59 @@ function show_registration_form($output=array(-1)){
           echo '" id="user_exists_error">';
           echo 'Nickname or Email already in use';
           echo '</div>';
-        echo '</td>
-      </tr>
+        */
+        echo '</tr>
       <tr>
         <td class="align_right">birthday</td> 
         <td>';
           date_select ($the_date=get_inputed_date ($type="default"), $the_name="birthday");
-        echo '</td>   
-        <td>';
+        echo '</td>';
+        echo '<td><span class="register_error_area" id="underage_error"></span></td>';
+        /*
           echo '<div class="error';
           if (!in_array(UNDERAGE_ERROR(), $output)) {echo ' hidden_error';}
           echo '" id="underage_error">';
           echo 'You must be at least 18 years old';
           echo '</div>';
-        echo '</td>  
+        */
+        echo '  
       </tr>
       <tr>
         <td class="align_right">email</td> 
-        <td><input name="email" type="text" id="email" maxlength="30" value="' . $_POST["email"] . '"></td>        
-        <td>';
+        <td><input class="input_style" name="email" type="text" id="email" maxlength="30" value="' . $_POST["email"] . '"></td>';
+        echo '<td><span class="register_error_area" id="email_error"></span></td>';
+        /*
           echo '<div class="error';
           if (!in_array(EMAIL_ERROR(), $output)) {echo ' hidden_error';}
           echo '" id="email_error">';
           echo 'Invalid Email Address';
           echo '</div>';
-        echo '</td>
-      </tr>
+        */
+        echo '</tr>
       <tr>
-        <td class="align_right">confirm email</td> 
-        <td><input name="email2" type="text" id="email2" maxlength="30"></td>        
-        <td>';
+        <td class="align_right"><div style="width:105px;">confirm email</div></td> 
+        <td><input class="input_style" name="email2" type="text" id="email2" maxlength="30"></td>';
+        echo '<td><span class="register_error_area" id="email2_error"></span></td>';
+        /*
           echo '<div class="error';
           if (!in_array(EMAIL_NO_MATCH_ERROR(), $output)) {echo ' hidden_error';}
           echo '" id="email_no_match_error">';
           echo 'Email addresses do not match';
           echo '</div>';
-        echo '</td>
-      </tr>
+        */
+        echo '</tr>
       <tr>
         <td class="align_right">password</td> 
-        <td><input name="password" type="password" id="password" maxlength="15"></td>        
-        <td>';
+        <td><input class="input_style" name="password" type="password" id="password" maxlength="15"></td>';
+        echo '<td><span class="register_error_area" id="password_error"></span></td>';
+        /*
           echo '<div class="error';
           if (!in_array(PASSWORD_ERROR(), $output)) {echo ' hidden_error';}
           echo '" id="password_error">';
           echo 'Invalid or Empty Password';
           echo '</div>';
-        echo '</td>
-      </tr>
+        */
+        echo '</tr>
     
       <tr>
         <td style="vertical-align:top;" class="align_right"><input style="top:5px" type="checkbox" name="agreement" value="1"/></td>
@@ -5509,18 +5592,32 @@ function show_registration_form($output=array(-1)){
     
 
     <div id="register_button_div"> 
-      <input id="bug_button" name="register" type="submit" value=""> 
+      <div id="go_bug_path"></div><input id="bug_button" name="register" type="submit" value=""> 
     </div>
-  </form></div>';
+  </form></div>'; //close #register_form
+/*
+  echo '<div id="register_form_errors">';
+    echo '<div class="register_error_area" id="username_error"></div>';
+    echo '<div class="register_error_area" id="underage_error"></div>';
+    echo '<div class="register_error_area" id="email_error"></div>';
+    echo '<div class="register_error_area" id="email2_error"></div>';
+    echo '<div class="register_error_area" id="password_error"></div>';
+    echo '<div class="register_error_area" id="terms_error"></div>';
+  echo '</div>'; //close #register_form_errors
+*/
   //echo '<img class="token_img" src="img/account_info/Starma-Astrology-Token-Box.png"/>';
-echo '</div>';
+echo '</div>';  //close #create_account
 show_bugaboos();
+//echo '<div class="register_error_area" id="terms_error"></div>';
+/*
 echo '<div';
    if (!in_array(TERMS_ERROR(), $output)) {echo ' class="hidden_error"';}
    echo ' id="terms_error">';
    echo 'You must indicate that you agree to the above terms';
    echo '</div>';
+  */
 echo '</div>';
+echo '<script type="text/javascript" src="js/ajax_register.js"></script>';
 require_once ("landing_footer.php"); 
 }
 
