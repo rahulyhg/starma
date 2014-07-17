@@ -43,7 +43,7 @@ $(document).ready(function(){
 	});
 
 	//Birthday
-	$('#year, #month, #day').on('change blur', function(){
+	$('#year').on('change blur', function(){
 		var name = $('#username_error');
 		var age = $('#underage_error');
 		var email_error1 = $('#email_error');
