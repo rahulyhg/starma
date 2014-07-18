@@ -148,6 +148,34 @@ elseif ($tier == "4") {
     $chart_id2 = $_GET["chart_id2"];
   }
 
+  echo '<div id="msg_sheen" class="pop_invite">';
+    
+          echo '<div id="msg_sheen_screen" class="pop_invite">';
+    
+            echo '</div>';
+              echo '<div id="msg_sheen_content_custom" class="pop_invite">';
+                echo '<div id="invite_type_area">';
+                  echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite User</strong></div><br />';
+                  echo '<form id="send-message-area" action="invite_new_user.php" method="POST">
+                          <label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
+                          <input type="text" class="input_style_inline" value="first name" id="first_name_invite" name="first_name" />
+                          <input type="text" class="input_style_inline" value="last name" id="last_name_invite" name="last_name" /> <br />
+                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
+                          <input type="text" class="input_style_inline" value="name" id="their_name_invite" name="their_name" />
+                          <input type="text" class="input_style_inline" value="email" id="their_email_invite" name="their_email" /> <br />
+                          <label for="msg_sendie_invite" id="msg_label"><strong>Message</strong></label>
+                          <textarea id="msg_sendie_invite" name="text_body" maxlength = "255" ></textarea>
+                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
+                          <input type="submit" name="submit" value="Send" class="msg_send_invite"/>
+                          <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>                         
+                        </form>';
+                      echo '<span id="msg_sent"></span>';
+                  echo '</div>';
+                echo '</div>';
+              echo '</div>';
+
+
+
 echo '<div id="profile_top_bar">';
   echo '<div id="profile_photo_and_info_custom">
         <div id="custom_nickname">Custom Chart</div>
@@ -175,31 +203,8 @@ echo '<div id="profile_top_bar">';
             </div>';
 
           //************---Matt adding jquery popup from Message button
-        echo '<div class="profile_button_custom invite_button"><a href="#" id="msg_pop">Invite to Starma<span class="div_link"></span></a></div>';
-        echo '<div id="msg_sheen" class="pop">';
-    
-          echo '<div id="msg_sheen_screen" class="pop">';
-    
-            echo '</div>';
-              echo '<div id="msg_sheen_content_custom" class="pop">';
-                echo '<div id="msg_type_area">';
-                  echo '<form id="send-message-area" action="invite_new_user.php" method="POST">
-                          <label for="first_name" id="first_name_label"><strong>Your Name</strong></label>
-                          <input type="text" class="input_style_inline" value="first name" id="first_name_invite" name="first_name" />
-                          <input type="text" class="input_style_inline" value="last name" id="last_name_invite" name="last_name" />
-                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label>
-                          <input type="text" class="input_style_inline" value="name" id="their_name_invite" name="their_name" />
-                          <input type="text" class="input_style_inline" value="email" id="their_email_invite" name="their_email" />
-                          <label for="msg_sendie" id="msg_label"><strong>Message</strong></label>
-                          <textarea id="msg_sendie" name="text_body" maxlength = "255" ></textarea>
-                          <input type="submit" name="submit" value="Send" class="msg_send"/>
-                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
-                          <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>                         
-                        </form>';
-                      echo '<span id="msg_sent"></span>';
-                  echo '</div>';
-                echo '</div>';
-              echo '</div>';
+        echo '<div class="profile_button_custom invite_button"><a href="#" id="pop_invite">Invite to Starma<span class="div_link"></span></a></div>';
+        
 
 
         echo '</div>';  //close profile_top_bar

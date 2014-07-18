@@ -2320,16 +2320,14 @@ li.my_unknown_button a {
     border-radius: 5px;
     font-size:0.8em;
     margin: auto;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     position: relative;
     top: 50px;
     width: 500px;
-    height: 195px;
     display: none;
 }
 
 #msg_sendie {
-
   background: none;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
@@ -2340,7 +2338,6 @@ li.my_unknown_button a {
   width: 380px;
   padding: 5px;
   display:block;
-
 }
 
 #msg_type_area {
@@ -2427,9 +2424,8 @@ li.my_unknown_button a {
 }
 
 .msg_cancel_invite {
-  float: right;
-  margin-right: 15px;
-  margin-top: 3px;
+  margin-right: 150px;
+  margin-top: 13px;
   width: 65px;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
@@ -2440,6 +2436,34 @@ li.my_unknown_button a {
   box-shadow: 0 0 1px #4B5A80;
   cursor: pointer;
 }
+
+.msg_send_invite {
+  margin-right: 15px;
+  margin-top: 13px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
+#msg_sendie_invite {
+  background: none;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  box-shadow: 0 0 2px #313E5C inset;
+  height: 75px;
+  width: 391px;
+  padding: 5px;
+  display:block;
+}
+
 
 #report_close {
   width: 100%;
@@ -2482,6 +2506,10 @@ li.my_unknown_button a {
   margin-bottom: 15px;
 }
 
+#invite_type_area {
+  width: 430px;
+  margin: 10px 50px 10px 50px;
+}
 /*****************---Matt adding style to New Message section */
 
 #as-selections-fav_user_id {

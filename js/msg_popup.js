@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-	var $invite = $('#msg_sendie').val();
 
+	//Send Message
 	$('#msg_pop').click(function(){
 		$('.pop').slideFadeToggle(function() { 
                 $("#msg_sendie").focus();
@@ -19,22 +19,6 @@ $(document).ready(function(){
         });
 	});
 
-	$('.msg_cancel_invite').click(function(){
-		$('.pop').slideFadeToggle(function(){
-			$('#msg_sendie').val($invite);
-        	$('#send-message-area').show();
-        	$('#msg_sent').hide();
-        	$('#msg_sent').html('');
-        	$('#msg_label').text('New Message');
-        	$('#email_label').text('Email Address');
-        	$('#email_invite').val('');
-        });
-	});
-
-	jQuery.fn.slideFadeToggle = function(easing, callback) {
-    return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
-	};
-
 	$('.msg_send').click(function(){
 							$('#send-message-area').hide();
              				$('#msg_sent').show();
@@ -42,8 +26,39 @@ $(document).ready(function(){
 					});
 
 
-	//Report User
+	jQuery.fn.slideFadeToggle = function(easing, callback) {
+    return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
+	};
 
+	
+
+	//Invite User
+	var $invite = $('#msg_sendie_invite').val();
+
+	$('#pop_invite').click(function(){
+		$('.pop_invite').slideFadeToggle();
+		return false;
+	});
+
+	$('.msg_cancel_invite').click(function(){
+		$('.pop_invite').slideFadeToggle(function(){
+			$('#msg_sendie_invite').val('');
+        	$('#send-message-area').show();
+        	$('#msg_sent').hide();
+        	$('#msg_sent').html('');
+        	$('#their_name_invite').val('');
+        	$('#their_email_invite').val('');
+        });
+	});
+
+	$('.msg_send_invite').click(function(){
+							$('#send-message-area').hide();
+             				$('#msg_sent').show();
+							$('#msg_sent').html('<div id="ajax_loader"><img src="/js/ajax_loader.gif" /><p>Sending...</p></div>');
+					});
+
+
+	//Report User
 	$('#report_pop').click(function(){
 		$('.pop_report').slideFadeToggle();
 		return false;
