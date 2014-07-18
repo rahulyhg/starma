@@ -3,6 +3,7 @@ $(document).ready(function(){
 	$('input[name=nickname]').focus();
 
 	var timer_username;
+	var timer_age;
 	var timer_email;
 	var timer_email2;
 	var timer_password;
@@ -42,7 +43,7 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 500);
+		}, 800);
 	});
 
 	//Birthday
@@ -52,8 +53,8 @@ $(document).ready(function(){
 		var email_error1 = $('#email_error');
 		var email_error2 = $('#email2_error');
 		var pass = $('#password_error');
-		//clearInterval(timer);
-		//timer = setTimeout(function() {
+		clearInterval(timer_age);
+		timer_age = setTimeout(function() {
 			var birthday = { 'year_birthday'  : $('#year').val(),
 							 'month_birthday' : $('#month').val(),
 							 'day_birthday'   : $('#day').val()
@@ -79,7 +80,7 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		//}, 100);
+		}, 400);
 	});
 
 	//Email1
@@ -118,7 +119,7 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 100);
+		}, 2000);
 	});
 
 	//Email2
@@ -158,7 +159,7 @@ $(document).ready(function(){
 						}
 					}
 			}
-		}, 100);
+		}, 2000);
 	});
 
 	//Password
@@ -192,7 +193,7 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 300);
+		}, 2000);
 
 	});
 

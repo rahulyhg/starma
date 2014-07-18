@@ -6,9 +6,12 @@ $(document).ready(function(){
         //alert('submitting...');
              
         var msg_data = {
-          'text_body'         : $('textarea[name=text_body]').val(),
-          'other_user_id'     : $('input[name=other_user_id]').val(),
-          'email'             : $('input[name=email]').val()
+          'first_name'        : $('#first_name_invite').val(),
+          'last_name'         : $('#last_name_invite').val(),
+          'their_name'        : $('#their_name_invite').val(),
+          'email'             : $('#their_email_invite').val()
+          'text_body'         : $('#msg_sendie').val(),
+          'sender_user_id'    : $('input[name=sender_user_id]').val(),  
         };
 
         //alert(msg_data['text_body']);

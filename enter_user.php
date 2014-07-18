@@ -184,14 +184,17 @@ echo '<div id="profile_top_bar">';
               echo '<div id="msg_sheen_content_custom" class="pop">';
                 echo '<div id="msg_type_area">';
                   echo '<form id="send-message-area" action="invite_new_user.php" method="POST">
-                          <label for="email" id="email_label">Email Address</label>
-                          <input type="text" value="" id="email_invite" name="email" />
-                          <label for="msg_sendie" id="msg_label">New Message</label>
-                          <textarea id="msg_sendie" name="text_body" maxlength = "255" >Hi there!' . PHP_EOL;  
-                          echo get_my_nickname() . ' would like to invite you to join Starma.com.  Starma is a...</textarea>
+                          <label for="first_name" id="first_name_label"><strong>Your Name</strong></label>
+                          <input type="text" class="input_style_inline" value="first name" id="first_name_invite" name="first_name" />
+                          <input type="text" class="input_style_inline" value="last name" id="last_name_invite" name="last_name" />
+                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label>
+                          <input type="text" class="input_style_inline" value="name" id="their_name_invite" name="their_name" />
+                          <input type="text" class="input_style_inline" value="email" id="their_email_invite" name="their_email" />
+                          <label for="msg_sendie" id="msg_label"><strong>Message</strong></label>
+                          <textarea id="msg_sendie" name="text_body" maxlength = "255" ></textarea>
                           <input type="submit" name="submit" value="Send" class="msg_send"/>
                           <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
-                          <input type="hidden" value=' . get_my_user_id() . ' name="other_user_id"/>                         
+                          <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>                         
                         </form>';
                       echo '<span id="msg_sent"></span>';
                   echo '</div>';
