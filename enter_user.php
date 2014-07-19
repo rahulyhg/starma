@@ -156,14 +156,14 @@ elseif ($tier == "4") {
               echo '<div id="msg_sheen_content_custom" class="pop_invite">';
                 echo '<div id="invite_type_area">';
                   echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite User</strong></div><br />';
-                  echo '<form id="send-message-area" action="invite_new_user.php" method="POST">
+                  echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
                           <label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
-                          <input type="text" class="input_style_inline" value="first name" id="first_name_invite" name="first_name" />
-                          <input type="text" class="input_style_inline" value="last name" id="last_name_invite" name="last_name" /> <br />
+                          <input type="text" class="input_style_inline" value="first name" id="first_name_invite" name="first_name" maxlength="17" />
+                          <input type="text" class="input_style_inline" value="last name" id="last_name_invite" name="last_name" maxlength="17" /> <br />
                           <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
-                          <input type="text" class="input_style_inline" value="name" id="their_name_invite" name="their_name" />
+                          <input type="text" class="input_style_inline" value="name" id="their_name_invite" name="their_name" maxlength="34" />
                           <input type="text" class="input_style_inline" value="email" id="their_email_invite" name="their_email" /> <br />
-                          <label for="msg_sendie_invite" id="msg_label"><strong>Message</strong></label>
+                          <label for="msg_sendie_invite" id="msg_label"><strong>Personal Message (Optional)</strong></label>
                           <textarea id="msg_sendie_invite" name="text_body" maxlength = "255" ></textarea>
                           <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
                           <input type="submit" name="submit" value="Send" class="msg_send_invite"/>

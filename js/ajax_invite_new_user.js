@@ -2,7 +2,7 @@ $(document).ready(function(){
 
       var $invite = $('#msg_sendie').val();
 
-      $('#send-message-area').submit(function(event){
+      $('.msg_send_invite').click(function(event){
         //alert('submitting...');
              
         var msg_data = {
@@ -10,7 +10,7 @@ $(document).ready(function(){
           'last_name'         : $('#last_name_invite').val(),
           'their_name'        : $('#their_name_invite').val(),
           'email'             : $('#their_email_invite').val()
-          'text_body'         : $('#msg_sendie').val(),
+          'text_body'         : $('#msg_sendie_invite').val(),
           'sender_user_id'    : $('input[name=sender_user_id]').val(),  
         };
 
@@ -25,7 +25,8 @@ $(document).ready(function(){
         })
           .done(function(data){
             console.log(data);
-
+            alert(data);
+            /*
             if(data.errors) {
               //alert('success: ' + data);
               $('#msg_sent').hide();
@@ -60,7 +61,7 @@ $(document).ready(function(){
                   });
           
             } 
-
+          */
           })
           .fail(function(data){
               console.log(data);

@@ -109,7 +109,7 @@ We deeply appreciate your participation and support, and we warmly welcome you t
 }
 
 //MATT INVITE USER
-function send_invite_user ($email, $message, $sender_id) {
+function send_invite_user ($first_name, $last_name, $their_name, $email, $message, $sender_id) {
   global $domain;
 
   $sender = basic_user_data($sender_id);
