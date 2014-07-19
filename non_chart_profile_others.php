@@ -49,15 +49,26 @@ if (login_check_point($type="full")) {
         show_descriptors_info($_GET["chart_id2"]); 
       }
 
-       //TEST FOR ADDING text_type to compare_button
-      echo '<div class="profile_button compare_button">
-            <span class="compare_button_title">Compare</span>
-              <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
-                <option value="">Compatiblity Test</option>
+       //TEST FOR ADDING text_type to compare_button <span class="compare_button_title">Compare</span>
+  echo '<div class="profile_button compare_button">';
+
+      echo '<div id="compare_menu">Compare';
+        echo '<div class="dropdown">';
+          echo '<ul>';
+            echo '<li><a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">As Friends</a></li>';
+            echo '<li><a style="border-bottom:1px solid black;" href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romantically</a></li>';
+          echo '</ul>';
+        echo '</div>';
+      echo '</div>';
+
+        /*
+        echo  '<select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
+                <option value="">Compare</option>
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romance</option>
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Friends</option>
-              </select>
-            </div>';
+              </select>';
+        */
+  echo '</div>';
 
       if (!$isCeleb) {
         echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)">Chat</a></div>';
