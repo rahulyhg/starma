@@ -4,14 +4,15 @@ $(document).ready(function(){
 
       $('.msg_send_invite').click(function(event){
         //alert('submitting...');
+        event.preventDefault();
              
         var msg_data = {
           'first_name'        : $('#first_name_invite').val(),
           'last_name'         : $('#last_name_invite').val(),
           'their_name'        : $('#their_name_invite').val(),
-          'email'             : $('#their_email_invite').val()
+          'email'             : $('#their_email_invite').val(),
           'text_body'         : $('#msg_sendie_invite').val(),
-          'sender_user_id'    : $('input[name=sender_user_id]').val(),  
+          'sender_user_id'    : $('input[name=sender_user_id]').val()  
         };
 
         //alert(msg_data['text_body']);
@@ -25,7 +26,7 @@ $(document).ready(function(){
         })
           .done(function(data){
             console.log(data);
-            alert(data);
+            alert(data.errors.first_name + ', ' + data.errors.last_name + ', ' + data.errors.their_name + ', ' + data.errors.email);
             /*
             if(data.errors) {
               //alert('success: ' + data);
@@ -68,7 +69,7 @@ $(document).ready(function(){
               alert('failure: ' + data + msg_data['text_body']);
           }); 
 
-      event.preventDefault();
+    
 
       });
 
