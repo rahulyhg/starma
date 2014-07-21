@@ -133,17 +133,15 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
   $message = 'Dear ' . $their_name . ',
   <br/><br/> 
 
-  ' . $full_name . 'has invited you to join ' . $gender . ' on <a href="https://www.starma.com" title="www.starma.com">starma.com</a>, a free astrology site that is easy to use and understand. Read about your Birth Chart, and see your compatibility with friends, family, lovers, and colleagues...even celebrities. <br /><br />';
+  ' . $full_name . ' has invited you to join ' . $gender . ' on <a href="https://www.starma.com" title="www.starma.com">Starma</a>, a free astrology site that is easy to use and understand. Read about your Birth Chart, and see your compatibility with friends, family, lovers, and colleagues...even celebrities. <br /><br />';
 
   if($personal_message != '') {
     $message = $message . ' ' . $personal_message;
   }
 
-  $footer = '<div style="font-size: .75em;">You received this message because ' . $full_name . ' invited ' . $email . ' to join Starma. </div>';
+  $footer = '<br /><br /><div style="font-size: .75em;">You received this message because ' . $full_name . ' invited ' . $email . ' to join Starma. </div>';
 
-  $message = $message . '<br /><br />' . $footer;
-
-  if(sendMail($email, $full_name . " invited you to join Starma", $message, "no-reply@" . get_domain())) {
+  if(sendMail($email, $full_name . " invited you to join Starma", $message, $footer, "no-reply@" . get_domain())) {
     $data_1 = log_user_invite($sender_id, $email, $message);
     log_this_action (blogosphere_action_user(), invited_basic_action(), $data_1);
     return true;
@@ -233,7 +231,7 @@ function testSendingMail ($to, $subject, $message, $from) {
   return sendMail($to, $subject, $message, $from);
 }
 
-function sendMail($to, $subject, $message, $from)
+function sendMail($to, $subject, $message, $footer, $from)
 {
     
     $mail = new PHPMailer(); 
@@ -265,7 +263,7 @@ function sendMail($to, $subject, $message, $from)
     $mail->WordWrap = 50; // set word wrap
     $mail->IsHTML(true); // send as HTML
     $mail->Subject = $subject;
-    $mail->Body = $message . '<br><br>Sincerely,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>'; //HTML Body
+    $mail->Body = $message . '<br><br>Sincerely,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer; //HTML Body
     $mail->AltBody = $message; //Text Body
     $mail->AddBCC("teamstarma@gmail.com");
     
