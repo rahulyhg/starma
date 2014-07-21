@@ -848,6 +848,56 @@ function update_my_biography($about_me) {
   }
 }
 
+function update_my_full_name($first_name, $last_name) {
+  if(isLoggedIn()){
+    $user_id = get_my_user_id();
+    $q = sprintf("update user set first_name = '%s' and last_name = '%s' where user_id = $d",
+          mysql_real_escape_string($first_name), mysql_real_escape_string($last_name), $user_id);
+    $result = mysql_query($q) or die(mysql_error());
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+function get_my_full_name() {
+  if(isLoggedIn()) {
+    $q = 'SELECT first_name, last_name from user where user_id = ' . $_SESSION['user_id'];
+    $result = mysql_query($q) or die(mysql_error());
+    $full_name = mysql_fetch_array($result);
+    $full_name = $full_name['first_name'] . ' ' . $full_name['last_name'];
+    return $full_name;
+  }
+  else {
+    return false;
+  }
+}
+
+function get_my_first_name() {
+  if(isLoggedIn()){
+    $q = 'SELECT first_name from user where user_id = ' . $_SESSION['user_id'];
+    $result = mysql_query($q) or die(mysql_error());
+    $first_name = mysql_fetch_array($result);
+    return $first_name[0];
+  }
+  else {
+    return false;
+  }
+}
+
+function get_my_last_name() {
+  if(isLoggedIn()){
+    $q = 'SELECT last_name from user where user_id = ' . $_SESSION['user_id'];
+    $result = mysql_query($q) or die(mysql_error());
+    $last_name = mysql_fetch_array($result);
+    return $last_name[0];
+  }
+  else {
+    return false;
+  }
+}
+
 function my_location() {
   if (isLoggedIn()) {
     $info = my_profile_info();

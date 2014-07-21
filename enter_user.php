@@ -164,8 +164,24 @@ elseif ($tier == "4") {
                     echo '<div id="their_email_error" class="invite_error"></div>';
                     echo '<div id="sender_id_error" class="invite_error"></div>';
                     echo '<label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
-                          <input type="text" class="input_style_inline" value="first name" id="first_name_invite" name="first_name" maxlength="17" />
-                          <input type="text" class="input_style_inline" value="last name" id="last_name_invite" name="last_name" maxlength="17" /> <br />
+                          <input type="text" class="input_style_inline" value="';
+                            $first_name = get_my_first_name();
+                            if(!$first_name) {
+                              echo 'first name';
+                            } 
+                            else {
+                              echo $first_name;
+                            }
+                            echo '" id="first_name_invite" name="first_name" maxlength="17" />
+                          <input type="text" class="input_style_inline" value="';
+                            $last_name = get_my_last_name();
+                            if(!$last_name) {
+                              echo 'last name';
+                            } 
+                            else {
+                              echo $last_name;
+                            }
+                          echo '" id="last_name_invite" name="last_name" maxlength="17" /> <br />
                           <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
                           <input type="text" class="input_style_inline" value="name" id="their_name_invite" name="their_name" maxlength="34" />
                           <input type="text" class="input_style_inline" value="email" id="their_email_invite" name="their_email" /> <br />

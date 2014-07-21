@@ -12,7 +12,7 @@ if(isLoggedIn()) {
 		if($first_name == '' || $first_name == 'first name') {
 			$errors['first_name'] = 'Your first name is required';
 		}
-		elseif(!preg_match('%^[a-zA-Z-]+$%', $first_name)) {
+		elseif(!preg_match('%^[a-zA-Z-]{2,17}$%', $first_name)) {
 			$errors['first_name'] = 'There was an error processing your name';
 		}
 	}
@@ -27,7 +27,7 @@ if(isLoggedIn()) {
 		if($last_name == '' || $last_name == 'last name') {
 			$errors['last_name'] = 'Your last name is required';
 		}
-		elseif(!preg_match('%^[a-zA-Z-]+$%', $last_name)) {
+		elseif(!preg_match('%^[a-zA-Z-]{2,17}$%', $last_name)) {
 			$errors['last_name'] = 'There was an error processing your name';
 		}
 	}
@@ -42,7 +42,7 @@ if(isLoggedIn()) {
 		if($their_name == '' || $their_name == 'name') {
 			$errors['their_name'] = 'Their name is required';
 		}
-		elseif(!preg_match('%^[a-zA-Z-]+$%', $their_name)) {
+		elseif(!preg_match('%^[a-zA-Z-\s]{2,30}$%', $their_name)) {
 			$errors['their_name'] = 'There was an error processing their name';
 		}
 	}
@@ -68,7 +68,8 @@ if(isLoggedIn()) {
 
 	//Text Body
 	if(isset($_POST['text_body'])) {
-		$text_body = stripslashes(trim($_POST['text_body']));
+		$text_body = remove_slashes($_POST['text_body']);
+		$text_body = remove_front_slashes($text_body);
 		$text_body = strip_tags($text_body);
 	}
 	else {
@@ -88,10 +89,7 @@ if(isLoggedIn()) {
 	}
 	else {
 		$data['success'] = true;
-		$data = $first_name . ', ' . $last_name . ', ' . $their_name . ', ' . $email . ', ' . $text_body . ', ' . $sender_user_id;
-		//$data["message"] = $_POST["text_body"];
-		//$data["sender_id"] = $_POST["other_user_id"];
-		//$data['message'] = $data["message"] + '<br><br><a href="' . get_domain() . '">Join Starma!</a><br><br><br>Sincerly,<br>The Starma Team<br><a href="' . get_domain() . '">www.starma.com</a>';
+		$data = $first_name . ', ' . $last_name . ', ' . $their_name . ', ' . $email . ', ' . $text_body . ', ' . $sender_user_id;		
 		//send_invite_user($first_name, last_name, $their_name, $email, $text_body, $sender_user_id);
 	}	
 	echo json_encode($data);

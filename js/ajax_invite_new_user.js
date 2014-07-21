@@ -35,37 +35,48 @@ $(document).ready(function(){
               if(data.errors.first_name){
                 $('#first_name_error').text(data.errors.first_name);
               }
+              if(!data.errors.first_name){
+                $('#first_name_error').text('');
+              }
               if(data.errors.last_name){
                 $('#last_name_error').text(data.errors.last_name);
+              }
+              if(!data.errors.last_name){
+                $('#last_name_error').text('');
               }
               if(data.errors.their_name){
                 $('#their_name_error').text(data.errors.their_name);
               }
+              if(!data.errors.their_name){
+                $('#their_name_error').text('');
+              }
               if(data.errors.email) {
                 $('#their_email_error').text(data.errors.email);
               } 
+              if(!data.errors.email) {
+                $('#their_email_error').text('');
+              } 
               if(data.errors.sender_user_id) {
                 $('#sender_id_error').text(data.errors.sender_user_id);
+              }
+              if(!data.errors.sender_user_id) {
+                $('#sender_id_error').text('');
               }
             }
             else {
               $('#send-message-area').hide();
               $('#msg_sent').show();
               $('#msg_sent').html('<p>Invite Sent!</p>');
-              //alert(data.message);
-             
-               $('.pop').fadeOut(1700, function() {
-                      $('#msg_sendie').val($invite);
-                      $('#send-message-area').show();
-                      $('.invite_error').hide().html('');
-                      $('#msg_sent').hide();
-                      $('#msg_sent').html('');
-                      $('#first_name_invite').val('first name');
-                      $('#last_name_invite').val('last name');
+              alert(data);
+              $('.pop_invite').fadeOut(1700, function() {
+                      $('#msg_sendie_invite').val('');
                       $('#their_name_invite').val('name');
                       $('#their_email_invite').val('email');
+                      $('#send-message-area').show();
+                      $('#msg_sent').hide();
+                      $('#msg_sent').html('');
+                      $('.invite_error').text('');
                   });
-          
             } 
           
           })

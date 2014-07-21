@@ -109,12 +109,41 @@ We deeply appreciate your participation and support, and we warmly welcome you t
 }
 
 //MATT INVITE USER
-function send_invite_user ($first_name, $last_name, $their_name, $email, $message, $sender_id) {
+function send_invite_user ($first_name, $last_name, $their_name, $email, $personal_message, $sender_id) {
   global $domain;
 
-  $sender = basic_user_data($sender_id);
 
-  if(sendMail($email, $sender["nickname"] . " has invited you to join Starma", $message, "no-reply@" . get_domain())) {
+  //$sender = basic_user_data($sender_id);
+  $full_name = get_my_full_name();
+  if(!$full_name){
+    update_my_full_name($first_name, $last_name);
+    $full_name = get_my_full_name();
+  }
+  $gender = get_my_gender();
+  if($gender == 'M') {
+    $gender = 'him';
+  }
+  elseif($gender == 'H') {
+    $gender = 'her';
+  }
+  else {
+    $gender = 'them';
+  }
+
+  $message = 'Dear ' . $their_name . ',
+  <br/><br/> 
+
+  ' . $full_name . 'has invited you to join ' . $gender . 'on <a href="https://www.starma.com" title="www.starma.com">starma.com</a>, a free astrology site that is easy to use and understand. Read about your Birth Chart, and see your compatibility with friends, family, lovers, and colleagues...even celebrities. <br /><br />';
+
+  if($personal_message != '') {
+    $message = $message . ' ' . $personal_message;
+  }
+
+  $footer = '<div style="font-size: .75em;">You received this message because ' . $full_name . ' invited ' . $email . ' to join Starma. </div>';
+
+  $message = $message . '<br /><br />' . $footer;
+
+  if(sendMail($email, $full_name . " invited you to join Starma", $message, "no-reply@" . get_domain())) {
     $data_1 = log_user_invite($sender_id, $email, $message);
     log_this_action (blogosphere_action_user(), invited_basic_action(), $data_1);
     return true;
