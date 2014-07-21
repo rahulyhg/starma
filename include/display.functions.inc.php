@@ -2216,7 +2216,7 @@ function confirm_form ($return_vars, $location, $birthtime, $return_vars2=0, $in
 
       }
       
-      echo '<div id="confirm_text">Welcome<br><span>' . get_my_nickname()  . '</span><br>from<br><span>' . $location . '</span></div>';
+      echo '<div id="confirm_text">Welcome<br><span>' . get_my_nickname()  . '</span><br>Born in<br><span>' . $location . '</span></div>';
       //echo '<div id="rising_text">Your Rising Sign: ' . get_sign_name ($return_vars[7]) . '</div>';
       echo '<input type="hidden" name="chart_name" value="Main"/>';
       echo '<input type="hidden" name="personal" value="1"/>';

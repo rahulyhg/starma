@@ -20,6 +20,7 @@ require_once("upload.functions.inc.php");
 require_once("log.functions.inc.php");
 require_once("vars.functions.inc.php");
 require_once("chat.functions.inc.php");
+require_once("security.functions.inc.php");
 
 if (permissions_check ($req = 10)) {
   

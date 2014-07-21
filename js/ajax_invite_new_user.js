@@ -2,13 +2,17 @@ $(document).ready(function(){
 
       var $invite = $('#msg_sendie').val();
 
-      $('#send-message-area').submit(function(event){
+      $('.msg_send_invite').click(function(event){
         //alert('submitting...');
+        event.preventDefault();
              
         var msg_data = {
-          'text_body'         : $('textarea[name=text_body]').val(),
-          'other_user_id'     : $('input[name=other_user_id]').val(),
-          'email'             : $('input[name=email]').val()
+          'first_name'        : $('#first_name_invite').val(),
+          'last_name'         : $('#last_name_invite').val(),
+          'their_name'        : $('#their_name_invite').val(),
+          'email'             : $('#their_email_invite').val(),
+          'text_body'         : $('#msg_sendie_invite').val(),
+          'sender_user_id'    : $('input[name=sender_user_id]').val()  
         };
 
         //alert(msg_data['text_body']);
@@ -22,49 +26,66 @@ $(document).ready(function(){
         })
           .done(function(data){
             console.log(data);
-
+            //alert(data.errors.first_name + ', ' + data.errors.last_name + ', ' + data.errors.their_name + ', ' + data.errors.email);
+            
             if(data.errors) {
               //alert('success: ' + data);
               $('#msg_sent').hide();
               $('#send-message-area').show();
+              if(data.errors.first_name){
+                $('#first_name_error').text(data.errors.first_name);
+              }
+              if(!data.errors.first_name){
+                $('#first_name_error').text('');
+              }
+              if(data.errors.last_name){
+                $('#last_name_error').text(data.errors.last_name);
+              }
+              if(!data.errors.last_name){
+                $('#last_name_error').text('');
+              }
+              if(data.errors.their_name){
+                $('#their_name_error').text(data.errors.their_name);
+              }
+              if(!data.errors.their_name){
+                $('#their_name_error').text('');
+              }
               if(data.errors.email) {
-                $('#email_label').text(data.errors.email);
+                $('#their_email_error').text(data.errors.email);
               } 
-              else {
-                $('#email_label').text('Email Address');
+              if(!data.errors.email) {
+                $('#their_email_error').text('');
+              } 
+              if(data.errors.sender_user_id) {
+                $('#sender_id_error').text(data.errors.sender_user_id);
               }
-              if(data.errors.text_body) {
-                $('#msg_label').text(data.errors.text_body);
-              }
-              else {
-                $('#msg_label').text('New Message');
+              if(!data.errors.sender_user_id) {
+                $('#sender_id_error').text('');
               }
             }
             else {
               $('#send-message-area').hide();
               $('#msg_sent').show();
-              $('#msg_sent').html('<p>Message Sent!</p>');
-              //alert(data.message);
-             
-               $('.pop').fadeOut(1700, function() {
-                      $('#msg_sendie').val($invite);
+              $('#msg_sent').html('<p>Invite Sent!</p>');
+              //alert(data);
+              $('.pop_invite').fadeOut(1700, function() {
+                      $('#msg_sendie_invite').val('');
+                      $('#their_name_invite').val('name');
+                      $('#their_email_invite').val('email');
                       $('#send-message-area').show();
                       $('#msg_sent').hide();
                       $('#msg_sent').html('');
-                      $('#msg_label').text('New Message');
-                      $('#email_label').text('Email Address');
-                      $('#email_invite').val('');
+                      $('.invite_error').text('');
                   });
-          
             } 
-
+          
           })
           .fail(function(data){
               console.log(data);
               alert('failure: ' + data + msg_data['text_body']);
           }); 
 
-      event.preventDefault();
+    
 
       });
 

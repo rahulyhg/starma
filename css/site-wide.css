@@ -169,7 +169,6 @@ body select {
   background:url('/img/arrows/AccountArrow.png') no-repeat top right;
   width:213px;
   text-align:right;
-    
 }
 
 #account_menu a {
@@ -385,6 +384,23 @@ body select {
   border-radius: 2px;
   box-shadow: 0 0 2px #313E5C inset;
   padding: 4px;
+}
+
+.input_style_inline {
+  position:relative;
+  display:inline-block;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  box-sizing: border-box; 
+ -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+  font-size:0.8em;
+  height:27px;
+  border-radius: 2px;
+  box-shadow: 0 0 2px #313E5C inset;
+  padding: 4px;
+  margin: 0 10px 8px 0;
 }
 
 #js_more_link {

@@ -1624,7 +1624,7 @@ li.my_unknown_button a {
 }
 
 .profile_button a {
-  position:absolute;  
+  position:relative;  
   color: #000000;
   display: block;
   font-size: 1.1em;
@@ -1642,7 +1642,6 @@ li.my_unknown_button a {
     width: 65px;
     float: right;
     margin-top: 8px;
-    
 }
 
 .profile_button.chat_button a {
@@ -1660,20 +1659,108 @@ li.my_unknown_button a {
 
 .profile_button.compare_button  {
     position: relative;
+    background: url('/img/Starma-Astrology-Compare-ButtonOFF.png') no-repeat ;
+    float: right;
+    height:86px;
+    width:187px;
+    background-position: right;
+    /*
     width: 167px;
     border: 1px solid black;
-    background-color: #8393CA;
     padding: 4px;
     text-align: center;
-    margin-top: 38px;
-    float: right;
+    */  
 }
 
 .profile_button.compare_button:hover  {
-    background-color: #FBF0A4;
-    
+    background: url('/img/Starma-Astrology-Compare-ButtonON.png') no-repeat ; 
+    background-position: right;
+    cursor: pointer;
 }
 
+.profile_button.compare_button #compare_menu {
+  position:relative;
+  top: 33px;
+  left: 48px;
+  background:url('/img/arrows/AccountArrow.png') no-repeat top right;
+  width:82px;
+  padding-right: 23px;
+  text-align:right;
+  font-family: "P22UndergroundBook";
+  font-size: 1em;
+  letter-spacing: 1.5px;
+} 
+
+.profile_button.compare_button #compare_menu a {
+  color:black;
+}
+
+.profile_button.compare_button #compare_menu .dropdown {
+  display:none;
+  position: relative;
+  /*right: 82px;*/
+  z-index: 2;
+  /*width:165px;*/
+}
+
+.profile_button.compare_button #compare_menu:hover .dropdown {
+  display:block;
+}
+
+.profile_button.compare_button #compare_menu .dropdown ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  padding-left:0px;
+
+}
+
+.profile_button.compare_button #compare_menu .dropdown ul li {
+  position: relative;
+  display: inline-block;
+  
+
+}
+
+.profile_button.compare_button #compare_menu .dropdown ul li a {
+  text-align:left;
+  display:block;
+  width:101px;
+  color:black;
+  margin: 0px;
+  padding: 2px 10px;
+  line-height:21px;
+  border:1px solid black;
+  border-bottom:0px;
+  background-color:#8393CA;
+  font-family: "P22UndergroundBook";
+  font-size: 1em;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+.profile_button.compare_button #compare_menu .dropdown ul li:hover a {
+  background-color:#FBF0A4;
+}
+
+.profile_button.compare_button #compare_select {
+  color: black;
+  position: relative;
+  left:69px;
+  top:35px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-family: "P22UndergroundBook";
+  font-size: .85em;
+  letter-spacing: 1.5px;
+}
+
+.profile_button.compare_button #compare_select:hover {
+
+}
+
+/*
 .profile_button.compare_button a {
     background:url('/img/profile/Starma-Astrology-Compare.png') no-repeat ; 
     height: 59px;
@@ -1686,14 +1773,10 @@ li.my_unknown_button a {
     background:url('/img/profile/Starma-Astrology-CompareON.png') no-repeat;
     
 }
-
+*/
 .compare_button_title {
   font:1.2em "ClarendonBT-Light";
   letter-spacing: 2px;
-}
-
-.profile_button.compare_button#compare_select {
-
 }
 
 .profile_button.chart_button {
@@ -1802,8 +1885,9 @@ li.my_unknown_button a {
 .profile_button.report_button {
     position: relative;
     float: right;
-    margin-top: 42px;
-    margin-right: -37px;
+    margin-top: 17px;
+    /*margin-right: -37px;*/
+    left: 192px;
 }
 
 .profile_button.report_button a {
@@ -1987,16 +2071,15 @@ li.my_unknown_button a {
 }
 
 #profile_photo_and_info .profile_info_area .name_area {
-
- line-height: 1.3em;
-    position: relative;
-    top: 3px;
+  line-height: 1.3em;
+  position: relative;
+  top: 3px;
 }
   
 #descriptors {
   float: left;
   position: relative;
-  width:320px;
+  width:300px;
   margin-top: 38px;
 }
 
@@ -2320,16 +2403,14 @@ li.my_unknown_button a {
     border-radius: 5px;
     font-size:0.8em;
     margin: auto;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     position: relative;
     top: 50px;
     width: 500px;
-    height: 195px;
     display: none;
 }
 
 #msg_sendie {
-
   background: none;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
@@ -2340,7 +2421,6 @@ li.my_unknown_button a {
   width: 380px;
   padding: 5px;
   display:block;
-
 }
 
 #msg_type_area {
@@ -2427,9 +2507,9 @@ li.my_unknown_button a {
 }
 
 .msg_cancel_invite {
-  float: right;
+  margin-left: 150px;
+  margin-top: 13px;
   margin-right: 15px;
-  margin-top: 3px;
   width: 65px;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
@@ -2440,6 +2520,39 @@ li.my_unknown_button a {
   box-shadow: 0 0 1px #4B5A80;
   cursor: pointer;
 }
+
+.msg_send_invite {
+  margin-top: 13px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
+#msg_sendie_invite {
+  background: none;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  box-shadow: 0 0 2px #313E5C inset;
+  height: 75px;
+  width: 391px;
+  padding: 5px;
+  display:block;
+}
+
+.invite_error {
+  font-size: .75em;
+  z-index: 1;
+  color: #C82923;
+}
+
 
 #report_close {
   width: 100%;
@@ -2482,6 +2595,10 @@ li.my_unknown_button a {
   margin-bottom: 15px;
 }
 
+#invite_type_area {
+  width: 430px;
+  margin: 10px 50px 10px 50px;
+}
 /*****************---Matt adding style to New Message section */
 
 #as-selections-fav_user_id {
@@ -2960,8 +3077,9 @@ END OLD WAY*/
 .profile_button_custom.invite_button {
     height: 25px;
     position: relative;
+    left: 10px;
     float: right;
-    margin-top: 104px;
+    margin-top: 98px;
 }
 
 .profile_button_custom.invite_button a {

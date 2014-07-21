@@ -148,6 +148,57 @@ elseif ($tier == "4") {
     $chart_id2 = $_GET["chart_id2"];
   }
 
+  echo '<div id="msg_sheen" class="pop_invite">';
+    
+          echo '<div id="msg_sheen_screen" class="pop_invite">';
+    
+            echo '</div>';
+              echo '<div id="msg_sheen_content_custom" class="pop_invite">';
+                echo '<div id="invite_type_area">';
+                  echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite User</strong></div><br />';
+                  //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
+                  echo '<div id="send-message-area">';
+                    echo '<div id="first_name_error" class="invite_error"></div>';
+                    echo '<div id="last_name_error" class="invite_error"></div>';
+                    echo '<div id="their_name_error" class="invite_error"></div>';
+                    echo '<div id="their_email_error" class="invite_error"></div>';
+                    echo '<div id="sender_id_error" class="invite_error"></div>';
+                    echo '<label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
+                          <input type="text" class="input_style_inline" value="';
+                            $first_name = get_my_first_name();
+                            if(!$first_name) {
+                              echo 'first name';
+                            } 
+                            else {
+                              echo $first_name;
+                            }
+                            echo '" id="first_name_invite" name="first_name" maxlength="17" />
+                          <input type="text" class="input_style_inline" value="';
+                            $last_name = get_my_last_name();
+                            if(!$last_name) {
+                              echo 'last name';
+                            } 
+                            else {
+                              echo $last_name;
+                            }
+                          echo '" id="last_name_invite" name="last_name" maxlength="17" /> <br />
+                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
+                          <input type="text" class="input_style_inline" value="name" id="their_name_invite" name="their_name" maxlength="34" />
+                          <input type="text" class="input_style_inline" value="email" id="their_email_invite" name="their_email" /> <br />
+                          <label for="msg_sendie_invite" id="msg_label"><strong>Personal Message (Optional)</strong></label>
+                          <textarea id="msg_sendie_invite" name="text_body" maxlength = "255" ></textarea>
+                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
+                          <input type="button" name="submit" value="Send" class="msg_send_invite"/>
+                          <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>';                         
+                        //echo '</form>';
+                        echo '</div>'; //Clost send-message-area
+                      echo '<span id="msg_sent"></span>';
+                  echo '</div>';
+                echo '</div>';
+              echo '</div>';
+
+
+
 echo '<div id="profile_top_bar">';
   echo '<div id="profile_photo_and_info_custom">
         <div id="custom_nickname">Custom Chart</div>
@@ -165,38 +216,29 @@ echo '<div id="profile_top_bar">';
           //echo '<div class="profile_button_custom compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2">Compare<span class="div_link"></span></a></div>';
 
           //REDESIGN
-          echo '<div class="profile_button compare_button">
-          <span class="compare_button_title">Compare</span>
+          echo '<div class="profile_button compare_button">';
+
+            echo '<div id="compare_menu">Compare';
+              echo '<div class="dropdown">';
+                echo '<ul>';
+                  echo '<li><a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">As Friends</a></li>';
+                  echo '<li><a style="border-bottom:1px solid black;" href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Romantically</a></li>';
+                echo '</ul>';
+              echo '</div>';
+            echo '</div>';
+          /*
+          echo '<span class="compare_button_title">Compare</span>
               <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
                 <option value="">Compatiblity Test</option>
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Romance</option>
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Friends</option>
-              </select>
-            </div>';
+              </select>';
+           */ 
+           echo '</div>'; //close compare button
 
           //************---Matt adding jquery popup from Message button
-        echo '<div class="profile_button_custom invite_button"><a href="#" id="msg_pop">Invite to Starma<span class="div_link"></span></a></div>';
-        echo '<div id="msg_sheen" class="pop">';
-    
-          echo '<div id="msg_sheen_screen" class="pop">';
-    
-            echo '</div>';
-              echo '<div id="msg_sheen_content_custom" class="pop">';
-                echo '<div id="msg_type_area">';
-                  echo '<form id="send-message-area" action="invite_new_user.php" method="POST">
-                          <label for="email" id="email_label">Email Address</label>
-                          <input type="text" value="" id="email_invite" name="email" />
-                          <label for="msg_sendie" id="msg_label">New Message</label>
-                          <textarea id="msg_sendie" name="text_body" maxlength = "255" >Hi there!' . PHP_EOL;  
-                          echo get_my_nickname() . ' would like to invite you to join Starma.com.  Starma is a...</textarea>
-                          <input type="submit" name="submit" value="Send" class="msg_send"/>
-                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
-                          <input type="hidden" value=' . get_my_user_id() . ' name="other_user_id"/>                         
-                        </form>';
-                      echo '<span id="msg_sent"></span>';
-                  echo '</div>';
-                echo '</div>';
-              echo '</div>';
+        echo '<div class="profile_button_custom invite_button"><a href="#" id="pop_invite">Invite to Starma<span class="div_link"></span></a></div>';
+        
 
 
         echo '</div>';  //close profile_top_bar
