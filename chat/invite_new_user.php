@@ -68,9 +68,12 @@ if(isLoggedIn()) {
 
 	//Text Body
 	if(isset($_POST['text_body'])) {
+		$text_body = trim($_POST['text_body']);
+		/*
 		$text_body = remove_slashes($_POST['text_body']);
 		$text_body = remove_front_slashes($text_body);
 		$text_body = strip_tags($text_body);
+		*/
 	}
 	else {
 		$text_body = '';
@@ -89,8 +92,8 @@ if(isLoggedIn()) {
 	}
 	else {
 		$data['success'] = true;
-		$data = $first_name . ', ' . $last_name . ', ' . $their_name . ', ' . $email . ', ' . $text_body . ', ' . $sender_user_id;		
-		//send_invite_user($first_name, last_name, $their_name, $email, $text_body, $sender_user_id);
+		//$data = $first_name . ', ' . $last_name . ', ' . $their_name . ', ' . $email . ', ' . $text_body . ', ' . $sender_user_id;		
+		send_invite_user($first_name, $last_name, $their_name, $email, $text_body, $sender_user_id);
 	}	
 	echo json_encode($data);
 	

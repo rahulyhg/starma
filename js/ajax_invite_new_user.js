@@ -67,7 +67,7 @@ $(document).ready(function(){
               $('#send-message-area').hide();
               $('#msg_sent').show();
               $('#msg_sent').html('<p>Invite Sent!</p>');
-              alert(data);
+              //alert(data);
               $('.pop_invite').fadeOut(1700, function() {
                       $('#msg_sendie_invite').val('');
                       $('#their_name_invite').val('name');

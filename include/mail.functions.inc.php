@@ -133,7 +133,7 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
   $message = 'Dear ' . $their_name . ',
   <br/><br/> 
 
-  ' . $full_name . 'has invited you to join ' . $gender . 'on <a href="https://www.starma.com" title="www.starma.com">starma.com</a>, a free astrology site that is easy to use and understand. Read about your Birth Chart, and see your compatibility with friends, family, lovers, and colleagues...even celebrities. <br /><br />';
+  ' . $full_name . 'has invited you to join ' . $gender . ' on <a href="https://www.starma.com" title="www.starma.com">starma.com</a>, a free astrology site that is easy to use and understand. Read about your Birth Chart, and see your compatibility with friends, family, lovers, and colleagues...even celebrities. <br /><br />';
 
   if($personal_message != '') {
     $message = $message . ' ' . $personal_message;
