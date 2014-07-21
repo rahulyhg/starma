@@ -1,4 +1,5 @@
 <?php
+
 require_once ("header.php");
  
 // IF YOU ARE ALREADY LOGGED IN, THEN GET KICKED THE FUCK OUT
