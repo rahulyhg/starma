@@ -147,7 +147,7 @@ function DST ($timezone_id, $date) {
     $transitions = $timezone->getTransitions();
     //print_r(array_slice($transitions, 0));
 
-    $loopDate = new DateTime($transitions[1]["time"]);
+    $loopDate = new DateTime($transitions[0]["time"]);
     $birthDate = new DateTime ($date);
     $counter = 1;
     while ($loopDate < $birthDate and $counter < sizeof($transitions)) {
