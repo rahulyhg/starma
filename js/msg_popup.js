@@ -46,8 +46,10 @@ $(document).ready(function(){
         	$('#send-message-area').show();
         	$('#msg_sent').hide();
         	$('#msg_sent').html('');
-        	$('#their_name_invite').val('');
-        	$('#their_email_invite').val('');
+        	$('#first_name_invite').val('first name');
+        	$('#last_name_invite').val('last name');
+        	$('#their_name_invite').val('name');
+        	$('#their_email_invite').val('email');
         });
 	});
 

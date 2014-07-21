@@ -158,7 +158,11 @@ elseif ($tier == "4") {
                   echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite User</strong></div><br />';
                   //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
                   echo '<div id="send-message-area">';
-                    echo '<div id="first_name_error"></div>';
+                    echo '<div id="first_name_error" class="invite_error"></div>';
+                    echo '<div id="last_name_error" class="invite_error"></div>';
+                    echo '<div id="their_name_error" class="invite_error"></div>';
+                    echo '<div id="their_email_error" class="invite_error"></div>';
+                    echo '<div id="sender_id_error" class="invite_error"></div>';
                     echo '<label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
                           <input type="text" class="input_style_inline" value="first name" id="first_name_invite" name="first_name" maxlength="17" />
                           <input type="text" class="input_style_inline" value="last name" id="last_name_invite" name="last_name" maxlength="17" /> <br />

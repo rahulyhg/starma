@@ -2545,6 +2545,12 @@ li.my_unknown_button a {
   display:block;
 }
 
+.invite_error {
+  font-size: .75em;
+  z-index: 1;
+  color: #C82923;
+}
+
 
 #report_close {
   width: 100%;

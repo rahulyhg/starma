@@ -26,43 +26,48 @@ $(document).ready(function(){
         })
           .done(function(data){
             console.log(data);
-            alert(data.errors.first_name + ', ' + data.errors.last_name + ', ' + data.errors.their_name + ', ' + data.errors.email);
-            /*
+            //alert(data.errors.first_name + ', ' + data.errors.last_name + ', ' + data.errors.their_name + ', ' + data.errors.email);
+            
             if(data.errors) {
               //alert('success: ' + data);
               $('#msg_sent').hide();
               $('#send-message-area').show();
+              if(data.errors.first_name){
+                $('#first_name_error').text(data.errors.first_name);
+              }
+              if(data.errors.last_name){
+                $('#last_name_error').text(data.errors.last_name);
+              }
+              if(data.errors.their_name){
+                $('#their_name_error').text(data.errors.their_name);
+              }
               if(data.errors.email) {
-                $('#email_label').text(data.errors.email);
+                $('#their_email_error').text(data.errors.email);
               } 
-              else {
-                $('#email_label').text('Email Address');
-              }
-              if(data.errors.text_body) {
-                $('#msg_label').text(data.errors.text_body);
-              }
-              else {
-                $('#msg_label').text('New Message');
+              if(data.errors.sender_user_id) {
+                $('#sender_id_error').text(data.errors.sender_user_id);
               }
             }
             else {
               $('#send-message-area').hide();
               $('#msg_sent').show();
-              $('#msg_sent').html('<p>Message Sent!</p>');
+              $('#msg_sent').html('<p>Invite Sent!</p>');
               //alert(data.message);
              
                $('.pop').fadeOut(1700, function() {
                       $('#msg_sendie').val($invite);
                       $('#send-message-area').show();
+                      $('.invite_error').hide().html('');
                       $('#msg_sent').hide();
                       $('#msg_sent').html('');
-                      $('#msg_label').text('New Message');
-                      $('#email_label').text('Email Address');
-                      $('#email_invite').val('');
+                      $('#first_name_invite').val('first name');
+                      $('#last_name_invite').val('last name');
+                      $('#their_name_invite').val('name');
+                      $('#their_email_invite').val('email');
                   });
           
             } 
-          */
+          
           })
           .fail(function(data){
               console.log(data);
