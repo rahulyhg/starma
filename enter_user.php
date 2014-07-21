@@ -216,14 +216,25 @@ echo '<div id="profile_top_bar">';
           //echo '<div class="profile_button_custom compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2">Compare<span class="div_link"></span></a></div>';
 
           //REDESIGN
-          echo '<div class="profile_button compare_button">
-          <span class="compare_button_title">Compare</span>
+          echo '<div class="profile_button compare_button">';
+
+            echo '<div id="compare_menu">Compare';
+              echo '<div class="dropdown">';
+                echo '<ul>';
+                  echo '<li><a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">As Friends</a></li>';
+                  echo '<li><a style="border-bottom:1px solid black;" href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Romantically</a></li>';
+                echo '</ul>';
+              echo '</div>';
+            echo '</div>';
+          /*
+          echo '<span class="compare_button_title">Compare</span>
               <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
                 <option value="">Compatiblity Test</option>
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Romance</option>
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Friends</option>
-              </select>
-            </div>';
+              </select>';
+           */ 
+           echo '</div>'; //close compare button
 
           //************---Matt adding jquery popup from Message button
         echo '<div class="profile_button_custom invite_button"><a href="#" id="pop_invite">Invite to Starma<span class="div_link"></span></a></div>';

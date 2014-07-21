@@ -1624,7 +1624,7 @@ li.my_unknown_button a {
 }
 
 .profile_button a {
-  position:absolute;  
+  position:relative;  
   color: #000000;
   display: block;
   font-size: 1.1em;
@@ -1885,8 +1885,9 @@ li.my_unknown_button a {
 .profile_button.report_button {
     position: relative;
     float: right;
-    margin-top: 42px;
-    margin-right: -37px;
+    margin-top: 17px;
+    /*margin-right: -37px;*/
+    left: 192px;
 }
 
 .profile_button.report_button a {
@@ -3076,8 +3077,9 @@ END OLD WAY*/
 .profile_button_custom.invite_button {
     height: 25px;
     position: relative;
+    left: 10px;
     float: right;
-    margin-top: 104px;
+    margin-top: 98px;
 }
 
 .profile_button_custom.invite_button a {
