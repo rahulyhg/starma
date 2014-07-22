@@ -5280,23 +5280,33 @@ function display_all_users ($url="", $filter=0) {
   
 }
 
-function display_welcome_page_thumbnails($celebs=0) {
-  $my_info = my_profile_info();
+function display_welcome_page_thumbnails($celebs=0, $generic=0) {
+  if ($generic == 0) {
+    $my_info = my_profile_info();
 
-  if ($celebs == 0) {
-    $age = calculate_age(substr((string)$my_info['birthday'], 0, 10));
-    $user_list = get_weighted_user_list ($age-5, $age+5); 
+    if ($celebs == 0) {
+      $age = calculate_age(substr((string)$my_info['birthday'], 0, 10));
+      $user_list = get_weighted_user_list ($age-5, $age+5); 
+    }
+    else {
+      $user_list = get_pic_only_celebrity_user_list ();
+    }
   }
   else {
-    $user_list = get_pic_only_celebrity_user_list ();
+    if ($celebs == 0) {
+      
+      $user_list = get_user_list_pics_only (); 
+    }
+    else {
+      $user_list = get_pic_only_celebrity_user_list ();
+    }
   }
-  
   $old_user_array = query_to_array($user_list);
   $user_array = array();
-  //pick 6 random ones
+  //pick 8 random ones
   while (sizeof($user_array) < 8 and sizeof($old_user_array) > 0) {
     $random_index = array_rand($old_user_array);
-    $new_item_array = array_splice($old_user_array, $random_index, 1);
+    $new_item_array = array_splice($old_user_array, $random_index, 1);    
     $user_array[] = $new_item_array[0];
   }
 

@@ -606,16 +606,17 @@ function get_my_main_photo() {
 }
 
 function get_main_photo($user_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = "SELECT picture from user_picture where user_id = " . $user_id . " and main = 1 and uncropped = 0";
-    $result = mysql_query($q) or die(mysql_error());
-    $row = mysql_fetch_array($result);
-    return $row["picture"];
+    if ($result = mysql_query($q)) {
+      $row = mysql_fetch_array($result);
+      return $row["picture"];
+    }
      
-  }
-  else {
-    return false;
-  }
+  //}
+    else {
+      return false;
+    }
 }
 
 function get_photo ($photo_id, $user_id) {
@@ -886,7 +887,7 @@ function basic_user_data($user_id) {
 }
 
 function profile_info($user_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT * from user where user_id = ' . $user_id;
     //echo $q . '<br>';
     if ($result = mysql_query($q)) {
@@ -896,10 +897,10 @@ function profile_info($user_id) {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function is_my_profile_done() {
@@ -998,6 +999,26 @@ function get_user_list () {
     $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           left outer join user_picture on user.user_id = user_picture.user_id 
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) ORDER BY main desc, user_id desc'; // where user_id = ' . $_SESSION["user_id"]; add LIMIT 32 to limit list
+    
+    if ($result = mysql_query($q)) {
+      return $result;
+    }
+    else {
+      return false;
+    }
+  //}
+  //else {
+  //  return false;
+  //}
+}
+
+function get_user_list_pics_only () {
+  
+  //if (isLoggedIn()) {
+    $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+          inner join chart on user.user_id = chart.user_id 
+          inner join user_picture on user.user_id = user_picture.user_id 
           where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) ORDER BY main desc, user_id desc'; // where user_id = ' . $_SESSION["user_id"]; add LIMIT 32 to limit list
     
     if ($result = mysql_query($q)) {

@@ -43,7 +43,7 @@ require_once "header.php";
       <a class="box_link" href="main.php?the_page=cosel&the_left=nav1&the_tier=1"></a>
       <div id="homepage_thumbnails">
         <?php
-          display_welcome_page_thumbnails($celebs=0);
+          display_welcome_page_thumbnails(0, 1);
         ?>
       <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
       </div>
@@ -53,6 +53,7 @@ require_once "header.php";
       <a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
       <div id="homepage_chart_button_info">
         <?php
+          /*
           $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
           echo '<ul>';
           echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
@@ -60,6 +61,7 @@ require_once "header.php";
           echo '<div id="blurb">';
             show_poi_sign_blurb_abbr (1, $button_sign_id);
           echo '</div>';
+          */
         ?>
         <div id="h_box_blurb"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
       </div>
@@ -69,7 +71,7 @@ require_once "header.php";
       <a class="box_link" href="main.php?the_page=cesel&the_left=nav1"></a>
       <div id="homepage_thumbnails">
         <?php
-          display_welcome_page_thumbnails(1);
+          display_welcome_page_thumbnails(1, 1);
         ?>
         <div id="ce_box_blurb"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
       </div>
