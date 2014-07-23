@@ -71,7 +71,7 @@ elseif ($tier == "2") {
 }
 */
 elseif ($tier == "3") {
-  require("sample_profile.php");
+  require("limited_profile.php");
 }
 
 
