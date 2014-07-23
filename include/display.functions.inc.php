@@ -898,7 +898,9 @@ function show_general_info($chart_id) {
       }
       else {
         echo '">';
-        echo '<span style="color:' . $online_color . '">•</span>';
+        if (isLoggedIn()) {
+          echo '<span style="color:' . $online_color . '">•</span>';
+        }
         echo $user_info["nickname"];
       }
     echo '</div>';

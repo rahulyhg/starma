@@ -54,75 +54,7 @@ date_default_timezone_set('America/Chicago');
 ?>
 
 
-    
-    
-
-<script type="text/javascript">
-    
-        //get the user's timezone offset
-    	
-        
-    	
-        $(document).ready(function() {
-          theDate = new Date();
-
-          DST = 0;
-
-          Date.prototype.stdTimezoneOffset = function() {
-    		var jan = new Date(this.getFullYear(), 0, 1);
-    		var jul = new Date(this.getFullYear(), 6, 1);
-    		return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-	  }
-
-	  Date.prototype.dst = function() {
-		return this.getTimezoneOffset() < this.stdTimezoneOffset();
-          }
-          if (theDate.dst()) { DST = 60; }
-          //http://127.0.0.1:8080/chat/process_all.php
-          
-          $.ajax({
-		   type: "GET",
-                   cache: false,
-		   url: "https://www.starma.com/chat/process_all.php",
-		   data: {  
-		   	  'function': 'setTimeZone',
-                          'timezoneOffset': theDate.getTimezoneOffset() + DST									
-		         },
-                   dataType: "json"                                                                    
-		});    
-        });
-
-        //Hack for IE10
-       if (/*@cc_on!@*/false) {
-         var headHTML = document.getElementsByTagName('head')[0].innerHTML;
-         headHTML    += '<link type="text/css" rel="stylesheet" href="css/ie10.css">';
-         document.getElementsByTagName('head')[0].innerHTML = headHTML;
-        }
-
-        // Popup window function
-	function basicPopup(url, title, specs) {
-          popupWindow = window.open(url,title,specs);
-	}
-</script>
-
-
-<?php if (!strpos($_SERVER['PHP_SELF'], get_landing())) { ?>
-<script type="text/javascript">
-    
-      
-    	// kick off chat
-        var chat_all =  new Chat_All();
-    	
-        $(document).ready(function() {
-            chat_all.refresh();            
-            chat_all.update();
-            setTimeout('chat_all.update()', chat_all.refreshTime());
-        });
-</script>
-<?php } ?>
-    
-
-
+   
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

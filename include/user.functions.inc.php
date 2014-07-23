@@ -1055,7 +1055,7 @@ function get_filtered_user_list ($filter, $type="include") { //FOR FAVORITES ONL
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
-    $q = $q . sprintf('user.nickname like "%%%s%%" ORDER BY nickname', mysql_real_escape_string($filter));
+    $q = $q . sprintf("user.nickname like '%%%s%%' ORDER BY nickname", mysql_real_escape_string($filter));
     if ($result = mysql_query($q)) {
       return $result;
     }
@@ -1069,26 +1069,26 @@ function get_filtered_user_list ($filter, $type="include") { //FOR FAVORITES ONL
 }
 
 function get_filtered_user_list_no_celeb ($filter, $type, $limit) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where permissions_id != ' . PERMISSIONS_CELEB() . ' AND chart.nickname="main" AND ';
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
-    $q = $q . sprintf('user.nickname like "%%%s%%" ORDER BY user_id desc LIMIT %s', mysql_real_escape_string($filter), $limit);
+    $q = $q . sprintf("user.nickname like '%%%s%%' ORDER BY user_id desc LIMIT %s", mysql_real_escape_string($filter), $limit);
     if ($result = mysql_query($q)) {
       return $result;
     }
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function get_celebrity_user_list () {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" ORDER BY nickname'; 
     if ($result = mysql_query($q)) {
       return $result;
@@ -1096,14 +1096,14 @@ function get_celebrity_user_list () {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function get_pic_only_celebrity_user_list () {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = '
         SELECT *, chart.chart_id
  FROM user inner join chart on user.user_id = chart.user_id
@@ -1115,14 +1115,14 @@ function get_pic_only_celebrity_user_list () {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function get_filtered_celebrity_user_list ($filter, $type="include") {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" AND ';
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
@@ -1134,10 +1134,10 @@ function get_filtered_celebrity_user_list ($filter, $type="include") {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+ // }
 }
 
 
@@ -1682,7 +1682,7 @@ function get_user_id_from_email ($email) {
 }
 
 function get_user_id_from_chart_id ($chart_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT user.user_id from user inner join chart on user.user_id = chart.user_id where chart.nickname = "main" and chart.chart_id = ' . $chart_id;
     if ($result = mysql_query($q)) {
       if ($row = mysql_fetch_array ($result)) {
@@ -1695,10 +1695,10 @@ function get_user_id_from_chart_id ($chart_id) {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function get_chart_id_from_user_id ($user_id) {
