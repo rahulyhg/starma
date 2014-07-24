@@ -1093,7 +1093,7 @@ function get_filtered_user_list_no_celeb ($filter, $type, $limit) {
 
 function get_celebrity_user_list () {
   //if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where private = 0 and chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" ORDER BY nickname'; 
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where private = 0 and chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" ORDER BY nickname LIMIT 16'; 
     if ($result = mysql_query($q)) {
       return $result;
     }

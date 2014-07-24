@@ -4,6 +4,10 @@ require_once ("header.php");
  
 // IF YOU ARE ALREADY LOGGED IN, THEN GET KICKED THE FUCK OUT
 //Lord_Starmeow is user_id 371
+if(isLoggedin()) {
+  do_redirect (get_domain());
+}
+else {
 
 $guest_user_id = get_guest_user_id();
 //echo $guest_user_id;
@@ -59,7 +63,7 @@ if ($the_left=="nav1") {
  else {
    $chart_id2_holder = -1;
  }
-
+}
 
 ?> 
 
