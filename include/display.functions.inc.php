@@ -4475,7 +4475,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         }
         echo '<li class="chart_li Blurred_button pop_guest">
                 <div class="chart_tabs_wrapper">
-                  <span class="icon left pointer"><span class="poi_title">Mars</span></span><span class="arrow"></span>
+                  <span class="icon left pointer"><span class="poi_title">MARS</span></span><span class="arrow"></span>
                 </div> 
               </li>';        
         echo '</ul>'; //Close Left ul
@@ -4487,7 +4487,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         echo '<div class="chart_tabs right_side"/>';
         echo '<ul>';
         
-        $poi_list = array('Mercury', 'Jupiter', 'Saturn');
+        $poi_list = array('MERCURY', 'JUPITER', 'SATURN');
         for ($x = 0; $x<3; $x++) {
           echo '<li class="chart_li Blurred_button pop_guest">';
             echo '<div class="chart_tabs_wrapper">';
