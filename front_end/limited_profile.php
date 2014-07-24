@@ -5,6 +5,8 @@ require_once ("header.php");
 //if (login_check_point($type="full")) {
 
   if (valid_chart_view($_GET["chart_id2"])) {
+    $guest_user_id = get_guest_user_id();
+    $guest_chart_id = get_guest_chart_id($guest_user_id);
     /*
     $section = grab_var('section','chart_selected');
     $western_there = grab_var('western_there',chart_already_there("Alternate",get_user_id_from_chart_id($_GET["chart_id2"])) );
@@ -54,8 +56,8 @@ require_once ("header.php");
             <span class="compare_button_title">Compare</span>
               <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
                 <option value="">Compatiblity Test</option>
-                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romance</option>
-                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Friends</option>
+                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romance</option>
+                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Friends</option>
               </select>
             </div>';
 

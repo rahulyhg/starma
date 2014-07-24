@@ -900,7 +900,12 @@ function show_general_info($chart_id) {
         echo $user_info["first_name"] . ' ' . $user_info["last_name"];
       }
       else {
-        echo '">';
+        if(!isLoggedIn()){
+          echo '" style="line-height:2;">';
+        }
+        else {
+          echo '">';
+        }
         if (isLoggedIn()) {
           echo '<span style="color:' . $online_color . '">•</span>';
         }
@@ -2482,6 +2487,13 @@ function test_form_time () {
 
 function show_compare_results ($score, $goto=".", $results_type, $text_type, $stage="2") {
 
+      if(!isLoggedIn()) {
+        echo '<script type="text/javascript">
+                $(document).ready(function(){
+                    $(".pop_guest").slideFadeToggle();
+                });
+              </script>';
+      }
 
       //$isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($_GET["chart_id2"])));
       $freebie = is_freebie_chart($_SESSION['compare_chart_ids'][1]);

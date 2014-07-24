@@ -39,7 +39,7 @@ if ($tier == "1") {
   echo '</div>';
   //display_my_chart_list();
 }
-/*
+
 elseif ($tier == "2") {
     
     if (isset($_GET["results_type"])) {
@@ -58,9 +58,9 @@ elseif ($tier == "2") {
        $gotothe = "?the_page=" . $the_page . "&the_left=" . $the_left . "&results_type=" . $results_type . "&text_type=" . $text_type . "&tier=2";
        compare_tier_2 ($gotothe, $results_type, $text_type);
     } 
-    if (isset($_SESSION["compare_more_info_flag"])) {
-      $flag = $_SESSION["compare_more_info_flag"];
-    }
+    //if (isset($_SESSION["compare_more_info_flag"])) {
+      //$flag = $_SESSION["compare_more_info_flag"];
+    //}
     else {
       $flag = get_my_preferences("compare_more_info_flag", 1);
     }
@@ -69,7 +69,7 @@ elseif ($tier == "2") {
     }
 
 }
-*/
+
 elseif ($tier == "3") {
   require("limited_profile.php");
 }
