@@ -2,17 +2,28 @@
 require_once "header.php"; 
 ?>
 
-
+$guest_user_id = get_guest_user_id();
  <div id="welcome">
     <!--<?php flare_title();?>-->
-    <div id="header">
+    <div id="header"> 
       Welcome to Starma.com. We're so glad you've joined our community!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
     </div>
  
     <div id="profile_box_link" class="homepage_div">
       <span class="header">Birth Chart Example</span>
-      <a class="box_link" href="main.php?the_page=psel&the_left=nav1&western=0&section=about_selected"></a>
+      <a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
       <div id="homepage_profile_button_info">
+        <?php
+         
+          $button_sign_id = get_sign_from_poi (get_guest_chart_id($guest_user_id), 1);
+          echo '<ul>';
+          echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
+          echo '</ul>';
+          echo '<div id="blurb">';
+            show_poi_sign_blurb_abbr (1, $button_sign_id);
+          echo '</div>';
+          
+          ?>
        
         <!--<div id="user_block">
            <div class="about_photo_wrapper"> 
@@ -56,15 +67,7 @@ require_once "header.php";
       <a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
       <div id="homepage_chart_button_info">
         <?php
-          /*
-          $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
-          echo '<ul>';
-          echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
-          echo '</ul>';
-          echo '<div id="blurb">';
-            show_poi_sign_blurb_abbr (1, $button_sign_id);
-          echo '</div>';
-          */
+         
         ?>
         <div id="h_box_blurb"><p class="hsel_box_blurb">See your compatibility with ...</p></div>
       </div>

@@ -3,7 +3,10 @@
 require_once ("header.php");
  
 // IF YOU ARE ALREADY LOGGED IN, THEN GET KICKED THE FUCK OUT
+//Lord_Starmeow is user_id 371
 
+$guest_user_id = get_guest_user_id();
+//echo $guest_user_id;
 if (!isset($_GET["the_page"])) {
   $the_page = "hsel";
 }
