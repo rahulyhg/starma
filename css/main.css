@@ -128,6 +128,11 @@ input{
     left: 40px;
     top: 326px;
 }
+
+#welcome #horoscope_box_link_guest {
+  left: 40px;
+}
+
 #welcome #horoscope_box_link a.box_link {
   /*background:url("/img/Starma-Astrology-ChartBox.png") no-repeat scroll center center;*/
 }
@@ -497,6 +502,30 @@ span.right {
 }
 
 /*/////////// TALL SIGN ICONS /////////////////////////////////////*/
+
+.Blurred_button span.icon, .Blurred_button.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Blur-OFF.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Blurred_button.selected span.icon, .Blurred_button:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Blur-ON.png') no-repeat;
+  height: 88px;
+  width: 75px;
+}
+
+.Blurred_button_rk span.icon, .Blurred_button_rk.no_hover:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Blur-OFF.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
+
+.Blurred_button_rk.selected span.icon, .Blurred_button_rk:hover span.icon {
+  background:url('/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Blur-ON.png') no-repeat;
+  height: 180px;
+  width: 75px;
+}
 
 .Unknown_button span.icon, .Unknown_button.no_hover:hover span.icon {
   background:url('/img/sign_buttons/Starma-Astrology-Unknown-OFF.png') no-repeat;
@@ -2353,6 +2382,36 @@ li.my_unknown_button a {
   height: 70px;
   width: 400px;
   margin: 2px 0;
+}
+
+.sign_up {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
+.sign_up_cancel {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  width: 65px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
 }
 
 .msg_send {
