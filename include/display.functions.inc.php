@@ -1333,52 +1333,6 @@ function get_left_menu ($the_page) {
   return $menu;
 }
 
-function get_left_menu_front_end ($the_page) {
-  for ($x=1; $x<=6; $x++) {
-    $menu['nav' . $x] = array('','#'); 
-  }
-  if ($the_page == 'cesel') {
-    $menu['nav1'] = array('Celebrities&nbsp;&nbsp;','celebrities.php','');
-    /*$menu['nav2'] = array('Houses&nbsp;&nbsp;','#','');
-    $menu['nav3'] = array('&nbsp;&nbsp;','#','');
-    $menu['nav4'] = array('Career Advice&nbsp;&nbsp;','#','');
-    $menu['nav5'] = array('My Birth Info&nbsp;&nbsp;','','pop_guest_click');
-    $menu['nav6'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php','');
-    */
-  }
-  elseif ($the_page == 'psel') {
-    $menu['nav1'] = array('Profile&nbsp;&nbsp;','non_chart_profile.php','');
-    //$menu['nav2'] = array('houses&nbsp;&nbsp;','#','');
-    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','#','');
-    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','#','');
-    $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','','pop_guest_click');
-    //$menu['nav6'] = array('Career&nbsp;&nbsp;','#','');
-    //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php','');
-  }
-  elseif ($the_page == 'cosel') {
-    $menu['nav1'] = array('New to Starma&nbsp;&nbsp;','all_users.php','');
-    $menu['nav2'] = array('Favorites&nbsp;&nbsp;','favorites.php','');
-    //$menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php','');
-    $menu['nav3'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php','');
-    
-  }
-  elseif ($the_page == 'hsel') {
-    $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php','');
-    $menu['nav2'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php','');
-    
-  }
-  elseif ($the_page == 'isel') {
-    $menu['nav1'] = array('Inbox&nbsp;&nbsp;','inbox.php','');
-    
-  }
-  elseif ($the_page == 'ssel') {
-    $menu['nav1'] = array('Settings&nbsp;&nbsp;','settings.php','');
-    //$menu['nav2'] = array('Log Out&nbsp;&nbsp;','main_logout.php','');
-    
-  }
-  
-  return $menu;
-}
 
 function edit_profile_form ($user_id) {  // FOR ADMINS ONLY
   if (permissions_check ($req = 10)) {
@@ -1899,9 +1853,6 @@ echo        '<div id="submit_div_custom">
 echo '<script type="text/javascript" src="js/birth_form_ui.js"></script>';
 
 }
-
-
-
 ///END MATT CUSTOM BIRTH FORM
 
 function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="cast_chart.php", $stage=1) {
@@ -2101,6 +2052,9 @@ echo        '<div id="submit_div">
     display_error_list ($errors);
   }
 }
+
+
+
 
 function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir=true, $the_nickname="Freebie1", $interval, $time_unknown, $method="E") {
   
