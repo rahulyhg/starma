@@ -5,16 +5,14 @@ $(document).ready(function(){
     	return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
 	};
 
-	$('.pop_guest_click').click(function(){
-		$('.pop_guest').slideFadeToggle(function() { 
-                $("#msg_sendie").focus();
-            });
+	$('.pop_guest_click').click(function(event){
+		event.preventDefault();
+		$('.pop_guest').slideFadeToggle(function() {});
 		return false;
 	});
 
 	$('.sign_up_cancel').click(function(){
-		$('.pop_guest').slideFadeToggle(function(){
-        });
+		$('.pop_guest').slideFadeToggle(function(){});
 	});
 
 /*

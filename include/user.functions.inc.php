@@ -1023,7 +1023,7 @@ function get_user_list_pics_only () {
     $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           inner join user_picture on user.user_id = user_picture.user_id 
-          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) ORDER BY main desc, user_id desc'; // where user_id = ' . $_SESSION["user_id"]; add LIMIT 32 to limit list
+          where private = 0 and chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) ORDER BY main desc, user_id desc'; // where user_id = ' . $_SESSION["user_id"]; add LIMIT 32 to limit list
     
     if ($result = mysql_query($q)) {
       return $result;
@@ -1039,7 +1039,7 @@ function get_user_list_pics_only () {
 
 function get_favorties_user_list () {
   if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join favorite on favorite.favorite_user_id = user.user_id where chart.nickname="main" AND favorite.user_id = ' . get_my_user_id() . ' ORDER BY nickname'; // where user_id = ' . $_SESSION["user_id"];
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join favorite on favorite.favorite_user_id = user.user_id where private = 0 and chart.nickname="main" AND favorite.user_id = ' . get_my_user_id() . ' ORDER BY nickname'; // where user_id = ' . $_SESSION["user_id"];
     if ($result = mysql_query($q)) {
       return $result;
     }
@@ -1055,7 +1055,7 @@ function get_favorties_user_list () {
 
 function get_filtered_user_list ($filter, $type="include") { //FOR FAVORITES ONLY
   if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join favorite on favorite.favorite_user_id = user.user_id where chart.nickname="main" AND favorite.user_id = ' . get_my_user_id() . ' AND ';
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join favorite on favorite.favorite_user_id = user.user_id where private = 0 and chart.nickname="main" AND favorite.user_id = ' . get_my_user_id() . ' AND ';
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
@@ -1074,7 +1074,7 @@ function get_filtered_user_list ($filter, $type="include") { //FOR FAVORITES ONL
 
 function get_filtered_user_list_no_celeb ($filter, $type, $limit) {
   //if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where permissions_id != ' . PERMISSIONS_CELEB() . ' AND chart.nickname="main" AND ';
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where private = 0 and permissions_id != ' . PERMISSIONS_CELEB() . ' AND chart.nickname="main" AND ';
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
@@ -1093,7 +1093,7 @@ function get_filtered_user_list_no_celeb ($filter, $type, $limit) {
 
 function get_celebrity_user_list () {
   //if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" ORDER BY nickname'; 
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where private = 0 and chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" ORDER BY nickname'; 
     if ($result = mysql_query($q)) {
       return $result;
     }
@@ -1111,7 +1111,7 @@ function get_pic_only_celebrity_user_list () {
     $q = '
         SELECT *, chart.chart_id
  FROM user inner join chart on user.user_id = chart.user_id
- inner join user_picture on user.user_id = user_picture.user_id WHERE user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname = "main" and permissions_id = ' . PERMISSIONS_CELEB() . ' and not email like "%TestCeleb%"
+ inner join user_picture on user.user_id = user_picture.user_id WHERE private = 0 and user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname = "main" and permissions_id = ' . PERMISSIONS_CELEB() . ' and not email like "%TestCeleb%"
 ';
     if ($result = mysql_query($q)) {
       return $result;
@@ -1127,7 +1127,7 @@ function get_pic_only_celebrity_user_list () {
 
 function get_filtered_celebrity_user_list ($filter, $type="include") {
   //if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" AND ';
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where private = 0 and chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" AND ';
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
@@ -1148,7 +1148,7 @@ function get_filtered_celebrity_user_list ($filter, $type="include") {
 function get_weighted_user_list ($lowBound, $highBound) {
   
   if (isLoggedIn()) {
-    $q = 'SELECT DISTINCT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join user_picture on user.user_id = user_picture.user_id where user.user_id != ' . get_my_user_id() . ' and user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname="main" and permissions_id <> -1 and user.birthday between DATE_SUB(NOW(), INTERVAL "' . $highBound . '" YEAR) and DATE_SUB(NOW(), INTERVAL "' . $lowBound . '" YEAR) ORDER BY user_id desc'; // where user_id = ' . $_SESSION["user_id"];
+    $q = 'SELECT DISTINCT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join user_picture on user.user_id = user_picture.user_id where private = 0 and user.user_id != ' . get_my_user_id() . ' and user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname="main" and permissions_id <> -1 and user.birthday between DATE_SUB(NOW(), INTERVAL "' . $highBound . '" YEAR) and DATE_SUB(NOW(), INTERVAL "' . $lowBound . '" YEAR) ORDER BY user_id desc'; // where user_id = ' . $_SESSION["user_id"];
     
     if ($result = mysql_query($q)) {
       return $result;
@@ -1164,7 +1164,7 @@ function get_weighted_user_list ($lowBound, $highBound) {
 
 function get_celeb_list() {  // THIS FUNCTION FOR ADMINS ONLY, TO MANAGE CELEBRITIES
   if (isLoggedIn()) {
-    $q = 'SELECT user.* from user WHERE permissions_id = -1 ORDER BY nickname';
+    $q = 'SELECT user.* from user WHERE private = 0 and permissions_id = -1 ORDER BY nickname';
     if ($result = mysql_query($q)) {
       return $result;
     }
