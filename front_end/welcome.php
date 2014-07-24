@@ -1,24 +1,22 @@
 <?php
 require_once "header.php"; 
+//$guest_user_id = get_guest_user_id();
 ?>
-
-$guest_user_id = get_guest_user_id();
  <div id="welcome">
     <!--<?php flare_title();?>-->
     <div id="header"> 
       Welcome to Starma.com. We're so glad you've joined our community!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
     </div>
  
-    <div id="profile_box_link" class="homepage_div">
+    <div id="horoscope_box_link_guest" class="homepage_div">
       <span class="header">Birth Chart Example</span>
       <a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
-      <div id="homepage_profile_button_info">
+      <div id="homepage_chart_button_info">
         <?php
          
           $button_sign_id = get_sign_from_poi (get_guest_chart_id($guest_user_id), 1);
           echo '<ul>';
           echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
-          echo '</ul>';
           echo '<div id="blurb">';
             show_poi_sign_blurb_abbr (1, $button_sign_id);
           echo '</div>';
@@ -48,7 +46,7 @@ $guest_user_id = get_guest_user_id();
         ?>   
       </div> -->
 
-      <div id="p_box_blurb"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
+      <div id="h_box_blurb"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
     </div>
     </div>
     <div id="community_box_link" class="homepage_div">

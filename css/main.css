@@ -128,6 +128,11 @@ input{
     left: 40px;
     top: 326px;
 }
+
+#welcome #horoscope_box_link_guest {
+  left: 40px;
+}
+
 #welcome #horoscope_box_link a.box_link {
   /*background:url("/img/Starma-Astrology-ChartBox.png") no-repeat scroll center center;*/
 }
