@@ -1,14 +1,23 @@
 $(document).ready(function(){
 
-	var $invite = $('#msg_sendie').val();
+	//var $invite = $('#msg_sendie').val();
+	jQuery.fn.slideFadeToggle = function(easing, callback) {
+    	return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
+	};
 
-	$('#msg_pop').click(function(){
-		$('.pop').slideFadeToggle(function() { 
+	$('.pop_guest_click').click(function(){
+		$('.pop_guest').slideFadeToggle(function() { 
                 $("#msg_sendie").focus();
             });
 		return false;
 	});
 
+	$('.sign_up_cancel').click(function(){
+		$('.pop_guest').slideFadeToggle(function(){
+        });
+	});
+
+/*
 	$('.msg_cancel').click(function(){
 		$('.pop').slideFadeToggle(function(){
 			$('#msg_sendie').val('');
@@ -31,10 +40,7 @@ $(document).ready(function(){
         });
 	});
 
-	jQuery.fn.slideFadeToggle = function(easing, callback) {
-    return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
-	};
-
+	
 	$('.msg_send').click(function(){
 							$('#send-message-area').hide();
              				$('#msg_sent').show();
@@ -78,5 +84,6 @@ $(document).ready(function(){
 			$('#msg_sheen_content_report').height('212px');
 		});
 	});
+*/
 
 });

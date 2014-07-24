@@ -97,8 +97,12 @@ function num_new_msgs_with ($r_id) {
 }
 
 function num_new_non_chats () {
-  $r = get_my_new_non_chats ();
-  return mysql_num_rows($r);
+  if($r = get_my_new_non_chats ()) {
+    return mysql_num_rows($r);
+  }
+  else {
+    return false;
+  }
   
 }
 
@@ -1225,7 +1229,7 @@ function get_chart_list () {
 }
 
 function get_chart ($chart_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT * from chart where chart_id = ' . (int) $chart_id; // . ' and user_id = ' . $_SESSION["user_id"];
     if ($result = mysql_query($q)) {
       if ($row = mysql_fetch_array ($result)) {
@@ -1238,10 +1242,10 @@ function get_chart ($chart_id) {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function get_my_chart_id () {
@@ -1351,7 +1355,7 @@ function get_my_email () {
 }
 
 function get_nickname ($user_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT nickname from user where user_id = ' . $user_id;
     if ($result = mysql_query($q)) {
       if ($row = mysql_fetch_array ($result)) {
@@ -1364,10 +1368,10 @@ function get_nickname ($user_id) {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function delete_my_chart_by_name ($chart_name) {
@@ -1650,7 +1654,7 @@ function get_newest_chart() {
 }
 
 function get_chart_by_name ($nickname="Main", $user_id=-1) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     if ((string)$user_id == '-1') {
       $user_id = $_SESSION["user_id"];
     }
@@ -1658,10 +1662,10 @@ function get_chart_by_name ($nickname="Main", $user_id=-1) {
     $r = mysql_query ($q) or die (mysql_error());
     $chart = mysql_fetch_array($r);
     return $chart;
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 

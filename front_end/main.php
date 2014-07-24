@@ -194,6 +194,7 @@ if ($the_left=="nav1") {
 </script>-->
 
 <?php
+echo "<script type='text/javascript' src='js/guest_popup.js'></script>";
  require_once "footer.php";
 ?> 
 </body>

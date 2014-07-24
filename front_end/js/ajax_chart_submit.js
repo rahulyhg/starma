@@ -25,7 +25,7 @@ $(document).ready(function(){
 			
 			$.ajax({
 				type: 'POST',
-				url: 'chat/chart_submit.php',
+				url: '../chat/chart_submit.php',
 				data: poi_id,
 				dataType: 'json',
 

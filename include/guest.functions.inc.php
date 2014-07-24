@@ -38,5 +38,18 @@ function get_guest_chart_id($user_id) {
   }
 }
 
+function get_guest_photos() {
+  //if (isLoggedIn()) {
+    $user_id = get_guest_user_id();
+    $q = "SELECT * from user_picture where user_id = " . $user_id . " and uncropped = 0";
+    $result = mysql_query($q) or die(mysql_error());
+    return $result;
+     
+  //}
+  //else {
+    //return false;
+  //}
+}
+
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 require_once("ajax_header.php");
-
-    $logged_in = login_check_point($type="full");
+    //IS THIS LOGIN POINT NECESSARY?
+    //$logged_in = login_check_point($type="full");
 
     
     $data = array();

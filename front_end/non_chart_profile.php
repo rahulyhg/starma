@@ -51,9 +51,9 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
     //echo '<div id="profile_photo_grid">';
     //    show_my_photo_grid($link=0);
     //  echo '</div>';
-  echo $guest_chart_id;
-  $user_id = get_user_id_from_chart_id($guest_chart_id);
-  echo $user_id;
+  //echo $guest_chart_id;
+  //$user_id = get_user_id_from_chart_id($guest_chart_id);
+  //echo $user_id;
     show_descriptors_info($guest_chart_id); 
 
 
@@ -104,17 +104,17 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
         }
         elseif ($section == 'about_selected') {
           
-          if ($edit_profile == '0') {
+          //if ($edit_profile == '0') {
             //echo '<div style="width:100%; position:relative; top:75px">';
-              show_my_interests_info();
+              show_interests_info($guest_chart_id, false);
             //echo '</div>';
-            echo '<input style="position:absolute; right: 20px; top: 18px;" type="button" onclick="window.location=\'?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected&edit_profile=1\'" value="Edit My Info"/>';
+            //echo '<input style="position:absolute; right: 20px; top: 18px;" type="button" onclick="window.location=\'?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected&edit_profile=1\'" value="Edit My Info"/>';
 
             
-          }
-          else {
-            require('interests.php');
-          }
+          //}
+          //else {
+            //require('interests.php');
+          //}
           
         }
         elseif ($section == 'western_selected') {
