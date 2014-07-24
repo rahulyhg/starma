@@ -50,7 +50,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
   //echo $guest_chart_id;
   //echo '<br>';
   //echo $guest_user_id;
-  show_guest_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&western=" . $western . "&section=" . $section, $guest_chart_id, $western);
+  show_guest_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&western=" . $western . "&section=" . $section, $guest_user_id, $western);
   /*
   if ($western == 0) {
     if (isset($_SESSION["chart_more_info_flag"])) {

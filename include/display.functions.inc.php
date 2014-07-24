@@ -3901,8 +3901,6 @@ function show_intro_text() {
 function show_guest_chart($goto = ".", $user_id, $western=0) {
   if ($western == 0) {
     $chart_info = get_guest_chart($user_id);
-    echo 'Hello';
-    echo $chart_info['chart_id'];
   }
   else {
     //echo 'Hello There';
@@ -3911,7 +3909,6 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
   }
   if ($chart_info) {
       $chart_id = $chart_info["chart_id"];
-      echo $chart_id;
       if (!isset($_POST["poi_id"])) {
         #if (get_my_preferences("chart_more_info_flag", 1) == 0) { 
         $poi_id = 1;
