@@ -153,7 +153,7 @@ require_once ("header.php");
   
 
   echo '</div>';  //close profile_top_bar
-
+  /*
   //SIGN UP POPUP
     echo '<div id="msg_sheen" class="pop_guest">';
     
@@ -174,6 +174,7 @@ require_once ("header.php");
                   echo '</div>';
                 echo '</div>';
               echo '</div>';
+        */
 
   if($isCeleb) {
     echo '<div style="clear:both;"></div>';
