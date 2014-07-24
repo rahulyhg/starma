@@ -529,15 +529,15 @@ function get_my_descriptors () {
 
 function get_descriptors ($user_id) {
   
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = "SELECT * from user_descriptor where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function update_descriptors ($descriptors) {

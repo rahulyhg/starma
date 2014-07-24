@@ -7,7 +7,7 @@ $guest_user_id = get_guest_user_id();
 $guest_chart_id = get_guest_chart_id($guest_user_id);
   if (!isset($_POST["poi_id"])) {
     $log_poi_id = 1;
-    clear_session_preferences();
+    //clear_session_preferences();
   }
   else {
     $log_poi_id = $_POST["poi_id"];
@@ -47,8 +47,11 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
       echo '</div>';
   }
 */
+  //echo $guest_chart_id;
+  //echo '<br>';
+  //echo $guest_user_id;
   show_guest_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&western=" . $western . "&section=" . $section, $guest_chart_id, $western);
-
+  /*
   if ($western == 0) {
     if (isset($_SESSION["chart_more_info_flag"])) {
       $flag = $_SESSION["chart_more_info_flag"];
@@ -56,13 +59,13 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
     else {
       $flag = get_my_preferences("chart_more_info_flag", 1);
     }
-    /*
+    
     if ($flag == 1) {
       show_sheen($flag, 'chart_info_form');
     }
-    */
+    
   }
-  
+  */
   
     
   

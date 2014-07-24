@@ -51,7 +51,9 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
     //echo '<div id="profile_photo_grid">';
     //    show_my_photo_grid($link=0);
     //  echo '</div>';
- 
+  echo $guest_chart_id;
+  $user_id = get_user_id_from_chart_id($guest_chart_id);
+  echo $user_id;
     show_descriptors_info($guest_chart_id); 
 
 
