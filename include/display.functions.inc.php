@@ -4520,7 +4520,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
           
           
         }
-        echo '<li class="chart_li Blurred_button pop_guest">
+        echo '<li class="Blurred_button pop_guest_click">
                 <div class="chart_tabs_wrapper">
                   <span class="icon left pointer"><span class="poi_title">MARS</span></span><span class="arrow"></span>
                 </div> 
@@ -4536,7 +4536,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         
         $poi_list = array('MERCURY', 'JUPITER', 'SATURN');
         for ($x = 0; $x<3; $x++) {
-          echo '<li class="chart_li Blurred_button pop_guest">';
+          echo '<li class="Blurred_button pop_guest_click">';
             echo '<div class="chart_tabs_wrapper">';
               echo '<span class="arrow"></span>';
               echo '<span class="icon right pointer"><span class="poi_title">' . $poi_list[$x] . '</span>';
@@ -4545,11 +4545,11 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
           echo '</li>';
         }
 
-        echo '<li class="chart_li Blurred_button_rk pop_guest">';
+        echo '<li class="Blurred_button_rk pop_guest_click">';
                 echo '<div class="chart_tabs_rk_wrapper">';
                   echo '<span class="arrow"></span>';
-                  echo '<span class="icon right pointer"><span class="poi_title">Rahu</span>';
-                  echo '<span class="ketu_text">Ketu</span>';
+                  echo '<span class="icon right pointer"><span class="poi_title">RAHU</span>';
+                  echo '<span class="ketu_text">KETU</span>';
                   echo '</span>';
                 echo '</div>';
          

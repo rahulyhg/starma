@@ -131,6 +131,27 @@ if ($the_left=="nav1") {
 </div>
 
 <div id="frame">
+  <!--SIGN UP POPUP-->
+    <div id="msg_sheen" class="pop_guest">
+    
+          <div id="msg_sheen_screen" class="pop_guest">
+    
+            </div>
+              <div id="msg_sheen_content" class="pop_guest">
+                <div id="msg_type_area">
+                  <form id="sign_up" action="" method="POST">
+                          <div class="report_text"><strong>Sign up!</strong><br/><br/></div>
+                          
+                          <input type="submit" name="submit" value="Sign Up" class="sign_up"/>
+                          <button type="button" name="cancel" class="sign_up_cancel">Cancel</button>
+                                                
+                        </form>
+                      <div id="report_sent"></div>
+                      <div id="report_close"><button type="button" name="close" class="report_close">Close</button></div>
+                  </div>
+                </div>
+              </div>
+              
   <div id="topnav">
     <ul>
       <li class="logo"><a href="#"></a></li>
@@ -194,7 +215,6 @@ if ($the_left=="nav1") {
 </script>-->
 
 <?php
-echo "<script type='text/javascript' src='js/guest_popup.js'></script>";
  require_once "footer.php";
 ?> 
 </body>
