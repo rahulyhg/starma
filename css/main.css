@@ -1953,7 +1953,7 @@ li.my_unknown_button a {
 .profile_info_area .nickname_area {
   font-size:1.1em;
   position:relative;
-  bottom:165px;  
+  bottom:161px; 
 }
 
 .profile_info_area .nickname_area_celeb {
@@ -1999,8 +1999,7 @@ li.my_unknown_button a {
   font-weight: bold;
 }
 
-#chart_1_pic .profile_info_area .nickname_area span, #chart_2_pic .profile_info_area .nickname_area span, .nickname_area span {
-    bottom: 2px;    
+#chart_1_pic .profile_info_area .nickname_area span, #chart_2_pic .profile_info_area .nickname_area span, .nickname_area span {   
     font-size: 2em;
     position: relative;
     right: 2px;
@@ -2016,10 +2015,9 @@ li.my_unknown_button a {
 }
 
 #profile_photo_and_info .profile_info_area .name_area {
-
- line-height: 1.3em;
-    position: relative;
-    top: 3px;
+  line-height: 1.3em;
+  position: relative;
+  top: 4px;
 }
   
 #descriptors {
