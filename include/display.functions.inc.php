@@ -1342,7 +1342,7 @@ function get_left_menu_front_end ($the_page) {
     /*$menu['nav2'] = array('Houses&nbsp;&nbsp;','#','');
     $menu['nav3'] = array('&nbsp;&nbsp;','#','');
     $menu['nav4'] = array('Career Advice&nbsp;&nbsp;','#','');
-    $menu['nav5'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php','pop_guest_click');
+    $menu['nav5'] = array('My Birth Info&nbsp;&nbsp;','','pop_guest_click');
     $menu['nav6'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php','');
     */
   }
@@ -1351,7 +1351,7 @@ function get_left_menu_front_end ($the_page) {
     //$menu['nav2'] = array('houses&nbsp;&nbsp;','#','');
     $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','#','');
     $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','#','');
-    $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php','pop_guest_click');
+    $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','','pop_guest_click');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#','');
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php','');
   }

@@ -160,7 +160,7 @@ if ($the_left=="nav1") {
  
   <div id="page_body">
     <?php
-      if ($left_menu[$the_left][1] != '#') {
+      if ($left_menu[$the_left][1] != '#' && $left_menu[$the_left][1] != '') {
          require($left_menu[$the_left][1]);
       }
       
