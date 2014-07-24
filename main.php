@@ -148,7 +148,7 @@ if ($the_left=="nav1") {
       <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&the_tier=1"><span>community</span></a></li>
       <li class="celeb_link <?php echo $cesel;?>"><a title="Celebrities" href="?the_page=cesel&the_left=nav1"><span>celebrities</span></a></li>
       <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>inbox</span></a></li>
-      <li class="mail_area"><img src="img/top_nav_shorter/Starma-Astrology-SearchBar.png"/></li>
+      <li class="mail_area"><img src="/img/top_nav_shorter/Starma-Astrology-SearchBar.png"/></li>
     </ul>
   </div>
 
