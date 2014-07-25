@@ -5,12 +5,12 @@ $(document).ready(function(){
 		//event.preventDefault();
 	});
 
-	$('#submit_div_custom, #address').click(function(){
+	$('#submit, #address').click(function(event){
 		$('.pop_guest').slideFadeToggle();
-		//event.preventDefault();
+		event.preventDefault();
 	});
 
-	$('#submit').prop('disabled', true);
+	//$('#submit').prop('disabled', true);
 	/*
 	$('select[name=gender]').on('change', function() {
 		if($('select[name=gender]').val() != 'none') {
