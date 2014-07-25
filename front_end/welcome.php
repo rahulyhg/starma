@@ -1,6 +1,8 @@
 <?php
 require_once "header.php"; 
 //$guest_user_id = get_guest_user_id();
+$guest_user_id = get_guest_user_id();
+$guest_chart_id = get_guest_chart_id($guest_user_id);
 ?>
  <div id="welcome">
     <!--<?php flare_title();?>-->
@@ -46,7 +48,7 @@ require_once "header.php";
         ?>   
       </div> -->
 
-      <div id="h_box_blurb"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
+      <div id="h_box_blurb_guest"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
     </div>
     </div>
     <div id="community_box_link" class="homepage_div">
@@ -60,14 +62,29 @@ require_once "header.php";
       </div>
     </div>
 
-    <div id="horoscope_box_link" class="homepage_div">
+    <div id="compatibility_sample_link" class="homepage_div">
       <span class="header">Compatibility Example</span>
-      <a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
-      <div id="homepage_chart_button_info">
-        <?php
-         
-        ?>
-        <div id="h_box_blurb"><p class="hsel_box_blurb">See your compatibility with ...</p></div>
+      <a class="box_link" href="<?php echo '?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true'; ?>"></a>
+      <div id="homepage_compare_sample">
+        <div id="homepage_compare_thumb_left">
+          <div class="grid_photo_border_wrapper">
+            <div class="grid_photo">
+                <?php
+                  show_user_inbox_picture('', $guest_user_id);
+                ?>
+              </div>
+            </div>
+        </div>
+        <div id="homepage_compare_thumb_right">
+          <div class="grid_photo_border_wrapper">
+            <div class="grid_photo">
+              <?php
+                show_user_inbox_picture('', 372);
+              ?>
+            </div>
+          </div>
+        </div>
+        <div id="co_box_blurb_guest"><p class="hsel_box_blurb">See a sample compatibility test...</p></div>
       </div>
     </div>
 

@@ -4,6 +4,7 @@ require_once ("header.php");
  
 // IF YOU ARE ALREADY LOGGED IN, THEN GET KICKED THE FUCK OUT
 //Lord_Starmeow is user_id 371
+//Lady_Starmeow is user_id 372
 if(isLoggedin()) {
   do_redirect (get_domain());
 }

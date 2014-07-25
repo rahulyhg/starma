@@ -11,7 +11,7 @@ echo '<div id="custom_chart">';
     echo '</div>';
 
 
-    show_birth_info_form_custom_front_end();
+    show_birth_info_form_custom_guest();
   
 
 echo '</div>';
