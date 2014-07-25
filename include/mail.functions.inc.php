@@ -141,7 +141,7 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
 
   $footer = '<br /><br /><div style="font-size: .75em;">You received this message because ' . $full_name . ' invited ' . $email . ' to join Starma. </div>';
 
-  if(sendMail($email, $full_name . " invited you to join Starma", $message, $footer, "no-reply@" . get_domain())) {
+  if(sendMail($email, $full_name . " invited you to join Starma", $message, "no-reply@" . get_domain(), $footer)) {
     $data_1 = log_user_invite($sender_id, $email, $message);
     log_this_action (blogosphere_action_user(), invited_basic_action(), $data_1);
     return true;
@@ -228,10 +228,21 @@ function testSendingMail ($to, $subject, $message, $from) {
   echo "Subject: " . $subject . '<br>';
   echo "Message: " . $message . '<br><br>';
   //return mail($to, $subject, $message, 'From: ' . $from);
-  return sendMail($to, $subject, $message, $from);
+  return sendMail($to, $subject, $message, $from, $footer);
 }
 
-function sendMail($to, $subject, $message, $footer, $from)
+
+function testSendingMail_Mandrill ($to, $subject, $message, $from, $footer) {
+  echo "Attempting to send mail: <br><br>";
+  echo "To: " . $to . '<br>';
+  echo "From: " . $from . '<br>';
+  echo "Subject: " . $subject . '<br>';
+  echo "Message: " . $message . '<br><br>';
+  //return mail($to, $subject, $message, 'From: ' . $from);
+  return sendMail_Mandrill($to, $subject, $message, $from, $footer);
+}
+
+function sendMail($to, $subject, $message, $from, $footer="")
 {
     
     $mail = new PHPMailer(); 
@@ -285,6 +296,50 @@ function sendMail($to, $subject, $message, $footer, $from)
     return false;
 }
 
+function sendMail_Mandrill($to, $subject, $message, $from, $footer)
+{
+    
+    $mail = new PHPMailer(); 
+   
+    $mail->IsSMTP(); // send via SMTP
+
+    $mail->SMTPAuth   = true;
+    $mail->Host = 'smtp.mandrillapp.com';
+    $mail->SMTPDebug = 1;
+    $mail->Port = 465;
+    $mail->SMTPSecure = "ssl";    
+    $mail->Username = "starma"; // SMTP username
+    $mail->Password = "yz5APugrFIuJW-iZlKYrIg"; // SMTP password
+    $webmaster_email = $from; //Reply to this email ID
+    $email=$to; // Recipients email ID
+    $mail->From = $webmaster_email;
+    $mail->FromName = "Starma";
+    $mail->AddAddress($email);
+    $mail->AddReplyTo($webmaster_email);
+    $mail->WordWrap = 50; // set word wrap
+    $mail->IsHTML(true); // send as HTML
+    $mail->Subject = $subject;
+    $mail->Body = $message . '<br><br>Sincerely,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer; //HTML Body
+    $mail->AltBody = $message; //Text Body
+    $mail->AddBCC("teamstarma@gmail.com");
+    
+    //$mail->Send();
+   
+    //return true;
+   
+    if($mail->Send())
+    {
+       return true;
+    }
+    else
+    {
+       log_this_action (account_action_email(), error_basic_action());
+       //echo "Mailer Error: " . $mail->ErrorInfo;
+       return false;
+    }
+    
+    return false;
+}
  
 function sendActivationEmail($email, $nickname, $password, $uid, $actcode)
 {

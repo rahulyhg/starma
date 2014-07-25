@@ -4,13 +4,14 @@ require_once ("header.php");
   
 login_check_point($type="full", $domain=$domain);
 
-$to = $_GET['to'];
-$from = $_GET['from'];
-$message = $_GET['message'];
-$subject = $_GET['subject'];
+$to = "josh@mycer.com"; 
+$from = "contact@starma.com"; 
+$message = "Yah it worked! Mandrill worked!";
+$subject = "Wu Tang";
+$footer = "Footer Goes Here";
 
 
-if (testSendingMail ($to, $subject, $message, $from)) {
+if (testSendingMail_Mandrill ($to, $subject, $message, $from, $footer)) {
   echo "Mail Sent";
 }
 else {
