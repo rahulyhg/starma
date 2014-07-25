@@ -1,13 +1,7 @@
 $(document).ready(function(){
 	
-	$('#day, #month, #year, #gender_select, #hour_time, #minute_time, #meridiem_time, #interval, #birth_interval_box_input').on('change', function(){
+	$('#day').click(function(){
 		$('.pop_guest').slideFadeToggle();
-		//event.preventDefault();
-	});
-
-	$('#submit_div_custom, #address').click(function(){
-		$('.pop_guest').slideFadeToggle();
-		//event.preventDefault();
 	});
 
 	$('#submit').prop('disabled', true);
