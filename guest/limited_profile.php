@@ -150,7 +150,7 @@ require_once ("header.php");
                       echo '<div id="report_close"><button type="button" name="close" class="report_close">Close</button></div>';
                   echo '</div>';
                 echo '</div>';*/
-              echo '</div>';
+              //echo '</div>';
   }
   
 
@@ -227,9 +227,9 @@ require_once ("header.php");
             require('chart_others.php');
           }
           */
-        echo '</div>';
-      echo '</div>';
- 
+        echo '</div>'; //Close Profile sections
+      echo '</div>';  //Close section
+    echo '</div>'; //Close Profile Page
       //echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare</a></div>';     
 
   

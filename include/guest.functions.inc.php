@@ -170,7 +170,7 @@ echo '<script type="text/javascript" src="/js/birth_form_guest_ui.js"></script>'
 
 }
 
-function get_left_menu_front_end ($the_page) {
+function get_left_menu_guest ($the_page) {
   for ($x=1; $x<=6; $x++) {
     $menu['nav' . $x] = array('','#'); 
   }

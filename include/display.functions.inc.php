@@ -4404,7 +4404,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
 
         //Right Side
         $poi_list = get_poi_list();
-        echo '<div class="chart_tabs right_side"/>';
+        echo '<div class="chart_tabs right_side">';
         echo '<ul>';
       
         while ($poi = mysql_fetch_array($poi_list)) {
@@ -4461,13 +4461,13 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       else {
         //Guest Viewing Others Chart
         //Left Side
-      echo '<div class="chart_tabs left_side"/>';
+      echo '<div class="chart_tabs left_side">';
       echo '<ul>';
         $poi_ids = array(1, 2, 3, 7);
         foreach ($poi_ids as $poi_id_sample) {         
             $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi_id_sample);
             echo '<li class="chart_li ' . get_selector_name($button_sign_id);
-            if ($poi_id_sample == $poi["poi_id"]) { 
+            if ($poi_id_sample == 1) { 
               echo ' selected';
             }
             echo '">';
@@ -4475,7 +4475,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
 
             echo '<span class="icon left pointer"><span class="poi_title">' . get_poi_name($poi_id_sample) . '</span></span>';
             echo '<span class="arrow ';
-              if ($poi_id_sample == $poi["poi_id"]) {
+              if ($poi_id_sample == 1) {
                 echo 'arrow_left_on';
               }
             echo '"></span>';
@@ -4497,7 +4497,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
 
         //Right Side
         //$poi_list = get_poi_list();
-        echo '<div class="chart_tabs right_side"/>';
+        echo '<div class="chart_tabs right_side">';
         echo '<ul>';
         
         $poi_list = array('MERCURY', 'JUPITER', 'SATURN');

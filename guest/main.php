@@ -19,7 +19,7 @@ else {
   $the_page = $_GET["the_page"];
 }
 
- $left_menu = get_left_menu_front_end ($the_page = $the_page);
+ $left_menu = get_left_menu_guest ($the_page = $the_page);
 
  $hsel = "";
  $psel = "";
@@ -192,6 +192,7 @@ if ($the_left=="nav1") {
       
     ?>
   </div>
+  
   <div id="clear"></div>
 
     
