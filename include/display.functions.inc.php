@@ -900,12 +900,12 @@ function show_general_info($chart_id) {
         echo $user_info["first_name"] . ' ' . $user_info["last_name"];
       }
       else {
-        if(!isLoggedIn()){
-          echo '" style="line-height:2;">';
-        }
-        else {
+        //if(!isLoggedIn()){
+          //echo '" style="line-height:2;">';
+        //}
+        //else {
           echo '">';
-        }
+        //}
         if (isLoggedIn()) {
           echo '<span style="color:' . $online_color . '">•</span>';
         }

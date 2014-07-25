@@ -151,6 +151,31 @@ input{
   letter-spacing: .1em;
 }
 
+#welcome #compatibility_sample_link {
+    left: 40px;
+    top: 326px;
+}
+
+#welcome #compatibility_sample_link #homepage_compare_sample {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#homepage_compare_sample #homepage_compare_thumb_left {
+  position: relative;
+  top: 72px;
+  left: 30px;
+  float: left;
+}
+
+#homepage_compare_sample #homepage_compare_thumb_right {
+  position: relative;
+  top: 72px;
+  right: 30px;
+  float: right;
+}
 
 #welcome #celebrities_box_link {
   left: 399px;
@@ -2714,12 +2739,27 @@ ul.as-list li.as-result-item em {
   width: 319px;
 }
 
+#h_box_blurb_guest {
+  display: inline-block;
+  position: relative;
+  top: 55px;
+  right: 22px;
+  width: 319px;
+}
+
 #co_box_blurb {
   display: inline-block;
   position: relative;
   bottom: 0px;
   right: 15px;
   width: 330px;
+}
+
+#co_box_blurb_guest {
+  display: inline-block;
+  position: relative;
+  top: 117px;
+  width: 100%;
 }
 
 #ce_box_blurb {

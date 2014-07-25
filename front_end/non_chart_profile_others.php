@@ -101,7 +101,7 @@ require_once ("header.php");
         $button_text = "Remove From Favorites";
       }
       else {*/
-        echo 'add_favorite_button';
+        echo 'add_favorite_button pop_guest_click';
         //$toggle = 1;
         //$button_text = "Add to Favorites";
       //}

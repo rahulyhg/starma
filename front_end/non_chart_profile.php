@@ -38,6 +38,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
   //else {
 
     echo '<div id="profile_page" class="my_page">';
+      echo '<div id="profile_top_bar">';
     //echo '<div class="header">';
       //echo 'Profile';
       //flare_title('Profile');
@@ -68,9 +69,22 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
                       echo '<div id="msg_sent"></div>';
                   echo '</div>';
                 echo '</div>';
-              echo '</div>';
+              //echo '</div>';
 
       //End edit current location
+
+              //TEST FOR ADDING text_type to compare_button
+      echo '<div class="profile_button compare_button">
+            <span class="compare_button_title">Compare</span>
+              <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
+                <option value="">Compatiblity Test</option>
+                <option value="?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true">Romance</option>
+                <option value="?the_page=cosel&the_left=nav1&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true">Friends</option>
+              </select>
+            </div>';
+
+  echo '</div>'; //Close Profile top bar
+
 
     echo '<div id="profile_nav">
         <ul>
@@ -81,6 +95,8 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
           <li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=1&section=western_selected">Western View</a></li>
         </ul>
       </div>';
+
+
     
     echo '<div id="profile_sections">';
      /* echo '<div id="profile_nav">

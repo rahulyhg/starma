@@ -51,7 +51,7 @@ function get_guest_photos() {
   //}
 }
 
-function show_birth_info_form_custom_front_end () {
+function show_birth_info_form_custom_guest () {
   
   
   echo '<div id="birth_info_custom">';
@@ -88,7 +88,7 @@ function show_birth_info_form_custom_front_end () {
                 place of birth
              </td>
              <td colspan="2" id="birth_place_input" class="no_move">
-                <input type="text" name="address" value="' . get_inputed_var("location", $title, "") . '"/>
+                <input type="text" id="address" name="address" value="' . get_inputed_var("location", $title, "") . '"/>
              </td>
             </tr>';
      $help_text_offset = '';
@@ -159,14 +159,14 @@ function show_birth_info_form_custom_front_end () {
 
 echo '<div id="go_bug_path"></div>';
 echo        '<div id="submit_div_custom">
-                <input class="pop_guest_click" type="submit" name="submit" value=""/>
+                <input id="submit" type="submit" name="submit" value=""/>
              </div>
              </div>
           </form>
         </div>
         ';
 
-echo '<script type="text/javascript" src="../js/birth_form_ui.js"></script>';
+echo '<script type="text/javascript" src="/js/birth_form_guest_ui.js"></script>';
 
 }
 
