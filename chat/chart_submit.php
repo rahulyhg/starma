@@ -25,7 +25,12 @@ if (preg_match('%[0-9]+%', $posted)) {
             $data["sign_name"] = get_sign_name ($_POST["sign_id"]);
             $data["blurb"] = get_poi_sign_blurb ($_POST["poi_id"], $_POST["sign_id"]);
             //echo $data["blurb"];
-            $data["poi_in_sign"] = '<strong>' .  ucfirst(strtolower($data["sign_name"])) . ' ' . ucfirst(strtolower($data["poi_name"])) . ': </strong>';
+            if($data['poi_id'] == 1) {
+                $data["poi_in_sign"] = '<strong>' .  ucfirst(strtolower($data["sign_name"])) . ' ' . ucfirst(strtolower($data["poi_name"])) . ': </strong>';
+            }
+            else {
+                $data["poi_in_sign"] = '<strong>' .  ucfirst(strtolower($data["poi_name"])) . ' in ' . ucfirst(strtolower($data["sign_name"])) . ': </strong>';
+            }
         }
         else {
             $data["sign_id1"] = $_POST["sign_id1"];

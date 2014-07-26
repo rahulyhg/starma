@@ -615,6 +615,7 @@ function show_my_general_info() {
   }
   echo '<div class="profile_info_area">';
     echo '<div class="nickname_area">';
+    
       echo $user_info["nickname"];
     echo '</div>';
     echo '<div class="name_area">';
@@ -900,12 +901,12 @@ function show_general_info($chart_id) {
         echo $user_info["first_name"] . ' ' . $user_info["last_name"];
       }
       else {
-        //if(!isLoggedIn()){
-          //echo '" style="line-height:2;">';
-        //}
-        //else {
+        if(!isLoggedIn() && $_GET['the_page'] != 'psel' && $chart_id == get_guest_chart_id(get_guest_user_id())){
+          echo '" style="line-height:2;">';
+        }
+        else {
           echo '">';
-        //}
+        }
         if (isLoggedIn()) {
           echo '<span style="color:' . $online_color . '">•</span>';
         }
