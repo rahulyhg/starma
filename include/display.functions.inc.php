@@ -2572,7 +2572,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         //show_user_compare_picture ($Gurl, $user_id_2);
           echo '<div class="photo_border_wrapper_compare">';
             echo '<div class="compare_photo">';
-              show_user_compare_picture($Gurl, $guest_user_id_2);
+              show_user_compare_picture($Gurl, $guest_user_id2);
          
             echo '</div>';
           echo '</div>'; 
