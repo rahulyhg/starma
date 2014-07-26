@@ -901,7 +901,7 @@ function show_general_info($chart_id) {
         echo $user_info["first_name"] . ' ' . $user_info["last_name"];
       }
       else {
-        if(!isLoggedIn() && $_GET['the_page'] != 'psel' && $chart_id == get_guest_chart_id(get_guest_user_id())){
+        if(!isLoggedIn() && $_GET['the_page'] != 'psel' && ($_GET['tier'] == 2 || $_GET['tier'] == 3)) {
           echo '" style="line-height:2;">';
         }
         else {
@@ -2489,6 +2489,7 @@ function test_form_time () {
 function show_compare_results ($score, $goto=".", $results_type, $text_type, $stage="2") {
 
       if(!isLoggedIn()) {
+        $guest_user_id2 = get_guest_user_id2();
         echo '<script type="text/javascript">
                 $(document).ready(function(){
                     $(".pop_guest").slideFadeToggle();
@@ -2537,32 +2538,49 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '</div>';
 
       //Picture of person you're comparing to
-      echo '<div id="chart_2_pic">';
-        if (!$user_id_2 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][1]))
-          $user_id_2 = -1;
+      if (!$guest_user_id2) {
+        echo '<div id="chart_2_pic">';
+          if (!$user_id_2 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][1]))
+            $user_id_2 = -1;
 
-        if (!$freebie) {
-          $Gurl = $goto . '&tier=3&chart_id2=' . $_SESSION['compare_chart_ids'][1];
-          
-        }
-        else {
-          $Gurl = '?the_left=nav3&the_page=cosel&tier=4';
-        }
-     
-        //show_user_compare_picture ($Gurl, $user_id_2);
-        echo '<div class="photo_border_wrapper_compare">';
-          echo '<div class="compare_photo">';
-            show_user_compare_picture($Gurl, $user_id_2);
+          if (!$freebie) {
+            $Gurl = $goto . '&tier=3&chart_id2=' . $_SESSION['compare_chart_ids'][1];  
+          }
+          else {
+            $Gurl = '?the_left=nav3&the_page=cosel&tier=4';
+          }
+          //show_user_compare_picture ($Gurl, $user_id_2);
+          echo '<div class="photo_border_wrapper_compare">';
+            echo '<div class="compare_photo">';
+              show_user_compare_picture($Gurl, $user_id_2);
          
-          echo '</div>';
-        echo '</div>'; 
-        if (!$freebie) {
+            echo '</div>';
+          echo '</div>'; 
+          if (!$freebie) {
+            show_general_info($_SESSION['compare_chart_ids'][1]);
+          }
+          else {      //ADDED FOR FREEBIE
+            echo '<div id="custom_nickname_compare">Custom Chart</div>';
+          }
+        echo '</div>';
+      }
+      
+      //Lady_Starmeow
+      else {
+        echo '<div id="chart_2_pic" class="pop_guest_click">';
+        $Gurl = '';
+        //show_user_compare_picture ($Gurl, $user_id_2);
+          echo '<div class="photo_border_wrapper_compare">';
+            echo '<div class="compare_photo">';
+              show_user_compare_picture($Gurl, $guest_user_id_2);
+         
+            echo '</div>';
+          echo '</div>'; 
           show_general_info($_SESSION['compare_chart_ids'][1]);
-        }
-        else {      //ADDED FOR FREEBIE
-          echo '<div id="custom_nickname_compare">Custom Chart</div>';
-        }
-      echo '</div>';
+        echo '</div>';
+      }
+     
+        
    
       if (!isset($_POST["connection_type"])) {
         $connection_type = "rising";

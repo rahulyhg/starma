@@ -75,7 +75,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
 
               //TEST FOR ADDING text_type to compare_button
       echo '<div class="profile_button compare_button">
-            <span class="compare_button_title">Compare</span>
+            <span class="compare_button_title">Sample Compare</span>
               <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
                 <option value="">Compatiblity Test</option>
                 <option value="?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true">Romance</option>
