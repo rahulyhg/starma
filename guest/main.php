@@ -180,6 +180,7 @@ if ($the_left=="nav1") {
       <li class="sidenav6 <?php echo $nav6;?> <?php echo menu_status($left_menu['nav6'][1]);?>"><a class="<?php echo $left_menu['nav6'][2];?>" href="?the_left=nav6&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav6'][0];?></a></li>
  
       <li class="bar_line"><img src="/img/Starma-Astrology-SideNav7.png"/></li>
+      <li id="register_link" class="pop_guest_click">Sign Up</li>
     </ul>
   </div>
  
