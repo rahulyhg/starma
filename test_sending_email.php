@@ -11,7 +11,7 @@ $subject = "Wu Tang";
 $footer = "Footer Goes Here";
 
 
-if (testSendingMail_Mandrill ($to, $subject, $message, $from, $footer)) {
+if (testSendingMail ($to, $subject, $message, $from, $footer)) {
   echo "Mail Sent";
 }
 else {

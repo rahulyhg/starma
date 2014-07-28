@@ -115,7 +115,7 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
 
   //$sender = basic_user_data($sender_id);
   $full_name = get_my_full_name();
-  if(!$full_name){
+  if(!$full_name || trim($full_name) == ""){
     update_my_full_name($first_name, $last_name);
     $full_name = get_my_full_name();
   }
@@ -141,7 +141,7 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
 
   $footer = '<br /><br /><div style="font-size: .75em;">You received this message because ' . $full_name . ' invited ' . $email . ' to join Starma. </div>';
 
-  if(sendMail($email, $full_name . " invited you to join Starma", $message, "no-reply@" . get_domain(), $footer)) {
+  if(sendMail($email, $full_name . " invited you to join Starma", $message, "no-reply@" . get_email_domain(), $footer)) {
     $data_1 = log_user_invite($sender_id, $email, $message);
     log_this_action (blogosphere_action_user(), invited_basic_action(), $data_1);
     return true;
@@ -156,16 +156,16 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
 function sendLostPasswordEmail($email, $newpassword)
 {
  
-    global $domain;
+    
     $message = "
-You have requested a new password on http://www.$domain/,<br>
+You have requested a new password on http://www." . get_domain() . "/,<br>
 <br> 
 Your new password information:<br>
 <br> 
 username:  $email<br>
 password:  $newpassword<br>";
  
-    if (sendMail($email, "Your password has been reset.", $message, "no-reply@$domain"))
+    if (sendMail($email, "Your password has been reset.", $message, "no-reply@" . get_email_domain()))
     {
         return true;
     } else
@@ -178,7 +178,7 @@ password:  $newpassword<br>";
 
 function sendReportUserEmail($sender, $reported_user, $message) {
   $send_to = 'mticciati@gmail.com';
-  if (sendMail($send_to, 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_domain())) {
+  if (sendMail($send_to, 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_email_domain())) {
     return true;
   }
   else {
@@ -193,7 +193,7 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message)
     $receiver = basic_user_data($receiver_id);
     $message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</> to view it!';
  
-    if (sendMail($receiver["email"], "You have received a new message from " . $sender["nickname"] . "!" , $message, "no-reply@" . get_domain()))
+    if (sendMail($receiver["email"], "You have received a new message from " . $sender["nickname"] . "!" , $message, "no-reply@" . get_email_domain()))
     {
         return true;
     } else
@@ -210,7 +210,7 @@ function sendComparedAlertEmail($user_id, $number)
     $sender = basic_user_data($user_id);
     $message = 'Hello ' . $sender["nickname"] . ',<br><br>' . $number . ' new people have compared themselves to you this week. <a href="' . get_full_domain() . '/main.php?the_page=cosel&the_left=nav1&the_tier=1">Login</a> to see who you\'re compatible with.<br><br>' . email_suggestions_block();
  
-    if (sendMail($sender["email"], $number . " people have compared themselves to you this week!" , $message, "no-reply@" . get_domain()))
+    if (sendMail($sender["email"], $number . " people have compared themselves to you this week!" , $message, "no-reply@" . get_email_domain()))
     {
         return true;
     } else
@@ -232,17 +232,17 @@ function testSendingMail ($to, $subject, $message, $from) {
 }
 
 
-function testSendingMail_Mandrill ($to, $subject, $message, $from, $footer) {
+function testSendingMail_no_Mandrill ($to, $subject, $message, $from, $footer) {
   echo "Attempting to send mail: <br><br>";
   echo "To: " . $to . '<br>';
   echo "From: " . $from . '<br>';
   echo "Subject: " . $subject . '<br>';
   echo "Message: " . $message . '<br><br>';
   //return mail($to, $subject, $message, 'From: ' . $from);
-  return sendMail_Mandrill($to, $subject, $message, $from, $footer);
+  return sendMail_no_Mandrill($to, $subject, $message, $from, $footer);
 }
 
-function sendMail($to, $subject, $message, $from, $footer="")
+function sendMail_no_Mandrill($to, $subject, $message, $from, $footer="")
 {
     
     $mail = new PHPMailer(); 
@@ -296,7 +296,7 @@ function sendMail($to, $subject, $message, $from, $footer="")
     return false;
 }
 
-function sendMail_Mandrill($to, $subject, $message, $from, $footer)
+function sendMail($to, $subject, $message, $from, $footer="")
 {
     
     $mail = new PHPMailer(); 
@@ -321,7 +321,7 @@ function sendMail_Mandrill($to, $subject, $message, $from, $footer)
     $mail->Subject = $subject;
     $mail->Body = $message . '<br><br>Sincerely,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer; //HTML Body
     $mail->AltBody = $message; //Text Body
-    $mail->AddBCC("teamstarma@gmail.com");
+    //$mail->AddBCC("teamstarma@gmail.com");
     
     //$mail->Send();
    
@@ -343,11 +343,11 @@ function sendMail_Mandrill($to, $subject, $message, $from, $footer)
  
 function sendActivationEmail($email, $nickname, $password, $uid, $actcode)
 {
-    global $domain;
-    //$link = "http://www.$domain/activate.php?uid=$uid&actcode=$actcode";
-    $link = "https://www." . get_domain() . "/activate.php?uid=$uid&actcode=$actcode";
+    
+    //$link = "http://www." . get_email_domain() "/activate.php?uid=$uid&actcode=$actcode";
+    $link = "https://www." . get_email_domain() . "/activate.php?uid=$uid&actcode=$actcode";
     $message = "
-Thank you for registering on https://www.$domain/,
+Thank you for registering on https://www." . get_email_domain() . "/,
 <br><br> 
 Your account information:
 <br><br> 

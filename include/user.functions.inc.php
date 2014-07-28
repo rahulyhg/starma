@@ -851,7 +851,7 @@ function update_my_biography($about_me) {
 function update_my_full_name($first_name, $last_name) {
   if(isLoggedIn()){
     $user_id = get_my_user_id();
-    $q = sprintf("update user set first_name = '%s' and last_name = '%s' where user_id = $d",
+    $q = sprintf("update user set first_name = '%s' and last_name = '%s' where user_id = %d",
           mysql_real_escape_string($first_name), mysql_real_escape_string($last_name), $user_id);
     $result = mysql_query($q) or die(mysql_error());
     return true;

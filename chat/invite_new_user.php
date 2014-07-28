@@ -79,10 +79,8 @@ if(isLoggedIn()) {
 		$text_body = '';
 	}
 
-	if(isset($_POST['sender_user_id'])) {
-		$sender_user_id = $_POST['sender_user_id'];
-	}
-	else {
+	if(!($sender_user_id = get_my_user_id())) {
+	
 		$errors['sender_user_id'] = 'Something went wrong, please try again later';
 	}
 

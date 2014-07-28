@@ -1656,21 +1656,19 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
        echo '     </td>
                </tr>';
        $help_text_offset = 'offset';
-        if($type == "freebie") {
-          if(isset($_SESSION['alternate_chart_gender'])) {
-            $gender = $_SESSION['alternate_chart_gender'];
-          }
-          else {
-            $gender = "";
-          }
-          //echo $gender;
-          echo '<tr>
-              <td id="gender_select_title" class="no_move align_right">gender</td>
-              <td colspan="1" id="gender_select_input" class="no_move">';
+       $gender = "";
+       if($type == "freebie") {
+         if(isset($_SESSION['alternate_chart_gender'])) {
+           $gender = $_SESSION['alternate_chart_gender'];
+         } 
+       }
+       echo '<tr>
+               <td id="gender_select_title" class="no_move align_right">gender</td>
+               <td colspan="1" id="gender_select_input" class="no_move">';
                 echo gender_select($gender);
-          echo  '</td><td><span class="gender_validation"></span></td>
-            </tr>';
-        }
+       echo '</td><td><span class="gender_validation"></span></td>
+             </tr>';
+      
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////
   else {

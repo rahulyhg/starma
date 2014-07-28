@@ -96,6 +96,10 @@ function valid_photo($photo_id, $user_id) {
   return mysql_num_rows($result) >= 1;
 }
 
+function get_email_domain() {
+  return 'starma.com';
+}
+
 /*
 function get_domain () {
   return 'starma.com';
