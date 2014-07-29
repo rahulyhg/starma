@@ -142,17 +142,28 @@ if ($the_left=="nav1") {
           <div id="msg_sheen_screen" class="pop_guest">
     
             </div>
-              <div id="msg_sheen_content" class="pop_guest">
+              <div id="msg_sheen_content_guest" class="pop_guest">
                 <div id="msg_type_area">
-                  <form id="sign_up" action="" method="POST">
-                          <div class="report_text"><strong>Sign up!</strong><br/><br/></div>
+                  <!--<form id="sign_up" action="" method="POST">-->
+                    <div class="report_text"><strong>This part of the site is reserved for Starma members only.</strong><br/><br/></div>
+                      <input type="button" name="submit" value="Create a Free Account" class="sign_up"/>
+                        <?php
+                          if($_GET['the_page'] == 'cosel' && $_GET['tier'] ==2) {
+                            echo '<button type="button" name="cancel" class="sign_up_cancel">Preview the sample compatibility</button>';
+                          }
+                          else {
+                            echo '<button type="button" name="cancel" class="sign_up_cancel">Keep on Browsing</button>';
+                          }
+
+                        ?>
                           
-                          <input type="submit" name="submit" value="Sign Up" class="sign_up"/>
-                          <button type="button" name="cancel" class="sign_up_cancel">Cancel</button>
+                          
+                          <!--<input type="submit" name="submit" value="Sign Up" class="sign_up"/>
+                          <button type="button" name="cancel" class="sign_up_cancel">Cancel</button>-->
                                                 
-                        </form>
+                        <!--</form>
                       <div id="report_sent"></div>
-                      <div id="report_close"><button type="button" name="close" class="report_close">Close</button></div>
+                      <div id="report_close"><button type="button" name="close" class="report_close">Close</button></div>-->
                   </div>
                 </div>
               </div>

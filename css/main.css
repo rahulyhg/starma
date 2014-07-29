@@ -2349,37 +2349,58 @@ li.my_unknown_button a {
 
 #msg_sheen #msg_sheen_content {
     background: none repeat scroll 0 0 white;
-    border: 2px solid black;
-    border-radius: 5px;
+    /*border: 2px solid black;*/
+    border-radius: 3px;
     font-size:0.8em;
-    margin: auto;
+    margin: -75px 0 0 -250px;
     padding: 20px;
-    position: relative;
-    top: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     width: 500px;
     height: 150px;
     display: none;
+    box-shadow: 0 0 35px;
+}
+
+#msg_sheen #msg_sheen_content_guest {
+    background: none repeat scroll 0 0 white;
+    /*border: 2px solid black;*/
+    border-radius: 3px;
+    font-size:0.8em;
+    margin: -75px 0 0 -250px;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 150px;
+    display: none;
+    box-shadow: 0 0 35px;
 }
 
 #msg_sheen #msg_sheen_content_report {
     background: none repeat scroll 0 0 white;
-    border: 2px solid black;
-    border-radius: 5px;
+    /*border: 2px solid black;*/
+    border-radius: 3px;
     font-size:0.8em;
-    margin: auto;
+    margin: -106px 0 0 -250px;
     padding: 20px;
-    position: relative;
-    top: 9px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     width: 500px;
     height: 212px;
     display: none;
+    box-shadow: 0 0 35px;
 }
 
 #msg_sheen #msg_sheen_content_custom {
     background: none repeat scroll 0 0 white;
-    border: 2px solid black;
-    border-radius: 5px;
+    /*border: 2px solid black;*/
+    border-radius: 3px;
     font-size:0.8em;
+    margin: -97px 0 0 -250px;
     margin: auto;
     padding: 20px;
     position: relative;
@@ -2387,6 +2408,7 @@ li.my_unknown_button a {
     width: 500px;
     height: 195px;
     display: none;
+    box-shadow: 0 0 35px;
 }
 
 #msg_sendie {
@@ -2417,10 +2439,10 @@ li.my_unknown_button a {
 }
 
 .sign_up {
-  float: right;
+  /*float: right;*/
   margin-right: 15px;
   margin-top: 3px;
-  width: 65px;
+  /*width: 65px;*/
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
   border-left: 1px solid #6376A9;
@@ -2435,7 +2457,7 @@ li.my_unknown_button a {
   float: right;
   margin-right: 15px;
   margin-top: 3px;
-  width: 65px;
+  /*width: 65px;*/
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
   border-left: 1px solid #6376A9;
