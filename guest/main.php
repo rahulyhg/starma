@@ -143,16 +143,17 @@ if ($the_left=="nav1") {
     
             </div>
               <div id="msg_sheen_content_guest" class="pop_guest">
-                <div id="msg_type_area">
+                <!--<div id="msg_type_area">-->
                   <!--<form id="sign_up" action="" method="POST">-->
-                    <div class="report_text"><strong>This part of the site is reserved for Starma members only.</strong><br/><br/></div>
-                      <input type="button" name="submit" value="Create a Free Account" class="sign_up"/>
+                    <div class="sign_up_text"><strong>This part of the site is reserved for Starma members only.</strong><br/><br/></div>
+                      <button type="button" name="submit" class="sign_up">Create a Free Account</button><br/>
+                        <div id="or">-- Or --</div>
                         <?php
                           if($_GET['the_page'] == 'cosel' && $_GET['tier'] ==2) {
-                            echo '<button type="button" name="cancel" class="sign_up_cancel">Preview the sample compatibility</button>';
+                            echo '<button type="button" name="cancel" class="sign_up">Preview the sample compatibility</button>';
                           }
                           else {
-                            echo '<button type="button" name="cancel" class="sign_up_cancel">Keep on Browsing</button>';
+                            echo '<button type="button" name="cancel" class="sign_up">Keep on Browsing</button>';
                           }
 
                         ?>
@@ -164,7 +165,7 @@ if ($the_left=="nav1") {
                         <!--</form>
                       <div id="report_sent"></div>
                       <div id="report_close"><button type="button" name="close" class="report_close">Close</button></div>-->
-                  </div>
+                  <!--</div> Close msg_type_area-->
                 </div>
               </div>
               

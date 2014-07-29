@@ -2355,7 +2355,7 @@ li.my_unknown_button a {
     margin: -75px 0 0 -250px;
     padding: 20px;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     width: 500px;
     height: 150px;
@@ -2371,12 +2371,12 @@ li.my_unknown_button a {
     margin: -75px 0 0 -250px;
     padding: 20px;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
-    width: 500px;
-    height: 150px;
+    width: 358px;
     display: none;
     box-shadow: 0 0 35px;
+    text-align: center;
 }
 
 #msg_sheen #msg_sheen_content_report {
@@ -2387,7 +2387,7 @@ li.my_unknown_button a {
     margin: -106px 0 0 -250px;
     padding: 20px;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     width: 500px;
     height: 212px;
@@ -2438,11 +2438,15 @@ li.my_unknown_button a {
   margin: 2px 0;
 }
 
+.sign_up_text {
+  color: #282A32;
+  text-align: center;
+}
+
 .sign_up {
   /*float: right;*/
-  margin-right: 15px;
-  margin-top: 3px;
-  /*width: 65px;*/
+  margin-bottom: 20px;
+  width: 270px;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
   border-left: 1px solid #6376A9;
@@ -2451,6 +2455,21 @@ li.my_unknown_button a {
   background-color: #6F83BB;
   box-shadow: 0 0 1px #4B5A80;
   cursor: pointer;
+  padding: 16px;
+  font-size: 1.4em;
+  letter-spacing: 1px;
+  text-shadow: -1px -1px #4b5a80;
+}
+
+.sign_up:hover {
+  box-shadow: 0 0 3px #3E4D74 inset;
+  background-color: #6F83BB;
+}
+
+#or {
+  color: #282A32;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .sign_up_cancel {

@@ -11,7 +11,7 @@ $(document).ready(function(){
 		return false;
 	});
 
-	$('.sign_up_cancel').click(function(){
+	$('button[name=cancel]').click(function(){
 		$('.pop_guest').slideFadeToggle(function(){});
 	});
 
