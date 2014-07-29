@@ -227,22 +227,20 @@ function testSendingMail ($to, $subject, $message, $from) {
   echo "From: " . $from . '<br>';
   echo "Subject: " . $subject . '<br>';
   echo "Message: " . $message . '<br><br>';
-  //return mail($to, $subject, $message, 'From: ' . $from);
-  return sendMail($to, $subject, $message, $from, $footer);
+  return sendMail($to, $subject, $message, $from, $footer="");
 }
 
 
-function testSendingMail_no_Mandrill ($to, $subject, $message, $from, $footer) {
+function testSendingMail_Mandrill ($to, $subject, $message, $from, $footer) {
   echo "Attempting to send mail: <br><br>";
   echo "To: " . $to . '<br>';
   echo "From: " . $from . '<br>';
   echo "Subject: " . $subject . '<br>';
   echo "Message: " . $message . '<br><br>';
-  //return mail($to, $subject, $message, 'From: ' . $from);
-  return sendMail_no_Mandrill($to, $subject, $message, $from, $footer);
+  return sendMail_Mandrill($to, $subject, $message, $from, $footer);
 }
 
-function sendMail_no_Mandrill($to, $subject, $message, $from, $footer="")
+function sendMail($to, $subject, $message, $from, $footer="")
 {
     
     $mail = new PHPMailer(); 
@@ -296,7 +294,7 @@ function sendMail_no_Mandrill($to, $subject, $message, $from, $footer="")
     return false;
 }
 
-function sendMail($to, $subject, $message, $from, $footer="")
+function sendMail_Mandrill($to, $subject, $message, $from, $footer="")
 {
     
     $mail = new PHPMailer(); 
