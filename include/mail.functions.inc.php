@@ -113,12 +113,13 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
   global $domain;
 
 
-  //$sender = basic_user_data($sender_id);
   $full_name = get_my_full_name();
-  if(!$full_name || trim($full_name) == ""){
+  if(!($full_name) || trim($full_name) == ""){
     update_my_full_name($first_name, $last_name);
     $full_name = get_my_full_name();
+    
   }
+  
   $gender = get_my_gender();
   if($gender == 'M') {
     $gender = 'him';
