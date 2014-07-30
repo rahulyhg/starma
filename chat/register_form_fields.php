@@ -10,11 +10,11 @@ require_once("ajax_header.php");
 		if($valid_username) {
 			if($valid_username == 'long') {
 				$data['errors'] = true;
-				$data['message'] = 'Username must contain fewer than 15 characters';
+				$data['message'] = 'Too long';
 			}
 			elseif($valid_username == 'short') {
 				$data['errors'] = true;
-				$data['message'] = 'Username must contain at least 3 characters';
+				$data['message'] = 'Too short';
 			}
 			elseif($valid_username == 'naughty') {
 				$data['errors'] = true;
@@ -22,11 +22,11 @@ require_once("ajax_header.php");
 			}
 			elseif($valid_username == 'characters') {
 				$data['errors'] = true;
-				$data['message'] = 'Letters, numbers, underscores (_), and hyphens (-) only please';
+				$data['message'] = 'Letters, numbers, underscores, and hyphens only';
 			}
 			elseif($valid_username == 'taken') {
 				$data['errors'] = true;
-				$data['message'] = 'That username is already taken';
+				$data['message'] = 'Username is already taken';
 			}
 			elseif($valid_username == 'good') {
 				$data['success'] = true;
@@ -58,7 +58,7 @@ require_once("ajax_header.php");
 		}
 		elseif ((int)(calculate_age(substr((string)$birthday, 0, 10))) < 18) {
 			$data['errors'] = true;
-			$data['message'] = 'You must be at least 18 to join Starma.com';
+			$data['message'] = 'You must be 18 to join Starma.com';
 		}
 		else {
 			$data['success'] = true;
@@ -97,15 +97,15 @@ require_once("ajax_header.php");
 		if($valid_password) {
 			if($valid_password == 'short') {
 				$data['errors'] = true;
-				$data['message'] = 'Your password must be between 6 and 15 characters';
+				$data['message'] = 'At least 6 characters';
 			}
 			if($valid_password == 'long') {
 				$data['errors'] = true;
-				$data['message'] = 'Your password must be between 6 and 15 characters';
+				$data['message'] = 'No more than 15 characters';
 			}
 			if($valid_password == 'characters') {
 				$data['errors'] = true;
-				$data['message'] = 'You may only include letters, numbers, underscores (_), hyphens (-), !, @';
+				$data['message'] = 'Letters, numbers, underscores, hyphens, !, @';
 			}
 			if($valid_password == 'good') {
 				$data['success'] = true;
@@ -114,7 +114,7 @@ require_once("ajax_header.php");
 		
 		    if($valid_password == 'empty') {
 				$data['errors'] = true;
-				$data['message'] = 'Your password must be between 6 and 15 characters, and include only letters, numbers, underscores (_), hyphens (-), !, @';
+				$data['message'] = 'Please choose a password';
 			}
 		}
 		else {

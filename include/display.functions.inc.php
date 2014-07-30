@@ -5940,6 +5940,130 @@ echo '<script type="text/javascript" src="js/ajax_register.js"></script>';
 require_once ("landing_footer.php"); 
 }
 
+function show_login_box () {
+    echo '<div id="login_box">';
+      echo '<div class="title">Log In</div>';
+        echo '<form action="../chat/login_form_fields.php" method="POST" id="login_from_guest">';
+          echo '<input type="text" id="login_username" name="email" placeholder="Your Email" value="';
+            if(isset($_GET['email'])) {
+              echo $_GET['email'];
+            }
+          echo '"/>';
+          echo '<input type="password" id="login_password" name="password" placeholder="Password" />';
+          echo '<input type="text" id="pass" name="password" placeholder="Password" />';
+          echo '<div id="forgot_password"><a style="color:black;" href="lostpassword.php">forgot your password?</a></div>';
+          echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" /><div>keep me signed in</div></div>';
+          echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
+        echo '</form>';
+    echo '</div>';
+
+  echo '<script type="text/javascript" src="js/ajax_login.js"></script>';
+}
+
+function show_sign_up_box () {
+  echo '<div id="sign_up_box">';
+    echo  '<div class="sign_up_text"><strong><em>To View This Portion of the Site...</em></strong></div>';
+      echo '<button type="button" name="sign_up" class="sign_up">Create a Free Account</button>';
+         echo '<div id="or">~ or ~</div>';
+            
+            if($_GET['the_page'] == 'cosel' && $_GET['tier'] == 2) {
+              echo '<button type="button" name="cancel" class="sign_up">Preview sample compatibility</button>';
+            }
+            else {
+              echo '<button type="button" name="cancel" class="sign_up">Keep on Browsing</button>';
+            }
+      echo '</div>'; //Close sign_up_box
+}
+
+
+function show_registration_box () {
+
+  
+echo '<div id="create_account">';  
+  echo '<div class="title">Create an Account</div>';
+  //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
+  echo '<div id="register_form">';
+    echo '<form name="register_form" action="./register.php" method="post">';
+      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /></div>'; 
+      echo '<div class="register_error_area" id="username_error"></div>';
+      echo '<div id="birthday">';
+        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<span>';
+          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
+        echo '</span>';
+      echo '</div>';
+      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /></div>';
+      echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
+      echo '<div id="password"><input type="text" id="register_password" placeholder="Password" /></div>';
+      echo '<div id="terms">By creating an account I confirm that I have read and agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>';
+      echo '<button type="submit" name="submit" class="sign_up">Sign Me Up!</button>';
+    echo '</form>';  
+  echo '</div>'; //Close register_form
+echo '</div>';  //close #create_account
+
+echo '<script type="text/javascript" src="js/ajax_register.js"></script>';
+
+      /*
+    <table style="width:800px;"> 
+      <tr>  
+        <td style="width:106px" class="align_right">username</td> 
+        <td><input class="input_style" name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td>';
+        echo '<td><span class="register_error_area" id="username_error"></span></td>';
+      
+        echo '</tr>
+      <tr>
+        <td class="align_right">birthday</td> 
+        <td>';
+          date_select ($the_date=get_inputed_date ($type="default"), $the_name="birthday");
+        echo '</td>';
+        echo '<td><span class="register_error_area" id="underage_error"></span></td>';
+       
+        echo '  
+      </tr>
+      <tr>
+        <td class="align_right">email</td> 
+        <td><input class="input_style" name="email" type="text" id="email" maxlength="30" value="' . $_POST["email"] . '"></td>';
+        echo '<td><span class="register_error_area" id="email_error"></span></td>';
+      
+        echo '</tr>
+      <tr>
+        <td class="align_right"><div style="width:105px;">confirm email</div></td> 
+        <td><input class="input_style" name="email2" type="text" id="email2" maxlength="30"></td>';
+        echo '<td><span class="register_error_area" id="email2_error"></span></td>';
+      
+        echo '</tr>
+      <tr>
+        <td class="align_right">password</td> 
+        <td><input class="input_style" name="password" type="password" id="password" maxlength="15"></td>';
+        echo '<td><span class="register_error_area" id="password_error"></span></td>';
+    
+        echo '</tr>
+    
+      <tr>
+        <td style="vertical-align:top;" class="align_right"><input style="top:5px" type="checkbox" name="agreement" value="1"/></td>
+        <td class="info_font" colspan="2"><div class="terms">I have read and agree to the <a href="docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div></td>
+      </tr>
+    </table>
+    
+
+    <div id="register_button_div"> 
+      <div id="go_bug_path"></div><input id="bug_button" name="register" type="submit" value=""> 
+    </div>
+  </form></div>'; //close #register_form
+/*
+  echo '<div id="register_form_errors">';
+    echo '<div class="register_error_area" id="username_error"></div>';
+    echo '<div class="register_error_area" id="underage_error"></div>';
+    echo '<div class="register_error_area" id="email_error"></div>';
+    echo '<div class="register_error_area" id="email2_error"></div>';
+    echo '<div class="register_error_area" id="password_error"></div>';
+    echo '<div class="register_error_area" id="terms_error"></div>';
+  echo '</div>'; //close #register_form_errors
+*/
+
+
+}
+
 
 function show_landing_logo() {
   echo '

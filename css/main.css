@@ -377,6 +377,22 @@ input{
   
 }
 
+/*--GUEST VIEW--*/
+
+#register_top{
+  position: absolute;
+  top: 10px;
+  left: 800px;
+  cursor: pointer;
+}
+
+#login_top {
+  position: absolute;
+  top: 10px;
+  left: 892px;
+  cursor: pointer;
+}
+
 /*//////////////// END TOP NAV BAR ////////////////////////////////////////*/
 
 
@@ -509,7 +525,16 @@ input{
   border:0px;
 }
 
-#register_link {
+#register_side {
+  position: relative;
+  margin-left: 30px;
+  height: 30px;
+  background-color: #8393CA;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+#login_side {
   position: relative;
   margin-left: 30px;
   height: 30px;
@@ -2365,18 +2390,17 @@ li.my_unknown_button a {
 
 #msg_sheen #msg_sheen_content_guest {
     background: none repeat scroll 0 0 white;
-    /*border: 2px solid black;*/
     border-radius: 3px;
     font-size:0.8em;
-    margin: -75px 0 0 -250px;
+    margin: -75px 0 0 -189px;
     padding: 20px;
     position: fixed;
-    top: 40%;
+    top: 20%;
     left: 50%;
-    width: 358px;
+    width: 278px;
     display: none;
     box-shadow: 0 0 35px;
-    text-align: center;
+    z-index: 200;
 }
 
 #msg_sheen #msg_sheen_content_report {
@@ -2441,12 +2465,12 @@ li.my_unknown_button a {
 .sign_up_text {
   color: #282A32;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .sign_up {
-  /*float: right;*/
   margin-bottom: 20px;
-  width: 270px;
+  width: 252px;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
   border-left: 1px solid #6376A9;
@@ -2459,6 +2483,7 @@ li.my_unknown_button a {
   font-size: 1.4em;
   letter-spacing: 1px;
   text-shadow: -1px -1px #4b5a80;
+  border-radius: 3px;
 }
 
 .sign_up:hover {
@@ -2470,13 +2495,13 @@ li.my_unknown_button a {
   color: #282A32;
   text-align: center;
   margin-bottom: 20px;
+  font-size: 1.3em;
 }
 
 .sign_up_cancel {
   float: right;
   margin-right: 15px;
   margin-top: 3px;
-  /*width: 65px;*/
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
   border-left: 1px solid #6376A9;

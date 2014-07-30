@@ -136,39 +136,37 @@ if ($the_left=="nav1") {
 </div>
 
 <div id="frame">
-  <!--SIGN UP POPUP-->
+  <!--pop_guest_click-->
     <div id="msg_sheen" class="pop_guest">
     
-          <div id="msg_sheen_screen" class="pop_guest">
+          <div id="msg_sheen_screen" class="pop_guest pop_reg">
     
             </div>
               <div id="msg_sheen_content_guest" class="pop_guest">
-                <!--<div id="msg_type_area">-->
-                  <!--<form id="sign_up" action="" method="POST">-->
-                    <div class="sign_up_text"><strong>This part of the site is reserved for Starma members only.</strong><br/><br/></div>
-                      <button type="button" name="submit" class="sign_up">Create a Free Account</button><br/>
-                        <div id="or">-- Or --</div>
-                        <?php
-                          if($_GET['the_page'] == 'cosel' && $_GET['tier'] ==2) {
-                            echo '<button type="button" name="cancel" class="sign_up">Preview the sample compatibility</button>';
-                          }
-                          else {
-                            echo '<button type="button" name="cancel" class="sign_up">Keep on Browsing</button>';
-                          }
+                <?php               
+                  show_sign_up_box();
+                  show_registration_box();
+                ?>  
+                </div> <!--close msg_sheen_content_guest-->
+              </div> <!--close msg_sheen-->
+      <!--end pop_guest_click-->
 
-                        ?>
-                          
-                          
-                          <!--<input type="submit" name="submit" value="Sign Up" class="sign_up"/>
-                          <button type="button" name="cancel" class="sign_up_cancel">Cancel</button>-->
-                                                
-                        <!--</form>
-                      <div id="report_sent"></div>
-                      <div id="report_close"><button type="button" name="close" class="report_close">Close</button></div>-->
-                  <!--</div> Close msg_type_area-->
-                </div>
-              </div>
-              
+    <!--pop_guest_login-->
+    <div id="msg_sheen" class="pop_login">
+    
+          <div id="msg_sheen_screen" class="pop_login pop_log">
+    
+            </div>
+              <div id="msg_sheen_content_guest" class="pop_login">
+                <?php               
+                  show_login_box();
+                ?>  
+                </div> <!--close msg_sheen_content_guest-->
+              </div> <!--close msg_sheen-->
+      <!--end pop_guest_click-->
+
+
+
   <div id="topnav">
     <ul>
       <li class="logo"><a href="?the_page=hsel&the_left=nav1"></a></li>
@@ -179,6 +177,7 @@ if ($the_left=="nav1") {
       <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>inbox</span></a></li>
       <li class="mail_area"><img src="/img/top_nav_shorter/Starma-Astrology-SearchBar.png"/></li>
     </ul>
+    <div id="register_top" class="pop_guest_click">Sign Up</div><div id="login_top" class="pop_guest_login">Log In</div>
   </div>
 
   <div id="sidenav">
@@ -192,7 +191,8 @@ if ($the_left=="nav1") {
       <li class="sidenav6 <?php echo $nav6;?> <?php echo menu_status($left_menu['nav6'][1]);?>"><a class="<?php echo $left_menu['nav6'][2];?>" href="?the_left=nav6&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav6'][0];?></a></li>
  
       <li class="bar_line"><img src="/img/Starma-Astrology-SideNav7.png"/></li>
-      <li id="register_link" class="pop_guest_click">Sign Up</li>
+      <li id="register_side" class="pop_guest_click">Sign Up</li>
+      <li id="login_side" class="pop_guest_login">Log In</li>
     </ul>
   </div>
  

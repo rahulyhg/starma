@@ -1,10 +1,12 @@
 $(document).ready(function(){
 
+	//GUEST VIEW FILE
+
 	var timer_username;
 	var timer_email;
 	var timer_email2;
 	var timer_password;
-	/*
+
 	$('button[name=submit]').prop('disabled', true).css({
 												'opacity' : 0.5,
 												'cursor'  : 'default'
@@ -12,9 +14,10 @@ $(document).ready(function(){
 
 
 	$('button[name=submit]').click(function(event){
-		if ($(this).prop('disabled', true)) {
+		if ($('button[name=submit]').prop('disabled', true)) {
 			event.preventDefault();
-			$('.register_error').addClass('error_submitted', 500);
+			//$('.register_error').addClass('error_submitted', 500);
+			alert('please fill out the form');
 		}
 		else {
 			event.preventDefault();
@@ -33,23 +36,25 @@ $(document).ready(function(){
 		timer_username = setTimeout(function() {
 			var username = { 'username' : $('#register_username').val()};
 
-			$.post('chat/register_form_fields.php', username, function(data){
+			$.post('../chat/register_form_fields.php', username, function(data){
 				if(data.errors) {	
 					$('#username_error').show().addClass('register_error').removeClass('check').text(data.message);
-					$('#bug_button').prop('disabled', true).css({
+					$('button[name=submit]').prop('disabled', true).css({
 												'opacity' : 0.5,
 												'cursor'  : 'default'
 												});
+					$('#register_username').addClass('red_border');
 				}
 				if(data.success) {
-					$('#username_error').show().removeClass('register_error').addClass('check').text(data.message);
+					$('#username_error').show().removeClass('register_error').addClass('check').text('');
+					$('#register_username').removeClass('red_border');
 					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
-						if ($('input[name=agreement]').is(':checked')) {
-							$('#bug_button').prop('disabled', false).css({
+						//if ($('input[name=agreement]').is(':checked')) {
+							$('button[name=submit]').prop('disabled', false).css({
 																'opacity' : 1,
 																'cursor'  : 'pointer'
 															});
-						}
+						//}
 					}
 				}
 			}, 'json');
@@ -58,7 +63,7 @@ $(document).ready(function(){
 
 
 
-	*/
+	/*
 
 	$('input[name=nickname]').focus();
 

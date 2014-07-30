@@ -54,14 +54,15 @@
 }
 
 /****************LANDING PAGE****************************/
+/*
 #landing, #register, #birth_info_first_time, #gender_location_first_time, #desc_photo_first_time {
-  /*width:1200px;*/
+  width:1200px;
   height:890px;
   margin-left:auto;
   margin-right:auto;
   position:relative;
 }
-
+*/
 #landing {
   line-height:24px;
 }
@@ -71,7 +72,7 @@
   display:block;
 }
 
-#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo, #sign_in, #create_account, #enter_info, #initial_confirm_form #logo {
+#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo, #sign_in, #enter_info, #initial_confirm_form #logo {
   margin-left:auto; 
   margin-right:auto
 }
@@ -85,7 +86,7 @@
   
 }
 
-#register #create_account, #birth_info_first_time #enter_info, #gender_location_first_time #enter_info, #desc_photo_first_time #enter_info {
+#birth_info_first_time #enter_info, #gender_location_first_time #enter_info, #desc_photo_first_time #enter_info {
   width:668px;
   top:50px;
   text-align:center;
@@ -99,7 +100,7 @@
   background: #8393CA;
 }
 
-#landing #sign_in img, #register #create_account img, #birth_info_first_time #enter_info img, #gender_location_first_time #enter_info img, #desc_photo_first_time #enter_info img {
+#landing #sign_in img, #birth_info_first_time #enter_info img, #gender_location_first_time #enter_info img, #desc_photo_first_time #enter_info img {
  margin-right:auto;
  margin-left:auto;
 }
@@ -164,11 +165,12 @@
     right: 45px;
 }
 
+/*
 #login_form table tr td, #register_form table tr td, #gender_location_form table tr td, #birth_info table tr td{
   padding:5px;
   
 }
-
+*/
 
 
 
@@ -215,7 +217,7 @@
 }
 
 
-
+/*
 #landing #create_account {
   position:relative;
   text-align:center;
@@ -223,6 +225,7 @@
   left:300px;
   top: 65px;
 }
+*/
 
 #landing #forgot_password {
     bottom: 196px;
@@ -257,11 +260,178 @@
   
 }
 
-/***************************************REGISTRATION PAGE AND ERRORS****************************************/
+/**************************************LOGIN POPUP*************************************************/
 
-#register #create_account {
-  /*width:800px;*/
+#login_box {
+  width: 244px;
+  margin: auto;
 }
+
+#login_box .title {
+  font-size: 1.6em;
+  color: #6F83BB;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#login_box input[type=text], input[type=password] {
+  color: #181A1C;
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 3px;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #d1d1d1;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
+}
+
+#login_box input[type=text]:focus, input[type=password]:focus {
+  border: 1px solid #8393CA;
+}
+
+::-webkit-input-placeholder {
+  
+}
+
+:-moz-placeholder { /* Firefox 18- */
+ 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    
+}
+
+:-ms-input-placeholder {  
+ 
+}
+
+#login_password {
+  display: none;
+}
+
+#login_box #forgot_password {
+  position: relative;
+  margin: -16px 0 10px 0;
+}
+
+#login_box #stay_logged_in {
+  position: relative;
+  float: left;
+  margin-bottom: 20px;
+  font-family: "P22UndergroundBook",Helvetica,Arial,sans-serif;
+  width: 100%;
+}
+
+#login_box input[type=checkbox] {
+  position: relative;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+/***************************************REGISTRATION POPUP****************************************/
+
+#create_account {
+  display: none;
+  width: 244px;
+  margin: auto;
+}
+
+#create_account .title {
+  font-size: 1.6em;
+  color: #6F83BB;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#create_account .small_title {
+  font-size: .75em;
+  color: #6F83BB;
+  text-align: left;
+  margin-bottom: 5px;
+  letter-spacing: .5px;
+}
+
+#create_account #birthday {
+  margin-bottom: 20px;
+}
+
+#create_account #birthday span select {
+  color: #777777;
+}
+
+#register_form input {
+  color: #181A1C;
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 3px;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #d1d1d1;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
+}
+
+#register_form input:focus {
+  border: 1px solid #8393CA;
+}
+
+::-webkit-input-placeholder {
+  
+}
+
+:-moz-placeholder { /* Firefox 18- */
+ 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    
+}
+
+:-ms-input-placeholder {  
+ 
+}
+
+#terms {
+  font-size: .75em;
+  color: #939393;
+  width: 100%;
+  line-height: .5;
+  letter-spacing: .5px;
+  margin-bottom: 20px;
+}
+
+#terms a {
+  font: 1em;
+  text-decoration: underline;
+  color: inherit;
+  font-weight: bold;
+}
+
+#terms a:hover {
+  color: #444444;
+}
+
+/*--ERRORS--*/
+
+.register_error_area {
+  color: #C82923;
+  position: relative;
+  margin: -16px 0 10px 10px;
+  font-size: .8em;
+}
+
+.red_border {
+  border: 1px solid #C82923;
+}
+
+/*
+#register #create_account {
+  width:800px;
+}
+
 
 #errors {
   display: inline-block;
@@ -356,7 +526,7 @@
 #register #create_account {
   top:60px;
   width: 1000px;
-  /*left:80px;*/
+  left:80px;
 }
 
 #register .title {
@@ -408,7 +578,7 @@
 #register_form {
     display: inline-block;
     font-size: 1.1em;
-    /*left: 74px;*/
+    left: 74px;
     position: relative;
     text-align: left;
     margin-left: 190px;
@@ -495,6 +665,7 @@
   display: inline-block;
   margin-left: 50px;
 }
+*/
 /***************************DESC AND PHOTO FIRST TIME PAGE ONLY*******************************/
 #desc_photo_first_time #enter_info {
   margin:auto;

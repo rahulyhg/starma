@@ -5,15 +5,35 @@ $(document).ready(function(){
     	return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
 	};
 
+	$('.pop_guest_login').click(function(){
+		$('.pop_login').slideFadeToggle();
+	});
+
 	$('.pop_guest_click').click(function(event){
 		event.preventDefault();
-		$('.pop_guest').slideFadeToggle(function() {});
+		$('.pop_guest').slideFadeToggle();
 		return false;
 	});
 
-	$('button[name=cancel]').click(function(){
-		$('.pop_guest').slideFadeToggle(function(){});
+	$('.pop_reg').click(function(){
+		$('.pop_guest').slideFadeToggle();
 	});
+
+	$('.pop_log').click(function(){
+		$('.pop_login').slideFadeToggle();
+	});
+
+	$('button[name=cancel]').click(function(){
+		$('.pop_guest').slideFadeToggle();
+	});
+
+
+	$('button[name=sign_up]').click(function(){
+		$('#sign_up_box').hide();
+		$('#create_account').show();
+	});
+
+
 
 /*
 	$('.msg_cancel').click(function(){
