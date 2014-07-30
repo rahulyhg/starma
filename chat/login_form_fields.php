@@ -32,7 +32,7 @@ if (!isLoggedIn()) {
 	if(!empty($errors)) {
 		$data['errors'] = $errors;
 		//$data['success'] = false;
-		echo json_encode($data);
+		//echo json_encode($data);
 	}
 	else {
 		if(checkLogin($e, $p)) {
@@ -42,59 +42,68 @@ if (!isLoggedIn()) {
         	}
         	if (isAdmin()) {
               //header( 'Location: http://www.' . $domain . '/index.php');
-              do_redirect( $url = get_domain() . '/index.php');
+              //do_redirect( $url = get_domain() . '/index.php');
+              $data['url'] = get_domain() . '/index.php';
             }
             else if (!sign_up_process_done()) {
               if (get_my_location() == "") {
                 
-                require ("gender_location_first_time.php");
+                //require ("gender_location_first_time.php");
+                $data['url'] = 'gender_location_first_time.php';
+
               }
-              else if (!my_descriptors_loaded() or !get_my_main_photo()) {
+              elseif (!my_descriptors_loaded() or !get_my_main_photo()) {
                 
-                require ("desc_photo_first_time.php");
-              
+                //require ("desc_photo_first_time.php");
+                $data['url'] = 'desc_photo_first_time.php';
+
               }
-              else if (!get_my_chart()) {
+              elseif (!get_my_chart()) {
                 
-                require ("birth_info_first_time.php");
+                //require ("birth_info_first_time.php");
+                $data['url'] = 'birth_info_first_time.php';
               
               }
             }
             else {
-              do_redirect( $url = get_domain() . '/' . get_landing());
-              //echo "Logged in"; 
+              //do_redirect( $url = get_domain() . '/' . get_landing());
+              $data['url'] = get_domain() . '/' . get_landing();
             }
         }
         else {
         	$errors['login'] = 'There was an error loggin you in.  Please try again later.';
         	$data['errors'] = $errors;
-        	echo json_encode($data);
+        	//echo json_encode($data);
         }
 
 	}
+  echo json_encode($data);
 }
 else {
 	if (isAdmin()) {
         //header( 'Location: http://www.' . $domain . '/index.php');
-        do_redirect( $url = get_domain() . '/index.php');
+        //do_redirect( $url = get_domain() . '/index.php');
+        $data['url'] = get_domain() . '/index.php';
     }
     elseif (!sign_up_process_done()) {
         if (get_my_location() == "") {
             //show_gender_location_form(); 
-            require ("gender_location_first_time.php");
+            //require ("gender_location_first_time.php");
+            $data['url'] = 'gender_location_first_time.php';
         }
         elseif (!my_descriptors_loaded() or !get_my_main_photo()) {
-			require ("desc_photo_first_time.php");
- 		}
+			    //require ("desc_photo_first_time.php");
+          $data['url'] = 'desc_photo_first_time.php';
+ 		    }
         elseif (!get_my_chart()) {
             //show_birth_info_form(); 
-            require ("birth_info_first_time.php");
-              
-        }
+            //require ("birth_info_first_time.php");
+            $data['url'] = 'birth_info_first_time.php';
+        } 
     }
     else {
-        do_redirect( $url = get_domain() . '/' . get_landing());
-         //echo "Logged in"; 
+        //do_redirect( $url = get_domain() . '/' . get_landing());
+        $data['url'] = get_domain() . '/' . get_landing();
     }
 }
 

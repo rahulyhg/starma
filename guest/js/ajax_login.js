@@ -30,6 +30,9 @@ $(document).ready(function(){
 					alert(data.errors.password);
 				}	
 			}
+			else {
+				window.location
+			}
 		});
 
 	});
