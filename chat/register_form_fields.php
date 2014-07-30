@@ -58,7 +58,7 @@ require_once("ajax_header.php");
 		}
 		elseif ((int)(calculate_age(substr((string)$birthday, 0, 10))) < 18) {
 			$data['errors'] = true;
-			$data['message'] = 'You must be 18 to join Starma.com';
+			$data['message'] = 'You must be at least 18 to join Starma.com';
 		}
 		else {
 			$data['success'] = true;

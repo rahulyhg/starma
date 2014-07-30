@@ -5944,13 +5944,15 @@ function show_login_box () {
     echo '<div id="login_box">';
       echo '<div class="title">Log In</div>';
         echo '<form action="../chat/login_form_fields.php" method="POST" id="login_from_guest">';
-          echo '<input type="text" id="login_username" name="email" placeholder="Your Email" value="';
+          echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
             if(isset($_GET['email'])) {
               echo $_GET['email'];
             }
           echo '"/>';
+          echo '<div class="register_error_area" id="login_email_error"></div>';
           echo '<input type="password" id="login_password" name="password" placeholder="Password" />';
-          echo '<input type="text" id="pass" name="password" placeholder="Password" />';
+          //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
+          echo '<div class="register_error_area" id="login_password_error"></div>';
           echo '<div id="forgot_password"><a style="color:black;" href="lostpassword.php">forgot your password?</a></div>';
           echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" /><div>keep me signed in</div></div>';
           echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
@@ -5983,20 +5985,25 @@ echo '<div id="create_account">';
   echo '<div class="title">Create an Account</div>';
   //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
   echo '<div id="register_form">';
-    echo '<form name="register_form" action="./register.php" method="post">';
+    echo '<form name="register_form" action="../chat/register_user.php" method="post" id="register_form">';
+      echo '<div class="register_error_area" id="reg_user_exists"></div>';
       echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /></div>'; 
-      echo '<div class="register_error_area" id="username_error"></div>';
+      echo '<div class="register_error_area" id="reg_username_error"></div>';
       echo '<div id="birthday">';
         echo '<div class="small_title">When is your birthday?</div>';
         echo '<span>';
           date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
         echo '</span>';
       echo '</div>';
+      echo '<div class="register_error_area" id="reg_birthday_error"></div>';
       echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /></div>';
+      echo '<div class="register_error_area" id="reg_email_error"></div>';
       echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
-      echo '<div id="password"><input type="text" id="register_password" placeholder="Password" /></div>';
+      echo '<div class="register_error_area" id="reg_email2_error"></div>';
+      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /></div>';
+      echo '<div class="register_error_area" id="reg_password_error"></div>';
       echo '<div id="terms">By creating an account I confirm that I have read and agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>';
-      echo '<button type="submit" name="submit" class="sign_up">Sign Me Up!</button>';
+      echo '<button type="submit" name="submit" class="sign_up" id="register_submit">Sign Me Up!</button>';
     echo '</form>';  
   echo '</div>'; //Close register_form
 echo '</div>';  //close #create_account

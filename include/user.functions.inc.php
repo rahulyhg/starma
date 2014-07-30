@@ -1953,8 +1953,43 @@ function activateUser($uid, $actcode)
     }
  
 }
+//MATT ADDED FOR CLEANER AJAX SIGN UP
+
+function register_new_user ($nickname, $password, $password2, $email, $email2, $year, $month, $day) {
+  global $seed;
+
+  $errors = validate_registration($nickname, $password, $password2, $email, $email2, $year, $month, $day);
+
+  if(sizeof($errors) > 1 ) {
+    return $errors;
+  }
+  $birthday = strtotime($year . "-" . $month . "-" . $day);
+    
+
+    $errors = array(); 
+    
+    $code = generate_code(20);
+    $sql = sprintf("insert into user (nickname,email,password,actcode,birthday,activated) value ('%s','%s','%s','%s','%s',1)",
+        mysql_real_escape_string($nickname), mysql_real_escape_string($email), mysql_real_escape_string(sha1($password . $seed))
+    , mysql_real_escape_string($code),date("Y-m-d",$birthday));
+ 
+ 
+    if (mysql_query($sql)) {
+        $id = mysql_insert_id();
+        $errors[] = $id; 
+    } 
+    else {
+        $errors[] = -1;
+        $errors[] = "User Inserted Query Failed";
+    }
+    
+    return $errors;
+
+}
  
 
+
+//OLD WAY
 function registerNewUser($nickname, $password, $password2, $email, $email2, $year, $month, $day, $agreement)
 {
  

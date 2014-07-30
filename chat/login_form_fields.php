@@ -23,7 +23,7 @@ if (!isLoggedIn()) {
 	if (isset($_POST['password'])) {
 		$p = $_POST['password'];
 		if(!valid_password($p)) {
-			$errors['password'] = 'Invalid Password';
+			$errors['password'] = 'Invalid password';
 		}
 	}
 	else {
@@ -43,9 +43,9 @@ if (!isLoggedIn()) {
         	if (isAdmin()) {
               //header( 'Location: http://www.' . $domain . '/index.php');
               //do_redirect( $url = get_domain() . '/index.php');
-              $data['url'] = get_domain() . '/index.php';
-            }
-            else if (!sign_up_process_done()) {
+              $data['url'] = 'index.php';
+          }
+          elseif (!sign_up_process_done()) {
               if (get_my_location() == "") {
                 
                 //require ("gender_location_first_time.php");
@@ -64,11 +64,11 @@ if (!isLoggedIn()) {
                 $data['url'] = 'birth_info_first_time.php';
               
               }
-            }
-            else {
+          }
+          else {
               //do_redirect( $url = get_domain() . '/' . get_landing());
-              $data['url'] = get_domain() . '/' . get_landing();
-            }
+              $data['url'] = get_landing();
+          }
         }
         else {
         	$errors['login'] = 'There was an error loggin you in.  Please try again later.';
@@ -89,16 +89,16 @@ else {
         if (get_my_location() == "") {
             //show_gender_location_form(); 
             //require ("gender_location_first_time.php");
-            $data['url'] = 'gender_location_first_time.php';
+            $data['url'] = get_domain() . '/gender_location_first_time.php';
         }
         elseif (!my_descriptors_loaded() or !get_my_main_photo()) {
 			    //require ("desc_photo_first_time.php");
-          $data['url'] = 'desc_photo_first_time.php';
+          $data['url'] = get_domain() . '/desc_photo_first_time.php';
  		    }
         elseif (!get_my_chart()) {
             //show_birth_info_form(); 
             //require ("birth_info_first_time.php");
-            $data['url'] = 'birth_info_first_time.php';
+            $data['url'] = get_domain() . '/birth_info_first_time.php';
         } 
     }
     else {
