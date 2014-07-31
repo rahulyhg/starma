@@ -2180,11 +2180,7 @@ li.my_unknown_button a {
 #profile_photo_and_info .profile_info_area .name_area {
   line-height: 1.3em;
   position: relative;
-<<<<<<< HEAD
   top: 3px;
-=======
-  top: 4px;
->>>>>>> Public-Front-End
 }
   
 #descriptors {
