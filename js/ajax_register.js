@@ -278,7 +278,7 @@ $(document).ready(function(){
 												});
 		}
 	});
-
+	/*
 	//Post 
 	$('form[name=register_form]').submit(function(event){
 
@@ -320,6 +320,7 @@ $(document).ready(function(){
 		event.preventDefault();
 
 	});
-	*/
+*/
+	
 
 });

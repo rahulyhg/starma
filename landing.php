@@ -72,16 +72,17 @@ if (isLoggedIn())
               
             </table>
             <div id="login_button_div"><div id="go_bug_path"></div><input type="submit" id="bug_button" name="Login" value=""/></div>
+            <div id="forgot_password">
+              <a style="color:black;" href="lostpassword.php">forgot your password?</a>
+            </div>
           </form>
       
      </div>
   </div>
-  <div id="create_account">
+  <div id="create_account_old">
     Not a member?<br>
     <?php flare_title ('<a style="color:black;" href="register.php">Create a FREE account!</a>');?>
-    <div id="forgot_password">
-      <a style="color:black;" href="lostpassword.php">forgot your password?</a>
-    </div>
+    
   </div>
   
   

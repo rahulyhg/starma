@@ -5828,7 +5828,7 @@ function show_registration_form($output=array(-1)){
   echo '<div class="title">Create an Account</div>';
   echo '<div class="bg" id="create_account">';  
   //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
-  echo '<div id="register_form">';
+  echo '<div id="register_form_old">';
   if(sizeof($output) > 1) {
     echo '<div class="register_error_area register_error">There was an error, please try again</div><br/>';
   }
@@ -5837,7 +5837,7 @@ function show_registration_form($output=array(-1)){
       <tr>	
         <td style="width:106px" class="align_right">username</td> 
         <td><input class="input_style" name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td>';
-        echo '<td><span class="register_error_area" id="username_error"></span></td>';
+        echo '<td><span class="register_error_area_old" id="username_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(USERNAME_ERROR(), $output)) {echo ' hidden_error';}
@@ -5856,7 +5856,7 @@ function show_registration_form($output=array(-1)){
         <td>';
           date_select ($the_date=get_inputed_date ($type="default"), $the_name="birthday");
         echo '</td>';
-        echo '<td><span class="register_error_area" id="underage_error"></span></td>';
+        echo '<td><span class="register_error_area_old" id="underage_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(UNDERAGE_ERROR(), $output)) {echo ' hidden_error';}
@@ -5869,7 +5869,7 @@ function show_registration_form($output=array(-1)){
       <tr>
         <td class="align_right">email</td> 
         <td><input class="input_style" name="email" type="text" id="email" maxlength="30" value="' . $_POST["email"] . '"></td>';
-        echo '<td><span class="register_error_area" id="email_error"></span></td>';
+        echo '<td><span class="register_error_area_old" id="email_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(EMAIL_ERROR(), $output)) {echo ' hidden_error';}
@@ -5881,7 +5881,7 @@ function show_registration_form($output=array(-1)){
       <tr>
         <td class="align_right"><div style="width:105px;">confirm email</div></td> 
         <td><input class="input_style" name="email2" type="text" id="email2" maxlength="30"></td>';
-        echo '<td><span class="register_error_area" id="email2_error"></span></td>';
+        echo '<td><span class="register_error_area_old" id="email2_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(EMAIL_NO_MATCH_ERROR(), $output)) {echo ' hidden_error';}
@@ -5893,7 +5893,7 @@ function show_registration_form($output=array(-1)){
       <tr>
         <td class="align_right">password</td> 
         <td><input class="input_style" name="password" type="password" id="password" maxlength="15"></td>';
-        echo '<td><span class="register_error_area" id="password_error"></span></td>';
+        echo '<td><span class="register_error_area_old" id="password_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(PASSWORD_ERROR(), $output)) {echo ' hidden_error';}

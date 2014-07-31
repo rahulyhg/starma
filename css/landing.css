@@ -95,7 +95,7 @@
 
 #landing #sign_in {
   width:668px;
-  top:40px;
+  top:70px;
   text-align:center;
   background: #8393CA;
 }
@@ -110,15 +110,13 @@
 
 #landing_footer {
   position:relative;
-  bottom:275px;
+  top:190px;
   width:100%;
   
 }
 
 #landing_footer #footer_links {
-  height:100px;
   margin:auto;
-  width:1200px;
 }
 
 #landing_footer #footer_links ul {
@@ -210,27 +208,27 @@
 }
 
 #login_form #stay_logged_in_input {
-  bottom: 41px;
+    bottom: 41px;
     font-size: 0.8em;
     left: 230px;
     position: absolute;
 }
 
 
-/*
-#landing #create_account {
+
+#landing #create_account_old {
   position:relative;
   text-align:center;
   width:300px;
-  left:300px;
-  top: 65px;
+  left:730px;
+  top: 76px;
 }
-*/
+
 
 #landing #forgot_password {
-    bottom: 196px;
+    bottom: 114px;
     font-size: 0.7em;
-    right: 42px;
+    left: 434px;
     position: relative;
     text-align: left;
     width: 200px;
@@ -423,7 +421,9 @@
   border: 1px solid #C82923; !important
 }
 
-/*
+/*--END NEW WAY--*/
+
+
 #register #create_account {
   width:800px;
 }
@@ -439,7 +439,7 @@
   display: inline-block;
 }
 
-.register_error_area {
+.register_error_area_old {
   font-size: .75em;
   text-align: left;
   height: 15px;
@@ -485,7 +485,7 @@
   visibility:hidden;
 }
 
-#register #register_form #user_exists_error {
+#register #register_form_old #user_exists_error {
  top: 7px;
     position: absolute;
 }
@@ -571,7 +571,7 @@
   outline: 0 none;
 }
 
-#register_form {
+#register_form_old {
     display: inline-block;
     font-size: 1.1em;
     left: 74px;
@@ -600,19 +600,19 @@
   z-index:1;
 }
 
-#register #register_form .terms {
+#register #register_form_old .terms {
   width:325px;
 }
 
 
-#register #register_form #agreement_box {
+#register #register_form_old #agreement_box {
   text-align:left;
   font-size:0.7em;
   left:190px;
   bottom:18px;
 }
 
-#register #register_form #agreement_box input {
+#register #register_form_old #agreement_box input {
   display:inline;
   float:left;
   position:relative;
@@ -661,8 +661,13 @@
   display: inline-block;
   margin-left: 50px;
 }
-*/
+
 /***************************DESC AND PHOTO FIRST TIME PAGE ONLY*******************************/
+#desc_photo_first_time {
+  position: relative;
+  height: 502px;
+}
+
 #desc_photo_first_time #enter_info {
   margin:auto;
 }
@@ -834,7 +839,7 @@
   position:relative;
   font-size:1.3em;
   margin:auto;
-  top:65px;
+  top:40px;
 }
 
 #gender_location_form_div {
