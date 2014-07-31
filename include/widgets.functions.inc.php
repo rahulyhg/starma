@@ -311,7 +311,7 @@ function time_select ($the_time, $the_name, $greyed) {
 }
 
 function gender_select ($the_gender, $the_name="gender") {
-  echo '<select name="' . $the_name . '">';
+  echo '<select name="' . $the_name . '" id="gender_select">';
           echo '<option value="none"';
           if ($the_gender = "") {
             echo "SELECTED";

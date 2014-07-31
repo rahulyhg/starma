@@ -1,5 +1,65 @@
 $(document).ready(function(){
 
+	var timer_username;
+	var timer_email;
+	var timer_email2;
+	var timer_password;
+	/*
+	$('button[name=submit]').prop('disabled', true).css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
+
+
+	$('button[name=submit]').click(function(event){
+		if ($(this).prop('disabled', true)) {
+			event.preventDefault();
+			$('.register_error').addClass('error_submitted', 500);
+		}
+		else {
+			event.preventDefault();
+		}
+	})
+
+
+	//Username
+	$('#register_username').on('keyup blur', function(){
+		var name = $('#username_error');
+		var age = $('#underage_error');
+		var email_error1 = $('#email_error');
+		var email_error2 = $('#email2_error');
+		var pass = $('#password_error');
+		clearInterval(timer_username);
+		timer_username = setTimeout(function() {
+			var username = { 'username' : $('#register_username').val()};
+
+			$.post('chat/register_form_fields.php', username, function(data){
+				if(data.errors) {	
+					$('#username_error').show().addClass('register_error').removeClass('check').text(data.message);
+					$('#bug_button').prop('disabled', true).css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
+				}
+				if(data.success) {
+					$('#username_error').show().removeClass('register_error').addClass('check').text(data.message);
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+						if ($('input[name=agreement]').is(':checked')) {
+							$('#bug_button').prop('disabled', false).css({
+																'opacity' : 1,
+																'cursor'  : 'pointer'
+															});
+						}
+					}
+				}
+			}, 'json');
+		}, 500);
+	});
+
+
+
+	*/
+
 	$('input[name=nickname]').focus();
 
 	var timer_username;
@@ -219,8 +279,8 @@ $(document).ready(function(){
 												});
 		}
 	});
-
-	/*//Post 
+	/*
+	//Post 
 	$('form[name=register_form]').submit(function(event){
 
 		var data = {
@@ -261,6 +321,7 @@ $(document).ready(function(){
 		event.preventDefault();
 
 	});
-	*/
+*/
+	
 
 });

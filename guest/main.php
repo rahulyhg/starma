@@ -1,9 +1,17 @@
 <?php
+
 require_once ("header.php");
+ 
+// IF YOU ARE ALREADY LOGGED IN, THEN GET KICKED THE FUCK OUT
+//Lord_Starmeow is user_id 371
+//Lady_Starmeow is user_id 372
+if(isLoggedin()) {
+  do_redirect (get_domain());
+}
+else {
 
-  
-login_check_point($type="full");
-
+$guest_user_id = get_guest_user_id();
+//echo $guest_user_id;
 if (!isset($_GET["the_page"])) {
   $the_page = "hsel";
 }
@@ -11,7 +19,7 @@ else {
   $the_page = $_GET["the_page"];
 }
 
- $left_menu = get_left_menu ($the_page = $the_page);
+ $left_menu = get_left_menu_guest ($the_page = $the_page);
 
  $hsel = "";
  $psel = "";
@@ -34,9 +42,6 @@ if ($the_left=="nav1") {
   clean_session();
 }
 
-//if ($the_page == "psel" and !is_my_profile_done()) {
-//  $the_left = get_my_profile_step();
-//}
 
  $nav1 = "";
  $nav2 = "";
@@ -59,16 +64,7 @@ if ($the_left=="nav1") {
  else {
    $chart_id2_holder = -1;
  }
-/*
- if ($chart_id2_holder != -1) {
-   
-   if (isCeleb(get_user_id_from_chart_id($chart_id2_holder))) {
-      
-      $$the_left = "";
-      $nav3 = "selected";  
-   }
- }
-*/
+}
 
 ?> 
 
@@ -86,6 +82,7 @@ if ($the_left=="nav1") {
     <![endif]-->
     
 <body id="bg_stars">
+
 <div id="img_preloader">
 
   
@@ -139,7 +136,34 @@ if ($the_left=="nav1") {
    
 </div>
 
+
 <div id="frame">
+
+<!--pop_guest_click-->
+    <div id="msg_sheen" class="pop_guest">
+      <div id="msg_sheen_screen" class="pop_guest pop_reg"></div>
+        <div id="msg_sheen_content_guest" class="pop_guest">
+          <?php               
+            show_sign_up_box_guest();
+            show_registration_box_guest();
+          ?>  
+        </div> <!--close msg_sheen_content_guest-->
+    </div> <!--close msg_sheen-->    
+    <!--end pop_guest_click-->
+
+
+    <!--pop_guest_login-->
+    <div id="msg_sheen" class="pop_login">   
+      <div id="msg_sheen_screen" class="pop_login pop_log"></div>
+        <div id="msg_sheen_content_guest" class="pop_login">
+          <?php               
+            show_login_box_guest();
+          ?>  
+        </div> <!--close msg_sheen_content_guest-->
+    </div> <!--close msg_sheen-->
+    <!--end pop_guest_click-->
+
+
   <div id="topnav">
     <ul>
       <li class="logo"><a href="?the_page=hsel&the_left=nav1"></a></li>
@@ -150,35 +174,35 @@ if ($the_left=="nav1") {
       <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>inbox</span></a></li>
       <li class="mail_area"><img src="/img/top_nav_shorter/Starma-Astrology-SearchBar.png"/></li>
     </ul>
+    <div id="register_top" class="pop_guest_click">Sign Up</div><div id="login_top" class="pop_guest_login">Log In</div>
   </div>
 
   <div id="sidenav">
     <ul>
       
-      <li class="sidenav1 <?php echo $nav1;?> <?php echo menu_status($left_menu['nav1'][1]);?>"><a href="?the_left=nav1&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav1'][0];?></a></li>
-      <li class="sidenav2 <?php echo $nav2;?> <?php echo menu_status($left_menu['nav2'][1]);?>"><a href="?the_left=nav2&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav2'][0];?></a></li>
-      <li class="sidenav3 <?php echo $nav3;?> <?php echo menu_status($left_menu['nav3'][1]);?>"><a href="?the_left=nav3&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav3'][0];?></a></li>
-      <li class="sidenav4 <?php echo $nav4;?> <?php echo menu_status($left_menu['nav4'][1]);?>"><a href="?the_left=nav4&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav4'][0];?></a></li>
-      <li class="sidenav5 <?php echo $nav5;?> <?php echo menu_status($left_menu['nav5'][1]);?>"><a href="?the_left=nav5&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav5'][0];?></a></li>
-      <li class="sidenav6 <?php echo $nav6;?> <?php echo menu_status($left_menu['nav6'][1]);?>"><a href="?the_left=nav6&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav6'][0];?></a></li>
+      <li class="sidenav1 <?php echo $nav1;?> <?php echo menu_status($left_menu['nav1'][1]);?>"><a class="<?php echo $left_menu['nav1'][2];?>" href="?the_left=nav1&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav1'][0];?></a></li>
+      <li class="sidenav2 <?php echo $nav2;?> <?php echo menu_status($left_menu['nav2'][1]);?>"><a class="<?php echo $left_menu['nav2'][2];?>" href="?the_left=nav2&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav2'][0];?></a></li>
+      <li class="sidenav3 <?php echo $nav3;?> <?php echo menu_status($left_menu['nav3'][1]);?>"><a class="<?php echo $left_menu['nav3'][2];?>" href="?the_left=nav3&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav3'][0];?></a></li>
+      <li class="sidenav4 <?php echo $nav4;?> <?php echo menu_status($left_menu['nav4'][1]);?>"><a class="<?php echo $left_menu['nav4'][2];?>" href="?the_left=nav4&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav4'][0];?></a></li>
+      <li class="sidenav5 <?php echo $nav5;?> <?php echo menu_status($left_menu['nav5'][1]);?>"><a class="<?php echo $left_menu['nav5'][2];?>" href="?the_left=nav5&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav5'][0];?></a></li>
+      <li class="sidenav6 <?php echo $nav6;?> <?php echo menu_status($left_menu['nav6'][1]);?>"><a class="<?php echo $left_menu['nav6'][2];?>" href="?the_left=nav6&the_page=<?php echo $the_page;?>"><?php echo $left_menu['nav6'][0];?></a></li>
  
       <li class="bar_line"><img src="/img/Starma-Astrology-SideNav7.png"/></li>
     </ul>
+    <div id="register_side" class="pop_guest_click">Sign Up</div>
+    <div id="login_side" class="pop_guest_login">Log In</div>
   </div>
  
-  <div id="logout_link">
-    <!--<a href="/logout.php">Logout</a>-->
-    <?php show_account_menu()?>
-  </div>
  
   <div id="page_body">
     <?php
-      if ($left_menu[$the_left][1] != '#') {
+      if ($left_menu[$the_left][1] != '#' && $left_menu[$the_left][1] != '') {
          require($left_menu[$the_left][1]);
       }
       
     ?>
   </div>
+  
   <div id="clear"></div>
 
     

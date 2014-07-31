@@ -216,4 +216,58 @@
     echo json_encode($log);
     //fwrite(fopen('debug.txt', 'a'), 'Returned\r\n');
     }
+    else {
+        $function = $_GET['function'];
+    
+        $log = array();
+    
+        switch($function) {
+            case('search_favs'):
+                 $filter = $_GET['q'];
+                 $included_users = get_filtered_user_list_no_celeb ($filter, $type="include", $_GET["limit"]); // THIS WILL CHANGE TO THE FAV ONLY QUERY EVENTUALLY
+                 while ($row = mysql_fetch_array($included_users)) {
+                   $json = array();
+                   $json['value'] = $row['user_id'];
+                   $json['name'] = $row['nickname'];
+                   $log[] = $json;
+                   //header("Content-type: application/json");
+                 }
+                 break;
+            case('filterAllUsers'):
+                 $filter = $_GET['filter'];
+                 $included_users = get_filtered_user_list_no_celeb ($filter, "include", 100);
+                 $excluded_users = get_filtered_user_list_no_celeb ($filter, "exclude", 100);
+                 while ($row = mysql_fetch_array($included_users)) {
+                   $log["users_in"][] = $row["user_id"]; 
+                 }
+                 while ($row = mysql_fetch_array($excluded_users)) {
+                   $log["users_out"][] = $row["user_id"]; 
+                 }
+                 break;
+        
+         case('filterUsers'):
+                 $filter = $_GET['filter'];
+                 $included_users = get_filtered_user_list ($filter, "include");
+                 $excluded_users = get_filtered_user_list ($filter, "exclude");
+                 while ($row = mysql_fetch_array($included_users)) {
+                   $log["users_in"][] = $row["user_id"]; 
+                 }
+                 while ($row = mysql_fetch_array($excluded_users)) {
+                   $log["users_out"][] = $row["user_id"]; 
+                 }
+                 break;
+         case('filterCelebs'):
+                 $filter = $_GET['filter'];
+                 $included_users = get_filtered_celebrity_user_list ($filter, "include");
+                 $excluded_users = get_filtered_celebrity_user_list ($filter, "exclude");
+                 while ($row = mysql_fetch_array($included_users)) {
+                   $log["users_in"][] = $row["user_id"]; 
+                 }
+                 while ($row = mysql_fetch_array($excluded_users)) {
+                   $log["users_out"][] = $row["user_id"]; 
+                 }
+                 break;
+        }
+        echo json_encode($log);
+    }
 ?>

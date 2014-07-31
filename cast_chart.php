@@ -232,7 +232,8 @@
      do_redirect( $url = get_domain() . '/' . get_landing());
     // header( 'Location: http://www.' . $domain . '/' . $landing);
    }
- 
+  
+  require_once ("landing_footer.php"); 
 
    }
   
