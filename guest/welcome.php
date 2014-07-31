@@ -66,6 +66,8 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
       <span class="header">Compatibility Example</span>
       <a class="box_link" href="<?php echo '?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true'; ?>"></a>
       <div id="homepage_compare_sample">
+        <div id="sample_compare_results">
+        <div style="margin:auto; width:273px;">
         <div id="homepage_compare_thumb_left">
           <div class="grid_photo_border_wrapper">
             <div class="grid_photo">
@@ -75,6 +77,15 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
               </div>
             </div>
         </div>
+
+        <div id="sample_compare_stars">
+          <img src="../img/Starma-Astrology-Compare-Star-Small.png" />
+          <img src="../img/Starma-Astrology-Compare-Star-Small.png" />
+          <img src="../img/Starma-Astrology-Compare-Star-Small.png" />
+          <img src="../img/Starma-Astrology-Compare-Star-Small.png" />
+          <img src="../img/Starma-Astrology-Compare-Star-Small.png" />
+        </div>
+
         <div id="homepage_compare_thumb_right">
           <div class="grid_photo_border_wrapper">
             <div class="grid_photo">
@@ -84,6 +95,12 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
             </div>
           </div>
         </div>
+      </div>
+      </div>  <!--Close sample_compare_results-->
+
+      <!--sample compare text-->
+      <div id="sample_compare_text">The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to...</div>
+
         <div id="co_box_blurb_guest"><p class="hsel_box_blurb">See a sample compatibility test...</p></div>
       </div>
     </div>

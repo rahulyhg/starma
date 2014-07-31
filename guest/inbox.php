@@ -9,6 +9,6 @@ $last_msg = $user_msg_history[last];
 
 */
   
-  echo '<div id="inbox_guest" class="pop_guest_click">Image Coming Soon...</div>';
+  echo '<div id="inbox_guest" class="pop_guest_click">Preview Coming Soon...</div>';
 
   ?>

@@ -2537,11 +2537,15 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
 
       echo '</div>';
 
-      //Picture of person you're comparing to
-      if (!$guest_user_id2) {
-        echo '<div id="chart_2_pic">';
-          if (!$user_id_2 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][1]))
+      if (!$user_id_2 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][1])) {
             $user_id_2 = -1;
+      }
+      else {
+        $user_id_2 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][1]);
+      }
+      //Picture of person you're comparing to
+      if (!$guest_user_id2 || $guest_user_id2 != $user_id_2) {
+        echo '<div id="chart_2_pic">';
 
           if (!$freebie) {
             $Gurl = $goto . '&tier=3&chart_id2=' . $_SESSION['compare_chart_ids'][1];  
@@ -4478,11 +4482,11 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         //End Right Side
       }
       else {
-        //Guest Viewing Others Chart
+        //**********************GUEST VIEW OF OTHERS CHART*******************************//
         //Left Side
       echo '<div class="chart_tabs left_side">';
       echo '<ul>';
-        $poi_ids = array(1, 2, 3, 7);
+        $poi_ids = array(1, 2, 3);
         foreach ($poi_ids as $poi_id_sample) {         
             $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi_id_sample);
             echo '<li class="chart_li ' . get_selector_name($button_sign_id);
@@ -4505,6 +4509,11 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
           
           
         }
+        echo '<li class="Blurred_button pop_guest_click">
+                <div class="chart_tabs_wrapper">
+                  <span class="icon left pointer"><span class="poi_title">VENUS</span></span><span class="arrow"></span>
+                </div> 
+              </li>';        
         echo '<li class="Blurred_button pop_guest_click">
                 <div class="chart_tabs_wrapper">
                   <span class="icon left pointer"><span class="poi_title">MARS</span></span><span class="arrow"></span>
@@ -5940,7 +5949,7 @@ echo '<script type="text/javascript" src="js/ajax_register.js"></script>';
 require_once ("landing_footer.php"); 
 }
 
-function show_login_box () {
+function show_login_box_guest () {
     echo '<div id="login_box">';
       echo '<div class="title">Log In</div>';
         echo '<form action="../chat/login_form_fields.php" method="POST" id="login_from_guest">';
@@ -5959,10 +5968,10 @@ function show_login_box () {
         echo '</form>';
     echo '</div>';
 
-  echo '<script type="text/javascript" src="js/ajax_login.js"></script>';
+  echo '<script type="text/javascript" src="js/ajax_login_guest.js"></script>';
 }
 
-function show_sign_up_box () {
+function show_sign_up_box_guest () {
   echo '<div id="sign_up_box">';
     echo  '<div class="sign_up_text"><strong><em>To View This Portion of the Site...</em></strong></div>';
       echo '<button type="button" name="sign_up" class="sign_up">Create a Free Account</button>';
@@ -5978,7 +5987,7 @@ function show_sign_up_box () {
 }
 
 
-function show_registration_box () {
+function show_registration_box_guest () {
 
   
 echo '<div id="create_account">';  
@@ -6008,66 +6017,7 @@ echo '<div id="create_account">';
   echo '</div>'; //Close register_form
 echo '</div>';  //close #create_account
 
-echo '<script type="text/javascript" src="js/ajax_register.js"></script>';
-
-      /*
-    <table style="width:800px;"> 
-      <tr>  
-        <td style="width:106px" class="align_right">username</td> 
-        <td><input class="input_style" name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td>';
-        echo '<td><span class="register_error_area" id="username_error"></span></td>';
-      
-        echo '</tr>
-      <tr>
-        <td class="align_right">birthday</td> 
-        <td>';
-          date_select ($the_date=get_inputed_date ($type="default"), $the_name="birthday");
-        echo '</td>';
-        echo '<td><span class="register_error_area" id="underage_error"></span></td>';
-       
-        echo '  
-      </tr>
-      <tr>
-        <td class="align_right">email</td> 
-        <td><input class="input_style" name="email" type="text" id="email" maxlength="30" value="' . $_POST["email"] . '"></td>';
-        echo '<td><span class="register_error_area" id="email_error"></span></td>';
-      
-        echo '</tr>
-      <tr>
-        <td class="align_right"><div style="width:105px;">confirm email</div></td> 
-        <td><input class="input_style" name="email2" type="text" id="email2" maxlength="30"></td>';
-        echo '<td><span class="register_error_area" id="email2_error"></span></td>';
-      
-        echo '</tr>
-      <tr>
-        <td class="align_right">password</td> 
-        <td><input class="input_style" name="password" type="password" id="password" maxlength="15"></td>';
-        echo '<td><span class="register_error_area" id="password_error"></span></td>';
-    
-        echo '</tr>
-    
-      <tr>
-        <td style="vertical-align:top;" class="align_right"><input style="top:5px" type="checkbox" name="agreement" value="1"/></td>
-        <td class="info_font" colspan="2"><div class="terms">I have read and agree to the <a href="docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div></td>
-      </tr>
-    </table>
-    
-
-    <div id="register_button_div"> 
-      <div id="go_bug_path"></div><input id="bug_button" name="register" type="submit" value=""> 
-    </div>
-  </form></div>'; //close #register_form
-/*
-  echo '<div id="register_form_errors">';
-    echo '<div class="register_error_area" id="username_error"></div>';
-    echo '<div class="register_error_area" id="underage_error"></div>';
-    echo '<div class="register_error_area" id="email_error"></div>';
-    echo '<div class="register_error_area" id="email2_error"></div>';
-    echo '<div class="register_error_area" id="password_error"></div>';
-    echo '<div class="register_error_area" id="terms_error"></div>';
-  echo '</div>'; //close #register_form_errors
-*/
-
+echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
 
 }
 

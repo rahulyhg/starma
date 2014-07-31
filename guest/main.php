@@ -144,8 +144,8 @@ if ($the_left=="nav1") {
             </div>
               <div id="msg_sheen_content_guest" class="pop_guest">
                 <?php               
-                  show_sign_up_box();
-                  show_registration_box();
+                  show_sign_up_box_guest();
+                  show_registration_box_guest();
                 ?>  
                 </div> <!--close msg_sheen_content_guest-->
               </div> <!--close msg_sheen-->
@@ -159,7 +159,7 @@ if ($the_left=="nav1") {
             </div>
               <div id="msg_sheen_content_guest" class="pop_login">
                 <?php               
-                  show_login_box();
+                  show_login_box_guest();
                 ?>  
                 </div> <!--close msg_sheen_content_guest-->
               </div> <!--close msg_sheen-->

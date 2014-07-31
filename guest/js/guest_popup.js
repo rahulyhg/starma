@@ -16,7 +16,10 @@ $(document).ready(function(){
 	});
 
 	$('.pop_reg').click(function(){
-		$('.pop_guest').slideFadeToggle();
+		$('.pop_guest').slideFadeToggle(function() {
+			$('#sign_up_box').show();
+			$('#create_account').hide();
+		});
 	});
 
 	$('.pop_log').click(function(){
@@ -24,7 +27,10 @@ $(document).ready(function(){
 	});
 
 	$('button[name=cancel]').click(function(){
-		$('.pop_guest').slideFadeToggle();
+		$('.pop_guest').slideFadeToggle(function() {
+			$('#sign_up_box').show();
+			$('#create_account').hide();
+		});
 	});
 
 
