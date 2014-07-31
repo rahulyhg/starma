@@ -392,16 +392,17 @@
   font-size: .75em;
   color: #939393;
   width: 100%;
-  line-height: .5;
+  line-height: 1.3;
   letter-spacing: .5px;
   margin-bottom: 20px;
 }
 
 #terms a {
-  font: 1em;
+  font: .75em;
   text-decoration: underline;
   color: inherit;
   font-weight: bold;
+  line-height: normal;
 }
 
 #terms a:hover {

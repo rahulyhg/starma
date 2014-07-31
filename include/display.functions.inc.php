@@ -5977,7 +5977,7 @@ function show_sign_up_box_guest () {
       echo '<button type="button" name="sign_up" class="sign_up">Create a Free Account</button>';
          echo '<div id="or">~ or ~</div>';
             
-            if($_GET['the_page'] == 'cosel' && $_GET['tier'] == 2) {
+            if(($_GET['the_page'] == 'cosel' || $_GET['the_page'] == 'cesel') && $_GET['tier'] == 2) {
               echo '<button type="button" name="cancel" class="sign_up">Preview sample compatibility</button>';
             }
             else {

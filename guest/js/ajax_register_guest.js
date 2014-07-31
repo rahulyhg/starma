@@ -297,9 +297,12 @@ $(document).ready(function(){
 					//$('#reg_user_exists').show().addClass('register_error').removeClass('check').text(data.failed.user_exists);
 				}
 			}
-			else {
+			if (data.url) {
 				//alert(data.url);
 				window.location.assign('../' + data.url);
+			}
+			if (!data) {
+				alert('There was an ajax error, please try again');
 			}
 			
 		});
