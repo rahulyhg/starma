@@ -398,7 +398,7 @@ input{
 #pop_invite_top {
   position: absolute;
   left: 769px;
-  top: 10px;
+  top: 51px;
   font-size: .75em;
   z-index: 10;
   cursor: pointer;
@@ -3328,7 +3328,12 @@ span.div_link {
 .gender_validation {
   display: none;
   margin-bottom: 20px;
-  font-size: .8em;
+  font-size: .7em;
+}
+
+.birth_place_validation {
+  display: none;
+  font-size: .7em;
 }
 
 

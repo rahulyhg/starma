@@ -63,7 +63,7 @@ $(document).ready(function(){
                 $('#sender_id_error').text('');
               }
             }
-            else {
+            if(data.success) {
               $('#send-message-area').hide();
               $('#msg_sent').show();
               $('#msg_sent').html('<p>Invite Sent!</p>');

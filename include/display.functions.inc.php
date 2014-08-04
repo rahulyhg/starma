@@ -22,6 +22,51 @@ function show_sheen ($flag=0, $form_function) {
     echo '</div>';
 }
 
+function show_user_invite_top () {
+  echo '<div id="msg_sheen_content_custom" class="pop_invite">';
+                echo '<div id="invite_type_area">';
+                  echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite A Friend</strong></div><br />';
+                  //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
+                  echo '<div id="send-message-area">';
+                    echo '<div id="first_name_error" class="invite_error"></div>';
+                    echo '<div id="last_name_error" class="invite_error"></div>';
+                    echo '<div id="their_name_error" class="invite_error"></div>';
+                    echo '<div id="their_email_error" class="invite_error"></div>';
+                    echo '<div id="sender_id_error" class="invite_error"></div>';
+                    echo '<label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
+                          <input type="text" class="input_style_inline" value="';
+                            $first_name = get_my_first_name();
+                            if(!$first_name) {
+                              echo '';
+                            } 
+                            else {
+                              echo $first_name;
+                            }
+                            echo '" id="first_name_invite" placeholder="first name" name="first_name" maxlength="17" />
+                          <input type="text" class="input_style_inline" value="';
+                            $last_name = get_my_last_name();
+                            if(!$last_name) {
+                              echo '';
+                            } 
+                            else {
+                              echo $last_name;
+                            }
+                          echo '" id="last_name_invite" name="last_name" placeholder="last name" maxlength="17" /> <br />
+                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
+                          <input type="text" class="input_style_inline" placeholder="name" id="their_name_invite" name="their_name" maxlength="34" />
+                          <input type="text" class="input_style_inline" placeholder="email" id="their_email_invite" name="their_email" /> <br />
+                          <label for="msg_sendie_invite" id="msg_label"><strong>Personal Message (Optional)</strong></label>
+                          <textarea id="msg_sendie_invite" name="text_body" maxlength = "255" ></textarea>
+                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
+                          <input type="button" name="submit" value="Send" class="msg_send_invite"/>
+                          <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>';                         
+                        //echo '</form>';
+                        echo '</div>'; //Clost send-message-area
+                      echo '<span id="msg_sent"></span>';
+                  echo '</div>';
+                echo '</div>';
+}
+
 function compare_info_form($flag) {
   echo '<span style="text-align:center">Welcome to Starma\'s Compatibility Test<br><br></span>';
   echo 'At the top of the this page you will see a rating out of 5 stars.  Your star rating is meant to give you a general impression of your compatibility with the person you have selected, but not to tell the whole story!  Astrological compatibility is very complex, and therefore very difficult to represent with a simple score. We highly recommend that you read through the dynamics found below the star rating, to get a clearer picture of your compatibility.  Also, our system and formula for compatibility is designed specifically for Vedic astrology, so you will only be able to test your compatibility using your default Starma Chart for now.
@@ -1751,6 +1796,7 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
               <td id="birth_place_input" colspan="2">
                 <input type="text" name="address" value="' . get_inputed_var("location", $title, $type) . '" id="birth_place_input_bar"/>
               </td>
+              <td><span class="birth_place_validation"></span></td>
              </tr>';
   }
             if ($sao == 1) {

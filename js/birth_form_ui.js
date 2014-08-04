@@ -27,6 +27,10 @@ $(document).ready(function(){
 			event.preventDefault();
 			$('.gender_validation').show().text('Please select a gender').css('color','red');
 		}
+		if($('#birth_place_input_bar').val() == '') {
+			event.preventDefault();
+			$('.birth_place_validation').show().text('Enter birth place').css('color','red');
+		}
 	})
 
 	$('input[name=time_unknown]').click(function(){

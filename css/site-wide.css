@@ -167,7 +167,6 @@ body select {
 #account_menu {
   position:a;
   background:url('/img/Starma-Astrology-Options.png') no-repeat top right;
-  width:90px;
   text-align:right;
 }
 
@@ -179,7 +178,7 @@ body select {
 
 #account_menu .dropdown {
   display:none;
-  /*width:165px;*/
+  width:90px;
 }
 
 #account_menu:hover .dropdown {
