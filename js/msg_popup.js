@@ -35,7 +35,7 @@ $(document).ready(function(){
 	//Invite User
 	var $invite = $('#msg_sendie_invite').val();
 
-	$('#pop_invite').click(function(){
+	$('#pop_invite, #pop_invite_top').click(function(){
 		$('.pop_invite').slideFadeToggle();
 		return false;
 	});

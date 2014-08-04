@@ -5961,7 +5961,7 @@ function show_login_box_guest () {
           //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
           echo '<div class="register_error_area" id="login_password_error"></div>';
           echo '<div id="forgot_password"><a style="color:black;" href="lostpassword.php">forgot your password?</a></div>';
-          echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" /><div>keep me signed in</div></div>';
+          echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
           echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
         echo '</form>';
     echo '</div>';

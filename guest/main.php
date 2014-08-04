@@ -129,6 +129,9 @@ if ($the_left=="nav1") {
   <img src="/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Taurus-Scorpio-ON.png"/>
   <img src="/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Virgo-Pisces-ON.png"/>
 
+  <img src="/img/sign_buttons/Starma-Astrology-Blur-OFF" />
+  <img src="/img/sign_buttons/Starma-Astrology-Blur-ON" />
+
   <img src="/img/Starma-Astrology-CelebritiesBoxH.png"/>
   <img src="/img/Starma-Astrology-ProfileBoxH.png"/>
   <img src="/img/Starma-Astrology-ChartBoxH.png"/>

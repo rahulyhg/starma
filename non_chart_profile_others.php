@@ -216,7 +216,6 @@ if (login_check_point($type="full")) {
 
      
   
-   echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_msg_send_from_popup.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_add_favs.js'></script>";

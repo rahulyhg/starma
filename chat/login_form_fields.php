@@ -36,7 +36,7 @@ if (!isLoggedIn()) {
 	}
 	else {
 		if(checkLogin($e, $p)) {
-			if ($_POST["stay_logged_in"] == "on") {
+			if (isset($_POST["stay_logged_in"]) &&  $_POST["stay_logged_in"] == "on") {
               	setcookie("email", $_POST['email'], time()+60*60*24*30, '/', get_domain(), true, true);
               	setcookie("password", $_POST['password'], time()+60*60*24*30, '/', get_domain(), true, true);
         	}

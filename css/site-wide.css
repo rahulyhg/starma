@@ -166,13 +166,15 @@ body select {
 
 #account_menu {
   position:a;
-  background:url('/img/arrows/AccountArrow.png') no-repeat top right;
-  width:213px;
+  background:url('/img/Starma-Astrology-Options.png') no-repeat top right;
+  width:90px;
   text-align:right;
 }
 
 #account_menu a {
   color:black;
+  font-size: .75em;
+  margin-right: 6px;
 }
 
 #account_menu .dropdown {
@@ -202,11 +204,10 @@ body select {
 #account_menu .dropdown ul li a {
   text-align:right;
   display:block;
-  width:187px;
+  width:60px;
   color:black;
   margin: 0px;
-  padding:0px;
-  padding-right:40px;
+  padding:0 40px 0 4px;
   line-height:32px;
   border:2px solid black;
   border-bottom:0px;
