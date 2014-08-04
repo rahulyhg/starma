@@ -272,8 +272,6 @@ echo '<div id="profile_top_bar">';
 
 echo '</div>';
 echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
-echo "<script type='text/javascript' src='js/ajax_invite_new_user.js'></script>";
-echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
 
 }    
             

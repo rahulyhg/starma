@@ -373,7 +373,7 @@ input{
 
 #topnav ul li.inbox_link a span {
   top:46px;
-  left:40px;
+  text-align: center;
 }
 
 #topnav ul li.selected a {
@@ -393,6 +393,15 @@ input{
 #topnav ul li:hover span {
   display:block;
   
+}
+
+#pop_invite_top {
+  position: absolute;
+  left: 769px;
+  top: 10px;
+  font-size: .75em;
+  z-index: 10;
+  cursor: pointer;
 }
 
 /*--GUEST VIEW--*/
