@@ -164,6 +164,8 @@ if ($the_left=="nav1") {
   <img src="/img/Starma-Astrology-Compare-ButtonON.png"/> 
   <img src="/img/Starma-Astrology-Compare-InviteON.png"/> 
 
+  <img src="/img/Starma-Astrology-Report-UserON.png"/> 
+
 
 </div>
 

@@ -1728,7 +1728,7 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
                <td id="gender_select_title" class="no_move align_right">gender</td>
                <td colspan="1" id="gender_select_input" class="no_move">';
                 echo gender_select($gender);
-       echo '</td><td><span class="gender_validation"></span></td>
+       echo '</td><td><div class="gender_validation"></div></td>
              </tr>';
       
   }
@@ -1796,7 +1796,7 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
               <td id="birth_place_input" colspan="2">
                 <input type="text" name="address" value="' . get_inputed_var("location", $title, $type) . '" id="birth_place_input_bar"/>
               </td>
-              <td><span class="birth_place_validation"></span></td>
+              <td><div class="birth_place_validation"></div></td>
              </tr>';
   }
             if ($sao == 1) {

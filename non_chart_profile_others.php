@@ -148,8 +148,8 @@ if (login_check_point($type="full")) {
                           <div class="report_text">You are about to report ' . get_nickname($other_user_id) . ' for violating our <a href="docs/termsOfUse.htm" target="_blank">Terms of Use</a>.  <strong>All reports are strictly confidential.</strong><br/><br/></div>
                           <label for="additional_comments" id="comments_label"><strong>Additional Comments</strong> (not required)</label><br/>
                           <textarea maxlength="500" name="additional_comments" id="additional_comments"></textarea><br/>
-                          <input type="submit" name="submit" value="Send" class="report_send"/>
-                          <button type="button" name="cancel" class="report_cancel">Cancel</button>
+                          <input type="submit" name="submit" value="Send" class="report_send"/> 
+                          <button type="button" name="cancel" class="report_cancel">Cancel</button>                        
                           <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
                           <input type="hidden" value=' . get_my_user_id() . ' name="my_user_id"/>                       
                         </form>';

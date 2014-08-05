@@ -2668,7 +2668,8 @@ li.my_unknown_button a {
 }
 
 .report_cancel {
-  margin: 12px auto 0;
+  margin: 12px 5px;
+  float: right;
   width: 65px;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
@@ -2681,7 +2682,8 @@ li.my_unknown_button a {
 }
 
 .report_send {
-  margin-right: 4px;
+  margin: 12px;
+  float: right;
   width: 65px;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
@@ -3327,7 +3329,9 @@ span.div_link {
 
 .gender_validation {
   display: none;
-  margin-bottom: 20px;
+  position: absolute;
+  top: 92px;
+  width: 114px;
   font-size: .7em;
 }
 

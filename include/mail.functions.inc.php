@@ -274,7 +274,7 @@ function sendMail($to, $subject, $message, $from, $footer="")
     $mail->Subject = $subject;
     $mail->Body = $message . '<br><br>Sincerely,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer; //HTML Body
     $mail->AltBody = $message; //Text Body
-    $mail->AddBCC("teamstarma@gmail.com");
+    //$mail->AddBCC("teamstarma@gmail.com");
     
     //$mail->Send();
    
