@@ -1,3 +1,20 @@
+/****************  FONTS  *******************/
+
+@font-face {
+  font-family: Otto;
+  src: url('/css/fonts/Otto/Otto.ttf');
+}
+
+@font-face {
+  font-family: Scribble;
+  src: url('/css/fonts/scribble/Scribble.ttf');
+}
+
+
+
+/****************  END FONTS  *******************/
+
+
 body {
   background:#8393CA;
   /*font:1em "Comic Sans MS";*/

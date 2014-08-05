@@ -5993,6 +5993,102 @@ echo '<script type="text/javascript" src="js/ajax_register.js"></script>';
 require_once ("landing_footer.php"); 
 }
 
+//********************************  LANDING BOXES  ********************************/
+
+function show_login_box_landing () {
+    echo '<div id="login_box">';
+      //echo '<div class="title">Log In</div>';
+        echo '<form action="../chat/login_form_fields.php" method="POST" id="login_from_guest">';
+          echo '<div style="margin-right:15px; display:inline-block;"><input type="text" id="login_email" name="email" placeholder="Your Email" value="';
+            if(isset($_GET['email'])) {
+              echo $_GET['email'];
+            }
+          echo '"/>';
+            echo '<div class="register_error_area" id="login_email_error"></div>';
+          echo '</div>';
+          echo '<div style="display:inline-block;"><input type="password" id="login_password" name="password" placeholder="Password" />';
+          //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
+            echo '<div class="register_error_area" id="login_password_error"></div>';
+          echo '</div>';
+          echo '<div id="forgot_password_landing"><a style="color:black;" href="lostpassword.php">forgot your password?</a></div>';
+          echo '<div id="stay_logged_in_landing"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
+          echo '<button type="submit" name="login_submit" style="bottom: 79px; left: 373px; position: relative;">Log In</button>';
+        echo '</form>';
+    echo '</div>';
+
+  //echo '<script type="text/javascript" src="js/ajax_login_guest.js"></script>';
+}
+
+
+function show_sign_up_box_landing () {
+  echo '<div id="sign_up_box">';
+    echo  '<div class="sign_up_text"><strong><em>Create an Account With...</em></strong></div>';
+      echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
+         echo '<div id="or">~ or ~</div>';
+            echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
+      echo '</div>'; //Close sign_up_box
+}
+
+
+function show_registration_box_landing () {
+
+  
+echo '<div id="create_account">';  
+  echo '<div class="title">Create an Account</div>';
+  //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
+  echo '<div id="register_form">';
+    echo '<form name="register_form" action="../chat/register_user.php" method="post" id="register_form">';
+      echo '<div class="register_error_area" id="reg_user_exists"></div>';
+      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /></div>'; 
+      echo '<div class="register_error_area" id="reg_username_error"></div>';
+      echo '<div id="birthday">';
+        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<span>';
+          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
+        echo '</span>';
+      echo '</div>';
+      echo '<div class="register_error_area" id="reg_birthday_error"></div>';
+      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /></div>';
+      echo '<div class="register_error_area" id="reg_email_error"></div>';
+      echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
+      echo '<div class="register_error_area" id="reg_email2_error"></div>';
+      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /></div>';
+      echo '<div class="register_error_area" id="reg_password_error"></div>';
+      echo '<div id="terms">By creating an account I confirm that I have read and agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>';
+      echo '<button type="submit" name="submit" class="sign_up" id="register_submit">Sign Me Up!</button>';
+    echo '</form>';  
+  echo '</div>'; //Close register_form
+echo '</div>';  //close #create_account
+
+//echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
+
+}
+
+
+function show_landing_logo() {
+  echo '
+  <div class="bg" id="logo">
+    <a href="' . get_landing() . '"><img src="img/account_info/Starma-Astrology-Logo.png"/></a>
+  </div>';
+}
+
+function show_bugaboos() {
+  echo '
+  <div id="bug1">
+    <img src="img/account_info/Starma-Astrology-Feet-Bugaboo.png"/>
+  </div>
+  <div id="bug2">
+    <img src="img/account_info/Starma-Astrology-Planet-Bugaboo.png"/>
+  </div>';
+}
+
+
+
+
+
+
+//*************************  GUEST VIEW BOXES  *********************************/
+
 function show_login_box_guest () {
     echo '<div id="login_box">';
       echo '<div class="title">Log In</div>';
@@ -6064,24 +6160,5 @@ echo '</div>';  //close #create_account
 echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
 
 }
-
-
-function show_landing_logo() {
-  echo '
-  <div class="bg" id="logo">
-    <a href="' . get_landing() . '"><img src="img/account_info/Starma-Astrology-Logo.png"/></a>
-  </div>';
-}
-
-function show_bugaboos() {
-  echo '
-  <div id="bug1">
-    <img src="img/account_info/Starma-Astrology-Feet-Bugaboo.png"/>
-  </div>
-  <div id="bug2">
-    <img src="img/account_info/Starma-Astrology-Planet-Bugaboo.png"/>
-  </div>';
-}
-
 
 ?>

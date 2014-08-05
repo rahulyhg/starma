@@ -51,12 +51,36 @@ if (isLoggedIn())
 
 
 <div id="landing">
+
+  <!--pop_landing_click-->
+    <div id="msg_sheen" class="pop_landing">
+      <div id="msg_sheen_screen" class="pop_landing"></div>
+        <div id="msg_sheen_content_guest" class="pop_landing">
+          <?php show_registration_box_landing(); ?>
+        </div>
+    </div>
   
-  <?php show_landing_logo();?>
-  <div class="bg" id="sign_in">
-    <div class="title">sign in</div>
+  <?php //show_landing_logo();
+
+  echo '<div id="logo_test"><div id="logo_test_img"><img src="img/Logotest.png" height="240px" /></div>';
+    echo '<div id="tagline">Compatibility - Horoscopes - Community</div>';
+    echo '<div id="landing_login_box">';
+      show_login_box_landing();
+    echo '</div>';
+  echo '</div>'; //Close logo_test
+
+  echo '<div id="landing_sign_up_box">';
+    show_sign_up_box_landing();
+    //show_registration_box_landing();
+  echo '</div>';
+
+
+  echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
+  ?>
+  <!--<div class="bg" id="sign_in">
+    <div class="title">sign in</div>-->
     <!--<img src="img/account_info/Starma-Astrology-Sign-In-Boxes.png"/>-->
-    <div id="login_form">
+    <!--<div id="login_form">
           <form name="login" method="post" action="./process_login.php">
             <table>
               <tr>
@@ -84,7 +108,7 @@ if (isLoggedIn())
     <?php flare_title ('<a style="color:black;" href="register.php">Create a FREE account!</a>');?>
     
   </div>
-  
+  -->
   
   
   

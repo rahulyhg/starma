@@ -258,10 +258,72 @@
   
 }
 
-/**************************************LOGIN POPUP*************************************************/
+/*************LOGOTEST************/
+
+#logo_test {
+  width: 100%; 
+}
+
+#logo_test_img {
+  margin-left:  20px ;
+  display: inline-block;
+}
+
+#tagline {
+  font-size: 2.9em;
+  position: relative;
+  bottom:33px;
+  right: 153px;
+  display: inline-block;
+  font-family: "Otto";
+}
+
+
+/***************************************  LANDING LOGIN  ****************************************/
+
+#landing_sign_up_box {
+  width:278px; 
+  margin:-11px auto auto; 
+  background:#ffffff; 
+  border-radius:3px; 
+  font-size:.9em; 
+  padding: 20px;
+}
+
+#landing_login_box {
+  float:right; 
+  margin-right: 8%;
+  display: inline-block;
+  position: relative;
+  top: 35px;
+}
+
+#forgot_password_landing {
+    bottom: 13px;
+    font-size: 0.7em;
+    left: 191px;
+    position: relative;
+}
+
+#stay_logged_in_landing {
+    bottom: 36px;
+    font-family: "ClarendonBT-Light";
+    font-size: 0.8em;
+    position: relative;
+    vertical-align: top;
+    width: 155px;
+}
+
+
+/***************************************  LANDING REGISTRATION  ****************************************/
+
+
+
+
+/**************************************  GUEST LOGIN POPUP  *************************************************/
 
 #login_box {
-  width: 244px;
+  /*width: 244px;*/
   margin: auto;
 }
 
@@ -271,6 +333,8 @@
   margin-bottom: 20px;
   font-weight: 600;
   letter-spacing: 1px;
+  width: 100%;
+  text-align: center;
 }
 
 #login_box input[type=text], #login_box input[type=password] {
@@ -324,7 +388,8 @@
   margin: 0 10px 0 0;
 }
 
-/***************************************REGISTRATION POPUP****************************************/
+
+/***************************************  GUEST REGISTRATION POPUP  ****************************************/
 
 #create_account {
   display: none;
@@ -338,6 +403,8 @@
   margin-bottom: 20px;
   font-weight: 600;
   letter-spacing: 1px;
+  width: 100%;
+  text-align: center;
 }
 
 #create_account .small_title {
