@@ -71,13 +71,13 @@ $(document).ready(function(){
 
 	//PREV BUTTON
 	$('#chart_prev').click(function(){
-		$('li').removeClass('prev');
-		if ($('li.selected').children().children('.pass_poi_id').val() !== 5) {
-			var prev = $('li.selected').prev('li');
+		$('div.chart_tabs>ul>li').removeClass('prev');
+		if ($('div.chart_tabs>ul>li.selected').children().children('.pass_poi_id').val() !== 5) {
+			var prev = $('div.chart_tabs>ul>li.selected').prev('li');
 			//alert(prev.children().children('.pass_poi_id').val());
 			//alert('hello');
 		}
-		if ($('li.selected').children().children('.pass_poi_id').val() == 5) {
+		if ($('div.chart_tabs>ul>li.selected').children().children('.pass_poi_id').val() == 5) {
 			var prev = $('div.left_side>ul>li:eq(4)');
 			//alert(prev.children().children('.pass_poi_id').val());
 		}
@@ -150,13 +150,13 @@ $(document).ready(function(){
 	//NEXT BUTTON
 	$('#chart_next').click(function(){
 		//alert($('li.selected').next('li').children().children('.pass_poi_id').val());
-		$('li').removeClass('next');
-		if ($('li.selected').children().children('.pass_poi_id').val() !== 4) {
-			var next = $('li.selected').next('li');
+		$('div.chart_tabs>ul>li').removeClass('next');
+		if ($('div.chart_li>ul>li.selected').children().children('.pass_poi_id').val() !== 4) {
+			var next = $('div.chart_tabs>ul>li.selected').next('li');
 			//alert(prev.children().children('.pass_poi_id').val());
 			//alert('hello');
 		}
-		if ($('li.selected').children().children('.pass_poi_id').val() == 4) {
+		if ($('div.chart_tabs>ul>li.selected').children().children('.pass_poi_id').val() == 4) {
 			var next = $('div.right_side>ul>li:eq(0)');
 			//alert(prev.children().children('.pass_poi_id').val());
 		}

@@ -4414,9 +4414,9 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
 
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
-          echo '<div id="chart_prev">< Prev</div>';
+          echo '<span id="chart_prev">< Prev</span>';
 
-          echo '<div id="chart_next">Next ></div>';
+          echo '<span id="chart_next">Next ></span>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
 
