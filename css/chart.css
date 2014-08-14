@@ -102,6 +102,29 @@
 
 }
 
+#chart_scroll {
+  position: relative;
+  margin-top: -12px;
+  margin-bottom: 8px;
+}
+
+#chart_scroll_container {
+  margin: auto;
+  width: 144px;
+}
+
+#chart_prev {
+  display: none;
+  position: relative;
+  cursor: pointer;
+}
+
+#chart_next {
+  position: relative;
+  left: 44px;
+  cursor: pointer;
+}
+
 
 
 /*//////////////// SIGN ICONS ///////////////////////////////////////////*/

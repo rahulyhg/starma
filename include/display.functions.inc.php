@@ -4218,6 +4218,16 @@ function show_my_chart ($goTo = ".", $western=0) {
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
 
     echo '<div id="profile_chart">';
+
+
+      echo '<div id="chart_scroll">';
+        echo '<div id="chart_scroll_container">';
+          echo '<span id="chart_prev">< Prev</span>';
+
+          echo '<span id="chart_next">Next ></span>';
+        echo '</div>';
+      echo '</div>'; //Close chart_scroll
+
       
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
@@ -4375,6 +4385,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '</div>';
       echo '</div>';
       echo '</form>';
+
     echo '</div>';  //close #profile_chart
   }
 }
@@ -4400,6 +4411,15 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       $sign_id = get_sign_from_poi ($calc_chart_id, $poi_id);
       //echo '&&' . $sign_id . '&&<br>';
     echo '<div id="profile_chart">';
+
+      echo '<div id="chart_scroll">';
+        echo '<div id="chart_scroll_container">';
+          echo '<div id="chart_prev">< Prev</div>';
+
+          echo '<div id="chart_next">Next ></div>';
+        echo '</div>';
+      echo '</div>'; //Close chart_scroll
+
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $calc_chart_id . '"/>';
       echo '<input type="hidden" name="poi_id"/>';
@@ -4705,6 +4725,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       echo '</div>';
       echo '</div>';
       echo '</form>';
+
     echo '</div>';  //close #profile_chart
   }
 }
