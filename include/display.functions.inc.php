@@ -871,11 +871,14 @@ function show_photo_cropper($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];
   $img_name = $photo_to_crop["picture"];
   echo '<div class="photo_cropper_content">';
-    echo '<div class="cropMain"></div>';
+    echo '<div id="zoom">- Zoom +</div>';
     echo '<div class="cropSlider"></div>';
-    echo '<button class="cropButton" />Crop and Set</button>';
-    echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
-    echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
+    echo '<div id="rotate">';
+      echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
+      echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
+    echo '</div>';
+    echo '<div class="cropMain" style="margin:auto;"></div>';
+    echo '<div style="width:500px; margin:20px auto auto;"><button class="cropButton" />Crop and Set</button></div>';
     
     
 
