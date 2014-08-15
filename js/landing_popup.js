@@ -29,20 +29,20 @@ $(document).ready(function(){
 	$('.pop_landing_click').click(function(){
 		$('#create_account').hide();
 		$('#forgot_password_box').hide();
-		$('#landing_sign_up_box').show();
+		//$('#landing_sign_up_box').show();
 		$('.pop_landing').hide();
 	});
 
 	$('button[name=cancel]').click(function(){
 		$('.pop_landing').slideFadeToggle(function() {
-			$('#landing_sign_up_box').show();
+			//$('#landing_sign_up_box').show();
 			$('#create_account').hide();
 		});
 	});
 
 
 	$('button[name=sign_up_email]').click(function(){
-		$('#landing_sign_up_box').hide();
+		//$('#landing_sign_up_box').hide();
 		$('#create_account').show();
 		$('.pop_landing').show();
 		$('.pop_landing_click').show();
