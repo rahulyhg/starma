@@ -74,6 +74,7 @@ if (isLoggedIn())
     //show_registration_box_landing();
   echo '</div>';
 
+  echo '<div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>';
 
   echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
   ?>
