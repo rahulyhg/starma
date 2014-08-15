@@ -5664,6 +5664,7 @@ function display_all_users ($url="", $filter=0) {
 }
 
 function display_welcome_page_thumbnails($celebs=0, $generic=0) {
+  $chart_id1 = get_my_chart_id();
   if ($generic == 0) {
     $my_info = my_profile_info();
 
@@ -5693,14 +5694,28 @@ function display_welcome_page_thumbnails($celebs=0, $generic=0) {
     $user_array[] = $new_item_array[0];
   }
 
-  foreach ($user_array as $user) {
-    echo '<div class="grid_photo_wrapper">';  
-      echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';
-      
-            show_user_inbox_picture ('', $user[user_id]);
+  if ($celebs == 0) {
+
+    foreach ($user_array as $user) {
+      echo '<div class="grid_photo_wrapper">';  
+        echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';
+            
+          show_user_inbox_picture ('?the_page=cosel&the_left=nav1&tier=3&stage=2&chart_id1=' . $chart_id1 . '&chart_id2=' . $user['chart_id'], $user['user_id']);
          
-      echo '</div></div>';
-    echo '</div>'; 
+        echo '</div></div>';
+      echo '</div>'; 
+    }
+  }
+  else {
+    foreach ($user_array as $user) {
+      echo '<div class="grid_photo_wrapper">';  
+        echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';
+            
+          show_user_inbox_picture ('?the_page=cesel&the_left=nav1&tier=3&stage=2&chart_id1=' . $chart_id1 . '&chart_id2=' . $user['chart_id'], $user['user_id']);
+         
+        echo '</div></div>';
+      echo '</div>'; 
+    }
   }
 }
 

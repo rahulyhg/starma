@@ -88,6 +88,10 @@
     width: 70px;
 }
 
+#homepage_thumbnails .grid_photo_border_wrapper:hover {
+  box-shadow: 1px 1px 15px #37406F inset;
+}
+
 #my_photos .grid_photo_wrapper {
     border-spacing: 0;
     display: inline-block;
@@ -230,6 +234,7 @@
     position: absolute;
     width: 300px;
     height: 200px;
+    z-index: 2;
 }
 
 #homepage_profile_button_info {
