@@ -308,6 +308,7 @@
     font-size: 0.7em;
     left: 191px;
     position: relative;
+    cursor: pointer;
 }
 
 #stay_logged_in_landing {
@@ -1301,3 +1302,44 @@
     width: 149px;
     top: 415px;
 }
+
+/********************* FORGOT PASSWORD **************************/
+
+#forgot_password_box {
+  display: none;
+  margin: auto;
+  width: 244px;
+}
+
+#forgot_password_box input {
+  color: #181A1C;
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 3px;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #d1d1d1;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
+}
+
+#forgot_password_box input:focus {
+  border: 1px solid #8393CA;
+}
+
+#forgot_password_box .title {
+    color: #6f83bb;
+    font-size: 1.6em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+#sending {
+  display: none;
+  margin: auto;
+  text-align: center;
+}
+

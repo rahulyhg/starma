@@ -54,9 +54,12 @@ if (isLoggedIn())
 
   <!--pop_landing_click-->
     <div id="msg_sheen" class="pop_landing">
-      <div id="msg_sheen_screen" class="pop_landing"></div>
+      <div id="msg_sheen_screen" class="pop_landing_click"></div>
         <div id="msg_sheen_content_guest" class="pop_landing">
-          <?php show_registration_box_landing(); ?>
+          <?php 
+            show_registration_box_landing(); 
+            show_forgot_password_box();
+          ?>
         </div>
     </div>
   
@@ -83,6 +86,7 @@ if (isLoggedIn())
   echo '<div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>';
 
   echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
+  echo '<script type="text/javascript" src="/js/ajax_forgot_password.js"></script>';
   ?>
   <!--<div class="bg" id="sign_in">
     <div class="title">sign in</div>-->

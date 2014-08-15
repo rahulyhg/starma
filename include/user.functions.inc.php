@@ -2175,18 +2175,18 @@ function lostPassword($email)
     //}
 
     if (!email_there($email)) {
-       return false;
+       return 'wrong_email';
     }
     
     $query = sprintf("select user_id from user where email = '%s' limit 1",
-        mysql_real_escape_string($email),mysql_real_escape_string($nickname));
+        mysql_real_escape_string($email));
  
     $result = mysql_query($query);
  
     if (mysql_num_rows($result) != 1)
     {
  
-        return false;
+        return 'user_not_there';
     }
     
  
@@ -2200,18 +2200,18 @@ function lostPassword($email)
  
             if (sendLostPasswordEmail($email, $newpass))
         {
-            return true;
+            return 'success';
         } else
         {
-            return false;
+            return 'sending_error';
         }      
  
     } else
     {
-        return false;
+        return 'update_error';
     }
  
-    return false;
+    //return false;
  
 }
 

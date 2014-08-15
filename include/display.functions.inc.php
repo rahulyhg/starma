@@ -5897,20 +5897,13 @@ function show_loginform($disabled = false)
 }
  
 function show_lostpassword_form(){
-  
+  echo '<div id="forgot_password_box">';
    echo '<form action="./lostpassword.php" method="post"> 
-     <fieldset><legend>Reset Password</legend>
-
-      <ul>    
-        <li><label for="email">email:</label> <input type="text" name="email" id="email" maxlength="255" /></li>
-      
-      </ul> 
-      <ul>
-        <li><input type="submit" value="Reset Password" name="lostpass" /> </li> 
-      </ul>
- 
-    </fieldset>
-</form>';
+          <div>Reset Password</div>
+            <input type="text" name="email" id="email" maxlength="55" placeholder="Your Email" />
+            <input type="submit" value="Reset Password" name="lostpass" />
+        </form>';
+  echo '</div>';
  
 }
  
@@ -6049,7 +6042,7 @@ function show_login_box_landing () {
           //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
             echo '<div class="register_error_area" id="login_password_error"></div>';
           echo '</div>';
-          echo '<div id="forgot_password_landing"><a style="color:black;" href="lostpassword.php">forgot your password?</a></div>';
+          echo '<div id="forgot_password_landing">forgot your password?</div>';
           echo '<div id="stay_logged_in_landing"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
           echo '<button type="submit" name="login_submit" style="bottom: 79px; left: 373px; position: relative;">Log In</button>';
         echo '</form>';
@@ -6102,6 +6095,20 @@ echo '</div>';  //close #create_account
 //echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
 
 }
+
+
+function show_forgot_password_box() {
+  echo '<div id="forgot_password_box">';
+   echo '<form action="/chat/forgot_password.php" method="POST" id="forgot_password_form"> 
+          <div class="title">Reset Password</div>
+            <input type="text" name="email" id="fp_email" maxlength="55" placeholder="Your Email" />
+            <button type="submit" class="sign_up" name="fp_submit" id="fp_submit">Reset Password</button>
+        </form>';
+    echo '<div id="sending"></div>';
+  echo '</div>';
+}
+
+
 
 
 function show_landing_logo() {
