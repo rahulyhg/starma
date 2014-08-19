@@ -231,7 +231,7 @@ input{
     position: absolute;
     right: 20px;
     top: 5px;
-    z-index: 2;
+    z-index: 3;
 }
 
 /*//////////////TOP NAV BAR/////////////////////////////////////////////////////*/

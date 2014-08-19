@@ -52,7 +52,7 @@ if (login_check_point($type="full")) {
        //TEST FOR ADDING text_type to compare_button <span class="compare_button_title">Compare</span>
   echo '<div class="profile_button compare_button">';
 
-      echo '<div id="compare_menu">Compare';
+      echo '<div id="compare_menu"><a href="">Compare</a>';
         echo '<div class="dropdown">';
           echo '<ul>';
             echo '<li><a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">As Friends</a></li>';
