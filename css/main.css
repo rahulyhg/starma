@@ -1798,7 +1798,7 @@ li.my_unknown_button a {
 
 .profile_button.compare_button #compare_menu {
   position:relative;
-  top: 33px;
+  top: 31px;
   left: 48px;
   background:url('/img/arrows/AccountArrow.png') no-repeat top right;
   width:82px;
