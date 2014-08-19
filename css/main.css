@@ -1781,6 +1781,7 @@ li.my_unknown_button a {
     height:86px;
     width:187px;
     background-position: right;
+    z-index: 2;
     /*
     width: 167px;
     border: 1px solid black;
@@ -1816,7 +1817,7 @@ li.my_unknown_button a {
   display:none;
   position: relative;
   /*right: 82px;*/
-  z-index: 2;
+  /*z-index: 2;*/
   /*width:165px;*/
 }
 
