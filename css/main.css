@@ -2588,11 +2588,11 @@ li.my_unknown_button a {
 .sign_up_text {
   color: #282A32;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .sign_up {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   width: 100%;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
@@ -2617,7 +2617,7 @@ li.my_unknown_button a {
 #or {
   color: #282A32;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1.3em;
 }
 

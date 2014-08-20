@@ -26,6 +26,15 @@ body {
   margin:0px;
 }
 
+#body_landing {
+  background: radial-gradient(circle, #8393ca 9%, #424e6f 31%, #353e57 32%, #161b24 85%, black);*/
+  background: -webkit-radial-gradient(circle, #8393ca 9%, #424e6f 31%, #353e57 32%, #161b24 85%, black); /* Safari */
+  background: -o-radial-gradient(circle, #8393ca 9%, #424e6f 31%, #353e57 32%, #161b24 85%, black); /* Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle, #8393ca 9%, #424e6f 31%, #353e57 32%, #161b24 85%, black); /* Firefox 3.6 to 15 */
+  background: radial-gradient(circle, #8393ca 9%, #424e6f 31%, #353e57 32%, #161b24 85%, black); /* Standard syntax */
+  min-height: 100vh;
+}
+
 body#bg_stars {
   background:#8393CA url('/img/Starma-Astrology-RightSide.png') repeat;
   background-position: left center;

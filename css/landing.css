@@ -64,8 +64,11 @@
 }
 */
 #landing {
-  line-height:24px;
+  min-width: 1150px;
+  margin: 0 auto;
 }
+
+/*
 
 #landing .bg, #register .bg, #birth_info_first_time .bg, #gender_location_first_time .bg, #desc_photo_first_time .bg, #initial_confirm_form #logo {
   position:relative;
@@ -78,8 +81,6 @@
 }
 
 #landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo, #initial_confirm_form #logo {
-  /*width:389px;*/
-  /*height:132px;*/
   width:500px;
   height:170px;
   top:25px;
@@ -106,13 +107,15 @@
 }
 
 
-
+*/
 
 #landing_footer {
-  position:relative;
-  top:190px;
-  width:100%;
-  min-width: 1161px;
+  display: inline-block;
+  float: right;
+  font-size: 0.8em;
+  position: relative;
+  right: 5%;
+  width: 498px;
 }
 
 #landing_footer #footer_links {
@@ -128,13 +131,12 @@
 
 #landing_footer #footer_links ul li {
   position: relative;
-  display: inline;
+  display: inline-block;
   float: left;
 }
 
 #landing_footer #footer_links ul li a {
-  padding-left: 45px;
-  padding-right: 45px;
+  padding-right: 30px;
   color:black;
 }
 
@@ -214,7 +216,7 @@
     position: absolute;
 }
 
-
+/*
 
 #landing #create_account_old {
   position:relative;
@@ -233,6 +235,7 @@
     text-align: left;
     width: 200px;
 }
+*/
 
 .landing_error {
     bottom: 131px;
@@ -259,8 +262,12 @@
 }
 
 #explore {
-  color: black;
+  bottom: 122px;
+  color: white;
+  display: inline-block;
   font-size: 1.3em;
+  left: 100px;
+  position: relative;
 }
 
 /*************LOGOTEST************/
@@ -271,7 +278,8 @@
 }
 
 #logo_test_img {
-  margin-left:  20px ;
+  position: relative;
+  left:  20px ;
   display: inline-block;
 }
 
@@ -288,32 +296,35 @@
 /***************************************  LANDING LOGIN  ****************************************/
 
 #landing_sign_up_box {
-  width:278px; 
-  margin: auto; 
-  background:#ffffff; 
+  width:232px; 
+  margin: auto;
+  margin-bottom: 6%; 
+  background:#f4f4f4; 
   border-radius:3px; 
   font-size:.9em; 
   padding: 20px;
 }
 
 #landing_login_box {
-  float:right; 
-  margin-right: 8%;
   display: inline-block;
+  float: right;
   position: relative;
-  top: 35px;
+  right: 3%;
+  top: 37px;
+  width: 418px;
 }
 
 #forgot_password_landing {
-    bottom: 13px;
+    bottom: 8px;
     font-size: 0.7em;
     left: 191px;
     position: relative;
     cursor: pointer;
+    width: 111px;
 }
 
 #stay_logged_in_landing {
-    bottom: 36px;
+    bottom: 22px;
     font-family: "ClarendonBT-Light";
     font-size: 0.8em;
     position: relative;
@@ -331,7 +342,7 @@
 
 #login_box {
   /*width: 244px;*/
-  margin: auto;
+  /*margin: auto;*/
 }
 
 #login_box .title {

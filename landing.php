@@ -43,7 +43,7 @@ if (isLoggedIn())
    
 ?>
 
-<body>
+<body id="body_landing">
 <script type="text/javascript" src="/js/browser_detect.js"></script>
 <div id="img_preloader">
   <img src="/img/account_info/Starma-Astrology-Space-BugHover.png"/>  
@@ -78,6 +78,8 @@ if (isLoggedIn())
     echo '</div>';
   echo '</div>'; //Close logo_test
 
+  echo '<div style="width:100%; min-width:1150px;">';  //<!-- Close main page container -->
+
   echo '<div id="landing_sign_up_box">';
     show_sign_up_box_landing();
     //show_registration_box_landing();
@@ -87,7 +89,27 @@ if (isLoggedIn())
 
   echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
   echo '<script type="text/javascript" src="/js/ajax_forgot_password.js"></script>';
-  ?>
+
+
+  echo '<div id="landing_footer">
+          <div id="footer_links">
+            <ul>
+              <li><a>Starma LLC 2014</a></li>
+              <li><a title="Coming soon...">About Starma</a></li>
+              <li><a href="docs/privacyPolicy.htm" target="_blank">Privacy</a></li>
+              <li><a href="docs/termsOfUse.htm" target="_blank">Terms</a></li>
+              <li><a href="mailto:contact@starma.com" title="contact@starma.com">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+
+</div> <!-- Close main page container -->';
+
+  
+  show_bugaboos();
+
+?>
   <!--<div class="bg" id="sign_in">
     <div class="title">sign in</div>-->
     <!--<img src="img/account_info/Starma-Astrology-Sign-In-Boxes.png"/>-->
@@ -120,11 +142,27 @@ if (isLoggedIn())
     
   </div>
   -->
+  <!--
+  <div id="landing_footer">
+   <div id="footer_links">
+    <ul>
+      <li><a>Starma LLC 2014</a></li>
+      <li><a title="Coming soon...">About Starma</a></li>
+      <li><a href="docs/privacyPolicy.htm" target="_blank">Privacy</a></li>
+      <li><a href="docs/termsOfUse.htm" target="_blank">Terms</a></li>
+      <li><a href="mailto:contact@starma.com" title="contact@starma.com">Contact</a></li>
+    </ul>
+   </div>
+  </div>
+
+
+</div> --> <!-- Close main page container -->
   
+<?php 
+  //require_once ("landing_footer.php"); 
+?>
   
-  
-  
-  <?php show_bugaboos();?>
+  <?php //show_bugaboos();?>
   <?php 
          if (isset($_GET["error"])) {
            echo '<div class="landing_error">incorrect username or password</div>';
@@ -133,7 +171,5 @@ if (isLoggedIn())
 </div>
 
   
-<?php 
-  require_once ("landing_footer.php"); 
-?>
+
 </body>

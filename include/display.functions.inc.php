@@ -6044,7 +6044,7 @@ function show_login_box_landing () {
           echo '</div>';
           echo '<div id="forgot_password_landing">forgot your password?</div>';
           echo '<div id="stay_logged_in_landing"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
-          echo '<button type="submit" name="login_submit" style="bottom: 79px; left: 373px; position: relative;">Log In</button>';
+          echo '<button type="submit" name="login_submit" style="float:right; bottom:79px; position:relative;">Log In</button>';
         echo '</form>';
     echo '</div>';
 
