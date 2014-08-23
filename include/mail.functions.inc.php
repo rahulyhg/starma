@@ -406,8 +406,9 @@ function sendMail_Mandrill_API($to, $subject, $message, $from, $footer="")
       );
       $async = false;
       $ip_pool = '';
-      $send_at = date('Y-m-d H:i:s');
-      $result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);
+      //$send_at = date('Y-m-d H:i:s');
+      //$result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);
+      $result = $mandrill->messages->send($message, $async, $ip_pool);
       print_r($result);
       return true;
     } catch(Mandrill_Error $e) {
