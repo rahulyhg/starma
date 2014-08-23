@@ -1,5 +1,6 @@
 <?php
 //require_once "Mail.php";
+require_once 'mandrill-api-php/src/Mandrill.php';
 
 
  
@@ -113,12 +114,13 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
   global $domain;
 
 
-  //$sender = basic_user_data($sender_id);
   $full_name = get_my_full_name();
-  if(!$full_name || trim($full_name) == ""){
+  if(!($full_name) || trim($full_name) == ""){
     update_my_full_name($first_name, $last_name);
     $full_name = get_my_full_name();
+    
   }
+  
   $gender = get_my_gender();
   if($gender == 'M') {
     $gender = 'him';
@@ -227,7 +229,9 @@ function testSendingMail ($to, $subject, $message, $from) {
   echo "From: " . $from . '<br>';
   echo "Subject: " . $subject . '<br>';
   echo "Message: " . $message . '<br><br>';
-  return sendMail($to, $subject, $message, $from, $footer="");
+
+  return sendMail_Mandrill_API($to, $subject, $message, $from, $footer);
+
 }
 
 
@@ -337,6 +341,88 @@ function sendMail_Mandrill($to, $subject, $message, $from, $footer="")
     }
     
     return false;
+}
+
+function sendMail_Mandrill_API($to, $subject, $message, $from, $footer="")
+{
+    
+
+    try {
+      $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
+      $message = array(
+        'html' => $message . '<br><br>Sincerely,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer,
+        //'text' => 'Example text content',
+        'subject' => $subject,
+        'from_email' => $from,
+        'from_name' => 'Starma Account Administration',
+        'to' => array(
+            array(
+                'email' => $to,
+                //'name' => 'Recipient Name',
+                //'type' => 'to'
+            )
+        ),
+        'headers' => array('Reply-To' => $from),
+        'important' => false,
+        'track_opens' => true,
+        'track_clicks' => true,
+        'auto_text' => null,
+        'auto_html' => null,
+        'inline_css' => null,
+        'url_strip_qs' => null,
+        'preserve_recipients' => null,
+        'view_content_link' => null,
+        'bcc_address' => 'message.bcc_address@example.com',
+        'tracking_domain' => null,
+        'signing_domain' => null,
+        'return_path_domain' => null,
+        'merge' => true,
+        'global_merge_vars' => array(
+            array(
+                'name' => 'merge1',
+                'content' => 'merge1 content'
+            )
+        ),
+        'merge_vars' => array(
+            array(
+                'rcpt' => 'recipient.email@example.com',
+                'vars' => array(
+                    array(
+                        'name' => 'merge2',
+                        'content' => 'merge2 content'
+                    )
+                )
+            )
+        ),
+        'tags' => array('Test_Emails'),
+        'subaccount' => 'customer-123',
+        'google_analytics_domains' => array(),
+        'google_analytics_campaign' => '',
+        'metadata' => array('website' => ''),
+        'recipient_metadata' => array(),
+        'attachments' => array(),
+        'images' => array(
+        )
+      );
+      $async = false;
+      $ip_pool = '';
+      $send_at = date('Y-m-d H:i:s');
+      $result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);
+      print_r($result);
+      return true;
+    } catch(Mandrill_Error $e) {
+      // Mandrill errors are thrown as exceptions
+      echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+      // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+      log_this_action (account_action_email(), error_basic_action());
+      throw $e;
+       return false;    
+    }
+  
+  return false;  
+    
+    
+   
 }
  
 function sendActivationEmail($email, $nickname, $password, $uid, $actcode)
