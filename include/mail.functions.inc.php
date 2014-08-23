@@ -223,7 +223,7 @@ function sendComparedAlertEmail($user_id, $number)
 
 
  
-function testSendingMail ($to, $subject, $message, $from) {
+function testSendingMail ($to, $subject, $message, $from, $footer) {
   echo "Attempting to send mail: <br><br>";
   echo "To: " . $to . '<br>';
   echo "From: " . $from . '<br>';
