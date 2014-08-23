@@ -395,7 +395,7 @@ function sendMail_Mandrill_API($to, $subject, $message, $from, $footer="")
             )
         ),
         'tags' => array('Test_Emails'),
-        'subaccount' => 'customer-123',
+        //'subaccount' => 'customer-123',
         'google_analytics_domains' => array(),
         'google_analytics_campaign' => '',
         'metadata' => array('website' => ''),
