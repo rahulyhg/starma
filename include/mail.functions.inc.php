@@ -350,7 +350,7 @@ function sendMail_Mandrill_API($to, $subject, $message, $from, $footer="")
     try {
       $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
       $message = array(
-        'html' => $message . '<br><br>Sincerely,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer,
+        'html' => $message . '<br><br>Pleb,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer,
         //'text' => 'Example text content',
         'subject' => $subject,
         'from_email' => $from,
@@ -372,7 +372,7 @@ function sendMail_Mandrill_API($to, $subject, $message, $from, $footer="")
         'url_strip_qs' => null,
         'preserve_recipients' => null,
         'view_content_link' => null,
-        'bcc_address' => 'message.bcc_address@example.com',
+        'bcc_address' => '',
         'tracking_domain' => null,
         'signing_domain' => null,
         'return_path_domain' => null,
