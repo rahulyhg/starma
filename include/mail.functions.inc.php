@@ -1,6 +1,6 @@
 <?php
 //require_once "Mail.php";
-require_once 'mandrill-api-php/src/Mandrill.php';
+require_once ('mandrill-api-php/src/Mandrill.php');
 
 
  
