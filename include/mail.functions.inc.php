@@ -1,6 +1,6 @@
 <?php
 //require_once "Mail.php";
-require_once 'mandrill-api-php/src/Mandrill.php';
+require_once ('mandrill-api-php/src/Mandrill.php');
 
 
  
@@ -223,25 +223,27 @@ function sendComparedAlertEmail($user_id, $number)
 
 
  
-function testSendingMail ($to, $subject, $message, $from) {
+function testSendingMail ($to, $subject, $message, $from, $footer) {
   echo "Attempting to send mail: <br><br>";
   echo "To: " . $to . '<br>';
   echo "From: " . $from . '<br>';
   echo "Subject: " . $subject . '<br>';
   echo "Message: " . $message . '<br><br>';
-  //return mail($to, $subject, $message, 'From: ' . $from);
+
   return sendMail ($to, $subject, $message, $from, $footer);
 }
 
 
 function testSendingMail_Mandrill_API ($to, $subject, $message, $from, $footer) {
+
   echo "Attempting to send mail: <br><br>";
   echo "To: " . $to . '<br>';
   echo "From: " . $from . '<br>';
   echo "Subject: " . $subject . '<br>';
   echo "Message: " . $message . '<br><br>';
-  //return mail($to, $subject, $message, 'From: ' . $from);
+
   return sendMail_Mandrill_API($to, $subject, $message, $from, $footer);
+
 }
 
 function sendMail($to, $subject, $message, $from, $footer="")
@@ -350,7 +352,7 @@ function sendMail_Mandrill_API($to, $subject, $message, $from, $footer="")
     try {
       $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
       $message = array(
-        'html' => $message . '<br><br>Sincerely,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer,
+        'html' => $message . '<br><br>Pleb,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer,
         //'text' => 'Example text content',
         'subject' => $subject,
         'from_email' => $from,
@@ -372,7 +374,7 @@ function sendMail_Mandrill_API($to, $subject, $message, $from, $footer="")
         'url_strip_qs' => null,
         'preserve_recipients' => null,
         'view_content_link' => null,
-        'bcc_address' => 'message.bcc_address@example.com',
+        'bcc_address' => '',
         'tracking_domain' => null,
         'signing_domain' => null,
         'return_path_domain' => null,
@@ -395,7 +397,7 @@ function sendMail_Mandrill_API($to, $subject, $message, $from, $footer="")
             )
         ),
         'tags' => array('Test_Emails'),
-        'subaccount' => 'customer-123',
+        //'subaccount' => 'customer-123',
         'google_analytics_domains' => array(),
         'google_analytics_campaign' => '',
         'metadata' => array('website' => ''),
@@ -406,8 +408,9 @@ function sendMail_Mandrill_API($to, $subject, $message, $from, $footer="")
       );
       $async = false;
       $ip_pool = '';
-      $send_at = date('Y-m-d H:i:s');
-      $result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);
+      //$send_at = date('Y-m-d H:i:s');
+      //$result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);
+      $result = $mandrill->messages->send($message, $async, $ip_pool);
       print_r($result);
       return true;
     } catch(Mandrill_Error $e) {

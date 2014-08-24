@@ -615,6 +615,7 @@ function show_my_general_info() {
   }
   echo '<div class="profile_info_area">';
     echo '<div class="nickname_area">';
+    
       echo $user_info["nickname"];
     echo '</div>';
     echo '<div class="name_area">';
@@ -735,10 +736,13 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
 
 function show_photo_grid ($user_id) {
   echo '<div id="my_photos">';
-  
-  $photo_grid = get_photos ($user_id);
+  if(isLoggedIn()) {
+    $photo_grid = get_photos ($user_id);
   //$length = sizeof($photo_list);
-
+  }
+  else {
+    $photo_grid = get_guest_photos();
+  }
   if (mysql_num_rows($photo_grid) > 1) {
   
     while ($photo = mysql_fetch_array($photo_grid)) {
@@ -897,8 +901,15 @@ function show_general_info($chart_id) {
         echo $user_info["first_name"] . ' ' . $user_info["last_name"];
       }
       else {
-        echo '">';
-        echo '<span style="color:' . $online_color . '">•</span>';
+        if(!isLoggedIn() && $_GET['the_page'] != 'psel' && ($_GET['tier'] == 2 || $_GET['tier'] == 3)) {
+          echo '" style="line-height:2;">';
+        }
+        else {
+          echo '">';
+        }
+        if (isLoggedIn()) {
+          echo '<span style="color:' . $online_color . '">•</span>';
+        }
         echo $user_info["nickname"];
       }
     echo '</div>';
@@ -928,7 +939,12 @@ function show_general_info($chart_id) {
 
 function show_interests_info($chart_id, $isCeleb) {
   $user_id = get_user_id_from_chart_id ($chart_id);
-  $my_user_id = get_my_user_id();
+  if(isLoggedIn()) { 
+    $my_user_id = get_my_user_id();
+  }
+  else {
+    $my_user_id = get_guest_user_id();
+  }
   $user_info = profile_info($user_id);
   $nickname = get_nickname($user_id);
   $gender = get_gender($user_id);
@@ -1322,6 +1338,7 @@ function get_left_menu ($the_page) {
   
   return $menu;
 }
+
 
 function edit_profile_form ($user_id) {  // FOR ADMINS ONLY
   if (permissions_check ($req = 10)) {
@@ -1840,9 +1857,6 @@ echo        '<div id="submit_div_custom">
 echo '<script type="text/javascript" src="js/birth_form_ui.js"></script>';
 
 }
-
-
-
 ///END MATT CUSTOM BIRTH FORM
 
 function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="cast_chart.php", $stage=1) {
@@ -2042,6 +2056,9 @@ echo        '<div id="submit_div">
     display_error_list ($errors);
   }
 }
+
+
+
 
 function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir=true, $the_nickname="Freebie1", $interval, $time_unknown, $method="E") {
   
@@ -2469,6 +2486,14 @@ function test_form_time () {
 
 function show_compare_results ($score, $goto=".", $results_type, $text_type, $stage="2") {
 
+      if(!isLoggedIn()) {
+        $guest_user_id2 = get_guest_user_id2();
+        echo '<script type="text/javascript">
+                $(document).ready(function(){
+                    $(".pop_guest").slideFadeToggle();
+                });
+              </script>';
+      }
 
       //$isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($_GET["chart_id2"])));
       $freebie = is_freebie_chart($_SESSION['compare_chart_ids'][1]);
@@ -2510,33 +2535,54 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
 
       echo '</div>';
 
+      if (!$user_id_2 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][1])) {
+            $user_id_2 = -1;
+      }
+      else {
+        $user_id_2 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][1]);
+      }
       //Picture of person you're comparing to
-      echo '<div id="chart_2_pic">';
-        if (!$user_id_2 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][1]))
-          $user_id_2 = -1;
+      if (!$guest_user_id2 || $guest_user_id2 != $user_id_2) {
+        echo '<div id="chart_2_pic">';
 
-        if (!$freebie) {
-          $Gurl = $goto . '&tier=3&chart_id2=' . $_SESSION['compare_chart_ids'][1];
-          
-        }
-        else {
-          $Gurl = '?the_left=nav3&the_page=cosel&tier=4';
-        }
-     
-        //show_user_compare_picture ($Gurl, $user_id_2);
-        echo '<div class="photo_border_wrapper_compare">';
-          echo '<div class="compare_photo">';
-            show_user_compare_picture($Gurl, $user_id_2);
+          if (!$freebie) {
+            $Gurl = $goto . '&tier=3&chart_id2=' . $_SESSION['compare_chart_ids'][1];  
+          }
+          else {
+            $Gurl = '?the_left=nav3&the_page=cosel&tier=4';
+          }
+          //show_user_compare_picture ($Gurl, $user_id_2);
+          echo '<div class="photo_border_wrapper_compare">';
+            echo '<div class="compare_photo">';
+              show_user_compare_picture($Gurl, $user_id_2);
          
-          echo '</div>';
-        echo '</div>'; 
-        if (!$freebie) {
+            echo '</div>';
+          echo '</div>'; 
+          if (!$freebie) {
+            show_general_info($_SESSION['compare_chart_ids'][1]);
+          }
+          else {      //ADDED FOR FREEBIE
+            echo '<div id="custom_nickname_compare">Custom Chart</div>';
+          }
+        echo '</div>';
+      }
+      
+      //Lady_Starmeow
+      else {
+        echo '<div id="chart_2_pic" class="pop_guest_click">';
+        $Gurl = '';
+        //show_user_compare_picture ($Gurl, $user_id_2);
+          echo '<div class="photo_border_wrapper_compare">';
+            echo '<div class="compare_photo">';
+              show_user_compare_picture($Gurl, $guest_user_id2);
+         
+            echo '</div>';
+          echo '</div>'; 
           show_general_info($_SESSION['compare_chart_ids'][1]);
-        }
-        else {      //ADDED FOR FREEBIE
-          echo '<div id="custom_nickname_compare">Custom Chart</div>';
-        }
-      echo '</div>';
+        echo '</div>';
+      }
+     
+        
    
       if (!isset($_POST["connection_type"])) {
         $connection_type = "rising";
@@ -3894,6 +3940,204 @@ function show_intro_text() {
   ';
 }
 
+function show_guest_chart($goto = ".", $user_id, $western=0) {
+  if ($western == 0) {
+    $chart_info = get_guest_chart($user_id);
+  }
+  else {
+    //echo 'Hello There';
+    $chart_info = get_chart_by_name("Alternate",get_guest_user_id());  
+    
+  }
+  if ($chart_info) {
+      $chart_id = $chart_info["chart_id"];
+      if (!isset($_POST["poi_id"])) {
+        #if (get_my_preferences("chart_more_info_flag", 1) == 0) { 
+        $poi_id = 1;
+        #}
+        #else {
+        #  $poi_id = 0;
+        #}
+      }
+      else {
+        $poi_id = $_POST["poi_id"];
+      }
+      /*
+      if ($poi_id > 0 and my_chart_flag() == 1) {
+  
+         set_my_chart_flag(0);
+      
+      }
+      */
+      $poi_list = get_poi_list();
+     
+      $sign_id = get_sign_from_poi ($chart_id, $poi_id);
+
+    echo '<div id="profile_chart">';
+      
+      echo '<form name="chart_browser" action="." method="post">';
+      echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
+      echo '<input type="hidden" name="poi_id"/>';
+      echo '<div id="starma_chart">';
+      /*
+      if (my_chart_flag() == 1) {
+        show_circle_and_arrow_hilite("down");
+       
+      }
+      */
+/***  --Matt-- Rebuilt with span icons for ajax submit ***/
+
+      echo '<div class="chart_tabs left_side"/>';
+      echo '<ul>';
+      while ($poi = mysql_fetch_array($poi_list)) {
+        if (in_array($poi["poi_id"], poi_left_side())) {
+          $button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+          echo '<li class="chart_li ' . get_selector_name($button_sign_id);
+          if ($poi_id == $poi["poi_id"]) { 
+            echo ' selected';
+          }
+          echo '">';
+          echo '<div class="chart_tabs_wrapper">';
+
+          echo '<span class="icon left pointer"><span class="poi_title">' . $poi["poi_name"] . '</span></span>';
+          echo '<span class="arrow ';
+            if ($poi_id == $poi["poi_id"]) {
+              echo 'arrow_left_on';
+            }
+          echo '"></span>';
+          echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+          echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+          echo '</div>'; //close wrapper
+          echo '</li>';
+          //echo '<a ';
+          
+        
+          //echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span></a></li>';
+          
+        }
+      }
+      echo '</ul>';
+      echo '</div>';
+      //End Left Side
+      /*
+      //Left Side Chart Arrow
+      echo '<div class="chart_tabs left_side chart_arrow"/>';
+      echo '<ul>';
+      $poi_list = get_poi_list();
+      while ($poi = mysql_fetch_array($poi_list)) {
+        if (in_array($poi["poi_id"], poi_left_side())) {
+          if ($poi_id == $poi["poi_id"]) { 
+            $the_class="arrow";
+          }
+          else {
+            $the_class="";
+          }
+          echo '<li class="' . $the_class;
+          
+          echo '"><a></a></li>';
+          
+        }
+      }
+      echo '</ul>';
+      echo '</div>';
+      //End Left Side Chart Arrow
+      */
+     
+      //Right Side
+      $poi_list = get_poi_list();
+      echo '<div class="chart_tabs right_side"/>';
+      echo '<ul>';
+      
+      while ($poi = mysql_fetch_array($poi_list)) {
+        if (in_array($poi["poi_id"], poi_right_side())) {
+          if ($poi["poi_id"] == 9) {
+            $rahu_sign_id = get_sign_from_poi ($chart_id, 9);
+            $ketu_sign_id = get_sign_from_poi ($chart_id, 10);
+            echo '<li class="chart_li ' . get_selector_name($rahu_sign_id, $ketu_sign_id);           
+            echo '">';
+              echo '<div class="chart_tabs_rk_wrapper">';
+                echo '<span class="arrow ';
+                echo '"></span>';
+                echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+                echo '<span class="ketu_text">Ketu</span>';
+                echo '</span>';
+                echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+                echo '<input type="hidden" name="sign_id1" value="' . $rahu_sign_id . '" />';
+                echo '<input type="hidden" name="sign_id2" value="' . $ketu_sign_id . '" />';
+              echo '</div>';
+
+          }
+          else {
+            $button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+            echo '<li class="chart_li ' . get_selector_name($button_sign_id);  
+          
+              if ($poi_id == $poi["poi_id"]) { 
+               echo ' selected';
+              }
+              echo '">';
+              echo '<div class="chart_tabs_wrapper">';
+          
+              echo '<span class="arrow ';
+              echo '"></span>';
+
+              echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+              echo '</span>';
+          //echo '<a ';
+          
+          //echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
+    
+            echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+          
+            echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+            echo '</div>';
+          }
+          echo '</li>';
+          
+        }
+      }
+      echo '</ul>';
+      echo '</div>';
+      //End Right Side
+      /*
+      //Right Side Chart Arrow
+      echo '<div class="chart_tabs right_side chart_arrow"/>';
+      echo '<ul>';
+      $poi_list = get_poi_list();
+      while ($poi = mysql_fetch_array($poi_list)) {
+        if (in_array($poi["poi_id"], poi_right_side())) {
+          if ($poi_id == $poi["poi_id"]) { 
+            $the_class="arrow";
+          }
+          else {
+            $the_class="";
+          }
+          echo '<li class="' . $the_class;
+          
+          echo '"><a></a></li>';
+        }
+      }
+      echo '</ul>';
+      echo '</div>';
+      //End Right Side Chart Arrow
+      */
+      echo '<div id="blurb">';
+        if ($poi_id == 0) {
+          show_intro_text();
+        }
+        else {
+          show_poi_info($poi_id, $chart_id, $sign_id);
+          show_poi_sign_blurb ($poi_id, $sign_id);
+        }
+      echo '</div>';
+      echo '</div>';
+      echo '</form>';
+    echo '</div>';  //close #profile_chart
+  }
+
+}
+
+
+
 function show_my_chart ($goTo = ".", $western=0) {
   if ($western == 0) {
     $chart_info = get_my_chart();
@@ -4148,90 +4392,164 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
        //echo '<div id="top_ad_space">';
        //  echo 'Your Ad Here';
        //echo '</div>';
+      if(isLoggedIn()) {
+        //Left Side
       echo '<div class="chart_tabs left_side"/>';
       echo '<ul>';
-      while ($poi = mysql_fetch_array($poi_list)) {
-        if (in_array($poi["poi_id"], poi_left_side())) {
-          $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
-          echo '<li class="chart_li ' . get_selector_name($button_sign_id);
-          if ($poi_id == $poi["poi_id"]) { 
-            echo ' selected';
-          }
-          echo '">';
-          echo '<div class="chart_tabs_wrapper">';
-
-          echo '<span class="icon left pointer"><span class="poi_title">' . $poi["poi_name"] . '</span></span>';
-          echo '<span class="arrow ';
-            if ($poi_id == $poi["poi_id"]) {
-              echo 'arrow_left_on';
+        while ($poi = mysql_fetch_array($poi_list)) {
+          if (in_array($poi["poi_id"], poi_left_side())) {
+            $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
+            echo '<li class="chart_li ' . get_selector_name($button_sign_id);
+            if ($poi_id == $poi["poi_id"]) { 
+              echo ' selected';
             }
-          echo '"></span>';
-          echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
-          echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
-          echo '</div>'; //close wrapper
-          echo '</li>';
-          
-        }
-      }
-      echo '</ul>';
-      echo '</div>';
-      //End Left Side
-
-      //Right Side
-      $poi_list = get_poi_list();
-      echo '<div class="chart_tabs right_side"/>';
-      echo '<ul>';
-      
-      while ($poi = mysql_fetch_array($poi_list)) {
-        if (in_array($poi["poi_id"], poi_right_side())) {
-          if ($poi["poi_id"] == 9) {
-            $rahu_sign_id = get_sign_from_poi ($calc_chart_id, 9);
-            $ketu_sign_id = get_sign_from_poi ($calc_chart_id, 10);
-            echo '<li class="chart_li ' . get_selector_name($rahu_sign_id, $ketu_sign_id);           
             echo '">';
-              echo '<div class="chart_tabs_rk_wrapper">';
+            echo '<div class="chart_tabs_wrapper">';
+
+            echo '<span class="icon left pointer"><span class="poi_title">' . $poi["poi_name"] . '</span></span>';
+            echo '<span class="arrow ';
+              if ($poi_id == $poi["poi_id"]) {
+                echo 'arrow_left_on';
+              }
+            echo '"></span>';
+            echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+            echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+            echo '</div>'; //close wrapper
+            echo '</li>';
+          
+          }
+        }
+        echo '</ul>';
+        echo '</div>';
+        //End Left Side
+
+        //Right Side
+        $poi_list = get_poi_list();
+        echo '<div class="chart_tabs right_side">';
+        echo '<ul>';
+      
+        while ($poi = mysql_fetch_array($poi_list)) {
+          if (in_array($poi["poi_id"], poi_right_side())) {
+            if ($poi["poi_id"] == 9) {
+              $rahu_sign_id = get_sign_from_poi ($calc_chart_id, 9);
+              $ketu_sign_id = get_sign_from_poi ($calc_chart_id, 10);
+              echo '<li class="chart_li ' . get_selector_name($rahu_sign_id, $ketu_sign_id);           
+              echo '">';
+                echo '<div class="chart_tabs_rk_wrapper">';
+                  echo '<span class="arrow ';
+                  echo '"></span>';
+                  echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
+                  echo '<span class="ketu_text">Ketu</span>';
+                  echo '</span>';
+                  echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+                  echo '<input type="hidden" name="sign_id1" value="' . $rahu_sign_id . '" />';
+                  echo '<input type="hidden" name="sign_id2" value="' . $ketu_sign_id . '" />';
+                echo '</div>';
+
+            }
+            else {
+              $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
+              echo '<li class="chart_li ' . get_selector_name($button_sign_id);  
+          
+                if ($poi_id == $poi["poi_id"]) { 
+                echo ' selected';
+                }
+                echo '">';
+                echo '<div class="chart_tabs_wrapper">';
+          
                 echo '<span class="arrow ';
                 echo '"></span>';
+
                 echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
-                echo '<span class="ketu_text">Ketu</span>';
                 echo '</span>';
-                echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
-                echo '<input type="hidden" name="sign_id1" value="' . $rahu_sign_id . '" />';
-                echo '<input type="hidden" name="sign_id2" value="' . $ketu_sign_id . '" />';
-              echo '</div>';
-
-          }
-          else {
-            $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
-            echo '<li class="chart_li ' . get_selector_name($button_sign_id);  
-          
-              if ($poi_id == $poi["poi_id"]) { 
-               echo ' selected';
-              }
-              echo '">';
-              echo '<div class="chart_tabs_wrapper">';
-          
-              echo '<span class="arrow ';
-              echo '"></span>';
-
-              echo '<span class="icon right pointer"><span class="poi_title">' . $poi["poi_name"] . '</span>';
-              echo '</span>';
           //echo '<a ';
           
           //echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
     
-            echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
+              echo '<input type="hidden" class="pass_poi_id" value="' . $poi["poi_id"] .'" />';
           
-            echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
-            echo '</div>';
+              echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+              echo '</div>';
+            }
+            echo '</li>';
+          
           }
-          echo '</li>';
+        }
+        echo '</ul>'; //Close Right ul
+        echo '</div>'; //Close Right Side
+        //End Right Side
+      }
+      else {
+        //**********************GUEST VIEW OF OTHERS CHART*******************************//
+        //Left Side
+      echo '<div class="chart_tabs left_side">';
+      echo '<ul>';
+        $poi_ids = array(1, 2, 3);
+        foreach ($poi_ids as $poi_id_sample) {         
+            $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi_id_sample);
+            echo '<li class="chart_li ' . get_selector_name($button_sign_id);
+            if ($poi_id_sample == 1) { 
+              echo ' selected';
+            }
+            echo '">';
+            echo '<div class="chart_tabs_wrapper">';
+
+            echo '<span class="icon left pointer"><span class="poi_title">' . get_poi_name($poi_id_sample) . '</span></span>';
+            echo '<span class="arrow ';
+              if ($poi_id_sample == 1) {
+                echo 'arrow_left_on';
+              }
+            echo '"></span>';
+            echo '<input type="hidden" class="pass_poi_id" value="' . $poi_id_sample .'" />';
+            echo '<input type="hidden" name="sign_id" value="' . $button_sign_id . '" />';
+            echo '</div>'; //close wrapper
+            echo '</li>';
+          
           
         }
+        echo '<li class="Blurred_button pop_guest_click">
+                <div class="chart_tabs_wrapper">
+                  <span class="icon left pointer"><span class="poi_title">VENUS</span></span><span class="arrow"></span>
+                </div> 
+              </li>';        
+        echo '<li class="Blurred_button pop_guest_click">
+                <div class="chart_tabs_wrapper">
+                  <span class="icon left pointer"><span class="poi_title">MARS</span></span><span class="arrow"></span>
+                </div> 
+              </li>';        
+        echo '</ul>'; //Close Left ul
+        echo '</div>'; //Close Left Side
+        //End Left Side
+
+        //Right Side
+        //$poi_list = get_poi_list();
+        echo '<div class="chart_tabs right_side">';
+        echo '<ul>';
+        
+        $poi_list = array('MERCURY', 'JUPITER', 'SATURN');
+        for ($x = 0; $x<3; $x++) {
+          echo '<li class="Blurred_button pop_guest_click">';
+            echo '<div class="chart_tabs_wrapper">';
+              echo '<span class="arrow"></span>';
+              echo '<span class="icon right pointer"><span class="poi_title">' . $poi_list[$x] . '</span>';
+              echo '</span>';
+            echo '</div>';
+          echo '</li>';
+        }
+
+        echo '<li class="Blurred_button_rk pop_guest_click">';
+                echo '<div class="chart_tabs_rk_wrapper">';
+                  echo '<span class="arrow"></span>';
+                  echo '<span class="icon right pointer"><span class="poi_title">RAHU</span>';
+                  echo '<span class="ketu_text">KETU</span>';
+                  echo '</span>';
+                echo '</div>';
+         
+        echo '</ul>'; //Close Right ul
+        echo '</div>'; //Close Right side
+        //End Right Side
       }
-      echo '</ul>';
-      echo '</div>';
-      //End Right Side
+        
 
       /* //OLD WAY
      //Left Side;
@@ -5278,23 +5596,33 @@ function display_all_users ($url="", $filter=0) {
   
 }
 
-function display_welcome_page_thumbnails($celebs=0) {
-  $my_info = my_profile_info();
+function display_welcome_page_thumbnails($celebs=0, $generic=0) {
+  if ($generic == 0) {
+    $my_info = my_profile_info();
 
-  if ($celebs == 0) {
-    $age = calculate_age(substr((string)$my_info['birthday'], 0, 10));
-    $user_list = get_weighted_user_list ($age-5, $age+5); 
+    if ($celebs == 0) {
+      $age = calculate_age(substr((string)$my_info['birthday'], 0, 10));
+      $user_list = get_weighted_user_list ($age-5, $age+5); 
+    }
+    else {
+      $user_list = get_pic_only_celebrity_user_list ();
+    }
   }
   else {
-    $user_list = get_pic_only_celebrity_user_list ();
+    if ($celebs == 0) {
+      
+      $user_list = get_user_list_pics_only (); 
+    }
+    else {
+      $user_list = get_pic_only_celebrity_user_list ();
+    }
   }
-  
   $old_user_array = query_to_array($user_list);
   $user_array = array();
-  //pick 6 random ones
+  //pick 8 random ones
   while (sizeof($user_array) < 8 and sizeof($old_user_array) > 0) {
     $random_index = array_rand($old_user_array);
-    $new_item_array = array_splice($old_user_array, $random_index, 1);
+    $new_item_array = array_splice($old_user_array, $random_index, 1);    
     $user_array[] = $new_item_array[0];
   }
 
@@ -5507,7 +5835,7 @@ function show_registration_form($output=array(-1)){
   echo '<div class="title">Create an Account</div>';
   echo '<div class="bg" id="create_account">';  
   //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
-  echo '<div id="register_form">';
+  echo '<div id="register_form_old">';
   if(sizeof($output) > 1) {
     echo '<div class="register_error_area register_error">There was an error, please try again</div><br/>';
   }
@@ -5516,7 +5844,7 @@ function show_registration_form($output=array(-1)){
       <tr>	
         <td style="width:106px" class="align_right">username</td> 
         <td><input class="input_style" name="nickname" type="text" maxlength="14" value="' . $_POST["nickname"] . '"></td>';
-        echo '<td><span class="register_error_area" id="username_error"></span></td>';
+        echo '<td><span class="register_error_area_old" id="username_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(USERNAME_ERROR(), $output)) {echo ' hidden_error';}
@@ -5535,7 +5863,7 @@ function show_registration_form($output=array(-1)){
         <td>';
           date_select ($the_date=get_inputed_date ($type="default"), $the_name="birthday");
         echo '</td>';
-        echo '<td><span class="register_error_area" id="underage_error"></span></td>';
+        echo '<td><span class="register_error_area_old" id="underage_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(UNDERAGE_ERROR(), $output)) {echo ' hidden_error';}
@@ -5548,7 +5876,7 @@ function show_registration_form($output=array(-1)){
       <tr>
         <td class="align_right">email</td> 
         <td><input class="input_style" name="email" type="text" id="email" maxlength="30" value="' . $_POST["email"] . '"></td>';
-        echo '<td><span class="register_error_area" id="email_error"></span></td>';
+        echo '<td><span class="register_error_area_old" id="email_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(EMAIL_ERROR(), $output)) {echo ' hidden_error';}
@@ -5560,7 +5888,7 @@ function show_registration_form($output=array(-1)){
       <tr>
         <td class="align_right"><div style="width:105px;">confirm email</div></td> 
         <td><input class="input_style" name="email2" type="text" id="email2" maxlength="30"></td>';
-        echo '<td><span class="register_error_area" id="email2_error"></span></td>';
+        echo '<td><span class="register_error_area_old" id="email2_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(EMAIL_NO_MATCH_ERROR(), $output)) {echo ' hidden_error';}
@@ -5572,7 +5900,7 @@ function show_registration_form($output=array(-1)){
       <tr>
         <td class="align_right">password</td> 
         <td><input class="input_style" name="password" type="password" id="password" maxlength="15"></td>';
-        echo '<td><span class="register_error_area" id="password_error"></span></td>';
+        echo '<td><span class="register_error_area_old" id="password_error"></span></td>';
         /*
           echo '<div class="error';
           if (!in_array(PASSWORD_ERROR(), $output)) {echo ' hidden_error';}
@@ -5617,6 +5945,78 @@ echo '<div';
 echo '</div>';
 echo '<script type="text/javascript" src="js/ajax_register.js"></script>';
 require_once ("landing_footer.php"); 
+}
+
+function show_login_box_guest () {
+    echo '<div id="login_box">';
+      echo '<div class="title">Log In</div>';
+        echo '<form action="../chat/login_form_fields.php" method="POST" id="login_from_guest">';
+          echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
+            if(isset($_GET['email'])) {
+              echo $_GET['email'];
+            }
+          echo '"/>';
+          echo '<div class="register_error_area" id="login_email_error"></div>';
+          echo '<input type="password" id="login_password" name="password" placeholder="Password" />';
+          //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
+          echo '<div class="register_error_area" id="login_password_error"></div>';
+          echo '<div id="forgot_password"><a style="color:black;" href="lostpassword.php">forgot your password?</a></div>';
+          echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
+          echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
+        echo '</form>';
+    echo '</div>';
+
+  echo '<script type="text/javascript" src="js/ajax_login_guest.js"></script>';
+}
+
+function show_sign_up_box_guest () {
+  echo '<div id="sign_up_box">';
+    echo  '<div class="sign_up_text"><strong><em>To View This Portion of the Site...</em></strong></div>';
+      echo '<button type="button" name="sign_up" class="sign_up">Create a Free Account</button>';
+         echo '<div id="or">~ or ~</div>';
+            
+            if(($_GET['the_page'] == 'cosel' || $_GET['the_page'] == 'cesel') && $_GET['tier'] == 2) {
+              echo '<button type="button" name="cancel" class="sign_up">Preview sample compatibility</button>';
+            }
+            else {
+              echo '<button type="button" name="cancel" class="sign_up">Keep on Browsing</button>';
+            }
+      echo '</div>'; //Close sign_up_box
+}
+
+
+function show_registration_box_guest () {
+
+  
+echo '<div id="create_account">';  
+  echo '<div class="title">Create an Account</div>';
+  //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
+  echo '<div id="register_form">';
+    echo '<form name="register_form" action="../chat/register_user.php" method="post" id="register_form">';
+      echo '<div class="register_error_area" id="reg_user_exists"></div>';
+      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /></div>'; 
+      echo '<div class="register_error_area" id="reg_username_error"></div>';
+      echo '<div id="birthday">';
+        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<span>';
+          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
+        echo '</span>';
+      echo '</div>';
+      echo '<div class="register_error_area" id="reg_birthday_error"></div>';
+      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /></div>';
+      echo '<div class="register_error_area" id="reg_email_error"></div>';
+      echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
+      echo '<div class="register_error_area" id="reg_email2_error"></div>';
+      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /></div>';
+      echo '<div class="register_error_area" id="reg_password_error"></div>';
+      echo '<div id="terms">By creating an account I confirm that I have read and agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>';
+      echo '<button type="submit" name="submit" class="sign_up" id="register_submit">Sign Me Up!</button>';
+    echo '</form>';  
+  echo '</div>'; //Close register_form
+echo '</div>';  //close #create_account
+
+echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
+
 }
 
 

@@ -218,7 +218,7 @@ echo '<div id="profile_top_bar">';
           //REDESIGN
           echo '<div class="profile_button compare_button">';
 
-            echo '<div id="compare_menu">Compare';
+            echo '<div id="compare_menu"><a href="">Compare</a>';
               echo '<div class="dropdown">';
                 echo '<ul>';
                   echo '<li><a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">As Friends</a></li>';
@@ -272,8 +272,6 @@ echo '<div id="profile_top_bar">';
 
 echo '</div>';
 echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
-echo "<script type='text/javascript' src='js/ajax_invite_new_user.js'></script>";
-echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
 
 }    
             

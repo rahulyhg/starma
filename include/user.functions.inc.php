@@ -1,6 +1,6 @@
 <?php
 //stuff
- 
+
 ##### User Functions #####
 function max_msgs() {
   return 30;
@@ -97,8 +97,12 @@ function num_new_msgs_with ($r_id) {
 }
 
 function num_new_non_chats () {
-  $r = get_my_new_non_chats ();
-  return mysql_num_rows($r);
+  if($r = get_my_new_non_chats ()) {
+    return mysql_num_rows($r);
+  }
+  else {
+    return false;
+  }
   
 }
 
@@ -529,15 +533,15 @@ function get_my_descriptors () {
 
 function get_descriptors ($user_id) {
   
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = "SELECT * from user_descriptor where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function update_descriptors ($descriptors) {
@@ -606,16 +610,17 @@ function get_my_main_photo() {
 }
 
 function get_main_photo($user_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = "SELECT picture from user_picture where user_id = " . $user_id . " and main = 1 and uncropped = 0";
-    $result = mysql_query($q) or die(mysql_error());
-    $row = mysql_fetch_array($result);
-    return $row["picture"];
+    if ($result = mysql_query($q)) {
+      $row = mysql_fetch_array($result);
+      return $row["picture"];
+    }
      
-  }
-  else {
-    return false;
-  }
+  //}
+    else {
+      return false;
+    }
 }
 
 function get_photo ($photo_id, $user_id) {
@@ -936,7 +941,7 @@ function basic_user_data($user_id) {
 }
 
 function profile_info($user_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT * from user where user_id = ' . $user_id;
     //echo $q . '<br>';
     if ($result = mysql_query($q)) {
@@ -946,10 +951,10 @@ function profile_info($user_id) {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function is_my_profile_done() {
@@ -1048,7 +1053,27 @@ function get_user_list () {
     $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           left outer join user_picture on user.user_id = user_picture.user_id 
-          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) ORDER BY main desc, user_id desc'; // where user_id = ' . $_SESSION["user_id"]; add LIMIT 32 to limit list
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 ORDER BY main desc, user_id desc'; // where user_id = ' . $_SESSION["user_id"]; add LIMIT 32 to limit list
+    
+    if ($result = mysql_query($q)) {
+      return $result;
+    }
+    else {
+      return false;
+    }
+  //}
+  //else {
+  //  return false;
+  //}
+}
+
+function get_user_list_pics_only () {
+  
+  //if (isLoggedIn()) {
+    $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+          inner join chart on user.user_id = chart.user_id 
+          inner join user_picture on user.user_id = user_picture.user_id 
+          where private = 0 and chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) ORDER BY main desc, user_id desc'; // where user_id = ' . $_SESSION["user_id"]; add LIMIT 32 to limit list
     
     if ($result = mysql_query($q)) {
       return $result;
@@ -1064,7 +1089,7 @@ function get_user_list () {
 
 function get_favorties_user_list () {
   if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join favorite on favorite.favorite_user_id = user.user_id where chart.nickname="main" AND favorite.user_id = ' . get_my_user_id() . ' ORDER BY nickname'; // where user_id = ' . $_SESSION["user_id"];
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join favorite on favorite.favorite_user_id = user.user_id where private = 0 and chart.nickname="main" AND favorite.user_id = ' . get_my_user_id() . ' ORDER BY nickname'; // where user_id = ' . $_SESSION["user_id"];
     if ($result = mysql_query($q)) {
       return $result;
     }
@@ -1080,11 +1105,11 @@ function get_favorties_user_list () {
 
 function get_filtered_user_list ($filter, $type="include") { //FOR FAVORITES ONLY
   if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join favorite on favorite.favorite_user_id = user.user_id where chart.nickname="main" AND favorite.user_id = ' . get_my_user_id() . ' AND ';
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join favorite on favorite.favorite_user_id = user.user_id where private = 0 and chart.nickname="main" AND favorite.user_id = ' . get_my_user_id() . ' AND ';
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
-    $q = $q . sprintf('user.nickname like "%%%s%%" ORDER BY nickname', mysql_real_escape_string($filter));
+    $q = $q . sprintf("user.nickname like '%%%s%%' ORDER BY nickname", mysql_real_escape_string($filter));
     if ($result = mysql_query($q)) {
       return $result;
     }
@@ -1098,45 +1123,45 @@ function get_filtered_user_list ($filter, $type="include") { //FOR FAVORITES ONL
 }
 
 function get_filtered_user_list_no_celeb ($filter, $type, $limit) {
-  if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where permissions_id != ' . PERMISSIONS_CELEB() . ' AND chart.nickname="main" AND ';
+  //if (isLoggedIn()) {
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where private = 0 and permissions_id != ' . PERMISSIONS_CELEB() . ' AND chart.nickname="main" AND ';
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
-    $q = $q . sprintf('user.nickname like "%%%s%%" ORDER BY user_id desc LIMIT %s', mysql_real_escape_string($filter), $limit);
+    $q = $q . sprintf("user.nickname like '%%%s%%' ORDER BY user_id desc LIMIT %s", mysql_real_escape_string($filter), $limit);
     if ($result = mysql_query($q)) {
       return $result;
     }
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function get_celebrity_user_list () {
-  if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" ORDER BY nickname'; 
+  //if (isLoggedIn()) {
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where private = 0 and chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" ORDER BY nickname'; 
     if ($result = mysql_query($q)) {
       return $result;
     }
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function get_pic_only_celebrity_user_list () {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = '
         SELECT *, chart.chart_id
  FROM user inner join chart on user.user_id = chart.user_id
- inner join user_picture on user.user_id = user_picture.user_id WHERE user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname = "main" and permissions_id = ' . PERMISSIONS_CELEB() . ' and not email like "%TestCeleb%"
+ inner join user_picture on user.user_id = user_picture.user_id WHERE private = 0 and user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname = "main" and permissions_id = ' . PERMISSIONS_CELEB() . ' and not email like "%TestCeleb%"
 ';
     if ($result = mysql_query($q)) {
       return $result;
@@ -1144,15 +1169,15 @@ function get_pic_only_celebrity_user_list () {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function get_filtered_celebrity_user_list ($filter, $type="include") {
-  if (isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" AND ';
+  //if (isLoggedIn()) {
+    $q = 'SELECT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id where private = 0 and chart.nickname="main" AND permissions_id = ' . PERMISSIONS_CELEB() . ' AND NOT user.nickname like "testceleb%" AND ';
     if ($type=="exclude") {
       $q = $q . 'NOT '; 
     }
@@ -1163,17 +1188,17 @@ function get_filtered_celebrity_user_list ($filter, $type="include") {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+ // }
 }
 
 
 function get_weighted_user_list ($lowBound, $highBound) {
   
   if (isLoggedIn()) {
-    $q = 'SELECT DISTINCT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join user_picture on user.user_id = user_picture.user_id where user.user_id != ' . get_my_user_id() . ' and user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname="main" and permissions_id <> -1 and user.birthday between DATE_SUB(NOW(), INTERVAL "' . $highBound . '" YEAR) and DATE_SUB(NOW(), INTERVAL "' . $lowBound . '" YEAR) ORDER BY user_id desc'; // where user_id = ' . $_SESSION["user_id"];
+    $q = 'SELECT DISTINCT user.*, chart.chart_id from user inner join chart on user.user_id = chart.user_id inner join user_picture on user.user_id = user_picture.user_id where private = 0 and user.user_id != ' . get_my_user_id() . ' and user_picture.main = 1 and user_picture.uncropped = 0 and chart.nickname="main" and permissions_id <> -1 and user.birthday between DATE_SUB(NOW(), INTERVAL "' . $highBound . '" YEAR) and DATE_SUB(NOW(), INTERVAL "' . $lowBound . '" YEAR) ORDER BY user_id desc'; // where user_id = ' . $_SESSION["user_id"];
     
     if ($result = mysql_query($q)) {
       return $result;
@@ -1189,7 +1214,7 @@ function get_weighted_user_list ($lowBound, $highBound) {
 
 function get_celeb_list() {  // THIS FUNCTION FOR ADMINS ONLY, TO MANAGE CELEBRITIES
   if (isLoggedIn()) {
-    $q = 'SELECT user.* from user WHERE permissions_id = -1 ORDER BY nickname';
+    $q = 'SELECT user.* from user WHERE private = 0 and permissions_id = -1 ORDER BY nickname';
     if ($result = mysql_query($q)) {
       return $result;
     }
@@ -1254,7 +1279,7 @@ function get_chart_list () {
 }
 
 function get_chart ($chart_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT * from chart where chart_id = ' . (int) $chart_id; // . ' and user_id = ' . $_SESSION["user_id"];
     if ($result = mysql_query($q)) {
       if ($row = mysql_fetch_array ($result)) {
@@ -1267,10 +1292,10 @@ function get_chart ($chart_id) {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function get_my_chart_id () {
@@ -1380,7 +1405,7 @@ function get_my_email () {
 }
 
 function get_nickname ($user_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT nickname from user where user_id = ' . $user_id;
     if ($result = mysql_query($q)) {
       if ($row = mysql_fetch_array ($result)) {
@@ -1393,10 +1418,10 @@ function get_nickname ($user_id) {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function delete_my_chart_by_name ($chart_name) {
@@ -1679,7 +1704,7 @@ function get_newest_chart() {
 }
 
 function get_chart_by_name ($nickname="Main", $user_id=-1) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     if ((string)$user_id == '-1') {
       $user_id = $_SESSION["user_id"];
     }
@@ -1687,10 +1712,10 @@ function get_chart_by_name ($nickname="Main", $user_id=-1) {
     $r = mysql_query ($q) or die (mysql_error());
     $chart = mysql_fetch_array($r);
     return $chart;
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 
@@ -1711,7 +1736,7 @@ function get_user_id_from_email ($email) {
 }
 
 function get_user_id_from_chart_id ($chart_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT user.user_id from user inner join chart on user.user_id = chart.user_id where chart.nickname = "main" and chart.chart_id = ' . $chart_id;
     if ($result = mysql_query($q)) {
       if ($row = mysql_fetch_array ($result)) {
@@ -1724,10 +1749,10 @@ function get_user_id_from_chart_id ($chart_id) {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 function get_chart_id_from_user_id ($user_id) {
@@ -1978,8 +2003,43 @@ function activateUser($uid, $actcode)
     }
  
 }
+//MATT ADDED FOR CLEANER AJAX SIGN UP
+
+function register_new_user ($nickname, $password, $password2, $email, $email2, $year, $month, $day) {
+  global $seed;
+
+  $errors = validate_registration($nickname, $password, $password2, $email, $email2, $year, $month, $day);
+
+  if(sizeof($errors) > 1 ) {
+    return $errors;
+  }
+  $birthday = strtotime($year . "-" . $month . "-" . $day);
+    
+
+    $errors = array(); 
+    
+    $code = generate_code(20);
+    $sql = sprintf("insert into user (nickname,email,password,actcode,birthday,activated) value ('%s','%s','%s','%s','%s',1)",
+        mysql_real_escape_string($nickname), mysql_real_escape_string($email), mysql_real_escape_string(sha1($password . $seed))
+    , mysql_real_escape_string($code),date("Y-m-d",$birthday));
+ 
+ 
+    if (mysql_query($sql)) {
+        $id = mysql_insert_id();
+        $errors[] = $id; 
+    } 
+    else {
+        $errors[] = -1;
+        $errors[] = "User Inserted Query Failed";
+    }
+    
+    return $errors;
+
+}
  
 
+
+//OLD WAY
 function registerNewUser($nickname, $password, $password2, $email, $email2, $year, $month, $day, $agreement)
 {
  

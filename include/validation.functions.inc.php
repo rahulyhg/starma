@@ -166,8 +166,8 @@ function do_redirect ($url) {
 /**********************END LOCAL DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
 
-
-function validate_registration ($nickname, $password, $password2, $email, $email2, $year, $month, $day, $checked) {
+//UPDATED BY MATT FOR AJAX CLEAN SIGN UP
+function validate_registration ($nickname, $password, $password2, $email, $email2, $year, $month, $day) {
     $errors = array();
     
     //the first entry in the error array is reserved for a returned ID of a successful registration
@@ -175,33 +175,38 @@ function validate_registration ($nickname, $password, $password2, $email, $email
  
     
     if (!valid_nickname($nickname)) {
-      $errors[] = USERNAME_ERROR();
+      //$errors[] = USERNAME_ERROR();
+      $errors['username'] = 'Please enter a valid username';
     }
 
 
     if (!valid_password($password) || $password != $password2) {  
-      $errors[] = PASSWORD_ERROR();
-    
+      //$errors[] = PASSWORD_ERROR();
+      $errors['password'] = 'Please enter a valid password';
     }
 
 
  
     if (!valid_email($email)) {
-      $errors[] = EMAIL_ERROR();
+      //$errors[] = EMAIL_ERROR();
+      $errors['email'] = 'Please enter a valid email';
     }
 
     if ($email != $email2) {
-      $errors[] = EMAIL_NO_MATCH_ERROR();
+      //$errors[] = EMAIL_NO_MATCH_ERROR();
+      $errors['email2'] = 'Emails must match';
     }
 
     if (user_exists($email, $nickname)) {
-      $errors[] = USER_EXISTS_ERROR();
+      //$errors[] = USER_EXISTS_ERROR();
+      $errors['user_exists'] = 'This user already exists';
     }
 
     $birthday = $year . "-" . $month . "-" . $day;    
 
     if (!(strtotime($birthday))) {
-      $errors[] = DATE_ERROR();
+      //$errors[] = DATE_ERROR();
+      $errors['strtotime'] = 'There was an error storing your birthday.  Please try again later';
     }
     elseif ((int)(calculate_age(substr((string)$birthday, 0, 10))) < 18) {
       
@@ -209,8 +214,8 @@ function validate_registration ($nickname, $password, $password2, $email, $email
         //echo substr((string)$birthday, 0, 10) . '<br>';
         //echo (int)(calculate_age(substr((string)$birthday, 0, 10)));
         //die();
-        $errors[] = UNDERAGE_ERROR();
-      
+        //$errors[] = UNDERAGE_ERROR();
+        $errors['underage'] = 'You must be at least 18 to join Starma.com';
     }
   
     //if (!($token_id = token_valid($token))) {
@@ -218,10 +223,11 @@ function validate_registration ($nickname, $password, $password2, $email, $email
     //}
     //echo $checked;
     //die();
-
+    /*
     if (!($checked == 'plegalblot7')) {
       $errors[] = TERMS_ERROR();
     }
+    */
     //echo $year . "-" . $month . "-" . $day;
     //echo date("m-d-Y",$birthday);
     //die();

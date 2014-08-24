@@ -1,7 +1,17 @@
 $(document).ready(function(){
 	
-	//$('input[type=submit]').prop('disabled', true);
+	$('#day, #month, #year, #gender_select, #hour_time, #minute_time, #meridiem_time, #interval, #birth_interval_box_input').on('change', function(){
+		$('.pop_guest').slideFadeToggle();
+		//event.preventDefault();
+	});
 
+	$('#submit, #address').click(function(event){
+		$('.pop_guest').slideFadeToggle();
+		event.preventDefault();
+	});
+
+	//$('#submit').prop('disabled', true);
+	/*
 	$('select[name=gender]').on('change', function() {
 		if($('select[name=gender]').val() != 'none') {
 			$('.gender_validation').hide().text('*Please select a gender').css('color','red');
@@ -43,5 +53,6 @@ $(document).ready(function(){
 			$('#interval').removeClass('grayed_out');
 		}
 	});
+*/
 
 });

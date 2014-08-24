@@ -136,21 +136,52 @@ if ($the_left=="nav1") {
   <img src="/img/Starma-Astrology-ProfileBoxH.png"/>
   <img src="/img/Starma-Astrology-ChartBoxH.png"/>
   <img src="/img/Starma-Astrology-CompareBoxH.png"/>   
-   
+
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Aries-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Taurus-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Gemini-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Cancer-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Leo-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Virgo-Tall-ON.png"/>
+
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Libra-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Scorpio-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Sagittarius-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Capricorn-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Aquarius-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Pisces-Tall-ON.png"/>
+
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-ON.png"/>  
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-OFF.png"/> 
+
+  <img src="/img/Starma-Astrology-Pillar.png"/> 
+  <img src="/img/Starma-Astrology-Pillar-Arrow.png"/> 
+  <img src="/img/Starma-Astrology-Pillar-Broken.png"/> 
+  <img src="/img/Starma-Astrology-Pillar-Broken-Arrow.png"/> 
+  <img src="/img/Starma-Astrology-Pillars-Top.png"/> 
+  <img src="/img/Starma-Astrology-Pillars-Base.png"/> 
+
+  <img src="/img/Starma-Astrology-Compare-ButtonON.png"/> 
+  <img src="/img/Starma-Astrology-Compare-InviteON.png"/> 
+
+
 </div>
 
 <div id="frame">
   <div id="topnav">
     <ul>
-      <li class="logo"><a href="#"></a></li>
+      <li class="logo"><a href="?the_page=hsel&the_left=nav1"></a></li>
       <li class="home_link <?php echo $hsel;?>"><a title="Home" href="?the_page=hsel&the_left=nav1"><span>home</span></a></li>
       <li class="profile_link <?php echo $psel;?>"><a title="Profile" href="?the_page=psel&the_left=nav1"><span>profile</span></a></li>
       <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&the_tier=1"><span>community</span></a></li>
       <li class="celeb_link <?php echo $cesel;?>"><a title="Celebrities" href="?the_page=cesel&the_left=nav1"><span>celebrities</span></a></li>
       <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>inbox</span></a></li>
-      <li class="mail_area"><img src="img/top_nav_shorter/Starma-Astrology-SearchBar.png"/></li>
+      <li class="mail_area"><img src="/img/Starma-Astrology-Search.png"/></li>
     </ul>
+     <div id="pop_invite_top">Invite a Friend</div>
   </div>
+
+  <!--<img src="/img/top_nav_shorter/Starma-Astrology-SearchBar.png"/>-->
 
   <div id="sidenav">
     <ul>
@@ -179,6 +210,58 @@ if ($the_left=="nav1") {
       
     ?>
   </div>
+  <?php
+  echo '<div id="msg_sheen" class="pop_invite">';
+    
+          echo '<div id="msg_sheen_screen" class="pop_invite">';
+    
+            echo '</div>';
+              echo '<div id="msg_sheen_content_custom" class="pop_invite">';
+                echo '<div id="invite_type_area">';
+                  echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite A Friend</strong></div><br />';
+                  //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
+                  echo '<div id="send-message-area">';
+                    echo '<div id="first_name_error" class="invite_error"></div>';
+                    echo '<div id="last_name_error" class="invite_error"></div>';
+                    echo '<div id="their_name_error" class="invite_error"></div>';
+                    echo '<div id="their_email_error" class="invite_error"></div>';
+                    echo '<div id="sender_id_error" class="invite_error"></div>';
+                    echo '<label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
+                          <input type="text" class="input_style_inline" value="';
+                            $first_name = get_my_first_name();
+                            if(!$first_name) {
+                              echo 'first name';
+                            } 
+                            else {
+                              echo $first_name;
+                            }
+                            echo '" id="first_name_invite" name="first_name" maxlength="17" />
+                          <input type="text" class="input_style_inline" value="';
+                            $last_name = get_my_last_name();
+                            if(!$last_name) {
+                              echo 'last name';
+                            } 
+                            else {
+                              echo $last_name;
+                            }
+                          echo '" id="last_name_invite" name="last_name" maxlength="17" /> <br />
+                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
+                          <input type="text" class="input_style_inline" value="name" id="their_name_invite" name="their_name" maxlength="34" />
+                          <input type="text" class="input_style_inline" value="email" id="their_email_invite" name="their_email" /> <br />
+                          <label for="msg_sendie_invite" id="msg_label"><strong>Personal Message (Optional)</strong></label>
+                          <textarea id="msg_sendie_invite" name="text_body" maxlength = "255" ></textarea>
+                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
+                          <input type="button" name="submit" value="Send" class="msg_send_invite"/>
+                          <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>';                         
+                        //echo '</form>';
+                        echo '</div>'; //Clost send-message-area
+                      echo '<span id="msg_sent"></span>';
+                  echo '</div>';
+                echo '</div>';
+              echo '</div>';
+
+    ?>
+
   <div id="clear"></div>
 
     
