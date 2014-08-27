@@ -30,7 +30,7 @@ require_once("ajax_header.php");
 			}
 			elseif($valid_username == 'good') {
 				$data['success'] = true;
-				$data['message'] = 'Great!';
+				$data['message'] = ':)';
 			}
 		}
 		else {
@@ -62,7 +62,7 @@ require_once("ajax_header.php");
 		}
 		else {
 			$data['success'] = true;
-			$data['message'] = 'Great!';
+			$data['message'] = ':)';
 		}
 	
 		echo json_encode($data);
@@ -77,7 +77,7 @@ require_once("ajax_header.php");
 
 		if($valid_email) {
 			$data['success'] = true;
-			$data['message'] = 'Great!';
+			$data['message'] = ':)';
 		}
 		else {
 			$data['errors'] = true;
@@ -109,7 +109,7 @@ require_once("ajax_header.php");
 			}
 			if($valid_password == 'good') {
 				$data['success'] = true;
-				$data['message'] = 'Great!';
+				$data['message'] = ':)';
 			}			
 		
 		    if($valid_password == 'empty') {

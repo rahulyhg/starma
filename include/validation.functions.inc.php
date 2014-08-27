@@ -168,7 +168,7 @@ function do_redirect ($url) {
 
 
 //UPDATED BY MATT FOR AJAX CLEAN SIGN UP
-function validate_registration ($nickname, $password, $password2, $email, $email2, $year, $month, $day) {
+function validate_registration ($nickname, $password, $password2, $email, $year, $month, $day) {
     $errors = array();
     
     //the first entry in the error array is reserved for a returned ID of a successful registration
@@ -193,10 +193,10 @@ function validate_registration ($nickname, $password, $password2, $email, $email
       $errors['email'] = 'Please enter a valid email';
     }
 
-    if ($email != $email2) {
+    //if ($email != $email2) {
       //$errors[] = EMAIL_NO_MATCH_ERROR();
-      $errors['email2'] = 'Emails must match';
-    }
+      //$errors['email2'] = 'Emails must match';
+    //}
 
     if (user_exists($email, $nickname)) {
       //$errors[] = USER_EXISTS_ERROR();

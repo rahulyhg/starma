@@ -45,6 +45,8 @@ if (isLoggedIn())
 
 <body id="body_landing">
 <script type="text/javascript" src="/js/browser_detect.js"></script>
+<script type="text/javascript" src="/js/ajax_register.js"></script>
+<script type="text/javascript" src="js/ajax_login.js"></script>
 <div id="img_preloader">
   <img src="/img/account_info/Starma-Astrology-Space-BugHover.png"/>  
 </div>
@@ -54,10 +56,10 @@ if (isLoggedIn())
 
   <!--pop_landing_click-->
     <div id="msg_sheen" class="pop_landing">
-      <div id="msg_sheen_screen" class="pop_landing_click"></div>
-        <div id="msg_sheen_content_guest" class="pop_landing">
+      <div id="msg_sheen_screen_landing" class="pop_landing_click"></div>
+        <div id="msg_sheen_content_landing" class="pop_landing">
           <?php 
-            show_registration_box_landing(); 
+            //show_registration_box_landing(); 
             show_forgot_password_box();
           ?>
         </div>
@@ -79,11 +81,17 @@ if (isLoggedIn())
   echo '</div>'; //Close logo_test
 
   echo '<div style="width:100%; min-width:1150px;">';  //<!-- Close main page container -->
-
-  echo '<div id="landing_sign_up_box">';
-    show_sign_up_box_landing();
-    //show_registration_box_landing();
+  
+  echo '<div style="position:absolute; width:100%;">';
+    echo '<div id="globe_landing">';
+      echo '<div id="landing_sign_up_box">';
+        show_sign_up_box_landing();
+        show_registration_box_landing();
+      echo '</div>';
+    echo '</div>'; //close globe_landing
   echo '</div>';
+
+
 
   echo '<div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>';
 
@@ -107,7 +115,7 @@ if (isLoggedIn())
 </div> <!-- Close main page container -->';
 
   
-  show_bugaboos();
+  //show_bugaboos();
 
 ?>
   <!--<div class="bg" id="sign_in">

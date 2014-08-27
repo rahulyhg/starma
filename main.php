@@ -170,6 +170,42 @@ if ($the_left=="nav1") {
 </div>
 
 <div id="frame">
+
+  <!--register_teaser_test-->
+    <div id="msg_sheen" class="pop_test">
+      <div id="msg_sheen_screen" class="pop_test pop_reg"></div>
+        <div style="position:absolute; z-index:100; top:30%; left:45%;">
+          <?php               
+            echo '<div id="landing_sign_up_box" class="pop_test">';
+              show_sign_up_box_landing();
+              show_registration_box_landing();
+            echo '</div>';
+          ?>  
+      </div>
+    </div> <!--close msg_sheen-->    
+    <!--end pop_guest_click-->
+    <script type="text/javascript" src="/js/ajax_register.js"></script>
+    <script type="text/javascript">
+      
+      $(document).ready(function(){
+        $('#pop_test').click(function(){
+          $('.pop_test').show();
+        });
+        $('button[name=sign_up_email]').click(function(){
+          $('#sign_up_box').hide();
+          $('#create_account').show();
+          $('#username>input').focus();
+        });
+  
+        $('#cancel_email_sign_up').click(function(){
+          $('#sign_up_box').show();
+          $('#create_account').hide();
+        });
+      });
+
+    </script>
+
+
   <div id="topnav">
     <ul>
       <li class="logo"><a href="?the_page=hsel&the_left=nav1"></a></li>
@@ -197,6 +233,7 @@ if ($the_left=="nav1") {
  
       <li class="bar_line"><img src="/img/Starma-Astrology-SideNav7.png"/></li>
     </ul>
+    <div id="pop_test">Reg Test</div>
   </div>
  
   <div id="logout_link">

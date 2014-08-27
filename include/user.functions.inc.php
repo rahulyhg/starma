@@ -2005,7 +2005,7 @@ function activateUser($uid, $actcode)
 }
 //MATT ADDED FOR CLEANER AJAX SIGN UP
 
-function register_new_user ($nickname, $password, $password2, $email, $email2, $year, $month, $day) {
+function register_new_user ($nickname, $password, $password2, $email, $year, $month, $day) {
   global $seed;
 
   $errors = validate_registration($nickname, $password, $password2, $email, $email2, $year, $month, $day);

@@ -40,12 +40,16 @@ $(document).ready(function(){
 		});
 	});
 
-
+	
 	$('button[name=sign_up_email]').click(function(){
-		//$('#landing_sign_up_box').hide();
+		$('#sign_up_box').hide();
 		$('#create_account').show();
-		$('.pop_landing').show();
-		$('.pop_landing_click').show();
+		$('#username>input').focus();
+	});
+	
+	$('#cancel_email_sign_up').click(function(){
+		$('#sign_up_box').show();
+		$('#create_account').hide();
 	});
 
 	$('#forgot_password_landing').click(function(){
