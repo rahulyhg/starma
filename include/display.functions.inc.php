@@ -6133,6 +6133,112 @@ function show_bugaboos() {
 }
 
 
+//******************************* SIGN UP BOXES **********************************/
+
+function show_gender_location_box() {
+  echo '<div id="gender_location">';
+    echo '<div class="title">Congratulations!</div>';
+      echo '<form id="gender_location_form" method="post" action="/chat/ajax_gender_location.php">';
+        
+          echo '<div id="gender">';
+            gender_select ($the_gender=$gender, $the_name="gender");
+            echo '<span class="gl_err" id="gl_gender_error"></span>
+                  <div class="gl_err_exp" id="gl_err_gender_exp"></div>';
+          echo '</div>';
+
+          echo '<div class="small_title">Current Location</div>';
+              
+          echo '<div id="country">';    
+            country_select ($country_id, "js_country_id");
+            echo '<span class="gl_err" id="gl_cid_error"></span><div class="gl_err_exp" id="gl_err_cid_exp"></div>';
+          echo '</div>';
+
+          echo '<div id="js_city_div">';
+            echo '<input type="text" id="city" name="title" placeholder="City"/>';
+            echo '<span class="gl_err" id="gl_city_error"></span><div class="gl_err_exp" id="gl_err_city_exp"></div>';
+          echo '</div>';
+
+          echo '<div id="js_zip_div">';
+            zipcode_input ("zip", "location_verification .location_text");
+            echo '<span class="gl_err" id="gl_zip_error"></span><div class="gl_err_exp" id="gl_err_zip_exp"></div>';
+          echo '</div>'; 
+          
+          echo '<div id="location_verification">';
+            echo '<div class="location_text"></div>';
+          echo '</div>';
+
+          echo '<button class="sign_me_up" type="submit" name="location_gender_submit">Continue</button>';
+
+      echo '</form>';
+    echo '</div>';
+
+    echo '<script type="text/javascript" src="/js/ajax_gender_location.js"></script>';
+
+}
+
+
+function show_3_words_photo_box () {
+  echo '<div id="words_photo">';
+    echo '<div class="small_title">In three words you are...</div>';
+
+    //echo '<div id="edit_words>';
+    
+      echo '<form id="words_photo_form" action="ajax_words_photo.php" method="post">';
+        echo '<div id="edit_words">';
+          for($x=1; $x<4; $x++) {
+            echo '<div id="' . $x . '">';
+              //echo '<div class="value">';
+                echo '<input type="text" id="word_' . $x . '" placeholder="' . $x . '. "/>';
+              //echo '</div>';
+            echo '</div>';
+          }
+        echo '</div>';
+
+    
+    echo '<div id="photo_form_div">';
+      
+        //echo '<h1>';       
+          echo '<div class="small_title">Upload your profile photo:</div>';
+        //echo '</h1>';
+        //echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';
+          echo '<div id="photo_display">';
+            echo '<div id="my_tiny_photo"><div class="grid_photo_border_wrapper"><div class="grid_photo">';
+              show_user_inbox_picture ('', get_my_user_id());
+            echo '</div></div></div>';
+          echo '</div>';
+          
+          echo '
+          <input id="submit" type="file" name="image" onchange="
+                   $(\'#form_photo #des_1\').val($(\'#desc_form #des_selector_1 .value input\').val());
+                   $(\'#form_photo #des_2\').val($(\'#desc_form #des_selector_2 .value input\').val());
+                   $(\'#form_photo #des_3\').val($(\'#desc_form #des_selector_3 .value input\').val());
+                   $(\'#form_photo\').submit();
+                   $(this).prop( \'disabled\', true ); 
+                   $(\'#desc_photo_first_time #enter_info #desc_photo_form_div #register_button_div input\').prop( \'disabled\', true ); 
+          "/>
+          <input type="hidden" name="firsttime" value="1"/>
+          <input type="hidden" id="des_1" name="des_name_1" value=""/>
+          <input type="hidden" id="des_2" name="des_name_2" value=""/>
+          <input type="hidden" id="des_3" name="des_name_3" value=""/>
+        </form>';
+      
+      
+      
+    echo '</div>';
+    //echo '</div>';
+
+     //echo '<div id="go_bug_path" class="go_bug_path_fix_desc_photo"></div>';
+  
+   
+
+
+  echo '</div>';  //close 3_words_photo
+
+  echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
+
+}
+
+
 
 
 

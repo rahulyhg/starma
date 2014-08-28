@@ -1,0 +1,171 @@
+
+#sign_up_container {
+  width:320px; 
+  height: 250px;
+  margin: 38px auto;
+  background:#f4f4f4; 
+  border-radius:3px; 
+  font-size:.9em; 
+  padding: 20px 0;
+  box-shadow: 1px 1px 40px black;
+}
+
+
+#sign_up_container .title {
+  font-size: 1.6em;
+  color: #6F83BB;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: 100%;
+  text-align: center;
+}
+
+#sign_up_container .small_title {
+  font-size: .75em;
+  color: #6F83BB;
+  text-align: left;
+  margin-bottom: 5px;
+  letter-spacing: .5px;
+}
+
+#sign_up_container input[type=text] {
+  color: #181A1C;
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 3px;
+  height: 33px;
+  padding: 0 10px;
+  border: 1px solid #d1d1d1;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
+}
+
+#sign_up_container input[type=text]:focus {
+  border: 1px solid #8393CA;
+}
+
+::-webkit-input-placeholder {
+  
+}
+
+:-moz-placeholder { /* Firefox 18- */
+ 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    
+}
+
+:-ms-input-placeholder {  
+ 
+}
+
+#sign_up_container input[type=file] {
+  width: 75px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-shadow: -1px -1px #4b5a80;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+
+/*-------SIGN UP SECTION 2----------*/
+
+
+#gender_location {
+	width: 278px;
+ 	margin: auto;
+}
+
+#country {
+	width: 100%;
+}
+
+#gender, #country {
+	margin-bottom: 10px;
+}
+
+/*------------- ERRORS ------------------*/
+
+.gl_err {
+	color: #C82923;
+    cursor: pointer;
+    display: none;
+    line-height: 27px;
+    position: absolute;
+    right: 10px;
+}
+
+.gl_err_exp {
+	color: #C82923;
+  	display: none;
+  	position: absolute;
+  	background-color: #f4f4f4;
+  	font-size: .8em;
+  	z-index: 1000;
+  	padding: 6px;
+  	border-radius: 3px;
+  	left: 318px;
+}
+
+#gl_gender_error {
+	right: 175px;
+}
+
+#gl_err_gender_exp {
+	width: 140px;
+	top: 103px;
+}
+
+#gl_err_cid_exp {
+	width: 140px;
+	top: 155px;
+}
+
+#gl_err_city_exp {
+	width: 140px;
+	top: 191px;
+}
+
+#gl_err_zip_exp {
+	width: 140px;
+	top: 191px;
+}
+
+#gender_error {
+	display: none;
+	font-size: .8em;
+	color: red;
+	margin-left: 10px;
+}
+
+
+
+/*-------SIGN UP SECTION 3----------*/
+
+#words_photo {
+	width: 278px;
+	margin: auto;
+}
+
+#words_photo #my_tiny_photo {
+	display: inline-block;
+}
+
+
+
+
+
+

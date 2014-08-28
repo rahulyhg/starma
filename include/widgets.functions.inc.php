@@ -333,6 +333,7 @@ function gender_select ($the_gender, $the_name="gender") {
 function country_select ($country_id, $the_name="country_id") {
   $country_list = get_country_list ();
   echo '<select name="' . $the_name . '" id="country_id">';
+    echo '<option value="0">Country</option>';
   while ($country = mysql_fetch_array($country_list)) {
     echo '<option value=' . $country["country_id"];
     if ((string)$country["country_id"] == (string)$country_id) {

@@ -483,7 +483,7 @@ function addJSSearchEvents($input_id, $ftn="filterUsers") {
 }
 
 function zipcode_input ($name="zip", $output_div="zip_test_output") {
-  echo '<input maxlength="5" type="text" id="zip" name="' . $name . '" value="" onkeyup="
+  echo '<input maxlength="5" type="text" id="zip" name="' . $name . '" value="" placeholder="Zip Code" onkeyup="
         var intRegex = /^\d+$/;
         
         if ($(\'#zip\').val().length == 5 && intRegex.test($(\'#zip\').val())) {

@@ -1,0 +1,177 @@
+$(document).ready(function() {
+
+
+//------------CITY VS ZIP
+	if ($('#country_id').val() !== 236) {
+		$('#js_zip_div').hide();
+    	$('#location_verification').css('visibility', 'hidden'); 
+    	$('#js_city_div').show();
+    }
+
+	$('#country_id').change(function(event) { 
+      	if ($('#country_id').val() == 236) {
+        	$('#js_zip_div').show();
+        	$('#location_verification').css('visibility', 'visible');
+        	$("#js_city_div").hide();
+        	$('#city').val('');
+        
+      	}
+      	else {
+        	$('#js_zip_div').hide();
+        	$('#location_verification').css('visibility', 'hidden');
+        	$('#js_city_div').show();
+        	$('#zip').val('');
+      	}
+    });
+
+
+
+//--------------REMOVE RED BORDERS
+    $('#gender_select').on('change', function(){
+		if ($('#gender_select').val() != 'none') {
+			$('#gl_gender_error').hide().text('');
+			$('#gender_select').css('border', '1px solid #d1d1d1');
+		}
+	});
+
+	$('#zip').on('keyup', function(){
+		$('#zip').css('border', '1px solid #d1d1d1');
+		$('#gl_zip_error').hide().text('');
+	});
+
+    $('#country_id').on('change', function(){
+    	if ($('#country_id').val() !== 0) {
+			$('#country_id').css('border', '1px solid #d1d1d1');
+			$('#gl_cid_error').hide().text('');
+		}
+		if ($('#country_id').val() == 236) {
+			$('#city').css('border', '1px solid #d1d1d1');
+			$('#gl_city_error').hide().text('');
+		}
+		if ($('#country_id').val() !== 236) {
+			$('#zip').css('border', '1px solid #d1d1d1');
+			$('#gl_zip_error').hide().text('');
+		}
+	});
+
+    $('#city').on('keyup', function(){
+		$('#city').css('border', '1px solid #d1d1d1');
+		$('#gl_city_error').hide().text('');
+	});
+
+	
+
+
+//------------- ERROR EXP
+	$('#gl_gender_error').mouseenter(function(){
+		$('#gl_err_gender_exp').show();
+	});
+	$('#gl_gender_error').mouseleave(function(){
+		$('#gl_err_gender_exp').hide();
+	});
+
+	$('#gl_cid_error').mouseenter(function(){
+		$('#gl_err_cid_exp').show();
+	});
+	$('#gl_cid_error').mouseleave(function(){
+		$('#gl_err_cid_exp').hide();
+	});
+
+	$('#gl_city_error').mouseenter(function(){
+		$('#gl_err_city_exp').show();
+	});
+	$('#gl_city_error').mouseleave(function(){
+		$('#gl_err_city_exp').hide();
+	});
+
+	$('#gl_zip_error').mouseenter(function(){
+		$('#gl_err_zip_exp').show();
+	});
+	$('#gl_zip_error').mouseleave(function(){
+		$('#gl_err_zip_exp').hide();
+	});
+
+
+
+	$('#gender_location_form').submit(function(event){
+		/*
+		if ($('#gender_select').val() == 'none') {
+			$('#gender_error').show();
+			event.preventDefault();
+		}
+		if ($('#city').is(':visible')) {
+			if($('#city').val() == '') {
+				$('#city').css('border', '1px solid #C82923');
+				$('#city').on('keyup', function(){
+					$('#city').css('border', '1px solid #d1d1d1');
+				});
+				event.preventDefault();
+			}
+		}
+		*/
+		if ($('#city').is(':visible')) {
+			var data = {
+				'gender'      :  $('#gender_select').val(),
+				'country_id'  :  $('#country_id').val(),
+				'city'        :  $('#city').val(),
+			};
+		}
+		if ($('#zip').is(':visible')) {
+			var data = {
+				'gender'      :  $('#gender_select').val(),
+				'country_id'  :  $('#country_id').val(),
+				'zip'         :  $('#zip').val(),
+			};
+		}
+
+		$.ajax({
+			type      : 'POST',
+			url       : '/chat/ajax_gender_location.php',
+			data      : data,
+			dataType  : 'json',
+		})
+		.done(function(data){
+			if (data.country) {
+				alert(data.country);
+			}
+			//alert(data);
+			if (data.errors) {
+				if (data.errors.country_id) {
+					//alert(data.errors.country);
+					$('#country_id').css('border', '1px solid #C82923');
+					$('#gl_cid_error').show().text('?');
+					$('#gl_err_cid_exp').text(data.errors.country_id);
+				}
+				if (data.errors.zip) {
+					//alert(data.errors.zip);
+					$('#zip').css('border', '1px solid #C82923');
+					$('#gl_zip_error').show().text('?');
+					$('#gl_err_zip_exp').text(data.errors.zip);
+				}
+				if (data.errors.city) {
+					$('#city').css('border', '1px solid #C82923');
+					$('#gl_city_error').show().text('?');
+					$('#gl_err_city_exp').text(data.errors.city);
+				}
+				if (data.errors.geocode) {
+					alert(data.errors.geocode);
+					//alert(data.errors.test);
+				}
+				if (data.errors.gender) {
+					//alert(data.errors.gender);
+					$('#gender_select').css('border', '1px solid #C82923');
+					$('#gl_gender_error').show().text('?');
+					$('#gl_err_gender_exp').text(data.errors.gender);
+				}
+			}
+			if (data.success) {
+				//alert(data.url + ', ' + data.loc + ', ' + data.state_id);
+				window.location.assign('/' + data.url);
+			}
+		});
+
+		event.preventDefault();
+
+	});
+
+});

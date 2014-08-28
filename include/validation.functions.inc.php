@@ -101,6 +101,9 @@ function get_email_domain() {
   return 'starma.com';
 }
 
+function get_domain_sign_up ($n) {
+  return 'starma.com/sign_up.php?' . $n;
+}
 
 function get_domain () {
   return 'starma.com';
@@ -148,6 +151,10 @@ function do_redirect ($url) {
 function get_domain () {
   return '127.0.0.1:8080';
   //return '192.168.1.141:8080';
+}
+
+function get_domain_sign_up () {
+  return '127.0.0.1:8080/sign_up.php';
 }
 
 function get_landing () {
