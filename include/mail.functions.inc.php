@@ -1,9 +1,5 @@
 <?php
-//require_once "Mail.php";
-require_once ('mandrill-api-php/src/Mandrill.php');
 
-
- 
 ##### Mail functions #####
 function email_profile_block ($user_id) {
   $block = '

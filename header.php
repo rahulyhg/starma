@@ -10,6 +10,7 @@ error_reporting( error_reporting() & ~E_NOTICE );
 session_start();
 require_once ('include/db_connect.inc.php'); // include the database connection
 require_once ("PHPMailer_5.2.1/class.phpmailer.php");
+require_once ("/mandrill-api-php/src/Mandrill.php");
 require_once ("include/functions.inc.php"); // include all the functions
 //$seed="0dAfghRqSTgx"; // the seed for the passwords
 $domain =  "starma.com"; // the domain name without http://www.
