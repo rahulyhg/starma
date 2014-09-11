@@ -348,7 +348,7 @@ function sendMail($to, $subject, $message, $from, $footer="")
     try {
       $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
       $message = array(
-        'html' => $message . '<br><br>Pleb,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer,
+        'html' => $message . '<br><br>Sincerely,<br>The Starma Team<br><a href="https://www.starma.com">www.starma.com</a>' . $footer,
         //'text' => 'Example text content',
         'subject' => $subject,
         'from_email' => $from,
