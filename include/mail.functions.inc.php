@@ -238,11 +238,11 @@ function testSendingMail_Mandrill_API ($to, $subject, $message, $from, $footer) 
   echo "Subject: " . $subject . '<br>';
   echo "Message: " . $message . '<br><br>';
 
-  return sendMail_Mandrill_API($to, $subject, $message, $from, $footer);
+  return sendMail($to, $subject, $message, $from, $footer);
 
 }
 
-function sendMail($to, $subject, $message, $from, $footer="")
+function sendMail_old ($to, $subject, $message, $from, $footer="")
 {
     
     $mail = new PHPMailer(); 
@@ -341,7 +341,7 @@ function sendMail_Mandrill($to, $subject, $message, $from, $footer="")
     return false;
 }
 
-function sendMail_Mandrill_API($to, $subject, $message, $from, $footer="")
+function sendMail($to, $subject, $message, $from, $footer="")
 {
     
 

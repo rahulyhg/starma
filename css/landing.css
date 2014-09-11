@@ -120,10 +120,11 @@
 }
 
 #landing_footer #footer_links ul {
-  list-style-type:none;
-  margin: 0;
-  padding: 0;
-  padding-left:0px;
+  display: block;
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    width: 1200px;
 }
 
 #landing_footer #footer_links ul li {
