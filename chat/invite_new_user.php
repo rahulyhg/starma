@@ -93,7 +93,7 @@ if(isLoggedIn()) {
                 $data['first_name'] = $first_name;
                 $data['last_name'] = $last_name;
 		//$data = $first_name . ', ' . $last_name . ', ' . $their_name . ', ' . $email . ', ' . $text_body . ', ' . $sender_user_id;		
-		//send_invite_user($first_name, $last_name, $their_name, $email, $text_body, $sender_user_id);
+		send_invite_user($first_name, $last_name, $their_name, $email, $text_body, $sender_user_id);
                 
 	}	
 	echo json_encode($data);

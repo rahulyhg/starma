@@ -407,7 +407,7 @@ function sendMail($to, $subject, $message, $from, $footer="")
       //$send_at = date('Y-m-d H:i:s');
       //$result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);
       $result = $mandrill->messages->send($message, $async, $ip_pool);
-      print_r($result);
+      //print_r($result);
       return true;
     } catch(Mandrill_Error $e) {
       // Mandrill errors are thrown as exceptions
@@ -415,7 +415,7 @@ function sendMail($to, $subject, $message, $from, $footer="")
       // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
       log_this_action (account_action_email(), error_basic_action());
       throw $e;
-       return false;    
+      return false;    
     }
   
   return false;  
