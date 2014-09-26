@@ -1,7 +1,7 @@
 
 #sign_up_container {
   width:320px; 
-  height: 250px;
+  height: 300px;
   margin: 38px auto;
   background:#f4f4f4; 
   border-radius:3px; 
@@ -62,22 +62,12 @@
 }
 
 #sign_up_container input[type=file] {
-  width: 75px;
-  border-top: 1px solid #5F78B1;
-  border-bottom: 1px solid #6680BE;
-  border-left: 1px solid #6376A9;
-  border-right: 1px solid #6B7FB6;
-  color: white;
-  background-color: #6F83BB;
-  box-shadow: 0 0 1px #4B5A80;
   cursor: pointer;
-  padding: 5px;
-  font-size: 1.2em;
   letter-spacing: 1px;
-  text-shadow: -1px -1px #4b5a80;
-  border-radius: 3px;
-  margin-bottom: 5px;
   display: inline-block;
+  float: left;
+  width: 169px;
+  margin: 12px 0 7px 5px;
 }
 
 
@@ -100,7 +90,7 @@
 /*------------- ERRORS ------------------*/
 
 .gl_err {
-	color: #C82923;
+	  color: #C82923;
     cursor: pointer;
     display: none;
     line-height: 27px;
@@ -109,7 +99,7 @@
 }
 
 .gl_err_exp {
-	color: #C82923;
+	  color: #C82923;
   	display: none;
   	position: absolute;
   	background-color: #f4f4f4;
@@ -164,8 +154,84 @@
 	display: inline-block;
 }
 
+#my_tiny_photo {
+  float: left;
+}
+
+#photo_form_div {
+  height: 98px;
+}
+
+#upload_photo {
+  letter-spacing: .5px;
+  width: 76px;
+  margin: 0 0 0 5px;
+  cursor: pointer;
+}
+
+/*------------- ERRORS ------------------*/
+
+.w_err {
+  color: #C82923;
+  cursor: pointer;
+  display: none;
+  line-height: 27px;
+  position: absolute;
+  right: 10px;
+}
+
+.w_err_exp {
+  color: #C82923;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  background-color: #f4f4f4;
+  font-size: .8em;
+  z-index: 1000;
+  padding: 6px;
+  border-radius: 3px;
+  left: 318px;
+  width: 144px;
+}
+
+#w_1_err_exp {
+  top: 77px;
+}
+
+#w_2_err_exp {
+  top: 119px;
+}
+
+#w_3_err_exp {
+  top: 163px;
+}
 
 
 
+
+
+/*------------- CROP BOX ------------------*/
+
+#crop_box {
+  width: 278px;
+  margin: auto;
+}
+
+#crop_box #rotate {
+    margin: auto;
+    width: 265px;
+    margin-bottom: 10px;
+}
+
+#crop_box #rotate_left {
+  margin-right: 15px;
+  width: 125px;
+  height:24px;
+}
+
+#crop_box #rotate_right {
+  width: 125px;
+  height: 24px;
+}
 
 
