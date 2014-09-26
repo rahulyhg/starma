@@ -520,15 +520,15 @@ function descriptors_loaded ($user_id) {
 
 function get_my_descriptors () {
   
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = "SELECT * from user_descriptor where user_id = " . $_SESSION["user_id"];
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function get_descriptors ($user_id) {
@@ -545,7 +545,7 @@ function get_descriptors ($user_id) {
 }
 
 function update_descriptors ($descriptors) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $words = get_my_descriptors ();
     $counter = 0;
     while ($word = mysql_fetch_array($words)) {
@@ -561,10 +561,10 @@ function update_descriptors ($descriptors) {
       $counter = $counter+1; 
     }
     return true;
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function update_my_single_descriptor ($user_des_id, $value) {
