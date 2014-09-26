@@ -6,7 +6,7 @@ require_once ("header.php");
 	 <!--register_teaser_test-->
     <div id="msg_sheen" class="pop_test">
       <div id="msg_sheen_screen" class="pop_test"></div>
-        <div style="position:absolute; z-index:100; top:23%; left:33%;">
+        <div style="position:absolute; z-index:100; top:10%; left:33%;">
           <?php               
             echo '<div id="sign_up_container" class="pop_test">';
               //show_sign_up_box_landing();
