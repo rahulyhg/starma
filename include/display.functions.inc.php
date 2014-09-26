@@ -6178,6 +6178,9 @@ function show_gender_location_box() {
 
 
 function show_3_words_photo_box () {
+  //$user_id = get_my_user_id();
+  //$descriptors = get_descriptors(1000);
+  
   echo '<div id="words_photo">';
     echo '<div class="small_title">In three words you are...</div>';
 
@@ -6185,13 +6188,34 @@ function show_3_words_photo_box () {
     
       echo '<form id="words_photo_form" action="ajax_words_photo.php" method="post">';
         echo '<div id="edit_words">';
-          for($x=1; $x<4; $x++) {
+        /*
+        if ($yes) {
+          $x = 1;
+          while ($desc = mysql_fetch_array($descriptors)) {
+            echo '<div id="' . $x . '">';
+              //echo '<div class="value">';
+                echo '<input type="text" id="word_' . $x . '" placeholder="' . $x . '. " value="' . $desc["descriptor"] . '"/>';
+              //echo '</div>';
+                echo '<span class="w_err" id="w_' . $x . '_error"></span>';
+                echo '<div class="w_err_exp" id="w_' . $x . '_err_exp"></div>';
+
+            echo '</div>';
+            $x = $x + 1;
+          }
+        }
+        */
+        //else {
+           for ($x = 1; $x<4; $x++) {
             echo '<div id="' . $x . '">';
               //echo '<div class="value">';
                 echo '<input type="text" id="word_' . $x . '" placeholder="' . $x . '. "/>';
               //echo '</div>';
+                echo '<span class="w_err" id="w_' . $x . '_error"></span>';
+                echo '<div class="w_err_exp" id="w_' . $x . '_err_exp"></div>';
+
             echo '</div>';
           }
+        //}
         echo '</div>';
 
     
@@ -6201,36 +6225,23 @@ function show_3_words_photo_box () {
           echo '<div class="small_title">Upload your profile photo:</div>';
         //echo '</h1>';
         //echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';
-          echo '<div id="photo_display">';
-            echo '<div id="my_tiny_photo"><div class="grid_photo_border_wrapper"><div class="grid_photo">';
+          //echo '<div id="photo_display">';
+            echo '<div id="my_tiny_photo">
+              <div class="grid_photo_border_wrapper"><div class="grid_photo">';
               show_user_inbox_picture ('', get_my_user_id());
             echo '</div></div></div>';
-          echo '</div>';
+          //echo '</div>';
           
           echo '
-          <input id="submit" type="file" name="image" onchange="
-                   $(\'#form_photo #des_1\').val($(\'#desc_form #des_selector_1 .value input\').val());
-                   $(\'#form_photo #des_2\').val($(\'#desc_form #des_selector_2 .value input\').val());
-                   $(\'#form_photo #des_3\').val($(\'#desc_form #des_selector_3 .value input\').val());
-                   $(\'#form_photo\').submit();
-                   $(this).prop( \'disabled\', true ); 
-                   $(\'#desc_photo_first_time #enter_info #desc_photo_form_div #register_button_div input\').prop( \'disabled\', true ); 
-          "/>
-          <input type="hidden" name="firsttime" value="1"/>
-          <input type="hidden" id="des_1" name="des_name_1" value=""/>
-          <input type="hidden" id="des_2" name="des_name_2" value=""/>
-          <input type="hidden" id="des_3" name="des_name_3" value=""/>
-        </form>';
-      
-      
-      
-    echo '</div>';
-    //echo '</div>';
+          <input id="image" type="file" name="image"/>
+          <input type="submit" value="Upload" name="action" id="upload_photo" />
+          <input type="hidden" name="firsttime" value="1"/>';
 
-     //echo '<div id="go_bug_path" class="go_bug_path_fix_desc_photo"></div>';
-  
-   
-
+          echo '</div>';
+        
+      echo '</form>';
+      
+      echo '<button class="sign_me_up" name="words_photo_submit">Continue</button>';
 
   echo '</div>';  //close 3_words_photo
 
@@ -6238,7 +6249,60 @@ function show_3_words_photo_box () {
 
 }
 
+function show_photo_cropper_sign_up($photo_to_crop) {
+  $img_id = $photo_to_crop["user_pic_id"];
+  $img_name = $photo_to_crop["picture"];
+  echo '<div class="photo_cropper_content">';
+    echo '<div id="zoom">- Zoom +</div>';
+    echo '<div class="cropSlider"></div>';
+    echo '<div id="rotate">';
+      echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
+      echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
+    echo '</div>';
+    echo '<div class="cropMain" style="margin:auto;"></div>';
+    echo '<div style="width:100%; margin:20px auto auto;"><button class="cropButton" />Crop and Set</button></div>';
+    
+    
 
+
+    echo '<style>
+ 
+        .photo_cropper_content .cropMain {
+          width:153px;
+          height:153px;
+        }
+ 
+          </style>
+
+    ';
+
+    //echo '<img id="photo_crop_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '?' . time() . '">';    
+    //echo '<input type="hidden" name="x1" id="x1" value=""/>';
+    //echo '<input type="hidden" name="y1" id="y1" value=""/>';
+    //echo '<input type="hidden" name="x2" id="x2" value=""/>';
+    //echo '<input type="hidden" name="y2" id="x2" value=""/>';
+    //echo '<input type="hidden" name="w" id="w" value=""/>';
+    //echo '<input type="hidden" name="h" id="h" value=""/>';
+  echo '</div>';
+
+  activate_photo_cropper ($img_id, $img_name);
+}
+
+function show_crop_box() {
+  echo '<div id="crop_box">';
+    //$unc_photos = uncropped_photos(get_my_user_id());
+    //if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
+      //echo '<div id="photo_cropper_reg">';
+         echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
+            show_photo_cropper_sign_up($photo_to_crop);
+            //echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
+            //echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
+            echo '<input type="hidden" name="firsttime" value="1"/>';
+        echo '</form>';
+      //echo '</div>';
+    //}
+  echo '</div>'; //close crop_box
+}
 
 
 
