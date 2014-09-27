@@ -5,6 +5,7 @@ $(document).ready(function() {
 	//var timer_word_1;
 	//var timer_word_2;
 	//var timer_word_3;
+$('#continue').prop('disabled', true);
 
 if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
 	$('#upload_photo').prop('disabled', true);
@@ -275,6 +276,9 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 			}, 'json');
 
 		});
-
+	
+	$('#continue').click(function(event){
+		window.location.replace('/sign_up.php?3');
+	});
 
 });
