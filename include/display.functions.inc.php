@@ -6142,25 +6142,24 @@ function show_gender_location_box() {
         
           echo '<div id="gender">';
             gender_select ($the_gender=$gender, $the_name="gender");
-            echo '<span class="gl_err" id="gl_gender_error"></span>
-                  <div class="gl_err_exp" id="gl_err_gender_exp"></div>';
+            
           echo '</div>';
 
           echo '<div class="small_title">Current Location</div>';
               
           echo '<div id="country">';    
             country_select ($country_id, "js_country_id");
-            echo '<span class="gl_err" id="gl_cid_error"></span><div class="gl_err_exp" id="gl_err_cid_exp"></div>';
+            
           echo '</div>';
 
           echo '<div id="js_city_div">';
             echo '<input type="text" id="city" name="title" placeholder="City"/>';
-            echo '<span class="gl_err" id="gl_city_error"></span><div class="gl_err_exp" id="gl_err_city_exp"></div>';
+            
           echo '</div>';
 
           echo '<div id="js_zip_div">';
             zipcode_input ("zip", "location_verification .location_text");
-            echo '<span class="gl_err" id="gl_zip_error"></span><div class="gl_err_exp" id="gl_err_zip_exp"></div>';
+           
           echo '</div>'; 
           
           echo '<div id="location_verification">';
@@ -6171,6 +6170,20 @@ function show_gender_location_box() {
 
       echo '</form>';
     echo '</div>';
+
+    //ERRORS---------------
+
+    echo '<div class="gl_err" id="gl_gender_error"></div>
+          <div class="gl_err_exp" id="gl_err_gender_exp"></div>';
+
+    echo '<div class="gl_err" id="gl_cid_error"></div>
+          <div class="gl_err_exp" id="gl_err_cid_exp"></div>';
+
+    echo '<div class="gl_err" id="gl_city_error"></div>
+          <div class="gl_err_exp" id="gl_err_city_exp"></div>';
+
+     echo '<div class="gl_err" id="gl_zip_error"></div>
+           <div class="gl_err_exp" id="gl_err_zip_exp"></div>';
 
     echo '<script type="text/javascript" src="/js/ajax_gender_location.js"></script>';
 
@@ -6205,18 +6218,48 @@ function show_3_words_photo_box () {
         }
         */
         //else {
-           for ($x = 1; $x<4; $x++) {
-            echo '<div id="' . $x . '">';
+           //for ($x = 1; $x<4; $x++) {
+           
               //echo '<div class="value">';
-                echo '<input type="text" id="word_' . $x . '" placeholder="' . $x . '. "/>';
-              //echo '</div>';
-                echo '<span class="w_err" id="w_' . $x . '_error"></span>';
-                echo '<div class="w_err_exp" id="w_' . $x . '_err_exp"></div>';
+               echo '<input type="text" id="word_1" placeholder="1. "';
+                  if(isset($_SESSION['desc1'])) {
+                    echo 'value="' . $_SESSION['desc1'] . '"';
+                  }
+                echo '/>';
 
-            echo '</div>';
-          }
+                echo '<input type="text" id="word_2" placeholder="2. "';
+                  if(isset($_SESSION['desc2'])) {
+                    echo 'value="' . $_SESSION['desc2'] . '"';
+                  }
+                echo '/>';
+
+                echo '<input type="text" id="word_3" placeholder="3. "';
+                  if(isset($_SESSION['desc3'])) {
+                    echo 'value="' . $_SESSION['desc3'] . '"';
+                  }
+                echo '/>';  
+          //}
         //}
-        echo '</div>';
+        echo '<input type="hidden" value="words" id="words" />';
+        echo '</div>'; //close edit_words
+
+      //ERRORS---------------------------
+        echo '<div class="w_err" id="w_1_error"></div>';
+        echo '<div class="w_err_exp" id="w_1_err_exp"></div>';
+
+        echo '<div class="w_err" id="w_2_error"></div>';
+        echo '<div class="w_err_exp" id="w_2_err_exp"></div>';
+
+        echo '<div class="w_err" id="w_3_error"></div>';
+        echo '<div class="w_err_exp" id="w_3_err_exp"></div>';
+
+   
+
+      echo '<div id="submit_words_photo">';
+        echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+      echo '</div>';
+
+      echo '</form>';
 
     
     echo '<div id="photo_form_div">';
@@ -6224,7 +6267,7 @@ function show_3_words_photo_box () {
         //echo '<h1>';       
           echo '<div class="small_title">Upload your profile photo:</div>';
         //echo '</h1>';
-        //echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';
+        echo '<form id="form_photo" action="ajax_process_photo_sign_up.php" method="post" enctype="multipart/form-data">';
           //echo '<div id="photo_display">';
             echo '<div id="my_tiny_photo">
               <div class="grid_photo_border_wrapper"><div class="grid_photo">';
@@ -6232,18 +6275,44 @@ function show_3_words_photo_box () {
             echo '</div></div></div>';
           //echo '</div>';
           
-          echo '
-          <input id="image" type="file" name="image"/>
-          <input type="submit" value="Upload" name="action" id="upload_photo" />
-          <input type="hidden" name="firsttime" value="1"/>';
+          echo '<input id="image" type="file" name="image"/>';
+          echo '<input type="submit" value="Upload" name="action" id="upload_photo" />';
+          
+          echo '<input type="hidden" id="desc1" value=""/>';
+          echo '<input type="hidden" id="desc2" value=""/>';
+          echo '<input type="hidden" id="desc3" value=""/>';
+          echo '<input type="hidden" name="firsttime" value="1"/>';
+          
 
           echo '</div>';
         
       echo '</form>';
-      
-      echo '<button class="sign_me_up" name="words_photo_submit" id="continue">Continue</button>';
 
   echo '</div>';  //close 3_words_photo
+
+
+//PHOTO ERRORS---------------------------------
+
+  echo '<div class="p_err" id="p_error">';
+    if($_GET['error'] !== 0) {
+      echo '?';
+    }
+  echo '</div>';
+  echo '<div class="w_err_exp" id="p_err_exp">';
+    if($_GET['error'] == 1) {
+      echo 'There was an error, please try again';
+    }
+    elseif($_GET['error'] == 2) {
+      echo 'You have reached the limit of 5 photos';
+    }
+    elseif($_GET['error'] == 3) {
+      echo 'No file selected';
+    }
+    elseif($_GET['error'] == 4) {
+      echo 'Not a valid file';
+    }
+  echo '</div>';
+  
 
   echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
 
@@ -6290,6 +6359,7 @@ function show_photo_cropper_sign_up($photo_to_crop) {
 
 function show_crop_box() {
   echo '<div id="crop_box">';
+    $descriptors = get_my_descriptors();
     //$unc_photos = uncropped_photos(get_my_user_id());
     //if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
       //echo '<div id="photo_cropper_reg">';
@@ -6298,6 +6368,12 @@ function show_crop_box() {
             //echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
             //echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
             echo '<input type="hidden" name="firsttime" value="1"/>';
+            $x = 0;
+            while ($desc = mysql_fetch_array($descriptors)) {
+              echo '<input type="hidden" name="desc"' . $x . '" value="' . $desc["descriptor"] . '"/>';
+              $x = $x++;
+            }
+           
         echo '</form>';
       //echo '</div>';
     //}
@@ -6308,25 +6384,26 @@ function show_time_and_place_box() {
   echo '<div id="time_and_place">';
   echo '<div class="title">Your Birth Info</div>';
     echo '<form id="birth_info_form" method="post" action="cast_chart.php">';
-      echo '<div class="small_title">date of birth</div>';
-        echo '<div id="birth_date_input">';
-          date_select ($the_date=get_inputed_date($type), $the_name="birthday");
-        echo '</div>';
-       $help_text_offset = 'offset';
-
-    echo '<input type="text" placeholder="Place of birth" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
- 
-    echo '<div class="small_title">time of birth</div>';
-      time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
       
+       $help_text_offset = 'offset';
+    echo '<div class="small_title">Place of birth</div>';
+    echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
+ 
+    echo '<div class="small_title">Time of birth</div>';
+    echo '<div id="time">';
+      time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
+    echo '</div>';
+
       echo '<div class="small_title" class="align_right">Accuracy of time</div>';             
-         echo '<div id="birth_interval_input">';
+        echo '<div id="accuracy">';
                  time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
-         echo '</div>';
-    echo '<div id="birth_time_hover_box" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
-          </div>';
-    echo '<div class="small_title">birthtime unknown</div>';
-    echo '<input onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
+         
+        echo '<div id="birth_time_hover_box" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
+              </div>';
+      echo '</div>'; //Close accuracy
+
+    echo '<div id="unknown"> <span class="small_title">Birthtime unknown: </span>'; 
+    echo '<input class="pointer" onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
                  if ( (string)get_inputed_var("time_unknown",0,$type) == '1' ) {
                    echo 'CHECKED';
                  }
@@ -6337,7 +6414,11 @@ function show_time_and_place_box() {
                  }
                  echo '>';
                  echo '<a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">-> help!</a>';
-                 echo '</div></div>';               
+                 echo '</div></div>'; 
+    echo '</div>';
+
+      echo '<input class="sign_me_up" name="time_and_place_submit" type="submit" value="Continue" />';
+    echo '</form>';           
   echo '</div>'; //close time_and_place
 }
 
