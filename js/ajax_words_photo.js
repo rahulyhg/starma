@@ -5,6 +5,7 @@ $(document).ready(function() {
 	//var timer_word_1;
 	//var timer_word_2;
 	//var timer_word_3;
+
 $('#continue').prop('disabled', true);
 
 if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
@@ -15,7 +16,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 	$('#upload_photo').prop('disabled', false);
 }
 
-//showing errors exp 
+//ERRORS EXP--------------
 
 	$('#w_1_error').mouseenter(function(){
 		$('#w_1_err_exp').show();
@@ -156,6 +157,9 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 	});
 
 
+
+//BROWSE------------------
+
 	$('#image').click(function(event) {
 		if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
 			event.preventDefault();
@@ -175,57 +179,65 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				$('#upload_photo').prop('disabled', false);
 			}
 		}
-
-		var words = {
-			'word_1'  :  $('#word_1').val(),
-			'word_2'  :  $('#word_2').val(),
-			'word_3'  :  $('#word_3').val(),
-		};
-
-		$.post('/chat/ajax_words_photo.php', words, function(data){
-				if(data.errors) {	
-					if (data.errors.word1) {
-						$('#word_1').css('border', '1px solid #C82923').addClass('error');
-						$('#w_1_error').show().text('?');
-						$('#w_1_err_exp').text(data.errors.word1);
-					}
-					if (data.errors.word2) {
-						$('#word_2').css('border', '1px solid #C82923').addClass('error');
-						$('#w_2_error').show().text('?');
-						$('#w_2_err_exp').text(data.errors.word2);
-					}
-					if (data.errors.word3) {
-						$('#word_3').css('border', '1px solid #C82923').addClass('error');
-						$('#w_3_error').show().text('?');
-						$('#w_3_err_exp').text(data.errors.word3);
-					}
-				}
-				if(data.success) {
-					$('#word_1').css('border', '1px solid #d1d1d1').removeClass('error');
-					$('#w_1_error').hide().text('');
-					$('#w_1_err_exp').text('');
-					$('#word_2').css('border', '1px solid #d1d1d1').removeClass('error');
-					$('#w_2_error').hide().text('');
-					$('#w_2_err_exp').text('');
-					$('#word_3').css('border', '1px solid #d1d1d1').removeClass('error');
-					$('#w_3_error').hide().text('');
-					$('#w_3_err_exp').text('');				
-				}
-				if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
-						$('#upload_photo').prop('disabled', true);
-				}
-
-				if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#word_3').hasClass('error')) {
-					$('#upload_photo').prop('disabled', false);
-				}
-			}, 'json');
 	});
 
 
-	//SUBMIT
+//UPLOAD PHOTO--------------
+	
+	$('#form_photo').submit(function(event){
+		//event.preventDefault();
+		if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
+			event.preventDefault();
+			if ($('#word_1').val() == '') {
+				$('#word_1').css('border', '1px solid #C82923').addClass('error');
+			}
+			if ($('#word_2').val() == '') {
+				$('#word_2').css('border', '1px solid #C82923').addClass('error');
+			}
+			if ($('#word_3').val() == '') {
+				$('#word_3').css('border', '1px solid #C82923').addClass('error');
+			}
+			if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
+					$('#upload_photo').prop('disabled', true);
+				}
+			if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#word_3').hasClass('error')) {
+				$('#upload_photo').prop('disabled', false);
+			}
+		}
+		else {
+			$('#desc1').val() = $('#word_1').val();
+			$('#desc2').val() = $('#word_2').val();
+			$('#desc3').val() = $('#word_3').val();
+		}
+		/*
+		else {
+
+			var words = {
+				'word_1'  :  $('#word_1').val(),
+				'word_2'  :  $('#word_2').val(),
+				'word_3'  :  $('#word_3').val(),
+			};
+
+			$.post('/chat/process_photo_sign_up.php', words, function(data){
+				if(data.errors) {	
+					
+				}
+				if(data.success) {
+					
+					//window.location.assign('/' + data.url);			
+				}
+			}, 'json');
+		}
+		*/
+	});
+
+
+
+//SUBMIT---------------
 
 	$('#words_photo_form').submit(function(event) {
 		event.preventDefault();
+		/*
 		if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
 			if ($('#word_1').val() == '') {
 				$('#word_1').css('border', '1px solid #C82923').addClass('error');
@@ -237,11 +249,13 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				$('#word_3').css('border', '1px solid #C82923').addClass('error');
 			}
 		}
+		*/
 		
 			var words = {
 			'word_1'  :  $('#word_1').val(),
 			'word_2'  :  $('#word_2').val(),
 			'word_3'  :  $('#word_3').val(),
+			'words'   :  $('#words').val(),
 			};
 
 		$.post('/chat/ajax_words_photo.php', words, function(data){
@@ -271,14 +285,18 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 					$('#w_2_err_exp').text('');
 					$('#word_3').css('border', '1px solid #d1d1d1').removeClass('error');
 					$('#w_3_error').hide().text('');
-					$('#w_3_err_exp').text('');				
+					$('#w_3_err_exp').text('');	
+					//window.location.assign('/' + data.url);			
 				}
 			}, 'json');
 
 		});
-	
+	/*
 	$('#continue').click(function(event){
 		window.location.replace('/sign_up.php?3');
 	});
+	*/
+	
+
 
 });
