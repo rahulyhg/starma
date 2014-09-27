@@ -4,6 +4,8 @@ require_once ("header.php");
   
 if (login_check_point($type="partial", $domain=$domain)) {
 
+  //$data = array();
+
   if ( isset($_POST["firsttime"])) {
     $firsttime = $_POST["firsttime"];
   }
@@ -55,6 +57,7 @@ if (login_check_point($type="partial", $domain=$domain)) {
     }
     else { 
       do_redirect ( get_domain() . '/desc_photo_first_time.php');
+      //$data['url'] = 'sign_up.php?2.5';
     }
   }
   else {
