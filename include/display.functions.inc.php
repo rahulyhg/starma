@@ -6241,7 +6241,7 @@ function show_3_words_photo_box () {
         
       echo '</form>';
       
-      echo '<button class="sign_me_up" name="words_photo_submit">Continue</button>';
+      echo '<button class="sign_me_up" name="words_photo_submit" id="continue">Continue</button>';
 
   echo '</div>';  //close 3_words_photo
 
@@ -6302,6 +6302,43 @@ function show_crop_box() {
       //echo '</div>';
     //}
   echo '</div>'; //close crop_box
+}
+
+function show_time_and_place_box() {
+  echo '<div id="time_and_place">';
+  echo '<div class="title">Your Birth Info</div>';
+    echo '<form id="birth_info_form" method="post" action="cast_chart.php">';
+      echo '<div class="small_title">date of birth</div>';
+        echo '<div id="birth_date_input">';
+          date_select ($the_date=get_inputed_date($type), $the_name="birthday");
+        echo '</div>';
+       $help_text_offset = 'offset';
+
+    echo '<input type="text" placeholder="Place of birth" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
+ 
+    echo '<div class="small_title">time of birth</div>';
+      time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
+      
+      echo '<div class="small_title" class="align_right">Accuracy of time</div>';             
+         echo '<div id="birth_interval_input">';
+                 time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
+         echo '</div>';
+    echo '<div id="birth_time_hover_box" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
+          </div>';
+    echo '<div class="small_title">birthtime unknown</div>';
+    echo '<input onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
+                 if ( (string)get_inputed_var("time_unknown",0,$type) == '1' ) {
+                   echo 'CHECKED';
+                 }
+                 echo '/>';
+                 echo '<div style="position:relative"><div id="birth_interval_box_help_text" class="' . $help_text_offset . '" ';
+                 if ((string)get_inputed_var("time_unknown",0,$type) == '1') {
+                    echo 'style="display:block;"';
+                 }
+                 echo '>';
+                 echo '<a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">-> help!</a>';
+                 echo '</div></div>';               
+  echo '</div>'; //close time_and_place
 }
 
 
