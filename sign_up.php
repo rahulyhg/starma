@@ -94,7 +94,7 @@ require_once ("header.php");
       <li class="inbox_link"><a title="Inbox" href="#"><span>inbox</span></a></li>
       <li class="mail_area"><img src="/img/Starma-Astrology-Search.png"/></li>
     </ul>
-     <div id="pop_invite_top">Invite a Friend</div>
+     <div id="fake_invite">Invite a Friend</div>
   </div>
 
   <!--<img src="/img/top_nav_shorter/Starma-Astrology-SearchBar.png"/>-->
@@ -124,7 +124,7 @@ require_once ("header.php");
  <div id="welcome">
     <!--<?php flare_title();?>-->
     <div id="header">
-      Welcome to Starma.com. We're so glad you've joined our community!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
+      Welcome to Starma.com. We're so glad you've joined our community!  Our site is still in development, so please <a href="#">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
     </div>
  
     <div id="profile_box_link" class="homepage_div">
@@ -201,10 +201,11 @@ require_once ("header.php");
     
   </div>
   <?php
-  echo '<div id="msg_sheen" class="pop_invite">';
-    echo '<div id="msg_sheen_screen" class="pop_invite"></div>';
-              show_user_invite_top();
-  echo '</div>';
+  //echo '<div id="msg_sheen" class="pop_invite">';
+    //echo '<div id="msg_sheen_screen" class="pop_invite"></div>';
+              //show_user_invite_top();
+    //echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite A Friend</strong></div><br />';
+  //echo '</div>';
 
     ?>
 
