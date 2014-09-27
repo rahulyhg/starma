@@ -70,6 +70,15 @@
   margin: 12px 0 7px 5px;
 }
 
+#fake_invite {
+    cursor: pointer;
+    font-size: 0.75em;
+    left: 769px;
+    position: absolute;
+    top: 51px;
+    z-index: 10;
+}
+
 
 /*-------SIGN UP SECTION 2----------*/
 
@@ -95,7 +104,6 @@
     display: none;
     line-height: 27px;
     position: absolute;
-    right: 10px;
 }
 
 .gl_err_exp {
@@ -111,7 +119,8 @@
 }
 
 #gl_gender_error {
-	right: 175px;
+	right: 168px;
+  top: 102px;
 }
 
 #gl_err_gender_exp {
@@ -119,14 +128,29 @@
 	top: 103px;
 }
 
+#gl_cid_error {
+  top: 154px;
+  right: 8px;
+}
+
 #gl_err_cid_exp {
 	width: 140px;
 	top: 155px;
 }
 
+#gl_city_error {
+  top: 191px;
+  right: 8px;
+}
+
 #gl_err_city_exp {
 	width: 140px;
 	top: 191px;
+}
+
+#gl_zip_error {
+  right: 8px;
+  top: 191px;
 }
 
 #gl_err_zip_exp {
@@ -143,7 +167,7 @@
 
 
 
-/*-------SIGN UP SECTION 3----------*/
+/*------- WORDS PHOTO FORMS ----------*/
 
 #words_photo {
 	width: 278px;
@@ -169,6 +193,13 @@
   cursor: pointer;
 }
 
+#submit_words_photo {
+    position: absolute;
+    bottom: 69px;
+    left: 20px;
+    width: 278px;
+}
+
 /*------------- ERRORS ------------------*/
 
 .w_err {
@@ -177,7 +208,7 @@
   display: none;
   line-height: 27px;
   position: absolute;
-  right: 10px;
+  right: 8px;
 }
 
 .w_err_exp {
@@ -194,12 +225,25 @@
   width: 144px;
 }
 
+#w_1_error {
+  top: 77px;
+}
+
 #w_1_err_exp {
   top: 77px;
 }
 
+#w_2_error {
+  top: 119px;
+}
+
+
 #w_2_err_exp {
   top: 119px;
+}
+
+#w_3_error {
+  top: 163px;
 }
 
 #w_3_err_exp {
@@ -207,6 +251,22 @@
 }
 
 
+.p_err {
+  color: #C82923;
+  cursor: pointer;
+  display: none;
+  line-height: 27px;
+  position: absolute;
+  right: 8px;
+}
+
+#p_error {
+  top: 150px;
+}
+
+#p_err_exp {
+  top: 150px;
+}
 
 
 
@@ -243,5 +303,17 @@
 #time_and_place {
   width: 278px;
   margin: auto;
+}
+
+#time {
+  margin-bottom: 10px;
+}
+
+#accuracy {
+  margin-bottom: 10px;
+}
+
+#unknown {
+  margin-bottom: 10px;
 }
 
