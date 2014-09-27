@@ -1321,20 +1321,23 @@
     
 #birth_time_hover_box {
     background-color: white;
-    border: 1px solid black;
-    color: black;
+    border: 1px solid #d1d1d1;
+    color: #444;
     font-size: 0.8em;
     padding-left: 3px;
     padding-right: 3px;
     padding-top: 3px;
     position: relative;
     width: 10px;
+    display: inline-block;
+    margin-left: 10px;
 }
 
 
 #birth_time_hover_box:hover {
   color:white;
   background-color:black;
+  cursor: pointer;
 }
 
 #birth_time_hover_box span {
