@@ -139,7 +139,7 @@ require_once ("header.php");
          <div class="photo_border_wrapper_compare">
           <div class="compare_photo">
       
-                  <?php //show_user_compare_picture ('', get_my_user_id()); 
+                  <?php show_user_compare_picture ('#', get_my_user_id()); 
                     //show_tiny_photo(get_my_user_id());
                   ?>
                 <!--</div>
@@ -161,7 +161,7 @@ require_once ("header.php");
       <a class="box_link" href="#"></a>
       <div id="homepage_thumbnails">
         <?php
-          //display_welcome_page_thumbnails($celebs=0);
+          display_thumbnails_sign_up(0,1);
         ?>
       <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
       </div>
@@ -171,15 +171,25 @@ require_once ("header.php");
       <a class="box_link" href="#"></a>
       <div id="homepage_chart_button_info">
         <?php
-        /*
-          $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
-          echo '<ul>';
-          echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
-          echo '</ul>';
-          echo '<div id="blurb">';
-            show_poi_sign_blurb_abbr (1, $button_sign_id);
-          echo '</div>';
+          /*
+          if ($button_sign_id = get_sign_from_poi (get_my_chart_id(), 1)) {
+            echo '<ul>';
+            echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
+            echo '</ul>';
+            echo '<div id="blurb">';
+              show_poi_sign_blurb_abbr (1, $button_sign_id);
+            echo '</div>';
+          }
           */
+          //else {
+            echo '<ul>';
+            echo '  <li class="chart_li Unknown_button selected"><span class="icon"><div class="poi_title">RISING</div></span></li>';
+            echo '</ul>';
+            echo '<div id="blurb">';
+              echo 'You will be able to read your birth chart after you finish the sign up process...';
+            echo '</div>';
+          //}
+          
         ?>
         <div id="h_box_blurb"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
       </div>
@@ -189,7 +199,7 @@ require_once ("header.php");
       <a class="box_link" href="#"></a>
       <div id="homepage_thumbnails">
         <?php
-          //display_welcome_page_thumbnails(1);
+          display_welcome_page_thumbnails(1,0);
         ?>
         <div id="ce_box_blurb"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
       </div>
