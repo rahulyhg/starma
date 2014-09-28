@@ -79,7 +79,7 @@ require_once("ajax_header.php");
           	//echo "Thank you for registering with Starma.com!  We have sent you an email with a verification link.  Please follow this link to activate your account.";        
           	*/
           	$data['success'] = true;
-          	$data['url'] = get_domain_sign_up(1);
+          	$data['url'] = 'sign_up.php?1';
           	echo json_encode($data);
     	//}
     	/*
