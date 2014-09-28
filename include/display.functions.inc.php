@@ -6359,7 +6359,7 @@ function show_photo_cropper_sign_up($photo_to_crop) {
 
 function show_crop_box() {
   echo '<div id="crop_box">';
-    $descriptors = get_my_descriptors();
+    //$descriptors = get_my_descriptors(); //causes error without a real user
     //$unc_photos = uncropped_photos(get_my_user_id());
     //if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
       //echo '<div id="photo_cropper_reg">';
