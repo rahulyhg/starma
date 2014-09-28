@@ -5722,6 +5722,33 @@ function display_welcome_page_thumbnails($celebs=0, $generic=0) {
   }
 }
 
+function display_thumbnails_sign_up($celebs, $generic) {
+  if ($celebs == 0) {   
+      $user_list = get_user_list_pics_only (); 
+  }
+  else {
+    $user_list = get_pic_only_celebrity_user_list ();
+  }
+  $old_user_array = query_to_array($user_list);
+  $user_array = array();
+  //pick 8 random ones
+  while (sizeof($user_array) < 8 and sizeof($old_user_array) > 0) {
+    $random_index = array_rand($old_user_array);
+    $new_item_array = array_splice($old_user_array, $random_index, 1);    
+    $user_array[] = $new_item_array[0];
+  }
+  foreach ($user_array as $user) {
+      echo '<div class="grid_photo_wrapper">';  
+        echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';
+            
+          show_user_inbox_picture ('#', $user['user_id']);
+         
+        echo '</div></div>';
+      echo '</div>'; 
+    }
+
+}
+
 
 /********************** ALL USERS TEST **********************************/
 function display_all_users_test ($url="", $filter=0) {
