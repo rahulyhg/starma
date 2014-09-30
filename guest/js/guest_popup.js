@@ -25,7 +25,10 @@ $(document).ready(function(){
 	});
 
 	$('.pop_log').click(function(){
-		$('.pop_login').slideFadeToggle();
+		$('.pop_login').slideFadeToggle(function() {
+			$('#login_box').show();
+			$('#forgot_password_box').hide();
+		});
 	});
 
 	$('button[name=cancel]').click(function(){
