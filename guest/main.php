@@ -191,6 +191,7 @@ if ($the_left=="nav1") {
         <div id="msg_sheen_content_guest" class="pop_login">
           <?php               
             show_login_box_guest();
+            show_forgot_password_box();
           ?>  
         </div> <!--close msg_sheen_content_guest-->
     </div> <!--close msg_sheen-->

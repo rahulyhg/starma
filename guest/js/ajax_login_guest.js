@@ -5,6 +5,7 @@ $(document).ready(function(){
 		$('#login_password').toggle().focus();
 	});
 	*/
+
 	$('#login_from_guest').submit(function(event){
 		event.preventDefault();
 

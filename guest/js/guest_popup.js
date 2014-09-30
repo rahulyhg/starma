@@ -19,6 +19,8 @@ $(document).ready(function(){
 		$('.pop_guest').slideFadeToggle(function() {
 			$('#sign_up_box').show();
 			$('#create_account').hide();
+			$('#login_box').show();
+			$('#forgot_password_box').hide();
 		});
 	});
 
@@ -39,6 +41,10 @@ $(document).ready(function(){
 		$('#create_account').show();
 	});
 
+	$('#forgot_password').click(function(){
+		$('#forgot_password_box').show();
+		$('#login_box').hide();
+	});
 
 
 /*
