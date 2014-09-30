@@ -1,6 +1,12 @@
 <?php
 require_once ("header.php");
+
+if (sign_up_process_done()) {
+  do_redirect( $url = get_domain() . '/main.php');
+}
+
 ?>
+
   
 <body id="bg_stars" style="position:relative;">
 	 <!--register_teaser_test-->
@@ -23,13 +29,21 @@ require_once ("header.php");
                 if (get_my_location() == "") {
                   do_redirect( $url = get_domain() . '/sign_up.php?1');
                 }
+                elseif (get_my_location() !== "" && my_descriptors_loaded() && get_my_main_photo()) {
+                  do_redirect( $url = get_domain() . '/sign_up.php?3');
+                }
                 else {
                   show_3_words_photo_box();
                 }
             	}
             	elseif (isset($_GET['2_5'])) {	
-            		show_crop_box();
-            	}
+                if (get_my_location() == "") {
+                  do_redirect( $url = get_domain() . '/sign_up.php?1');
+                }
+                else {
+            		  show_crop_box();
+            	  }
+              }
             	elseif (isset($_GET['3'])) {
                 if (!my_descriptors_loaded() or !get_my_main_photo()) {
                   do_redirect( $url = get_domain() . '/sign_up.php?2');
