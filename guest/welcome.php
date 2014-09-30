@@ -16,7 +16,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
       <div id="homepage_chart_button_info">
         <?php
          
-          $button_sign_id = get_sign_from_poi (get_guest_chart_id($guest_user_id), 1);
+          $button_sign_id = get_sign_from_poi ($guest_chart_id, 1);
           echo '<ul>';
           echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
           echo '<div id="blurb">';
@@ -24,33 +24,11 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
           echo '</div>';
           
           ?>
-       
-        <!--<div id="user_block">
-           <div class="about_photo_wrapper"> 
-            <div class="grid_photo_wrapper">
-              <div class="grid_photo_border_wrapper profile_tiny">
-                <div class="grid_photo">
-         <div class="photo_border_wrapper_compare">
-          <div class="compare_photo">
-      
-                  <?php show_user_compare_picture ('', get_my_user_id()); 
-                    //show_tiny_photo(get_my_user_id());
-                  ?>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> 
-        </div>
-        
-        <?php //show_descriptors_info(get_my_chart_id()); 
-                show_my_descriptors_info_home();
-        ?>   
-      </div> -->
 
       <div id="h_box_blurb_guest"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
     </div>
     </div>
+    
     <div id="community_box_link" class="homepage_div">
       <span class="header">Explore the Community</span>
       <a class="box_link" href="main.php?the_page=cosel&the_left=nav1&the_tier=1"></a>
