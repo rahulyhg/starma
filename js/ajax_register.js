@@ -80,7 +80,7 @@ var timer_username;
 					}
 				}
 			}, 'json');
-		}, 800);
+		}, 2000);
 	});
 
 	//Birthday
@@ -162,7 +162,7 @@ var timer_username;
 					}
 				}
 			}, 'json');
-		}, 800);
+		}, 2000);
 	});
 
 	/*
@@ -241,7 +241,7 @@ var timer_username;
 					}
 				}
 			}, 'json');
-		}, 800);
+		}, 2000);
 
 	});
 
@@ -357,8 +357,8 @@ var timer_username;
 				}
 			}
 			if (data.url) {
-				alert(data.url);
-				//window.location.assign('../' + data.url);
+				//alert(data.url);
+				window.location.assign('../' + data.url);
 			}
 			if (!data) {
 				alert('There was an ajax error, please try again');

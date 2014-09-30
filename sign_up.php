@@ -12,17 +12,35 @@ require_once ("header.php");
               //show_sign_up_box_landing();
               //show_registration_box_landing();
             	if(isset($_GET['1'])) {
-            		show_gender_location_box();
+                if (get_my_location() !== "" && get_my_gender() !== 'U') {
+                  do_redirect( $url = get_domain() . '/sign_up.php?2');
+                }
+                else {
+            		  show_gender_location_box();
+                }
             	}
             	elseif (isset($_GET['2'])) {
-            		show_3_words_photo_box();
+                if (get_my_location() == "") {
+                  do_redirect( $url = get_domain() . '/sign_up.php?1');
+                }
+                else {
+                  show_3_words_photo_box();
+                }
             	}
             	elseif (isset($_GET['2_5'])) {	
             		show_crop_box();
             	}
             	elseif (isset($_GET['3'])) {
-            		show_time_and_place_box();
-            	}
+                if (!my_descriptors_loaded() or !get_my_main_photo()) {
+                  do_redirect( $url = get_domain() . '/sign_up.php?2');
+                }
+                elseif (get_my_location() == "") {
+                  do_redirect( $url = get_domain() . '/sign_up.php?1');
+                }
+            		else {
+                  show_time_and_place_box();
+            	  }
+              }
             echo '</div>';
           ?>  
       </div>

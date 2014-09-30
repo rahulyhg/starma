@@ -43,6 +43,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 //WORDS POST
 
 	$('#word_1').on('blur', function() {
+		$('#desc1').val($('#word_1').val());
 
 		//clearInterval(timer_word_1);
 		//timer_word_1 = setTimeout(function() {
@@ -81,6 +82,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 	});
 
 	$('#word_2').on('blur', function() {
+		$('#desc2').val($('#word_2').val());
 
 		//clearInterval(timer_word_2);
 		//timer_word_2 = setTimeout(function() {
@@ -119,7 +121,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 	});
 
 	$('#word_3').on('blur', function() {
-
+		$('#desc3').val($('#word_3').val());
 		//clearInterval(timer_word_3);
 		//timer_word_3 = setTimeout(function() {
 			var word3_q = { 'word3_q' : $('#word_3').val()};
@@ -183,7 +185,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 
 
 //UPLOAD PHOTO--------------
-	
+	/*
 	$('#form_photo').submit(function(event){
 		//event.preventDefault();
 		if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
@@ -209,7 +211,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 			$('#desc2').val() = $('#word_2').val();
 			$('#desc3').val() = $('#word_3').val();
 		}
-		/*
+		
 		else {
 
 			var words = {
@@ -228,16 +230,16 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				}
 			}, 'json');
 		}
-		*/
+		
 	});
-
+	*/
 
 
 //SUBMIT---------------
 
 	$('#words_photo_form').submit(function(event) {
 		event.preventDefault();
-		/*
+		
 		if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
 			if ($('#word_1').val() == '') {
 				$('#word_1').css('border', '1px solid #C82923').addClass('error');
@@ -249,13 +251,16 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				$('#word_3').css('border', '1px solid #C82923').addClass('error');
 			}
 		}
-		*/
 		
+
+		
+		else {
 			var words = {
-			'word_1'  :  $('#word_1').val(),
-			'word_2'  :  $('#word_2').val(),
-			'word_3'  :  $('#word_3').val(),
-			'words'   :  $('#words').val(),
+			'word_1'       :  $('#word_1').val(),
+			'word_2'       :  $('#word_2').val(),
+			'word_3'       :  $('#word_3').val(),
+			'words'        :  $('#words').val(),
+			'crop_error'   :  $('#crop_error').val(),
 			};
 
 		$.post('/chat/ajax_words_photo.php', words, function(data){
@@ -275,6 +280,9 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 						$('#w_3_error').show().text('?');
 						$('#w_3_err_exp').text(data.errors.word3);
 					}
+					if (data.errors.photo) {
+						$('#photo_error').show().text(data.errors.photo);
+					}
 				}
 				if(data.success) {
 					$('#word_1').css('border', '1px solid #d1d1d1').removeClass('error');
@@ -286,9 +294,10 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 					$('#word_3').css('border', '1px solid #d1d1d1').removeClass('error');
 					$('#w_3_error').hide().text('');
 					$('#w_3_err_exp').text('');	
-					//window.location.assign('/' + data.url);			
+					window.location.assign('/' + data.url);			
 				}
 			}, 'json');
+		}
 
 		});
 	/*

@@ -45,12 +45,12 @@ require_once ("ajax_header.php");
 	list($file,$error) = upload_no_adjust('image',ORIGINAL_IMAGE_PATH(),'jpeg,gif,png,jpg');
 	if($error) {
            print $error;
-           $error = 4;
+           $error = 'Not a valid file';
            //$errors['valid'] = 'Not a valid file';
         }
         else {
           if (!associate_photo_with_me($file)) {
-            $error = 1; 
+            $error = 'Cannot associate'; 
             //$errors['associate'] = 'Cannot link photo to profile, please try again';
             //LOG THE UPLOAD, BUT INDICATE THAT IT COULDNT BE ASSOCIATED
             log_this_action (profile_action_photos(), uploaded_basic_action(), -5);
@@ -61,11 +61,11 @@ require_once ("ajax_header.php");
   }
   else {
     if (!$_FILES['image']['name']) {
-      $error = 3;
+      $error = 'Not file';
       //$errors['not_there'] = 'No file selected';
     }
     else {
-      $error = 2;
+      $error = 'At limit';
       //$errors['too_many'] = 'You have reached your photo limit';
     }
   }
@@ -76,7 +76,7 @@ require_once ("ajax_header.php");
   }
   else {
     log_this_action (profile_action_photos(), uploaded_basic_action());
-    do_redirect ( get_domain() . '/sign_up.php?2.5');
+    do_redirect (get_domain() . '/sign_up.php?2.5');
     //$data['url'] = 'sign_up.php?2.5'; 
     //$data['success'] = true;
   }

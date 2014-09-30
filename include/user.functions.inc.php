@@ -810,11 +810,11 @@ function update_my_extended_location($state_id, $country_id) {
   }
 }
 
-function update_my_profile_info($first_name, $last_name, $gender, $location) {
+function update_my_profile_info($gender, $location) {
   if (isLoggedIn()) {
     
-    $q = sprintf("update user set first_name = '%s', last_name = '%s', gender = '%s', location = '%s' where user_id = %d",
-        mysql_real_escape_string($first_name), mysql_real_escape_string($last_name), mysql_real_escape_string($gender), mysql_real_escape_string($location), $_SESSION["user_id"]);
+    $q = sprintf("update user set gender = '%s', location = '%s' where user_id = %d",
+        mysql_real_escape_string($gender), mysql_real_escape_string($location), $_SESSION["user_id"]);
     $result = mysql_query($q) or die(mysql_error());
     return true;
      
@@ -2008,7 +2008,7 @@ function activateUser($uid, $actcode)
 function register_new_user ($nickname, $password, $password2, $email, $year, $month, $day) {
   global $seed;
 
-  $errors = validate_registration($nickname, $password, $password2, $email, $email2, $year, $month, $day);
+  $errors = validate_registration($nickname, $password, $password2, $email, $year, $month, $day);
 
   if(sizeof($errors) > 1 ) {
     return $errors;

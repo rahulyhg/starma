@@ -6115,7 +6115,7 @@ echo '<div id="create_account">';
       echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /><span class="reg_err" id="reg_password_error"></span><div class="reg_err_exp" id="reg_err_password_exp"></div></div>';
       //echo '<div class="register_error_area" id="reg_password_error"></div>';
       echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
-      echo '<button type="submit" name="submit" class="sign_me_up" id="register_submit">Create Account</button>';
+      echo '<input type="submit" name="submit" class="sign_me_up" id="register_submit" value="Create Account" />';
     echo '</form>';  
   echo '</div>'; //Close register_form
   echo '<div><div id="cancel_email_sign_up">Cancel</div></div>';
@@ -6222,11 +6222,11 @@ function show_3_words_photo_box () {
   //$descriptors = get_descriptors(1000);
   
   echo '<div id="words_photo">';
-    echo '<div class="small_title">In three words you are...</div>';
+    echo '<div class="small_title">In three words, you are...</div>';
 
     //echo '<div id="edit_words>';
     
-      echo '<form id="words_photo_form" action="ajax_words_photo.php" method="post">';
+      echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
         echo '<div id="edit_words">';
         /*
         if ($yes) {
@@ -6249,20 +6249,20 @@ function show_3_words_photo_box () {
            
               //echo '<div class="value">';
                echo '<input type="text" id="word_1" placeholder="1. "';
-                  if(isset($_SESSION['desc1'])) {
-                    echo 'value="' . $_SESSION['desc1'] . '"';
+                  if(isset($_SESSION['word_1'])) {
+                    echo 'value="' . $_SESSION['word_1'] . '"';
                   }
                 echo '/>';
 
                 echo '<input type="text" id="word_2" placeholder="2. "';
-                  if(isset($_SESSION['desc2'])) {
-                    echo 'value="' . $_SESSION['desc2'] . '"';
+                  if(isset($_SESSION['word_2'])) {
+                    echo 'value="' . $_SESSION['word_2'] . '"';
                   }
                 echo '/>';
 
                 echo '<input type="text" id="word_3" placeholder="3. "';
-                  if(isset($_SESSION['desc3'])) {
-                    echo 'value="' . $_SESSION['desc3'] . '"';
+                  if(isset($_SESSION['word_3'])) {
+                    echo 'value="' . $_SESSION['word_3'] . '"';
                   }
                 echo '/>';  
           //}
@@ -6294,17 +6294,22 @@ function show_3_words_photo_box () {
         //echo '<h1>';       
           echo '<div class="small_title">Upload your profile photo:</div>';
         //echo '</h1>';
-        echo '<form id="form_photo" action="ajax_process_photo_sign_up.php" method="post" enctype="multipart/form-data">';
+        echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';
           //echo '<div id="photo_display">';
             echo '<div id="my_tiny_photo">
-              <div class="grid_photo_border_wrapper"><div class="grid_photo">';
-              show_user_inbox_picture ('', get_my_user_id());
+                    <div class="grid_photo_border_wrapper"><div class="grid_photo">';
+                    show_user_inbox_picture ('', get_my_user_id());
             echo '</div></div></div>';
           //echo '</div>';
           
           echo '<input id="image" type="file" name="image"/>';
           echo '<input type="submit" value="Upload" name="action" id="upload_photo" />';
-          
+            
+            if (isset($_GET['error'])) {
+              echo '<input type="hidden" id="crop_error" />';
+            }
+          echo '<div id="photo_error" style="display:none; color:#C82923;"></div>';
+
           echo '<input type="hidden" id="desc1" value=""/>';
           echo '<input type="hidden" id="desc2" value=""/>';
           echo '<input type="hidden" id="desc3" value=""/>';
@@ -6387,23 +6392,29 @@ function show_photo_cropper_sign_up($photo_to_crop) {
 function show_crop_box() {
   echo '<div id="crop_box">';
     //$descriptors = get_my_descriptors(); //causes error without a real user
-    //$unc_photos = uncropped_photos(get_my_user_id());
-    //if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
+    $unc_photos = uncropped_photos(get_my_user_id());
+    if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
       //echo '<div id="photo_cropper_reg">';
          echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
             show_photo_cropper_sign_up($photo_to_crop);
-            //echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
-            //echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
+            echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
+            echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
             echo '<input type="hidden" name="firsttime" value="1"/>';
-            $x = 0;
+            /*$x = 0;
             while ($desc = mysql_fetch_array($descriptors)) {
               echo '<input type="hidden" name="desc"' . $x . '" value="' . $desc["descriptor"] . '"/>';
               $x = $x++;
             }
-           
+            */
+            echo '<input type="hidden" name="word_1" value="' . $_SESSION["word_1"] . '"/>';
+            echo '<input type="hidden" name="word_1" value="' . $_SESSION["word_2"] . '"/>';
+            echo '<input type="hidden" name="word_1" value="' . $_SESSION["word_3"] . '"/>';
         echo '</form>';
       //echo '</div>';
-    //}
+    }
+    else {
+      echo '<div><a href="' . get_domain() . '/sign_up.php?2">Please upload a photo</a></div>';
+    }
   echo '</div>'; //close crop_box
 }
 
@@ -6444,7 +6455,7 @@ function show_time_and_place_box() {
                  echo '</div></div>'; 
     echo '</div>';
 
-      echo '<input class="sign_me_up" name="time_and_place_submit" type="submit" value="Continue" />';
+      echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
     echo '</form>';           
   echo '</div>'; //close time_and_place
 }
