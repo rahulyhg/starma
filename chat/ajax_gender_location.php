@@ -28,7 +28,7 @@ require ('ajax_header.php');
 			$errors['country_id'] = 'Please select a country';
 		}
 		else {
-			if ($country_id == 236) {
+			    if ($country_id == 236) {
         		if ($zip == '') {
           			$errors['zip'] = 'Please enter a zip code';
           			$location_string = '';

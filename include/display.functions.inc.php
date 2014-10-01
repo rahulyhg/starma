@@ -6081,7 +6081,7 @@ function show_login_box_landing () {
 function show_sign_up_box_landing () {
   
     echo '<div id="sign_up_box">';
-      echo  '<div class="sign_up_text"><strong><em>Create an Account With...</em></strong></div>';
+      echo  '<div class="sign_up_text">Create an Account</div>';
           echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
           echo '<div id="or">~ or ~</div>';
           echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
