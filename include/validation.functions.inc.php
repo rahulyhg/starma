@@ -279,6 +279,73 @@ function login_check_point($type="partial") {
   
 }
 
+function parse_location_string ($country_id, $zip, $city) {
+
+  $errors = 0;
+
+  if ($country_id == 0) {
+    $errors = 1;
+    //$errors['country_id'] = 'Please select a country';
+    return $errors;
+  }
+  else {
+    if ($country_id == 236) {
+      if ($zip == '') {
+        //$errors['zip'] = 'Please enter a zip code';
+        //$location_string = '';
+        $errors = 2;
+        return $errors;
+      }
+      elseif (!preg_match('%\d{5}%', $zip)) {
+        //$errors['zip'] = 'Please enter a zip code';
+        $location_string = '';
+        $errors = 3;
+        return $errors;
+      }
+      else {
+        $location_string = $zip . ' US';
+        $type='postalCodeSearch?placename';
+      }
+    }
+    else {
+      if ($city == '') {
+        //$errors['city'] = 'Please enter a city';
+        $location_string = '';
+        $errors = 4;
+        return $errors;
+      }
+      else {
+        $country = get_country($country_id);
+        //$data['country'] = $country;
+        $location_string = exceptionizer($city . ', ' . $country["country_title"]);  
+        //echo '*' . $location_string . '*'; die();
+        $type="wikipediaSearch?q";
+
+      }
+    }
+
+//------------GEOCODE
+    if ($location_string !== '') {
+      if (!$result = geocode($location_string, $type)) {
+        //$errors['geocode'] = 'Please check your zip code';
+        //$errors['test'] = $location_string;
+        if ($type == 'postalCodeSearch?placename') {
+          $errors = 5;
+        }
+        if ($type == "wikipediaSearch?q") {
+          $errors = 6;
+        }
+        return $errors;
+      }
+      else {
+        return $errors;
+      }
+
+    }
+  }
+
+}
+
 function contains_illegal_words($nickname) {
   $q = 'SELECT * from banned_words WHERE disabled = 0';
   $do_q = mysql_query ($q) or die(mysql_error());

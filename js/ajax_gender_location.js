@@ -153,8 +153,18 @@ $(document).ready(function() {
 					$('#gl_city_error').show().text('?');
 					$('#gl_err_city_exp').text(data.errors.city);
 				}
-				if (data.errors.geocode) {
-					alert(data.errors.geocode);
+				if (data.errors.geocode_city) {
+					$('#city').css('border', '1px solid #C82923');
+					$('#gl_city_error').show().text('?');
+					$('#gl_err_city_exp').text(data.errors.geocode_city);
+					//alert(data.errors.geocode);
+					//alert(data.errors.test);
+				}
+				if (data.errors.geocode_zip) {
+					$('#zip').css('border', '1px solid #C82923');
+					$('#gl_zip_error').show().text('?');
+					$('#gl_err_zip_exp').text(data.errors.geocode_zip);
+					//alert(data.errors.geocode);
 					//alert(data.errors.test);
 				}
 				if (data.errors.gender) {
@@ -165,8 +175,8 @@ $(document).ready(function() {
 				}
 			}
 			if (data.success) {
-				//alert(data.url + ', ' + data.loc + ', ' + data.state_id);
-				window.location.assign('/' + data.url);
+				alert(data.url + ', ' + data.loc + ', ' + data.state_id);
+				//window.location.assign('/' + data.url);
 			}
 		});
 

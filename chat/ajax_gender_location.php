@@ -10,9 +10,15 @@ require ('ajax_header.php');
 		if (isset($_POST['city'])) {
 			$city = trim($_POST['city']);
 		}
+    else {
+      $city = '';
+    }
 		if (isset($_POST['zip'])) {
 			$zip = trim($_POST['zip']);
 		}
+    else {
+      $zip = '';
+    }
 		
 		$data = array();
 		$errors = array();
@@ -22,7 +28,7 @@ require ('ajax_header.php');
      	if (!valid_gender($gender)) {
         	$errors['gender'] = 'Please select a gender';
       	}
-		
+/*
 	//---------------COUNTRY 
 		if ($country_id == 0) {
 			$errors['country_id'] = 'Please select a country';
@@ -68,6 +74,30 @@ require ('ajax_header.php');
      			}
      		}
     }
+*/
+
+    $result = parse_location_string($country_id, $zip, $city);
+
+    if ($result !== 0) {
+      if($result == 1) {
+        $errors['country_id'] = 'Please select a country';
+      }
+      elseif ($result == 2) {
+        $errors['zip'] = 'Please enter a zip code';
+      }
+      elseif ($result == 3) {
+        $errors['zip'] = 'Please enter a zip code';
+      }
+      elseif ($result == 4) {
+        $errors['city'] = 'Please enter a city';
+      }
+      elseif ($result == 5) {
+        $errors['geocode_zip'] = 'Please check your zip code';
+      }
+      elseif ($result == 6) {
+        $errors['geocode_city'] = 'Please double check your city';
+      }
+    }
 
     //--------------ERRORS
       	if (!empty($errors)) {
@@ -79,8 +109,8 @@ require ('ajax_header.php');
       		$data['success'] = true;
         	$location = $result['location'];
         	$state_id = get_state_id_from_code ($result['state_code']);
-        	update_my_profile_info($gender, $location);
-        	update_my_extended_location($state_id, $country_id);
+        	//update_my_profile_info($gender, $location);
+        	//update_my_extended_location($state_id, $country_id);
         	$data['url'] = 'sign_up.php?2';
         	$data['loc'] = $location;
         	$data['state_id'] = $state_id;

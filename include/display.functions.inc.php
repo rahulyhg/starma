@@ -6071,7 +6071,8 @@ function show_login_box_landing () {
           echo '</div>';
           echo '<div id="forgot_password_landing">forgot your password?</div>';
           echo '<div id="stay_logged_in_landing"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
-          echo '<button type="submit" name="login_submit" style="float:right; bottom:79px; position:relative;">Log In</button>';
+          //echo '<button type="submit" name="login_submit" id="login_button">Log In</button>';
+          echo '<div id="login_button_div"><div id="go_bug_path"></div><input type="submit" id="go_bug_button" name="Login" value=""/></div>';
         echo '</form>';
     echo '</div>';
 
@@ -6425,8 +6426,28 @@ function show_time_and_place_box() {
       
        $help_text_offset = 'offset';
     echo '<div class="small_title">Place of birth</div>';
-    echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
+    //echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
  
+          echo '<div id="country">';    
+            country_select ($country_id, "js_country_id");
+            
+          echo '</div>';
+
+          echo '<div id="js_city_div">';
+            echo '<input type="text" id="city" name="title" placeholder="City"/>';
+            
+          echo '</div>';
+
+          echo '<div id="js_zip_div">';
+            zipcode_input ("zip", "location_verification .location_text");
+           
+          echo '</div>'; 
+          
+          echo '<div id="location_verification">';
+            echo '<div class="location_text"></div>';
+          echo '</div>';
+
+
     echo '<div class="small_title">Time of birth</div>';
     echo '<div id="time">';
       time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
@@ -6458,8 +6479,22 @@ function show_time_and_place_box() {
       echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
     echo '</form>';           
   echo '</div>'; //close time_and_place
-}
 
+//ERRORS--------------------------------------------------
+
+    echo '<div class="tp_err" id="tp_cid_error"></div>
+          <div class="tp_err_exp" id="tp_err_cid_exp"></div>';
+
+    echo '<div class="tp_err" id="tp_city_error"></div>
+          <div class="tp_err_exp" id="tp_err_city_exp"></div>';
+
+     echo '<div class="tp_err" id="tp_zip_error"></div>
+           <div class="tp_err_exp" id="tp_err_zip_exp"></div>';
+
+
+  echo '<script type="text/javascript" src="/js/time_and_place_ui.js"></script>';
+
+}
 
 
 

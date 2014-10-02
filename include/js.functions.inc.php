@@ -501,10 +501,10 @@ function zipcode_input ($name="zip", $output_div="zip_test_output") {
 	                  dataType: \'json\',
             	          success: function(data){
                                 if (data[\'title\']) {                               
-    				  $(\'#' . $output_div . '\').html(data[\'title\']);
+    				  $(\'#' . $output_div . '\').html(data[\'title\']).removeClass(\'zip_err\');
                                 }
                                 else {
-                                  $(\'#' . $output_div . '\').html(\'<span style=&quot;color:red&quot;>Unknown Zip Code</span>\');  
+                                  $(\'#' . $output_div . '\').text(\'Unknown zip code\').addClass(\'zip_err\');  
                                 }
 		          }  
                                                                     
