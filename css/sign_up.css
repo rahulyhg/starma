@@ -1,7 +1,7 @@
 
 #sign_up_container {
   width:320px; 
-  height: 300px;
+  /*height: 300px;*/
   margin: 38px auto;
   background:#f4f4f4; 
   border-radius:3px; 
@@ -96,7 +96,23 @@
 	margin-bottom: 10px;
 }
 
+#location_verification .location_text {
+  font-size: .75em;
+  color: #6F83BB;
+  text-align: left;
+  margin: 0 0 10px 10px;
+  letter-spacing: .5px;
+}
+
 /*------------- ERRORS ------------------*/
+
+#location_verification .zip_err {
+  font-size: .75em;
+  color: #C82923;
+  text-align: left;
+  margin: 0 0 10px 10px;
+  letter-spacing: .5px;
+}
 
 .gl_err {
 	  color: #C82923;
@@ -184,6 +200,7 @@
 
 #photo_form_div {
   height: 98px;
+  margin-bottom: 40px;
 }
 
 #upload_photo {
@@ -195,7 +212,7 @@
 
 #submit_words_photo {
     position: absolute;
-    bottom: 69px;
+    bottom: 54px;
     left: 20px;
     width: 278px;
 }
@@ -315,5 +332,58 @@
 
 #unknown {
   margin-bottom: 10px;
+}
+
+
+/*------------- ERRORS ------------------*/
+
+.tp_err {
+    color: #C82923;
+    cursor: pointer;
+    display: none;
+    line-height: 27px;
+    position: absolute;
+}
+
+.tp_err_exp {
+    color: #C82923;
+    display: none;
+    position: absolute;
+    background-color: #f4f4f4;
+    font-size: .8em;
+    z-index: 1000;
+    padding: 6px;
+    border-radius: 3px;
+    left: 318px;
+}
+
+#tp_cid_error {
+  top: 154px;
+  right: 8px;
+}
+
+#tp_err_cid_exp {
+  width: 140px;
+  top: 155px;
+}
+
+#tp_city_error {
+  top: 191px;
+  right: 8px;
+}
+
+#tp_err_city_exp {
+  width: 140px;
+  top: 191px;
+}
+
+#tp_zip_error {
+  right: 8px;
+  top: 191px;
+}
+
+#tp_err_zip_exp {
+  width: 140px;
+  top: 191px;
 }
 

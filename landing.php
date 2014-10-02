@@ -80,36 +80,46 @@ if (isLoggedIn())
     echo '</div>';
   echo '</div>'; //Close logo_test
 
-  echo '<div style="width:100%; min-width:1150px;">';  //<!-- Close main page container -->
+  echo '<div style="width:100%; min-width:1150px;">';  //<!-- main page container -->
   
   echo '<div style="position:absolute; width:100%;">';
+  echo '<div id="globe_and_footer">';
     echo '<div id="globe_landing">';
       echo '<div id="landing_sign_up_box">';
         show_sign_up_box_landing();
         show_registration_box_landing();
       echo '</div>';
     echo '</div>'; //close globe_landing
+
+    echo '<div id="landing_footer">
+          <div id="footer_links">
+            <ul>
+              <li><a class="padding_right">Starma LLC 2014</a></li>
+              <li><a class="padding_right" title="Coming soon...">About Starma</a></li>
+              <li><a class="padding_right" href="docs/privacyPolicy.htm" target="_blank">Privacy</a></li>
+              <li><a class="padding_right" href="docs/termsOfUse.htm" target="_blank">Terms</a></li>
+              <li><a href="mailto:contact@starma.com" title="contact@starma.com">Contact</a></li>
+            </ul>
+          </div>
+        </div>';
+  echo '</div>'; // <!-- Close globe_and_footer -->
+
   echo '</div>';
 
 
 
-  echo '<div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>';
+  echo '<div id="explore_container">
+          <div id="feet_bug"><img src="/img/feet_bug.png" /></div>
+          <div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>
+        </div>';
 
   echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
   echo '<script type="text/javascript" src="/js/ajax_forgot_password.js"></script>';
 
 
-  echo '<div id="landing_footer">
-          <div id="footer_links">
-            <ul>
-              <li><a>Starma LLC 2014</a></li>
-              <li><a title="Coming soon...">About Starma</a></li>
-              <li><a href="docs/privacyPolicy.htm" target="_blank">Privacy</a></li>
-              <li><a href="docs/termsOfUse.htm" target="_blank">Terms</a></li>
-              <li><a href="mailto:contact@starma.com" title="contact@starma.com">Contact</a></li>
-            </ul>
-          </div>
-        </div>
+  
+
+  echo '<div id="planet"><img src="/img/planet.png" /></div>
 
 
 </div> <!-- Close main page container -->';

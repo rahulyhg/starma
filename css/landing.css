@@ -116,12 +116,11 @@
 
 #landing_footer {
   display: inline-block;
-  float: right;
   font-size: 0.8em;
   position: relative;
-  right: 5%;
-  margin-top: 30%;
-  width: 498px;
+  top: 445px;
+  left: -1px;
+  width: 454px;
 }
 
 #landing_footer #footer_links {
@@ -141,9 +140,11 @@
   float: left;
 }
 
-#landing_footer #footer_links ul li a {
-  padding-right: 30px;
+#landing_footer #footer_links ul li a{
   color:#e7ebee;
+}
+#landing_footer #footer_links ul li a.padding_right {
+  padding-right: 30px;
 }
 
 #landing #sign_in .title {
@@ -211,7 +212,7 @@
 
 #landing #login_button_div{
     bottom: 10px;
-    margin-left: 99px;
+    /*margin-left: 99px;*/
     position: relative;
 }
 
@@ -267,15 +268,18 @@
   
 }
 
+#explore_container {
+  position: absolute;
+  right: 8%;
+  top: 33%;
+}
+
 #explore {
     border: 1px solid #1a1d2a;
     border-radius: 3px;
-    bottom: 62px;
     box-shadow: 0 0 2px 0 #1a1d2a inset;
     color: white;
     display: inline-block;
-    left: 100px;
-    margin-top: 10%;
     padding: 10px;
     position: relative;
 }
@@ -399,11 +403,17 @@
 
 /***************************************  LANDING LOGIN  ****************************************/
 
+#globe_and_footer {
+  margin: auto;
+  width: 453px;
+}
+
+
 #globe_landing {
   position: absolute;
   height: 376px;
   width: 376px;
-  margin: -53px 0 0 32%;
+  margin-left: 19px;
   padding: 20px;
   border-radius: 500px;
   background: #8393ca;
@@ -430,7 +440,7 @@
   display: inline-block;
   float: right;
   position: relative;
-  right: 3%;
+  right: 5%;
   top: 37px;
   width: 418px;
 }
@@ -456,6 +466,35 @@
   vertical-align: top;
   width: 155px;
   letter-spacing: 1px;
+}
+
+#login_button {
+  float: right; 
+  bottom: 81px;
+  left: 10px; 
+  position:relative;
+  margin-bottom: 15px;
+  border: 1px solid #1a1d2a; 
+  color: #e7ebee;
+  box-shadow: 0 0 2px 0 #4b5a80 inset;
+  cursor: pointer;
+  padding: 8px;
+  font-family: 'later_on';
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 8px;
+  border-radius: 3px;
+  background: transparent;
+}
+
+#go_bug_button {
+    background: url("/img/GoBug.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    bottom: 109px;
+    height: 87px;
+    left: 35px;
+    position: relative;
+    width: 95px;
 }
 
 
@@ -1419,7 +1458,7 @@
     color: #444;
     font-size: 0.8em;
     padding-left: 3px;
-    padding-right: 3px;
+    padding-right: 1px;
     padding-top: 3px;
     position: relative;
     width: 10px;
@@ -1496,6 +1535,20 @@
 }
 
 #bug2 {
+   height: 81px;
+    left: 59px;
+    position: absolute;
+    width: 149px;
+    top: 415px;
+}
+
+#feet_bug {
+    height: 75px;
+    width: 69px;
+    margin-left: 86px;
+}
+
+#planet {
    height: 81px;
     left: 59px;
     position: absolute;
