@@ -5,14 +5,6 @@
  //   header( 'Location: http://www.' . $domain . '/underconstruction.php');
  //}  
 
- echo '<script type="text/javascript">
-
-            $(document).ready(function(){
-              $("input[name=email]").focus();
-            });
-
-          </script>';
-
 if (isLoggedIn())
 {
     
@@ -70,9 +62,9 @@ if (isLoggedIn())
   echo '<div id="logo_test">';
     echo '<div id="logo_test_img">';
       //echo '<img src="img/Logotest.png" height="240px" />';
-      echo '<!--[if lte IE 8]><img src="/img/Logotest.png" style="height:158px; width:205px;" /><![endif]-->
-            <!--[if gt IE 8]><img src="/img/LogoTest2.svg" style="height:158px; width:205px;" /><![endif]-->
-            <!--[if !IE]> --><img src="/img/LogoTest2.svg" style="height:158px; width:205px;" /><!-- <![endif]-->';
+      echo '<!--[if lte IE 8]><img src="/img/Logotest.png" style="width:300px;" /><![endif]-->
+            <!--[if gt IE 8]><img src="/img/LogoTest2.svg" style="width:300px;" /><![endif]-->
+            <!--[if !IE]> --><img src="/img/LogoTest2.svg" style="width:300px;" /><!-- <![endif]-->';
     echo '</div>';
     echo '<div id="tagline">Compatibility Horoscopes Community</div>';
     echo '<div id="landing_login_box">';
@@ -109,7 +101,7 @@ if (isLoggedIn())
 
 
   echo '<div id="explore_container">
-          <div id="feet_bug"><img src="/img/feet_bug.png" /></div>
+          <div id="feet_bug"><a href="/guest/main.php"><span class="div_link"></span></a></div>
           <div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>
         </div>';
 

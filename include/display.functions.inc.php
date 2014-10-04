@@ -6069,10 +6069,11 @@ function show_login_box_landing () {
           //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
             echo '<div class="register_error_area" id="login_password_error"></div>';
           echo '</div>';
+          echo '<div style="display:inline-block; position:relative; top:18px;"><input type="submit" id="go_bug_button" name="Login" value=""/></div>';
           echo '<div id="forgot_password_landing">forgot your password?</div>';
           echo '<div id="stay_logged_in_landing"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
           //echo '<button type="submit" name="login_submit" id="login_button">Log In</button>';
-          echo '<div id="login_button_div"><div id="go_bug_path"></div><input type="submit" id="go_bug_button" name="Login" value=""/></div>';
+          echo '<div id="login_button_div"><div id="go_bug_path_landing"></div></div>';
         echo '</form>';
     echo '</div>';
 

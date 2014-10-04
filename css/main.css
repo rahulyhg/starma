@@ -3302,7 +3302,7 @@ span.div_link {
   z-index: 1;
   top: 0;
   left: 0;
-
+  cursor: pointer;
 }
 
 #profile_sections_custom {

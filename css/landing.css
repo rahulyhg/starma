@@ -211,8 +211,8 @@
 
 
 #landing #login_button_div{
-    bottom: 10px;
-    /*margin-left: 99px;*/
+    bottom: 58px;
+    left: 26px;
     position: relative;
 }
 
@@ -271,25 +271,24 @@
 #explore_container {
   position: absolute;
   right: 8%;
-  top: 33%;
+  top: 38%;
 }
 
 #explore {
     border: 1px solid #1a1d2a;
     border-radius: 3px;
     box-shadow: 0 0 2px 0 #1a1d2a inset;
-    color: white;
     display: inline-block;
-    padding: 10px;
+    padding: 8px;
     position: relative;
 }
 
 #explore a {
-  color: white;
+  color: #1a1d2a;
   font-family: 'later_on';
   font-weight: bold;
   letter-spacing: 2px;
-  font-size: 2em;
+  font-size: 1.4em;
 }
 
 #explore a:hover {
@@ -383,19 +382,19 @@
 
 #logo_test_img {
   position: relative;
-  left:  39px ;
+  left:  2% ;
   display: inline-block;
   top: 5px;
 }
 
 #tagline {
-    bottom: 80px;
-    color: #f4f4f4;
+    bottom: 58px;
+    color: #e7ebee;
     display: inline-block;
     font-family: "later_on";
     font-size: 1.25em;
     font-weight: bold;
-    left: -5px;
+    left: -34px;
     letter-spacing: 4px;
     position: relative;
 }
@@ -404,7 +403,7 @@
 /***************************************  LANDING LOGIN  ****************************************/
 
 #globe_and_footer {
-  margin: auto;
+  margin: -36px auto auto;
   width: 453px;
 }
 
@@ -440,9 +439,8 @@
   display: inline-block;
   float: right;
   position: relative;
-  right: 5%;
-  top: 37px;
-  width: 418px;
+  right: 3%;
+  top: 17px;
 }
 
 #forgot_password_landing {
@@ -487,15 +485,26 @@
   background: transparent;
 }
 
+#go_bug_path_landing {
+  background: url('/img/Starma-Astrology-go-bug-path.png') no-repeat;
+  float:left;
+  width: 344px;
+  height: 73px;
+}
+
 #go_bug_button {
     background: url("/img/GoBug.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: 0 none;
-    bottom: 109px;
     height: 87px;
-    left: 35px;
     position: relative;
     width: 95px;
+    cursor: pointer;
 }
+
+#go_bug_button:hover {
+  background: url('/img/GoBugON.png') no-repeat;
+}
+
 
 
 /***************************************  LANDING REGISTRATION  ****************************************/
@@ -1543,9 +1552,14 @@
 }
 
 #feet_bug {
-    height: 75px;
-    width: 69px;
-    margin-left: 86px;
+    height: 110px;
+    width: 108px;
+    margin-left: 22px;
+    background: url('/img/feet_bug_rays.png') no-repeat;
+}
+
+#feet_bug:hover {
+  background: url('/img/feet_bug_rays_ON.png') no-repeat;
 }
 
 #planet {
