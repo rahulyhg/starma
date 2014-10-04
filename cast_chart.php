@@ -188,11 +188,11 @@
          $_SESSION["method"] = $method;
          do_redirect ($url=get_domain() . "/main.php?the_left=nav4&the_page=psel");
        }
-       
+       //BIRTH INFO FIRST TIME
        else {
          //Log the Action
          log_this_action (chart_action(), cast_basic_action());
-         echo '<div id="initial_confirm_form">';
+         //echo '<div id="initial_confirm_form">';
            if ((string)$interval != '0') {
         
                confirm_form($return_vars1, $title, $birthtime, $return_vars2, $interval, $time_unknown, $method);
@@ -203,7 +203,7 @@
                confirm_form($return_vars, $title, $birthtime, $return_vars2, $interval, $time_unknown, $method);
            }
            
-         echo '</div>';
+         //echo '</div>';
          //require_once ("landing_footer.php"); 
        }
      }
