@@ -175,8 +175,8 @@ $(document).ready(function() {
 				}
 			}
 			if (data.success) {
-				alert(data.url + ', ' + data.loc + ', ' + data.state_id);
-				//window.location.assign('/' + data.url);
+				//alert(data.url + ', ' + data.loc + ', ' + data.state_id);
+				window.location.assign('/' + data.url);
 			}
 		});
 

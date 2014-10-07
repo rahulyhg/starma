@@ -6167,6 +6167,8 @@ function show_bugaboos() {
 function show_gender_location_box() {
   echo '<div id="gender_location">';
     echo '<div class="title">Congratulations!</div>';
+    echo '<div class="congrats">You\'ve created an account.  Just 3 more steps and you\'re ready to start!</div>';
+    echo '<div id="step">1 of 3</div>';
       echo '<form id="gender_location_form" method="post" action="/chat/ajax_gender_location.php">';
         
           echo '<div id="gender">';
@@ -6195,7 +6197,9 @@ function show_gender_location_box() {
             echo '<div class="location_text"></div>';
           echo '</div>';
 
-          echo '<button class="sign_me_up" type="submit" name="location_gender_submit">Continue</button>';
+          //echo '<button class="sign_me_up" type="submit" name="location_gender_submit">Continue</button>';
+
+          echo '<div id="next">Next ></div>';
 
       echo '</form>';
     echo '</div>';
@@ -6421,21 +6425,30 @@ function show_crop_box() {
 }
 
 function show_time_and_place_box() {
+  //echo $_SESSION['user_id'];
   echo '<div id="time_and_place">';
   echo '<div class="title">Your Birth Info</div>';
-    echo '<form id="birth_info_form" method="post" action="cast_chart.php">';
+    echo '<form id="birth_info_form" method="post" action="cast_chart_time_and_place.php">';
       
        $help_text_offset = 'offset';
     echo '<div class="small_title">Place of birth</div>';
     //echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
  
-          echo '<div id="country">';    
-            country_select ($country_id, "js_country_id");
+          echo '<div id="country"';
+            if ($_GET['error'] == 1) {
+              echo ' class="err_border"';
+            } 
+            echo '>';    
+            country_select ($_SESSION['country_id'], "country_id");
             
           echo '</div>';
 
           echo '<div id="js_city_div">';
-            echo '<input type="text" id="city" name="title" placeholder="City"/>';
+            echo '<input type="text" id="city" name="city" placeholder="City" value="' . $_SESSION['city'] . '"';
+              if ($_GET['error'] == 3 || $_GET['error'] == 5 || $_GET['error'] == 6 ) {
+              echo ' style="border-color:#C82923;"';
+            }
+            echo '/>';
             
           echo '</div>';
 
@@ -6477,21 +6490,39 @@ function show_time_and_place_box() {
                  echo '</div></div>'; 
     echo '</div>';
 
+      echo '<input type="hidden" name="time_and_place" value="1" />';
       echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
     echo '</form>';           
   echo '</div>'; //close time_and_place
 
 //ERRORS--------------------------------------------------
+  if ($_GET['error'] == 1) {
+    echo '<div class="tp_err" id="tp_cid_error">?</div>
+          <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';
+  }
+  if ($_GET['error'] == 3 || $_GET['error'] == 5 || $_GET['error'] == 6) {        
+    echo '<div class="tp_err" id="tp_city_error">?</div>
+          <div class="tp_err_exp" id="tp_err_city_exp">';
+            if ($_GET['error'] == 3) {  
+              echo 'Please enter a city';
+            }
+            if ($_GET['error'] == 5 || $_GET['error'] == 6) {
+              echo 'Please double check your city';
+            }
 
-    echo '<div class="tp_err" id="tp_cid_error"></div>
-          <div class="tp_err_exp" id="tp_err_cid_exp"></div>';
-
-    echo '<div class="tp_err" id="tp_city_error"></div>
-          <div class="tp_err_exp" id="tp_err_city_exp"></div>';
-
-     echo '<div class="tp_err" id="tp_zip_error"></div>
-           <div class="tp_err_exp" id="tp_err_zip_exp"></div>';
-
+    echo '</div>';
+  }
+  if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6) {
+     echo '<div class="tp_err" id="tp_zip_error">?</div>
+           <div class="tp_err_exp" id="tp_err_zip_exp">';
+            if ($_GET['error'] == 2) {
+              echo 'Please enter a zip code';
+            }
+            if ($_GET['error'] == 4 || $_GET['error'] == 6) {
+              echo 'Please double check your zip code';
+            }
+      echo '</div>';
+  }
 
   echo '<script type="text/javascript" src="/js/time_and_place_ui.js"></script>';
 

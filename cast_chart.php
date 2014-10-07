@@ -76,13 +76,13 @@
           $errors[] = $error;
         }
         
-     }
+    }
      //ERROR CHECKING GOES HERE, ALSO NONE OF THOSE FIELDS ARE PERSISTING
-     elseif ($sao == 0){
+    elseif ($sao == 0){
        
-       $error = 'If you leave "Place of Birth" empty, you must manually enter longitude and latitude coordinates.';
-       $errors[] = $error;
-     }
+      $error = 'If you leave "Place of Birth" empty, you must manually enter longitude and latitude coordinates.';
+      $errors[] = $error;
+    }
   
      //echo $latitude . '<br>';
      //echo $longitude . '<br>';

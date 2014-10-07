@@ -483,7 +483,12 @@ function addJSSearchEvents($input_id, $ftn="filterUsers") {
 }
 
 function zipcode_input ($name="zip", $output_div="zip_test_output") {
-  echo '<input maxlength="5" type="text" id="zip" name="' . $name . '" value="" placeholder="Zip Code" onkeyup="
+  echo '<input maxlength="5" type="text" id="zip"';
+    if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6 ) {
+      echo ' style="border-color:#C82923;"';
+    } 
+
+    echo ' name="' . $name . '" value="' . $_SESSION['zip'] . '" placeholder="Zip Code" onkeyup="
         var intRegex = /^\d+$/;
         
         if ($(\'#zip\').val().length == 5 && intRegex.test($(\'#zip\').val())) {
