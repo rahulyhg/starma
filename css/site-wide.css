@@ -49,6 +49,10 @@ body {
   background-position: center;
 }
 
+#bg_body {
+  background: #8393CA url('/img/star_bg.png') repeat;
+}
+
 body#bg_stars {
   background:#8393CA url('/img/Starma-Astrology-RightSide.png') repeat;
   background-position: left center;

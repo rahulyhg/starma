@@ -1,9 +1,9 @@
 <?php
 require_once ("header.php");
 
-if (sign_up_process_done()) {
-  do_redirect( $url = get_domain() . '/main.php');
-}
+//if (sign_up_process_done()) {
+  //do_redirect( $url = get_domain() . '/main.php');
+//}
 
 ?>
 

@@ -333,6 +333,28 @@
 }
 
 .sign_me_up {
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid #1a1d2a; 
+  color: #1a1d2a;
+  box-shadow: 0 0 2px 0 #4b5a80 inset;
+  cursor: pointer;
+  padding: 8px;
+  font-family: 'later_on';
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 8px;
+  border-radius: 3px;
+}
+
+.sign_me_up:hover {
+  box-shadow: 0 0 3px #3E4D74 inset;
+  background-color: #6F83BB;
+  text-decoration: underline; 
+}
+
+/*
+.sign_me_up {
   width: 100%;
   border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
@@ -349,6 +371,8 @@
   border-radius: 3px;
   margin-bottom: 5px;
 }
+
+*/
 
 #or {
   color: #1a1d2a;

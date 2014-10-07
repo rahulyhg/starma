@@ -86,14 +86,16 @@ input{
 
 #welcome .homepage_div .header {
     display: block;
-    font-size: 1.4em;
+    font-size: 2em;
     position: absolute;
     text-align: center;
-    top: 11px;
+    top: 3px;
     width: 100%;
-    color: #2C3447;
+    color: #1a1d2a;
     font-family: helvetica;
     letter-spacing: 2px;
+    font-family: 'later_on';
+    font-weight: bold;
 }
 
 #welcome #profile_box_link {
@@ -458,7 +460,9 @@ input{
   margin: 0px;
   padding:0px;
   line-height:37px;
-
+  font-family: 'later_on';
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 #sidenav ul {
@@ -2508,7 +2512,7 @@ li.my_unknown_button a {
   left:0px;
   width:100%;
   height:100%;
-  background:#233388;
+  background:#4e587a;
   opacity:0.6;
   display:none;
   filter:alpha(opacity=60); /* For IE8 and earlier */
