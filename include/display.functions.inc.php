@@ -4236,6 +4236,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
+      echo '<input type="hidden" name="chart_id_e" value="' . $chart_id . '"/>'; //FOR CHART SUBMIT
       echo '<input type="hidden" name="poi_id"/>';
       echo '<div id="starma_chart">';
    
@@ -4427,6 +4428,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
 
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $calc_chart_id . '"/>';
+      echo '<input type="hidden" name="chart_id_e" value="' . $_GET['chart_id2'] . '"/>';  //FOR CHART SUBMIT AJAX
       echo '<input type="hidden" name="poi_id"/>';
       echo '<div id="starma_chart">';
       $header = "";
@@ -6203,7 +6205,7 @@ function show_gender_location_box() {
 
           //echo '<button class="sign_me_up" type="submit" name="location_gender_submit">Continue</button>';
 
-          echo '<div id="next">Next ></div>';
+          echo '<button type="submit" id="next">Next ></button>';
 
       echo '</form>';
     echo '</div>';
@@ -6295,7 +6297,7 @@ function show_3_words_photo_box () {
 
       echo '<div id="submit_words_photo">';
         //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
-        echo '<div id="next">Next ></div>';
+        echo '<button type="submit" id="next">Next ></button>';
       echo '</div>';
 
       echo '</form>';
@@ -6320,7 +6322,7 @@ function show_3_words_photo_box () {
             if (isset($_GET['error'])) {
               echo '<input type="hidden" id="crop_error" />';
             }
-          echo '<div id="photo_error" style="display:none; color:#C82923;"></div>';
+          echo '<div id="p_error" class="p_err"></div>';
 
           echo '<input type="hidden" id="desc1" value=""/>';
           echo '<input type="hidden" id="desc2" value=""/>';
@@ -6372,8 +6374,8 @@ function show_photo_cropper_sign_up($photo_to_crop) {
       echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
       echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
     echo '</div>';
-    echo '<div class="cropMain" style="margin:auto;"></div>';
-    echo '<div style="width:100%; margin:20px auto auto;"><button class="cropButton" />Crop and Set</button></div>';
+    echo '<div class="cropMain" style="margin:0 auto 33px;"></div>';
+    echo '<input type="submit" name="submit" id="next" value="Next >" />';
     
     
 
@@ -6383,6 +6385,7 @@ function show_photo_cropper_sign_up($photo_to_crop) {
         .photo_cropper_content .cropMain {
           width:153px;
           height:153px;
+          border: 2px solid black;
         }
  
           </style>
@@ -6425,7 +6428,8 @@ function show_crop_box() {
       //echo '</div>';
     }
     else {
-      echo '<div><a href="' . get_domain() . '/sign_up.php?2">Please upload a photo</a></div>';
+      //echo '<div><a href="/sign_up.php?2">Please upload a photo</a></div>';
+      do_redirect(get_domain() . '/sign_up.php?2');
     }
   echo '</div>'; //close crop_box
 }
@@ -6499,11 +6503,17 @@ function show_time_and_place_box() {
       echo '<input type="hidden" id="time_unknown" name="time_unknown" value="0" />';
       echo '<input type="hidden" name="time_and_place" value="1" />';
       //echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
-      echo '<div id="next">Next ></div>';
+      echo '<button type="submit" id="next">Next ></button>';
     echo '</form>';           
   echo '</div>'; //close time_and_place
 
 //ERRORS--------------------------------------------------
+
+  echo '<div class="tp_err" id="tp_cid_error_h">?</div>
+        <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';
+  echo '<div class="tp_err" id="tp_city_error_h">?</div>
+        <div class="tp_err_exp" id="tp_err_city_exp">Please enter a city</div>';
+
   if ($_GET['error'] == 1) {
     echo '<div class="tp_err" id="tp_cid_error">?</div>
           <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';

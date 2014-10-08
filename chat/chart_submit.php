@@ -2,8 +2,8 @@
 require_once("ajax_header.php");
     //IS THIS LOGIN POINT NECESSARY?
     //$logged_in = login_check_point($type="full");
-
-    
+    $chart_id = $_POST['chart_id'];
+    $user_id = get_user_id_from_chart_id($chart_id);
     $data = array();
     if(isset($_POST["sign_id"]))   {
         $sign_id = true;
@@ -23,7 +23,12 @@ if (preg_match('%[0-9]+%', $posted)) {
         if($sign_id == true) {
             $data["sign_id"] = $_POST["sign_id"];
             $data["sign_name"] = get_sign_name ($_POST["sign_id"]);
-            $data["blurb"] = get_poi_sign_blurb ($_POST["poi_id"], $_POST["sign_id"]);
+            if ($user_id !== get_my_user_id()) { //FROM OTHERS CHART
+                $data["blurb"] = get_poi_sign_blurb ($_POST["poi_id"], $_POST["sign_id"], $chart_id);
+            }
+            else {
+                $data["blurb"] = get_poi_sign_blurb ($_POST["poi_id"], $_POST["sign_id"]);
+            }
             //echo $data["blurb"];
             if($data['poi_id'] == 1) {
                 $data["poi_in_sign"] = '<strong>' .  ucfirst(strtolower($data["sign_name"])) . ' ' . ucfirst(strtolower($data["poi_name"])) . ': </strong>';
@@ -37,7 +42,13 @@ if (preg_match('%[0-9]+%', $posted)) {
             $data["sign_id2"] = $_POST["sign_id2"];
             $data["sign_name1"] = get_sign_name ($_POST["sign_id1"]);
             $data["sign_name2"] = get_sign_name ($_POST["sign_id2"]);
-            $data["blurb"] = get_poi_sign_blurb ($_POST["poi_id"], $_POST["sign_id1"]);
+            if ($user_id !== get_my_user_id()) { //FROM OTHERS CHART
+                $data["blurb"] = get_poi_sign_blurb ($_POST["poi_id"], $_POST["sign_id1"], $chart_id);
+            }
+            else {
+                $data["blurb"] = get_poi_sign_blurb ($_POST["poi_id"], $_POST["sign_id1"]);
+            }
+            //$data["blurb"] = get_poi_sign_blurb ($_POST["poi_id"], $_POST["sign_id1"]);
             //echo $data["blurb"];
             $ketu = ($data["poi_id"]+1);
             $data["poi_in_sign"] = '<strong>' . ucfirst(strtolower($data["poi_name"])) . ' in ' . ucfirst(strtolower($data["sign_name1"]));

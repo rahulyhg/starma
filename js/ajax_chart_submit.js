@@ -21,7 +21,7 @@ $(document).ready(function(){
 		if($(this).hasClass('rahuketu')) {
 			var poi_id = {
 				'poi_id'     :   $(this).children().children('.pass_poi_id').val(),
-				'chart_id'   :   $('input[name=chart_id]').val(),
+				'chart_id'   :   $('input[name=chart_id_e]').val(),
 				'sign_id1'   :   $(this).children().children('input[name=sign_id1]').val(),
 				'sign_id2'   :   $(this).children().children('input[name=sign_id2]').val()
 				};
@@ -29,7 +29,7 @@ $(document).ready(function(){
 		else {
 			var poi_id = {
 				'poi_id'     :   $(this).children().children('.pass_poi_id').val(),
-				'chart_id'   :   $('input[name=chart_id]').val(),
+				'chart_id'   :   $('input[name=chart_id_e]').val(),
 				'sign_id'    :   $(this).children().children('input[name=sign_id]').val()
 				};
 		}
