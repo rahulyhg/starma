@@ -83,6 +83,31 @@ if ($the_left=="nav1") {
     
 <body id="bg_stars">
 
+  <!--pop_guest_click-->
+    <div id="msg_sheen" class="pop_guest">
+      <div id="msg_sheen_screen" class="pop_guest pop_reg"></div>
+        <div id="msg_sheen_content_guest" class="pop_guest">
+          <?php               
+            show_sign_up_box_guest();
+            show_registration_box_guest();
+          ?>  
+        </div> <!--close msg_sheen_content_guest-->
+    </div> <!--close msg_sheen-->    
+    <!--end pop_guest_click-->
+
+
+    <!--pop_guest_login-->
+    <div id="msg_sheen" class="pop_login">   
+      <div id="msg_sheen_screen" class="pop_login pop_log"></div>
+        <div id="msg_sheen_content_guest" class="pop_login">
+          <?php               
+            show_login_box_guest();
+            show_forgot_password_box();
+          ?>  
+        </div> <!--close msg_sheen_content_guest-->
+    </div> <!--close msg_sheen-->
+    <!--end pop_guest_click-->
+
 <div id="img_preloader">
 
   
@@ -171,32 +196,6 @@ if ($the_left=="nav1") {
 
 
 <div id="frame">
-
-<!--pop_guest_click-->
-    <div id="msg_sheen" class="pop_guest">
-      <div id="msg_sheen_screen" class="pop_guest pop_reg"></div>
-        <div id="msg_sheen_content_guest" class="pop_guest">
-          <?php               
-            show_sign_up_box_guest();
-            show_registration_box_guest();
-          ?>  
-        </div> <!--close msg_sheen_content_guest-->
-    </div> <!--close msg_sheen-->    
-    <!--end pop_guest_click-->
-
-
-    <!--pop_guest_login-->
-    <div id="msg_sheen" class="pop_login">   
-      <div id="msg_sheen_screen" class="pop_login pop_log"></div>
-        <div id="msg_sheen_content_guest" class="pop_login">
-          <?php               
-            show_login_box_guest();
-            show_forgot_password_box();
-          ?>  
-        </div> <!--close msg_sheen_content_guest-->
-    </div> <!--close msg_sheen-->
-    <!--end pop_guest_click-->
-
 
   <div id="topnav">
     <ul>

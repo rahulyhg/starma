@@ -325,14 +325,14 @@
       //echo '<br>birthdatetime' . $birthdatetime . '<br><br>';
 
       //echo 'Western Chart Success';
-      //do_redirect( get_domain() . '/' . get_landing());
+      do_redirect( get_domain() . '/' . get_landing());
       //echo get_domain() . '/' . get_landing();
       }
 
 	}
 //IF SOMEHOW THIS PAGE IS REACHED WITHOUT SUBMITTING FORM
 	else {
-		//do_redirect( get_domain() . '/sign_up.php?3');
+		do_redirect( get_domain() . '/sign_up.php?3');
 	}
 
 ?>

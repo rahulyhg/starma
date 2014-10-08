@@ -2552,18 +2552,20 @@ li.my_unknown_button a {
 #msg_sheen #msg_sheen_content_guest {
     background: #e7ebee;
     /*border-radius: 3px;*/
-    font-size:0.8em;
+    font-size:0.9em;
     margin-left: -159px;
     padding: 20px;
     position: fixed;
     top: 8%;
     left: 50%;
-    width: 278px;
+    /*width: 278px;*/
     display: none;
     box-shadow: 1px 1px 40px black;
     border: 2px solid #1a1d2a;
     /*box-shadow: 0 0 35px;*/
     z-index: 200;
+    height: 250px;
+    width: 244px;
 }
 
 #msg_sheen #msg_sheen_content_report {

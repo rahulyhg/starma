@@ -274,19 +274,16 @@ var timer_username;
 			
 			if (data.errors) {
 				if (data.errors.username) {
-					$('#reg_username_error').show().addClass('register_error').removeClass('check');
 					$('#reg_err_username_exp').text(data.errors.username);
 					$('#register_username').css('border', '1px solid #C82923');
 					$('#reg_username_error').show().addClass('register_error').removeClass('check').text('?');
 				}
 				if (data.errors.strtotime) {
-					$('#reg_birthday_error').show().addClass('register_error').removeClass('check');
 					$('#reg_err_birthday_exp').text(data.errors.strtotime);
 					$('#year').css('border', '1px solid #C82923');
 					$('#reg_birthday_error').show().addClass('register_error').removeClass('check').text('?');
 				}
 				if (data.errors.underage) {
-					$('#reg_birthday_error').show().addClass('register_error').removeClass('check');
 					$('#reg_err_birthday_exp').text(data.errors.underage);
 					$('#year').css('border', '1px solid #C82923');
 					$('#reg_birthday_error').show().addClass('register_error').removeClass('check').text('?');
@@ -295,37 +292,31 @@ var timer_username;
 				//	$('#reg_email2_error').show().addClass('register_error').removeClass('check').text(data.errors.email_match);
 				//}
 				if (data.errors.email_valid) {
-					$('#reg_email_error').show().addClass('register_error').removeClass('check');
 					$('#reg_err_email_exp').text(data.errors.email_valid);
 					$('#register_email').css('border', '1px solid #C82923');
 					$('#reg_email_error').show().addClass('register_error').removeClass('check').text('?');
 				}
 				if (data.errors.email_empty) {
-					$('#reg_email_error').show().addClass('register_error').removeClass('check');
 					$('#reg_err_email_exp').text(data.errors.email_empty);
 					$('#register_email').css('border', '1px solid #C82923');
 					$('#reg_email_error').show().addClass('register_error').removeClass('check').text('?');
 				}
 				if(data.errors.pass_empty) {
-					$('#reg_password_error').show().addClass('register_error').removeClass('check');
 					$('#reg_err_password_exp').text(data.errors.pass_empty);
 					$('#register_password').css('border', '1px solid #C82923');
 					$('#reg_password_error').show().addClass('register_error').removeClass('check').text('?');
 				}
 				if(data.errors.pass_short) {
-					$('#reg_password_error').show().addClass('register_error').removeClass('check');
 					$('#reg_err_password_exp').text(data.errors.pass_short);
 					$('#register_password').css('border', '1px solid #C82923');
 					$('#reg_password_error').show().addClass('register_error').removeClass('check').text('?');
 				}
 				if(data.errors.pass_long) {
-					$('#reg_password_error').show().addClass('register_error').removeClass('check');
 					$('#reg_err_password_exp').text(data.errors.pass_long);
 					$('#register_password').css('border', '1px solid #C82923');
 					$('#reg_password_error').show().addClass('register_error').removeClass('check').text('?');
 				}
 				if(data.errors.characters) {
-					$('#reg_password_error').show().addClass('register_error').removeClass('check');
 					$('#reg_err_password_exp').text(data.errors.characters);
 					$('#register_password').css('border', '1px solid #C82923');
 					$('#reg_password_error').show().addClass('register_error').removeClass('check').text('?');

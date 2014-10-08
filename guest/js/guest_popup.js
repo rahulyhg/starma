@@ -31,7 +31,7 @@ $(document).ready(function(){
 		});
 	});
 
-	$('button[name=cancel]').click(function(){
+	$('#cancel_email_sign_up').click(function(){
 		$('.pop_guest').slideFadeToggle(function() {
 			$('#sign_up_box').show();
 			$('#create_account').hide();
