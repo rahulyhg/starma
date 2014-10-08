@@ -75,7 +75,7 @@ require ('ajax_header.php');
      		}
     }
 */
-
+    //$from = 'gl';
     $result = parse_location_string($country_id, $zip, $city);
 
     //if ($result !== 0) {

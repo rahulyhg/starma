@@ -1,19 +1,33 @@
 <?php
 	require_once ("header.php");
 
-	if(isset($_POST['submit'])) {
+	//if(isset($_POST['submit'])) {
+  if(isLoggedIn()) {
     //echo 'hello';
 		$error = 0;
 
 		$country_id = $_POST['country_id'];
     $_SESSION['country_id'] = $_POST['country_id'];
-		if (isset($_POST['city'])) {
+    if ($_POST['country_id'] !== 0) {
+      $c = get_country($country_id);
+      $country_code = $c['country_code'];
+      echo 'country_code: ' . $country_code . '<br>';
+    }
+    if ($country_id == 0) {
+      //$error = 1;
+      unset($_SESSION['country_id']);
+      do_redirect( get_domain() . '/sign_up.php?3&error=1');
+    }
+		if ($_POST['city'] !== '') {
 			$city = trim($_POST['city']);
       $_SESSION['city'] = $_POST['city'];
 		}
-    	else {
-      		$city = '';
-    	}
+    else {
+      //$city = '';
+      //$error = 2;
+      unset($_SESSION['city']);
+      do_redirect( get_domain() . '/sign_up.php?3&error=2');
+    }
 		if (isset($_POST['zip'])) {
 			$zip = trim($_POST['zip']);
       $_SESSION['zip'] = $_POST['zip'];
@@ -21,6 +35,13 @@
     else {
     	$zip = '';
   	}	
+
+    if ($country_id !== 236) {
+      $address = $city . ', ' . $country_code;
+    }
+    else {
+      $address = $city;
+    }
 
 
 		if (!$_POST["hour_time"]) {
@@ -39,12 +60,13 @@
      	$_SESSION['alternate_chart_gender'] = $_POST["gender"];
      	$method = "E"; // EASTERN CHART
       $personal = 1;
+      $time_unknown = $_POST['time_unknown'];
 
-     	if (!$time_unknown = $_POST["time_unknown"]) {
-       		$time_unknown = 0;
-     	}
+     	//if (!$time_unknown = $_POST["time_unknown"]) {
+      // 		$time_unknown = 0;
+      //}
 
-       echo 'country_id: ' . $country_id . '<br>zip: ' . $zip . '<br>city: ' . $city . '<br>session city: ' . $_SESSION['city'] . '<br>personal: ' . $personal;
+       echo 'country_id: ' . $country_id . '<br>zip: ' . $zip . '<br>city: ' . $city . '<br>session city: ' . $_SESSION['city'] . '<br>address: ' . $address . '<br>personal: ' . $personal . '<br>interval: ' . $interval . '<br>time_unknown: ' . $time_unknown;
 
      	if (isset($_POST['manual'])) {
      		$longitude = combine_long_pieces ($_POST["c2d"], $_POST["c2m"], $_POST["c2s"]);
@@ -54,22 +76,29 @@
      		$timezone = $_POST["timezone"];
      		$daylight = $_POST["daylight"];
      	}
-     	if ($coords = parse_location_string($country_id, $zip, $city)) {
+      /*
+      $from = 'tp';
+     	if ($coords = parse_location_string($country_id, $zip, $city, $from)) {
         
         if(isset($coords['country_id'])) {
           $error = 1;
         }
-        elseif (isset($coords['zip'])) {
+        //elseif (isset($coords['zip'])) {
+        //  $error = 2;
+        //}
+        elseif (isset($coords['city'])) {
           $error = 2;
         }
-        elseif (isset($coords['city'])) {
+        //elseif (isset($coords['geocode_zip'])) {
+        //  $error = 4;
+        //}
+        elseif (isset($coords['geocode_city'])) {
           $error = 3;
         }
-        elseif (isset($coords['geocode_zip'])) {
-          $error = 4;
-        }
-        elseif (isset($coords['geocode_city'])) {
-          $error = 5;
+        */
+        if (!$coords = get_coordinates(exceptionizer ($address))) {
+          //$error = 3;
+          do_redirect( get_domain() . '/sign_up.php?3&error=3');
         }
         else {
           //print_r($coords);
@@ -90,10 +119,7 @@
           $timezone = abs((float)$timezone_object["offset"]);
           $daylight = DST($timezone_id = $timezone_object["tID"], $date = date("m/d/Y", $strtotimebirthday));
      	  }
-      }
-     	else { 
-        $error = 6;    	  
-      }
+      
       echo '<br><br>birthday: ' . $birthday . '<br>birthtime: ' . $birthtime . '<br>time_unknown: ' . $time_unknown . '<br>longitude: ' . $longitude . '<br>latitude: ' . $latitude . '<br>LaDir: ' . $LaDir . '<br>LoDir: ' .  $LoDir . '<br>timezone: ' . $timezone . '<br>daylight: ' . $daylight;
 
       echo '<br>error: ' .  $error;
@@ -110,6 +136,13 @@
             $return_vars1 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $LaDir, $timezone, $daylight, $interval, "lower", $method); 
             $return_vars2 = calculate_chart($birthday, $birthtime, $latitude, $longitude, $LoDir, $LaDir, $timezone, $daylight, $interval, "higher", $method);         
             //die();
+
+            //echo '<br><br>return_vars1:<br><br>';
+            //print_r($return_vars1);
+
+            //echo '<br><br>return_vars2:<br><br>';
+            //print_r($return_vars2);
+
             if ($return_vars1[2] == 'South') {
               $LaDirAdd = 'S';
             }
@@ -124,7 +157,7 @@
               $LoDirAdd = 'E';
             }
 
-            echo '<br>' . $LaDirAdd . '<br>' .  $LoDirAdd;
+            //echo '<br>' . $LaDirAdd . '<br>' .  $LoDirAdd;
 
             $pos_var_name_array = array();
             $sign_var_name_array = array();
@@ -133,7 +166,7 @@
 
             for ($poi_id = 2; $poi_id <= 10; $poi_id++) {
             //echo '<br>';
-              $planetArray = PlanetForm ($return_vars[0], $return_vars[8], $return_vars[9], $poi_id, $method);
+              $planetArray = PlanetForm ($return_vars1[0], $return_vars1[8], $return_vars1[9], $poi_id, $method);
               $pos_var_name = 'planet_' . $poi_id . '_position';
               $sign_var_name = 'planet_' . $poi_id . '_sign';
               $pos_var_name_array[$poi_id] = $planetArray[0];
@@ -144,21 +177,21 @@
               $planetArray2 = PlanetForm ($return_vars2[0], $return_vars2[8], $return_vars2[9], $poi_id2, $method);
               $pos_var_name2 = 'planet_' . $poi_id2 . '_position2';
               $sign_var_name2 = 'planet_' . $poi_id2 . '_sign2';
-              $pos_var_name_array2[$poi_id] = $planetArray[0];
-              $sign_var_name_array2[$poi_id] = $planetArray[1];
+              $pos_var_name_array2[$poi_id2] = $planetArray2[0];
+              $sign_var_name_array2[$poi_id2] = $planetArray2[1];
             }
 
-            echo '<br><br>pos_var_name_array<br><br>';
-            print_r($pos_var_name_array);
+            //echo '<br><br>pos_var_name_array<br><br>';
+            //print_r($pos_var_name_array);
 
-            echo '<br><br>sign_var_name_array<br><br>';
-            print_r($sign_var_name_array);
+            //echo '<br><br>sign_var_name_array<br><br>';
+            //print_r($sign_var_name_array);
 
-            echo '<br><br>pos_var_name_array<br><br>';
-            print_r($pos_var_name_array2);
+            //echo '<br><br>pos_var_name_array2<br><br>';
+            //print_r($pos_var_name_array2);
 
-            echo '<br><br>sign_var_name_array<br><br>';
-            print_r($sign_var_name_array2);
+            //echo '<br><br>sign_var_name_array2<br><br>';
+            //print_r($sign_var_name_array2);
 
             $longitude = $return_vars1[0] . $LoDirAdd; 
             $latitude = $return_vars1[1] . $LaDirAdd; 
@@ -170,7 +203,7 @@
             $asc_sign_id2 = $return_vars2[7];
             $address = $title; 
 
-            echo '<br><br><br>longitude: ' . $longitude . '<br>latitude: ' . $latitude . '<br>DST: ' . $DST . '<br>timezone: ' . $timezone . '<br>asc_coord: ' . $asc_coord . '<br>asc_sign_id: ' . $asc_sign_id . '<br>asc_coord2: ' . $asc_coord2 . '<br>asc_sign_id2: ' . $asc_sign_id2 . '<br>address: ' . $address;
+            //echo '<br><br><br>longitude: ' . $longitude . '<br>latitude: ' . $latitude . '<br>DST: ' . $DST . '<br>timezone: ' . $timezone . '<br>asc_coord: ' . $asc_coord . '<br>asc_sign_id: ' . $asc_sign_id . '<br>asc_coord2: ' . $asc_coord2 . '<br>asc_sign_id2: ' . $asc_sign_id2 . '<br>address: ' . $address;
 
             $poi_array = array();
             for ($poi_id = 2; $poi_id <= 10; $poi_id++) {
@@ -187,19 +220,19 @@
               $pos_var_name2 = 'planet_' . $poi_id2 . '_position2';
               $sign_var_name2 = 'planet_' . $poi_id2 . '_sign2';
             
-              $poi_stats2 = array($pos_var_name_array2[$poi_id], $sign_var_name_array2[$poi_id]);
+              $poi_stats2 = array($pos_var_name_array2[$poi_id2], $sign_var_name_array2[$poi_id2]);
            
               $poi_array2[$poi_id2] = $poi_stats2;
   
             }
 
-            echo '<br> poi_array<br>';
+            //echo '<br> poi_array<br>';
 
-            print_r($poi_array);
+            //print_r($poi_array);
 
-            echo '<br><br> poi_array2<br><br>';
+            //echo '<br><br> poi_array2<br><br>';
 
-            print_r($poi_array2);
+            //print_r($poi_array2);
   
 
           //SAVE CHART------------------------
