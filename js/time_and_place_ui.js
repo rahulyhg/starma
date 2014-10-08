@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  $('#step').html('').text('3 / 3');
 
 //------------CITY VS ZIP
 	if ($('#country_id').val() !== 236) {
@@ -49,13 +50,15 @@ $('#country_id').change(function(event) {
     $('#city').attr('placeholder', 'i.e. San Francisco, CA');       
   }
   $('#country>select').css('border', '2px solid black');
-  $('#tp_cid_error').hide().text('');
+  $('#tp_cid_error').hide();
+  $('#tp_cid_error_h').hide();
   $('#city').val('');
 });
 
   $('#city').on('keyup', function(){
     $('#city').css('border', '2px solid black');
-    $('#tp_city_error').hide().text('');
+    $('#tp_city_error').hide();
+    $('#tp_city_error_h').hide();
   });
 
 //-------------------SHOWING ERR EXP
@@ -65,11 +68,23 @@ $('#country_id').change(function(event) {
   $('#tp_cid_error').mouseleave(function(){
     $('#tp_err_cid_exp').hide();
   });
+  $('#tp_cid_error_h').mouseenter(function(){
+    $('#tp_err_cid_exp').show();
+  });
+  $('#tp_cid_error_h').mouseleave(function(){
+    $('#tp_err_cid_exp').hide();
+  });
 
   $('#tp_city_error').mouseenter(function(){
     $('#tp_err_city_exp').show();
   });
   $('#tp_city_error').mouseleave(function(){
+    $('#tp_err_city_exp').hide();
+  });
+  $('#tp_city_error_h').mouseenter(function(){
+    $('#tp_err_city_exp').show();
+  });
+  $('#tp_city_error_h').mouseleave(function(){
     $('#tp_err_city_exp').hide();
   });
 
@@ -108,8 +123,24 @@ $('#country_id').change(function(event) {
     $('#time_unknown').val('0');
   });
 
-  $('#next').click(function() {
-    $('#birth_info_form').submit();
-  });
+  //$('#next').click(function() {
+    $('#next').click(function(){
+      //$('#step').html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /></div>');
+      $('#step').text('One Moment Please...');
+    });
+    
+    $('#birth_info_form').submit(function(event){
+      if($('#country_id').val() == 0 || $('#city').val() == '') {
+        event.preventDefault();
+        if ($('#country_id').val() == 0) {
+          $('#country_id').css('border', '2px solid #C82923');
+          $('#tp_cid_error_h').show();
+        }
+        if ($('#city').val() == '') {
+          $('#city').css('border', '2px solid #C82923');
+          $('#tp_city_error_h').show();
+        }
+      }
+    });
 
 });

@@ -16,6 +16,11 @@
 
 /*----Matt Added --------*/
 #zoom {
+    font-family: 'later_on';
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: -9px;
     text-align: center;
 }
 
@@ -110,7 +115,7 @@
     background:#fbc93d
 }
 .cropSlider .noUi-origin-lower {
-	background:#eee;
+	background:#8393ca;
 }
 .cropSlider .noUi-origin {
     position:absolute;

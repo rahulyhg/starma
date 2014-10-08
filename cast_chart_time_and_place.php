@@ -6,28 +6,29 @@
     //echo 'hello';
 		$error = 0;
 
-		$country_id = $_POST['country_id'];
-    $_SESSION['country_id'] = $_POST['country_id'];
-    if ($_POST['country_id'] !== 0) {
+		//$country_id = $_POST['country_id'];
+    //$_SESSION['country_id'] = $_POST['country_id'];
+    if ($_POST['country_id'] == 0) {
+      $error = 1;
+      unset($_SESSION['country_id']);
+      //do_redirect( get_domain() . '/sign_up.php?3&error=1');
+    }
+    else{
+      $country_id = $_POST['country_id'];
       $c = get_country($country_id);
       $country_code = $c['country_code'];
       echo 'country_code: ' . $country_code . '<br>';
     }
-    if ($country_id == 0) {
-      //$error = 1;
-      unset($_SESSION['country_id']);
-      do_redirect( get_domain() . '/sign_up.php?3&error=1');
+    if ($_POST['city'] == '') {
+      $error = 2;
+      unset($_SESSION['city']);
+      //do_redirect( get_domain() . '/sign_up.php?3&error=2');
     }
-		if ($_POST['city'] !== '') {
+		else{
 			$city = trim($_POST['city']);
       $_SESSION['city'] = $_POST['city'];
 		}
-    else {
-      //$city = '';
-      //$error = 2;
-      unset($_SESSION['city']);
-      do_redirect( get_domain() . '/sign_up.php?3&error=2');
-    }
+
 		if (isset($_POST['zip'])) {
 			$zip = trim($_POST['zip']);
       $_SESSION['zip'] = $_POST['zip'];
@@ -42,6 +43,11 @@
     else {
       $address = $city;
     }
+
+    //if ($address == '') {
+    //  $error = 4;
+      //do_redirect( get_domain() . '/sign_up.php?3&error=4');
+    //}
 
 
 		if (!$_POST["hour_time"]) {
@@ -97,8 +103,8 @@
         }
         */
         if (!$coords = get_coordinates(exceptionizer ($address))) {
-          //$error = 3;
-          do_redirect( get_domain() . '/sign_up.php?3&error=3');
+          $error = 3;
+          //do_redirect( get_domain() . '/sign_up.php?3&error=3');
         }
         else {
           //print_r($coords);
@@ -122,7 +128,7 @@
       
       echo '<br><br>birthday: ' . $birthday . '<br>birthtime: ' . $birthtime . '<br>time_unknown: ' . $time_unknown . '<br>longitude: ' . $longitude . '<br>latitude: ' . $latitude . '<br>LaDir: ' . $LaDir . '<br>LoDir: ' .  $LoDir . '<br>timezone: ' . $timezone . '<br>daylight: ' . $daylight;
 
-      echo '<br>error: ' .  $error;
+      echo '<br><br>error: ' .  $error;
 
       if ($error !== 0) {
         do_redirect( get_domain() . '/sign_up.php?3&error=' . $error);
@@ -319,14 +325,14 @@
       //echo '<br>birthdatetime' . $birthdatetime . '<br><br>';
 
       //echo 'Western Chart Success';
-      do_redirect( get_domain() . '/' . get_landing());
+      //do_redirect( get_domain() . '/' . get_landing());
       //echo get_domain() . '/' . get_landing();
       }
 
 	}
 //IF SOMEHOW THIS PAGE IS REACHED WITHOUT SUBMITTING FORM
 	else {
-		do_redirect( get_domain() . '/sign_up.php?3');
+		//do_redirect( get_domain() . '/sign_up.php?3');
 	}
 
 ?>

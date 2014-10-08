@@ -115,6 +115,22 @@
     letter-spacing: 2px;
     text-align: right;
     margin-top: -20px;
+    border: none;
+    background: #e7ebee;
+    float: right;
+}
+
+#next:active {
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: right;
+    margin-top: -20px;
+    border: none;
+    background: #e7ebee;
+    float: right;
 }
 
 .congrats {
@@ -189,7 +205,7 @@
 	  color: #C82923;
   	display: none;
   	position: absolute;
-  	background-color: #f4f4f4;
+  	background-color: #e7ebee;
   	font-size: .8em;
   	z-index: 1000;
   	padding: 6px;
@@ -199,42 +215,42 @@
 
 #gl_gender_error {
 	right: 168px;
-  top: 102px;
+  top: 179px;
 }
 
 #gl_err_gender_exp {
 	width: 140px;
-	top: 103px;
+	top: 179px;
 }
 
 #gl_cid_error {
-  top: 154px;
+  top: 246px;
   right: 8px;
 }
 
 #gl_err_cid_exp {
 	width: 140px;
-	top: 155px;
+	top: 246px;
 }
 
 #gl_city_error {
-  top: 191px;
+  bottom: 87px;
   right: 8px;
 }
 
 #gl_err_city_exp {
 	width: 140px;
-	top: 191px;
+	bottom: 87px;
 }
 
 #gl_zip_error {
   right: 8px;
-  top: 191px;
+  bottom: 87px;
 }
 
 #gl_err_zip_exp {
 	width: 140px;
-	top: 191px;
+	bottom: 87px;
 }
 
 #gender_error {
@@ -296,7 +312,7 @@
   cursor: pointer;
   display: none;
   position: absolute;
-  background-color: #f4f4f4;
+  background-color: #e7ebee;
   font-size: .8em;
   z-index: 1000;
   padding: 6px;
@@ -306,28 +322,28 @@
 }
 
 #w_1_error {
-  top: 77px;
+  top: 108px;
 }
 
 #w_1_err_exp {
-  top: 77px;
+  top: 108px;
 }
 
 #w_2_error {
-  top: 119px;
+  top: 150px;
 }
 
 
 #w_2_err_exp {
-  top: 119px;
+  top: 150px;
 }
 
 #w_3_error {
-  top: 163px;
+  top: 194px;
 }
 
 #w_3_err_exp {
-  top: 163px;
+  top: 194px;
 }
 
 
@@ -341,12 +357,14 @@
 }
 
 #p_error {
-  top: 150px;
+  top: 235px;
+  right: 100px;
 }
 
 #p_err_exp {
-  top: 150px;
+  top: 235px;
 }
+
 
 
 
@@ -367,11 +385,25 @@
   margin-right: 15px;
   width: 125px;
   height:24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'later_on';
+  font-size: 1.19em;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 #crop_box #rotate_right {
   width: 125px;
   height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'later_on';
+  font-size: 1.19em;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 
@@ -457,7 +489,7 @@
     color: #C82923;
     display: none;
     position: absolute;
-    background-color: #f4f4f4;
+    background-color: #e7ebee;
     font-size: .8em;
     z-index: 1000;
     padding: 6px;
@@ -470,6 +502,12 @@
   right: 8px;
 }
 
+#tp_cid_error_h {
+  top: 109px;
+  right: 8px;
+  display: none;
+}
+
 #tp_err_cid_exp {
   width: 140px;
   top: 109px;
@@ -478,6 +516,12 @@
 #tp_city_error {
   top: 153px;
   right: 8px;
+}
+
+#tp_city_error_h {
+  top: 153px;
+  right: 8px;
+  display: none;
 }
 
 #tp_err_city_exp {

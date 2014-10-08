@@ -36,7 +36,12 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 	$('#w_3_error').mouseleave(function(){
 		$('#w_3_err_exp').hide();
 	});
-
+	$('#p_error').mouseenter(function(){
+		$('#p_err_exp').show();
+	});
+	$('#p_error').mouseleave(function(){
+		$('#p_err_exp').hide();
+	});
 
 
 
@@ -56,7 +61,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				//	$('#w_1_err_exp').text(data.errors);
 				//}
 				if(data.fixed1) {
-					$('#word_1').css('border', '1px solid #d1d1d1').removeClass('error');
+					$('#word_1').css('border', '2px solid black').removeClass('error');
 					$('#w_1_error').hide().text('');
 					$('#w_1_err_exp').text('');
 					if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
@@ -95,7 +100,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				//	$('#w_2_err_exp').text(data.errors);
 				//}
 				if(data.fixed2) {
-					$('#word_2').css('border', '1px solid #d1d1d1').removeClass('error');
+					$('#word_2').css('border', '2px solid black').removeClass('error');
 					$('#w_2_error').hide().text('');
 					$('#w_2_err_exp').text('');
 					if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
@@ -236,10 +241,10 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 
 
 //SUBMIT---------------
-$('#next').click(function(event) {
+//$('#next').click(function(event) {
 	$('#words_photo_form').submit(function(event) {
 		event.preventDefault();
-		
+		/*
 		if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
 			if ($('#word_1').val() == '') {
 				$('#word_1').css('border', '2px solid #C82923').addClass('error');
@@ -252,9 +257,10 @@ $('#next').click(function(event) {
 			}
 		}
 		
-
+		*/
+		$('#step').html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /></div>');
 		
-		else {
+		//else {
 			var words = {
 			'word_1'       :  $('#word_1').val(),
 			'word_2'       :  $('#word_2').val(),
@@ -265,6 +271,7 @@ $('#next').click(function(event) {
 
 		$.post('/chat/ajax_words_photo.php', words, function(data){
 				if(data.errors) {	
+					$('#step').html('').text('2 / 3');
 					if (data.errors.word1) {
 						$('#word_1').css('border', '2px solid #C82923').addClass('error');
 						$('#w_1_error').show().text('?');
@@ -281,10 +288,25 @@ $('#next').click(function(event) {
 						$('#w_3_err_exp').text(data.errors.word3);
 					}
 					if (data.errors.photo) {
-						$('#photo_error').show().text(data.errors.photo);
+						$('#p_error').show().text('?');
+						$('#p_err_exp').text(data.errors.photo);
 					}
 				}
 				if(data.success) {
+					window.location.assign('/' + data.url);			
+				}
+			}, 'json');
+		//}
+
+	//});
+});
+	/*
+	$('#continue').click(function(event){
+		window.location.replace('/sign_up.php?3');
+	});
+	*/
+	/*
+					$('#step').html('').text('2 / 3');
 					$('#word_1').css('border', '2px solid #d1d1d1').removeClass('error');
 					$('#w_1_error').hide().text('');
 					$('#w_1_err_exp').text('');
@@ -294,18 +316,7 @@ $('#next').click(function(event) {
 					$('#word_3').css('border', '2px solid #d1d1d1').removeClass('error');
 					$('#w_3_error').hide().text('');
 					$('#w_3_err_exp').text('');	
-					window.location.assign('/' + data.url);			
-				}
-			}, 'json');
-		}
-
-	});
-});
-	/*
-	$('#continue').click(function(event){
-		window.location.replace('/sign_up.php?3');
-	});
-	*/
+					*/
 	
 
 

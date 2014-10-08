@@ -128,24 +128,24 @@
 
 //PHOTO ERRORS--------------------------------------
 	//if(!get main photo has a photo associated) { $data['errors'] = need a pic }
-	if (!get_my_main_photo()) {
-		$errors['photo'] = 'Please upload a photo';
-	}
-
-	if (isset($_POST['crop_error'])) {
-		$errors['photo'] = 'Please upload another photo';
-	}
-
-	if(!empty($errors)) {
-		$data['errors'] = $errors;
-	}
-	else {
-		$data['success'] = true;
-		$data['url'] = 'sign_up.php?3';
-		update_descriptors (array($word_1, $word_2, $word_3));
-	}
 
 	if (isset($_POST['words'])) {
+		if (!get_my_main_photo()) {
+			$errors['photo'] = 'Please upload a photo';
+		}
+
+		if (isset($_POST['crop_error'])) {
+			$errors['photo'] = 'Please upload another photo';
+		}
+
+		if(!empty($errors)) {
+			$data['errors'] = $errors;
+		}
+		else {
+			$data['success'] = true;
+			$data['url'] = 'sign_up.php?3';
+			update_descriptors (array($word_1, $word_2, $word_3));
+		}
 		echo json_encode($data);
 	}
 
