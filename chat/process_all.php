@@ -20,11 +20,12 @@
                  $value = $_GET["value"];
                  update_my_single_descriptor ($user_des_id, $value);
                  break;
-         case('run_zip'):
+         case('run_zip'):   //CHANGED BY MATT FROM TITLE TO TITLE_JS FOR JQUERY 
                  $zip = $_GET['zip'];
                  if (!$log = geocode($zip . ' US', 'postalCodeSearch?placename')) {
-                    $log['title'] = ""; 
+                    $log['title'] = "";                     
                  }
+                 $log['title_js'] = $log['title'];
                  break;
          case('set_pref'):
                  $pref = $_GET['pref'];

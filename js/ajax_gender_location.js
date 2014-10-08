@@ -24,6 +24,35 @@ $(document).ready(function() {
       	}
     });
 
+//--------------#ZIP FUNCTIONALITY 
+
+$('#zip').on('keyup blur', function(){
+
+	//var intRegex = /^\d{5}$/;
+        
+        if ($('#zip').val().length == 5) {
+          	$.ajax({
+		        type  		: 'GET',
+                cache 		: false,
+	            url   		: '/chat/process_all.php',
+                data    	: {  
+		   						'function': 'run_zip',
+								'zip': $('#zip').val()                                       					
+				},
+	            dataType	: 'json',
+	        })
+           	.done(function(data){
+                if (data.title_js) {                               
+    				$('#location_verification').html(data.title_js).removeClass('zip_err');
+                }
+                else {
+                    $('#location_verification').text('Unknown zip code').addClass('zip_err');  
+                } 
+                                                                    
+			});
+		}
+
+});
 
 
 //--------------REMOVE RED BORDERS

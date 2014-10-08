@@ -6195,12 +6195,18 @@ function show_gender_location_box() {
           echo '</div>';
 
           echo '<div id="js_zip_div">';
-            zipcode_input ("zip", "location_verification .location_text");
+            //zipcode_input ("zip", "location_verification .location_text");
+          echo '<input maxlength="5" type="text" id="zip"';
+            if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6 ) {
+              echo ' style="border-color:#C82923;"';
+            } 
+
+          echo ' name="zip" value="' . $_SESSION['zip'] . '" placeholder="Zip Code">';
            
           echo '</div>'; 
           
           echo '<div id="location_verification">';
-            echo '<div class="location_text"></div>';
+            //echo '<div class="location_text"></div>';
           echo '</div>';
 
           //echo '<button class="sign_me_up" type="submit" name="location_gender_submit">Continue</button>';
