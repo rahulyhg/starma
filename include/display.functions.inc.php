@@ -3826,10 +3826,12 @@ function show_poi_sign_blurb ($poi_id, $sign_id, $chart_id=-1) {
 function show_poi_sign_blurb_abbr ($poi_id, $sign_id, $chart_id=-1) {
   
   $blurb = get_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
-  
-  echo substr($blurb, 0, 175) . " ...";
-  
-  
+  if ($chart_id == -1) {
+    echo substr($blurb, 0, 140) . " ...";
+  }
+  else {
+    echo substr($blurb, 0, 175) . " ...";
+  }
 }
 
 /******************** --Matt-- Need to have Aries Rising instead of Rising in Aries 
@@ -6100,24 +6102,25 @@ echo '<div id="create_account">';
   echo '<div id="register_form">';
     echo '<form name="register_form" action="../chat/register_user.php" method="post" id="register_form">';
       echo '<div class="register_error_area" id="reg_user_exists"></div>';
-      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /><span class="reg_err" id="reg_username_error"></span><div class="reg_err_exp" id="reg_err_username_exp"></div></div>'; 
+      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /><span class="reg_err check" id="reg_username_check"></span><span class="reg_err" id="reg_username_error"></span><div class="reg_err_exp" id="reg_err_username_exp"></div></div>'; 
       //echo '<div class="register_error_area" id="reg_username_error"></div>';
       echo '<div id="birthday">';
         echo '<div class="small_title">When is your birthday?</div>';
         echo '<span>';
           date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
         echo '</span>';
-        echo '<span class="reg_err" id="reg_birthday_error"></span><div class="reg_err_exp" id="reg_err_birthday_exp"></div>';
+        echo '<span class="reg_err check" id="reg_birthday_check"></span><span class="reg_err" id="reg_birthday_error"></span><div class="reg_err_exp" id="reg_err_birthday_exp"></div>';
       echo '</div>';
       //echo '<div class="register_error_area" id="reg_birthday_error"></div>';
-      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /><span class="reg_err" id="reg_email_error"></span><div class="reg_err_exp" id="reg_err_email_exp"></div></div>';
+      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /><span class="reg_err check" id="reg_email_check"></span><span class="reg_err" id="reg_email_error"></span><div class="reg_err_exp" id="reg_err_email_exp"></div></div>';
       //echo '<div class="register_error_area" id="reg_email_error"></div>';
       //echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
       //echo '<div class="register_error_area" id="reg_email2_error"></div>';
-      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /><span class="reg_err" id="reg_password_error"></span><div class="reg_err_exp" id="reg_err_password_exp"></div></div>';
+      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /><span class="reg_err check" id="reg_password_check"></span><span class="reg_err" id="reg_password_error"></span><div class="reg_err_exp" id="reg_err_password_exp"></div></div>';
       //echo '<div class="register_error_area" id="reg_password_error"></div>';
       echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
       echo '<input type="submit" name="submit" class="sign_me_up" id="register_submit" value="Create Account" />';
+      //echo '<div id="next">Next ></div>';
     echo '</form>';  
   echo '</div>'; //Close register_form
   echo '<div><div id="cancel_email_sign_up">Cancel</div></div>';
@@ -6168,9 +6171,10 @@ function show_gender_location_box() {
   echo '<div id="gender_location">';
     echo '<div class="title">Congratulations!</div>';
     echo '<div class="congrats">You\'ve created an account.  Just 3 more steps and you\'re ready to start!</div>';
-    echo '<div id="step">1 of 3</div>';
+    echo '<div id="step">1 / 3</div>';
       echo '<form id="gender_location_form" method="post" action="/chat/ajax_gender_location.php">';
         
+        echo '<div class="small_title">Gender</div>';
           echo '<div id="gender">';
             gender_select ($the_gender=$gender, $the_name="gender");
             
@@ -6228,6 +6232,7 @@ function show_3_words_photo_box () {
   //$descriptors = get_descriptors(1000);
   
   echo '<div id="words_photo">';
+  echo '<div id="step">2 / 3</div>';
     echo '<div class="small_title">In three words, you are...</div>';
 
     //echo '<div id="edit_words>';
@@ -6289,7 +6294,8 @@ function show_3_words_photo_box () {
    
 
       echo '<div id="submit_words_photo">';
-        echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+        //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+        echo '<div id="next">Next ></div>';
       echo '</div>';
 
       echo '</form>';
@@ -6427,56 +6433,56 @@ function show_crop_box() {
 function show_time_and_place_box() {
   //echo $_SESSION['user_id'];
   echo '<div id="time_and_place">';
-  echo '<div class="title">Your Birth Info</div>';
+  echo '<div id="step">3 / 3</div>';
+  //echo '<div class="title">Your Birth Info</div>';
     echo '<form id="birth_info_form" method="post" action="cast_chart_time_and_place.php">';
       
        $help_text_offset = 'offset';
     echo '<div class="small_title">Place of birth</div>';
     //echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
  
-          echo '<div id="country"';
-            if ($_GET['error'] == 1) {
-              echo ' class="err_border"';
-            } 
-            echo '>';    
+          echo '<div id="country">';    
             country_select ($_SESSION['country_id'], "country_id");
             
           echo '</div>';
 
           echo '<div id="js_city_div">';
-            echo '<input type="text" id="city" name="city" placeholder="City" value="' . $_SESSION['city'] . '"';
-              if ($_GET['error'] == 3 || $_GET['error'] == 5 || $_GET['error'] == 6 ) {
+            echo '<input type="text" id="city" name="city" placeholder="i.e. San Francisco, CA" value="' . $_SESSION['city'] . '"';
+              if ($_GET['error'] == 2 || $_GET['error'] == 3 || $_GET['error'] == 6) {
               echo ' style="border-color:#C82923;"';
             }
             echo '/>';
             
           echo '</div>';
 
-          echo '<div id="js_zip_div">';
-            zipcode_input ("zip", "location_verification .location_text");
-           
-          echo '</div>'; 
+          //echo '<div id="js_zip_div">';
+          //  zipcode_input ("zip", "location_verification .location_text");           
+          //echo '</div>'; 
           
-          echo '<div id="location_verification">';
-            echo '<div class="location_text"></div>';
-          echo '</div>';
+          //echo '<div id="location_verification">';
+          //  echo '<div class="location_text"></div>';
+          //echo '</div>';
 
-
+  echo '<div style="display:inline-block; float:left; margin-right: 15px; width:136px;">'; //Time of birth box
     echo '<div class="small_title">Time of birth</div>';
     echo '<div id="time">';
       time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
     echo '</div>';
+  echo '</div>'; //Close Time of birth box
 
+  echo '<div style="display:inline-block; float:left; width:127px;">'; //Accuracy box
       echo '<div class="small_title" class="align_right">Accuracy of time</div>';             
         echo '<div id="accuracy">';
                  time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
          
-        echo '<div id="birth_time_hover_box" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
+        echo '<div id="tp_birth_time_hover_box" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
               </div>';
       echo '</div>'; //Close accuracy
+  echo '</div>'; //Close Accuracy box
 
-    echo '<div id="unknown"> <span class="small_title">Birthtime unknown: </span>'; 
-    echo '<input class="pointer" onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
+    echo '<div id="help_link"> Help! I don\'t know my birth time'; 
+    
+   /* echo '<input class="pointer" onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
                  if ( (string)get_inputed_var("time_unknown",0,$type) == '1' ) {
                    echo 'CHECKED';
                  }
@@ -6486,12 +6492,14 @@ function show_time_and_place_box() {
                     echo 'style="display:block;"';
                  }
                  echo '>';
-                 echo '<a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">-> help!</a>';
+                 echo '<a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">Help me find my birth time</a>';
                  echo '</div></div>'; 
+    */
     echo '</div>';
-
+      echo '<input type="hidden" id="time_unknown" name="time_unknown" value="0" />';
       echo '<input type="hidden" name="time_and_place" value="1" />';
-      echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
+      //echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
+      echo '<div id="next">Next ></div>';
     echo '</form>';           
   echo '</div>'; //close time_and_place
 
@@ -6500,18 +6508,19 @@ function show_time_and_place_box() {
     echo '<div class="tp_err" id="tp_cid_error">?</div>
           <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';
   }
-  if ($_GET['error'] == 3 || $_GET['error'] == 5 || $_GET['error'] == 6) {        
+  if ($_GET['error'] == 2 || $_GET['error'] == 3 || $_GET['error'] == 6) {        
     echo '<div class="tp_err" id="tp_city_error">?</div>
           <div class="tp_err_exp" id="tp_err_city_exp">';
-            if ($_GET['error'] == 3) {  
+            if ($_GET['error'] == 2) {  
               echo 'Please enter a city';
             }
-            if ($_GET['error'] == 5 || $_GET['error'] == 6) {
+            if ($_GET['error'] == 3 || $_GET['error'] == 6) {
               echo 'Please double check your city';
             }
 
     echo '</div>';
   }
+  /*
   if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6) {
      echo '<div class="tp_err" id="tp_zip_error">?</div>
            <div class="tp_err_exp" id="tp_err_zip_exp">';
@@ -6523,6 +6532,7 @@ function show_time_and_place_box() {
             }
       echo '</div>';
   }
+*/
 
   echo '<script type="text/javascript" src="/js/time_and_place_ui.js"></script>';
 
@@ -6557,11 +6567,11 @@ function show_login_box_guest () {
 function show_sign_up_box_guest () {
   echo '<div id="sign_up_box">';
     echo  '<div class="sign_up_text"><strong><em>To View This Portion of the Site...</em></strong></div>';
-      echo '<button type="button" name="sign_up" class="sign_up">Create a Free Account</button>';
+      echo '<button type="button" name="sign_up" class="sign_up">Create Account</button>';
          echo '<div id="or">~ or ~</div>';
             
             if(($_GET['the_page'] == 'cosel' || $_GET['the_page'] == 'cesel') && $_GET['tier'] == 2) {
-              echo '<button type="button" name="cancel" class="sign_up">Preview sample compatibility</button>';
+              echo '<button type="button" name="cancel" class="sign_up">Preview Compatibility</button>';
             }
             else {
               echo '<button type="button" name="cancel" class="sign_up">Keep on Browsing</button>';
@@ -6594,7 +6604,8 @@ echo '<div id="create_account">';
       echo '<div class="register_error_area" id="reg_email2_error"></div>';
       echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /></div>';
       echo '<div class="register_error_area" id="reg_password_error"></div>';
-      echo '<div id="terms">By creating an account I confirm that I have read and agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>';
+      //echo '<div id="terms">By creating an account I confirm that I have read and agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>';
+      echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
       echo '<button type="submit" name="submit" class="sign_up" id="register_submit">Sign Me Up!</button>';
     echo '</form>';  
   echo '</div>'; //Close register_form

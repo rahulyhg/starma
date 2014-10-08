@@ -133,7 +133,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				//	$('#w_3_err_exp').text(data.errors);
 				//}
 				if(data.fixed3) {
-					$('#word_3').css('border', '1px solid #d1d1d1').removeClass('error');
+					$('#word_3').css('border', '2px solid black').removeClass('error');
 					$('#w_3_error').hide().text('');
 					$('#w_3_err_exp').text('');
 					if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
@@ -166,13 +166,13 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 		if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
 			event.preventDefault();
 			if ($('#word_1').val() == '') {
-				$('#word_1').css('border', '1px solid #C82923').addClass('error');
+				$('#word_1').css('border', '2px solid #C82923').addClass('error');
 			}
 			if ($('#word_2').val() == '') {
-				$('#word_2').css('border', '1px solid #C82923').addClass('error');
+				$('#word_2').css('border', '2px solid #C82923').addClass('error');
 			}
 			if ($('#word_3').val() == '') {
-				$('#word_3').css('border', '1px solid #C82923').addClass('error');
+				$('#word_3').css('border', '2px solid #C82923').addClass('error');
 			}
 			if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
 					$('#upload_photo').prop('disabled', true);
@@ -236,19 +236,19 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 
 
 //SUBMIT---------------
-
+$('#next').click(function(event) {
 	$('#words_photo_form').submit(function(event) {
 		event.preventDefault();
 		
 		if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
 			if ($('#word_1').val() == '') {
-				$('#word_1').css('border', '1px solid #C82923').addClass('error');
+				$('#word_1').css('border', '2px solid #C82923').addClass('error');
 			}
 			if ($('#word_2').val() == '') {
-				$('#word_2').css('border', '1px solid #C82923').addClass('error');
+				$('#word_2').css('border', '2px solid #C82923').addClass('error');
 			}
 			if ($('#word_3').val() == '') {
-				$('#word_3').css('border', '1px solid #C82923').addClass('error');
+				$('#word_3').css('border', '2px solid #C82923').addClass('error');
 			}
 		}
 		
@@ -266,17 +266,17 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 		$.post('/chat/ajax_words_photo.php', words, function(data){
 				if(data.errors) {	
 					if (data.errors.word1) {
-						$('#word_1').css('border', '1px solid #C82923').addClass('error');
+						$('#word_1').css('border', '2px solid #C82923').addClass('error');
 						$('#w_1_error').show().text('?');
 						$('#w_1_err_exp').text(data.errors.word1);
 					}
 					if (data.errors.word2) {
-						$('#word_2').css('border', '1px solid #C82923').addClass('error');
+						$('#word_2').css('border', '2px solid #C82923').addClass('error');
 						$('#w_2_error').show().text('?');
 						$('#w_2_err_exp').text(data.errors.word2);
 					}
 					if (data.errors.word3) {
-						$('#word_3').css('border', '1px solid #C82923').addClass('error');
+						$('#word_3').css('border', '2px solid #C82923').addClass('error');
 						$('#w_3_error').show().text('?');
 						$('#w_3_err_exp').text(data.errors.word3);
 					}
@@ -285,13 +285,13 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 					}
 				}
 				if(data.success) {
-					$('#word_1').css('border', '1px solid #d1d1d1').removeClass('error');
+					$('#word_1').css('border', '2px solid #d1d1d1').removeClass('error');
 					$('#w_1_error').hide().text('');
 					$('#w_1_err_exp').text('');
-					$('#word_2').css('border', '1px solid #d1d1d1').removeClass('error');
+					$('#word_2').css('border', '2px solid #d1d1d1').removeClass('error');
 					$('#w_2_error').hide().text('');
 					$('#w_2_err_exp').text('');
-					$('#word_3').css('border', '1px solid #d1d1d1').removeClass('error');
+					$('#word_3').css('border', '2px solid #d1d1d1').removeClass('error');
 					$('#w_3_error').hide().text('');
 					$('#w_3_err_exp').text('');	
 					window.location.assign('/' + data.url);			
@@ -299,7 +299,8 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 			}, 'json');
 		}
 
-		});
+	});
+});
 	/*
 	$('#continue').click(function(event){
 		window.location.replace('/sign_up.php?3');

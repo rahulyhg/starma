@@ -333,18 +333,19 @@
 }
 
 .sign_me_up {
-  margin-bottom: 15px;
+  margin-bottom: 6px;
   width: 100%;
   border: 1px solid #1a1d2a; 
   color: #1a1d2a;
   box-shadow: 0 0 2px 0 #4b5a80 inset;
   cursor: pointer;
-  padding: 8px;
+  padding: 3px;
   font-family: 'later_on';
   font-weight: bold;
   font-size: 1.4em;
   letter-spacing: 8px;
   border-radius: 3px;
+  background: white;
 }
 
 .sign_me_up:hover {
@@ -456,7 +457,7 @@
   font-size:.9em; 
   padding: 20px;
   box-shadow: 0 3px 13px 0 #1a1d2a;
-  border: 1px solid #1a1d2a;
+  border: 2px solid #1a1d2a;
 }
 
 #landing_login_box {
@@ -616,6 +617,15 @@
 }
 
 #create_account .title {
+  font-family: 'later_on';
+  font-size: 2.2em;
+  color: #1a1d2a;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  width: 100%;
+  text-align: center;
+  /*
   font-size: 1.6em;
   color: #6F83BB;
   margin-bottom: 20px;
@@ -623,6 +633,7 @@
   letter-spacing: 1px;
   width: 100%;
   text-align: center;
+  */
 }
 
 #create_account .small_title {
@@ -631,30 +642,39 @@
   text-align: left;
   margin-bottom: 5px;
   letter-spacing: .5px;
+  /*
+    font-family: 'later_on';
+    font-size: 1.19em;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+  */
 }
 
 #create_account #birthday {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 #create_account #birthday span select {
   color: #777777;
+  border: 1px solid black;
+  height: 33px;
 }
 
 #register_form input[type="text"], #register_form input[type="password"] {
   color: #181A1C;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   width: 100%;
-  border-radius: 3px;
   height: 33px;
   padding: 0 10px;
-  border: 1px solid #d1d1d1;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
+  border: 1px solid black;
+  /*box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;*/
 }
 
 #register_form input:focus {
-  border: 1px solid #8393CA;
+  /*border: 1px solid #8393CA;*/
 }
 
 ::-webkit-input-placeholder {
@@ -702,6 +722,15 @@
   text-decoration: underline;
   margin: auto;
   width: 60px;
+  /*
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: left;
+    margin-top: -20px;
+  */
 }
 
 #cancel_email_sign_up:hover {
@@ -716,8 +745,6 @@
 
 
 .reg_err {
-  color:red;
-  cursor: pointer;
   display: inline-block;
   position: absolute;
   right: 90px;
@@ -736,8 +763,20 @@
   left: 334px;
 }
 
+.register_error {
+  z-index: 1;
+  color: #C82923;
+  cursor: pointer;
+}
+
+.check {
+  z-index: 1;
+  color: green;
+  text-align: left;
+}
+
 #reg_err_username_exp {
-  top:77px;
+  top:82px;
   width: 140px;
 }
 
@@ -747,12 +786,12 @@
 }
 
 #reg_err_email_exp {
-  top:171px;
+  top:181px;
   width: 140px;
 }
 
 #reg_err_password_exp {
-  top:215px;
+  top:222px;
   width: 140px;
 }
 
@@ -790,22 +829,11 @@
   float: left;
 }
 
-.register_error {
-  z-index: 1;
-  color: #C82923;
-}
-
 .error {
   color:red;
   z-index:1;
   display:block;
   
-}
-
-.check {
-  z-index: 1;
-  color: green;
-  text-align: left;
 }
 
 #desc_photo_form_div .error {
@@ -1466,14 +1494,23 @@
 
 
 #birth_interval_box_help_text {
-    bottom: -2px;
+    /*bottom: -2px;*/
     display: none;
-    left: 23px;
+    /*left: 23px;*/
     position: absolute;
 }
 
+#birth_interval_box_help_text a {
+  font-family: 'later_on';
+  color: black;
+}
+
+#birth_interval_box_help_text a:hover {
+  /*text-decoration: underline;*/
+}
+
 #birth_interval_box_help_text.offset {
-  top: -21px;
+  top: -7px;
 }
 
 

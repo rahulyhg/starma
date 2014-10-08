@@ -8,7 +8,7 @@
   font-size:.9em; 
   padding: 10px 0 25px 0;
   box-shadow: 1px 1px 40px black;
-  border: 1px solid #1a1d2a;
+  border: 2px solid #1a1d2a;
 }
 
 
@@ -24,12 +24,13 @@
 }
 
 #sign_up_container .small_title {
-    color: #1a1d2a;
-    font-family: later_on;
-    font-size: 1.15em;
+    /*color: #1a1d2a;*/
+    font-family: 'later_on';
+    font-size: 1.19em;
     letter-spacing: 2px;
     margin-bottom: 5px;
     text-align: left;
+    font-weight: bold;
   /*
   font-size: .75em;
   color: #6F83BB;
@@ -39,9 +40,20 @@
   */
 }
 
-#gender select, #country select {
-  border: 1px solid #1a1d2a;
+#gender select, #country select, #accuracy select, #time select#meridiem_time {
+  border: 2px solid #1a1d2a;
   height: 33px;
+}
+
+#time select#hour_time, #time select#minute_time {
+  border-top: 2px solid #1a1d2a;
+  border-left: 2px solid #1a1d2a;
+  border-bottom: 2px solid #1a1d2a;
+  height: 33px;
+}
+
+#time select {
+  width: 44px;
 }
 
 #sign_up_container input[type=text] {
@@ -53,8 +65,8 @@
   height: 33px;
   padding: 0 10px;
   /*border: 1px solid #d1d1d1;*/
-  border: 1px solid #1a1d2a;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
+  border: 2px solid #1a1d2a;
+  /*box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;*/
 }
 
 #sign_up_container input[type=text]:focus {
@@ -98,7 +110,7 @@
 #next {
     cursor: pointer;
     font-family: "later_on";
-    font-size: 1.1em;
+    font-size: 1.19em;
     font-weight: bold;
     letter-spacing: 2px;
     text-align: right;
@@ -106,28 +118,33 @@
 }
 
 .congrats {
-    color: #626262;
+    /*color: #626262;*/
     font-family: "later_on";
-    font-size: 1.15em;
+    font-size: 1.1em;
+    font-weight: bold;
     letter-spacing: 2px;
     line-height: 1;
     margin-bottom: 13px;
-    margin-top: -15px;
+    margin-top: -20px;
     text-align: center;
 }
 
 #step {
-    color: #626262;
+    /*color: #626262;*/
     font-family: "later_on";
-    font-size: 1.15em;
+    font-size: 1.19em;
     letter-spacing: 2px;
     line-height: 1;
     margin-bottom: 13px;
     text-align: center;
+    font-weight: bold;
 }
 
 /*-------SIGN UP SECTION 2----------*/
 
+#gender_location_form {
+  margin-top: -13px;
+}
 
 #gender_location {
 	width: 278px;
@@ -246,7 +263,7 @@
 
 #photo_form_div {
   height: 98px;
-  margin-bottom: 40px;
+  /*margin-bottom: 40px;*/
 }
 
 #upload_photo {
@@ -377,7 +394,49 @@
 }
 
 #unknown {
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
+}
+
+#help_link {
+    font-family: 'later_on';
+    font-size: 1em;
+    letter-spacing: 2px;
+    text-align: left;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#help_link:hover {
+  text-shadow: 0 0 1px;
+}
+
+#tp_birth_time_hover_box {
+    font-size: 1.19em;
+    padding-left: 3px;
+    padding-right: 1px;
+    padding-top: 3px;
+    position: absolute;
+    width: 10px;
+    display: inline-block;
+    font-family: 'later_on';
+    font-weight: bold;
+    right: 5px;
+    cursor: pointer;
+}
+
+
+#tp_birth_time_hover_box:hover {
+  color:white;
+  background-color:black;
+  cursor: pointer;
+}
+
+#tp_birth_time_hover_box span {
+  
+  left:15px;
+  bottom:-104px;
+  
 }
 
 
@@ -407,32 +466,34 @@
 }
 
 #tp_cid_error {
-  top: 121px;
+  top: 109px;
   right: 8px;
 }
 
 #tp_err_cid_exp {
   width: 140px;
-  top: 121px;
+  top: 109px;
 }
 
 #tp_city_error {
-  top: 159px;
+  top: 153px;
   right: 8px;
 }
 
 #tp_err_city_exp {
   width: 140px;
-  top: 159px;
+  top: 153px;
 }
 
 #tp_zip_error {
   right: 8px;
-  top: 159px;
+  top: 153px;
 }
 
 #tp_err_zip_exp {
   width: 140px;
-  top: 159px;
+  top: 153px;
 }
+
+
 
