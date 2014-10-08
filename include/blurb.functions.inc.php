@@ -46,7 +46,7 @@ function get_poi_sign_blurb ($poi_id, $sign_id, $other_chart_id=-1) {
   else {
     $poi_name = ucfirst(strtolower(get_poi_name($poi_id)));
     if ($other_chart_id == -1) { 
-      return "Oh no!  We can't tell you about your " . $poi_name . " sign with your current birth information.  To find your " . $poi_name . " sign, please enter a more precise <a href='main.php?the_left=nav5&the_page=psel'>time of birth.</a>";
+      return "Oh no!  We can't tell you about your " . $poi_name . " sign with your current birth information.  To find your " . $poi_name . " sign, please enter a more precise <a href='main.php?the_left=nav4&the_page=psel'>time of birth.</a>";
     }
     else {
       if ($other_user_id = get_user_id_from_chart_id($other_chart_id)) {
