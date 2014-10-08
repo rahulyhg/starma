@@ -114,7 +114,6 @@
     font-weight: bold;
     letter-spacing: 2px;
     text-align: right;
-    margin-top: -20px;
     border: none;
     background: #e7ebee;
     float: right;
@@ -160,6 +159,7 @@
 
 #gender_location_form {
   margin-top: -13px;
+  margin-bottom: 10px;
 }
 
 #gender_location {
@@ -175,12 +175,14 @@
 	margin-bottom: 10px;
 }
 
-#location_verification .location_text {
+#location_verification {
   font-size: .75em;
   color: #6F83BB;
   text-align: left;
-  margin: 0 0 10px 10px;
+  margin-left: 10px;
   letter-spacing: .5px;
+  display: inline-block;
+  float: left;
 }
 
 /*------------- ERRORS ------------------*/
@@ -437,6 +439,8 @@
     font-weight: bold;
     cursor: pointer;
     text-decoration: underline;
+    width: 209px;
+    display: inline-block;
 }
 
 #help_link:hover {
