@@ -60,7 +60,7 @@ require_once ("header.php");
     }
     else { 
       //do_redirect ( get_domain() . '/desc_photo_first_time.php');
-      do_redirect ( get_domain() .'sign_up.php?2.5');
+      do_redirect ( get_domain() .'/sign_up.php?2_5');
     }
   }
   else {
