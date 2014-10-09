@@ -6490,15 +6490,15 @@ function show_time_and_place_box() {
           //  echo '<div class="location_text"></div>';
           //echo '</div>';
 
-  echo '<div style="display:inline-block; float:left; margin-right: 15px; width:136px;">'; //Time of birth box
+  echo '<div style="display:inline-block; float:left; width:147px;">'; //Time of birth box
     echo '<div class="small_title">Time of birth</div>';
     echo '<div id="time">';
       time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
     echo '</div>';
   echo '</div>'; //Close Time of birth box
 
-  echo '<div style="display:inline-block; float:left; width:127px;">'; //Accuracy box
-      echo '<div class="small_title" class="align_right">Accuracy of time</div>';             
+  echo '<div style="display:inline-block; float:right; width:120px;">'; //Accuracy box
+      echo '<div class="small_title" class="align_right">Accuracy</div>';             
         echo '<div id="accuracy">';
                  time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
          
