@@ -166,6 +166,16 @@ if ($the_left=="nav1") {
 
   <img src="/img/Starma-Astrology-Report-UserON.png"/> 
 
+  <img src="/img/profile/Starma-Astrology-Compare.png"/>
+  <img src="/img/profile/Starma-Astrology-CompareON.png"/>
+  <img src="/img/profile/Starma-Astrology-Message.png"/>
+  <img src="/img/profile/Starma-Astrology-MessageON.png"/>
+  <img src="/img/profile/Starma-Astrology-Chat.png"/>
+  <img src="/img/profile/Starma-Astrology-ChatON.png"/>
+
+  <img src="/img/profile/Starma-Astrology-Favorites.png"/>
+  <img src="/img/profile/Starma-Astrology-FavoritesON.png"/>
+
 
 </div>
 
