@@ -48,7 +48,7 @@ require_once ("header.php");
       if (!$isCeleb) {
         show_descriptors_info($_GET["chart_id2"]); 
       }
-
+      
        //TEST FOR ADDING text_type to compare_button
       echo '<div class="profile_button compare_button">';
         echo '<div id="compare_menu"><a href="">Compare</a>';
