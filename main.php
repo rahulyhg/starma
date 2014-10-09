@@ -176,6 +176,9 @@ if ($the_left=="nav1") {
   <img src="/img/profile/Starma-Astrology-Favorites.png"/>
   <img src="/img/profile/Starma-Astrology-FavoritesON.png"/>
 
+  <img src="/img/goBug.png"/>
+  <img src="/img/goBugON.png"/>
+
 
 </div>
 
