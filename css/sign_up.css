@@ -9,6 +9,9 @@
   padding: 10px 0 25px 0;
   box-shadow: 1px 1px 40px black;
   border: 2px solid #1a1d2a;
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 
@@ -219,22 +222,22 @@
 
 #gl_gender_error {
 	right: 168px;
-  top: 179px;
+  bottom: 200px;
 }
 
 #gl_err_gender_exp {
 	width: 140px;
-	top: 179px;
+	bottom: 200px;
 }
 
 #gl_cid_error {
-  top: 246px;
+  bottom: 130px;
   right: 8px;
 }
 
 #gl_err_cid_exp {
 	width: 140px;
-	top: 246px;
+	bottom: 130px;
 }
 
 #gl_city_error {
