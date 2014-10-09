@@ -158,7 +158,7 @@ require_once ("header.php");
                       echo '<div id="report_close"><button type="button" name="close" class="report_close">Close</button></div>';
                   echo '</div>';
                 echo '</div>';*/
-              echo '</div>';
+              echo '</div>';  //MYSTERIOUS FIX....
   }
   
 
