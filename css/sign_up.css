@@ -100,7 +100,7 @@
   letter-spacing: 1px;
   display: inline-block;
   float: left;
-  width: 169px;
+  width: 180px;
   margin: 12px 0 7px 5px;
 }
 
@@ -217,7 +217,7 @@
   	z-index: 1000;
   	padding: 6px;
   	border-radius: 3px;
-  	left: 318px;
+  	left: 314px;
 }
 
 #gl_gender_error {
@@ -364,12 +364,12 @@
 }
 
 #p_error {
-  top: 235px;
-  right: 100px;
+  top: 234px;
+  left: 232px;
 }
 
 #p_err_exp {
-  top: 235px;
+  top: 234px;
 }
 
 
