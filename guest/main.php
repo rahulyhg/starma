@@ -212,7 +212,7 @@ if ($the_left=="nav1") {
 
   <div id="topnav">
     <ul>
-      <li class="logo"><a href="?the_page=hsel&the_left=nav1"></a></li>
+      <li class="logo"><a href="../landing.php"></a></li>
       <li class="home_link <?php echo $hsel;?>"><a title="Home" href="?the_page=hsel&the_left=nav1"><span>home</span></a></li>
       <li class="profile_link <?php echo $psel;?>"><a title="Profile" href="?the_page=psel&the_left=nav1"><span>profile</span></a></li>
       <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&the_tier=1"><span>community</span></a></li>
