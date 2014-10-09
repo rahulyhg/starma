@@ -14,7 +14,10 @@ $(document).ready(function(){
 
 	$('.pop_guest_click').click(function(event){
 		event.preventDefault();
-		$('.pop_guest').slideFadeToggle();
+		$('.pop_guest').slideFadeToggle(function(){
+			$('#sign_up_box').show();
+			$('#create_account').hide();
+		});
 		//return false;
 	});
 
