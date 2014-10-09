@@ -98,12 +98,18 @@ $('#zip').on('keyup blur', function(){
 	$('#gl_gender_error').mouseleave(function(){
 		$('#gl_err_gender_exp').hide();
 	});
+	$('#gl_gender_error').click(function(){
+		$('#gl_err_gender_exp').toggle();
+	});
 
 	$('#gl_cid_error').mouseenter(function(){
 		$('#gl_err_cid_exp').show();
 	});
 	$('#gl_cid_error').mouseleave(function(){
 		$('#gl_err_cid_exp').hide();
+	});
+	$('#gl_cid_error').click(function(){
+		$('#gl_err_cid_exp').toggle();
 	});
 
 	$('#gl_city_error').mouseenter(function(){
@@ -112,12 +118,18 @@ $('#zip').on('keyup blur', function(){
 	$('#gl_city_error').mouseleave(function(){
 		$('#gl_err_city_exp').hide();
 	});
+	$('#gl_city_error').click(function(){
+		$('#gl_err_city_exp').toggle();
+	});
 
 	$('#gl_zip_error').mouseenter(function(){
 		$('#gl_err_zip_exp').show();
 	});
 	$('#gl_zip_error').mouseleave(function(){
 		$('#gl_err_zip_exp').hide();
+	});
+	$('#gl_zip_error').click(function(){
+		$('#gl_err_zip_exp').toggle();
 	});
 
 

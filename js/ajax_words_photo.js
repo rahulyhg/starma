@@ -24,11 +24,17 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 	$('#w_1_error').mouseleave(function(){
 		$('#w_1_err_exp').hide();
 	});
+	$('#w_1_error').click(function(){
+		$('#w_1_err_exp').toggle();
+	});
 	$('#w_2_error').mouseenter(function(){
 		$('#w_2_err_exp').show();
 	});
 	$('#w_2_error').mouseleave(function(){
 		$('#w_2_err_exp').hide();
+	});
+	$('#w_2_error').click(function(){
+		$('#w_2_err_exp').toggle();
 	});
 	$('#w_3_error').mouseenter(function(){
 		$('#w_3_err_exp').show();
@@ -36,11 +42,17 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 	$('#w_3_error').mouseleave(function(){
 		$('#w_3_err_exp').hide();
 	});
+	$('#w_3_error').click(function(){
+		$('#w_3_err_exp').toggle();
+	});
 	$('#p_error').mouseenter(function(){
 		$('#p_err_exp').show();
 	});
 	$('#p_error').mouseleave(function(){
 		$('#p_err_exp').hide();
+	});
+	$('#p_error').click(function(){
+		$('#p_err_exp').toggle();
 	});
 
 
