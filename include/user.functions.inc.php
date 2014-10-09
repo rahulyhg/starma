@@ -520,15 +520,15 @@ function descriptors_loaded ($user_id) {
 
 function get_my_descriptors () {
   
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = "SELECT * from user_descriptor where user_id = " . $_SESSION["user_id"];
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function get_descriptors ($user_id) {
@@ -545,7 +545,7 @@ function get_descriptors ($user_id) {
 }
 
 function update_descriptors ($descriptors) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $words = get_my_descriptors ();
     $counter = 0;
     while ($word = mysql_fetch_array($words)) {
@@ -561,10 +561,10 @@ function update_descriptors ($descriptors) {
       $counter = $counter+1; 
     }
     return true;
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function update_my_single_descriptor ($user_des_id, $value) {
@@ -810,11 +810,11 @@ function update_my_extended_location($state_id, $country_id) {
   }
 }
 
-function update_my_profile_info($first_name, $last_name, $gender, $location) {
+function update_my_profile_info($gender, $location) {
   if (isLoggedIn()) {
     
-    $q = sprintf("update user set first_name = '%s', last_name = '%s', gender = '%s', location = '%s' where user_id = %d",
-        mysql_real_escape_string($first_name), mysql_real_escape_string($last_name), mysql_real_escape_string($gender), mysql_real_escape_string($location), $_SESSION["user_id"]);
+    $q = sprintf("update user set gender = '%s', location = '%s' where user_id = %d",
+        mysql_real_escape_string($gender), mysql_real_escape_string($location), $_SESSION["user_id"]);
     $result = mysql_query($q) or die(mysql_error());
     return true;
      
@@ -2005,10 +2005,10 @@ function activateUser($uid, $actcode)
 }
 //MATT ADDED FOR CLEANER AJAX SIGN UP
 
-function register_new_user ($nickname, $password, $password2, $email, $email2, $year, $month, $day) {
+function register_new_user ($nickname, $password, $password2, $email, $year, $month, $day) {
   global $seed;
 
-  $errors = validate_registration($nickname, $password, $password2, $email, $email2, $year, $month, $day);
+  $errors = validate_registration($nickname, $password, $password2, $email, $year, $month, $day);
 
   if(sizeof($errors) > 1 ) {
     return $errors;
@@ -2175,18 +2175,18 @@ function lostPassword($email)
     //}
 
     if (!email_there($email)) {
-       return false;
+       return 'wrong_email';
     }
     
     $query = sprintf("select user_id from user where email = '%s' limit 1",
-        mysql_real_escape_string($email),mysql_real_escape_string($nickname));
+        mysql_real_escape_string($email));
  
     $result = mysql_query($query);
  
     if (mysql_num_rows($result) != 1)
     {
  
-        return false;
+        return 'user_not_there';
     }
     
  
@@ -2200,18 +2200,18 @@ function lostPassword($email)
  
             if (sendLostPasswordEmail($email, $newpass))
         {
-            return true;
+            return 'success';
         } else
         {
-            return false;
+            return 'sending_error';
         }      
  
     } else
     {
-        return false;
+        return 'update_error';
     }
  
-    return false;
+    //return false;
  
 }
 

@@ -17,7 +17,7 @@ if(isLoggedIn()) {
 		}
 	}
 	else {
-		$data['success'] = false;
+		//$data['success'] = false;
 		$errors['first_name'] = 'Your first name is required';
 	}
 
@@ -32,7 +32,7 @@ if(isLoggedIn()) {
 		}
 	}
 	else {
-		$data['success'] = false;
+		//$data['success'] = false;
 		$errors['last_name'] = 'Your last name is required';
 	}
 
@@ -47,7 +47,7 @@ if(isLoggedIn()) {
 		}
 	}
 	else {
-		$data['success'] = false;
+		//$data['success'] = false;
 		$errors['their_name'] = 'Their name is required';
 	}
 
@@ -62,7 +62,7 @@ if(isLoggedIn()) {
 		}
 	}
 	else {
-		$data['success'] = false;
+		//$data['success'] = false;
 		$errors['email'] = 'Their email is required';
 	}
 
@@ -85,7 +85,7 @@ if(isLoggedIn()) {
 	}
 
 	if(!empty($errors)) {
-		$data['success'] = false;
+		//$data['success'] = false;
 		$data['errors'] = $errors;
 	}
 	else {

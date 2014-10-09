@@ -51,8 +51,12 @@ if (login_check_point($type="full")) {
       }
 
        //TEST FOR ADDING text_type to compare_button <span class="compare_button_title">Compare</span>
+<<<<<<< HEAD
   echo '<div class="profile_button compare_button">';
 
+=======
+    echo '<div class="profile_button compare_button">';
+>>>>>>> Public-Front-End-3.0
       echo '<div id="compare_menu"><a href="">Compare</a>';
         echo '<div class="dropdown">';
           echo '<ul>';
@@ -61,7 +65,8 @@ if (login_check_point($type="full")) {
           echo '</ul>';
         echo '</div>';
       echo '</div>';
-
+    echo '</div>'; //Close compare_button
+        
         /*
         echo  '<select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
                 <option value="">Compare</option>
@@ -69,7 +74,7 @@ if (login_check_point($type="full")) {
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Friends</option>
               </select>';
         */
-  echo '</div>';
+  
 
       if (!$isCeleb) {
         echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)">Chat</a></div>';
@@ -126,15 +131,15 @@ if (login_check_point($type="full")) {
         echo '<input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>';
       }  
          
-    echo '</div>';
-    
+    echo '</div>'; //Close add/remove favs button
+//echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
   }
   else {
     echo "You are not authorized to view this profile.";
   }
 
   //Report User
-  
+ //echo '</div><!--MYSTERY-->';  //MYSTERIOUS FIX FOR FOOTER... 
   if(!$isCeleb) {
     echo '<div class="profile_button report_button"><a href="#" id="report_pop">Report User</a></div>';
         echo '<div id="msg_sheen" class="pop_report">';
@@ -149,8 +154,8 @@ if (login_check_point($type="full")) {
                           <div class="report_text">You are about to report ' . get_nickname($other_user_id) . ' for violating our <a href="docs/termsOfUse.htm" target="_blank">Terms of Use</a>.  <strong>All reports are strictly confidential.</strong><br/><br/></div>
                           <label for="additional_comments" id="comments_label"><strong>Additional Comments</strong> (not required)</label><br/>
                           <textarea maxlength="500" name="additional_comments" id="additional_comments"></textarea><br/>
-                          <input type="submit" name="submit" value="Send" class="report_send"/>
-                          <button type="button" name="cancel" class="report_cancel">Cancel</button>
+                          <input type="submit" name="submit" value="Send" class="report_send"/> 
+                          <button type="button" name="cancel" class="report_cancel">Cancel</button>                        
                           <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
                           <input type="hidden" value=' . get_my_user_id() . ' name="my_user_id"/>                       
                         </form>';
@@ -161,8 +166,10 @@ if (login_check_point($type="full")) {
               echo '</div>';
   }
   
+echo '</div><!--MYSTERY-->';  //MYSTERIOUS FIX FOR FOOTER...
 
   echo '</div>';  //close profile_top_bar
+  //echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
   if($isCeleb) {
     echo '<div style="clear:both;"></div>';
   }
@@ -183,6 +190,7 @@ if (login_check_point($type="full")) {
             }
           echo '</ul>
         </div>';
+  //echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
 
       echo '<div id="profile_sections">';
       
@@ -212,11 +220,11 @@ if (login_check_point($type="full")) {
           }
         echo '</div>';
       echo '</div>';
- 
+
       //echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare</a></div>';     
 
      
-  
+  //echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
    echo "<script type='text/javascript' src='js/ajax_msg_send_from_popup.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_add_favs.js'></script>";
@@ -224,19 +232,3 @@ if (login_check_point($type="full")) {
 
 }
 ?> 
-
-<div id="img_preloader">
-
-  
-
-  <img src="/img/profile/Starma-Astrology-Compare.png"/>
-  <img src="/img/profile/Starma-Astrology-CompareON.png"/>
-  <img src="/img/profile/Starma-Astrology-Message.png"/>
-  <img src="/img/profile/Starma-Astrology-MessageON.png"/>
-  <img src="/img/profile/Starma-Astrology-Chat.png"/>
-  <img src="/img/profile/Starma-Astrology-ChatON.png"/>
-
-  <img src="/img/profile/Starma-Astrology-Favorites.png"/>
-  <img src="/img/profile/Starma-Astrology-FavoritesON.png"/>
-
-</div>

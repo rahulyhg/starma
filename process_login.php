@@ -22,16 +22,19 @@ if (!isLoggedIn())
             else if (!sign_up_process_done()) {
               if (get_my_location() == "") {
                 
-                require ("gender_location_first_time.php");
+                //require ("gender_location_first_time.php");
+                do_redirect( $url = get_domain() . '/sign_up.php?1');
               }
               else if (!my_descriptors_loaded() or !get_my_main_photo()) {
                 
-                require ("desc_photo_first_time.php");
+                //require ("desc_photo_first_time.php");
+                do_redirect( $url = get_domain() . '/sign_up.php?2');
               
               }
               else if (!get_my_chart()) {
                 
-                require ("birth_info_first_time.php");
+                //require ("birth_info_first_time.php");
+                do_redirect( $url = get_domain() . '/sign_up.php?3');
               
               }
             }
@@ -58,17 +61,20 @@ if (!isLoggedIn())
             else if (!sign_up_process_done()) {
               if (get_my_location() == "") {
                 //show_gender_location_form(); 
-                require ("gender_location_first_time.php");
+                //require ("gender_location_first_time.php");
+                do_redirect( $url = get_domain() . '/sign_up.php?1');
               }
               else if (!my_descriptors_loaded() or !get_my_main_photo()) {
                 
-                require ("desc_photo_first_time.php");
-              
+                //require ("desc_photo_first_time.php");
+                do_redirect( $url = get_domain() . '/sign_up.php?2');
+
               }
               else if (!get_my_chart()) {
                 //show_birth_info_form(); 
-                require ("birth_info_first_time.php");
-              
+                //require ("birth_info_first_time.php");
+                do_redirect( $url = get_domain() . '/sign_up.php?3');
+
               }
             }
             else {

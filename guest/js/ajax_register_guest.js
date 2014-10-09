@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 	var timer_username;
 	var timer_email;
-	var timer_email2;
+	//var timer_email2;
 	var timer_password;
 
 	$('#register_submit').css({
@@ -15,16 +15,36 @@ $(document).ready(function(){
 												'cursor'  : 'default'
 												});
 
-/*
-	$('#register_submit').click(function(event){
-		if ($('#register_submit').prop('disabled', true)) {
-			event.preventDefault();
-			//$('.register_error').addClass('error_submitted', 500);
-			alert('please fill out the form');
-		}
+//--------------------SHOWING ERROR EXP
+	$('#reg_username_error').mouseenter(function(){
+		$('#reg_err_username_exp_g').show();
 	});
-	*/
+	$('#reg_username_error').mouseleave(function(){
+		$('#reg_err_username_exp_g').hide();
+	});
+	$('#reg_birthday_error').mouseenter(function(){
+		$('#reg_err_birthday_exp_g').show();
+	});
+	$('#reg_birthday_error').mouseleave(function(){
+		$('#reg_err_birthday_exp_g').hide();
+	});
+	$('#reg_email_error').mouseenter(function(){
+		$('#reg_err_email_exp_g').show();
+	});
+	$('#reg_email_error').mouseleave(function(){
+		$('#reg_err_email_exp_g').hide();
+	});
+	$('#reg_password_error').mouseenter(function(){
+		$('#reg_err_password_exp_g').show();
+	});
+	$('#reg_password_error').mouseleave(function(){
+		$('#reg_err_password_exp_g').hide();
+	});
 
+
+
+
+//-------------------------QUICK CHECKS OF FIELDS ON BLUR AND KEYUP 
 	//Username
 	$('#register_username').on('keyup blur', function(){
 		var name = $('#reg_username_error');
@@ -38,17 +58,19 @@ $(document).ready(function(){
 
 			$.post('../chat/register_form_fields.php', username, function(data){
 				if(data.errors) {	
-					$('#reg_username_error').show().addClass('register_error').removeClass('check').text(data.message);
+					$('#reg_username_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#register_username').css('border', '1px solid #C82923');
 					$('#register_submit').css({
 												'opacity' : 0.5,
 												'cursor'  : 'default'
 												});
-					$('#register_username').addClass('red_border');
+					$('#reg_err_username_exp_g').text(data.message);
 				}
 				if(data.success) {
 					$('#reg_username_error').show().removeClass('register_error').addClass('check').text('');
-					$('#register_username').removeClass('red_border');
-					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+					$('#register_username').css('border', '1px solid black');
+					$('#reg_username_check').show().text(data.message);
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
 						//if ($('input[name=agreement]').is(':checked')) {
 							$('#register_submit').css({
 																'opacity' : 1,
@@ -58,7 +80,7 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 800);
+		}, 2000);
 	});
 
 	//Birthday
@@ -77,15 +99,19 @@ $(document).ready(function(){
 
 			$.post('../chat/register_form_fields.php', birthday, function(data){
 				if(data.errors) {	
-					$('#reg_birthday_error').show().addClass('register_error').removeClass('check').text(data.message);
+					$('#reg_birthday_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#year').css('border', '1px solid #C82923');
 					$('#register_submit').css({
 												'opacity' : 0.5,
 												'cursor'  : 'default'
 												});
+					$('#reg_err_birthday_exp_g').text(data.message);
 				}
 				if(data.success) {
 					$('#reg_birthday_error').show().removeClass('register_error').addClass('check').text('');
-					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+					$('#year').css('border', '1px solid black');
+					$('#reg_birthday_check').show().text(data.message);
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
 						//if ($('input[name=agreement]').is(':checked')) {
 							$('#register_submit').css({
 																'opacity' : 1,
@@ -113,18 +139,22 @@ $(document).ready(function(){
 
 			$.post('../chat/register_form_fields.php', email, function(data){
 				if(data.errors) {	
-					$('#reg_email_error').show().addClass('register_error').removeClass('check').text(data.message);
+					$('#reg_email_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#register_email').css('border', '1px solid #C82923');
 					$('#register_submit').css({
 												'opacity' : 0.5,
 												'cursor'  : 'default'
 												});
+					$('#reg_err_email_exp_g').text(data.message);
 				}
 				if(data.success) {
 					$('#reg_email_error').show().removeClass('register_error').addClass('check').text('');
-					if(email_error1.hasClass('check') && (email1 == email2)) { 
-						$('#reg_email2_error').show().removeClass('register_error').addClass('check').text('');
-					}
-					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+					$('#register_email').css('border', '1px solid black');
+					$('#reg_email_check').show().text(data.message);
+					//if(email_error1.hasClass('check') && (email1 == email2)) { 
+					//	$('#reg_email2_error').show().removeClass('register_error').addClass('check').text('');
+					//}
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
 						//if ($('input[name=agreement]').is(':checked')) {
 							$('#register_submit').css({
 																'opacity' : 1,
@@ -134,9 +164,10 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 800);
+		}, 2000);
 	});
 
+/*
 	//Email2
 	$('#register_email2').on('keyup blur focus', function(){
 		var name = $('#reg_username_error');
@@ -177,6 +208,8 @@ $(document).ready(function(){
 		}, 1200);
 	});
 
+*/
+
 	//Password
 	$('#register_password').on('keyup blur', function(){
 		var name = $('#reg_username_error');
@@ -190,15 +223,19 @@ $(document).ready(function(){
 			$.post('../chat/register_form_fields.php', password, function(data){
 				//$('#password_error').show().addClass('register_error').removeClass('check').text(data);
 				if(data.errors) {	
-					$('#reg_password_error').show().addClass('register_error').removeClass('check').text(data.message);
+					$('#reg_password_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#register_password').css('border', '1px solid #C82923');
 					$('#register_submit').css({
 												'opacity' : 0.5,
 												'cursor'  : 'default'
 												});
+					$('#reg_err_password_exp_g').text(data.message);
 				}
 				if(data.success) {
 					$('#reg_password_error').show().removeClass('register_error').addClass('check').text('');
-					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && email_error2.hasClass('check') && pass.hasClass('check')) {
+					$('#register_password').css('border', '1px solid black');
+					$('#reg_password_check').show().text(data.message);
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
 						//if ($('input[name=agreement]').is(':checked')) {
 							$('#register_submit').css({
 																'opacity' : 1,
@@ -208,7 +245,7 @@ $(document).ready(function(){
 					}
 				}
 			}, 'json');
-		}, 800);
+		}, 2000);
 
 	});
 
@@ -222,7 +259,6 @@ $(document).ready(function(){
 			'month_birthday'  :  $('#month').val(),
 			'day_birthday'    :  $('#day').val(),
 			'email'           :  $('#register_email').val(),
-			'email2'          :  $('#register_email2').val(),
 			'password'        :  $('#register_password').val(),
 		};
 
@@ -237,34 +273,52 @@ $(document).ready(function(){
 			
 			if (data.errors) {
 				if (data.errors.username) {
-					$('#reg_username_error').show().addClass('register_error').removeClass('check').text(data.errors.username);
+					$('#reg_username_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#reg_err_username_exp_g').text(data.errors.username);
+					$('#register_username').css('border', '1px solid #C82923');
 				}
 				if (data.errors.strtotime) {
-					$('#reg_birthday_error').show().addClass('register_error').removeClass('check').text(data.errors.strtotime);
+					$('#reg_birthday_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#reg_err_birthday_exp_g').text(data.errors.strtotime);
+					$('#year').css('border', '1px solid #C82923');
 				}
 				if (data.errors.underage) {
-					$('#reg_birthday_error').show().addClass('register_error').removeClass('check').text(data.errors.underage);
+					$('#reg_birthday_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#reg_err_birthday_exp_g').text(data.errors.underage);
+					$('#year').css('border', '1px solid #C82923');
 				}
-				if (data.errors.email_match) {
-					$('#reg_email2_error').show().addClass('register_error').removeClass('check').text(data.errors.email_match);
-				}
+				//if (data.errors.email_match) {
+				//	$('#reg_email2_error').show().addClass('register_error').removeClass('check').text(data.errors.email_match);
+				//}
 				if (data.errors.email_valid) {
-					$('#reg_email_error').show().addClass('register_error').removeClass('check').text(data.errors.email_valid);
+					$('#reg_email_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#reg_err_email_exp_g').text(data.errors.email_valid);
+					$('#register_email').css('border', '1px solid #C82923');
 				}
 				if (data.errors.email_empty) {
-					$('#reg_email_error').show().addClass('register_error').removeClass('check').text(data.errors.email_empty);
+					$('#reg_email_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#reg_err_email_exp_g').text(data.errors.email_empty);
+					$('#register_email').css('border', '1px solid #C82923');
 				}
 				if(data.errors.pass_empty) {
-					$('#reg_password_error').show().addClass('register_error').removeClass('check').text(data.errors.pass_empty);
+					$('#reg_password_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#reg_err_password_exp_g').text(data.errors.pass_empty);
+					$('#register_password').css('border', '1px solid #C82923');
 				}
 				if(data.errors.pass_short) {
-					$('#reg_password_error').show().addClass('register_error').removeClass('check').text(data.errors.pass_short);
+					$('#reg_password_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#reg_err_password_exp_g').text(data.errors.pass_short);
+					$('#register_password').css('border', '1px solid #C82923');
 				}
 				if(data.errors.pass_long) {
-					$('#reg_password_error').show().addClass('register_error').removeClass('check').text(data.errors.pass_long);
+					$('#reg_password_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#reg_err_password_exp_g').text(data.errors.pass_long);
+					$('#register_password').css('border', '1px solid #C82923');
 				}
 				if(data.errors.characters) {
-					$('#reg_password_error').show().addClass('register_error').removeClass('check').text(data.errors.characters);
+					$('#reg_password_error').show().addClass('register_error').removeClass('check').text('?');
+					$('#reg_err_password_exp_g').text(data.errors.characters);
+					$('#register_password').css('border', '1px solid #C82923');
 				}
 			}
 			if (data.failed) {
@@ -280,10 +334,10 @@ $(document).ready(function(){
 					alert(data.failed.strtotime);
 					//$('#reg_birthday_error').show().addClass('register_error').removeClass('check').text(data.failed.strtotime);
 				}
-				if (data.failed.email2) {
-					alert(data.failed.email2);
+				//if (data.failed.email2) {
+				//	alert(data.failed.email2);
 					//$('#reg_email2_error').show().addClass('register_error').removeClass('check').text(data.failed.email2);
-				}
+				//}
 				if (data.failed.email) {
 					alert(data.failed.email);
 					//$('#reg_email_error').show().addClass('register_error').removeClass('check').text(data.failed.email);

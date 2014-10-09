@@ -50,8 +50,8 @@ function get_house_list () {
 }
 
 
-function get_sign_in_house_id ($house_id) {
-  $chart_id = get_my_chart_id();
+function get_sign_in_house_id ($chart_id, $house_id) {
+  //$chart_id = get_my_chart_id();
   $q = 'SELECT sign_id from chart_x_house WHERE chart_id = ' . $chart_id . ' and house_id = ' . $house_id;
   $do_q = mysql_query($q) or die(mysql_error());
   if ($results = mysql_fetch_array($do_q)) {
@@ -77,6 +77,26 @@ function get_ruler_of_sign ($sign_id) {
   }
 }
 
+/*
+function get_lord_of_the_11th_in_the ($chart_id) {
+  $ROS = get_ruler_of_sign(get_sign_in_house_id($chart_id, 11));
+    return $ROS['ruling_poi_id'];
+    
+    if($ROS) {
+      $poi_in_sign = get_sign_from_poi($chart_id, $ROS['ruling_poi_id']);
+      if ($poi_in_sign) {
+
+      }
+      else {
+        return 'failed to get poi_in_sign';
+      }
+    }
+    else {
+      return 'failed to get ROS';
+    }
+    
+}
+*/
 
 //MATT OLD WAY FOR ORIGINAL DESIGN
 // get_chart_x_house_id exists in ephemeris functions

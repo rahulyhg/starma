@@ -27,7 +27,15 @@ $(document).ready(function(){
 			event.preventDefault();
 			$('.gender_validation').show().text('Please select a gender').css('color','red');
 		}
-	})
+		if($('#birth_place_input_bar').val() == '') {
+			event.preventDefault();
+			$('.birth_place_validation').show().text('Enter birth place').css('color','red');
+		}
+	});
+
+	$('#birth_place_input_bar').keyup(function() {
+		$('.birth_place_validation').show().text('');
+	});
 
 	$('input[name=time_unknown]').click(function(){
 		if ($('input[name=time_unknown]').is(':checked')) {	

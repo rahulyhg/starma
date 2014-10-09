@@ -4,6 +4,8 @@
 <div class="help_text">
     <span style="font-size:2em">Finding My Time of Birth</span>
     <br><br>
+    Below are instructions on how to find your time of birth.  If you'd like skip this step for now, close this window, click the "Done" button and we'll remind you later.
+    <br><br>
     The first place to check is your “long form” birth certificate.  The “short form” does not include your birth time.  If you don’t have your long form birth certificate, there is a good chance one of your parents or a legal guardian does!  Ask your mother, father, or legal guardian and see if they have a record of your birth time.  If they don’t have it, ask them if they recorded your birth time in a baby book, family bible, or journal.  
     <br><br>
     We highly recommend that you DON’T guess.  If your parents or legal guardians are “pretty sure” you were born “around 6am”, please be sure to find out how far off they might be.  Once you have a good idea of how accurate or inaccurate the estimate might be, please use our “Accuracy of Time” function so that we can determine how much your astrological birth chart may have changed during the window of time you provide to us.  This way we can provide you with as many accurate astrological placements as possible.

@@ -7,7 +7,7 @@ require_once("ajax_header.php");
 	$day = $_POST['day_birthday'];
 	$birthday = $year . "-" . $month . "-" . $day;  
 	$email = $_POST['email'];
-	$email2 = $_POST['email2'];
+	//$email2 = $_POST['email2'];
 	$password = $_POST['password'];
 	//$agreement = $_POST['agreement'];
 	$valid_username = valid_nickname($username);
@@ -30,9 +30,9 @@ require_once("ajax_header.php");
 	if ((int)(calculate_age(substr((string)$birthday, 0, 10))) < 18) {
 		$errors['underage'] = 'You must be at least 18 to join Starma.com';
 	}
-	if ($email != $email2) {
-		$errors['email_match'] = 'Your emails need to match to continue';
-	}
+	//if ($email != $email2) {
+	//	$errors['email_match'] = 'Your emails need to match to continue';
+	//}
 	if (!valid_email($email)) {
 		$errors['email_valid'] = 'Please enter a valid email';
 	}
@@ -58,7 +58,8 @@ require_once("ajax_header.php");
 		echo json_encode($data);
 	}
 	else {
-		$output = register_new_user($username, $password, $password, $email, $email2, $year, $month, $day);
+		
+		$output = register_new_user($username, $password, $password, $email, $year, $month, $day);
 		//$output = validate_registration($username, $password, $password, $email, $email2, $year, $month, $day);
 		if (sizeof($output) <= 1)  {
 			
@@ -74,13 +75,14 @@ require_once("ajax_header.php");
           	//print_r ($user); 
           	//die();
           	loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id']);
-          	//do_redirect( $url = get_domain() . '/' . get_landing());
+          	//do_redirect( $url = get_domain_sign_up(1);
           	//echo "Thank you for registering with Starma.com!  We have sent you an email with a verification link.  Please follow this link to activate your account.";        
           	
           	$data['success'] = true;
-          	$data['url'] = get_landing();
+          	$data['url'] = 'sign_up.php?1';
           	echo json_encode($data);
     	}
+    	
     	else {
         	//print_r ($output);
         	//echo $_POST["year_birthday"] . '-' . $_POST["month_birthday"] . '-' . $_POST["day_birthday"];
@@ -88,6 +90,8 @@ require_once("ajax_header.php");
 			$data['failed'] = $output;
 			echo json_encode($data); 
     	}
+    	
+
     	
 	}
 	

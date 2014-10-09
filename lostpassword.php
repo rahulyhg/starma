@@ -9,7 +9,7 @@ if (isset($_POST['lostpass'])){
 
         
  
-	if (lostPassword($_POST['email'])){
+	if (lostPassword($_POST['fp_email'])){
  
 		echo "Your password has been reset, an email containing your new password has been sent to your inbox.<br />
 		<a href='./index.php'>Click here to return to the homepage.</a>

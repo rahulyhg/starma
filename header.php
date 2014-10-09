@@ -30,6 +30,7 @@ date_default_timezone_set('America/Chicago');
 <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  <!-- Matt updated jquery -->
 <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script> 
+<script src="/js/jQuery.1.11.1.js" type="text/javascript"></script>
 
 <?php 
   if (isAdmin()) {
@@ -41,6 +42,7 @@ date_default_timezone_set('America/Chicago');
     echo '<LINK REL="StyleSheet" HREF="../css/main.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/photos.css" TYPE="text/css"/>';
     echo '<LINK REL="StyleSheet" HREF="../css/crop.css" TYPE="text/css"/>';
+    echo '<LINK REL="StyleSheet" HREF="../css/sign_up.css" TYPE="text/css"/>';
     //echo '<LINK REL="StyleSheet" HREF="../autoSuggest/autoSuggest.css" TYPE="text/css"/>';
     echo '<link rel="stylesheet" type="text/css" href="../imgSelectArea/css/imgareaselect-default.css" />';
     echo '
@@ -54,6 +56,7 @@ date_default_timezone_set('America/Chicago');
     ';
     echo "<script type='text/javascript' src='js/ajax_invite_new_user.js'></script>";
     echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
+
   }
   //Removed autoSuggest.css to restyle New Message area
   else {
@@ -67,6 +70,7 @@ date_default_timezone_set('America/Chicago');
       <LINK REL="StyleSheet" HREF="css/chat.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="css/crop.css" TYPE="text/css"/>
       <link rel="stylesheet" type="text/css" href="imgSelectArea/css/imgareaselect-default.css" />
+      <LINK REL="StyleSheet" HREF="../css/sign_up.css" TYPE="text/css"/>
       
       <script type="text/javascript" src="/autoSuggest/jquery.autoSuggest.js"></script>
       <script type="text/javascript" src="imgSelectArea/scripts/jquery.imgareaselect.pack.js"></script>

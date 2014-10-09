@@ -102,6 +102,29 @@
 
 }
 
+#chart_scroll {
+  position: relative;
+  margin-top: -12px;
+  margin-bottom: 8px;
+}
+
+#chart_scroll_container {
+  margin: auto;
+  width: 144px;
+}
+
+#chart_prev {
+  display: none;
+  position: relative;
+  cursor: pointer;
+}
+
+#chart_next {
+  position: relative;
+  left: 44px;
+  cursor: pointer;
+}
+
 
 
 /*//////////////// SIGN ICONS ///////////////////////////////////////////*/
@@ -324,7 +347,7 @@ div.my_7_button a {
 }
 
 div.my_6_button a {
-  background:url('/img/Starma-Astrology-Compatibility-Disappointments.png') no-repeat center top;
+  background:url('/img/Starma-Astrology-Compatibility-Differences-Big.png') no-repeat center top;
   cursor: default;
 }
 
@@ -339,7 +362,7 @@ div.my_4_button a {
 }
 
 div.my_3_button a {
-  background:url('/img/Starma-Astrology-Compatibility-Great-Admirers.png') no-repeat center top;
+  background:url('/img/Starma-Astrology-Compatibility-Great-Admirers-Big.png') no-repeat center top;
   cursor: default;
 }
 

@@ -83,6 +83,31 @@ if ($the_left=="nav1") {
     
 <body id="bg_stars">
 
+  <!--pop_guest_click-->
+    <div id="msg_sheen" class="pop_guest">
+      <div id="msg_sheen_screen" class="pop_guest pop_reg"></div>
+        <div id="msg_sheen_content_guest" class="pop_guest">
+          <?php               
+            show_sign_up_box_guest();
+            show_registration_box_guest();
+          ?>  
+        </div> <!--close msg_sheen_content_guest-->
+    </div> <!--close msg_sheen-->    
+    <!--end pop_guest_click-->
+
+
+    <!--pop_guest_login-->
+    <div id="msg_sheen" class="pop_login">   
+      <div id="msg_sheen_screen" class="pop_login pop_log"></div>
+        <div id="msg_sheen_content_guest" class="pop_login">
+          <?php               
+            show_login_box_guest();
+            show_forgot_password_box();
+          ?>  
+        </div> <!--close msg_sheen_content_guest-->
+    </div> <!--close msg_sheen-->
+    <!--end pop_guest_click-->
+
 <div id="img_preloader">
 
   
@@ -136,40 +161,58 @@ if ($the_left=="nav1") {
   <img src="/img/Starma-Astrology-ProfileBoxH.png"/>
   <img src="/img/Starma-Astrology-ChartBoxH.png"/>
   <img src="/img/Starma-Astrology-CompareBoxH.png"/>   
+
+  
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Aries-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Taurus-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Gemini-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Cancer-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Leo-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Virgo-Tall-ON.png"/>
+
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Libra-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Scorpio-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Sagittarius-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Capricorn-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Aquarius-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Pisces-Tall-ON.png"/>
+
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-ON.png"/>  
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-OFF.png"/> 
+
+  <img src="/img/Starma-Astrology-Pillar.png"/> 
+  <img src="/img/Starma-Astrology-Pillar-Arrow.png"/> 
+  <img src="/img/Starma-Astrology-Pillar-Broken.png"/> 
+  <img src="/img/Starma-Astrology-Pillar-Broken-Arrow.png"/> 
+  <img src="/img/Starma-Astrology-Pillars-Top.png"/> 
+  <img src="/img/Starma-Astrology-Pillars-Base.png"/> 
+
+  <img src="/img/Starma-Astrology-Compare-ButtonON.png"/> 
+  <img src="/img/Starma-Astrology-Compare-InviteON.png"/> 
+
+  <img src="/img/Starma-Astrology-Report-UserON.png"/> 
+
+  <img src="/img/profile/Starma-Astrology-Compare.png"/>
+  <img src="/img/profile/Starma-Astrology-CompareON.png"/>
+  <img src="/img/profile/Starma-Astrology-Message.png"/>
+  <img src="/img/profile/Starma-Astrology-MessageON.png"/>
+  <img src="/img/profile/Starma-Astrology-Chat.png"/>
+  <img src="/img/profile/Starma-Astrology-ChatON.png"/>
+
+  <img src="/img/profile/Starma-Astrology-Favorites.png"/>
+  <img src="/img/profile/Starma-Astrology-FavoritesON.png"/>
+
+  <img src="/img/goBug.png"/>
+  <img src="/img/goBugON.png"/>
    
 </div>
 
 
 <div id="frame">
 
-<!--pop_guest_click-->
-    <div id="msg_sheen" class="pop_guest">
-      <div id="msg_sheen_screen" class="pop_guest pop_reg"></div>
-        <div id="msg_sheen_content_guest" class="pop_guest">
-          <?php               
-            show_sign_up_box_guest();
-            show_registration_box_guest();
-          ?>  
-        </div> <!--close msg_sheen_content_guest-->
-    </div> <!--close msg_sheen-->    
-    <!--end pop_guest_click-->
-
-
-    <!--pop_guest_login-->
-    <div id="msg_sheen" class="pop_login">   
-      <div id="msg_sheen_screen" class="pop_login pop_log"></div>
-        <div id="msg_sheen_content_guest" class="pop_login">
-          <?php               
-            show_login_box_guest();
-          ?>  
-        </div> <!--close msg_sheen_content_guest-->
-    </div> <!--close msg_sheen-->
-    <!--end pop_guest_click-->
-
-
   <div id="topnav">
     <ul>
-      <li class="logo"><a href="?the_page=hsel&the_left=nav1"></a></li>
+      <li class="logo"><a href="../landing.php"></a></li>
       <li class="home_link <?php echo $hsel;?>"><a title="Home" href="?the_page=hsel&the_left=nav1"><span>home</span></a></li>
       <li class="profile_link <?php echo $psel;?>"><a title="Profile" href="?the_page=psel&the_left=nav1"><span>profile</span></a></li>
       <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&the_tier=1"><span>community</span></a></li>

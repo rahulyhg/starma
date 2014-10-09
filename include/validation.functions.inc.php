@@ -96,10 +96,14 @@ function valid_photo($photo_id, $user_id) {
   return mysql_num_rows($result) >= 1;
 }
 
+
 function get_email_domain() {
   return 'starma.com';
 }
 
+function get_domain_sign_up ($n) {
+  return 'starma.com/sign_up.php?' . $n;
+}
 
 function get_domain () {
   return 'starma.com';
@@ -149,6 +153,10 @@ function get_domain () {
   //return '192.168.1.141:8080';
 }
 
+function get_domain_sign_up () {
+  return '127.0.0.1:8080/sign_up.php';
+}
+
 function get_landing () {
   return 'landing.php';
 }
@@ -167,7 +175,7 @@ function do_redirect ($url) {
 
 
 //UPDATED BY MATT FOR AJAX CLEAN SIGN UP
-function validate_registration ($nickname, $password, $password2, $email, $email2, $year, $month, $day) {
+function validate_registration ($nickname, $password, $password2, $email, $year, $month, $day) {
     $errors = array();
     
     //the first entry in the error array is reserved for a returned ID of a successful registration
@@ -192,10 +200,10 @@ function validate_registration ($nickname, $password, $password2, $email, $email
       $errors['email'] = 'Please enter a valid email';
     }
 
-    if ($email != $email2) {
+    //if ($email != $email2) {
       //$errors[] = EMAIL_NO_MATCH_ERROR();
-      $errors['email2'] = 'Emails must match';
-    }
+      //$errors['email2'] = 'Emails must match';
+    //}
 
     if (user_exists($email, $nickname)) {
       //$errors[] = USER_EXISTS_ERROR();
@@ -269,6 +277,73 @@ function login_check_point($type="partial") {
     return true;
   }
   
+}
+
+function parse_location_string ($country_id, $zip, $city) {
+
+  $errors = array();
+  //$errors[] = 0;
+  //if ($from == 'gl') {
+    if ($country_id == 0) {
+      $errors['country_id'] = true;
+      //$errors['country_id'] = 'Please select a country';
+      return $errors;
+    }
+    else {
+      if ($country_id == 236) {
+        if ($zip == '') {
+          //$errors['zip'] = 'Please enter a zip code';
+          //$location_string = '';
+          $errors['zip'] = true;
+          return $errors;
+        }
+        elseif (!preg_match('%\d{5}%', $zip)) {
+          //$errors['zip'] = 'Please enter a zip code';
+          $location_string = '';
+          $errors['zip'] = true;
+          return $errors;
+        }
+        else {
+          $location_string = $zip . ' US';
+          $type='postalCodeSearch?placename';
+        }
+      }
+      else {
+        if ($city == '') {
+          //$errors['city'] = 'Please enter a city';
+          $location_string = '';
+          $errors['city'] = true;
+          return $errors;
+        }
+        else {
+          $country = get_country($country_id);
+          //$data['country'] = $country;
+          $location_string = exceptionizer($city . ', ' . $country["country_title"]);  
+          //echo '*' . $location_string . '*'; die();
+          $type="wikipediaSearch?q";
+        }
+      }
+
+  //------------GEOCODE_GL
+      if ($location_string !== '') {
+        if (!$result = geocode($location_string, $type)) {
+          //$errors['geocode'] = 'Please check your zip code';
+          //$errors['test'] = $location_string;
+          if ($type == 'postalCodeSearch?placename') {
+            $errors['geocode_zip'] = true;
+          }
+          if ($type == "wikipediaSearch?q") {
+            $errors['geocode_city'] = true;
+          }
+          return $errors;
+        }
+        else {
+          return $result;
+        }
+
+      }
+    }
+  //} 
 }
 
 function contains_illegal_words($nickname) {

@@ -25,7 +25,7 @@ if (login_check_point($type="full", $domain=$domain)) {
   //echo '</div>';
   echo '<div id="inbox_user_list">';
       echo '<div id="inbox_header">';
-        echo 'Messages From:';
+        echo 'Conversations:';
       echo '</div>';
       $user_msg_history = get_my_msgs();
       $user_list = extract_users_from_msgs_list($user_msg_history);

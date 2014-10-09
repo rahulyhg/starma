@@ -58,6 +58,7 @@ elseif ($tier == "2") {
        $gotothe = "?the_page=" . $the_page . "&the_left=" . $the_left . "&results_type=" . $results_type . "&text_type=" . $text_type . "&tier=2";
        compare_tier_2 ($gotothe, $results_type, $text_type);
     } 
+    /*
     //if (isset($_SESSION["compare_more_info_flag"])) {
       //$flag = $_SESSION["compare_more_info_flag"];
     //}
@@ -67,7 +68,7 @@ elseif ($tier == "2") {
     if ($flag == 1) {
       show_sheen($flag, 'compare_info_form');
     }
-
+    */
 }
 
 elseif ($tier == "3") {

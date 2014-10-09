@@ -17,7 +17,7 @@ function flare_title ($title) {
 }
 
 function time_accuracy_select ($the_interval, $the_name="interval", $greyed=0) {
-  $interval_array = array("Exact" => 0, "Within 5 Minutes" => "000500", "Within 15 Minutes" => "001500", "Within 30 Minutes" => "003000", "Within 45 Minutes" => "004500", "Within 1 hour" => "010000", "Within 2 hours" => "020000", "Within 3 hours" => "030000", "More than 3 hours" => -1);
+  $interval_array = array("Exact" => 0, "Within 5 Minutes" => "000500", "Within 15 Minutes" => "001500", "Within 30 Minutes" => "003000", "Within 45 Minutes" => "004500", "Within 1 hour" => "010000", "Within 2 hours" => "020000", "Within 3 hours" => "030000", "No Idea" => -1);
   echo '<select name="' . $the_name . '" id="' . $the_name . '" ';
   if ((string)$greyed == '1') {
     echo 'DISABLED="true"';
@@ -330,9 +330,14 @@ function gender_select ($the_gender, $the_name="gender") {
    echo '</select>';
 }
 
-function country_select ($country_id, $the_name="country_id") {
+function country_select ($country_id, $the_name="country_id") {     //ADDED ERROR=1 FOR ERROR BORDER ON SIGN UP
   $country_list = get_country_list ();
-  echo '<select name="' . $the_name . '" id="country_id">';
+  echo '<select name="' . $the_name . '" id="country_id"';
+    if ($_GET['error'] == 1) {
+      echo ' style="border: 2px solid #C82923;"';
+    } 
+  echo '>';
+    echo '<option value="0">Country</option>';
   while ($country = mysql_fetch_array($country_list)) {
     echo '<option value=' . $country["country_id"];
     if ((string)$country["country_id"] == (string)$country_id) {

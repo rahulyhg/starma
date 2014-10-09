@@ -19,14 +19,19 @@ $(document).ready(function(){
 		$('.pop_guest').slideFadeToggle(function() {
 			$('#sign_up_box').show();
 			$('#create_account').hide();
+			$('#login_box').show();
+			$('#forgot_password_box').hide();
 		});
 	});
 
 	$('.pop_log').click(function(){
-		$('.pop_login').slideFadeToggle();
+		$('.pop_login').slideFadeToggle(function() {
+			$('#login_box').show();
+			$('#forgot_password_box').hide();
+		});
 	});
 
-	$('button[name=cancel]').click(function(){
+	$('#cancel_email_sign_up').click(function(){
 		$('.pop_guest').slideFadeToggle(function() {
 			$('#sign_up_box').show();
 			$('#create_account').hide();
@@ -39,6 +44,16 @@ $(document).ready(function(){
 		$('#create_account').show();
 	});
 
+	$('button[name=cancel]').click(function(){
+		$('.pop_guest').slideFadeToggle(function() {
+			$('#sign_up_box').hide();
+		});
+	});
+
+	$('#forgot_password').click(function(){
+		$('#forgot_password_box').show();
+		$('#login_box').hide();
+	});
 
 
 /*

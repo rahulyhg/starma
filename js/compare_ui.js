@@ -132,6 +132,9 @@ $(document).ready(function(){
 
 	//Minor
 
+		$('.no_hover').click(function(){
+			$('.no_hover').removeClass('selected');
+		});
 
 
 		$('.pillar_icon_minor').click(function() {

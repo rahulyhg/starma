@@ -164,10 +164,61 @@ if ($the_left=="nav1") {
   <img src="/img/Starma-Astrology-Compare-ButtonON.png"/> 
   <img src="/img/Starma-Astrology-Compare-InviteON.png"/> 
 
+  <img src="/img/Starma-Astrology-Report-UserON.png"/> 
+
+  <img src="/img/profile/Starma-Astrology-Compare.png"/>
+  <img src="/img/profile/Starma-Astrology-CompareON.png"/>
+  <img src="/img/profile/Starma-Astrology-Message.png"/>
+  <img src="/img/profile/Starma-Astrology-MessageON.png"/>
+  <img src="/img/profile/Starma-Astrology-Chat.png"/>
+  <img src="/img/profile/Starma-Astrology-ChatON.png"/>
+
+  <img src="/img/profile/Starma-Astrology-Favorites.png"/>
+  <img src="/img/profile/Starma-Astrology-FavoritesON.png"/>
+
+  <img src="/img/goBug.png"/>
+  <img src="/img/goBugON.png"/>
+
 
 </div>
 
 <div id="frame">
+
+  <!--register_teaser_test-->
+    <div id="msg_sheen" class="pop_test">
+      <div id="msg_sheen_screen" class="pop_test pop_reg"></div>
+        <div style="position:absolute; z-index:100; top:30%; left:45%;">
+          <?php               
+            echo '<div id="landing_sign_up_box" class="pop_test">';
+              show_sign_up_box_landing();
+              show_registration_box_landing();
+            echo '</div>';
+          ?>  
+      </div>
+    </div> <!--close msg_sheen-->    
+    <!--end pop_guest_click-->
+    <script type="text/javascript" src="/js/ajax_register.js"></script>
+    <script type="text/javascript">
+      
+      $(document).ready(function(){
+        $('#pop_test').click(function(){
+          $('.pop_test').show();
+        });
+        $('button[name=sign_up_email]').click(function(){
+          $('#sign_up_box').hide();
+          $('#create_account').show();
+          $('#username>input').focus();
+        });
+  
+        $('#cancel_email_sign_up').click(function(){
+          $('#sign_up_box').show();
+          $('#create_account').hide();
+        });
+      });
+
+    </script>
+
+
   <div id="topnav">
     <ul>
       <li class="logo"><a href="?the_page=hsel&the_left=nav1"></a></li>
@@ -195,6 +246,7 @@ if ($the_left=="nav1") {
  
       <li class="bar_line"><img src="/img/Starma-Astrology-SideNav7.png"/></li>
     </ul>
+    <!--<div id="pop_test">Reg Test</div>-->
   </div>
  
   <div id="logout_link">
@@ -212,53 +264,9 @@ if ($the_left=="nav1") {
   </div>
   <?php
   echo '<div id="msg_sheen" class="pop_invite">';
-    
-          echo '<div id="msg_sheen_screen" class="pop_invite">';
-    
-            echo '</div>';
-              echo '<div id="msg_sheen_content_custom" class="pop_invite">';
-                echo '<div id="invite_type_area">';
-                  echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite A Friend</strong></div><br />';
-                  //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
-                  echo '<div id="send-message-area">';
-                    echo '<div id="first_name_error" class="invite_error"></div>';
-                    echo '<div id="last_name_error" class="invite_error"></div>';
-                    echo '<div id="their_name_error" class="invite_error"></div>';
-                    echo '<div id="their_email_error" class="invite_error"></div>';
-                    echo '<div id="sender_id_error" class="invite_error"></div>';
-                    echo '<label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
-                          <input type="text" class="input_style_inline" value="';
-                            $first_name = get_my_first_name();
-                            if(!$first_name) {
-                              echo 'first name';
-                            } 
-                            else {
-                              echo $first_name;
-                            }
-                            echo '" id="first_name_invite" name="first_name" maxlength="17" />
-                          <input type="text" class="input_style_inline" value="';
-                            $last_name = get_my_last_name();
-                            if(!$last_name) {
-                              echo 'last name';
-                            } 
-                            else {
-                              echo $last_name;
-                            }
-                          echo '" id="last_name_invite" name="last_name" maxlength="17" /> <br />
-                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
-                          <input type="text" class="input_style_inline" value="name" id="their_name_invite" name="their_name" maxlength="34" />
-                          <input type="text" class="input_style_inline" value="email" id="their_email_invite" name="their_email" /> <br />
-                          <label for="msg_sendie_invite" id="msg_label"><strong>Personal Message (Optional)</strong></label>
-                          <textarea id="msg_sendie_invite" name="text_body" maxlength = "255" ></textarea>
-                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
-                          <input type="button" name="submit" value="Send" class="msg_send_invite"/>
-                          <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>';                         
-                        //echo '</form>';
-                        echo '</div>'; //Clost send-message-area
-                      echo '<span id="msg_sent"></span>';
-                  echo '</div>';
-                echo '</div>';
-              echo '</div>';
+    echo '<div id="msg_sheen_screen" class="pop_invite"></div>';
+              show_user_invite_top();
+  echo '</div>';
 
     ?>
 

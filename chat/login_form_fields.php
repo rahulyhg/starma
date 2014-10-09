@@ -49,20 +49,23 @@ if (!isLoggedIn()) {
               if (get_my_location() == "") {
                 
                 //require ("gender_location_first_time.php");
-                $data['url'] = 'gender_location_first_time.php';
+                //$data['url'] = 'gender_location_first_time.php';
+                $data['url'] = 'sign_up.php?1';
 
               }
               elseif (!my_descriptors_loaded() or !get_my_main_photo()) {
                 
                 //require ("desc_photo_first_time.php");
-                $data['url'] = 'desc_photo_first_time.php';
+                //$data['url'] = 'desc_photo_first_time.php';
+                $data['url'] = 'sign_up.php?2';
 
               }
               elseif (!get_my_chart()) {
                 
                 //require ("birth_info_first_time.php");
-                $data['url'] = 'birth_info_first_time.php';
-              
+                //$data['url'] = 'birth_info_first_time.php';
+                $data['url'] = 'sign_up.php?3';
+
               }
           }
           else {
@@ -89,16 +92,19 @@ else {
         if (get_my_location() == "") {
             //show_gender_location_form(); 
             //require ("gender_location_first_time.php");
-            $data['url'] = get_domain() . '/gender_location_first_time.php';
+            //$data['url'] = get_domain() . '/gender_location_first_time.php';
+            $data['url'] = 'sign_up.php?1';
         }
         elseif (!my_descriptors_loaded() or !get_my_main_photo()) {
 			    //require ("desc_photo_first_time.php");
-          $data['url'] = get_domain() . '/desc_photo_first_time.php';
- 		    }
+          //$data['url'] = get_domain() . '/desc_photo_first_time.php';
+ 		     $data['url'] = 'sign_up.php?2';
+        }
         elseif (!get_my_chart()) {
             //show_birth_info_form(); 
             //require ("birth_info_first_time.php");
-            $data['url'] = get_domain() . '/birth_info_first_time.php';
+            //$data['url'] = get_domain() . '/birth_info_first_time.php';
+          $data['url'] = 'sign_up.php?3';
         } 
     }
     else {

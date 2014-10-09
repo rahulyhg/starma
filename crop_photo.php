@@ -19,14 +19,14 @@ if (login_check_point($type="partial", $domain=$domain)) {
      $imgName = $_POST["imgName"];
      $imgPath = ORIGINAL_IMAGE_PATH() . $imgName;
 
-     if ($_POST["submit"] == "Crop and Set") { // IF A PHOTO HAS BEEN CROPPED AND POSTED IN
+     if ($_POST["submit"] == "Crop and Set" || $_POST["submit"] == "Next >") { // IF A PHOTO HAS BEEN CROPPED AND POSTED IN
         if (num_my_photos() < max_photos()) {
           $x1 = $_POST["x1"];
-    	  $y1 = $_POST["y1"];
-	  $x2 = $_POST["x2"];
-	  $y2 = $_POST["y2"];
-	  $w = $_POST["w"];
-	  $h = $_POST["h"];
+    	     $y1 = $_POST["y1"];
+	         $x2 = $_POST["x2"];
+	         $y2 = $_POST["y2"];
+	         $w = $_POST["w"];
+	         $h = $_POST["h"];
           //echo PROFILE_IMAGE_PATH() . $imgName;
           //die();
           $cropped_profile = resizeCroppedImage(PROFILE_IMAGE_PATH() . $imgName, $imgPath,$w,$h,$x1,$y1,maxHeight() / $h);
@@ -60,7 +60,7 @@ if (login_check_point($type="partial", $domain=$domain)) {
       do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
     }
     else {
-      do_redirect ( get_domain() . '/desc_photo_first_time.php');
+      do_redirect (get_domain() . '/sign_up.php?2');
     }
   }
   else {
@@ -68,7 +68,7 @@ if (login_check_point($type="partial", $domain=$domain)) {
       do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
     }
     else {
-      do_redirect ( get_domain() . '/desc_photo_first_time.php');
+      do_redirect (get_domain() . '/sign_up.php?2.5');
     }
   }
 

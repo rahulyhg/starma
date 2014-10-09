@@ -1,3 +1,8 @@
+#stars_bg {
+  background: url('/img/stars_bg.png') repeat;
+  background-position: center;
+}
+
 #initial_confirm_form{
   width: 100%;
 }
@@ -64,8 +69,11 @@
 }
 */
 #landing {
-  line-height:24px;
+  min-width: 1150px;
+  margin: 0 auto;
 }
+
+/*
 
 #landing .bg, #register .bg, #birth_info_first_time .bg, #gender_location_first_time .bg, #desc_photo_first_time .bg, #initial_confirm_form #logo {
   position:relative;
@@ -78,8 +86,6 @@
 }
 
 #landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo, #initial_confirm_form #logo {
-  /*width:389px;*/
-  /*height:132px;*/
   width:500px;
   height:170px;
   top:25px;
@@ -106,13 +112,15 @@
 }
 
 
-
+*/
 
 #landing_footer {
-  position:relative;
-  top:190px;
-  width:100%;
-  min-width: 1161px;
+  display: inline-block;
+  font-size: 0.8em;
+  position: relative;
+  top: 445px;
+  left: -1px;
+  /*width: 454px;*/
 }
 
 #landing_footer #footer_links {
@@ -129,14 +137,15 @@
 
 #landing_footer #footer_links ul li {
   position: relative;
-  display: inline;
+  display: inline-block;
   float: left;
 }
 
-#landing_footer #footer_links ul li a {
-  padding-left: 45px;
-  padding-right: 45px;
-  color:black;
+#landing_footer #footer_links ul li a{
+  color:#e7ebee;
+}
+#landing_footer #footer_links ul li a.padding_right {
+  padding-right: 30px;
 }
 
 #landing #sign_in .title {
@@ -201,12 +210,13 @@
   position:relative;
 }
 
-
+/*
 #landing #login_button_div{
-    bottom: 10px;
-    margin-left: 99px;
+    bottom: 58px;
+    left: 26px;
     position: relative;
 }
+*/
 
 #login_form #stay_logged_in_input {
     bottom: 41px;
@@ -215,7 +225,7 @@
     position: absolute;
 }
 
-
+/*
 
 #landing #create_account_old {
   position:relative;
@@ -234,6 +244,7 @@
     text-align: left;
     width: 200px;
 }
+*/
 
 .landing_error {
     bottom: 131px;
@@ -259,11 +270,297 @@
   
 }
 
-/**************************************LOGIN POPUP*************************************************/
+#explore_container {
+  position: absolute;
+  right: 8%;
+  top: 38%;
+}
+
+#explore {
+    border: 1px solid #1a1d2a;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 0 #1a1d2a inset;
+    display: inline-block;
+    padding: 8px;
+    position: relative;
+}
+
+#explore a {
+  color: #1a1d2a;
+  font-family: 'later_on';
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 1.4em;
+}
+
+#explore a:hover {
+  color: #D5D5D5;
+}
+
+#explore a:active {
+  color: white;
+}
+
+.sign_up_text {
+  font-family: 'later_on';
+  color: #1a1d2a;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.6em;
+  letter-spacing: 2px;
+}
+
+
+
+.sign_up {
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid #1a1d2a; 
+  color: #1a1d2a;
+  box-shadow: 0 0 2px 0 #4b5a80 inset;
+  cursor: pointer;
+  padding: 8px;
+  font-family: 'later_on';
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 8px;
+  border-radius: 3px;
+  background: white;
+}
+
+.sign_up:hover {
+  box-shadow: 0 0 3px #3E4D74 inset;
+  background-color: #6F83BB;
+  text-decoration: underline; 
+}
+
+.sign_me_up {
+  margin-bottom: 6px;
+  width: 100%;
+  border: 1px solid #1a1d2a; 
+  color: #1a1d2a;
+  box-shadow: 0 0 2px 0 #4b5a80 inset;
+  cursor: pointer;
+  padding: 3px;
+  font-family: 'later_on';
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 8px;
+  border-radius: 3px;
+  background: white;
+}
+
+.sign_me_up:hover {
+  box-shadow: 0 0 3px #3E4D74 inset;
+  background-color: #6F83BB;
+  text-decoration: underline; 
+}
+
+/*
+.sign_me_up {
+  width: 100%;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-shadow: -1px -1px #4b5a80;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+*/
+
+#or {
+  color: #1a1d2a;
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: 'later_on';
+  font-weight: bold;
+  font-size: 2.2em;
+}
+
+.sign_up_cancel {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  border-top: 1px solid #5F78B1;
+  border-bottom: 1px solid #6680BE;
+  border-left: 1px solid #6376A9;
+  border-right: 1px solid #6B7FB6;
+  color: white;
+  background-color: #6F83BB;
+  box-shadow: 0 0 1px #4B5A80;
+  cursor: pointer;
+}
+
+/*************LOGOTEST************/
+
+#logo_test {
+  width: 100%;
+  min-width: 1200px; 
+}
+
+#logo_test_img {
+  position: relative;
+  left:  2% ;
+  display: inline-block;
+  top: 5px;
+}
+
+#tagline {
+    bottom: 58px;
+    color: #e7ebee;
+    display: inline-block;
+    font-family: "later_on";
+    font-size: 1.25em;
+    font-weight: bold;
+    left: -34px;
+    letter-spacing: 4px;
+    position: relative;
+}
+
+#logo_test_img {
+  background: url('/img/LogoTest2.svg') no-repeat;
+  background: url('/img/LogoTest2.png') no-repeat;
+  width:300px;
+  height: 132px;
+  background-size: 300px 132px;
+}
+
+
+/***************************************  LANDING LOGIN  ****************************************/
+
+#globe_and_footer {
+  margin: -36px auto auto;
+  width: 455px;
+}
+
+
+#globe_landing {
+  position: absolute;
+  height: 376px;
+  width: 376px;
+  margin-left: 19px;
+  padding: 20px;
+  border-radius: 500px;
+  background: #8393ca;
+  background: radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black);*/
+  background: -webkit-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); /* Safari */
+  background: -o-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); /* Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); /* Firefox 3.6 to 15 */
+  background: radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); /* Standard syntax */
+}
+
+
+#landing_sign_up_box {
+  width:244px; 
+  height: 250px;
+  margin: 41px auto;
+  background: #e7ebee; 
+  font-size:.9em; 
+  padding: 20px;
+  box-shadow: 0 3px 13px 0 #1a1d2a;
+  border: 2px solid #1a1d2a;
+}
+
+#landing_login_box {
+  display: inline-block;
+  float: right;
+  position: relative;
+  right: 2%;
+  top: 44px;
+}
+
+#forgot_password_landing {
+  color: #e7ebee;
+  font-size: 12px;
+  position: relative;
+  cursor: pointer;
+  width: 129px;
+  font-family: "ClarendonBT-Light";
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-left: 55px;
+}
+
+#stay_logged_in_landing {
+  color: #e7ebee;
+  font-family: "ClarendonBT-Light";
+  font-size: 12px;
+  position: relative;
+  vertical-align: top;
+  width: 155px;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+#login_button {
+  float: right; 
+  bottom: 81px;
+  left: 10px; 
+  position:relative;
+  margin-bottom: 15px;
+  border: 1px solid #1a1d2a; 
+  color: #e7ebee;
+  box-shadow: 0 0 2px 0 #4b5a80 inset;
+  cursor: pointer;
+  padding: 8px;
+  font-family: 'later_on';
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 8px;
+  border-radius: 3px;
+  background: transparent;
+}
+
+#go_bug_path_landing {
+  background: url('/img/Starma-Astrology-go-bug-path.png') no-repeat;
+  width: 344px;
+  height: 73px;
+  position: relative;
+  bottom: 34px;
+  left: 13px;
+  float: right;
+}
+
+#landing #go_bug_button {
+    background: url("/img/GoBug.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    height: 87px;
+    position: relative;
+    width: 95px;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    bottom: 18px;
+    /*top: -12px;*/
+    /*left: 346px;*/
+}
+
+#landing #go_bug_button:hover {
+  background: url('/img/GoBugON.png') no-repeat;
+}
+
+
+
+/***************************************  LANDING REGISTRATION  ****************************************/
+
+
+
+
+/**************************************  GUEST LOGIN POPUP  *************************************************/
 
 #login_box {
-  width: 244px;
-  margin: auto;
+  /*width: 244px;*/
+  /*margin: auto;*/
 }
 
 #login_box .title {
@@ -272,6 +569,8 @@
   margin-bottom: 20px;
   font-weight: 600;
   letter-spacing: 1px;
+  width: 100%;
+  text-align: center;
 }
 
 #login_box input[type=text], #login_box input[type=password] {
@@ -279,17 +578,40 @@
   position: relative;
   margin-bottom: 20px;
   width: 100%;
-  border-radius: 3px;
   height: 38px;
   padding: 0 10px;
-  border: 1px solid #d1d1d1;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
+  border: 1px solid #1a1d2a;
+  box-shadow: 0 0 2px 0 #4b5a80 inset;
+  background: #e7ebee;
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
+#login_box_landing input[type=text], #login_box_landing input[type=password] {
+  color: #181A1C;
+  position: relative;
+  margin-bottom: 5px;
+  width: 166px;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #1a1d2a;
+  box-shadow: 0 0 2px 0 #4b5a80 inset;
+  background: #e7ebee;
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#login_box_landing input[type=text] {
+  margin-right: 15px;
+}
+
+/*
 #login_box input[type=text]:focus, #login_box input[type=password]:focus {
   border: 1px solid #8393CA;
 }
-
+*/
 ::-webkit-input-placeholder {
   
 }
@@ -309,6 +631,7 @@
 #login_box #forgot_password {
   position: relative;
   margin: -12px 0 10px 0;
+  cursor: pointer;
 }
 
 #login_box #stay_logged_in {
@@ -325,7 +648,14 @@
   margin: 0 10px 0 0;
 }
 
-/***************************************REGISTRATION POPUP****************************************/
+#login_box_landing input[type=checkbox] {
+  position: relative;
+  float: left;
+  margin: 0 5px 0 6px;
+}
+
+
+/***************************************  GUEST REGISTRATION POPUP  ****************************************/
 
 #create_account {
   display: none;
@@ -334,11 +664,23 @@
 }
 
 #create_account .title {
+  font-family: 'later_on';
+  font-size: 2.2em;
+  color: #1a1d2a;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  width: 100%;
+  text-align: center;
+  /*
   font-size: 1.6em;
   color: #6F83BB;
   margin-bottom: 20px;
   font-weight: 600;
   letter-spacing: 1px;
+  width: 100%;
+  text-align: center;
+  */
 }
 
 #create_account .small_title {
@@ -347,30 +689,42 @@
   text-align: left;
   margin-bottom: 5px;
   letter-spacing: .5px;
+  /*
+    font-family: 'later_on';
+    font-size: 1.19em;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+  */
 }
 
 #create_account #birthday {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 #create_account #birthday span select {
   color: #777777;
+  border: 1px solid black;
+  height: 33px;
 }
 
-#register_form input {
+#register_form input[type="text"], #register_form input[type="password"] {
   color: #181A1C;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   width: 100%;
-  border-radius: 3px;
-  height: 38px;
+  height: 33px;
   padding: 0 10px;
-  border: 1px solid #d1d1d1;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
+  border: 1px solid black;
+  /*box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;*/
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 #register_form input:focus {
-  border: 1px solid #8393CA;
+  /*border: 1px solid #8393CA;*/
 }
 
 ::-webkit-input-placeholder {
@@ -395,7 +749,7 @@
   width: 100%;
   line-height: 1.3;
   letter-spacing: .5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #terms a {
@@ -410,7 +764,124 @@
   color: #444444;
 }
 
+#cancel_email_sign_up {
+  text-align: center;
+  font-size: .65em;
+  cursor: pointer;
+  color: #939393;
+  text-decoration: underline;
+  margin: auto;
+  width: 60px;
+  /*
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: left;
+    margin-top: -20px;
+  */
+}
+
+#cancel_email_sign_up:hover {
+  color: #444444;
+}
+
+#email {
+  margin:0;
+}
+
 /*--ERRORS--*/
+
+
+.reg_err {
+  display: inline-block;
+  position: absolute;
+  right: 90px;
+  line-height: 36px;
+}
+
+.reg_err_guest {
+  display: inline-block;
+  position: absolute;
+  line-height: 2.5;
+  right: 24px;
+}
+
+.reg_err_exp {
+  color: #C82923;
+  display: none;
+  position: absolute;
+  background-color: #e7ebee;
+  font-size: .8em;
+  z-index: 1000;
+  padding: 6px;
+  border-radius: 3px;
+  left: 334px;
+}
+
+.reg_err_exp_guest {
+    background-color: #e7ebee;
+    border-radius: 3px;
+    color: #c82923;
+    font-size: 0.8em;
+    left: 279px;
+    padding: 6px;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+}
+
+.register_error {
+  z-index: 1;
+  color: #C82923;
+  cursor: pointer;
+}
+
+.check {
+  z-index: 1;
+  color: green;
+  text-align: left;
+}
+
+#reg_err_username_exp {
+  top:82px;
+  width: 140px;
+}
+
+#reg_err_username_exp_g {
+  top:20px;
+  width: 140px;
+}
+
+#reg_err_birthday_exp {
+  top:138px;
+  width: 140px;
+}
+
+#reg_err_birthday_exp_g {
+  top:76px;
+  width: 140px;
+}
+
+#reg_err_email_exp {
+  top:181px;
+  width: 140px;
+}
+#reg_err_email_exp_g {
+  top:119px;
+  width: 140px;
+}
+
+#reg_err_password_exp {
+  top:222px;
+  width: 140px;
+}
+
+#reg_err_password_exp_g {
+  top:160px;
+  width: 140px;
+}
 
 .register_error_area {
   color: #C82923;
@@ -419,9 +890,6 @@
   font-size: .8em;
 }
 
-.red_border {
-  border: 1px solid #C82923; !important
-}
 
 /*--END NEW WAY--*/
 
@@ -449,22 +917,11 @@
   float: left;
 }
 
-.register_error {
-  z-index: 1;
-  color: #C82923;
-}
-
 .error {
   color:red;
   z-index:1;
   display:block;
   
-}
-
-.check {
-  z-index: 1;
-  color: green;
-  text-align: left;
 }
 
 #desc_photo_form_div .error {
@@ -1125,14 +1582,23 @@
 
 
 #birth_interval_box_help_text {
-    bottom: -2px;
+    /*bottom: -2px;*/
     display: none;
-    left: 23px;
+    /*left: 23px;*/
     position: absolute;
 }
 
+#birth_interval_box_help_text a {
+  font-family: 'later_on';
+  color: black;
+}
+
+#birth_interval_box_help_text a:hover {
+  /*text-decoration: underline;*/
+}
+
 #birth_interval_box_help_text.offset {
-  top: -21px;
+  top: -7px;
 }
 
 
@@ -1146,20 +1612,23 @@
     
 #birth_time_hover_box {
     background-color: white;
-    border: 1px solid black;
-    color: black;
+    border: 1px solid #d1d1d1;
+    color: #444;
     font-size: 0.8em;
     padding-left: 3px;
-    padding-right: 3px;
+    padding-right: 1px;
     padding-top: 3px;
     position: relative;
     width: 10px;
+    display: inline-block;
+    margin-left: 10px;
 }
 
 
 #birth_time_hover_box:hover {
   color:white;
   background-color:black;
+  cursor: pointer;
 }
 
 #birth_time_hover_box span {
@@ -1230,3 +1699,65 @@
     width: 149px;
     top: 415px;
 }
+
+#feet_bug {
+    height: 110px;
+    width: 108px;
+    margin-left: 22px;
+    background: url('/img/feet_bug_rays.png') no-repeat;
+}
+
+#feet_bug:hover {
+  background: url('/img/feet_bug_rays_ON.png') no-repeat;
+}
+
+#planet {
+   height: 81px;
+    left: 59px;
+    position: absolute;
+    width: 149px;
+    top: 415px;
+}
+
+/********************* FORGOT PASSWORD **************************/
+
+#forgot_password_box {
+  display: none;
+  margin: auto;
+  width: 244px;
+}
+
+#forgot_password_box input {
+  color: #181A1C;
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid black;
+  /*box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;*/
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#forgot_password_box input:focus {
+  /*border: 1px solid #8393CA;*/
+}
+
+#forgot_password_box .title {
+    color: #6f83bb;
+    font-size: 1.6em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+#sending {
+  display: none;
+  margin: auto;
+  text-align: center;
+}
+

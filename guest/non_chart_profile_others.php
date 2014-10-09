@@ -48,9 +48,10 @@ require_once ("header.php");
       if (!$isCeleb) {
         show_descriptors_info($_GET["chart_id2"]); 
       }
-
+      
        //TEST FOR ADDING text_type to compare_button
       echo '<div class="profile_button compare_button">';
+<<<<<<< HEAD
 
           echo '<div id="compare_menu"><a href="">Compare</a>';
             echo '<div class="dropdown">';
@@ -63,13 +64,32 @@ require_once ("header.php");
        echo '</div>'; //close button
             /*
             <span class="compare_button_title"><a href="">Compare</a></span>
+=======
+        echo '<div id="compare_menu"><a href="">Compare</a>';
+          echo '<div class="dropdown">';
+            echo '<ul>';
+              echo '<li><a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">As Friends</a></li>';
+              echo '<li><a style="border-bottom:1px solid black;" href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romantically</a></li>';
+            echo '</ul>';
+          echo '</div>';
+        echo '</div>';
+      echo '</div>'; //close compare button
+
+          /*
+            <span class="compare_button_title">Compare</span>
+>>>>>>> Public-Front-End-3.0
               <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
                 <option value="">Compatiblity Test</option>
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romance</option>
                 <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Friends</option>
               </select>
             </div>';
+<<<<<<< HEAD
         */
+=======
+          */
+
+>>>>>>> Public-Front-End-3.0
       if (!$isCeleb) {
         echo '<div class="profile_button chat_button"><a href="#" onclick="chat_all.openFullChat(' . get_user_id_from_chart_id ($_GET["chart_id2"]) . ',\'' . get_nickname (get_user_id_from_chart_id ($_GET["chart_id2"])) . '\',2)">Chat</a></div>';
 
@@ -157,7 +177,7 @@ require_once ("header.php");
                       echo '<div id="report_close"><button type="button" name="close" class="report_close">Close</button></div>';
                   echo '</div>';
                 echo '</div>';*/
-              echo '</div>';
+              echo '</div>';  //MYSTERIOUS FIX....
   }
   
 

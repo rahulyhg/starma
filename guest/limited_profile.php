@@ -55,6 +55,9 @@ require_once ("header.php");
         show_descriptors_info($_GET["chart_id2"]); 
       }
 
+    if($isCeleb) {
+      echo '<div style="float:right; width:193px;">'; //CONTAINER FOR BUTTONS ON RIGHT
+    }
        //TEST FOR ADDING text_type to compare_button
     echo '<div class="profile_button compare_button">';
 
@@ -136,6 +139,10 @@ require_once ("header.php");
       //}  
          
     echo '</div>';
+
+    if ($isCeleb) {
+      echo '</div>'; //CLOSE THE CONTAINER FOR BUTTONS ON CELEB PAGE
+    }
     
   }
   else {

@@ -22,6 +22,51 @@ function show_sheen ($flag=0, $form_function) {
     echo '</div>';
 }
 
+function show_user_invite_top () {
+  echo '<div id="msg_sheen_content_custom" class="pop_invite">';
+                echo '<div id="invite_type_area">';
+                  echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite A Friend</strong></div><br />';
+                  //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
+                  echo '<div id="send-message-area">';
+                    echo '<div id="first_name_error" class="invite_error"></div>';
+                    echo '<div id="last_name_error" class="invite_error"></div>';
+                    echo '<div id="their_name_error" class="invite_error"></div>';
+                    echo '<div id="their_email_error" class="invite_error"></div>';
+                    echo '<div id="sender_id_error" class="invite_error"></div>';
+                    echo '<label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
+                          <input type="text" class="input_style_inline" value="';
+                            $first_name = get_my_first_name();
+                            if(!$first_name) {
+                              echo '';
+                            } 
+                            else {
+                              echo $first_name;
+                            }
+                            echo '" id="first_name_invite" placeholder="first name" name="first_name" maxlength="17" />
+                          <input type="text" class="input_style_inline" value="';
+                            $last_name = get_my_last_name();
+                            if(!$last_name) {
+                              echo '';
+                            } 
+                            else {
+                              echo $last_name;
+                            }
+                          echo '" id="last_name_invite" name="last_name" placeholder="last name" maxlength="17" /> <br />
+                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
+                          <input type="text" class="input_style_inline" placeholder="name" id="their_name_invite" name="their_name" maxlength="34" />
+                          <input type="text" class="input_style_inline" placeholder="email" id="their_email_invite" name="their_email" /> <br />
+                          <label for="msg_sendie_invite" id="msg_label"><strong>Personal Message (Optional)</strong></label>
+                          <textarea id="msg_sendie_invite" name="text_body" maxlength = "255" ></textarea>
+                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
+                          <input type="button" name="submit" value="Send" class="msg_send_invite"/>
+                          <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>';                         
+                        //echo '</form>';
+                        echo '</div>'; //Clost send-message-area
+                      echo '<span id="msg_sent"></span>';
+                  echo '</div>';
+                echo '</div>';
+}
+
 function compare_info_form($flag) {
   echo '<span style="text-align:center">Welcome to Starma\'s Compatibility Test<br><br></span>';
   echo 'At the top of the this page you will see a rating out of 5 stars.  Your star rating is meant to give you a general impression of your compatibility with the person you have selected, but not to tell the whole story!  Astrological compatibility is very complex, and therefore very difficult to represent with a simple score. We highly recommend that you read through the dynamics found below the star rating, to get a clearer picture of your compatibility.  Also, our system and formula for compatibility is designed specifically for Vedic astrology, so you will only be able to test your compatibility using your default Starma Chart for now.
@@ -826,11 +871,14 @@ function show_photo_cropper($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];
   $img_name = $photo_to_crop["picture"];
   echo '<div class="photo_cropper_content">';
-    echo '<div class="cropMain"></div>';
+    echo '<div id="zoom">- Zoom +</div>';
     echo '<div class="cropSlider"></div>';
-    echo '<button class="cropButton" />Crop and Set</button>';
-    echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
-    echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
+    echo '<div id="rotate">';
+      echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
+      echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
+    echo '</div>';
+    echo '<div class="cropMain" style="margin:auto;"></div>';
+    echo '<div style="width:500px; margin:20px auto auto;"><button class="cropButton" />Crop and Set</button></div>';
     
     
 
@@ -1031,18 +1079,18 @@ function show_interests_info($chart_id, $isCeleb) {
     echo '</div>'; //closing #interests
   }
   else {
-     echo '<div id="interests">';
+    echo '<div id="interests">';
      echo '<div id="left_column" class="column">';
      if((strlen($user_info["about_me"]) + strlen($user_info["activities"]) + strlen($user_info["music"])
           + strlen($user_info["film_television"]) + strlen($user_info["books"]) + strlen($user_info["political"]) 
           + strlen($user_info["spiritual"]) + strlen($user_info["inspirational_figures"])) == 0 ) {
       if (!$isCeleb) {
         echo "<div id='profile_empty'>" . $nickname . " has not filled out " . $gender . " profile yet</div>";
-        echo "</div>";
+        echo "</div>"; //Close left_column
       }
       else {
         echo "<div id='profile_empty'>We have not added content for " . $user_info['first_name'] . " " . $user_info['last_name'] . " yet.</div>";
-        echo "</div>";
+        echo "</div>"; //Close left_column
       }
      }
      else{
@@ -1130,10 +1178,11 @@ function show_interests_info($chart_id, $isCeleb) {
                 echo '<span>' . $user_info["inspirational_figures"] . '</span>';
               echo '</div>';
             echo '</div>';
-          echo '</div>';
+          echo '</div>';  //Close left_column
         }
         else {
           echo "";
+          echo '</div>';  //Close left_column
         }
     }
    
@@ -1145,7 +1194,7 @@ function show_interests_info($chart_id, $isCeleb) {
     
    echo '</div>';
    */
-    echo '</div>'; //closing left_column
+    //echo '</div>'; //closing left_column
     echo '</div>'; //closing #interests
   }
 }
@@ -1683,7 +1732,7 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
                <td id="gender_select_title" class="no_move align_right">gender</td>
                <td colspan="1" id="gender_select_input" class="no_move">';
                 echo gender_select($gender);
-       echo '</td><td><span class="gender_validation"></span></td>
+       echo '</td><td><div class="gender_validation"></div></td>
              </tr>';
       
   }
@@ -1751,6 +1800,7 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
               <td id="birth_place_input" colspan="2">
                 <input type="text" name="address" value="' . get_inputed_var("location", $title, $type) . '" id="birth_place_input_bar"/>
               </td>
+              <td><div class="birth_place_validation"></div></td>
              </tr>';
   }
             if ($sao == 1) {
@@ -3777,10 +3827,12 @@ function show_poi_sign_blurb ($poi_id, $sign_id, $chart_id=-1) {
 function show_poi_sign_blurb_abbr ($poi_id, $sign_id, $chart_id=-1) {
   
   $blurb = get_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
-  
-  echo substr($blurb, 0, 175) . " ...";
-  
-  
+  if ($chart_id == -1) {
+    echo substr($blurb, 0, 140) . " ...";
+  }
+  else {
+    echo substr($blurb, 0, 175) . " ...";
+  }
 }
 
 /******************** --Matt-- Need to have Aries Rising instead of Rising in Aries 
@@ -4172,9 +4224,20 @@ function show_my_chart ($goTo = ".", $western=0) {
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
 
     echo '<div id="profile_chart">';
+
+
+      echo '<div id="chart_scroll">';
+        echo '<div id="chart_scroll_container">';
+          echo '<span id="chart_prev">< Prev</span>';
+
+          echo '<span id="chart_next">Next ></span>';
+        echo '</div>';
+      echo '</div>'; //Close chart_scroll
+
       
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
+      echo '<input type="hidden" name="chart_id_e" value="' . $chart_id . '"/>'; //FOR CHART SUBMIT
       echo '<input type="hidden" name="poi_id"/>';
       echo '<div id="starma_chart">';
    
@@ -4329,6 +4392,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '</div>';
       echo '</div>';
       echo '</form>';
+
     echo '</div>';  //close #profile_chart
   }
 }
@@ -4354,8 +4418,18 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       $sign_id = get_sign_from_poi ($calc_chart_id, $poi_id);
       //echo '&&' . $sign_id . '&&<br>';
     echo '<div id="profile_chart">';
+
+      echo '<div id="chart_scroll">';
+        echo '<div id="chart_scroll_container">';
+          echo '<span id="chart_prev">< Prev</span>';
+
+          echo '<span id="chart_next">Next ></span>';
+        echo '</div>';
+      echo '</div>'; //Close chart_scroll
+
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $calc_chart_id . '"/>';
+      echo '<input type="hidden" name="chart_id_e" value="' . $_GET['chart_id2'] . '"/>';  //FOR CHART SUBMIT AJAX
       echo '<input type="hidden" name="poi_id"/>';
       echo '<div id="starma_chart">';
       $header = "";
@@ -4659,6 +4733,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       echo '</div>';
       echo '</div>';
       echo '</form>';
+
     echo '</div>';  //close #profile_chart
   }
 }
@@ -5597,6 +5672,7 @@ function display_all_users ($url="", $filter=0) {
 }
 
 function display_welcome_page_thumbnails($celebs=0, $generic=0) {
+  $chart_id1 = get_my_chart_id();
   if ($generic == 0) {
     $my_info = my_profile_info();
 
@@ -5626,15 +5702,56 @@ function display_welcome_page_thumbnails($celebs=0, $generic=0) {
     $user_array[] = $new_item_array[0];
   }
 
-  foreach ($user_array as $user) {
-    echo '<div class="grid_photo_wrapper">';  
-      echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';
-      
-            show_user_inbox_picture ('', $user[user_id]);
+  if ($celebs == 0) {
+
+    foreach ($user_array as $user) {
+      echo '<div class="grid_photo_wrapper">';  
+        echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';
+            
+          show_user_inbox_picture ('?the_page=cosel&the_left=nav1&tier=3&stage=2&chart_id1=' . $chart_id1 . '&chart_id2=' . $user['chart_id'], $user['user_id']);
          
-      echo '</div></div>';
-    echo '</div>'; 
+        echo '</div></div>';
+      echo '</div>'; 
+    }
   }
+  else {
+    foreach ($user_array as $user) {
+      echo '<div class="grid_photo_wrapper">';  
+        echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';
+            
+          show_user_inbox_picture ('?the_page=cesel&the_left=nav1&tier=3&stage=2&chart_id1=' . $chart_id1 . '&chart_id2=' . $user['chart_id'], $user['user_id']);
+         
+        echo '</div></div>';
+      echo '</div>'; 
+    }
+  }
+}
+
+function display_thumbnails_sign_up($celebs, $generic) {
+  if ($celebs == 0) {   
+      $user_list = get_user_list_pics_only (); 
+  }
+  else {
+    $user_list = get_pic_only_celebrity_user_list ();
+  }
+  $old_user_array = query_to_array($user_list);
+  $user_array = array();
+  //pick 8 random ones
+  while (sizeof($user_array) < 8 and sizeof($old_user_array) > 0) {
+    $random_index = array_rand($old_user_array);
+    $new_item_array = array_splice($old_user_array, $random_index, 1);    
+    $user_array[] = $new_item_array[0];
+  }
+  foreach ($user_array as $user) {
+      echo '<div class="grid_photo_wrapper">';  
+        echo '<div class="grid_photo_border_wrapper"><div class="grid_photo">';
+            
+          show_user_inbox_picture ('#', $user['user_id']);
+         
+        echo '</div></div>';
+      echo '</div>'; 
+    }
+
 }
 
 
@@ -5812,20 +5929,13 @@ function show_loginform($disabled = false)
 }
  
 function show_lostpassword_form(){
-  
+  echo '<div id="forgot_password_box">';
    echo '<form action="./lostpassword.php" method="post"> 
-     <fieldset><legend>Reset Password</legend>
-
-      <ul>    
-        <li><label for="email">email:</label> <input type="text" name="email" id="email" maxlength="255" /></li>
-      
-      </ul> 
-      <ul>
-        <li><input type="submit" value="Reset Password" name="lostpass" /> </li> 
-      </ul>
- 
-    </fieldset>
-</form>';
+          <div>Reset Password</div>
+            <input type="text" name="email" id="email" maxlength="55" placeholder="Your Email" />
+            <input type="submit" value="Reset Password" name="lostpass" />
+        </form>';
+  echo '</div>';
  
 }
  
@@ -5947,6 +6057,524 @@ echo '<script type="text/javascript" src="js/ajax_register.js"></script>';
 require_once ("landing_footer.php"); 
 }
 
+//********************************  LANDING BOXES  ********************************/
+
+function show_login_box_landing () {
+    echo '<div id="login_box_landing">';
+      //echo '<div class="title">Log In</div>';
+        echo '<form action="/chat/login_form_fields.php" method="POST" id="login_from_guest">';
+          //echo '<div style="margin-right:15px; display:inline-block;">';
+            echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
+            if(isset($_GET['email'])) {
+              echo $_GET['email'];
+            }
+          echo '"/>';
+            
+          //echo '</div>';
+
+          //echo '<div style="display:inline-block;">';
+            echo '<input type="password" id="login_password" name="password" placeholder="Password" />';
+          //echo '<input type="text" id="pass" name="password" placeholder="Password" />';           
+          //echo '</div>';
+
+            echo '<input type="submit" id="go_bug_button" name="Login" value=""/>';
+
+          echo '<div id="kmsi_f">';
+            echo '<div id="stay_logged_in_landing"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
+            echo '<div id="forgot_password_landing">forgot your password?</div>';
+          echo '</div>';
+
+          //echo '<button type="submit" name="login_submit" id="login_button">Log In</button>';
+          //echo '<div id="login_button_div">';
+          //echo '<div style="display:inline-block; position:relative; top:18px;">';
+            
+          //echo '</div>';
+        
+          echo '<div id="go_bug_path_landing"></div>';
+          //echo '</div>';
+        echo '</form>';
+    echo '</div>';
+
+  //ERRORS----------------------
+    echo '<div class="register_error_area" id="login_email_error"></div>';
+    echo '<div class="register_error_area" id="login_password_error"></div>';
+}
+
+
+function show_sign_up_box_landing () {
+  
+    echo '<div id="sign_up_box">';
+      echo  '<div class="sign_up_text">Create an Account</div>';
+          echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
+          echo '<div id="or">~ or ~</div>';
+          echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
+      echo '</div>'; //Close sign_up_box
+}
+
+
+function show_registration_box_landing () {
+
+  
+echo '<div id="create_account">';  
+  //echo '<div class="title">Create an Account</div>';
+  //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
+  echo '<div id="register_form">';
+    echo '<form name="register_form" action="../chat/register_user.php" method="post" id="register_form">';
+      echo '<div class="register_error_area" id="reg_user_exists"></div>';
+      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /><span class="reg_err check" id="reg_username_check"></span><span class="reg_err" id="reg_username_error"></span><div class="reg_err_exp" id="reg_err_username_exp"></div></div>'; 
+      //echo '<div class="register_error_area" id="reg_username_error"></div>';
+      echo '<div id="birthday">';
+        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<span>';
+          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
+        echo '</span>';
+        echo '<span class="reg_err check" id="reg_birthday_check"></span><span class="reg_err" id="reg_birthday_error"></span><div class="reg_err_exp" id="reg_err_birthday_exp"></div>';
+      echo '</div>';
+      //echo '<div class="register_error_area" id="reg_birthday_error"></div>';
+      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /><span class="reg_err check" id="reg_email_check"></span><span class="reg_err" id="reg_email_error"></span><div class="reg_err_exp" id="reg_err_email_exp"></div></div>';
+      //echo '<div class="register_error_area" id="reg_email_error"></div>';
+      //echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
+      //echo '<div class="register_error_area" id="reg_email2_error"></div>';
+      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /><span class="reg_err check" id="reg_password_check"></span><span class="reg_err" id="reg_password_error"></span><div class="reg_err_exp" id="reg_err_password_exp"></div></div>';
+      //echo '<div class="register_error_area" id="reg_password_error"></div>';
+      echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
+      echo '<input type="submit" name="submit" class="sign_me_up" id="register_submit" value="Create Account" />';
+      //echo '<div id="next">Next ></div>';
+    echo '</form>';  
+  echo '</div>'; //Close register_form
+  echo '<div><div id="cancel_email_sign_up">Cancel</div></div>';
+echo '</div>';  //close #create_account
+//ERRORS
+//echo '<div class="reg_err_exp" id="reg_err_email_exp"></div>';
+
+//echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
+
+}
+
+
+function show_forgot_password_box() {
+  echo '<div id="forgot_password_box">';
+   echo '<form action="/chat/forgot_password.php" method="POST" id="forgot_password_form"> 
+          <div class="title">Reset Password</div>
+            <input type="text" name="email" id="fp_email" maxlength="55" placeholder="Your Email" />
+            <button type="submit" class="sign_up" name="fp_submit" id="fp_submit">Reset Password</button>
+        </form>';
+    echo '<div id="sending"></div>';
+  echo '</div>';
+}
+
+
+
+
+function show_landing_logo() {
+  echo '
+  <div class="bg" id="logo">
+    <a href="' . get_landing() . '"><img src="img/account_info/Starma-Astrology-Logo.png"/></a>
+  </div>';
+}
+
+function show_bugaboos() {
+  echo '
+  <div id="bug1">
+    <img src="img/account_info/Starma-Astrology-Feet-Bugaboo.png"/>
+  </div>
+  <div id="bug2">
+    <img src="img/account_info/Starma-Astrology-Planet-Bugaboo.png"/>
+  </div>';
+}
+
+
+//******************************* SIGN UP BOXES **********************************/
+
+function show_gender_location_box() {
+  echo '<div id="gender_location">';
+    echo '<div class="title">Congratulations!</div>';
+    echo '<div class="congrats">You\'ve created an account.  Just 3 more steps and you\'re ready to start!</div>';
+    echo '<div id="step">1 / 3</div>';
+      echo '<form id="gender_location_form" method="post" action="/chat/ajax_gender_location.php">';
+        
+        echo '<div class="small_title">Gender</div>';
+          echo '<div id="gender">';
+            gender_select ($the_gender=$gender, $the_name="gender");
+            
+          echo '</div>';
+
+          echo '<div class="small_title">Current Location</div>';
+              
+          echo '<div id="country">';    
+            country_select ($country_id, "js_country_id");
+            
+          echo '</div>';
+
+          echo '<div id="js_city_div">';
+            echo '<input type="text" id="city" name="title" placeholder="City"/>';
+            
+          echo '</div>';
+
+          echo '<div id="js_zip_div">';
+            //zipcode_input ("zip", "location_verification .location_text");
+          echo '<input maxlength="5" type="text" id="zip"';
+            if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6 ) {
+              echo ' style="border-color:#C82923;"';
+            } 
+
+          echo ' name="zip" value="' . $_SESSION['zip'] . '" placeholder="Zip Code">';
+           
+          echo '</div>'; 
+          
+          echo '<div id="location_verification">';
+            //echo '<div class="location_text"></div>';
+          echo '</div>';
+
+          //echo '<button class="sign_me_up" type="submit" name="location_gender_submit">Continue</button>';
+
+          echo '<button type="submit" id="next">Next ></button>';
+
+      echo '</form>';
+    echo '</div>';
+
+    //ERRORS---------------
+
+    echo '<div class="gl_err" id="gl_gender_error"></div>
+          <div class="gl_err_exp" id="gl_err_gender_exp"></div>';
+
+    echo '<div class="gl_err" id="gl_cid_error"></div>
+          <div class="gl_err_exp" id="gl_err_cid_exp"></div>';
+
+    echo '<div class="gl_err" id="gl_city_error"></div>
+          <div class="gl_err_exp" id="gl_err_city_exp"></div>';
+
+     echo '<div class="gl_err" id="gl_zip_error"></div>
+           <div class="gl_err_exp" id="gl_err_zip_exp"></div>';
+
+    echo '<script type="text/javascript" src="/js/ajax_gender_location.js"></script>';
+
+}
+
+
+function show_3_words_photo_box () {
+  //$user_id = get_my_user_id();
+  //$descriptors = get_descriptors(1000);
+  
+  echo '<div id="words_photo">';
+  echo '<div id="step">2 / 3</div>';
+    echo '<div class="small_title">In three words, you are...</div>';
+
+    //echo '<div id="edit_words>';
+    
+      echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
+        echo '<div id="edit_words">';
+        /*
+        if ($yes) {
+          $x = 1;
+          while ($desc = mysql_fetch_array($descriptors)) {
+            echo '<div id="' . $x . '">';
+              //echo '<div class="value">';
+                echo '<input type="text" id="word_' . $x . '" placeholder="' . $x . '. " value="' . $desc["descriptor"] . '"/>';
+              //echo '</div>';
+                echo '<span class="w_err" id="w_' . $x . '_error"></span>';
+                echo '<div class="w_err_exp" id="w_' . $x . '_err_exp"></div>';
+
+            echo '</div>';
+            $x = $x + 1;
+          }
+        }
+        */
+        //else {
+           //for ($x = 1; $x<4; $x++) {
+           
+              //echo '<div class="value">';
+               echo '<input type="text" id="word_1" placeholder="1. "';
+                  if(isset($_SESSION['word_1'])) {
+                    echo 'value="' . $_SESSION['word_1'] . '"';
+                  }
+                echo '/>';
+
+                echo '<input type="text" id="word_2" placeholder="2. "';
+                  if(isset($_SESSION['word_2'])) {
+                    echo 'value="' . $_SESSION['word_2'] . '"';
+                  }
+                echo '/>';
+
+                echo '<input type="text" id="word_3" placeholder="3. "';
+                  if(isset($_SESSION['word_3'])) {
+                    echo 'value="' . $_SESSION['word_3'] . '"';
+                  }
+                echo '/>';  
+          //}
+        //}
+        echo '<input type="hidden" value="words" id="words" />';
+        echo '</div>'; //close edit_words
+
+      //ERRORS---------------------------
+        echo '<div class="w_err" id="w_1_error"></div>';
+        echo '<div class="w_err_exp" id="w_1_err_exp"></div>';
+
+        echo '<div class="w_err" id="w_2_error"></div>';
+        echo '<div class="w_err_exp" id="w_2_err_exp"></div>';
+
+        echo '<div class="w_err" id="w_3_error"></div>';
+        echo '<div class="w_err_exp" id="w_3_err_exp"></div>';
+
+   
+
+      echo '<div id="submit_words_photo">';
+        //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+        echo '<button type="submit" id="next">Next ></button>';
+      echo '</div>';
+
+      echo '</form>';
+
+    
+    echo '<div id="photo_form_div">';
+      
+        //echo '<h1>';       
+          echo '<div class="small_title">Upload your profile photo:</div>';
+        //echo '</h1>';
+        echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';
+          //echo '<div id="photo_display">';
+            echo '<div id="my_tiny_photo">
+                    <div class="grid_photo_border_wrapper"><div class="grid_photo">';
+                    show_user_inbox_picture ('', get_my_user_id());
+            echo '</div></div></div>';
+          //echo '</div>';
+          
+          echo '<input id="image" type="file" name="image"/>';
+          echo '<input type="submit" value="Upload" name="action" id="upload_photo" />';
+            
+            if (isset($_GET['error'])) {
+              echo '<input type="hidden" id="crop_error" />';
+            }
+          echo '<div id="p_error" class="p_err"></div>';
+
+          echo '<input type="hidden" id="desc1" value=""/>';
+          echo '<input type="hidden" id="desc2" value=""/>';
+          echo '<input type="hidden" id="desc3" value=""/>';
+          echo '<input type="hidden" name="firsttime" value="1"/>';
+          
+
+          echo '</div>';
+        
+      echo '</form>';
+
+  echo '</div>';  //close 3_words_photo
+
+
+//PHOTO ERRORS---------------------------------
+
+  echo '<div class="p_err" id="p_error">';
+    if($_GET['error'] !== 0) {
+      echo '?';
+    }
+  echo '</div>';
+  echo '<div class="w_err_exp" id="p_err_exp">';
+    if($_GET['error'] == 1) {
+      echo 'There was an error, please try again';
+    }
+    elseif($_GET['error'] == 2) {
+      echo 'You have reached the limit of 5 photos';
+    }
+    elseif($_GET['error'] == 3) {
+      echo 'No file selected';
+    }
+    elseif($_GET['error'] == 4) {
+      echo 'Not a valid file';
+    }
+  echo '</div>';
+  
+
+  echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
+
+}
+
+function show_photo_cropper_sign_up($photo_to_crop) {
+  $img_id = $photo_to_crop["user_pic_id"];
+  $img_name = $photo_to_crop["picture"];
+  echo '<div class="photo_cropper_content">';
+    echo '<div id="zoom">- Zoom +</div>';
+    echo '<div class="cropSlider"></div>';
+    echo '<div id="rotate">';
+      echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
+      echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
+    echo '</div>';
+    echo '<div class="cropMain" style="margin:0 auto 33px;"></div>';
+    echo '<input type="submit" name="submit" id="next" value="Next >" />';
+    
+    
+
+
+    echo '<style>
+ 
+        .photo_cropper_content .cropMain {
+          width:153px;
+          height:153px;
+          border: 2px solid black;
+        }
+ 
+          </style>
+
+    ';
+
+    //echo '<img id="photo_crop_' . $img_id . '" src="' . ORIGINAL_IMAGE_PATH() . $img_name . '?' . time() . '">';    
+    //echo '<input type="hidden" name="x1" id="x1" value=""/>';
+    //echo '<input type="hidden" name="y1" id="y1" value=""/>';
+    //echo '<input type="hidden" name="x2" id="x2" value=""/>';
+    //echo '<input type="hidden" name="y2" id="x2" value=""/>';
+    //echo '<input type="hidden" name="w" id="w" value=""/>';
+    //echo '<input type="hidden" name="h" id="h" value=""/>';
+  echo '</div>';
+
+  activate_photo_cropper ($img_id, $img_name);
+}
+
+function show_crop_box() {
+  echo '<div id="crop_box">';
+    //$descriptors = get_my_descriptors(); //causes error without a real user
+    $unc_photos = uncropped_photos(get_my_user_id());
+    if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
+      //echo '<div id="photo_cropper_reg">';
+         echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
+            show_photo_cropper_sign_up($photo_to_crop);
+            echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
+            echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
+            echo '<input type="hidden" name="firsttime" value="1"/>';
+            /*$x = 0;
+            while ($desc = mysql_fetch_array($descriptors)) {
+              echo '<input type="hidden" name="desc"' . $x . '" value="' . $desc["descriptor"] . '"/>';
+              $x = $x++;
+            }
+            */
+            echo '<input type="hidden" name="word_1" value="' . $_SESSION["word_1"] . '"/>';
+            echo '<input type="hidden" name="word_1" value="' . $_SESSION["word_2"] . '"/>';
+            echo '<input type="hidden" name="word_1" value="' . $_SESSION["word_3"] . '"/>';
+        echo '</form>';
+      //echo '</div>';
+    }
+    else {
+      //echo '<div><a href="/sign_up.php?2">Please upload a photo</a></div>';
+      do_redirect(get_domain() . '/sign_up.php?2');
+    }
+  echo '</div>'; //close crop_box
+}
+
+function show_time_and_place_box() {
+  //echo $_SESSION['user_id'];
+  echo '<div id="time_and_place">';
+  echo '<div id="step">3 / 3</div>';
+  //echo '<div class="title">Your Birth Info</div>';
+    echo '<form id="birth_info_form" method="post" action="cast_chart_time_and_place.php">';
+      
+       $help_text_offset = 'offset';
+    echo '<div class="small_title">Place of birth</div>';
+    //echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
+ 
+          echo '<div id="country">';    
+            country_select ($_SESSION['country_id'], "country_id");
+            
+          echo '</div>';
+
+          echo '<div id="js_city_div">';
+            echo '<input type="text" id="city" name="city" placeholder="i.e. San Francisco, CA" value="' . $_SESSION['city'] . '"';
+              if ($_GET['error'] == 2 || $_GET['error'] == 3 || $_GET['error'] == 6) {
+              echo ' style="border-color:#C82923;"';
+            }
+            echo '/>';
+            
+          echo '</div>';
+
+          //echo '<div id="js_zip_div">';
+          //  zipcode_input ("zip", "location_verification .location_text");           
+          //echo '</div>'; 
+          
+          //echo '<div id="location_verification">';
+          //  echo '<div class="location_text"></div>';
+          //echo '</div>';
+
+  echo '<div style="display:inline-block; float:left; width:147px;">'; //Time of birth box
+    echo '<div class="small_title">Time of birth</div>';
+    echo '<div id="time">';
+      time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
+    echo '</div>';
+  echo '</div>'; //Close Time of birth box
+
+  echo '<div style="display:inline-block; float:right; width:120px;">'; //Accuracy box
+      echo '<div class="small_title" class="align_right">Accuracy</div>';             
+        echo '<div id="accuracy">';
+                 time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
+         
+        echo '<div id="tp_birth_time_hover_box" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
+              </div>';
+      echo '</div>'; //Close accuracy
+  echo '</div>'; //Close Accuracy box
+
+    echo '<div id="help_link"> Help! I don\'t know my birth time'; 
+    
+   /* echo '<input class="pointer" onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
+                 if ( (string)get_inputed_var("time_unknown",0,$type) == '1' ) {
+                   echo 'CHECKED';
+                 }
+                 echo '/>';
+                 echo '<div style="position:relative"><div id="birth_interval_box_help_text" class="' . $help_text_offset . '" ';
+                 if ((string)get_inputed_var("time_unknown",0,$type) == '1') {
+                    echo 'style="display:block;"';
+                 }
+                 echo '>';
+                 echo '<a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">Help me find my birth time</a>';
+                 echo '</div></div>'; 
+    */
+    echo '</div>';
+      echo '<input type="hidden" id="time_unknown" name="time_unknown" value="0" />';
+      echo '<input type="hidden" name="time_and_place" value="1" />';
+      //echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
+      echo '<button type="submit" id="next">Next ></button>';
+    echo '</form>';           
+  echo '</div>'; //close time_and_place
+
+//ERRORS--------------------------------------------------
+
+  echo '<div class="tp_err" id="tp_cid_error_h">?</div>
+        <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';
+  echo '<div class="tp_err" id="tp_city_error_h">?</div>
+        <div class="tp_err_exp" id="tp_err_city_exp">Please enter a city</div>';
+
+  if ($_GET['error'] == 1) {
+    echo '<div class="tp_err" id="tp_cid_error">?</div>
+          <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';
+  }
+  if ($_GET['error'] == 2 || $_GET['error'] == 3 || $_GET['error'] == 6) {        
+    echo '<div class="tp_err" id="tp_city_error">?</div>
+          <div class="tp_err_exp" id="tp_err_city_exp">';
+            if ($_GET['error'] == 2) {  
+              echo 'Please enter a city';
+            }
+            if ($_GET['error'] == 3 || $_GET['error'] == 6) {
+              echo 'Please double check your city';
+            }
+
+    echo '</div>';
+  }
+  /*
+  if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6) {
+     echo '<div class="tp_err" id="tp_zip_error">?</div>
+           <div class="tp_err_exp" id="tp_err_zip_exp">';
+            if ($_GET['error'] == 2) {
+              echo 'Please enter a zip code';
+            }
+            if ($_GET['error'] == 4 || $_GET['error'] == 6) {
+              echo 'Please double check your zip code';
+            }
+      echo '</div>';
+  }
+*/
+
+  echo '<script type="text/javascript" src="/js/time_and_place_ui.js"></script>';
+
+}
+
+
+
+//*************************  GUEST VIEW BOXES  *********************************/
+
 function show_login_box_guest () {
     echo '<div id="login_box">';
       echo '<div class="title">Log In</div>';
@@ -5960,7 +6588,7 @@ function show_login_box_guest () {
           echo '<input type="password" id="login_password" name="password" placeholder="Password" />';
           //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
           echo '<div class="register_error_area" id="login_password_error"></div>';
-          echo '<div id="forgot_password"><a style="color:black;" href="lostpassword.php">forgot your password?</a></div>';
+          echo '<div id="forgot_password">forgot your password?</div>';
           echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
           echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
         echo '</form>';
@@ -5972,19 +6600,19 @@ function show_login_box_guest () {
 function show_sign_up_box_guest () {
   echo '<div id="sign_up_box">';
     echo  '<div class="sign_up_text"><strong><em>To View This Portion of the Site...</em></strong></div>';
-      echo '<button type="button" name="sign_up" class="sign_up">Create a Free Account</button>';
+      echo '<button type="button" name="sign_up" class="sign_up">Create Account</button>';
          echo '<div id="or">~ or ~</div>';
             
             if(($_GET['the_page'] == 'cosel' || $_GET['the_page'] == 'cesel') && $_GET['tier'] == 2) {
-              echo '<button type="button" name="cancel" class="sign_up">Preview sample compatibility</button>';
+              echo '<button type="button" name="cancel" class="sign_up">Preview Compatibility</button>';
             }
             else {
-              echo '<button type="button" name="cancel" class="sign_up">Keep on Browsing</button>';
+              echo '<button type="button" name="cancel" class="sign_up">Keep Browsing</button>';
             }
       echo '</div>'; //Close sign_up_box
 }
 
-
+/*
 function show_registration_box_guest () {
 
   
@@ -6009,7 +6637,8 @@ echo '<div id="create_account">';
       echo '<div class="register_error_area" id="reg_email2_error"></div>';
       echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /></div>';
       echo '<div class="register_error_area" id="reg_password_error"></div>';
-      echo '<div id="terms">By creating an account I confirm that I have read and agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>';
+      //echo '<div id="terms">By creating an account I confirm that I have read and agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>';
+      echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
       echo '<button type="submit" name="submit" class="sign_up" id="register_submit">Sign Me Up!</button>';
     echo '</form>';  
   echo '</div>'; //Close register_form
@@ -6017,25 +6646,47 @@ echo '</div>';  //close #create_account
 
 echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
 
+}*/
+
+function show_registration_box_guest() {
+
+  
+echo '<div id="create_account">';  
+  //echo '<div class="title">Create an Account</div>';
+  //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
+  echo '<div id="register_form">';
+    echo '<form name="register_form" action="../chat/register_user.php" method="post" id="register_form">';
+      echo '<div class="register_error_area" id="reg_user_exists"></div>';
+      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /><span class="reg_err_guest check" id="reg_username_check"></span><span class="reg_err_guest" id="reg_username_error"></span><div class="reg_err_exp_guest" id="reg_err_username_exp_g"></div></div>'; 
+      //echo '<div class="register_error_area" id="reg_username_error"></div>';
+      echo '<div id="birthday">';
+        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<span>';
+          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
+        echo '</span>';
+        echo '<span class="reg_err_guest check" id="reg_birthday_check"></span><span class="reg_err_guest" id="reg_birthday_error"></span><div class="reg_err_exp_guest" id="reg_err_birthday_exp_g"></div>';
+      echo '</div>';
+      //echo '<div class="register_error_area" id="reg_birthday_error"></div>';
+      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /><span class="reg_err_guest check" id="reg_email_check"></span><span class="reg_err_guest" id="reg_email_error"></span><div class="reg_err_exp_guest" id="reg_err_email_exp_g"></div></div>';
+      //echo '<div class="register_error_area" id="reg_email_error"></div>';
+      //echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
+      //echo '<div class="register_error_area" id="reg_email2_error"></div>';
+      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /><span class="reg_err_guest check" id="reg_password_check"></span><span class="reg_err_guest" id="reg_password_error"></span><div class="reg_err_exp_guest" id="reg_err_password_exp_g"></div></div>';
+      //echo '<div class="register_error_area" id="reg_password_error"></div>';
+      echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
+      echo '<input type="submit" name="submit" class="sign_me_up" id="register_submit" value="Create Account" />';
+      //echo '<div id="next">Next ></div>';
+    echo '</form>';  
+  echo '</div>'; //Close register_form
+  echo '<div><div id="cancel_email_sign_up">Cancel</div></div>';
+echo '</div>';  //close #create_account
+
+echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
+//ERRORS
+//echo '<div class="reg_err_exp" id="reg_err_email_exp"></div>';
+
+//echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
+
 }
-
-
-function show_landing_logo() {
-  echo '
-  <div class="bg" id="logo">
-    <a href="' . get_landing() . '"><img src="img/account_info/Starma-Astrology-Logo.png"/></a>
-  </div>';
-}
-
-function show_bugaboos() {
-  echo '
-  <div id="bug1">
-    <img src="img/account_info/Starma-Astrology-Feet-Bugaboo.png"/>
-  </div>
-  <div id="bug2">
-    <img src="img/account_info/Starma-Astrology-Planet-Bugaboo.png"/>
-  </div>';
-}
-
 
 ?>
