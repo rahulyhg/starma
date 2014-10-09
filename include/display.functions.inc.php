@@ -6347,9 +6347,9 @@ function show_3_words_photo_box () {
             }
           echo '<div id="p_error" class="p_err"></div>';
 
-          echo '<input type="hidden" id="desc1" value=""/>';
-          echo '<input type="hidden" id="desc2" value=""/>';
-          echo '<input type="hidden" id="desc3" value=""/>';
+          echo '<input type="hidden" name="desc1" id="desc1" value=""/>';
+          echo '<input type="hidden" name="desc2" id="desc2" value=""/>';
+          echo '<input type="hidden" name="desc3" id="desc3" value=""/>';
           echo '<input type="hidden" name="firsttime" value="1"/>';
           
 
@@ -6397,7 +6397,7 @@ function show_photo_cropper_sign_up($photo_to_crop) {
       echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
       echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
     echo '</div>';
-    echo '<div class="cropMain" style="margin:0 auto 33px;"></div>';
+    echo '<div class="cropMain" style="margin:0 auto 16px;"></div>';
     echo '<input type="submit" name="submit" id="next" value="Next >" />';
     
     
