@@ -6406,8 +6406,8 @@ function show_photo_cropper_sign_up($photo_to_crop) {
     echo '<style>
  
         .photo_cropper_content .cropMain {
-          width:153px;
-          height:153px;
+          width:244px;
+          height:244px;
           border: 2px solid black;
         }
  
