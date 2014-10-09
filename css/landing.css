@@ -305,7 +305,7 @@
   text-align: center;
   margin-bottom: 20px;
   font-weight: bold;
-  font-size: 2.2em;
+  font-size: 1.6em;
   letter-spacing: 2px;
 }
 
@@ -324,6 +324,7 @@
   font-size: 1.4em;
   letter-spacing: 8px;
   border-radius: 3px;
+  background: white;
 }
 
 .sign_up:hover {
