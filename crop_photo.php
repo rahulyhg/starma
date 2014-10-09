@@ -22,11 +22,11 @@ if (login_check_point($type="partial", $domain=$domain)) {
      if ($_POST["submit"] == "Crop and Set" || $_POST["submit"] == "Next >") { // IF A PHOTO HAS BEEN CROPPED AND POSTED IN
         if (num_my_photos() < max_photos()) {
           $x1 = $_POST["x1"];
-    	     $y1 = $_POST["y1"];
-	         $x2 = $_POST["x2"];
-	         $y2 = $_POST["y2"];
-	         $w = $_POST["w"];
-	         $h = $_POST["h"];
+    	    $y1 = $_POST["y1"];
+	        $x2 = $_POST["x2"];
+	        $y2 = $_POST["y2"];
+	        $w = $_POST["w"];
+	        $h = $_POST["h"];
           //echo PROFILE_IMAGE_PATH() . $imgName;
           //die();
           $cropped_profile = resizeCroppedImage(PROFILE_IMAGE_PATH() . $imgName, $imgPath,$w,$h,$x1,$y1,maxHeight() / $h);
@@ -54,21 +54,23 @@ if (login_check_point($type="partial", $domain=$domain)) {
      }         
   }
 
+  echo '<br><br>cropped_file: ' . $cropped_file . '<br>cropped_thumbnail: ' . $cropped_thumbnail . '<br>cropped_compare: ' . $cropped_compare . '<br>error: ' . $error;
+
   if ($error == 0) {
     log_this_action (profile_action_photos(), uploaded_basic_action());
     if ($firsttime == 0) {
-      do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
+      //do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
     }
     else {
-      do_redirect (get_domain() . '/sign_up.php?2');
+      //do_redirect (get_domain() . '/sign_up.php?2');
     }
   }
   else {
     if ($firsttime == 0) {
-      do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
+      //do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
     }
     else {
-      do_redirect (get_domain() . '/sign_up.php?2.5');
+      //do_redirect (get_domain() . '/sign_up.php?2.5');
     }
   }
 
