@@ -6,21 +6,24 @@ $(document).ready(function(){
 	};
 
 	$('.pop_guest_login').click(function(){
-		$('.pop_login').slideFadeToggle();
+		$('.pop_login').slideFadeToggle(function () {
+			$('#login_box').show();
+			$('#forgot_password_box').hide();
+		});
 	});
 
 	$('.pop_guest_click').click(function(event){
 		event.preventDefault();
 		$('.pop_guest').slideFadeToggle();
-		return false;
+		//return false;
 	});
 
 	$('.pop_reg').click(function(){
 		$('.pop_guest').slideFadeToggle(function() {
 			$('#sign_up_box').show();
 			$('#create_account').hide();
-			$('#login_box').show();
-			$('#forgot_password_box').hide();
+			//$('#login_box').show();
+			//$('#forgot_password_box').hide();
 		});
 	});
 
