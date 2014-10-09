@@ -51,12 +51,12 @@ if (login_check_point($type="full")) {
       }
 
        //TEST FOR ADDING text_type to compare_button <span class="compare_button_title">Compare</span>
-<<<<<<< HEAD
-  echo '<div class="profile_button compare_button">';
+//<<<<<<< HEAD
+  //echo '<div class="profile_button compare_button">';
 
-=======
+//=======
     echo '<div class="profile_button compare_button">';
->>>>>>> Public-Front-End-3.0
+//>>>>>>> Public-Front-End-3.0
       echo '<div id="compare_menu"><a href="">Compare</a>';
         echo '<div class="dropdown">';
           echo '<ul>';
