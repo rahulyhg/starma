@@ -120,7 +120,7 @@
   position: relative;
   top: 445px;
   left: -1px;
-  width: 454px;
+  /*width: 454px;*/
 }
 
 #landing_footer #footer_links {
@@ -209,12 +209,13 @@
   position:relative;
 }
 
-
+/*
 #landing #login_button_div{
     bottom: 58px;
     left: 26px;
     position: relative;
 }
+*/
 
 #login_form #stay_logged_in_input {
     bottom: 41px;
@@ -403,7 +404,7 @@
 
 #logo_test {
   width: 100%;
-  min-width: 1150px; 
+  min-width: 1200px; 
 }
 
 #logo_test_img {
@@ -425,12 +426,20 @@
     position: relative;
 }
 
+#logo_test_img {
+  background: url('/img/LogoTest2.svg') no-repeat;
+  background: url('/img/LogoTest2.png') no-repeat;
+  width:300px;
+  height: 132px;
+  background-size: 300px 132px;
+}
+
 
 /***************************************  LANDING LOGIN  ****************************************/
 
 #globe_and_footer {
   margin: -36px auto auto;
-  width: 453px;
+  width: 455px;
 }
 
 
@@ -465,31 +474,31 @@
   display: inline-block;
   float: right;
   position: relative;
-  right: 3%;
-  top: 17px;
+  right: 2%;
+  top: 44px;
 }
 
 #forgot_password_landing {
   color: #e7ebee;
-  bottom: 8px;
   font-size: 12px;
-  left: 191px;
   position: relative;
   cursor: pointer;
   width: 129px;
   font-family: "ClarendonBT-Light";
   letter-spacing: 1px;
+  display: inline-block;
+  margin-left: 55px;
 }
 
 #stay_logged_in_landing {
   color: #e7ebee;
-  bottom: 22px;
   font-family: "ClarendonBT-Light";
   font-size: 12px;
   position: relative;
   vertical-align: top;
   width: 155px;
   letter-spacing: 1px;
+  display: inline-block;
 }
 
 #login_button {
@@ -513,21 +522,29 @@
 
 #go_bug_path_landing {
   background: url('/img/Starma-Astrology-go-bug-path.png') no-repeat;
-  float:left;
   width: 344px;
   height: 73px;
+  position: relative;
+  bottom: 34px;
+  left: 13px;
+  float: right;
 }
 
-#go_bug_button {
+#landing #go_bug_button {
     background: url("/img/GoBug.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: 0 none;
     height: 87px;
     position: relative;
     width: 95px;
     cursor: pointer;
+    display: inline-block;
+    float: right;
+    bottom: 18px;
+    /*top: -12px;*/
+    /*left: 346px;*/
 }
 
-#go_bug_button:hover {
+#landing #go_bug_button:hover {
   background: url('/img/GoBugON.png') no-repeat;
 }
 
@@ -565,6 +582,28 @@
   border: 1px solid #1a1d2a;
   box-shadow: 0 0 2px 0 #4b5a80 inset;
   background: #e7ebee;
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#login_box_landing input[type=text], #login_box_landing input[type=password] {
+  color: #181A1C;
+  position: relative;
+  margin-bottom: 5px;
+  width: 166px;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #1a1d2a;
+  box-shadow: 0 0 2px 0 #4b5a80 inset;
+  background: #e7ebee;
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#login_box_landing input[type=text] {
+  margin-right: 15px;
 }
 
 /*
@@ -606,6 +645,12 @@
   position: relative;
   float: left;
   margin: 0 10px 0 0;
+}
+
+#login_box_landing input[type=checkbox] {
+  position: relative;
+  float: left;
+  margin: 0 5px 0 6px;
 }
 
 
@@ -672,6 +717,9 @@
   padding: 0 10px;
   border: 1px solid black;
   /*box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;*/
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 #register_form input:focus {
@@ -1687,6 +1735,9 @@
   padding: 0 10px;
   border: 1px solid black;
   /*box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;*/
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 #forgot_password_box input:focus {

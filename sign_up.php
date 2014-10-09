@@ -17,35 +17,35 @@ if (sign_up_process_done()) {
             echo '<div id="sign_up_container" class="pop_test">';
               //show_sign_up_box_landing();
               //show_registration_box_landing();
-            	if(isset($_GET['1'])) {
+            	if(isset($_GET['1'])) {/*
                 if (get_my_location() !== "" && get_my_gender() !== 'U') {
                   do_redirect( $url = get_domain() . '/sign_up.php?2');
                 }
-                else {
+                else {*/
             		  show_gender_location_box();
-                }
+                //}
             	}
             	elseif (isset($_GET['2'])) {
-                if (get_my_location() == "" || get_my_gender() == 'U') {
+                /*if (get_my_location() == "" || get_my_gender() == 'U') {
                   do_redirect( $url = get_domain() . '/sign_up.php?1');
                 }
                 elseif (get_my_location() !== "" && my_descriptors_loaded() && get_my_main_photo()) {
                   do_redirect( $url = get_domain() . '/sign_up.php?3');
                 }
-                else {
+                else {*/
                   show_3_words_photo_box();
-                }
+                //}
             	}
             	elseif (isset($_GET['2_5'])) {	
-                if (get_my_location() == "" || get_my_gender() == 'U') {
+                /*if (get_my_location() == "" || get_my_gender() == 'U') {
                   do_redirect( $url = get_domain() . '/sign_up.php?1');
                 }
-                else {
+                else {*/
             		  show_crop_box();
-            	  }
+            	  //}
               }
             	elseif (isset($_GET['3'])) {
-                if (!my_descriptors_loaded() or !get_my_main_photo()) {
+                /*if (!my_descriptors_loaded() or !get_my_main_photo()) {
                   do_redirect( $url = get_domain() . '/sign_up.php?2');
                 }
                 elseif (get_my_location() == "" || get_my_gender() == 'U') {
@@ -54,9 +54,9 @@ if (sign_up_process_done()) {
                 elseif (get_my_chart()) {
                   do_redirect($url = get_domain() . '/' . get_landing());
                 }
-            		else {
+            		else {*/
                   show_time_and_place_box();
-            	  }
+            	  //}
               }
             echo '</div>';
           ?>  

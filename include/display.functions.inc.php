@@ -6060,28 +6060,44 @@ require_once ("landing_footer.php");
 //********************************  LANDING BOXES  ********************************/
 
 function show_login_box_landing () {
-    echo '<div id="login_box">';
+    echo '<div id="login_box_landing">';
       //echo '<div class="title">Log In</div>';
         echo '<form action="/chat/login_form_fields.php" method="POST" id="login_from_guest">';
-          echo '<div style="margin-right:15px; display:inline-block;"><input type="text" id="login_email" name="email" placeholder="Your Email" value="';
+          //echo '<div style="margin-right:15px; display:inline-block;">';
+            echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
             if(isset($_GET['email'])) {
               echo $_GET['email'];
             }
           echo '"/>';
-            echo '<div class="register_error_area" id="login_email_error"></div>';
+            
+          //echo '</div>';
+
+          //echo '<div style="display:inline-block;">';
+            echo '<input type="password" id="login_password" name="password" placeholder="Password" />';
+          //echo '<input type="text" id="pass" name="password" placeholder="Password" />';           
+          //echo '</div>';
+
+            echo '<input type="submit" id="go_bug_button" name="Login" value=""/>';
+
+          echo '<div id="kmsi_f">';
+            echo '<div id="stay_logged_in_landing"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
+            echo '<div id="forgot_password_landing">forgot your password?</div>';
           echo '</div>';
-          echo '<div style="display:inline-block;"><input type="password" id="login_password" name="password" placeholder="Password" />';
-          //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
-            echo '<div class="register_error_area" id="login_password_error"></div>';
-          echo '</div>';
-          echo '<div style="display:inline-block; position:relative; top:18px;"><input type="submit" id="go_bug_button" name="Login" value=""/></div>';
-          echo '<div id="forgot_password_landing">forgot your password?</div>';
-          echo '<div id="stay_logged_in_landing"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
+
           //echo '<button type="submit" name="login_submit" id="login_button">Log In</button>';
-          echo '<div id="login_button_div"><div id="go_bug_path_landing"></div></div>';
+          //echo '<div id="login_button_div">';
+          //echo '<div style="display:inline-block; position:relative; top:18px;">';
+            
+          //echo '</div>';
+        
+          echo '<div id="go_bug_path_landing"></div>';
+          //echo '</div>';
         echo '</form>';
     echo '</div>';
 
+  //ERRORS----------------------
+    echo '<div class="register_error_area" id="login_email_error"></div>';
+    echo '<div class="register_error_area" id="login_password_error"></div>';
 }
 
 

@@ -62,9 +62,9 @@ if (isLoggedIn())
   echo '<div id="logo_test">';
     echo '<div id="logo_test_img">';
       //echo '<img src="img/Logotest.png" height="240px" />';
-      echo '<!--[if lte IE 8]><img src="/img/Logotest.png" style="width:300px;" /><![endif]-->
-            <!--[if gt IE 8]><img src="/img/LogoTest2.svg" style="width:300px;" /><![endif]-->
-            <!--[if !IE]> --><img src="/img/LogoTest2.svg" style="width:300px;" /><!-- <![endif]-->';
+      //echo '<!--[if lte IE 8]><img src="/img/Logotest.png" style="width:300px;" /><![endif]-->';
+      //echo '<!--[if gt IE 8]><img src="/img/LogoTest2.svg" style="width:300px;" /><![endif]-->';
+      //echo '<!--[if !IE]> --><img src="/img/LogoTest2.svg" style="width:300px;" /><!-- <![endif]-->';
     echo '</div>';
     echo '<div id="tagline">Compatibility Horoscopes Community</div>';
     echo '<div id="landing_login_box">';
