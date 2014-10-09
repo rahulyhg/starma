@@ -1683,15 +1683,14 @@
   position: relative;
   margin-bottom: 20px;
   width: 100%;
-  border-radius: 3px;
   height: 38px;
   padding: 0 10px;
-  border: 1px solid #d1d1d1;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;
+  border: 1px solid black;
+  /*box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;*/
 }
 
 #forgot_password_box input:focus {
-  border: 1px solid #8393CA;
+  /*border: 1px solid #8393CA;*/
 }
 
 #forgot_password_box .title {
