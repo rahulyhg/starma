@@ -64,7 +64,7 @@ if (login_check_point($type="partial", $domain=$domain)) {
       do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
     }
     else {
-      do_redirect (get_domain() . '/sign_up.php?2');
+      do_redirect (get_domain() . '/sign_up.php?2_5');
     }
   }
   else {
@@ -72,7 +72,7 @@ if (login_check_point($type="partial", $domain=$domain)) {
       do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
     }
     else {
-      do_redirect (get_domain() . '/sign_up.php?2.5');
+      do_redirect (get_domain() . '/sign_up.php?2_5');
     }
   }
 
