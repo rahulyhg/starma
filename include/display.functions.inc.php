@@ -6280,7 +6280,7 @@ function show_3_words_photo_box () {
         }
         
         else {
-           for ($x = 1; $x<4; $x++) {
+           //for ($x = 1; $x<4; $x++) {
            
               //echo '<div class="value">';
                echo '<input type="text" id="word_1" placeholder="1. "';
@@ -6300,7 +6300,7 @@ function show_3_words_photo_box () {
                     echo 'value="' . $_SESSION['word_3'] . '"';
                   }
                 echo '/>';  
-          }
+          //}
         }
         echo '<input type="hidden" value="words" id="words" />';
         echo '</div>'; //close edit_words
