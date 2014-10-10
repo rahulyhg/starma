@@ -144,7 +144,7 @@
 
 		if(!empty($errors)) {
 			$data['errors'] = $errors;
-			echo '<br>errors: '
+			echo '<br>errors: ';
 			print_r($errors);
 		}
 		else {
