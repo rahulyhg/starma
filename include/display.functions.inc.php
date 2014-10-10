@@ -6096,8 +6096,8 @@ function show_login_box_landing () {
     echo '</div>';
 
   //ERRORS----------------------
-    echo '<div class="register_error_area" id="login_email_error"></div>';
-    echo '<div class="register_error_area" id="login_password_error"></div>';
+    //echo '<div class="register_error_area" id="login_email_error"></div>';
+    //echo '<div class="register_error_area" id="login_password_error"></div>';
 }
 
 

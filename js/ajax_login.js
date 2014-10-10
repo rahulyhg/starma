@@ -6,6 +6,10 @@ $(document).ready(function(){
 	});
 	*/
 
+	$('#login_email').on('keyup', function(){
+		$(this).css('border-color', '#1a1d2a');
+	});
+
 	$('#login_button_div').click(function(event){
 		$('#login_from_guest').submit(function(event){
 			event.preventDefault();
@@ -27,13 +31,13 @@ $(document).ready(function(){
 				if(data.errors) {
 					if(data.errors.email){
 						//alert(data.errors.email);
-						$('#login_email_error').text(data.errors.email);
-						//$('#login_email').addClass('red_border');
+						//$('#login_email_error').text(data.errors.email);
+						$('#login_email').css('border-color', '#C82923');
 					}
 					if(data.errors.password) {
 						//alert(data.errors.password);
-						$('#login_password_error').text(data.errors.password);
-						//$('#login_password').addClass('red_border');
+						//$('#login_password_error').text(data.errors.password);
+						$('#login_password').css('border-color', '#C82923');
 					}	
 				}
 				else {
