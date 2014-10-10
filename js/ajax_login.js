@@ -26,7 +26,7 @@ $(document).ready(function(){
 	});
 
 
-	$('#login_button_div').click(function(event){
+	$('#go_bug_button').click(function(event){
 		$('#login_from_landing').submit(function(event){
 			event.preventDefault();
 
