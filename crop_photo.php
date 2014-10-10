@@ -54,25 +54,25 @@ if (login_check_point($type="partial", $domain=$domain)) {
      }         
   }
 
-  echo '<br><br>cropped_file: ' . $cropped_file . '<br>cropped_thumbnail: ' . $cropped_thumbnail . '<br>cropped_compare: ' . $cropped_compare . '<br>error: ' . $error;
+  //echo '<br><br>cropped_file: ' . $cropped_file . '<br>cropped_thumbnail: ' . $cropped_thumbnail . '<br>cropped_compare: ' . $cropped_compare . '<br>error: ' . $error;
 
-  echo '<br><br>ORIGINAL_IMAGE_PATH: ' . $ORIGINAL_IMAGE_PATH;
+  //echo '<br><br>ORIGINAL_IMAGE_PATH: ' . $ORIGINAL_IMAGE_PATH;
 
   if ($error == 0) {
     log_this_action (profile_action_photos(), uploaded_basic_action());
     if ($firsttime == 0) {
-      //do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
+      do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
     }
     else {
-      //do_redirect (get_domain() . '/sign_up.php?2');
+      do_redirect (get_domain() . '/sign_up.php?2');
     }
   }
   else {
     if ($firsttime == 0) {
-      //do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
+      do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
     }
     else {
-      //do_redirect (get_domain() . '/sign_up.php?2.5');
+      do_redirect (get_domain() . '/sign_up.php?2.5');
     }
   }
 
