@@ -15,7 +15,7 @@ $(document).ready(function(){
 		$('#login_from_guest').submit(function(event){
 			event.preventDefault();
 			if ($('input[name=stay_logged_in]').is(':checked')) {
-				$('input[name=stay_logged_in]').val() = 'on';
+				$('input[name=stay_logged_in]').val('on');
 			}
 
 			var data = {
