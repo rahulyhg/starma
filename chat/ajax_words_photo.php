@@ -145,10 +145,10 @@
 			$data['success'] = true;
 			$data['url'] = 'sign_up.php?3';
 			$all_words = array($word_1, $word_2, $word_3);
-			//print_r($all_words);
-			update_descriptors ($all_words);
+			print_r($all_words);
+			//update_descriptors ($all_words);
 		}
-		echo json_encode($data);
+		//echo json_encode($data);
 	}
 
 ?>

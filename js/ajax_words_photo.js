@@ -255,7 +255,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 //SUBMIT---------------
 //$('#next').click(function(event) {
 	$('#words_photo_form').submit(function(event) {
-		event.preventDefault();
+		//event.preventDefault();
 		/*
 		if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
 			if ($('#word_1').val() == '') {
