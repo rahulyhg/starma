@@ -25,7 +25,9 @@ if (isLoggedIn() == true) {
    }            
   
    $data['errors'] = $errors;
-   //echo json_encode($data);
+   echo json_encode($data);
+   
+   /* //----------------------ERROR CHECKING
     echo '<br>cropped_profile: ' . $cropped_profile;
     echo '<br>cropped_thumbnail: ' . $cropped_thumbnail;
     echo '<br>cropped_compare: ' . $cropped_compare;
@@ -36,6 +38,7 @@ if (isLoggedIn() == true) {
     echo '<br>h: ' . $h;
     echo '<br>imgPath: ' . $imgPath;
     echo '<br>imgName: ' . $imgName;
+  */
 } 
 
  
