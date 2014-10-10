@@ -6264,7 +6264,7 @@ function show_3_words_photo_box () {
     
       echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
         echo '<div id="edit_words">';
-        if ($descriptors) {
+        if ($descriptors !== '') {
           $x = 1;
           while ($desc = mysql_fetch_array($descriptors)) {
             //echo '<div id="' . $x . '">';
