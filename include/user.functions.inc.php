@@ -521,7 +521,7 @@ function descriptors_loaded ($user_id) {
 function get_my_descriptors () {
   
   //if (isLoggedIn()) {
-    $q = "SELECT * from user_descriptor where user_id = " . $_SESSION["user_id"] . "ORDER by asc";
+    $q = "SELECT * from user_descriptor where user_id = " . $_SESSION["user_id"];
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      
@@ -534,7 +534,7 @@ function get_my_descriptors () {
 function get_descriptors ($user_id) {
   
   //if (isLoggedIn()) {
-    $q = "SELECT * from user_descriptor where user_id = " . $user_id . "ORDER by asc";
+    $q = "SELECT * from user_descriptor where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      
