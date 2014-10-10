@@ -6397,7 +6397,7 @@ function show_photo_cropper_sign_up($photo_to_crop) {
       echo '<input id="rotate_right" type="submit" name="submit" value="Rotate ->"/>';
     echo '</div>';
     echo '<div class="cropMain" style="margin:0 auto 16px;"></div>';
-    echo '<input type="submit" name="submit" id="next" value="Next >" />';
+    echo '<button name="submit" id="next">"Next >"</button>';
     
     
 

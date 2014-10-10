@@ -312,23 +312,38 @@ function activate_photo_cropper ($img_id, $img_name) {
   echo '<script type="text/javascript">
  
    	  var foo = new CROP(\'\');
-	  foo.init(\'.photo_cropper_content\');
-	  foo.loadImg("' . ORIGINAL_IMAGE_PATH() . $img_name . '?m=' . filemtime(ORIGINAL_IMAGE_PATH() . $img_name) . '");
+	    foo.init(\'.photo_cropper_content\');
+	    foo.loadImg("' . ORIGINAL_IMAGE_PATH() . $img_name . '?m=' . filemtime(ORIGINAL_IMAGE_PATH() . $img_name) . '");
  
-	  $(document).on(\'click\', \'button\', function() {
+	    $(document).on(\'click\', \'.cropButton\', function() {
                 
-		$.ajax({
-			type: "post",
-			dataType: "json",
-			url: "' .get_full_domain() . '/chat/ajax_crop_photo.php",
-			data: $.param(coordinates(foo)) + \'&imgName=' . $img_name . '&imgID=' . $img_id . '\'
-		})
-		.done(function(data) {';
-       //echo 'window.location.replace("' . get_full_domain () . '/main.php?the_page=psel&the_left=nav1&western=0&section=photos_selected");';
+		    $.ajax({
+			   type: "post",
+			   dataType: "json",
+			   url: "' .get_full_domain() . '/chat/ajax_crop_photo.php",
+			   data: $.param(coordinates(foo)) + \'&imgName=' . $img_name . '&imgID=' . $img_id . '\'
+		    })
+		    .done(function(data) {';
+          echo 'window.location.replace("' . get_full_domain () . '/main.php?the_page=psel&the_left=nav1&western=0&section=photos_selected");';
  
-		echo '});  return false;
+	echo '});  return false;
  
-	  });
+	    });
+
+      $(document).on(\'click\', \'#next\', function() {
+                
+        $.ajax({
+         type: "post",
+         dataType: "json",
+         url: "' .get_full_domain() . '/chat/ajax_crop_photo.php",
+         data: $.param(coordinates(foo)) + \'&imgName=' . $img_name . '&imgID=' . $img_id . '\'
+        })
+        .done(function(data) {';
+          echo 'window.location.replace("' . get_full_domain () . '/sign_up.php?2");';
+ 
+  echo '});  return false;
+ 
+     });
 
           $(\'.crop-img\').rotate(360);
  
