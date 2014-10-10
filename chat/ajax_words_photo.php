@@ -144,9 +144,11 @@
 		else {
 			$data['success'] = true;
 			$data['url'] = 'sign_up.php?3';
-			update_descriptors (array($word_1, $word_2, $word_3));
+			$all_words = array($word_1, $word_2, $word_3);
+			print_r($all_words);
+			//update_descriptors (array($word_1, $word_2, $word_3));
 		}
-		echo json_encode($data);
+		//echo json_encode($data);
 	}
 
 ?>
