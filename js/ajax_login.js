@@ -6,6 +6,12 @@ $(document).ready(function(){
 	});
 	*/
 
+	$('input[name=stay_logged_in]').click(function() {
+		if ($('input[name=stay_logged_in]').is(':checked')) {
+			$('input[name=stay_logged_in]').val('on');
+		}
+	});
+		
 
 	$('#login_email').on('keyup', function(){
 		$(this).css('border', '1px solid #1a1d2a');
@@ -14,9 +20,6 @@ $(document).ready(function(){
 	$('#login_button_div').click(function(event){
 		$('#login_from_guest').submit(function(event){
 			event.preventDefault();
-			if ($('input[name=stay_logged_in]').is(':checked')) {
-				$('input[name=stay_logged_in]').val('on');
-			}
 
 			var data = {
 				'email'			  : $('#login_email').val(),
