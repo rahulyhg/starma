@@ -6256,7 +6256,7 @@ function show_3_words_photo_box () {
   //$user_id = get_my_user_id();
   $descriptors = get_descriptors(get_my_user_id());
   //print_r($descriptors);
-  //echo '<br>descriptors: ' . $descriptors;
+  echo '<br>descriptor1: ' . $descriptors[0]['descriptor'];
   echo '<div id="words_photo">';
   echo '<div id="step">2 / 3</div>';
     echo '<div class="small_title">In three words, you are...</div>';
