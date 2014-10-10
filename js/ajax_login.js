@@ -21,7 +21,7 @@ $(document).ready(function(){
 	});
 
 	$('#login_button_div').click(function(event){
-		$('#login_from_guest').submit(function(event){
+		$('#login_from_landing').submit(function(event){
 			event.preventDefault();
 
 			var data = {
@@ -80,13 +80,13 @@ $(document).ready(function(){
 			if(data.errors) {
 				if(data.errors.email){
 					//alert(data.errors.email);
-					$('#login_email_error').text(data.errors.email);
-					//$('#login_email').addClass('red_border');
+					//$('#login_email_error').text(data.errors.email);
+					$('#login_email').css('border', '1px solid #C82923');
 				}
 				if(data.errors.password) {
 					//alert(data.errors.password);
-					$('#login_password_error').text(data.errors.password);
-					//$('#login_password').addClass('red_border');
+					//$('#login_password_error').text(data.errors.password);
+					$('#login_password').css('border', '1px solid #C82923');
 				}	
 			}
 			else {

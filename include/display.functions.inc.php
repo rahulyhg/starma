@@ -6062,7 +6062,7 @@ require_once ("landing_footer.php");
 function show_login_box_landing () {
     echo '<div id="login_box_landing">';
       //echo '<div class="title">Log In</div>';
-        echo '<form action="/chat/login_form_fields.php" method="POST" id="login_from_guest">';
+        echo '<form action="/chat/login_form_fields.php" method="POST" id="login_from_landing">';
           //echo '<div style="margin-right:15px; display:inline-block;">';
             echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
             if(isset($_GET['email'])) {
