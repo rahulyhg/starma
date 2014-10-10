@@ -53,6 +53,7 @@ $(document).ready(function(){
 		//$('#landing_sign_up_box').show();
 		$('.pop_landing').hide();
 		$('#fp_email').val('');
+		$('#fp_email').css('border', '1px solid #1a1d2a');
 	});
 
 	$('button[name=cancel]').click(function(){
