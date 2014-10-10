@@ -2500,8 +2500,8 @@ li.my_unknown_button a {
   left:0px;
   width:100%;
   height:100%;
-  background:none;
-  opacity:0.6;
+  background:#4e587a;
+  opacity:0.65;
   display:none;
   filter:alpha(opacity=60); /* For IE8 and earlier */
 }
@@ -2535,18 +2535,18 @@ li.my_unknown_button a {
 }
 
 #msg_sheen #msg_sheen_content_landing {
-    background: none repeat scroll 0 0 white;
-    border-radius: 3px;
+    background: #e7ebee;
     font-size:0.8em;
-    margin-left: -159px;
+    margin-left: -169px;
     padding: 20px 0 10px;
     position: fixed;
     top: 8%;
     left: 52%;
-    width: 278px;
+    width: 282px;
     display: none;
     box-shadow: 0 0 35px;
     z-index: 200;
+    border: 2px solid black;
 }
 
 #msg_sheen #msg_sheen_content_guest {

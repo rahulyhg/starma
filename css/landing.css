@@ -489,6 +489,7 @@
   letter-spacing: 1px;
   display: inline-block;
   margin-left: 55px;
+  z-index: 1;
 }
 
 #stay_logged_in_landing {
