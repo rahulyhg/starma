@@ -6255,8 +6255,8 @@ function show_gender_location_box() {
 function show_3_words_photo_box () {
   //$user_id = get_my_user_id();
   $descriptors = get_descriptors(get_my_user_id());
-  print_r($descriptors);
-  echo '<br>descriptors: ' . $descriptors;
+  //print_r($descriptors);
+  //echo '<br>descriptors: ' . $descriptors;
   echo '<div id="words_photo">';
   echo '<div id="step">2 / 3</div>';
     echo '<div class="small_title">In three words, you are...</div>';
@@ -6265,7 +6265,7 @@ function show_3_words_photo_box () {
     
       echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
         echo '<div id="edit_words">';
-        if ($descriptors !== '') {
+        if ($descriptors[0]['descripror'] !== '') {
           $x = 1;
           while ($desc = mysql_fetch_array($descriptors)) {
             //echo '<div id="' . $x . '">';
