@@ -6,6 +6,7 @@ $(document).ready(function(){
 	});
 	*/
 
+
 	$('#login_email').on('keyup', function(){
 		$(this).css('border', '1px solid #1a1d2a');
 	});
@@ -13,6 +14,9 @@ $(document).ready(function(){
 	$('#login_button_div').click(function(event){
 		$('#login_from_guest').submit(function(event){
 			event.preventDefault();
+			if ($('#stay_logged_in').is(':checked')) {
+				$('#stay_logged_in').val() = 'on';
+			}
 
 			var data = {
 				'email'			  : $('#login_email').val(),
