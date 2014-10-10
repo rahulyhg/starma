@@ -29,7 +29,7 @@ if (isLoggedIn() == true) {
     echo '<br>cropped_profile: ' . $cropped_profile;
     echo '<br>cropped_thumbnail: ' . $cropped_thumbnail;
     echo '<br>cropped_compare: ' . $cropped_compare;
-    echo '<br>errors: ' . $errors;
+    echo '<br>errors: ' . print_r($errors);
     echo '<br>x1: ' . $x1;
     echo '<br>y1: ' . $y1;
     echo '<br>w: ' . $w;
