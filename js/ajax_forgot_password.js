@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	$('#fp_submit').click(function(){
              				$('#sending').show();
-							$('#sending').html('<div id="ajax_loader"><img src="/js/ajax_loader.gif" /></div>');
+							$('#sending').html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /></div>');
 					});
 
 	$('#forgot_password_form').submit(function(event){
