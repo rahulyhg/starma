@@ -126,10 +126,10 @@
 		//echo json_encode($word3_data);
 	}
 
-	echo '<br>hello';
-	echo '<br>word_1: ' . $word_1;
-	echo '<br>word_2: ' . $word_2;
-	echo '<br>word_3: ' . $word_3;
+	//echo '<br>hello';
+	echo '<br>word_1: ' . trim($_POST['word_1']);
+	echo '<br>word_2: ' . trim($_POST['word_2']);
+	echo '<br>word_3: ' . trim($_POST['word_3']);
 
 
 //PHOTO ERRORS--------------------------------------
