@@ -126,6 +126,7 @@
 		//echo json_encode($word3_data);
 	}
 
+	echo '<br>hello';
 	echo '<br>word_1: ' . $word_1;
 	echo '<br>word_2: ' . $word_2;
 	echo '<br>word_3: ' . $word_3;
