@@ -2,6 +2,10 @@
 	
 	require ('ajax_header.php');
 
+			echo '<br>word_1: ' . $word_1;
+			echo '<br>word_2: ' . $word_2;
+			echo '<br>word_3: ' . $word_3;
+
 //3 WORDS QUICK CHECK--------------------------------------------
 
 	
@@ -140,6 +144,8 @@
 
 		if(!empty($errors)) {
 			$data['errors'] = $errors;
+			echo '<br>errors: '
+			print_r($errors);
 		}
 		else {
 			$data['success'] = true;
