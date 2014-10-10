@@ -20,6 +20,10 @@ $(document).ready(function(){
 		$(this).css('border', '1px solid #1a1d2a');
 	});
 
+	$('#login_password').on('keyup', function(){
+		$(this).css('border', '1px solid #1a1d2a');
+	});
+
 	$('#login_button_div').click(function(event){
 		$('#login_from_landing').submit(function(event){
 			event.preventDefault();
