@@ -7,7 +7,7 @@ $(document).ready(function(){
 	*/
 
 	$('#login_email').on('keyup', function(){
-		$(this).css('border-color', '#1a1d2a');
+		$(this).css('border', '1px solid #1a1d2a');
 	});
 
 	$('#login_button_div').click(function(event){
@@ -32,12 +32,12 @@ $(document).ready(function(){
 					if(data.errors.email){
 						//alert(data.errors.email);
 						//$('#login_email_error').text(data.errors.email);
-						$('#login_email').css('border-color', '#C82923');
+						$('#login_email').css('border', '1px solid #C82923');
 					}
 					if(data.errors.password) {
 						//alert(data.errors.password);
 						//$('#login_password_error').text(data.errors.password);
-						$('#login_password').css('border-color', '#C82923');
+						$('#login_password').css('border', '1px solid #C82923');
 					}	
 				}
 				else {
