@@ -14,8 +14,8 @@ $(document).ready(function(){
 	$('#login_button_div').click(function(event){
 		$('#login_from_guest').submit(function(event){
 			event.preventDefault();
-			if ($('#stay_logged_in').is(':checked')) {
-				$('#stay_logged_in').val() = 'on';
+			if ($('input[name=stay_logged_in]').is(':checked')) {
+				$('input[name=stay_logged_in]').val() = 'on';
 			}
 
 			var data = {
