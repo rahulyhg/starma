@@ -281,7 +281,13 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 			'crop_error'   :  $('#crop_error').val(),
 			};
 
-		$.post('/chat/ajax_words_photo.php', words, function(data){
+		$.ajax({
+			type     : 'POST',
+			url      : '/chat/ajax_words_photo.php', 
+			data     : words, 
+			dataType : 'json',
+		})
+		.done(function(data){
 				if(data.errors) {	
 					$('#step').html('').text('2 / 3');
 					if (data.errors.word1) {
@@ -307,7 +313,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				if(data.success) {
 					window.location.assign('/' + data.url);			
 				}
-			}, 'json');
+			});
 		//}
 
 	//});
