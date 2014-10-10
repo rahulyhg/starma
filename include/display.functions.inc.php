@@ -6256,7 +6256,7 @@ function show_3_words_photo_box () {
   //$user_id = get_my_user_id();
   $descriptors = get_descriptors(get_my_user_id());
   //print_r($descriptors);
-  echo '<br>descriptor1: ' . $descriptors[0]['descriptor'];
+  //echo '<br>descriptor1: ' . $descriptors[0]['descriptor'];
   echo '<div id="words_photo">';
   echo '<div id="step">2 / 3</div>';
     echo '<div class="small_title">In three words, you are...</div>';
@@ -6265,7 +6265,7 @@ function show_3_words_photo_box () {
     
       echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
         echo '<div id="edit_words">';
-        if ($descriptors[0]['descriptor'] !== '') {
+        if ($desc = mysql_fetch_array($descriptors)) {
           $x = 1;
           while ($desc = mysql_fetch_array($descriptors)) {
             //echo '<div id="' . $x . '">';
