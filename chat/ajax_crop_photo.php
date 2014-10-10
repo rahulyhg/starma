@@ -8,9 +8,9 @@ if (isLoggedIn() == true) {
 
    if (num_my_photos() < max_photos()) {
           $x1 = $_POST["x"];
-    	  $y1 = $_POST["y"];
-	  $w = $_POST["w"];
-	  $h = $_POST["h"];
+    	    $y1 = $_POST["y"];
+	        $w = $_POST["w"];
+	        $h = $_POST["h"];
           //echo PROFILE_IMAGE_PATH() . $imgName;
           //die();
           $cropped_profile = resizeCroppedImage('../' . PROFILE_IMAGE_PATH() . $imgName, (string)$imgPath,$w,$h,$x1,$y1,maxHeight() / $h);
@@ -25,8 +25,17 @@ if (isLoggedIn() == true) {
    }            
   
    $data['errors'] = $errors;
-   echo json_encode($data);
- 
+   //echo json_encode($data);
+    echo '<br>cropped_profile: ' . $cropped_profile;
+    echo '<br>cropped_thumbnail: ' . $cropped_thumbnail;
+    echo '<br>cropped_compare: ' . $cropped_compare;
+    echo '<br>error: ' . $error;
+    echo '<br>x1: ' . $x1;
+    echo '<br>y1: ' . $y1;
+    echo '<br>w: ' . $w;
+    echo '<br>h: ' . $h;
+    echo '<br>imgPath: ' . $imgPath;
+    echo '<br>imgName: ' . $imgName;
 } 
 
  
