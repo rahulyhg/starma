@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$('fp_email').on('keyup', function(){
+	$('#fp_email').on('keyup', function(){
 		$(this).css('border', '1px solid #1a1d2a');
 	});
 
@@ -29,7 +29,7 @@ $(document).ready(function(){
 			}
 			if (data.errors) {
 				$('#sending').html(data.errors.message);
-				$('#fp_email').css('border', '2px solid #C82923');
+				$('#fp_email').css('border', '1px solid #C82923');
 			}
 		})
 		.fail(function(data){
