@@ -56,6 +56,8 @@ if (login_check_point($type="partial", $domain=$domain)) {
 
   echo '<br><br>cropped_file: ' . $cropped_file . '<br>cropped_thumbnail: ' . $cropped_thumbnail . '<br>cropped_compare: ' . $cropped_compare . '<br>error: ' . $error;
 
+  echo '<br><br>ORIGINAL_IMAGE_PATH: ' . $ORIGINAL_IMAGE_PATH;
+
   if ($error == 0) {
     log_this_action (profile_action_photos(), uploaded_basic_action());
     if ($firsttime == 0) {
