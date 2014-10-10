@@ -10,6 +10,9 @@ $(document).ready(function(){
 		if ($('input[name=stay_logged_in]').is(':checked')) {
 			$('input[name=stay_logged_in]').val('on');
 		}
+		else {
+			$('input[name=stay_logged_in]').val('');
+		}
 	});
 		
 
