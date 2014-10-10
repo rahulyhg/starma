@@ -2,9 +2,6 @@
 	
 	require ('ajax_header.php');
 
-			echo '<br>word_1: ' . $word_1;
-			echo '<br>word_2: ' . $word_2;
-			echo '<br>word_3: ' . $word_3;
 
 //3 WORDS QUICK CHECK--------------------------------------------
 
@@ -128,6 +125,10 @@
 		}
 		//echo json_encode($word3_data);
 	}
+
+	echo '<br>word_1: ' . $word_1;
+	echo '<br>word_2: ' . $word_2;
+	echo '<br>word_3: ' . $word_3;
 
 
 //PHOTO ERRORS--------------------------------------
