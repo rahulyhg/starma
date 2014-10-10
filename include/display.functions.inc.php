@@ -6254,7 +6254,7 @@ function show_gender_location_box() {
 
 function show_3_words_photo_box () {
   //$user_id = get_my_user_id();
-  //$descriptors = get_descriptors(1000);
+  
   
   echo '<div id="words_photo">';
   echo '<div id="step">2 / 3</div>';
@@ -6264,24 +6264,23 @@ function show_3_words_photo_box () {
     
       echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
         echo '<div id="edit_words">';
-        /*
-        if ($yes) {
+        if ($descriptors = get_descriptors(get_my_user_id())) {
           $x = 1;
           while ($desc = mysql_fetch_array($descriptors)) {
-            echo '<div id="' . $x . '">';
+            //echo '<div id="' . $x . '">';
               //echo '<div class="value">';
                 echo '<input type="text" id="word_' . $x . '" placeholder="' . $x . '. " value="' . $desc["descriptor"] . '"/>';
               //echo '</div>';
-                echo '<span class="w_err" id="w_' . $x . '_error"></span>';
-                echo '<div class="w_err_exp" id="w_' . $x . '_err_exp"></div>';
+                //echo '<span class="w_err" id="w_' . $x . '_error"></span>';
+                //echo '<div class="w_err_exp" id="w_' . $x . '_err_exp"></div>';
 
-            echo '</div>';
+            //echo '</div>';
             $x = $x + 1;
           }
         }
-        */
-        //else {
-           //for ($x = 1; $x<4; $x++) {
+        
+        else {
+           for ($x = 1; $x<4; $x++) {
            
               //echo '<div class="value">';
                echo '<input type="text" id="word_1" placeholder="1. "';
@@ -6301,8 +6300,8 @@ function show_3_words_photo_box () {
                     echo 'value="' . $_SESSION['word_3'] . '"';
                   }
                 echo '/>';  
-          //}
-        //}
+          }
+        }
         echo '<input type="hidden" value="words" id="words" />';
         echo '</div>'; //close edit_words
 
