@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+	$('fp_email').on('keyup', function(){
+		$(this).css('border', '1px solid #1a1d2a');
+	});
+
 	$('#fp_submit').click(function(){
              				$('#sending').show();
 							$('#sending').html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /></div>');
@@ -25,6 +29,7 @@ $(document).ready(function(){
 			}
 			if (data.errors) {
 				$('#sending').html(data.errors.message);
+				$('#fp_email').css('border', '2px solid #C82923');
 			}
 		})
 		.fail(function(data){
