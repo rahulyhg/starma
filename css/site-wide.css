@@ -50,7 +50,7 @@ body {
               -webkit-gradient(radial, center center, 0px, center center, 100%, from(#8393ca) to(black), color-stop(39%, #424e6f), color-stop(76%, #353e57), color-stop(87%, #161b24), color-stop(97%, black)); /* center center, 0px, center center, 100%, */
   background: url('/img/star_bg.png') repeat, 
               -webkit-gradient(circle, 0 0, 0px, center, #8393ca 39%, #424e6f 76%, #353e57 87%, #161b24 97%, black);   /* Safari 5.1 - 6 Test */    
-  background: filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100, finishopacity=0, style=2);
+  background: -ms-radial-gradient(0% 100%, circle cover, #8393ca, #424e6f 39%, #353e57 76%, #161b24 87%, black 97%, black 100%);
   min-height: 100vh;
 }
 
