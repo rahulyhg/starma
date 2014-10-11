@@ -416,7 +416,8 @@
 }
 
 #tagline {
-    bottom: 58px;
+    bottom: 51px;
+    right: 40px;
     display: inline-block;
     /*color: #e7ebee;   
     font-family: "later_on";
