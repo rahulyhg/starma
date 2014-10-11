@@ -47,8 +47,9 @@ body {
   background: url('/img/star_bg.png') repeat,
               radial-gradient(circle, #8393ca 39%, #424e6f 76%, #353e57 87%, #161b24 97%, black); /* Standard syntax */
   background: url('/img/star_bg.png') repeat, 
-              -webkit-gradient(circle, center center, 0px, center center, 100%, from(#8393ca) to(black), color-stop(39%, #424e6f), color-stop(76%, #353e57), color-stop(87%, #161b24), color-stop(97%, black)); /* center center, 0px, center center, 100%, */
-              
+              -webkit-gradient(radial, center center, 0px, center center, 100%, from(#8393ca) to(black), color-stop(39%, #424e6f), color-stop(76%, #353e57), color-stop(87%, #161b24), color-stop(97%, black)); /* center center, 0px, center center, 100%, */
+  background: url('/img/star_bg.png') repeat, 
+              -webkit-gradient(circle, 0 0, 0px, center, #8393ca 39%, #424e6f 76%, #353e57 87%, #161b24 97%, black);   /* Safari 5.1 - 6 Test */    
   min-height: 100vh;
 }
 
