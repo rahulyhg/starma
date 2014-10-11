@@ -425,7 +425,7 @@
     left: -34px;
     letter-spacing: 4px;*/
     position: relative;
-    background: url('img/Starma-Astrology-Tagline.png') no-repeat;
+    background: url('/img/Starma-Astrology-Tagline.png') no-repeat;
     width: 375px;
     height: 23px;
 }
