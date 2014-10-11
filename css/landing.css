@@ -417,14 +417,17 @@
 
 #tagline {
     bottom: 58px;
-    color: #e7ebee;
     display: inline-block;
+    /*color: #e7ebee;   
     font-family: "later_on";
     font-size: 1.25em;
     font-weight: bold;
     left: -34px;
-    letter-spacing: 4px;
+    letter-spacing: 4px;*/
     position: relative;
+    background: url('img/Starma-Astrology-Tagline.png') no-repeat;
+    width: 375px;
+    height: 23px;
 }
 
 #logo_test_img {

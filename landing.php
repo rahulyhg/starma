@@ -66,7 +66,7 @@ if (isLoggedIn())
       //echo '<!--[if gt IE 8]><img src="/img/LogoTest2.svg" style="width:300px;" /><![endif]-->';
       //echo '<!--[if !IE]> --><img src="/img/LogoTest2.svg" style="width:300px;" /><!-- <![endif]-->';
     echo '</div>';
-    echo '<div id="tagline">Compatibility Horoscopes Community</div>';
+    echo '<div id="tagline"></div>';
     echo '<div id="landing_login_box">';
       show_login_box_landing();
     echo '</div>';
