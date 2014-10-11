@@ -49,6 +49,10 @@
   height: 33px;
 }
 
+#country select {
+  width: 278px;
+}
+
 #time select#hour_time, #time select#minute_time {
   border-top: 2px solid #1a1d2a;
   border-left: 2px solid #1a1d2a;
