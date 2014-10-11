@@ -41,7 +41,7 @@ body {
   background: url('/img/star_bg.png') repeat, -o-radial-gradient(circle, #8393ca 39%, #424e6f 76%, #353e57 87%, #161b24 97%, black); /* Opera 11.6 to 12.0 */
   background: url('/img/star_bg.png') repeat, -moz-radial-gradient(circle, #8393ca 39%, #424e6f 76%, #353e57 87%, #161b24 97%, black); /* Firefox 3.6 to 15 */
   background: url('/img/star_bg.png') repeat, radial-gradient(circle, #8393ca 39%, #424e6f 76%, #353e57 87%, #161b24 97%, black); /* Standard syntax */
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, from(#8393ca), color-stop(39%, #424e6f), color-stop(76%, #353e57), color-stop(87%, #161b24), color-stop(97%, black), to(black)), url('/img/star_bg.png') repeat;
+  background: -webkit-gradient(radial, from(#8393ca), color-stop(39%, #424e6f), color-stop(76%, #353e57), color-stop(87%, #161b24), color-stop(97%, black), to(black)), url('/img/star_bg.png') repeat; /* center center, 0px, center center, 100%, */
   min-height: 100vh;
 }
 
