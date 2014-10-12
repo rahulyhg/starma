@@ -4,6 +4,10 @@ require_once ("header.php");
   
 if (login_check_point($type="full")) {
 
+	show_my_houses();
+
+	/*
+
 $chart_id = get_my_chart_id();
 $rising_sign_id = get_sign_from_poi ($chart_id, 1); //in user functions
 
@@ -35,13 +39,18 @@ echo '<div id="house_column">';
 						}
 					$house_of_residence = $house_of_residence + 1;
 
-					echo ' in H: ' . $house_of_residence;
+					//echo ' in H: ' . $house_of_residence;
 
 					echo '</p></div>';
 					echo '<div class="house_blurb"><span>';
 						echo get_house_ruler_blurb($rising_sign_id, ($i+1), $house_of_residence);
 
 					echo '</span></div>';
+					echo '<div class="house_residence">';
+						//echo get_sign_name($sign_id) .' LoH' . ($i +1) . ': ';
+						echo 'Residing in H: ' . $house_of_residence;
+					echo '</div>';
+
 				echo '</div>'; //close house_column_wrapper
 			echo '</li>';
 
