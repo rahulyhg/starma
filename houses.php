@@ -15,32 +15,34 @@ echo '<div id="house_column">';
 					$sign_id = $sign_id - 12;
 				}
 			echo '<li>';
-				echo '<div class="ruled_house"><p>H' . ($i + 1) . ' contains: ';
-				echo get_sign_name($sign_id) .' LoH' . ($i +1) . ': ';
+				echo '<div class="house_column_wrapper">';
+					echo '<div class="ruled_house"><p>H' . ($i + 1) . ' contains: ';
+					echo get_sign_name($sign_id) .' LoH' . ($i +1) . ': ';
 				
-				$results = get_ruler_of_sign($sign_id);
-				while($row = mysql_fetch_array($results)) {
-					$ruler_of_sign_id = $row["ruling_poi_id"];
-					$ruler_of_sign = strtolower(ucfirst(get_poi_name($row["ruling_poi_id"])));
-					echo $ruler_of_sign;
-				}
-				
-				
-				$sign_of_residence = get_sign_from_poi($chart_id, $ruler_of_sign_id);
-
-				$house_of_residence = $sign_of_residence - $rising_sign_id;
-					if ($house_of_residence < 0) {
-						$house_of_residence = $house_of_residence + 12;
+					$results = get_ruler_of_sign($sign_id);
+					while($row = mysql_fetch_array($results)) {
+						$ruler_of_sign_id = $row["ruling_poi_id"];
+						$ruler_of_sign = strtolower(ucfirst(get_poi_name($row["ruling_poi_id"])));
+						echo $ruler_of_sign;
 					}
-				$house_of_residence = $house_of_residence + 1;
+				
+				
+					$sign_of_residence = get_sign_from_poi($chart_id, $ruler_of_sign_id);
 
-				echo ' in H: ' . $house_of_residence;
+					$house_of_residence = $sign_of_residence - $rising_sign_id;
+						if ($house_of_residence < 0) {
+							$house_of_residence = $house_of_residence + 12;
+						}
+					$house_of_residence = $house_of_residence + 1;
 
-				echo '</p></div>';
-				echo '<div class="house_blurb"><span>';
-					echo get_house_ruler_blurb($rising_sign_id, ($i+1), $house_of_residence);
+					echo ' in H: ' . $house_of_residence;
 
-				echo '</span></div>';
+					echo '</p></div>';
+					echo '<div class="house_blurb"><span>';
+						echo get_house_ruler_blurb($rising_sign_id, ($i+1), $house_of_residence);
+
+					echo '</span></div>';
+				echo '</div>'; //close house_column_wrapper
 			echo '</li>';
 
 		}

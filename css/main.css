@@ -3055,10 +3055,17 @@ ul.as-list li.as-result-item em {
   min-height: 252px;
 }
 
+.house_column_wrapper {
+  display: inline-block;
+}
+
 #house_column div.ruled_house {
   display: inline-block;
   padding: 0 2px;
   border: 1px solid black;
+  height: 88px;
+  width: 75px;
+  float: left;
 }
 
 #house_column div.residence {
@@ -3073,6 +3080,9 @@ ul.as-list li.as-result-item em {
   height: auto;
   border: 1px solid black;
   display: inline-block;
+  float: left;
+  width: 478px;
+  margin: 0 20px;
 }
 
 #house_column ul li {
