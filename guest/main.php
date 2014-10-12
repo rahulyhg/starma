@@ -235,8 +235,8 @@ if ($the_left=="nav1") {
  
       <li class="bar_line"><img src="/img/Starma-Astrology-SideNav7.png"/></li>
     </ul>
-    <div id="register_side" class="pop_guest_click">Sign Up</div>
-    <div id="login_side" class="pop_guest_login">Log In</div>
+    <div id="register_side" class="pop_guest_click"></div>
+    <!--<div id="login_side" class="pop_guest_login">Log In</div>-->
   </div>
  
  

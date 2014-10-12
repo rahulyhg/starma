@@ -574,14 +574,25 @@ input{
 
 #register_side {
   position: absolute;
-  left: 30px;
-  top: 240px;
-  height: 30px;
-  background-color: #8393CA;
+  /*left: 30px;*/
+  top: 226px;
+  height: 188px;
+  width: 191px;
+  /*background-color: #8393CA;*/
   cursor: pointer;
-  font-size: 1.5em;
+  /*border-radius: 65px;
+  border: 2px solid black;*/
+  background: url('/img/reg_button_guest.png');
 }
-
+/*
+#reg_button_guest {
+  font-size: 1.6em;
+  font-weight: bold;
+  font-family: 'later_on';
+  letter-spacing: 2px;
+  text-align: center;
+}
+*/
 #login_side {
   position: absolute;
   left: 30px;
