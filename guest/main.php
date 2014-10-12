@@ -89,6 +89,7 @@ if ($the_left=="nav1") {
         <div id="msg_sheen_content_guest" class="pop_guest">
           <?php               
             show_sign_up_box_guest();
+            show_fb_or_email_box_guest();
             show_registration_box_guest();
           ?>  
         </div> <!--close msg_sheen_content_guest-->
@@ -235,7 +236,7 @@ if ($the_left=="nav1") {
  
       <li class="bar_line"><img src="/img/Starma-Astrology-SideNav7.png"/></li>
     </ul>
-    <div id="register_side" class="pop_guest_click"></div>
+    <div id="register_side"></div>
     <!--<div id="login_side" class="pop_guest_login">Log In</div>-->
   </div>
  

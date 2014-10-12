@@ -2575,7 +2575,7 @@ li.my_unknown_button a {
     border: 2px solid #1a1d2a;
     /*box-shadow: 0 0 35px;*/
     z-index: 200;
-    height: 250px;
+    /*height: 250px;*/
     width: 244px;
 }
 
@@ -2585,7 +2585,7 @@ li.my_unknown_button a {
     border-radius: 3px;
     font-size:0.8em;
     margin: -106px 0 0 -250px;
-    padding: 20px;
+    padding: 15px;
     position: fixed;
     top: 40%;
     left: 50%;
@@ -3044,50 +3044,6 @@ ul.as-list li.as-result-item em {
 
 
 /*//////////////// END OTHER COMPARE PAGES ///////////////////////////////////////*/
-
-
-/*///////////// MATT ADDED HOUSES SECTION /////////////////////////*/
-
-#house_column {
-  display: inline-block;
-  margin: 10px 20px;
-  border: 1px solid black;
-  min-height: 252px;
-}
-
-.house_column_wrapper {
-  display: inline-block;
-}
-
-#house_column div.ruled_house {
-  display: inline-block;
-  padding: 0 2px;
-  border: 1px solid black;
-  height: 88px;
-  width: 75px;
-  float: left;
-}
-
-#house_column div.residence {
-  display: inline-block;
-  padding: 0 2px;
-  border: 1px solid black;
-  float:left;
-}
-
-#house_column div.house_blurb {
-  padding: 10px;
-  height: auto;
-  border: 1px solid black;
-  display: inline-block;
-  float: left;
-  width: 478px;
-  margin: 0 20px;
-}
-
-#house_column ul li {
-  margin: 10px;
-}
 
 
 /*OLDWAY

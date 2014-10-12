@@ -305,7 +305,7 @@
   font-family: 'later_on';
   color: #1a1d2a;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: bold;
   font-size: 1.6em;
   letter-spacing: 2px;
@@ -563,6 +563,17 @@
 
 /**************************************  GUEST LOGIN POPUP  *************************************************/
 
+#close {
+    color: black;
+    cursor: pointer;
+    font-family: 'later_on';
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: -10px 0;
+    text-align: right;
+}
+
 #login_box {
   /*width: 244px;*/
   /*margin: auto;*/
@@ -659,6 +670,11 @@
   margin: 0 5px 0 6px;
 }
 
+/***************************************  GUEST FB OR EMAIL POPUP  ****************************************/
+  
+#fb_or_email_guest {
+  display: none;
+}
 
 /***************************************  GUEST REGISTRATION POPUP  ****************************************/
 
