@@ -87,7 +87,8 @@ if ($the_left=="nav1") {
     <div id="msg_sheen" class="pop_guest">
       <div id="msg_sheen_screen" class="pop_guest pop_reg"></div>
         <div id="msg_sheen_content_guest" class="pop_guest">
-          <?php               
+          <?php      
+            //show_intro_box_guest();         
             show_sign_up_box_guest();
             show_fb_or_email_box_guest();
             show_registration_box_guest();
@@ -221,7 +222,7 @@ if ($the_left=="nav1") {
       <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>inbox</span></a></li>
       <li class="mail_area"><img src="/img/Starma-Astrology-Search.png"/></li>
     </ul>
-    <div id="register_top" class="pop_guest_click">Sign Up</div><div id="login_top" class="pop_guest_login">Log In</div>
+    <div id="register_top">Sign Up</div><div id="login_top" class="pop_guest_login">Log In</div>
   </div>
 
   <div id="sidenav">

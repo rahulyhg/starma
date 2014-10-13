@@ -6240,7 +6240,7 @@ function show_login_box_landing () {
 function show_sign_up_box_landing () {
   
     echo '<div id="sign_up_box">';
-      echo  '<div class="sign_up_text">Create an Account</div>';
+      echo  '<div class="heading">Create an Account</div>';
           echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
           echo '<div id="or">~ or ~</div>';
           echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
@@ -6712,56 +6712,88 @@ function show_time_and_place_box() {
 
 function show_login_box_guest () {
     echo '<div id="login_box">';
-      echo '<div class="title">Log In</div>';
+      echo '<div class="heading">Log In</div>';
         echo '<form action="../chat/login_form_fields.php" method="POST" id="login_from_guest">';
           echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
             if(isset($_GET['email'])) {
               echo $_GET['email'];
             }
           echo '"/>';
-          echo '<div class="register_error_area" id="login_email_error"></div>';
+          //echo '<div class="register_error_area" id="login_email_error"></div>';
           echo '<input type="password" id="login_password" name="password" placeholder="Password" />';
           //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
-          echo '<div class="register_error_area" id="login_password_error"></div>';
-          echo '<div id="forgot_password">forgot your password?</div>';
-          echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
-          echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
+          //echo '<div class="register_error_area" id="login_password_error"></div>';
+          echo '<div id="kmsi_fp">';  
+            echo '<div id="forgot_password">forgot your password?</div>';
+            echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="" /><div>keep me signed in</div></div>';
+          echo '</div>';
+          //echo '<div class="sign_up_text">Go ></div>';
+          echo '<input type="submit" id="go_bug_button" name="Login" value=""/>';
+          //echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
         echo '</form>';
+        echo '<div id="go_bug_path_guest"></div>';
     echo '</div>';
 
   echo '<script type="text/javascript" src="js/ajax_login_guest.js"></script>';
 }
 
+function show_intro_box_guest () {
+  echo '<div id="intro_box">';
+    echo  '<div class="sign_up_text">';
+    if ($_GET['chart_id2'] == 861) {
+      echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with someone...';
+    }
+    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
+      echo 'You\'re about to see an example of a birth chart.  To view your own birth chart...';
+    }
+    echo '</div>';
+    echo '<button type="button" name="sign_up" id="create_an_account">Create an Account</button>';
+    echo '<div id="close">Close</div>';
+  echo '</div>'; //close intro
+}
+
 function show_sign_up_box_guest () {
   echo '<div id="sign_up_box">';
     echo  '<div class="sign_up_text">';
-      if ($_GET['chart_id2'] == 861) {
-        echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with someone...';
-      }
-      else {
-        echo 'To View This Portion of the Site...';
-      }
+    if ($_GET['chart_id2'] == 861) {
+      echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with someone...';
+    }
+    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
+      echo 'You\'re about to see an example of a birth chart.  To view your own birth chart...';
+    }
+    else {
+      echo 'To View This Portion of the Site...';     
+    }
     echo '</div>';
-      echo '<button type="button" name="sign_up" class="sign_up">Create Account</button>';
-         if (!$_GET['chart_id2'] == 861) {
-          echo '<div id="or">~ or ~</div>';
-        }
-            
-            if(($_GET['the_page'] == 'cesel') || ($_GET['the_page'] == 'cosel' && $_GET['tier'] == 2 && !$_GET['chart_id2'] == 861)) {
-              echo '<button type="button" name="cancel" class="sign_up">Preview Compatibility</button>';
-            }
-            elseif ($_GET['the_page'] == 'cosel' && $_GET['tier'] == 2 && $_GET['chart_id2'] == 861) {
-              echo '<div id="close">Close</div>';
-            }
-            else {
-              echo '<button type="button" name="cancel" class="sign_up">Keep Browsing</button>';
-            }
-      echo '</div>'; //Close sign_up_box
+    echo '<button type="button" name="sign_up" id="create_an_account">Create an Account</button>';
+    if ($_GET['chart_id2'] == 861) {
+      echo '<div id="close">Close</div>';
+    }
+    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
+      echo '<div id="close">Close</div>';
+    }
+    else {
+      echo '<div id="or">~ or ~</div>';      
+    }
+
+    if(($_GET['the_page'] == 'cesel') || ($_GET['the_page'] == 'cosel' && $_GET['tier'] == 2 && !$_GET['chart_id2'] == 861)) {
+      echo '<button type="button" name="cancel" class="sign_up">Preview Compatibility</button>';
+    }
+    elseif ($_GET['chart_id2'] == 861) {
+      echo '';
+    }
+    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
+      echo '';
+    }
+    else {
+      echo '<button type="button" name="cancel" class="sign_up">Keep Browsing</button>';
+    }
+    echo '</div>'; //Close sign_up_box
 }
 
 function show_fb_or_email_box_guest () {
   echo '<div id="fb_or_email_guest">';
-    echo  '<div class="sign_up_text">Create an Account</div>';
+    echo  '<div class="heading">Create an Account</div>';
       echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
       echo '<div id="or">~ or ~</div>';
       echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';

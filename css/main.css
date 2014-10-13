@@ -2562,10 +2562,8 @@ li.my_unknown_button a {
 
 #msg_sheen #msg_sheen_content_guest {
     background: #e7ebee;
-    /*border-radius: 3px;*/
-    font-size:0.9em;
     margin-left: -159px;
-    padding: 20px;
+    padding: 15px;
     position: fixed;
     top: 8%;
     left: 50%;

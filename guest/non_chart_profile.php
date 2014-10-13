@@ -2,9 +2,6 @@
 require_once ("header.php");
 
 //**************GUEST VIEW********************//
-
-
-
   
 //if (login_check_point($type="full")) {
 $guest_user_id = get_guest_user_id();
@@ -125,6 +122,13 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
       </div>';*/
       echo '<div id="section">';
         if ($section == 'chart_selected') {
+          if(!isLoggedIn()) {
+            echo '<script type="text/javascript">
+                    $(document).ready(function(){
+                      $(".pop_guest").slideFadeToggle();
+                    });
+                  </script>';
+}
           require('chart.php');
         }
         elseif($section =='houses_selected') {
