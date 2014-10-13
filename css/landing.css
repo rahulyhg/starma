@@ -480,13 +480,16 @@
   width: 376px;
   margin-left: 19px;
   padding: 20px;
-  border-radius: 500px;
+  /*border-radius: 500px;*/
+  background: url('/img/globeLanding.png') no-repeat;
+  /*
   background: #8393ca;
-  background: radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black);*/
-  background: -webkit-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); /* Safari */
-  background: -o-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); /* Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); /* Firefox 3.6 to 15 */
-  background: radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); /* Standard syntax */
+  background: radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black);
+  background: -webkit-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); 
+  background: -o-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); 
+  background: -moz-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); 
+  background: radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); 
+  */
 }
 
 
