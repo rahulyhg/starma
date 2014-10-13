@@ -8,6 +8,7 @@ $(document).ready(function(){
 	$('.pop_guest_login').click(function(){
 		$('.pop_login').slideFadeToggle(function () {
 			$('#login_box').show();
+			$('#login_email').focus();
 			$('#forgot_password_box').hide();
 		});
 	});
