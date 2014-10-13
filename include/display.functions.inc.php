@@ -3981,15 +3981,18 @@ function show_dynamic_info ($connection_poi_id, $connection_poi_id2, $relationsh
 
 
 
-function show_intro_text() {
-  echo '
-  <div id="planet_info">
-  Your Starma Chart is calculated using the Sidereal Zodiac, a zodiac typically used by Eastern astrologers.  Most Western astrologers use the Tropical Zodiac, so if you\'re already familiar with your chart, the one you\'re about to see may look slightly different.  The reason we\'ve chosen to use the Sidereal Zodiac here at Starma is because it relies on the relationship of points in the sky to the earth, whereas the Tropical Zodiac relies on seasonal changes.  To read more about the Zodiacs, and why Starma utilizes the Sidereal Zodiac, please click <a href="?the_left=nav6&the_page=csel">Learn More About Astrology</a>. 
-  <br><br>
-  Interpreting your chart is a task for a professional astrologer, so as you read about your different astrological placements, please keep in mind that your chart must be interpreted as a whole.  You may have one placement that says you\'re a shy introvert and another that says you\'re a gregarious extrovert.  This doesn\'t mean that your chart is bogus; it simply means that these are different components of who you are.  Sometimes, one placement may be stronger than another and, to continue with the example, you might feel like more of an introvert than an extrovert, but try to see if you can recognize the latent extrovert within you.  It might finds its moments to surface, and before you know it, you\'re singing Small Town Girl at the top of your lungs on karaoke night. To fully understand your Starma Chart, we recommend an in-depth reading from a Sidereal or Vedic astrologer, but in the meantime, we hope you enjoy reading about your different placements on starma.com!
-  <br><br>
-  </div>
-  ';
+function show_intro_text($western_sun_sign) {
+  echo '<div id="planet_info">';
+    echo '<p>When someone asks "what\'s your sign?" you might respond by saying "' . $western_sun_sign . '."  A birth chart is a collection of ALL your signs (Moon, Venus, Mars, etc.)  It gives a more well rounded view on different aspects of who you are.  We\'ve calculated your chart using Vedic astrology (Jyotish).  As such, some of your signs will be different than what you\'re accustomed to seeing in your western chart. To see your Western chart, select "Western View."  To learn why we use Vedic Astrology <a href="" title="A Tale of Two Zodiacs">click here</a>.</p>';
+    echo '<p><strong>The Cake Metaphor:</strong> It\'s important to consider that reading through your birth chart is like like tasting the different ingredients in a recipe.  If you had never eaten cake before, you could taste an egg, then some sugar, nibble some flour, and sip some milk without ever experiencing the delicious result of having them all baked together.  Similarly, while reading through your birth chart, keep in mind that the ingredients of your chart may seem very different (even contradictory) when read alone, but when read altogether they make something completely different.  Often, it takes a professional astrologer to interpret all the pieces of your chart, but we\'ve created a sampling of ingredients we think you\'ll enjoy.</p>';
+    echo '<--  BEGIN BY CLICKING YOUR RISING SIGN ON THE LEFT';
+
+  //echo '<div id="planet_info">';
+  //echo 'Your Starma Chart is calculated using the Sidereal Zodiac, a zodiac typically used by Eastern astrologers.  Most Western astrologers use the Tropical Zodiac, so if you\'re already familiar with your chart, the one you\'re about to see may look slightly different.  The reason we\'ve chosen to use the Sidereal Zodiac here at Starma is because it relies on the relationship of points in the sky to the earth, whereas the Tropical Zodiac relies on seasonal changes.  To read more about the Zodiacs, and why Starma utilizes the Sidereal Zodiac, please click <a href="?the_left=nav6&the_page=csel">Learn More About Astrology</a>.'; 
+  //echo '<br><br>';
+  //echo 'Interpreting your chart is a task for a professional astrologer, so as you read about your different astrological placements, please keep in mind that your chart must be interpreted as a whole.  You may have one placement that says you\'re a shy introvert and another that says you\'re a gregarious extrovert.  This doesn\'t mean that your chart is bogus; it simply means that these are different components of who you are.  Sometimes, one placement may be stronger than another and, to continue with the example, you might feel like more of an introvert than an extrovert, but try to see if you can recognize the latent extrovert within you.  It might finds its moments to surface, and before you know it, you\'re singing Small Town Girl at the top of your lungs on karaoke night. To fully understand your Starma Chart, we recommend an in-depth reading from a Sidereal or Vedic astrologer, but in the meantime, we hope you enjoy reading about your different placements on starma.com!';
+  //echo '<br><br>
+  //echo '</div>';
 }
 
 function show_guest_chart($goto = ".", $user_id, $western=0) {
@@ -4026,7 +4029,15 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
 
     echo '<div id="profile_chart">';
-      
+    /*
+      echo '<div id="chart_scroll">';
+        echo '<div id="chart_scroll_container">';
+          echo '<div id="chart_prev">< Previous</div>';
+
+          echo '<div id="chart_next">Next ></div>';
+        echo '</div>';
+      echo '</div>'; //Close chart_scroll
+    */  
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
       echo '<input type="hidden" name="poi_id"/>';
@@ -4203,7 +4214,12 @@ function show_my_chart ($goTo = ".", $western=0) {
       $chart_id = $chart_info["chart_id"];
       if (!isset($_POST["poi_id"])) {
         #if (get_my_preferences("chart_more_info_flag", 1) == 0) { 
-        $poi_id = 1;
+        if (my_chart_flag() == 1 && $western == 0) {
+          $poi_id = 0;
+        }
+        else {
+          $poi_id = 1;
+        }       
         #}
         #else {
         #  $poi_id = 0;
@@ -4213,11 +4229,11 @@ function show_my_chart ($goTo = ".", $western=0) {
         $poi_id = $_POST["poi_id"];
       }
 
-      if ($poi_id > 0 and my_chart_flag() == 1) {
+      //if ($poi_id > 0 and my_chart_flag() == 1) {
   
-         set_my_chart_flag(0);
+      //   set_my_chart_flag(0);
       
-      }
+      //}
 
       $poi_list = get_poi_list();
      
@@ -4228,9 +4244,9 @@ function show_my_chart ($goTo = ".", $western=0) {
 
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
-          echo '<span id="chart_prev">< Prev</span>';
+          echo '<div id="chart_prev">< Previous</div>';
 
-          echo '<span id="chart_next">Next ></span>';
+          echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
 
@@ -4242,7 +4258,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '<div id="starma_chart">';
    
       if (my_chart_flag() == 1) {
-        show_circle_and_arrow_hilite("down");
+        //show_circle_and_arrow_hilite("down");
        
       }
 
@@ -4383,7 +4399,9 @@ function show_my_chart ($goTo = ".", $western=0) {
       */
       echo '<div id="blurb">';
         if ($poi_id == 0) {
-          show_intro_text();
+          $chart_info = get_chart_by_name("Alternate",get_my_user_id());  //GET WESTERN SUN SIGN
+          $western_sun_sign = get_sign_name(get_sign_from_poi ($chart_info['chart_id'], 2));
+          show_intro_text($western_sun_sign);
         }
         else {
           show_poi_info($poi_id, $chart_id, $sign_id);
@@ -4421,9 +4439,9 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
 
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
-          echo '<span id="chart_prev">< Prev</span>';
+          echo '<div id="chart_prev">< Previous</div>';
 
-          echo '<span id="chart_next">Next ></span>';
+          echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
 
@@ -5156,9 +5174,9 @@ function show_my_houses () {
 
       echo '<div id="hl_scroll">';
         echo '<div id=hl_scroll_container">';
-          echo '<span id="hl_prev">< Prev</span>';
+          echo '<div id="hl_prev">< Previous</div>';
 
-          echo '<span id="hl_next">Next ></span>';
+          echo '<div id="hl_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close hl_scroll
 
@@ -6760,8 +6778,15 @@ function show_sign_up_box_guest () {
       echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with someone...';
     }
     elseif ($_GET['tier'] == 2 && !($_GET['chart_id2'] == 861)) {
-      $username = get_nickname(get_user_id_from_chart_id($_GET['chart_id2']));
-      echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with ' . $username . '...';
+      $isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($_GET["chart_id2"])));
+      if (!$isCeleb) {
+        $username = get_nickname(get_user_id_from_chart_id($_GET['chart_id2']));
+        echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with ' . $username . '...';
+      }
+      else {
+        $user_info = profile_info(get_user_id_from_chart_id($_GET['chart_id2']));
+        echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with ' . $user_info['first_name'] . ' ' . $user_info['last_name'] . '...';
+      }
     }
     elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
       echo 'You\'re about to see an example of a birth chart.  To view your own birth chart...';
