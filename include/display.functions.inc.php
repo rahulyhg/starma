@@ -6755,17 +6755,25 @@ function show_intro_box_guest () {
 function show_sign_up_box_guest () {
   echo '<div id="sign_up_box">';
     echo  '<div class="sign_up_text">';
-    if ($_GET['chart_id2'] == 861) {
+    //if ($_GET['chart_id2'] == 861) {
+    if ($_GET['tier'] == 2 && $_GET['chart_id2'] == 861) {
       echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with someone...';
+    }
+    elseif ($_GET['tier'] == 2 && !($_GET['chart_id2'] == 861)) {
+      $username = get_nickname(get_user_id_from_chart_id($_GET['chart_id2']));
+      echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with ' . $username . '...';
     }
     elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
       echo 'You\'re about to see an example of a birth chart.  To view your own birth chart...';
     }
     else {
-      echo 'To View This Portion of the Site...';     
+      echo 'This part of the site is reserved for Starma members only. In order to view this content...';     
     }
     echo '</div>';
     echo '<button type="button" name="sign_up" id="create_an_account">Create an Account</button>';
+    echo '<div id="close">Close</div>';
+
+    /*
     if ($_GET['chart_id2'] == 861) {
       echo '<div id="close">Close</div>';
     }
@@ -6773,9 +6781,12 @@ function show_sign_up_box_guest () {
       echo '<div id="close">Close</div>';
     }
     else {
-      echo '<div id="or">~ or ~</div>';      
+      echo '';
+      //echo '<div id="or">~ or ~</div>';      
     }
+    */
 
+    /*
     if(($_GET['the_page'] == 'cesel') || ($_GET['the_page'] == 'cosel' && $_GET['tier'] == 2 && !$_GET['chart_id2'] == 861)) {
       echo '<button type="button" name="cancel" class="sign_up">Preview Compatibility</button>';
     }
@@ -6786,8 +6797,9 @@ function show_sign_up_box_guest () {
       echo '';
     }
     else {
-      echo '<button type="button" name="cancel" class="sign_up">Keep Browsing</button>';
-    }
+      //echo '<div id="close">Close</div>';
+      //echo '<button type="button" name="cancel" class="sign_up">Keep Browsing</button>';
+    */
     echo '</div>'; //Close sign_up_box
 }
 

@@ -412,19 +412,21 @@ input{
 /*--GUEST VIEW--*/
 
 #register_top{
-    background-color: #bc5637;
+    /*background-color: #bc5637;
     border: 1px solid #652C1E;
     border-radius: 2px;
-    box-shadow: 1px 2px 7px #8b4029 inset;
+    box-shadow: 1px 2px 7px #8b4029 inset;*/
     color: #fcf3f0;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 1.4em;
     left: 776px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     padding: 8px;
     position: absolute;
-    text-shadow: -1px -1px #945234;
+    /*text-shadow: -1px -1px #945234;*/
     top: 1px;
+    font-family: 'later_on';
+    font-weight: bold;
 }
 
 #register_top:hover {
@@ -436,6 +438,11 @@ input{
   top: 10px;
   left: 892px;
   cursor: pointer;
+  font-family: 'later_on';
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 1.4em;
+  color: #fcf3f0;
 }
 
 /*//////////////// END TOP NAV BAR ////////////////////////////////////////*/
