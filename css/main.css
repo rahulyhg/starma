@@ -252,6 +252,9 @@ input{
   display:block;
   height:70px;
   color:black;
+  font-family: 'later_on';
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 #topnav ul {
