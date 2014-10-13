@@ -5118,10 +5118,10 @@ function show_chart ($chart_id, $goTo = ".") {
 
 function show_hl_intro_text($x) {
   if ($x == 1) {
-    echo '<div id="hl_intro_text">Oh no!  We need your Rising sign to determine how the houses are placed.  Please enter a more precise <a href="main.php?the_left=nav5&the_page=psel">time of birth</a> so we can get your Rising sign.</div>';
+    echo '<div id="hl_info">Oh no!  We need your Rising sign to determine how the houses are placed.  Please enter a more precise <a href="main.php?the_left=nav5&the_page=psel">time of birth</a> so we can get your Rising sign.</div>';
   }
   elseif ($x == 2) {
-    echo '<div id="hl_intro_text">Oh no!  We need your Rising sign to determine how the houses are placed.  Please enter a more precise <a href="main.php?the_left=nav5&the_page=psel">time of birth</a> so we can get your Rising sign.</div>';
+    echo '<div id="hl_info">Oh no!  We need your Rising sign to determine how the houses are placed.  Please enter a more precise <a href="main.php?the_left=nav5&the_page=psel">time of birth</a> so we can get your Rising sign.</div>';
   }
 }
 
@@ -5173,7 +5173,7 @@ function show_my_houses () {
 
 
       echo '<div id="hl_scroll">';
-        echo '<div id=hl_scroll_container">';
+        echo '<div id="hl_scroll_container">';
           echo '<div id="hl_prev">< Previous</div>';
 
           echo '<div id="hl_next">Next ></div>';
@@ -5239,6 +5239,7 @@ function show_my_houses () {
         else {
           //H1 - PALENQUIN - H2 PIC GOES HERE
           //BLURB GOES HERE
+          echo get_house_ruler_blurb($rising_sign_id, 1, 4);
           //show_poi_info($poi_id, $chart_id, $sign_id);
           //show_poi_sign_blurb ($poi_id, $sign_id);
         }

@@ -1,5 +1,84 @@
 /*///////////// MATT ADDED HOUSES SECTION /////////////////////////*/
 
+.hl_tabs {
+  /*width: 115px;*/
+  position: relative;
+  display: inline-block;
+}
+
+#starma_house_lords .left_side {
+  float: left;
+}
+
+#starma_house_lords .right_side {
+  float: right;
+}
+
+.hl_li div.hl_tabs_wrapper {
+  width: 115px;
+  height: 90px;
+  padding-bottom: 5px;
+  position: relative;
+  border: 1px solid black;
+}
+
+#starma_house_lords #blurb {
+    background: white;
+    border: 2px solid #2c3447;
+    height: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+    text-align: left;
+    width: 510px;
+}
+
+#starma_house_lords #hl_info {
+    font-size: 0.93em;
+    letter-spacing: 0.05px;
+    line-height: 1.5;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.hl_tabs ul {
+  margin-top: 0;
+}
+
+#hl_scroll {
+  position: relative;
+  margin-top: -12px;
+  margin-bottom: 8px;
+  height: 25px;
+}
+
+#hl_scroll_container {
+  margin-left: 129px;
+  width: 472px;
+}
+
+#hl_prev {
+  display: none;
+  position: relative;
+  cursor: pointer;
+  float: left;
+  font-family: 'later_on';
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#hl_next {
+  position: relative;
+  left: 44px;
+  cursor: pointer;
+  float: right;
+  font-family: 'later_on';
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+/*
 #house_column {
   display: inline-block;
   margin: 10px 20px;
@@ -49,3 +128,8 @@
 #house_column ul li {
   margin: 10px;
 }
+*/
+
+
+
+
