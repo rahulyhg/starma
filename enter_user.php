@@ -259,8 +259,8 @@ echo '<div id="profile_top_bar">';
             require('chart_others.php');
           }
           elseif ($section == 'houses_selected') {
-            //require('houses_others.php');
-            echo '<div style="height:300px;">Coming Soon...</div>';
+            require('houses.php');
+            //echo '<div style="height:300px;">Coming Soon...</div>';
           }
           elseif ($section == 'western_selected') {
             require('chart_others.php');
@@ -272,6 +272,7 @@ echo '<div id="profile_top_bar">';
 
 echo '</div>';
 echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
+echo '<script type="text/javascript" src="js/ajax_hl_submit.js"></script>';
 
 }    
             

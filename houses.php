@@ -2,9 +2,9 @@
 require_once ("header.php");
 
   
-if (login_check_point($type="full")) {
+//if (login_check_point($type="full")) {
 
-	show_my_houses();
+	show_house_lords();
 
 	/*
 
@@ -90,8 +90,8 @@ echo '</div>';	//close house column2
 
 */
 
-	echo '<script type="text/javascript" src="js/houses_ui.js"></script>';
+	//echo '<script type="text/javascript" src="js/ajax_hl_submit.js"></script>';
 
-}
+//}
 
 ?> 

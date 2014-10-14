@@ -5125,9 +5125,33 @@ function show_hl_intro_text($x) {
   }
 }
 
-function show_my_houses () {
+function show_house_lords () {
 
-  $chart_id = get_my_chart_id();
+$guest_user_id = get_guest_user_id();
+$guest_chart_id = get_guest_chart_id($guest_user_id);
+
+if (isLoggedIn()) {
+    if(!isset($_GET['chart_id2'])) {
+      $chart_id = get_my_chart_id();
+  }
+  elseif (isset($_GET['chart_id2'])) {
+    $chart_id = $_GET['chart_id2'];
+  }
+  else {
+    $chart = get_chart_by_name ("Freebie1");
+    $chart_id = $chart["chart_id"];
+  } 
+}
+else {
+  if(!isset($_GET['chart_id2'])) {
+    $chart_id = $guest_chart_id;
+  }
+  elseif (isset($_GET['chart_id2'])) {
+    $chart_id = $_GET['chart_id2'];
+  }
+}
+
+echo $chart_id;
 
 //IF RISING SIGN EXISTS-------------------
   if($rising_sign_id = get_sign_from_poi ($chart_id, 1)) { //in user functions
@@ -5182,6 +5206,7 @@ function show_my_houses () {
 
       echo '<form name="hl_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id_e" value="' . $chart_id . '"/>'; //FOR CHART SUBMIT
+      echo '<input type="hidden" name="rising_sign_id" value="' . $rising_sign_id . '"/>'; //FOR CHART SUBMIT
       echo '<div id="starma_house_lords">';
 
       //if (my_chart_flag() == 1) {
@@ -5194,7 +5219,11 @@ function show_my_houses () {
       for ($h=1; $h < 7; $h++) {
         
           //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
-          echo '<li class="hl_li ' . $h . '">';
+          echo '<li class="hl_li ' . $h . ' ';
+            if ($h == 1) {
+              echo 'selected';
+            }
+          echo '">';
           echo '<div class="hl_tabs_wrapper">';
 
           echo '<span class="hl_icon left pointer"><span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span></span>';
@@ -5233,16 +5262,19 @@ function show_my_houses () {
       echo '</div>';
 
       echo '<div id="blurb">';
-        if ($h == 0) {
-          show_hl_intro_text(1);
-        }
-        else {
-          //H1 - PALENQUIN - H2 PIC GOES HERE
-          //BLURB GOES HERE
-          echo get_house_ruler_blurb($rising_sign_id, 1, 4);
-          //show_poi_info($poi_id, $chart_id, $sign_id);
-          //show_poi_sign_blurb ($poi_id, $sign_id);
-        }
+        echo '<span id="rising_sign_id_err></span>';
+        echo '<span id="hl_id_err"></span>';
+        echo '<span id="house_of_res_err"></span>';
+          if ($h == 0) {
+            show_hl_intro_text(1);
+          }
+          else {
+            //H1 - PALENQUIN - H2 PIC GOES HERE
+            //BLURB GOES HERE
+            echo get_house_ruler_blurb($rising_sign_id, 1, $house_of_res_arr[1]);
+            //show_poi_info($poi_id, $chart_id, $sign_id);
+            //show_poi_sign_blurb ($poi_id, $sign_id);
+          }
       echo '</div>';//close blurb
 
     echo '</div>'; //starma_house_lords

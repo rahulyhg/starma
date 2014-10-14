@@ -199,8 +199,8 @@ echo '</div><!--MYSTERY-->';  //MYSTERIOUS FIX FOR FOOTER...
             require('chart_others.php');
           }
           elseif ($section == 'houses_selected') {
-            //require('houses_others.php');
-            echo '<div style="height:300px;">Coming Soon...</div>';
+            require('houses.php');
+            //echo '<div style="height:300px;">Coming Soon...</div>';
           }
           elseif (($section == 'photos_selected') && (!$isCeleb)) {
             require('photos_others.php');
@@ -229,6 +229,7 @@ echo '</div><!--MYSTERY-->';  //MYSTERIOUS FIX FOR FOOTER...
    echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_add_favs.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_report_user.js'></script>";
+   echo '<script type="text/javascript" src="js/ajax_hl_submit.js"></script>';
 
 }
 ?> 

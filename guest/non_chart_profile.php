@@ -132,8 +132,8 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
           require('chart.php');
         }
         elseif($section =='houses_selected') {
-          //require('houses.php');
-          echo '<div style="height:300px;">Coming Soon...</div>';
+          require('../houses.php');
+          //echo '<div style="height:300px;">Coming Soon...</div>';
         }
         elseif ($section == 'photos_selected') {
           require('photos.php');
@@ -164,6 +164,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
     echo'<script type="text/javascript" src="js/ajax_descriptors_submit.js"></script>';
     echo'<script type="text/javascript" src="js/ajax_chart_submit.js"></script>';
     echo'<script type="text/javascript" src="js/profile_edit.js"></script>';
+    echo '<script type="text/javascript" src="js/ajax_hl_submit.js"></script>';
   //}
   
    

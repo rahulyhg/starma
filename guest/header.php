@@ -43,6 +43,7 @@ date_default_timezone_set('America/Chicago');
       <LINK REL="StyleSheet" HREF="../css/chat.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="../css/crop.css" TYPE="text/css"/>
       <link rel="stylesheet" type="text/css" href="../imgSelectArea/css/imgareaselect-default.css" />
+      <LINK REL="StyleSheet" HREF="../css/houses.css" TYPE="text/css"/>
       
       <script type="text/javascript" src="/autoSuggest/jquery.autoSuggest.js"></script>
       <script type="text/javascript" src="imgSelectArea/scripts/jquery.imgareaselect.pack.js"></script>
