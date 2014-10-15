@@ -2260,10 +2260,10 @@ li.my_unknown_button a {
 }
 
 #descriptors div .value_home {
-   bottom: 30px;
-    left: 20px;
+    bottom: 26px;
+    left: 13px;
     position: relative;
-   width: 150px;
+    width: 150px;
 }
 
 .des_selector {
@@ -2295,15 +2295,15 @@ li.my_unknown_button a {
 
 
 #homepage_profile_button_info #descriptors {
-   bottom:53px;
+   bottom: 60px;
    position: absolute;
    left: 152px;
    width:auto
 }
 
 #homepage_profile_button_info #descriptors div {
-   height:30px;
-   
+   height: 26px;
+   font-size: .8em;
 }
 
 #homepage_profile_button_info #descriptors div .value {
@@ -2603,19 +2603,18 @@ li.my_unknown_button a {
     box-shadow: 0 0 35px;
 }
 
-#msg_sheen #msg_sheen_content_custom {
-    background: none repeat scroll 0 0 white;
-    /*border: 2px solid black;*/
-    border-radius: 3px;
-    font-size:0.8em;
+#msg_sheen #msg_sheen_content_invite {
+    background: #e7ebee;
+    border: 2px solid black;
     margin: -97px 0 0 -250px;
     margin: auto;
-    padding: 10px 20px 20px 20px;
+    padding: 20px;
     position: relative;
     top: 50px;
-    width: 500px;
+    width: 400px;
     display: none;
-    box-shadow: 0 0 35px;
+    -webkit-box-shadow: 1px 1px 40px black;
+            box-shadow: 1px 1px 40px black;
 }
 
 #msg_sendie {
@@ -2746,14 +2745,17 @@ li.my_unknown_button a {
 }
 
 #msg_sendie_invite {
-  background: none;
-  border-top: 1px solid #5F78B1;
+  background: white;
+  color: #181A1C;
+  border: 2px solid black;
+  /*border-top: 1px solid #5F78B1;
   border-bottom: 1px solid #6680BE;
   border-left: 1px solid #6376A9;
   border-right: 1px solid #6B7FB6;
   box-shadow: 0 0 2px #313E5C inset;
+  */
   height: 75px;
-  width: 391px;
+  width: 384px;
   padding: 5px;
   display:block;
 }
@@ -2807,9 +2809,93 @@ li.my_unknown_button a {
 }
 
 #invite_type_area {
-  width: 430px;
-  margin: 10px 50px 10px 50px;
+  font-family: 'later_on';
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: black;
+  /*width: 430px;
+  margin: 10px 50px 10px 50px;*/
 }
+
+#msg_sheen input[type=text] {
+  color: #181A1C;
+  position: relative;
+  margin-bottom: 10px;
+  width: 195px;
+  /*border-radius: 3px;*/
+  height: 33px;
+  padding: 0 10px;
+  /*border: 1px solid #d1d1d1;*/
+  border: 2px solid #1a1d2a;
+  display: inline-block;
+  /*box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;*/
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#msg_sheen input[type=text]:focus {
+  /*border: 1px solid #8393CA;*/
+}
+
+#invite_type_area input[type=text] {
+  display: inline-block;
+}
+
+::-webkit-input-placeholder {
+  color:#1a1d2a;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+ 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    
+}
+
+:-ms-input-placeholder {  
+
+}
+
+#send_invite {
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: right;
+    border: none;
+    background: #e7ebee;
+    float: right;
+    padding: 1px;
+}
+
+#send_invite:active {
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: right;
+    border: none;
+    background: #e7ebee;
+    float: right;
+}
+
+#cancel {
+    color: black;
+    cursor: pointer;
+    font-family: 'later_on';
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0;
+    /*text-align: right;*/
+    /*text-decoration: underline;*/
+    display: inline-block;
+}
+
 /*****************---Matt adding style to New Message section */
 
 #as-selections-fav_user_id {
@@ -2973,7 +3059,7 @@ ul.as-list li.as-result-item em {
 #p_box_blurb {
   display: inline-block;
   position: relative;
-  right: 46px;
+  right: 15px;
   width: 332px;
 }
 

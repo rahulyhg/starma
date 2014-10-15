@@ -86,6 +86,15 @@ if ($the_left=="nav1") {
     <![endif]-->
     
 <body id="bg_stars">
+
+  <?php
+  echo '<div id="msg_sheen" class="pop_invite">';
+    echo '<div id="msg_sheen_screen" class="pop_invite pop_close"></div>';
+              show_user_invite();
+  echo '</div>';
+
+    ?>
+
 <div id="img_preloader">
 
   
@@ -263,10 +272,10 @@ if ($the_left=="nav1") {
     ?>
   </div>
   <?php
-  echo '<div id="msg_sheen" class="pop_invite">';
-    echo '<div id="msg_sheen_screen" class="pop_invite"></div>';
-              show_user_invite_top();
-  echo '</div>';
+  //echo '<div id="msg_sheen" class="pop_invite">';
+    //echo '<div id="msg_sheen_screen" class="pop_invite"></div>';
+      //        show_user_invite();
+  //echo '</div>';
 
     ?>
 

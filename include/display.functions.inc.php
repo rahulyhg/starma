@@ -22,10 +22,10 @@ function show_sheen ($flag=0, $form_function) {
     echo '</div>';
 }
 
-function show_user_invite_top () {
-  echo '<div id="msg_sheen_content_custom" class="pop_invite">';
+function show_user_invite () {
+  echo '<div id="msg_sheen_content_invite" class="pop_invite">';
                 echo '<div id="invite_type_area">';
-                  echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite A Friend</strong></div><br />';
+                  echo '<div style="width:100%; text-align:center; font-size:2em; margin-bottom:10px;"><strong>Invite A Friend</strong></div>';
                   //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
                   echo '<div id="send-message-area">';
                     echo '<div id="first_name_error" class="invite_error"></div>';
@@ -33,8 +33,8 @@ function show_user_invite_top () {
                     echo '<div id="their_name_error" class="invite_error"></div>';
                     echo '<div id="their_email_error" class="invite_error"></div>';
                     echo '<div id="sender_id_error" class="invite_error"></div>';
-                    echo '<label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
-                          <input type="text" class="input_style_inline" value="';
+                    echo '<div style="font-size:1.19em;">Your Name</div>
+                          <input type="text" value="';
                             $first_name = get_my_first_name();
                             if(!$first_name) {
                               echo '';
@@ -42,8 +42,8 @@ function show_user_invite_top () {
                             else {
                               echo $first_name;
                             }
-                            echo '" id="first_name_invite" placeholder="first name" name="first_name" maxlength="17" />
-                          <input type="text" class="input_style_inline" value="';
+                            echo '" id="first_name_invite" placeholder="First Name" name="first_name" maxlength="17" />
+                          <input type="text" value="';
                             $last_name = get_my_last_name();
                             if(!$last_name) {
                               echo '';
@@ -51,14 +51,14 @@ function show_user_invite_top () {
                             else {
                               echo $last_name;
                             }
-                          echo '" id="last_name_invite" name="last_name" placeholder="last name" maxlength="17" /> <br />
-                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
-                          <input type="text" class="input_style_inline" placeholder="name" id="their_name_invite" name="their_name" maxlength="34" />
-                          <input type="text" class="input_style_inline" placeholder="email" id="their_email_invite" name="their_email" /> <br />
-                          <label for="msg_sendie_invite" id="msg_label"><strong>Personal Message (Optional)</strong></label>
+                          echo '" id="last_name_invite" name="last_name" placeholder="Last Name" maxlength="17" /> <br />
+                          <div style="font-size:1.19em;">Who are you inviting?</div>
+                          <input type="text" placeholder="Name" id="their_name_invite" name="their_name" maxlength="34" />
+                          <input type="text" placeholder="Email" id="their_email_invite" name="their_email" /> <br />
+                          <div style="font-size:1.19em;">Personal Message (Optional)</div>
                           <textarea id="msg_sendie_invite" name="text_body" maxlength = "255" ></textarea>
-                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
-                          <input type="button" name="submit" value="Send" class="msg_send_invite"/>
+                          <div id="cancel">Cancel</div>
+                          <div id="send_invite">Send</div>
                           <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>';                         
                         //echo '</form>';
                         echo '</div>'; //Clost send-message-area

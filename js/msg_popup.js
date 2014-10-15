@@ -1,7 +1,9 @@
 $(document).ready(function(){
 
 
-	//Send Message
+	
+//SEND MESSAGE-----------------------
+
 	$('#msg_pop').click(function(){
 		$('.pop').slideFadeToggle(function() { 
                 $("#msg_sendie").focus();
@@ -32,7 +34,8 @@ $(document).ready(function(){
 
 	
 
-	//Invite User
+//INVITE USER---------------------------
+
 	var $invite = $('#msg_sendie_invite').val();
 
 	$('#pop_invite, #pop_invite_top').click(function(){
@@ -40,7 +43,7 @@ $(document).ready(function(){
 		return false;
 	});
 
-	$('.msg_cancel_invite').click(function(){
+	$('#cancel').click(function(){
 		$('.pop_invite').slideFadeToggle(function(){
 			$('#msg_sendie_invite').val('');
         	$('#send-message-area').show();
@@ -55,14 +58,32 @@ $(document).ready(function(){
         });
 	});
 
-	$('.msg_send_invite').click(function(){
+	$('.pop_close').click(function(){
+		$('.pop_invite').slideFadeToggle(function(){
+			$('#msg_sendie_invite').val('');
+        	$('#send-message-area').show();
+        	$('#msg_sent').hide();
+        	$('#msg_sent').html('');
+        	/*
+        	$('#first_name_invite').val('first name');
+        	$('#last_name_invite').val('last name');
+        	$('#their_name_invite').val('name');
+        	$('#their_email_invite').val('email');
+        	*/
+        });
+	});
+
+
+	$('#send_invite').click(function(){
 							$('#send-message-area').hide();
              				$('#msg_sent').show();
 							$('#msg_sent').html('<div id="ajax_loader"><img src="/js/ajax_loader.gif" /><p>Sending...</p></div>');
 					});
 
 
-	//Report User
+
+//REPORT USER----------------------
+
 	$('#report_pop').click(function(){
 		$('.pop_report').slideFadeToggle();
 		return false;

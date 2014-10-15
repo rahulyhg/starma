@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-      var $invite = $('#msg_sendie').val();
+      //var $invite = $('#msg_sendie').val();
 
-      $('.msg_send_invite').click(function(event){
+      $('#send_invite').click(function(event){
         //alert('submitting...');
         event.preventDefault();
              
@@ -70,8 +70,8 @@ $(document).ready(function(){
               //alert(data);
               $('.pop_invite').fadeOut(1700, function() {
                       $('#msg_sendie_invite').val('');
-                      $('#their_name_invite').val('name');
-                      $('#their_email_invite').val('email');
+                      $('#their_name_invite').val('');
+                      $('#their_email_invite').val('');
                       $('#send-message-area').show();
                       $('#msg_sent').hide();
                       $('#msg_sent').html('');
