@@ -82,6 +82,39 @@
   font-weight: bold;
   letter-spacing: 2px;
 }
+
+#starma_house_lords #blurb {
+  padding: 10px;
+}
+
+#palenquin_wrapper {
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+#house_pic_test_left {
+  height: 88px;
+  width: 68px;
+  float: left;
+  border: 1px solid black;
+}
+
+#house_pic_test_right {
+  height: 88px;
+  width: 68px;
+  float: right;
+  border: 1px solid black;
+}
+
+#palenquin_stars {
+  width: 292px;
+  height: 88px;
+  background: url('/img/palenquinStars.png') no-repeat;
+  margin: auto;
+  display: inline-block;
+}
+
+
 /*
 #house_column {
   display: inline-block;

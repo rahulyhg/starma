@@ -5121,7 +5121,7 @@ function show_hl_intro_text($x) {
     echo '<div id="hl_info">Oh no!  We need your Rising sign to determine how the houses are placed.  Please enter a more precise <a href="main.php?the_left=nav5&the_page=psel">time of birth</a> so we can get your Rising sign.</div>';
   }
   elseif ($x == 2) {
-    echo '<div id="hl_info">Oh no!  We need your Rising sign to determine how the houses are placed.  Please enter a more precise <a href="main.php?the_left=nav5&the_page=psel">time of birth</a> so we can get your Rising sign.</div>';
+    echo '<div id="hl_info">Oh no!  Meow.  Please enter a more precise <a href="main.php?the_left=nav5&the_page=psel">time of birth</a> so we can get your Rising sign.</div>';
   }
 }
 
@@ -5132,29 +5132,35 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
 
 if (isLoggedIn()) {
     if(!isset($_GET['chart_id2'])) {
+      //$chart_name = 'mine';
       $chart_id = get_my_chart_id();
   }
   elseif (isset($_GET['chart_id2'])) {
+    //$chart_name = 'other_user';
     $chart_id = $_GET['chart_id2'];
   }
   else {
+    //$chart_name = 'custom';
     $chart = get_chart_by_name ("Freebie1");
     $chart_id = $chart["chart_id"];
   } 
 }
 else {
   if(!isset($_GET['chart_id2'])) {
+    //$chart_name = 'guest';
     $chart_id = $guest_chart_id;
   }
   elseif (isset($_GET['chart_id2'])) {
+    //$chart_name = 'guest_other_user';
     $chart_id = $_GET['chart_id2'];
   }
 }
 
-echo $chart_id;
-
+//echo $chart_id;
+$rising_sign_id = get_sign_from_poi ($chart_id, 1);
+echo $rising_sign_id;
 //IF RISING SIGN EXISTS-------------------
-  if($rising_sign_id = get_sign_from_poi ($chart_id, 1)) { //in user functions
+  if($rising_sign_id !== -1) { //in user functions
     $sign_id_arr = array();
     $sign_name_arr = array();
     $house_arr = array();
@@ -5228,7 +5234,7 @@ echo $chart_id;
 
           echo '<span class="hl_icon left pointer"><span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span></span>';
           echo '<span class="arrow"></span>';
-          echo '<input type="hidden" class="pass_hl_id" value="' . $h .'" />';
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
           echo '<input type="hidden" name="sign_id" value="' . $sign_id_arr[$h] . '" />';
           echo '<input type="hidden" name="ruler_of_sign" value="' . $ruler_of_sign_arr[$h] . '" />';
           echo '<input type="hidden" name="sign_of_res" value="' . $sign_of_res_arr[$h] . '" />';
@@ -5250,7 +5256,7 @@ echo $chart_id;
 
           echo '<span class="hl_icon right pointer"><span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span></span>';
           echo '<span class="arrow"></span>';
-          echo '<input type="hidden" class="pass_hl_id" value="' . $h .'" />';
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
           echo '<input type="hidden" name="sign_id" value="' . $sign_id_arr[$h] . '" />';
           echo '<input type="hidden" name="ruler_of_sign" value="' . $ruler_of_sign_arr[$h] . '" />';
           echo '<input type="hidden" name="sign_of_res" value="' . $sign_of_res_arr[$h] . '" />';
@@ -5263,7 +5269,7 @@ echo $chart_id;
 
       echo '<div id="blurb">';
         echo '<span id="rising_sign_id_err></span>';
-        echo '<span id="hl_id_err"></span>';
+        echo '<span id="house_id_err"></span>';
         echo '<span id="house_of_res_err"></span>';
           if ($h == 0) {
             show_hl_intro_text(1);
@@ -5283,14 +5289,100 @@ echo $chart_id;
     echo '</div>';  //close #profile_house_lords
 
   }    
-  else {  //NO RISING SIGN-------------------------
-    //$sign_id_arr
+  else {  //RISING SIGN EQUALS -1 -------------------------
+    echo '<div id="profile_house_lords">';
+
+
+      echo '<div id="hl_scroll">';
+        echo '<div id="hl_scroll_container">';
+          echo '<div id="hl_prev">< Previous</div>';
+
+          echo '<div id="hl_next">Next ></div>';
+        echo '</div>';
+      echo '</div>'; //Close hl_scroll
+
+      echo '<form name="hl_browser" action="." method="post">';
+      echo '<input type="hidden" name="chart_id_e" value="' . $chart_id . '"/>'; //FOR CHART SUBMIT
+      echo '<input type="hidden" name="rising_sign_id" value="' . $rising_sign_id . '"/>'; //FOR CHART SUBMIT
+      echo '<div id="starma_house_lords">';
+
+      //if (my_chart_flag() == 1) {
+      //  show_circle_and_arrow_hilite("down");
+      //}
+
+    //LEFT SIDE-----------------------
+      echo '<div class="hl_tabs left_side"/>';
+      echo '<ul>';
+      for ($h=1; $h < 7; $h++) {
+        
+          //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+          echo '<li class="hl_li ' . $h . ' ';
+            if ($h == 1) {
+              echo 'selected';
+            }
+          echo '">';
+          echo '<div class="hl_tabs_wrapper">';
+
+          echo '<span class="hl_icon left pointer"><span class="hl_title">' . $h . '<br>Unknown</span></span>';
+          echo '<span class="arrow"></span>';
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
+          echo '<input type="hidden" name="sign_id" value="0" />';
+          echo '<input type="hidden" name="ruler_of_sign" value="0" />';
+          echo '<input type="hidden" name="sign_of_res" value="0" />';
+          echo '<input type="hidden" name="house_of_res" value="0" />';
+          echo '</div>'; //close wrapper
+          echo '</li>';
+      }
+      echo '</ul>';
+      echo '</div>'; //Close LEFT SIDE
+
+    //RIGHT SIDE-----------------------
+      echo '<div class="hl_tabs right_side"/>';
+      echo '<ul>';
+      for ($h=7; $h < 13; $h++) {
+        
+          //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+          echo '<li class="hl_li ' . $h . '">';
+          echo '<div class="hl_tabs_wrapper">';
+
+          echo '<span class="hl_icon right pointer"><span class="hl_title">' . $h . '<br>Unknown</span></span>';
+          echo '<span class="arrow"></span>';
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
+          echo '<input type="hidden" name="sign_id" value="0" />';
+          echo '<input type="hidden" name="ruler_of_sign" value="0" />';
+          echo '<input type="hidden" name="sign_of_res" value="0" />';
+          echo '<input type="hidden" name="house_of_res" value="0" />';
+          echo '</div>'; //close wrapper
+          echo '</li>';
+      }
+      echo '</ul>';
+      echo '</div>';
+
+      echo '<div id="blurb">';
+        echo '<span id="rising_sign_id_err></span>';
+        echo '<span id="house_id_err"></span>';
+        echo '<span id="house_of_res_err"></span>';
+          if ($rising_sign_id == -1) {
+            if ($chart_id !== get_my_chart_id()) {  
+              show_hl_intro_text(2);
+            }
+            else show_hl_intro_text(1);
+          }
+          else {
+            //H1 - PALENQUIN - H2 PIC GOES HERE
+            //BLURB GOES HERE
+            //echo get_house_ruler_blurb($rising_sign_id, 1, $house_of_res_arr[1]);
+            //show_poi_info($poi_id, $chart_id, $sign_id);
+            //show_poi_sign_blurb ($poi_id, $sign_id);
+          }
+      echo '</div>';//close blurb
+
+    echo '</div>'; //starma_house_lords
+    echo '</form>';
+
+    echo '</div>';  //close #profile_house_lords
   }
 
-}
-
-function show_others_houses () {
-  
 }
 
 //////////////////ENDMATT
