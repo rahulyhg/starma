@@ -2303,11 +2303,11 @@ li.my_unknown_button a {
 
 #homepage_profile_button_info #descriptors div {
    height: 26px;
-   font-size: .8em;
+   font-size: .95em;
 }
 
 #homepage_profile_button_info #descriptors div .value {
-   bottom: 46px;
+    bottom: 46px;
     left: 18px;
     position: relative;
    
@@ -2328,7 +2328,7 @@ li.my_unknown_button a {
 }
 
 #edit_descriptors div .value {
-   bottom: 20px;
+    bottom: 20px;
     left: 20px;
     position: relative
 }
@@ -2506,7 +2506,7 @@ li.my_unknown_button a {
 /************---Matt adding things to others Profile */
 
 #msg_sheen {
-  position:absolute;
+  position:fixed;
   top:0px;
   left:0px;
   width:100%;
@@ -2516,7 +2516,7 @@ li.my_unknown_button a {
 }
 
 #msg_sheen #msg_sheen_screen_landing {
-  position:absolute;
+  position:fixed;
   top:0px;
   left:0px;
   width:100%;
@@ -2528,7 +2528,7 @@ li.my_unknown_button a {
 }
 
 #msg_sheen #msg_sheen_screen {
-  position:absolute;
+  position:fixed;
   top:0px;
   left:0px;
   width:100%;
@@ -2608,7 +2608,7 @@ li.my_unknown_button a {
     border: 2px solid black;
     margin: -97px 0 0 -250px;
     margin: auto;
-    padding: 20px;
+    padding: 10px 15px;
     position: relative;
     top: 50px;
     width: 400px;
@@ -2755,9 +2755,13 @@ li.my_unknown_button a {
   box-shadow: 0 0 2px #313E5C inset;
   */
   height: 75px;
-  width: 384px;
+  width: 100%;
   padding: 5px;
   display:block;
+  margin-bottom: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .invite_error {
@@ -2817,7 +2821,7 @@ li.my_unknown_button a {
   margin: 10px 50px 10px 50px;*/
 }
 
-#msg_sheen input[type=text] {
+#invite_type_area input[type=text] {
   color: #181A1C;
   position: relative;
   margin-bottom: 10px;
@@ -2832,10 +2836,6 @@ li.my_unknown_button a {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-#msg_sheen input[type=text]:focus {
-  /*border: 1px solid #8393CA;*/
 }
 
 #invite_type_area input[type=text] {
@@ -3059,7 +3059,7 @@ ul.as-list li.as-result-item em {
 #p_box_blurb {
   display: inline-block;
   position: relative;
-  right: 15px;
+  right: 44px;
   width: 332px;
 }
 
