@@ -5,7 +5,7 @@ $logged_in = login_check_point($type="full");
 //***********---Matt adding in case message is sent from Message button popup
   
 
-    if (trim($_POST["text_body"]) != "") {
+    if (trim($_POST["text_body"]) !== "") {
       $msg = true;
       //log_this_action (profile_action_biography(), editted_basic_action());
       if (isset($_POST["other_user_id"])) {
