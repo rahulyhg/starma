@@ -18,8 +18,14 @@ $(document).ready(function(){
 		$(this).css('border', '1px solid #1a1d2a');
 	});
 
-$('#go_bug_button').click(function(event){
-	$('#login_from_guest').submit(function(event){
+	$('#login_password').on('keypress', function(event){
+		if(event.which == 13) {
+			$('#go_bug_button').click();
+		}
+	});
+
+	$('#go_bug_button').click(function(event){
+	//$('#login_from_guest').submit(function(event){
 		event.preventDefault();
 
 		var data = {
@@ -54,8 +60,8 @@ $('#go_bug_button').click(function(event){
 			}
 		});
 
+	//});
 	});
-});
 
 
 });
