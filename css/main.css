@@ -292,6 +292,84 @@ input{
   width:185px;
 }
 
+/*//////////////////////NEW TOP NAV///////////////////////////*/
+
+#topnav ul li.home_link a {
+  background:url('/img/tn_no_borders/Starma-Astrology-Home.png') no-repeat #8393CA;
+  width:113px;
+}
+
+#topnav ul li.home_link:hover a {
+  background-color:#fbf0a4;
+}
+
+#topnav ul li.home_link a span {
+  top:46px;
+  left:39px;
+}
+
+#topnav ul li.profile_link a {
+  background:url('/img/tn_no_borders/Starma-Astrology-Profile.png') no-repeat #8393CA;
+  width:113px;
+}
+
+
+#topnav ul li.profile_link:hover a {
+  background-color:#fbf0a4;
+}
+
+#topnav ul li.profile_link a span {
+   left: 35px;
+    top: 46px;
+}
+
+#topnav ul li.compare_link a {
+  background:url('/img/tn_no_borders/Starma-Astrology-Community.png') no-repeat #8393CA;
+  width:113px;
+}
+
+#topnav ul li.compare_link:hover a {
+  background-color:#fbf0a4;
+}
+
+#topnav ul li.compare_link a span {
+  left: 21px;
+    top: 46px;
+}
+
+#topnav ul li.celeb_link a {
+  background:url('/img/tn_no_borders/Starma-Astrology-Celebrities.png') no-repeat #8393CA;
+  width:113px;
+}
+
+
+#topnav ul li.celeb_link:hover a {
+  background-color:#fbf0a4;
+}
+
+#topnav ul li.celeb_link a span {
+  left: 18px;
+    top: 46px;
+}
+
+#topnav ul li.inbox_link a {
+  background:url('/img/tn_no_borders/Starma-Astrology-Mail.png') no-repeat #8393CA;
+  width:113px;
+}
+
+
+#topnav ul li.inbox_link:hover a {
+ background-color:#fbf0a4;
+}
+
+
+#topnav ul li.inbox_link a span {
+  top:46px;
+  text-align: center;
+}
+
+/*
+
 #topnav ul li.home_link a {
   background:url('/img/top_nav_shorter/Starma-Astrology-Home.png') no-repeat #8393CA;
   width:113px;
@@ -320,6 +398,7 @@ input{
    left: 35px;
     top: 46px;
 }
+*/
 
 
 /*
@@ -340,6 +419,7 @@ input{
 }
 */
 
+/*
 #topnav ul li.compare_link a {
   background:url('/img/top_nav_shorter/Starma-Astrology-Community.png') no-repeat #8393CA;
   width:113px;
@@ -379,10 +459,13 @@ input{
  background-color:#fbf0a4;
 }
 
+
 #topnav ul li.inbox_link a span {
   top:46px;
   text-align: center;
 }
+
+*/
 
 #topnav ul li.selected a {
   background-color:#fbf0a4;
