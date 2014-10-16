@@ -22,10 +22,10 @@ function show_sheen ($flag=0, $form_function) {
     echo '</div>';
 }
 
-function show_user_invite_top () {
-  echo '<div id="msg_sheen_content_custom" class="pop_invite">';
+function show_user_invite () {
+  echo '<div id="msg_sheen_content_invite" class="pop_invite">';
                 echo '<div id="invite_type_area">';
-                  echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite A Friend</strong></div><br />';
+                  echo '<div style="width:100%; text-align:center; font-size:2em; margin-bottom:10px;"><strong>Invite A Friend</strong></div>';
                   //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
                   echo '<div id="send-message-area">';
                     echo '<div id="first_name_error" class="invite_error"></div>';
@@ -33,8 +33,8 @@ function show_user_invite_top () {
                     echo '<div id="their_name_error" class="invite_error"></div>';
                     echo '<div id="their_email_error" class="invite_error"></div>';
                     echo '<div id="sender_id_error" class="invite_error"></div>';
-                    echo '<label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
-                          <input type="text" class="input_style_inline" value="';
+                    echo '<div style="font-size:1.19em;">Your Name</div>
+                          <input type="text" value="';
                             $first_name = get_my_first_name();
                             if(!$first_name) {
                               echo '';
@@ -42,8 +42,8 @@ function show_user_invite_top () {
                             else {
                               echo $first_name;
                             }
-                            echo '" id="first_name_invite" placeholder="first name" name="first_name" maxlength="17" />
-                          <input type="text" class="input_style_inline" value="';
+                            echo '" id="first_name_invite" placeholder="First Name" name="first_name" maxlength="17" />
+                          <input type="text" value="';
                             $last_name = get_my_last_name();
                             if(!$last_name) {
                               echo '';
@@ -51,18 +51,18 @@ function show_user_invite_top () {
                             else {
                               echo $last_name;
                             }
-                          echo '" id="last_name_invite" name="last_name" placeholder="last name" maxlength="17" /> <br />
-                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
-                          <input type="text" class="input_style_inline" placeholder="name" id="their_name_invite" name="their_name" maxlength="34" />
-                          <input type="text" class="input_style_inline" placeholder="email" id="their_email_invite" name="their_email" /> <br />
-                          <label for="msg_sendie_invite" id="msg_label"><strong>Personal Message (Optional)</strong></label>
+                          echo '" id="last_name_invite" name="last_name" placeholder="Last Name" maxlength="17" /> <br />
+                          <div style="font-size:1.19em;">Who are you inviting?</div>
+                          <input type="text" placeholder="Name" id="their_name_invite" name="their_name" maxlength="34" />
+                          <input type="text" placeholder="Email" id="their_email_invite" name="their_email" /> <br />
+                          <div style="font-size:1.19em;">Personal Message (Optional)</div>
                           <textarea id="msg_sendie_invite" name="text_body" maxlength = "255" ></textarea>
-                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
-                          <input type="button" name="submit" value="Send" class="msg_send_invite"/>
+                          <div id="cancel">Cancel</div>
+                          <div id="send_invite">Send</div>
                           <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>';                         
                         //echo '</form>';
                         echo '</div>'; //Clost send-message-area
-                      echo '<span id="msg_sent"></span>';
+                      echo '<span id="invite_sent"></span>';
                   echo '</div>';
                 echo '</div>';
 }
@@ -557,7 +557,14 @@ function show_my_descriptors_info_home() {
     echo '<div id="des_selector_' . (string)($counter+1) . '" class="des_selector">';
       echo '<div class="title">' . (string)($counter+1) . '.</div>';
       echo '<div class="value_home">';
-        echo '<span>' . $word["descriptor"] . '</span>';
+        echo '<span>';
+          if (strlen($word['descriptor']) > 7) {
+            echo substr($word["descriptor"], 0, 7) . '...';
+          } 
+          else {
+            echo $word["descriptor"];
+          }
+          echo '</span>';
         //js_edit_framework("desc_" . (string)($counter+1) . "_edit_box", "des_selector_" . (string)($counter+1) . " .value span", "user_descriptor", $word["user_des_id"], $word["descriptor"]);
       echo '</div>';
     echo '</div>';
@@ -935,11 +942,19 @@ function show_general_info($chart_id) {
       $state = get_state ($user_info["state_id"]);
       $location = $user_info["location"]. ', ' . strtoupper($state["state_code"]);
     }
-    $my_info = my_profile_info();
+    if (isLoggedIn()) {
+      $my_info = my_profile_info();      
+    }
+    else {
+      $my_info['country_id'] = 236;
+    }
     if (!($user_info["country_id"] == $my_info["country_id"])) {
       $country = get_country ($user_info["country_id"]);
       $location = $location . ', ' . format_country_name ($country["country_title"]);
     }
+    //elseif ($user_id == get_guest_user_id()) { //GUEST VIEW
+      //$location = $user_info["location"]. ', ' . strtoupper($state["state_code"]);
+    //}
   }
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
   echo '<div class="profile_info_area">';
@@ -1357,8 +1372,8 @@ function get_left_menu ($the_page) {
   elseif ($the_page == 'psel') {
     $menu['nav1'] = array('Profile&nbsp;&nbsp;','non_chart_profile.php');
     //$menu['nav2'] = array('houses&nbsp;&nbsp;','#');
-    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','#');
-    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','#');
+    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','romantic_advice.php');
+    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','career_advice.php');
     $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#');
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
@@ -1372,7 +1387,8 @@ function get_left_menu ($the_page) {
   }
   elseif ($the_page == 'hsel') {
     $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php');
-    $menu['nav2'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php');
+    $menu['nav2'] = array('About Starma&nbsp;&nbsp;', 'about_starma.php');
+    $menu['nav3'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php');
     
   }
   elseif ($the_page == 'isel') {
@@ -3828,10 +3844,10 @@ function show_poi_sign_blurb_abbr ($poi_id, $sign_id, $chart_id=-1) {
   
   $blurb = get_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
   if ($chart_id == -1) {
-    echo substr($blurb, 0, 140) . " ...";
+    echo substr($blurb, 0, 140) . "...";
   }
   else {
-    echo substr($blurb, 0, 175) . " ...";
+    echo substr($blurb, 0, 175) . "...";
   }
 }
 
@@ -3981,15 +3997,18 @@ function show_dynamic_info ($connection_poi_id, $connection_poi_id2, $relationsh
 
 
 
-function show_intro_text() {
-  echo '
-  <div id="planet_info">
-  Your Starma Chart is calculated using the Sidereal Zodiac, a zodiac typically used by Eastern astrologers.  Most Western astrologers use the Tropical Zodiac, so if you\'re already familiar with your chart, the one you\'re about to see may look slightly different.  The reason we\'ve chosen to use the Sidereal Zodiac here at Starma is because it relies on the relationship of points in the sky to the earth, whereas the Tropical Zodiac relies on seasonal changes.  To read more about the Zodiacs, and why Starma utilizes the Sidereal Zodiac, please click <a href="?the_left=nav6&the_page=csel">Learn More About Astrology</a>. 
-  <br><br>
-  Interpreting your chart is a task for a professional astrologer, so as you read about your different astrological placements, please keep in mind that your chart must be interpreted as a whole.  You may have one placement that says you\'re a shy introvert and another that says you\'re a gregarious extrovert.  This doesn\'t mean that your chart is bogus; it simply means that these are different components of who you are.  Sometimes, one placement may be stronger than another and, to continue with the example, you might feel like more of an introvert than an extrovert, but try to see if you can recognize the latent extrovert within you.  It might finds its moments to surface, and before you know it, you\'re singing Small Town Girl at the top of your lungs on karaoke night. To fully understand your Starma Chart, we recommend an in-depth reading from a Sidereal or Vedic astrologer, but in the meantime, we hope you enjoy reading about your different placements on starma.com!
-  <br><br>
-  </div>
-  ';
+function show_intro_text($western_sun_sign) {
+  echo '<div id="planet_info">';
+    echo '<p>When someone asks "what\'s your sign?" you might respond by saying "' . $western_sun_sign . '."  A birth chart is a collection of ALL your signs (Moon, Venus, Mars, etc.)  It gives a more well rounded view on different aspects of who you are.  We\'ve calculated your chart using Vedic astrology (Jyotish).  As such, some of your signs will be different than what you\'re accustomed to seeing in your western chart. To see your Western chart, select "Western View."  To learn why we use Vedic Astrology <a href="" title="A Tale of Two Zodiacs">click here</a>.</p>';
+    echo '<p><strong>The Cake Metaphor:</strong> It\'s important to consider that reading through your birth chart is like like tasting the different ingredients in a recipe.  If you had never eaten cake before, you could taste an egg, then some sugar, nibble some flour, and sip some milk without ever experiencing the delicious result of having them all baked together.  Similarly, while reading through your birth chart, keep in mind that the ingredients of your chart may seem very different (even contradictory) when read alone, but when read altogether they make something completely different.  Often, it takes a professional astrologer to interpret all the pieces of your chart, but we\'ve created a sampling of ingredients we think you\'ll enjoy.</p>';
+    echo '<--  BEGIN BY CLICKING YOUR RISING SIGN ON THE LEFT';
+
+  //echo '<div id="planet_info">';
+  //echo 'Your Starma Chart is calculated using the Sidereal Zodiac, a zodiac typically used by Eastern astrologers.  Most Western astrologers use the Tropical Zodiac, so if you\'re already familiar with your chart, the one you\'re about to see may look slightly different.  The reason we\'ve chosen to use the Sidereal Zodiac here at Starma is because it relies on the relationship of points in the sky to the earth, whereas the Tropical Zodiac relies on seasonal changes.  To read more about the Zodiacs, and why Starma utilizes the Sidereal Zodiac, please click <a href="?the_left=nav6&the_page=csel">Learn More About Astrology</a>.'; 
+  //echo '<br><br>';
+  //echo 'Interpreting your chart is a task for a professional astrologer, so as you read about your different astrological placements, please keep in mind that your chart must be interpreted as a whole.  You may have one placement that says you\'re a shy introvert and another that says you\'re a gregarious extrovert.  This doesn\'t mean that your chart is bogus; it simply means that these are different components of who you are.  Sometimes, one placement may be stronger than another and, to continue with the example, you might feel like more of an introvert than an extrovert, but try to see if you can recognize the latent extrovert within you.  It might finds its moments to surface, and before you know it, you\'re singing Small Town Girl at the top of your lungs on karaoke night. To fully understand your Starma Chart, we recommend an in-depth reading from a Sidereal or Vedic astrologer, but in the meantime, we hope you enjoy reading about your different placements on starma.com!';
+  //echo '<br><br>
+  //echo '</div>';
 }
 
 function show_guest_chart($goto = ".", $user_id, $western=0) {
@@ -4026,7 +4045,15 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
 
     echo '<div id="profile_chart">';
-      
+    /*
+      echo '<div id="chart_scroll">';
+        echo '<div id="chart_scroll_container">';
+          echo '<div id="chart_prev">< Previous</div>';
+
+          echo '<div id="chart_next">Next ></div>';
+        echo '</div>';
+      echo '</div>'; //Close chart_scroll
+    */  
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
       echo '<input type="hidden" name="poi_id"/>';
@@ -4203,7 +4230,12 @@ function show_my_chart ($goTo = ".", $western=0) {
       $chart_id = $chart_info["chart_id"];
       if (!isset($_POST["poi_id"])) {
         #if (get_my_preferences("chart_more_info_flag", 1) == 0) { 
-        $poi_id = 1;
+        if (my_chart_flag() == 1 && $western == 0) {
+          $poi_id = 0;
+        }
+        else {
+          $poi_id = 1;
+        }       
         #}
         #else {
         #  $poi_id = 0;
@@ -4213,11 +4245,11 @@ function show_my_chart ($goTo = ".", $western=0) {
         $poi_id = $_POST["poi_id"];
       }
 
-      if ($poi_id > 0 and my_chart_flag() == 1) {
+      //if ($poi_id > 0 and my_chart_flag() == 1) {
   
-         set_my_chart_flag(0);
+      //   set_my_chart_flag(0);
       
-      }
+      //}
 
       $poi_list = get_poi_list();
      
@@ -4228,9 +4260,9 @@ function show_my_chart ($goTo = ".", $western=0) {
 
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
-          echo '<span id="chart_prev">< Prev</span>';
+          echo '<div id="chart_prev">< Previous</div>';
 
-          echo '<span id="chart_next">Next ></span>';
+          echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
 
@@ -4242,7 +4274,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '<div id="starma_chart">';
    
       if (my_chart_flag() == 1) {
-        show_circle_and_arrow_hilite("down");
+        //show_circle_and_arrow_hilite("down");
        
       }
 
@@ -4383,7 +4415,9 @@ function show_my_chart ($goTo = ".", $western=0) {
       */
       echo '<div id="blurb">';
         if ($poi_id == 0) {
-          show_intro_text();
+          $chart_info = get_chart_by_name("Alternate",get_my_user_id());  //GET WESTERN SUN SIGN
+          $western_sun_sign = get_sign_name(get_sign_from_poi ($chart_info['chart_id'], 2));
+          show_intro_text($western_sun_sign);
         }
         else {
           show_poi_info($poi_id, $chart_id, $sign_id);
@@ -4421,9 +4455,9 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
 
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
-          echo '<span id="chart_prev">< Prev</span>';
+          echo '<div id="chart_prev">< Previous</div>';
 
-          echo '<span id="chart_next">Next ></span>';
+          echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
 
@@ -5098,12 +5132,273 @@ function show_chart ($chart_id, $goTo = ".") {
 
 /////////////////MATT ADD HOUSES
 
-function show_my_houses () {
-
+function show_hl_intro_text($x) {
+  if ($x == 1) {
+    echo '<div id="hl_info">Oh no!  We need your Rising sign to determine how the houses are placed.  Please enter a more precise <a href="main.php?the_left=nav5&the_page=psel">time of birth</a> so we can get your Rising sign.</div>';
+  }
+  elseif ($x == 2) {
+    echo '<div id="hl_info">Oh no!  Meow.  Please enter a more precise <a href="main.php?the_left=nav5&the_page=psel">time of birth</a> so we can get your Rising sign.</div>';
+  }
 }
 
-function show_others_houses () {
-  
+function show_house_lords () {
+
+$guest_user_id = get_guest_user_id();
+$guest_chart_id = get_guest_chart_id($guest_user_id);
+
+if (isLoggedIn()) {
+    if(!isset($_GET['chart_id2'])) {
+      //$chart_name = 'mine';
+      $chart_id = get_my_chart_id();
+  }
+  elseif (isset($_GET['chart_id2'])) {
+    //$chart_name = 'other_user';
+    $chart_id = $_GET['chart_id2'];
+  }
+  else {
+    //$chart_name = 'custom';
+    $chart = get_chart_by_name ("Freebie1");
+    $chart_id = $chart["chart_id"];
+  } 
+}
+else {
+  if(!isset($_GET['chart_id2'])) {
+    //$chart_name = 'guest';
+    $chart_id = $guest_chart_id;
+  }
+  elseif (isset($_GET['chart_id2'])) {
+    //$chart_name = 'guest_other_user';
+    $chart_id = $_GET['chart_id2'];
+  }
+}
+
+//echo $chart_id;
+$rising_sign_id = get_sign_from_poi ($chart_id, 1);
+echo $rising_sign_id;
+//IF RISING SIGN EXISTS-------------------
+  if($rising_sign_id !== -1) { //in user functions
+    $sign_id_arr = array();
+    $sign_name_arr = array();
+    $house_arr = array();
+    $ruler_of_sign_arr = array();
+    $sign_of_res_arr = array();
+    $hous_of_res_arr = array();
+    $house_blurb_arr = array();
+  //GET VARIABLES TO BUILD HOUSE LORDS-------------------
+    for($i = 1; $i <= 12; $i++) {
+      $sign_id = $rising_sign_id + ($i - 1);
+        if($sign_id > 12) {
+          $sign_id_arr[$i] = $sign_id - 12;
+        }
+        else {
+          $sign_id_arr[$i] = $sign_id;
+        }
+          $house_arr[$i] = $i;
+
+          $sign_name_arr[$i] = get_sign_name($sign_id_arr[$i]);
+        
+          $results = get_ruler_of_sign($sign_id_arr[$i]);
+          while($row = mysql_fetch_array($results)) {
+            $ruler_of_sign_id[$i] = $row["ruling_poi_id"];
+            $ruler_of_sign[$i] = strtolower(ucfirst(get_poi_name($row["ruling_poi_id"])));
+          }
+                
+          $sign_of_res_arr[$i] = get_sign_from_poi($chart_id, $ruler_of_sign_id[$i]);
+
+          $house_of_residence = $sign_of_res_arr[$i] - $rising_sign_id;
+            if ($house_of_residence < 0) {
+              $house_of_residence = $house_of_residence + 12;
+            }
+          $house_of_res_arr[$i] = $house_of_residence + 1;
+
+          $house_burb_arr[$i] = get_house_ruler_blurb($rising_sign_id, $i, $house_of_res_arr[$i]);
+
+    }
+  //BUILD HOUSE LORDS WITH ABOVE VARIABLES------------------------
+    echo '<div id="profile_house_lords">';
+
+
+      echo '<div id="hl_scroll">';
+        echo '<div id="hl_scroll_container">';
+          echo '<div id="hl_prev">< Previous</div>';
+
+          echo '<div id="hl_next">Next ></div>';
+        echo '</div>';
+      echo '</div>'; //Close hl_scroll
+
+      echo '<form name="hl_browser" action="." method="post">';
+      echo '<input type="hidden" name="chart_id_e" value="' . $chart_id . '"/>'; //FOR CHART SUBMIT
+      echo '<input type="hidden" name="rising_sign_id" value="' . $rising_sign_id . '"/>'; //FOR CHART SUBMIT
+      echo '<div id="starma_house_lords">';
+
+      //if (my_chart_flag() == 1) {
+      //  show_circle_and_arrow_hilite("down");
+      //}
+
+    //LEFT SIDE-----------------------
+      echo '<div class="hl_tabs left_side"/>';
+      echo '<ul>';
+      for ($h=1; $h < 7; $h++) {
+        
+          //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+          echo '<li class="hl_li ' . $h . ' ';
+            if ($h == 1) {
+              echo 'selected';
+            }
+          echo '">';
+          echo '<div class="hl_tabs_wrapper">';
+
+          echo '<span class="hl_icon left pointer"><span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span></span>';
+          echo '<span class="arrow"></span>';
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
+          echo '<input type="hidden" name="sign_id" value="' . $sign_id_arr[$h] . '" />';
+          echo '<input type="hidden" name="ruler_of_sign" value="' . $ruler_of_sign_arr[$h] . '" />';
+          echo '<input type="hidden" name="sign_of_res" value="' . $sign_of_res_arr[$h] . '" />';
+          echo '<input type="hidden" name="house_of_res" value="' . $house_of_res_arr[$h] . '" />';
+          echo '</div>'; //close wrapper
+          echo '</li>';
+      }
+      echo '</ul>';
+      echo '</div>'; //Close LEFT SIDE
+
+    //RIGHT SIDE-----------------------
+      echo '<div class="hl_tabs right_side"/>';
+      echo '<ul>';
+      for ($h=7; $h < 13; $h++) {
+        
+          //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+          echo '<li class="hl_li ' . $h . '">';
+          echo '<div class="hl_tabs_wrapper">';
+
+          echo '<span class="hl_icon right pointer"><span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span></span>';
+          echo '<span class="arrow"></span>';
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
+          echo '<input type="hidden" name="sign_id" value="' . $sign_id_arr[$h] . '" />';
+          echo '<input type="hidden" name="ruler_of_sign" value="' . $ruler_of_sign_arr[$h] . '" />';
+          echo '<input type="hidden" name="sign_of_res" value="' . $sign_of_res_arr[$h] . '" />';
+          echo '<input type="hidden" name="house_of_res" value="' . $house_of_res_arr[$h] . '" />';
+          echo '</div>'; //close wrapper
+          echo '</li>';
+      }
+      echo '</ul>';
+      echo '</div>';
+
+      echo '<div id="blurb">';
+        echo '<span id="rising_sign_id_err></span>';
+        echo '<span id="house_id_err"></span>';
+        echo '<span id="house_of_res_err"></span>';
+          if ($h == 0) {
+            show_hl_intro_text(1);
+          }
+          else {
+            //H1 - PALENQUIN - H2 PIC GOES HERE
+            //BLURB GOES HERE
+            echo get_house_ruler_blurb($rising_sign_id, 1, $house_of_res_arr[1]);
+            //show_poi_info($poi_id, $chart_id, $sign_id);
+            //show_poi_sign_blurb ($poi_id, $sign_id);
+          }
+      echo '</div>';//close blurb
+
+    echo '</div>'; //starma_house_lords
+    echo '</form>';
+
+    echo '</div>';  //close #profile_house_lords
+
+  }    
+  else {  //RISING SIGN EQUALS -1 -------------------------
+    echo '<div id="profile_house_lords">';
+
+
+      echo '<div id="hl_scroll">';
+        echo '<div id="hl_scroll_container">';
+          echo '<div id="hl_prev">< Previous</div>';
+
+          echo '<div id="hl_next">Next ></div>';
+        echo '</div>';
+      echo '</div>'; //Close hl_scroll
+
+      echo '<form name="hl_browser" action="." method="post">';
+      echo '<input type="hidden" name="chart_id_e" value="' . $chart_id . '"/>'; //FOR CHART SUBMIT
+      echo '<input type="hidden" name="rising_sign_id" value="' . $rising_sign_id . '"/>'; //FOR CHART SUBMIT
+      echo '<div id="starma_house_lords">';
+
+      //if (my_chart_flag() == 1) {
+      //  show_circle_and_arrow_hilite("down");
+      //}
+
+    //LEFT SIDE-----------------------
+      echo '<div class="hl_tabs left_side"/>';
+      echo '<ul>';
+      for ($h=1; $h < 7; $h++) {
+        
+          //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+          echo '<li class="hl_li ' . $h . ' ';
+            if ($h == 1) {
+              echo 'selected';
+            }
+          echo '">';
+          echo '<div class="hl_tabs_wrapper">';
+
+          echo '<span class="hl_icon left pointer"><span class="hl_title">' . $h . '<br>Unknown</span></span>';
+          echo '<span class="arrow"></span>';
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
+          echo '<input type="hidden" name="sign_id" value="0" />';
+          echo '<input type="hidden" name="ruler_of_sign" value="0" />';
+          echo '<input type="hidden" name="sign_of_res" value="0" />';
+          echo '<input type="hidden" name="house_of_res" value="0" />';
+          echo '</div>'; //close wrapper
+          echo '</li>';
+      }
+      echo '</ul>';
+      echo '</div>'; //Close LEFT SIDE
+
+    //RIGHT SIDE-----------------------
+      echo '<div class="hl_tabs right_side"/>';
+      echo '<ul>';
+      for ($h=7; $h < 13; $h++) {
+        
+          //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+          echo '<li class="hl_li ' . $h . '">';
+          echo '<div class="hl_tabs_wrapper">';
+
+          echo '<span class="hl_icon right pointer"><span class="hl_title">' . $h . '<br>Unknown</span></span>';
+          echo '<span class="arrow"></span>';
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
+          echo '<input type="hidden" name="sign_id" value="0" />';
+          echo '<input type="hidden" name="ruler_of_sign" value="0" />';
+          echo '<input type="hidden" name="sign_of_res" value="0" />';
+          echo '<input type="hidden" name="house_of_res" value="0" />';
+          echo '</div>'; //close wrapper
+          echo '</li>';
+      }
+      echo '</ul>';
+      echo '</div>';
+
+      echo '<div id="blurb">';
+        echo '<span id="rising_sign_id_err></span>';
+        echo '<span id="house_id_err"></span>';
+        echo '<span id="house_of_res_err"></span>';
+          if ($rising_sign_id == -1) {
+            if ($chart_id !== get_my_chart_id()) {  
+              show_hl_intro_text(2);
+            }
+            else show_hl_intro_text(1);
+          }
+          else {
+            //H1 - PALENQUIN - H2 PIC GOES HERE
+            //BLURB GOES HERE
+            //echo get_house_ruler_blurb($rising_sign_id, 1, $house_of_res_arr[1]);
+            //show_poi_info($poi_id, $chart_id, $sign_id);
+            //show_poi_sign_blurb ($poi_id, $sign_id);
+          }
+      echo '</div>';//close blurb
+
+    echo '</div>'; //starma_house_lords
+    echo '</form>';
+
+    echo '</div>';  //close #profile_house_lords
+  }
+
 }
 
 //////////////////ENDMATT
@@ -5647,6 +5942,13 @@ function display_all_users ($url="", $filter=0) {
   
   //while ($user = mysql_fetch_array($user_list)) {
 
+  if (isLoggedIn()) {
+    $chart_id = get_my_chart_id();
+  }
+  else {
+    $chart_id = get_guest_chart_id(get_guest_user_id());
+  }
+
   if (count($user_array) > 0) {
 
     foreach ($user_array as $user) {
@@ -5654,7 +5956,7 @@ function display_all_users ($url="", $filter=0) {
       echo '<div class="user_block js_user_' . $user["user_id"] . '">';
         echo '<div class="photo_border_wrapper_compare">';
           echo '<div class="compare_photo">';
-            show_user_compare_picture($url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
+            show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
             //echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';
          
           echo '</div>';
@@ -6104,7 +6406,7 @@ function show_login_box_landing () {
 function show_sign_up_box_landing () {
   
     echo '<div id="sign_up_box">';
-      echo  '<div class="sign_up_text">Create an Account</div>';
+      echo  '<div class="heading">Create an Account</div>';
           echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
           echo '<div id="or">~ or ~</div>';
           echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
@@ -6576,76 +6878,69 @@ function show_time_and_place_box() {
 
 function show_login_box_guest () {
     echo '<div id="login_box">';
-      echo '<div class="title">Log In</div>';
+      echo '<div class="heading">Log In</div>';
         echo '<form action="../chat/login_form_fields.php" method="POST" id="login_from_guest">';
           echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
             if(isset($_GET['email'])) {
               echo $_GET['email'];
             }
           echo '"/>';
-          echo '<div class="register_error_area" id="login_email_error"></div>';
+          //echo '<div class="register_error_area" id="login_email_error"></div>';
           echo '<input type="password" id="login_password" name="password" placeholder="Password" />';
           //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
-          echo '<div class="register_error_area" id="login_password_error"></div>';
-          echo '<div id="forgot_password">forgot your password?</div>';
-          echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="on" /><div>keep me signed in</div></div>';
-          echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
+          //echo '<div class="register_error_area" id="login_password_error"></div>';
+          echo '<div id="kmsi_fp">';  
+            echo '<div id="forgot_password">forgot your password?</div>';
+            echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="" /><div>keep me signed in</div></div>';
+          echo '</div>';
+          //echo '<div class="sign_up_text">Go ></div>';
+          echo '<input type="submit" id="go_bug_button" name="Login" value=""/>';
+          //echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
         echo '</form>';
+        echo '<div id="go_bug_path_guest"></div>';
     echo '</div>';
 
-  echo '<script type="text/javascript" src="js/ajax_login_guest.js"></script>';
+  //echo '<script type="text/javascript" src="js/ajax_login_guest.js"></script>';
 }
 
 function show_sign_up_box_guest () {
   echo '<div id="sign_up_box">';
-    echo  '<div class="sign_up_text"><strong><em>To View This Portion of the Site...</em></strong></div>';
-      echo '<button type="button" name="sign_up" class="sign_up">Create Account</button>';
-         echo '<div id="or">~ or ~</div>';
-            
-            if(($_GET['the_page'] == 'cosel' || $_GET['the_page'] == 'cesel') && $_GET['tier'] == 2) {
-              echo '<button type="button" name="cancel" class="sign_up">Preview Compatibility</button>';
-            }
-            else {
-              echo '<button type="button" name="cancel" class="sign_up">Keep Browsing</button>';
-            }
-      echo '</div>'; //Close sign_up_box
+    echo  '<div id="sign_up_box_text" class="sign_up_text">';
+    //if ($_GET['chart_id2'] == 861) {
+    if ($_GET['tier'] == 2 && $_GET['chart_id2'] == 861) {
+      echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with someone...';
+    }
+    elseif ($_GET['tier'] == 2 && !($_GET['chart_id2'] == 861)) {
+      $isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($_GET["chart_id2"])));
+      if (!$isCeleb) {
+        $username = get_nickname(get_user_id_from_chart_id($_GET['chart_id2']));
+        echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with ' . $username . '...';
+      }
+      else {
+        $user_info = profile_info(get_user_id_from_chart_id($_GET['chart_id2']));
+        echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with ' . $user_info['first_name'] . ' ' . $user_info['last_name'] . '...';
+      }
+    }
+    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
+      echo 'You\'re about to see an example of a birth chart.  To view your own birth chart...';
+    }
+    else {
+      echo 'This part of the site is reserved for Starma members only. In order to view this content...';     
+    }
+    echo '</div>';
+    echo '<button type="button" name="create_an_account" id="create_an_account">Create an Account</button>';
+    echo '<div id="close" class="close">Close</div>';
+  echo '</div>'; //Close sign_up_box
 }
 
-/*
-function show_registration_box_guest () {
-
-  
-echo '<div id="create_account">';  
-  echo '<div class="title">Create an Account</div>';
-  //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
-  echo '<div id="register_form">';
-    echo '<form name="register_form" action="../chat/register_user.php" method="post" id="register_form">';
-      echo '<div class="register_error_area" id="reg_user_exists"></div>';
-      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /></div>'; 
-      echo '<div class="register_error_area" id="reg_username_error"></div>';
-      echo '<div id="birthday">';
-        echo '<div class="small_title">When is your birthday?</div>';
-        echo '<span>';
-          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
-        echo '</span>';
-      echo '</div>';
-      echo '<div class="register_error_area" id="reg_birthday_error"></div>';
-      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /></div>';
-      echo '<div class="register_error_area" id="reg_email_error"></div>';
-      echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
-      echo '<div class="register_error_area" id="reg_email2_error"></div>';
-      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /></div>';
-      echo '<div class="register_error_area" id="reg_password_error"></div>';
-      //echo '<div id="terms">By creating an account I confirm that I have read and agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>';
-      echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
-      echo '<button type="submit" name="submit" class="sign_up" id="register_submit">Sign Me Up!</button>';
-    echo '</form>';  
-  echo '</div>'; //Close register_form
-echo '</div>';  //close #create_account
-
-echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
-
-}*/
+function show_fb_or_email_box_guest () {
+  echo '<div id="fb_or_email_guest">';
+    echo  '<div class="heading">Create an Account</div>';
+      echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
+      echo '<div id="or">~ or ~</div>';
+      echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
+  echo '</div>'; //Close sign_up_box
+}
 
 function show_registration_box_guest() {
 
@@ -6680,7 +6975,7 @@ echo '<div id="create_account">';
   echo '<div><div id="cancel_email_sign_up">Cancel</div></div>';
 echo '</div>';  //close #create_account
 
-echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
+//echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
 //ERRORS
 //echo '<div class="reg_err_exp" id="reg_err_email_exp"></div>';
 

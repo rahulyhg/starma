@@ -1,12 +1,14 @@
 $(document).ready(function(){
-      $('#send-message-area').submit(function(event){
+
+      $('#send_msg').click(function(event){
         //alert('submitting...');
+        event.preventDefault();
 
         var msg_data = {
-          'text_body'         : $('textarea[name=text_body]').val(),
+          'text_body'         : $('#msg_sendie').val(),
           'other_user_id'     : $('input[name=other_user_id]').val(),
           'chart_id1'         : $('input[name=chart_id1]').val(),
-          'chart_id2'         : $('input[name=chart_id2]').val()
+          'chart_id2'         : $('input[name=chart_id2]').val(),
         };
 
         //alert(msg_data['text_body']);
@@ -24,18 +26,18 @@ $(document).ready(function(){
             if(data == 'Empty') {
               //alert('success: ' + data);
               $('#msg_sent').hide();
-              $('#send-message-area').show();
+              $('#send_message_area').show();
               $('#msg_label').text('Your Message is Empty');
             }
             else {
-              $('#send-message-area').hide();
+              $('#send_message_area').hide();
               $('#msg_sent').show();
               $('#msg_sent').html('<p>Message Sent!</p>');
               //alert(data);
              
                $('.pop').fadeOut(1700, function() {
                       $('#msg_sendie').val('');
-                      $('#send-message-area').show();
+                      $('#send_message_area').show();
                       $('#msg_sent').hide();
                       $('#msg_sent').html('');
                       $('#msg_label').text('New Message');
@@ -49,10 +51,10 @@ $(document).ready(function(){
               console.log(data);
               alert('failure: ' + data + msg_data['text_body']);
           });
-        event.preventDefault();
+        
 
       });
-    });
+});
 
    /*         
             success   :  function(data){

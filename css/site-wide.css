@@ -12,7 +12,8 @@
 
 @font-face {
   font-family: later_on;
-  src: url('/css/fonts/later_on.ttf');
+  src: url('/css/fonts/later_on.ttf'),
+       url('/css/fonts/later_on.eot?#iefix') format('embedded-opentype');
 }
 
 @font-face {

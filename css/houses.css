@@ -1,0 +1,172 @@
+/*///////////// MATT ADDED HOUSES SECTION /////////////////////////*/
+
+.hl_tabs {
+  /*width: 115px;*/
+  position: relative;
+  display: inline-block;
+}
+
+#starma_house_lords .left_side {
+  float: left;
+}
+
+#starma_house_lords .right_side {
+  float: right;
+}
+
+.hl_li div.hl_tabs_wrapper {
+  width: 115px;
+  height: 90px;
+  padding-bottom: 5px;
+  position: relative;
+  border: 1px solid black;
+}
+
+.hl_li .selected {
+  border: 1px solid red;
+}
+
+#starma_house_lords #blurb {
+    background: white;
+    border: 2px solid #2c3447;
+    height: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+    text-align: left;
+    width: 510px;
+}
+
+#starma_house_lords #hl_info {
+    font-size: 0.93em;
+    letter-spacing: 0.05px;
+    line-height: 1.5;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.hl_tabs ul {
+  margin-top: 0;
+}
+
+#hl_scroll {
+  position: relative;
+  margin-top: -12px;
+  margin-bottom: 8px;
+  height: 25px;
+}
+
+#hl_scroll_container {
+  margin-left: 129px;
+  width: 472px;
+}
+
+#hl_prev {
+  display: none;
+  position: relative;
+  cursor: pointer;
+  float: left;
+  font-family: 'later_on';
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#hl_next {
+  position: relative;
+  left: 44px;
+  cursor: pointer;
+  float: right;
+  font-family: 'later_on';
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#starma_house_lords #blurb {
+  padding: 10px;
+}
+
+#palenquin_wrapper {
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+#house_pic_test_left {
+  height: 88px;
+  width: 68px;
+  float: left;
+  border: 1px solid black;
+}
+
+#house_pic_test_right {
+  height: 88px;
+  width: 68px;
+  float: right;
+  border: 1px solid black;
+}
+
+#palenquin_stars {
+  width: 292px;
+  height: 88px;
+  background: url('/img/palenquinStars.png') no-repeat;
+  margin: auto;
+  display: inline-block;
+}
+
+
+/*
+#house_column {
+  display: inline-block;
+  margin: 10px 20px;
+  border: 1px solid black;
+  min-height: 252px;
+}
+
+.house_column_wrapper {
+  display: inline-block;
+}
+
+#house_column div.ruled_house {
+  display: inline-block;
+  padding: 0 2px;
+  border: 1px solid black;
+  height: 88px;
+  width: 75px;
+  float: left;
+}
+
+#house_column div.residence {
+  display: inline-block;
+  padding: 0 2px;
+  border: 1px solid black;
+  float:left;
+}
+
+#house_column div.house_blurb {
+  padding: 10px;
+  height: auto;
+  border: 1px solid black;
+  display: inline-block;
+  float: left;
+  width: 478px;
+  margin: 0 20px;
+}
+
+#house_column div.house_residence {
+  float:right;
+  height: 88px;
+  width: 75px;
+  border: 1px solid black;
+  display: inline-block;
+  padding: 0 2px;
+}
+
+#house_column ul li {
+  margin: 10px;
+}
+*/
+
+
+
+

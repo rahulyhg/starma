@@ -7,12 +7,12 @@
   /*border-radius:3px; */
   font-size:.9em; 
   padding: 10px 0 25px 0;
-  box-shadow: 1px 1px 40px black;
+  -webkit-box-shadow: 1px 1px 40px black;
+          box-shadow: 1px 1px 40px black;
   border: 2px solid #1a1d2a;
-  box-sizing: border-box;
-    -ms-box-sizing:content-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 
@@ -175,16 +175,16 @@
 }
 
 #gender_location {
-	width: 278px;
- 	margin: auto;
+  width: 278px;
+  margin: auto;
 }
 
 #country {
-	width: 100%;
+  width: 100%;
 }
 
 #gender, #country {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #location_verification {
@@ -208,7 +208,7 @@
 }
 
 .gl_err {
-	  color: #C82923;
+    color: #C82923;
     cursor: pointer;
     display: none;
     line-height: 27px;
@@ -216,25 +216,25 @@
 }
 
 .gl_err_exp {
-	  color: #C82923;
-  	display: none;
-  	position: absolute;
-  	background-color: #e7ebee;
-  	font-size: .8em;
-  	z-index: 1000;
-  	padding: 6px;
-  	border-radius: 3px;
-  	left: 314px;
+    color: #C82923;
+    display: none;
+    position: absolute;
+    background-color: #e7ebee;
+    font-size: .8em;
+    z-index: 1000;
+    padding: 6px;
+    border-radius: 3px;
+    left: 314px;
 }
 
 #gl_gender_error {
-	left: 150px;
+  left: 150px;
   bottom: 200px;
 }
 
 #gl_err_gender_exp {
-	width: 140px;
-	bottom: 200px;
+  width: 140px;
+  bottom: 200px;
 }
 
 #gl_cid_error {
@@ -243,8 +243,8 @@
 }
 
 #gl_err_cid_exp {
-	width: 140px;
-	bottom: 130px;
+  width: 140px;
+  bottom: 130px;
 }
 
 #gl_city_error {
@@ -253,8 +253,8 @@
 }
 
 #gl_err_city_exp {
-	width: 140px;
-	bottom: 87px;
+  width: 140px;
+  bottom: 87px;
 }
 
 #gl_zip_error {
@@ -263,15 +263,15 @@
 }
 
 #gl_err_zip_exp {
-	width: 140px;
-	bottom: 87px;
+  width: 140px;
+  bottom: 87px;
 }
 
 #gender_error {
-	display: none;
-	font-size: .8em;
-	color: red;
-	margin-left: 10px;
+  display: none;
+  font-size: .8em;
+  color: red;
+  margin-left: 10px;
 }
 
 
@@ -279,12 +279,12 @@
 /*------- WORDS PHOTO FORMS ----------*/
 
 #words_photo {
-	width: 278px;
-	margin: auto;
+  width: 278px;
+  margin: auto;
 }
 
 #words_photo #my_tiny_photo {
-	display: inline-block;
+  display: inline-block;
 }
 
 #my_tiny_photo {

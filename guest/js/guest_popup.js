@@ -5,28 +5,13 @@ $(document).ready(function(){
     	return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
 	};
 
+	var generic_text = 'This part of the site is reserved for Starma members only. In order to view this content...';
+
 	$('.pop_guest_login').click(function(){
 		$('.pop_login').slideFadeToggle(function () {
 			$('#login_box').show();
+			$('#login_email').focus();
 			$('#forgot_password_box').hide();
-		});
-	});
-
-	$('.pop_guest_click').click(function(event){
-		event.preventDefault();
-		$('.pop_guest').slideFadeToggle(function(){
-			$('#sign_up_box').show();
-			$('#create_account').hide();
-		});
-		//return false;
-	});
-
-	$('.pop_reg').click(function(){
-		$('.pop_guest').slideFadeToggle(function() {
-			$('#sign_up_box').show();
-			$('#create_account').hide();
-			//$('#login_box').show();
-			//$('#forgot_password_box').hide();
 		});
 	});
 
@@ -37,18 +22,49 @@ $(document).ready(function(){
 		});
 	});
 
-	$('#cancel_email_sign_up').click(function(){
+	$('.pop_guest_click').click(function(event){
+		event.preventDefault();
+		$('#sign_up_box_text').text(generic_text);
+		$('.pop_guest').slideFadeToggle(function(){
+			$('#sign_up_box').show();
+			$('#create_account').hide();
+			$('#fb_or_email_guest').hide();
+		});
+		//return false;
+	});
+
+	$('.pop_reg').click(function(){
 		$('.pop_guest').slideFadeToggle(function() {
 			$('#sign_up_box').show();
 			$('#create_account').hide();
+			$('#fb_or_email_guest').hide();
+			//$('#login_box').show();
+			//$('#forgot_password_box').hide();
+		});
+	});
+
+	$('#register_side, #register_top').click(function(){
+		$('#sign_up_box').hide();
+		$('#fb_or_email_guest').show();
+		$('.pop_guest').slideFadeToggle();
+	});
+
+	$('#close').click(function(){
+		$('.pop_guest').slideFadeToggle(function() {
+			$('#sign_up_box').show();
+			//$('#intro').hide();
+			$('#create_account').hide();
+			$('#fb_or_email_guest').hide();
 		});
 	});
 
 
-	$('button[name=sign_up]').click(function(){
+	$('input[name=create_an_account]').click(function(){
+		//$('#intro').hide();
 		$('#sign_up_box').hide();
-		$('#create_account').show();
+		$('#fb_or_email_guest').show();
 	});
+
 
 	$('button[name=cancel]').click(function(){
 		$('.pop_guest').slideFadeToggle(function() {
@@ -56,77 +72,78 @@ $(document).ready(function(){
 		});
 	});
 
+	$('button[name=sign_up_email]').click(function(){
+		$('#fb_or_email_guest').hide();
+		$('#create_account').show();
+	});
+
+	
+	$('#cancel_email_sign_up').click(function(){
+		$('.pop_guest').slideFadeToggle(function() {
+			$('#sign_up_box').show();
+			$('#create_account').hide();
+			$('#fb_or_email_guest').hide();
+		});
+	});
+
+
 	$('#forgot_password').click(function(){
 		$('#forgot_password_box').show();
 		$('#login_box').hide();
 	});
 
+//GENERIC POPUP BOX----------------------
 
 /*
-	$('.msg_cancel').click(function(){
-		$('.pop').slideFadeToggle(function(){
-			$('#msg_sendie').val('');
-        	$('#send-message-area').show();
-        	$('#msg_sent').hide();
-        	$('#msg_sent').html('');
-        	$('#msg_label').text('New Message');
-        });
+
+	$('.pop_guest_click_generic').click(function(event){
+		event.preventDefault();
+		$('.pop_guest').slideFadeToggle(function(){
+			$('#sign_up_box').show();
+			$('.sign_up_text').text(generic_text);
+			$('#create_account').hide();
+			$('#fb_or_email_guest').hide();
+		});
+		//return false;
 	});
 
-	$('.msg_cancel_invite').click(function(){
-		$('.pop').slideFadeToggle(function(){
-			$('#msg_sendie').val($invite);
-        	$('#send-message-area').show();
-        	$('#msg_sent').hide();
-        	$('#msg_sent').html('');
-        	$('#msg_label').text('New Message');
-        	$('#email_label').text('Email Address');
-        	$('#email_invite').val('');
-        });
+	$('.pop_reg').click(function(){
+		$('.pop_guest_g').slideFadeToggle(function() {
+			$('#generic_box').show();
+			$('#create_account_g').hide();
+			$('#fb_or_email_guest_g').hide();
+			//$('#login_box').show();
+			//$('#forgot_password_box').hide();
+		});
+	});
+
+	$('#close_g').click(function(){
+		$('.pop_guest_g').slideFadeToggle(function() {
+			//$('#sign_up_box').show();
+			$('#generic_box').hide();
+			$('#create_account_g').hide();
+			$('#fb_or_email_guest_g').hide();
+		});
+	});
+
+	$('input[name=create_an_account_g]').click(function(){
+		$('#generic_box').hide();
+		//$('#sign_up_box').hide();
+		$('#fb_or_email_guest_g').show();
+	});
+
+	$('button[name=sign_up_email_g]').click(function(){
+		$('#fb_or_email_guest_g').hide();
+		$('#create_account_g').show();
 	});
 
 	
-	$('.msg_send').click(function(){
-							$('#send-message-area').hide();
-             				$('#msg_sent').show();
-							$('#msg_sent').html('<div id="ajax_loader"><img src="/js/ajax_loader.gif" /><p>Sending...</p></div>');
-					});
-
-
-	//Report User
-
-	$('#report_pop').click(function(){
-		$('.pop_report').slideFadeToggle();
-		return false;
-	});
-
-	$('.report_cancel').click(function(){
-		$('.pop_report').slideFadeToggle();
-		$('#additional_comments').val('');
-	});
-
-	$('.report_send').click(function(){
-		$('.report_text').hide();
-		$('.report_send').hide();
-		$('.report_cancel').hide();
-		$('#report_sent').show();
-		$('#report_sent').html('<div id="ajax_loader"><img src="/js/ajax_loader.gif" /><p>Sending...</p></div>');
-		$('#additional_comments').hide();
-		$('#comments_label').hide();
-		$('#msg_sheen_content_report').height('auto');
-	});
-
-	$('.report_close').click(function(){
-		$('.pop_report').slideFadeToggle(function(){
-			$('.report_close').hide();
-			$('#report_sent').hide();
-			$('.report_text').show();
-			$('.report_send').show();
-			$('.report_cancel').show();
-			$('#additional_comments').show();
-			$('#additional_comments').val('');
-			$('#comments_label').show();
-			$('#msg_sheen_content_report').height('212px');
+	$('#cancel_email_sign_up_g').click(function(){
+		$('.pop_guest_g').slideFadeToggle(function() {
+			//$('#sign_up_box').show();
+			$('#generic_box').show();
+			$('#create_account_g').hide();
+			$('#fb_or_email_guest_g').hide();
 		});
 	});
 */

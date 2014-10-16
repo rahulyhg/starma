@@ -148,57 +148,6 @@ elseif ($tier == "4") {
     $chart_id2 = $_GET["chart_id2"];
   }
 
-  echo '<div id="msg_sheen" class="pop_invite">';
-    
-          echo '<div id="msg_sheen_screen" class="pop_invite">';
-    
-            echo '</div>';
-              echo '<div id="msg_sheen_content_custom" class="pop_invite">';
-                echo '<div id="invite_type_area">';
-                  echo '<div style="width:100%; text-align:center; font-size:1.5em;"><strong>Invite User</strong></div><br />';
-                  //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
-                  echo '<div id="send-message-area">';
-                    echo '<div id="first_name_error" class="invite_error"></div>';
-                    echo '<div id="last_name_error" class="invite_error"></div>';
-                    echo '<div id="their_name_error" class="invite_error"></div>';
-                    echo '<div id="their_email_error" class="invite_error"></div>';
-                    echo '<div id="sender_id_error" class="invite_error"></div>';
-                    echo '<label for="first_name" id="first_name_label"><strong>Your Name</strong></label><br />
-                          <input type="text" class="input_style_inline" value="';
-                            $first_name = get_my_first_name();
-                            if(!$first_name) {
-                              echo 'first name';
-                            } 
-                            else {
-                              echo $first_name;
-                            }
-                            echo '" id="first_name_invite" name="first_name" maxlength="17" />
-                          <input type="text" class="input_style_inline" value="';
-                            $last_name = get_my_last_name();
-                            if(!$last_name) {
-                              echo 'last name';
-                            } 
-                            else {
-                              echo $last_name;
-                            }
-                          echo '" id="last_name_invite" name="last_name" maxlength="17" /> <br />
-                          <label for="their_name" id="their_name_label"><strong>Who are you inviting?</strong></label> <br />
-                          <input type="text" class="input_style_inline" value="name" id="their_name_invite" name="their_name" maxlength="34" />
-                          <input type="text" class="input_style_inline" value="email" id="their_email_invite" name="their_email" /> <br />
-                          <label for="msg_sendie_invite" id="msg_label"><strong>Personal Message (Optional)</strong></label>
-                          <textarea id="msg_sendie_invite" name="text_body" maxlength = "255" ></textarea>
-                          <button type="button" name="cancel" class="msg_cancel_invite">Cancel</button>
-                          <input type="button" name="submit" value="Send" class="msg_send_invite"/>
-                          <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>';                         
-                        //echo '</form>';
-                        echo '</div>'; //Clost send-message-area
-                      echo '<span id="msg_sent"></span>';
-                  echo '</div>';
-                echo '</div>';
-              echo '</div>';
-
-
-
 echo '<div id="profile_top_bar">';
   echo '<div id="profile_photo_and_info_custom">
         <div id="custom_nickname">Custom Chart</div>
@@ -259,7 +208,7 @@ echo '<div id="profile_top_bar">';
             require('chart_others.php');
           }
           elseif ($section == 'houses_selected') {
-            //require('houses_others.php');
+            //require('houses.php');
             echo '<div style="height:300px;">Coming Soon...</div>';
           }
           elseif ($section == 'western_selected') {
@@ -272,6 +221,7 @@ echo '<div id="profile_top_bar">';
 
 echo '</div>';
 echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
+echo '<script type="text/javascript" src="js/ajax_hl_submit.js"></script>';
 
 }    
             

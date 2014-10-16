@@ -1,11 +1,24 @@
 $(document).ready(function(){
-	/*
-	$('#pass').on('focus', function(){
-		$(this).toggle();
-		$('#login_password').toggle().focus();
-	});
-	*/
 
+	$('input[name=stay_logged_in]').click(function() {
+		if ($('input[name=stay_logged_in]').is(':checked')) {
+			$('input[name=stay_logged_in]').val('on');
+		}
+		else {
+			$('input[name=stay_logged_in]').val('');
+		}
+	});
+
+	$('#login_email').on('keyup', function(){
+		$(this).css('border', '1px solid #1a1d2a');
+	});
+
+	
+	$('#login_password').on('keyup', function(){
+		$(this).css('border', '1px solid #1a1d2a');
+	});
+
+$('#go_bug_button').click(function(event){
 	$('#login_from_guest').submit(function(event){
 		event.preventDefault();
 
@@ -26,13 +39,13 @@ $(document).ready(function(){
 			if(data.errors) {
 				if(data.errors.email){
 					//alert(data.errors.email);
-					$('#login_email_error').text(data.errors.email);
-					//$('#login_email').addClass('red_border');
+					//$('#login_email_error').text(data.errors.email);
+					$('#login_email').css('border', '1px solid #C82923');
 				}
 				if(data.errors.password) {
 					//alert(data.errors.password);
-					$('#login_password_error').text(data.errors.password);
-					//$('#login_password').addClass('red_border');
+					//$('#login_password_error').text(data.errors.password);
+					$('#login_password').css('border', '1px solid #C82923');
 				}	
 			}
 			else {
@@ -42,6 +55,7 @@ $(document).ready(function(){
 		});
 
 	});
+});
 
 
 });

@@ -106,23 +106,34 @@
   position: relative;
   margin-top: -12px;
   margin-bottom: 8px;
+  height: 25px;
 }
 
 #chart_scroll_container {
-  margin: auto;
-  width: 144px;
+  margin-left: 129px;
+  width: 472px;
 }
 
 #chart_prev {
   display: none;
   position: relative;
   cursor: pointer;
+  float: left;
+  font-family: 'later_on';
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 #chart_next {
   position: relative;
   left: 44px;
   cursor: pointer;
+  float: right;
+  font-family: 'later_on';
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 

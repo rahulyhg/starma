@@ -11,12 +11,32 @@ function get_r_sign_x_ruled_house_id ($rising_sign_id, $ruled_house_id) {
 }
 
 function get_house_ruler_blurb ($rising_sign_id, $ruled_house_id, $residing_house_id, $other_chart_id=-1) {
-  $r_sign_x_ruled_house_id = get_r_sign_x_ruled_house_id($rising_sign_id, $ruled_house_id);
-  $q = 'SELECT blurb from r_sign_x_ruled_house_x_house WHERE residing_house_id = ' . $residing_house_id . ' and r_sign_x_ruled_house_id = ' . $r_sign_x_ruled_house_id;
-  $do_q = mysql_query($q) or die(mysql_error());
-  if ($results = mysql_fetch_array($do_q)) {
-    return $results["blurb"];
-    //return $poi_x_ruled_house_id;
+  if ($rising_sign_id == -1) {
+    if ($other_chart_id == -1) {
+      return "Oh no!  Since your birth time is not currently accurate enough to find your Rising sign, we can't tell you about your house lords.  To see your house lords, please enter a more precise <a href='main.php?the_left=nav4&the_page=psel'>time of birth.</a>";
+    }
+    else {
+      if ($other_user_id = get_user_id_from_chart_id($other_chart_id)) {
+        $other_username = get_nickname($other_user_id);
+        return gender_converter_wrapper (get_gender($other_user_id),"Oh no!  " . $other_username . " needs to enter a more accurate time of birth to determine his/her house lords.  Please encourage " . $other_username . " to enter a more precise time of birth.");
+      }
+      else {
+        return "Oh no!  We can't tell you about the house lords for this Custom Chart without a more accurate <a href='" . custom_chart_url() . "'>time of birth</a>.";
+      }
+    }
+  }
+  else {
+    $r_sign_x_ruled_house_id = get_r_sign_x_ruled_house_id($rising_sign_id, $ruled_house_id);
+    $q = 'SELECT blurb from r_sign_x_ruled_house_x_house WHERE residing_house_id = ' . $residing_house_id . ' and r_sign_x_ruled_house_id = ' . $r_sign_x_ruled_house_id;
+    $do_q = mysql_query($q) or die(mysql_error());
+    if ($results = mysql_fetch_array($do_q)) {
+      return $results["blurb"];
+    return $poi_x_ruled_house_id;
+    }
+    else {
+      return false;
+    }
+    
   }
 }
 

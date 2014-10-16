@@ -86,6 +86,15 @@ if ($the_left=="nav1") {
     <![endif]-->
     
 <body id="bg_stars">
+
+  <?php
+  echo '<div id="msg_sheen" class="pop_invite">';
+    echo '<div id="msg_sheen_screen" class="pop_invite pop_close"></div>';
+              show_user_invite();
+  echo '</div>';
+
+    ?>
+
 <div id="img_preloader">
 
   
@@ -184,7 +193,7 @@ if ($the_left=="nav1") {
 
 <div id="frame">
 
-  <!--register_teaser_test-->
+  <!--register_teaser_test
     <div id="msg_sheen" class="pop_test">
       <div id="msg_sheen_screen" class="pop_test pop_reg"></div>
         <div style="position:absolute; z-index:100; top:30%; left:45%;">
@@ -195,9 +204,12 @@ if ($the_left=="nav1") {
             echo '</div>';
           ?>  
       </div>
-    </div> <!--close msg_sheen-->    
-    <!--end pop_guest_click-->
+    </div> close msg_sheen   
     <script type="text/javascript" src="/js/ajax_register.js"></script>
+    end pop_guest_click-->
+   
+    
+    <!--
     <script type="text/javascript">
       
       $(document).ready(function(){
@@ -217,16 +229,16 @@ if ($the_left=="nav1") {
       });
 
     </script>
-
+  -->
 
   <div id="topnav">
     <ul>
       <li class="logo"><a href="?the_page=hsel&the_left=nav1"></a></li>
-      <li class="home_link <?php echo $hsel;?>"><a title="Home" href="?the_page=hsel&the_left=nav1"><span>home</span></a></li>
-      <li class="profile_link <?php echo $psel;?>"><a title="Profile" href="?the_page=psel&the_left=nav1"><span>profile</span></a></li>
-      <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&the_tier=1"><span>community</span></a></li>
-      <li class="celeb_link <?php echo $cesel;?>"><a title="Celebrities" href="?the_page=cesel&the_left=nav1"><span>celebrities</span></a></li>
-      <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>inbox</span></a></li>
+      <li class="home_link <?php echo $hsel;?>"><a title="Home" href="?the_page=hsel&the_left=nav1"><span>&nbsp;HOME</span></a></li>
+      <li class="profile_link <?php echo $psel;?>"><a title="Profile" href="?the_page=psel&the_left=nav1"><span>PROFILE</span></a></li>
+      <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&the_tier=1"><span>COMMUNITY</span></a></li>
+      <li class="celeb_link <?php echo $cesel;?>"><a title="Celebrities" href="?the_page=cesel&the_left=nav1"><span>CELEBRITIES</span></a></li>
+      <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>&nbsp;INBOX</span></a></li>
       <li class="mail_area"><img src="/img/Starma-Astrology-Search.png"/></li>
     </ul>
      <div id="pop_invite_top">Invite a Friend</div>
@@ -263,10 +275,10 @@ if ($the_left=="nav1") {
     ?>
   </div>
   <?php
-  echo '<div id="msg_sheen" class="pop_invite">';
-    echo '<div id="msg_sheen_screen" class="pop_invite"></div>';
-              show_user_invite_top();
-  echo '</div>';
+  //echo '<div id="msg_sheen" class="pop_invite">';
+    //echo '<div id="msg_sheen_screen" class="pop_invite"></div>';
+      //        show_user_invite();
+  //echo '</div>';
 
     ?>
 
