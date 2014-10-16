@@ -572,7 +572,7 @@
 }
 
 #landing #go_bug_button {
-    background: url("/img/GoBug.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("/img/GoBug.png") no-repeat;
     border: 0 none;
     height: 87px;
     position: relative;
