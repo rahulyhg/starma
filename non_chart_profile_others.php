@@ -88,15 +88,17 @@ if (login_check_point($type="full")) {
             echo '</div>';
               echo '<div id="msg_sheen_content" class="pop">';
                 echo '<div id="msg_type_area">';
-                  echo '<form id="send-message-area" action="send_msg_from_profile.php" method="POST">
-                          <label for="msg_sendie" id="msg_label">New Message</label>
+                  echo '<div id="send_message_area">';
+                  //echo '<form id="send-message-area" action="chat/send_msg_from_profile.php" method="POST">
+                    echo '<div id="msg_label">New Message</div>
                           <textarea id="msg_sendie" name="text_body" maxlength = "500" ></textarea>
-                          <input type="submit" name="submit" value="Send" class="msg_send"/>
-                          <button type="button" name="cancel" class="msg_cancel">Cancel</button>
+                          <div id="send_msg">Send</div>
+                          <div id="cancel_msg">Cancel</div>
                           <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
                           <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
-                          <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>                         
-                        </form>';
+                          <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>';                         
+                      //echo '</form>';
+                      echo '</div>';
                       echo '<div id="msg_sent"></div>';
                   echo '</div>';
                 echo '</div>';
@@ -150,17 +152,17 @@ if (login_check_point($type="full")) {
               echo '<div id="msg_sheen_content_report" class="pop_report">';
                 echo '<div id="msg_type_area">';
                   echo '<form id="report_user" action="chat/report_user.php" method="POST">
-                          <div class="report_text"><strong>Report User</strong><br/><br/></div>
-                          <div class="report_text">You are about to report ' . get_nickname($other_user_id) . ' for violating our <a href="docs/termsOfUse.htm" target="_blank">Terms of Use</a>.  <strong>All reports are strictly confidential.</strong><br/><br/></div>
-                          <label for="additional_comments" id="comments_label"><strong>Additional Comments</strong> (not required)</label><br/>
+                          <div class="heading">Report User</div>
+                          <div>You are about to report ' . get_nickname($other_user_id) . ' for violating our <a href="docs/termsOfUse.htm" target="_blank">Terms of Use</a>.  <strong>All reports are strictly confidential.</strong><br/><br/></div>
+                          <div id="comments_label">Additional Comments (not required)</div>
                           <textarea maxlength="500" name="additional_comments" id="additional_comments"></textarea><br/>
-                          <input type="submit" name="submit" value="Send" class="report_send"/> 
-                          <button type="button" name="cancel" class="report_cancel">Cancel</button>                        
+                          <div id="send_report">Send</div> 
+                          <div id="cancel_report">Cancel</div>                        
                           <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
                           <input type="hidden" value=' . get_my_user_id() . ' name="my_user_id"/>                       
                         </form>';
                       echo '<div id="report_sent"></div>';
-                      echo '<div id="report_close"><button type="button" name="close" class="report_close">Close</button></div>';
+                      echo '<div id="close_report">Close</div>';
                   echo '</div>';
                 echo '</div>';
               echo '</div>';
@@ -199,8 +201,8 @@ echo '</div><!--MYSTERY-->';  //MYSTERIOUS FIX FOR FOOTER...
             require('chart_others.php');
           }
           elseif ($section == 'houses_selected') {
-            require('houses.php');
-            //echo '<div style="height:300px;">Coming Soon...</div>';
+            //require('houses.php');
+            echo '<div style="height:300px;">Coming Soon...</div>';
           }
           elseif (($section == 'photos_selected') && (!$isCeleb)) {
             require('photos_others.php');

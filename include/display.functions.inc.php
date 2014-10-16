@@ -62,7 +62,7 @@ function show_user_invite () {
                           <input type="hidden" value=' . get_my_user_id() . ' name="sender_user_id"/>';                         
                         //echo '</form>';
                         echo '</div>'; //Clost send-message-area
-                      echo '<span id="msg_sent"></span>';
+                      echo '<span id="invite_sent"></span>';
                   echo '</div>';
                 echo '</div>';
 }
@@ -6903,20 +6903,6 @@ function show_login_box_guest () {
   //echo '<script type="text/javascript" src="js/ajax_login_guest.js"></script>';
 }
 
-/*
-
-function show_generic_box_guest () {
-  echo '<div id="generic_box">';
-    echo  '<div class="sign_up_text">';
-      echo 'This part of the site is reserved for Starma members only. In order to view this content...'; 
-    echo '</div>';
-    echo '<button type="button" name="create_an_account_g" id="create_an_account">Create an Account</button>';
-    echo '<div id="close_g" class="close">Close</div>';
-  echo '</div>'; //close intro
-}
-
-*/
-
 function show_sign_up_box_guest () {
   echo '<div id="sign_up_box">';
     echo  '<div id="sign_up_box_text" class="sign_up_text">';
@@ -6955,52 +6941,6 @@ function show_fb_or_email_box_guest () {
       echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
   echo '</div>'; //Close sign_up_box
 }
-
-/*
-function show_fb_or_email_generic_box_guest () {
-  echo '<div id="fb_or_email_guest_g">';
-    echo  '<div class="heading">Create an Account</div>';
-      echo '<button type="button" name="sign_up_email_g" class="sign_up">Email</button>';
-      echo '<div id="or">~ or ~</div>';
-      echo '<button type="button" name="sign_up_fb_g" class="sign_up">Facebook</button>';
-  echo '</div>'; //Close sign_up_box
-}
-*/
-/*
-function show_registration_box_guest () {
-
-  
-echo '<div id="create_account">';  
-  echo '<div class="title">Create an Account</div>';
-  //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
-  echo '<div id="register_form">';
-    echo '<form name="register_form" action="../chat/register_user.php" method="post" id="register_form">';
-      echo '<div class="register_error_area" id="reg_user_exists"></div>';
-      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /></div>'; 
-      echo '<div class="register_error_area" id="reg_username_error"></div>';
-      echo '<div id="birthday">';
-        echo '<div class="small_title">When is your birthday?</div>';
-        echo '<span>';
-          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
-        echo '</span>';
-      echo '</div>';
-      echo '<div class="register_error_area" id="reg_birthday_error"></div>';
-      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /></div>';
-      echo '<div class="register_error_area" id="reg_email_error"></div>';
-      echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
-      echo '<div class="register_error_area" id="reg_email2_error"></div>';
-      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /></div>';
-      echo '<div class="register_error_area" id="reg_password_error"></div>';
-      //echo '<div id="terms">By creating an account I confirm that I have read and agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a> for Starma.com, and I certify that I am at least 18 years old.</div>';
-      echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
-      echo '<button type="submit" name="submit" class="sign_up" id="register_submit">Sign Me Up!</button>';
-    echo '</form>';  
-  echo '</div>'; //Close register_form
-echo '</div>';  //close #create_account
-
-echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
-
-}*/
 
 function show_registration_box_guest() {
 
@@ -7042,49 +6982,5 @@ echo '</div>';  //close #create_account
 //echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
 
 }
-
-/*
-
-function show_registration_generic_box_guest() {
-
-  
-echo '<div id="create_account_g">';  
-  //echo '<div class="title">Create an Account</div>';
-  //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
-  echo '<div id="register_form">';
-    echo '<form name="register_form" action="../chat/register_user.php" method="post" id="register_form">';
-      echo '<div class="register_error_area" id="reg_user_exists"></div>';
-      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /><span class="reg_err_guest check" id="reg_username_check"></span><span class="reg_err_guest" id="reg_username_error"></span><div class="reg_err_exp_guest" id="reg_err_username_exp_g"></div></div>'; 
-      //echo '<div class="register_error_area" id="reg_username_error"></div>';
-      echo '<div id="birthday">';
-        echo '<div class="small_title">When is your birthday?</div>';
-        echo '<span>';
-          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
-        echo '</span>';
-        echo '<span class="reg_err_guest check" id="reg_birthday_check"></span><span class="reg_err_guest" id="reg_birthday_error"></span><div class="reg_err_exp_guest" id="reg_err_birthday_exp_g"></div>';
-      echo '</div>';
-      //echo '<div class="register_error_area" id="reg_birthday_error"></div>';
-      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /><span class="reg_err_guest check" id="reg_email_check"></span><span class="reg_err_guest" id="reg_email_error"></span><div class="reg_err_exp_guest" id="reg_err_email_exp_g"></div></div>';
-      //echo '<div class="register_error_area" id="reg_email_error"></div>';
-      //echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
-      //echo '<div class="register_error_area" id="reg_email2_error"></div>';
-      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /><span class="reg_err_guest check" id="reg_password_check"></span><span class="reg_err_guest" id="reg_password_error"></span><div class="reg_err_exp_guest" id="reg_err_password_exp_g"></div></div>';
-      //echo '<div class="register_error_area" id="reg_password_error"></div>';
-      echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
-      echo '<input type="submit" name="submit" class="sign_me_up" id="register_submit" value="Create Account" />';
-      //echo '<div id="next">Next ></div>';
-    echo '</form>';  
-  echo '</div>'; //Close register_form
-  echo '<div><div id="cancel_email_sign_up_g">Cancel</div></div>';
-echo '</div>';  //close #create_account
-
-//echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
-//ERRORS
-//echo '<div class="reg_err_exp" id="reg_err_email_exp"></div>';
-
-//echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
-
-}
-*/
 
 ?>

@@ -2540,19 +2540,17 @@ li.my_unknown_button a {
 }
 
 #msg_sheen #msg_sheen_content {
-    background: none repeat scroll 0 0 white;
-    /*border: 2px solid black;*/
-    border-radius: 3px;
-    font-size:0.8em;
-    margin: -75px 0 0 -250px;
-    padding: 20px;
+    background: #e7ebee;
+    border: 2px solid black;
+    margin: -75px 0 0 -186px;
+    padding: 10px 20px;
     position: fixed;
     top: 40%;
     left: 50%;
-    width: 500px;
-    height: 150px;
+    /*width: 500px;*/
+    /*height: 150px;*/
     display: none;
-    box-shadow: 0 0 35px;
+    box-shadow: 1px 1px 40px black;
 }
 
 #msg_sheen #msg_sheen_content_landing {
@@ -2588,19 +2586,16 @@ li.my_unknown_button a {
 }
 
 #msg_sheen #msg_sheen_content_report {
-    background: none repeat scroll 0 0 white;
-    /*border: 2px solid black;*/
-    border-radius: 3px;
-    font-size:0.8em;
-    margin: -106px 0 0 -250px;
-    padding: 15px;
+    background: #e7ebee;
+    border: 2px solid black;
+    margin-left: -186px;
+    padding: 10px 15px;
     position: fixed;
-    top: 40%;
+    top: 8%;
     left: 50%;
-    width: 500px;
-    height: 212px;
     display: none;
-    box-shadow: 0 0 35px;
+    -webkit-box-shadow: 1px 1px 40px black;
+            box-shadow: 1px 1px 40px black;
 }
 
 #msg_sheen #msg_sheen_content_invite {
@@ -2609,7 +2604,7 @@ li.my_unknown_button a {
     margin: -97px 0 0 -250px;
     margin: auto;
     padding: 10px 15px;
-    position: relative;
+    position: fixed;
     top: 50px;
     width: 400px;
     display: none;
@@ -2618,31 +2613,116 @@ li.my_unknown_button a {
 }
 
 #msg_sendie {
-  background: none;
-  border-top: 1px solid #5F78B1;
-  border-bottom: 1px solid #6680BE;
-  border-left: 1px solid #6376A9;
-  border-right: 1px solid #6B7FB6;
-  box-shadow: 0 0 2px #313E5C inset;
-  height: 75px;
-  width: 380px;
+  background: white;
+  border: 2px solid black;
+  height: 90px;
+  width: 300px;
   padding: 5px;
   display:block;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #msg_type_area {
-  height: 130px;
-  width: 400px;
-  margin: 10px 50px 10px 50px;
+  /*height: 130px;*/
+  width: 300px;
+  font-family: 'later_on';
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: black;
 }
 
 #additional_comments {
   height: 70px;
-  width: 400px;
-  margin: 2px 0;
+  width: 300px;
+  border: 2px solid black;
+  margin: 5px 0;
 }
 
+#send_msg {
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: right;
+    border: none;
+    background: #e7ebee;
+    float: right;
+    padding: 1px;
+}
+#send_msg:active {
+  border:none;
+}
 
+#cancel_msg {
+    color: black;
+    cursor: pointer;
+    font-family: 'later_on';
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0;
+    border: none;
+    background: #e7ebee;
+    /*text-align: right;*/
+    /*text-decoration: underline;*/
+    display: inline-block;
+}
+
+#cancel_msg:active {
+  border:none;
+}
+
+#msg_label {
+  font-size: 1.19em;
+}
+
+#send_report {
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: right;
+    border: none;
+    background: #e7ebee;
+    float: right;
+    padding: 1px;
+}
+
+#cancel_report {
+    color: black;
+    cursor: pointer;
+    font-family: 'later_on';
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0;
+    border: none;
+    background: #e7ebee;
+    /*text-align: right;*/
+    /*text-decoration: underline;*/
+    display: inline-block;
+}
+
+#close_report {
+    display: none;
+    color: black;
+    cursor: pointer;
+    font-family: 'later_on';
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0;
+    border: none;
+    background: #e7ebee;
+    /*text-align: right;*/
+    /*text-decoration: underline;*/
+}
+
+/*
 .msg_send {
   float: right;
   margin-right: 15px;
@@ -2673,6 +2753,7 @@ li.my_unknown_button a {
   box-shadow: 0 0 1px #4B5A80;
   cursor: pointer;
 }
+*/
 
 .report_close {
   margin: 1px auto;
@@ -2778,20 +2859,29 @@ li.my_unknown_button a {
 
 #msg_sent {
   display: none;
-  font-family: arial;
-  color: black;
-  font-size: 1.3em;
+  font-family: 'later_on';
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.5em;
   text-align: center;
-  width:400px;
+}
+
+#invite_sent {
+  display: none;
+  font-family: 'later_on';
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 #report_sent {
   display: none;
-  font-family: arial;
-  color: black;
-  font-size: 1.3em;
+  font-family: 'later_on';
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.5em;
   text-align: center;
-  width:400px;
 }
 
 #ajax_loader{

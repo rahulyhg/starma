@@ -65,16 +65,16 @@ $(document).ready(function(){
             }
             if(data.success) {
               $('#send-message-area').hide();
-              $('#msg_sent').show();
-              $('#msg_sent').html('<p>Invite Sent!</p>');
+              $('#invite_sent').show();
+              $('#invite_sent').html('<p>Invite Sent!</p>');
               //alert(data);
               $('.pop_invite').fadeOut(1700, function() {
                       $('#msg_sendie_invite').val('');
                       $('#their_name_invite').val('');
                       $('#their_email_invite').val('');
                       $('#send-message-area').show();
-                      $('#msg_sent').hide();
-                      $('#msg_sent').html('');
+                      $('#invite_sent').hide();
+                      $('#invite_sent').html('');
                       $('.invite_error').text('');
                   });
             } 
