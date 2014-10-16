@@ -2601,11 +2601,12 @@ li.my_unknown_button a {
 #msg_sheen #msg_sheen_content_invite {
     background: #e7ebee;
     border: 2px solid black;
-    margin: -97px 0 0 -250px;
+    margin: -230px;
     margin: auto;
     padding: 10px 15px;
     position: fixed;
     top: 50px;
+    left: 50%;
     width: 400px;
     display: none;
     -webkit-box-shadow: 1px 1px 40px black;
