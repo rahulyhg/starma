@@ -338,6 +338,12 @@
   background: white;
 }
 
+#create_an_account:hover {
+  box-shadow: 0 0 3px #3E4D74 inset;
+  background-color: #6F83BB;
+  text-decoration: underline;
+}
+
 
 .sign_up {
   margin-bottom: 15px;
@@ -596,7 +602,7 @@
   display: none;
 }
 
-#close {
+.close {
     color: black;
     cursor: pointer;
     font-family: 'later_on';
@@ -871,15 +877,6 @@
   text-decoration: underline;
   margin: auto;
   width: 60px;
-  /*
-    cursor: pointer;
-    font-family: "later_on";
-    font-size: 1.19em;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-align: left;
-    margin-top: -20px;
-  */
 }
 
 #cancel_email_sign_up:hover {
