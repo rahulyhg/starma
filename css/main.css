@@ -2542,10 +2542,10 @@ li.my_unknown_button a {
 #msg_sheen #msg_sheen_content {
     background: #e7ebee;
     border: 2px solid black;
-    margin: -75px 0 0 -186px;
+    margin: -186px;
     padding: 10px 20px;
     position: fixed;
-    top: 20%;
+    top: 15%;
     left: 50%;
     /*width: 500px;*/
     /*height: 150px;*/
@@ -2601,8 +2601,7 @@ li.my_unknown_button a {
 #msg_sheen #msg_sheen_content_invite {
     background: #e7ebee;
     border: 2px solid black;
-    margin: -230px;
-    margin: auto;
+    margin-left: -230px;
     padding: 10px 15px;
     position: fixed;
     top: 50px;
