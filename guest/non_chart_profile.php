@@ -15,6 +15,8 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
   $western_selected = '';
   
   $$section = 'selected';
+
+  //echo 'session userid: ' . $_SESSION['user_id'];
   
   //log_this_action (profile_action_profile(), viewed_basic_action());
 
@@ -79,8 +81,8 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
       echo '<div id="compare_menu">Compare';
         echo '<div class="dropdown">';
           echo '<ul>';
-            echo '<li><a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true">As Friends</a></li>';
-            echo '<li><a style="border-bottom:1px solid black;" href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=861&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romantically</a></li>';
+            echo '<li><a href="main.php?the_page=cosel&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true">As Friends</a></li>';
+            echo '<li><a style="border-bottom:1px solid black;" href="main.php?the_page=cosel&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=861&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romantically</a></li>';
           echo '</ul>';
         echo '</div>';
       echo '</div>';
