@@ -571,8 +571,8 @@
   float: right;
 }
 
-#landing #go_bug_button {
-    background: transparent url("/img/GoBug.png") no-repeat;
+#landing_login_box #go_bug_button {
+    background: url("/img/GoBug.png") no-repeat;
     border: 0 none;
     height: 87px;
     position: relative;
@@ -585,7 +585,7 @@
     /*left: 346px;*/
 }
 
-#landing #go_bug_button:hover {
+#landing_login_box #go_bug_button:hover {
   background: url('/img/GoBugON.png') no-repeat;
 }
 
