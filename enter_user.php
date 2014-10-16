@@ -208,8 +208,8 @@ echo '<div id="profile_top_bar">';
             require('chart_others.php');
           }
           elseif ($section == 'houses_selected') {
-            require('houses.php');
-            //echo '<div style="height:300px;">Coming Soon...</div>';
+            //require('houses.php');
+            echo '<div style="height:300px;">Coming Soon...</div>';
           }
           elseif ($section == 'western_selected') {
             require('chart_others.php');
