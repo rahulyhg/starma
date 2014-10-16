@@ -6379,7 +6379,7 @@ function show_login_box_landing () {
           //echo '<input type="text" id="pass" name="password" placeholder="Password" />';           
           //echo '</div>';
 
-            echo '<input type="submit" id="go_bug_button" name="Login" value=""/>';
+            echo '<button type="submit" id="go_bug_button" name="Login"></button>';
 
           echo '<div id="kmsi_f">';
             echo '<div id="stay_logged_in_landing"><input type="checkbox" name="stay_logged_in" value="" /><div>keep me signed in</div></div>';
