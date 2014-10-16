@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$('#report_user').submit(function(event){
+	$('#send_report').click(function(event){
 
 		var data = {
 			'my_user_id'           :  $('input[name=my_user_id]').val(),
