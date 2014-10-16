@@ -6893,8 +6893,9 @@ function show_login_box_guest () {
             echo '<div id="forgot_password">forgot your password?</div>';
             echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="" /><div>keep me signed in</div></div>';
           echo '</div>';
+          echo '<button type="submit" id="go_bug_button" name="Login"></button>';
           //echo '<div class="sign_up_text">Go ></div>';
-          echo '<input type="submit" id="go_bug_button" name="Login" value=""/>';
+          //echo '<input type="submit" id="go_bug_button" name="Login" value=""/>';
           //echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
         echo '</form>';
         echo '<div id="go_bug_path_guest"></div>';
