@@ -562,7 +562,7 @@
 }
 
 #go_bug_path_landing {
-  background: url('/img/Starma-Astrology-go-bug-path.png') no-repeat;
+  background: transparent url('/img/Starma-Astrology-go-bug-path.png') no-repeat;
   width: 344px;
   height: 73px;
   position: relative;
