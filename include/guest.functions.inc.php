@@ -201,8 +201,8 @@ function get_left_menu_guest ($the_page) {
   elseif ($the_page == 'psel') {
     $menu['nav1'] = array('Profile&nbsp;&nbsp;','non_chart_profile.php','');
     //$menu['nav2'] = array('houses&nbsp;&nbsp;','#','');
-    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','#','');
-    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','#','');
+    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','romantic_advice.php','pop_guest_click');
+    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','career_advice.php','pop_guest_click');
     $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','','pop_guest_click');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#','');
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php','');
@@ -216,7 +216,8 @@ function get_left_menu_guest ($the_page) {
   }
   elseif ($the_page == 'hsel') {
     $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php','');
-    $menu['nav2'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php','');
+    $menu['nav2'] = array('About Starma&nbsp;&nbsp;', 'about_starma.php', '');
+    $menu['nav3'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php','');
     
   }
   elseif ($the_page == 'isel') {
