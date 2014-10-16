@@ -25,6 +25,12 @@ $(document).ready(function(){
 		$(this).css('border', '1px solid #1a1d2a');
 	});
 
+	$('#login_password').on('keypress', function(event){
+		if(event.which == 13) {
+			$('#go_bug_button').click();
+		}
+	});
+
 
 	$('#go_bug_button').click(function(event){
 		//$('#login_from_landing').submit(function(event){
