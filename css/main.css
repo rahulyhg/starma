@@ -3569,7 +3569,7 @@ span.div_link {
 .footer_links {
   position: relative;
   float: left;
-  margin: 20px 30px;
+  margin: 20px 0 0 35px;
   z-index: 250;
 }
 
@@ -3589,7 +3589,7 @@ span.div_link {
   font-size: 1em;
   letter-spacing: .1em;
   line-height: 1.5;
-  margin: 0 37px;
+  margin: 0 34px;
 }
 
 .footer_links ul li a {
