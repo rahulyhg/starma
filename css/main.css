@@ -46,14 +46,15 @@ input{
     background-color: #FFFFFF;
     border-left: 2px solid #2C3447;
     border-right: 2px solid #2C3447;
+    border-top: 1px solid black;
     /*border-top: 1px solid #2C3447;*/
     float: right;
     min-height: 582px;
     padding: 10px;
     position: relative;
     /*top: -229px;*/
-    width: 773px;
-    right: 2px;
+    width: 785px;
+    /*right: 2px;*/
   }
 
 
@@ -242,8 +243,8 @@ input{
 /*//////////////TOP NAV BAR/////////////////////////////////////////////////////*/
 
 #topnav {
-  width:980px;
-  height:70px;
+  /*width:980px;*/
+  height:72px;
   background-color:#8393CA;
   
 }
@@ -272,11 +273,16 @@ input{
   float: left;
   margin-bottom: -4px;
   /*padding-right:20px;*/
-
+  border: 1px solid;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #topnav ul li a {
-  background-color:#8393CA;
+  background-color:#8393ca;
+  -webkit-box-shadow: 1px -1px 8px black inset;
+          box-shadow: 1px -1px 8px black inset;
 }
 
 #topnav ul li.selected a {
@@ -288,14 +294,14 @@ input{
 }
 
 #topnav ul li.logo a {
-  background:url('/img/top_nav_shorter/Starma-Astrology-TopNavLogo.png') no-repeat #8393CA;
+  background:url('/img/top_nav_shorter/Starma-Astrology-TopNavLogo.png') no-repeat;
   width:185px;
 }
 
 /*//////////////////////NEW TOP NAV///////////////////////////*/
 
 #topnav ul li.home_link a {
-  background:url('/img/tn_no_borders/Starma-Astrology-Home.png') no-repeat #8393CA;
+  background:url('/img/tn_no_borders/Starma-Astrology-Home.png') no-repeat;
   width:113px;
 }
 
@@ -309,7 +315,7 @@ input{
 }
 
 #topnav ul li.profile_link a {
-  background:url('/img/tn_no_borders/Starma-Astrology-Profile.png') no-repeat #8393CA;
+  background:url('/img/tn_no_borders/Starma-Astrology-Profile.png') no-repeat;
   width:113px;
 }
 
@@ -324,7 +330,7 @@ input{
 }
 
 #topnav ul li.compare_link a {
-  background:url('/img/tn_no_borders/Starma-Astrology-Community.png') no-repeat #8393CA;
+  background:url('/img/tn_no_borders/Starma-Astrology-Community.png') no-repeat;
   width:113px;
 }
 
@@ -338,7 +344,7 @@ input{
 }
 
 #topnav ul li.celeb_link a {
-  background:url('/img/tn_no_borders/Starma-Astrology-Celebrities.png') no-repeat #8393CA;
+  background:url('/img/tn_no_borders/Starma-Astrology-Celebrities.png') no-repeat;
   width:113px;
 }
 
@@ -353,7 +359,7 @@ input{
 }
 
 #topnav ul li.inbox_link a {
-  background:url('/img/tn_no_borders/Starma-Astrology-Mail.png') no-repeat #8393CA;
+  background:url('/img/tn_no_borders/Starma-Astrology-Mail.png') no-repeat;
   width:113px;
 }
 
@@ -582,6 +588,21 @@ input{
   background-color:#8393CA;
 }
 
+#sidenav .sidenav a {
+  height: 37px;
+  border: 1px solid black;
+}
+#sidenav .sidenav a:hover {
+  background-color: white;
+}
+
+#sidenav ul li.sidenav.selected.active a {
+  background-color: white;
+  border-right: none;
+}
+
+/*
+
 #sidenav ul li.sidenav1 a {
   background:url('/img/Starma-Astrology-SideNav1.png') no-repeat;
   height:37px;
@@ -664,6 +685,8 @@ input{
 #sidenav ul li a img {
   border:0px;
 }
+
+*/
 
 #register_side {
   position: absolute;
