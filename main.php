@@ -193,7 +193,7 @@ if ($the_left=="nav1") {
 
 <div id="frame">
 
-  <!--register_teaser_test-->
+  <!--register_teaser_test
     <div id="msg_sheen" class="pop_test">
       <div id="msg_sheen_screen" class="pop_test pop_reg"></div>
         <div style="position:absolute; z-index:100; top:30%; left:45%;">
@@ -204,9 +204,12 @@ if ($the_left=="nav1") {
             echo '</div>';
           ?>  
       </div>
-    </div> <!--close msg_sheen-->    
-    <!--end pop_guest_click-->
+    </div> close msg_sheen   
     <script type="text/javascript" src="/js/ajax_register.js"></script>
+    end pop_guest_click-->
+   
+    
+    <!--
     <script type="text/javascript">
       
       $(document).ready(function(){
@@ -226,7 +229,7 @@ if ($the_left=="nav1") {
       });
 
     </script>
-
+  -->
 
   <div id="topnav">
     <ul>
