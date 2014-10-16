@@ -557,7 +557,14 @@ function show_my_descriptors_info_home() {
     echo '<div id="des_selector_' . (string)($counter+1) . '" class="des_selector">';
       echo '<div class="title">' . (string)($counter+1) . '.</div>';
       echo '<div class="value_home">';
-        echo '<span>' . $word["descriptor"] . '</span>';
+        echo '<span>';
+          if (strlen($word['descriptor']) > 7) {
+            echo substr($word["descriptor"], 0, 7) . '...';
+          } 
+          else {
+            echo $word["descriptor"];
+          }
+          echo '</span>';
         //js_edit_framework("desc_" . (string)($counter+1) . "_edit_box", "des_selector_" . (string)($counter+1) . " .value span", "user_descriptor", $word["user_des_id"], $word["descriptor"]);
       echo '</div>';
     echo '</div>';
@@ -935,11 +942,19 @@ function show_general_info($chart_id) {
       $state = get_state ($user_info["state_id"]);
       $location = $user_info["location"]. ', ' . strtoupper($state["state_code"]);
     }
-    $my_info = my_profile_info();
+    if (isLoggedIn()) {
+      $my_info = my_profile_info();      
+    }
+    else {
+      $my_info['country_id'] = 236;
+    }
     if (!($user_info["country_id"] == $my_info["country_id"])) {
       $country = get_country ($user_info["country_id"]);
       $location = $location . ', ' . format_country_name ($country["country_title"]);
     }
+    //elseif ($user_id == get_guest_user_id()) { //GUEST VIEW
+      //$location = $user_info["location"]. ', ' . strtoupper($state["state_code"]);
+    //}
   }
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
   echo '<div class="profile_info_area">';
@@ -1357,8 +1372,8 @@ function get_left_menu ($the_page) {
   elseif ($the_page == 'psel') {
     $menu['nav1'] = array('Profile&nbsp;&nbsp;','non_chart_profile.php');
     //$menu['nav2'] = array('houses&nbsp;&nbsp;','#');
-    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','#');
-    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','#');
+    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','romantic_advice.php');
+    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','career_advice.php');
     $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#');
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
@@ -1372,7 +1387,8 @@ function get_left_menu ($the_page) {
   }
   elseif ($the_page == 'hsel') {
     $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php');
-    $menu['nav2'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php');
+    $menu['nav2'] = array('About Starma&nbsp;&nbsp;', 'about_starma.php');
+    $menu['nav3'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php');
     
   }
   elseif ($the_page == 'isel') {
@@ -3828,10 +3844,10 @@ function show_poi_sign_blurb_abbr ($poi_id, $sign_id, $chart_id=-1) {
   
   $blurb = get_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
   if ($chart_id == -1) {
-    echo substr($blurb, 0, 140) . " ...";
+    echo substr($blurb, 0, 140) . "...";
   }
   else {
-    echo substr($blurb, 0, 175) . " ...";
+    echo substr($blurb, 0, 175) . "...";
   }
 }
 
@@ -5926,6 +5942,13 @@ function display_all_users ($url="", $filter=0) {
   
   //while ($user = mysql_fetch_array($user_list)) {
 
+  if (isLoggedIn()) {
+    $chart_id = get_my_chart_id();
+  }
+  else {
+    $chart_id = get_guest_chart_id(get_guest_user_id());
+  }
+
   if (count($user_array) > 0) {
 
     foreach ($user_array as $user) {
@@ -5933,7 +5956,7 @@ function display_all_users ($url="", $filter=0) {
       echo '<div class="user_block js_user_' . $user["user_id"] . '">';
         echo '<div class="photo_border_wrapper_compare">';
           echo '<div class="compare_photo">';
-            show_user_compare_picture($url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
+            show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
             //echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';
          
           echo '</div>';
@@ -6877,27 +6900,26 @@ function show_login_box_guest () {
         echo '<div id="go_bug_path_guest"></div>';
     echo '</div>';
 
-  echo '<script type="text/javascript" src="js/ajax_login_guest.js"></script>';
+  //echo '<script type="text/javascript" src="js/ajax_login_guest.js"></script>';
 }
 
-function show_intro_box_guest () {
-  echo '<div id="intro_box">';
+/*
+
+function show_generic_box_guest () {
+  echo '<div id="generic_box">';
     echo  '<div class="sign_up_text">';
-    if ($_GET['chart_id2'] == 861) {
-      echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with someone...';
-    }
-    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
-      echo 'You\'re about to see an example of a birth chart.  To view your own birth chart...';
-    }
+      echo 'This part of the site is reserved for Starma members only. In order to view this content...'; 
     echo '</div>';
-    echo '<button type="button" name="sign_up" id="create_an_account">Create an Account</button>';
-    echo '<div id="close">Close</div>';
+    echo '<button type="button" name="create_an_account_g" id="create_an_account">Create an Account</button>';
+    echo '<div id="close_g" class="close">Close</div>';
   echo '</div>'; //close intro
 }
 
+*/
+
 function show_sign_up_box_guest () {
   echo '<div id="sign_up_box">';
-    echo  '<div class="sign_up_text">';
+    echo  '<div id="sign_up_box_text" class="sign_up_text">';
     //if ($_GET['chart_id2'] == 861) {
     if ($_GET['tier'] == 2 && $_GET['chart_id2'] == 861) {
       echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with someone...';
@@ -6920,37 +6942,9 @@ function show_sign_up_box_guest () {
       echo 'This part of the site is reserved for Starma members only. In order to view this content...';     
     }
     echo '</div>';
-    echo '<button type="button" name="sign_up" id="create_an_account">Create an Account</button>';
-    echo '<div id="close">Close</div>';
-
-    /*
-    if ($_GET['chart_id2'] == 861) {
-      echo '<div id="close">Close</div>';
-    }
-    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
-      echo '<div id="close">Close</div>';
-    }
-    else {
-      echo '';
-      //echo '<div id="or">~ or ~</div>';      
-    }
-    */
-
-    /*
-    if(($_GET['the_page'] == 'cesel') || ($_GET['the_page'] == 'cosel' && $_GET['tier'] == 2 && !$_GET['chart_id2'] == 861)) {
-      echo '<button type="button" name="cancel" class="sign_up">Preview Compatibility</button>';
-    }
-    elseif ($_GET['chart_id2'] == 861) {
-      echo '';
-    }
-    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
-      echo '';
-    }
-    else {
-      //echo '<div id="close">Close</div>';
-      //echo '<button type="button" name="cancel" class="sign_up">Keep Browsing</button>';
-    */
-    echo '</div>'; //Close sign_up_box
+    echo '<button type="button" name="create_an_account" id="create_an_account">Create an Account</button>';
+    echo '<div id="close" class="close">Close</div>';
+  echo '</div>'; //Close sign_up_box
 }
 
 function show_fb_or_email_box_guest () {
@@ -6962,6 +6956,16 @@ function show_fb_or_email_box_guest () {
   echo '</div>'; //Close sign_up_box
 }
 
+/*
+function show_fb_or_email_generic_box_guest () {
+  echo '<div id="fb_or_email_guest_g">';
+    echo  '<div class="heading">Create an Account</div>';
+      echo '<button type="button" name="sign_up_email_g" class="sign_up">Email</button>';
+      echo '<div id="or">~ or ~</div>';
+      echo '<button type="button" name="sign_up_fb_g" class="sign_up">Facebook</button>';
+  echo '</div>'; //Close sign_up_box
+}
+*/
 /*
 function show_registration_box_guest () {
 
@@ -7031,12 +7035,56 @@ echo '<div id="create_account">';
   echo '<div><div id="cancel_email_sign_up">Cancel</div></div>';
 echo '</div>';  //close #create_account
 
-echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
+//echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
 //ERRORS
 //echo '<div class="reg_err_exp" id="reg_err_email_exp"></div>';
 
 //echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
 
 }
+
+/*
+
+function show_registration_generic_box_guest() {
+
+  
+echo '<div id="create_account_g">';  
+  //echo '<div class="title">Create an Account</div>';
+  //echo '<img src="img/account_info/Starma-Astrology-Create-Account-Boxes.png"/>';
+  echo '<div id="register_form">';
+    echo '<form name="register_form" action="../chat/register_user.php" method="post" id="register_form">';
+      echo '<div class="register_error_area" id="reg_user_exists"></div>';
+      echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /><span class="reg_err_guest check" id="reg_username_check"></span><span class="reg_err_guest" id="reg_username_error"></span><div class="reg_err_exp_guest" id="reg_err_username_exp_g"></div></div>'; 
+      //echo '<div class="register_error_area" id="reg_username_error"></div>';
+      echo '<div id="birthday">';
+        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<span>';
+          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
+        echo '</span>';
+        echo '<span class="reg_err_guest check" id="reg_birthday_check"></span><span class="reg_err_guest" id="reg_birthday_error"></span><div class="reg_err_exp_guest" id="reg_err_birthday_exp_g"></div>';
+      echo '</div>';
+      //echo '<div class="register_error_area" id="reg_birthday_error"></div>';
+      echo '<div id="email"><input type="text" id="register_email" placeholder="Your Email" /><span class="reg_err_guest check" id="reg_email_check"></span><span class="reg_err_guest" id="reg_email_error"></span><div class="reg_err_exp_guest" id="reg_err_email_exp_g"></div></div>';
+      //echo '<div class="register_error_area" id="reg_email_error"></div>';
+      //echo '<div id="email2"><input type="text" id="register_email2" placeholder="Confirm Email" /></div>';
+      //echo '<div class="register_error_area" id="reg_email2_error"></div>';
+      echo '<div id="password"><input type="password" id="register_password" placeholder="Password" /><span class="reg_err_guest check" id="reg_password_check"></span><span class="reg_err_guest" id="reg_password_error"></span><div class="reg_err_exp_guest" id="reg_err_password_exp_g"></div></div>';
+      //echo '<div class="register_error_area" id="reg_password_error"></div>';
+      echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
+      echo '<input type="submit" name="submit" class="sign_me_up" id="register_submit" value="Create Account" />';
+      //echo '<div id="next">Next ></div>';
+    echo '</form>';  
+  echo '</div>'; //Close register_form
+  echo '<div><div id="cancel_email_sign_up_g">Cancel</div></div>';
+echo '</div>';  //close #create_account
+
+//echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
+//ERRORS
+//echo '<div class="reg_err_exp" id="reg_err_email_exp"></div>';
+
+//echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
+
+}
+*/
 
 ?>
