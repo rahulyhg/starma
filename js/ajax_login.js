@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 
 	$('#go_bug_button').click(function(event){
-		$('#login_from_landing').submit(function(event){
+		//$('#login_from_landing').submit(function(event){
 			event.preventDefault();
 
 			var data = {
@@ -61,7 +61,7 @@ $(document).ready(function(){
 					//alert(data.url);
 				}
 			});
-		});
+		//});
 
 	});
 
