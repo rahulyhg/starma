@@ -722,7 +722,7 @@
 }
 
 #login_box #go_bug_button {
-    background: url("/img/GoBug.png") no-repeat scroll 0 0 / 74px 66px rgba(0, 0, 0, 0);
+    background: url("/img/GoBugGuest.png") no-repeat;
     border: 0 none;
     height: 66px;
     position: relative;
