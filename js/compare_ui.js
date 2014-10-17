@@ -70,24 +70,26 @@ $(document).ready(function(){
 		
 	//Major
 
-		$('.right, .left').click(function(){
+		$('.right, .left, .dynamic_icon').click(function(){
 			var text = $(this).siblings('.blurb').children('.text').children().text();
 			//alert(text);
 			var intro = $(this).siblings('.blurb').children('.dynamic_info').text();
 			$(this).toggleClass('selected');
-			$(this).siblings('.right').toggleClass('selected');
+			$(this).siblings('.right, .left').toggleClass('selected');
 			if(text == 'HIDE TEXT') {
 				$(this).siblings('.blurb').children('.text').children('.hide_show').text('SHOW TEXT');
 				$(this).siblings('.blurb').children('.dynamic_blurb').hide();
 				$(this).siblings('.blurb').children('.dynamic_info').hide();
 				$(this).siblings('.blurb').children('.small_intro').show();
 				$(this).removeClass('selected');
+				/*
 				if ($(this).hasClass('left')) {
 					$(this).siblings('.right').removeClass('selected');
 				}
 				else {
 					$(this).siblings('.left').removeClass('selected');
 				}
+				*/
 			}
 			else {
 				$(this).siblings('.blurb').children('.text').children('.hide_show').text('HIDE TEXT');
@@ -95,12 +97,14 @@ $(document).ready(function(){
 				$(this).siblings('.blurb').children('.dynamic_info').show();
 				$(this).siblings('.blurb').children('.small_intro').hide();
 				$(this).addClass('selected');
+				/*
 				if ($(this).hasClass('left')) {	
 					$(this).siblings('.right').addClass('selected');
 				}
 				else {
 					$(this).siblings('.left').addClass('selected');
 				}
+				*/
 			}
 		});
 

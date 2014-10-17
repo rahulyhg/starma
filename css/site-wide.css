@@ -108,6 +108,7 @@ body select {
 
 #frame {
   width:982px;
+  /*width: 994px;*/
   position:relative;
   border:0px solid black;
   /*min-height:890px;*/
@@ -131,6 +132,12 @@ body select {
 
 .defaut_cursor {
   cursor: default;
+}
+
+.later_on {
+  font-family: 'later_on';
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 #img_preloader {
@@ -425,6 +432,8 @@ body select {
   background: url('/img/Starma-Astrology-SnglFH.png') no-repeat;
 }
 
+/*
+
 #js_search_bar{
   border-top: 1px solid #A7B0CB;
   border-bottom: 1px solid #C6D0EF;
@@ -440,6 +449,22 @@ body select {
   padding: 4px;
 }
 
+*/
+
+.input_style {
+    border: 2px solid #1a1d2a;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    color: #181a1c;
+    height: 33px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    position: relative;
+    width: 195px;
+}
+
+/*
 .input_style {
   position:relative;
   display:block;
@@ -455,6 +480,7 @@ body select {
   box-shadow: 0 0 2px #313E5C inset;
   padding: 4px;
 }
+*/
 
 .input_style_inline {
   position:relative;

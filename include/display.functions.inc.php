@@ -958,7 +958,7 @@ function show_general_info($chart_id) {
   }
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
   echo '<div class="profile_info_area">';
-    echo '<div class="nickname_area';
+    echo '<div class="later_on nickname_area';
       if ($is_celeb) {
         echo '_celeb">';
         echo $user_info["first_name"] . ' ' . $user_info["last_name"];
@@ -2902,8 +2902,8 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
               $relationship_id = $compare_data[$connection . '2' . $connection]["relationship_id"];
               $relationship_name = $compare_data[$connection . '2' . $connection]["relationship_title"];
-              echo '<div class="dynamic_column ' . get_rela_selector_name($relationship_id);
-              echo '"><a class="dynamic_icon" href="#"><span></span></a></div>';  
+              echo '<div class="dynamic_icon dynamic_column ' . get_rela_selector_name($relationship_id);
+              echo '"></div>';  
             
 
                   //blurb boxes
@@ -4045,15 +4045,15 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
 
     echo '<div id="profile_chart">';
-    /*
-      echo '<div id="chart_scroll">';
+
+    echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
 
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
-    */  
+
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
       echo '<input type="hidden" name="poi_id"/>';
@@ -4588,8 +4588,9 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         //End Right Side
       }
       else {
-        //**********************GUEST VIEW OF OTHERS CHART*******************************//
-        //Left Side
+
+    //**********************GUEST VIEW OF OTHERS CHART*******************************//
+    //LEFT SIDE------------------------------------
       echo '<div class="chart_tabs left_side">';
       echo '<ul>';
         $poi_ids = array(1, 2, 3);
@@ -4618,18 +4619,20 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         echo '<li class="Blurred_button pop_guest_click">
                 <div class="chart_tabs_wrapper">
                   <span class="icon left pointer"><span class="poi_title">VENUS</span></span><span class="arrow"></span>
+                  <input type="hidden" class="pass_poi_id" value="0" />
                 </div> 
               </li>';        
         echo '<li class="Blurred_button pop_guest_click">
                 <div class="chart_tabs_wrapper">
                   <span class="icon left pointer"><span class="poi_title">MARS</span></span><span class="arrow"></span>
+                  <input type="hidden" class="pass_poi_id" value="0" />
                 </div> 
               </li>';        
         echo '</ul>'; //Close Left ul
         echo '</div>'; //Close Left Side
         //End Left Side
 
-        //Right Side
+      //RIGHT SIDE---------------------------------
         //$poi_list = get_poi_list();
         echo '<div class="chart_tabs right_side">';
         echo '<ul>';
@@ -4640,6 +4643,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
             echo '<div class="chart_tabs_wrapper">';
               echo '<span class="arrow"></span>';
               echo '<span class="icon right pointer"><span class="poi_title">' . $poi_list[$x] . '</span>';
+              echo '<input type="hidden" class="pass_poi_id" value="0" />';
               echo '</span>';
             echo '</div>';
           echo '</li>';
@@ -4651,6 +4655,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
                   echo '<span class="icon right pointer"><span class="poi_title">RAHU</span>';
                   echo '<span class="ketu_text">KETU</span>';
                   echo '</span>';
+                  echo '<input type="hidden" class="pass_poi_id" value="0" />';
                 echo '</div>';
          
         echo '</ul>'; //Close Right ul
@@ -4658,108 +4663,6 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         //End Right Side
       }
         
-
-      /* //OLD WAY
-     //Left Side;
-      echo '<div class="chart_tabs left_side"/>';
-      echo '<ul>';
-      while ($poi = mysql_fetch_array($poi_list)) {
-        if (in_array($poi["poi_id"], poi_left_side())) {
-          $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
-          echo '<li class="' . get_selector_name($button_sign_id);
-          if ($poi_id == $poi["poi_id"]) { 
-            echo ' selected';
-          }
-          echo '"><a ';
-          
-        
-          echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span></a></li>';
-          
-        }
-      }
-      echo '</ul>';
-      echo '</div>';
-      //End Left Side
-      //Left Side Chart Arrow
-      echo '<div class="chart_tabs left_side chart_arrow"/>';
-      echo '<ul>';
-      $poi_list = get_poi_list();
-      while ($poi = mysql_fetch_array($poi_list)) {
-        if (in_array($poi["poi_id"], poi_left_side())) {
-          if ($poi_id == $poi["poi_id"]) { 
-            $the_class="arrow";
-          }
-          else {
-            $the_class="";
-          }
-          echo '<li class="' . $the_class;
-          
-          echo '"><a></a></li>';
-          
-        }
-      }
-      echo '</ul>';
-      echo '</div>';
-      //End Left Side Chart Arrow
-
-      
-      //Right Side
-      $poi_list = get_poi_list();
-      echo '<div class="chart_tabs right_side"/>';
-      echo '<ul>';
-      
-      while ($poi = mysql_fetch_array($poi_list)) {
-        if (in_array($poi["poi_id"], poi_right_side ())) {
-          if ($poi["poi_id"] == 9) {
-            $rahu_sign_id = get_sign_from_poi ($calc_chart_id, 9);
-            $ketu_sign_id = get_sign_from_poi ($calc_chart_id, 10);
-            //echo '&&' . $ketu_sign_id . '&&';
-            echo '<li class="' . get_selector_name($rahu_sign_id, $ketu_sign_id); 
-          }
-          else {
-            $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
-            echo '<li class="' . get_selector_name($button_sign_id);  
-          }
-          
-          if ($poi_id == $poi["poi_id"]) { 
-            echo ' selected';
-          }
-          
-          echo '"><a ';
-          
-          echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
-          if ($poi["poi_id"] == 9) {
-            echo '<span class="ketu_text">Ketu</span>';
-          }
-          echo '</a></li>';
-          
-        }
-      }
-      echo '</ul>';
-      echo '</div>';
-      //End Right Side
-      //Right Side Chart Arrow
-      echo '<div class="chart_tabs right_side chart_arrow"/>';
-      echo '<ul>';
-      $poi_list = get_poi_list();
-      while ($poi = mysql_fetch_array($poi_list)) {
-        if (in_array($poi["poi_id"], poi_right_side())) {
-          if ($poi_id == $poi["poi_id"]) { 
-            $the_class="arrow";
-          }
-          else {
-            $the_class="";
-          }
-          echo '<li class="' . $the_class;
-          
-          echo '"><a></a></li>';
-        }
-      }
-      echo '</ul>';
-      echo '</div>';
-      //End Right Side Chart Arrow
-
-      */
       echo '<div id="blurb">';
         show_poi_info($poi_id, $calc_chart_id, $sign_id);
         show_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
@@ -6153,7 +6056,7 @@ echo '<div id="settings_form">';
 
 echo '<br>';  
 //if ($_GET["error"] == 1) {
-  echo '<div id="settings_header">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
+  echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px; width:500px">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
   echo '<div id="pass_validation"></div>';
   //echo '<br><br>';
   //global $seed;
@@ -6164,24 +6067,24 @@ echo '<br>';
     <table id="reset_pass">
       <tbody>
       <tr>
-        <td><label for="oldpassword">Current Password:</label></td> 
+        <td><label class="later_on" for="oldpassword">Current Password:</label></td> 
       </tr>
       <tr>    
-        <td><input name="oldpassword" type="password" id="js_search_bar" maxlength="15" class="settings_pass"></td>
+        <td><input name="oldpassword" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"></td>
       </tr>
 
       <tr>
-        <td><label for="password">New Password:</label> </td>
+        <td><label class="later_on" for="password">New Password:</label> </td>
       </tr>
       <tr>
-        <td><input name="password" type="password" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+        <td><input name="password" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
       </tr>
 
       <tr>
-        <td><label for="password2">Re-type new password:</label> </td>
+        <td><label class="later_on" for="password2">Re-type new password:</label> </td>
       </tr>
       <tr>
-        <td><input name="password2" type="password" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+        <td><input name="password2" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
         <td><span class="pass_correct">Correct!</span>
       </tr>
   <tr> 

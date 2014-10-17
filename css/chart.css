@@ -352,44 +352,42 @@ div.Virgo_Pisces_button.selected a, div.Virgo_Pisces_button:hover a {
 
 /*//////////////// DYNAMIC ICONS ///////////////////////////////////////////*/
 
-div.my_7_button a {
-  background:url('/img/Starma-Astrology-Compatibility-Challenges-Big.png') no-repeat center top;
-  cursor: default;
+#major_connections .dynamic_icon{
+  width:478px;
+  height:88px;
+  cursor: pointer;
 }
 
-div.my_6_button a {
+div.my_7_button {
+  background:url('/img/Starma-Astrology-Compatibility-Challenges-Big.png') no-repeat center top;
+}
+
+div.my_6_button {
   background:url('/img/Starma-Astrology-Compatibility-Differences-Big.png') no-repeat center top;
-  cursor: default;
 }
 
 div.my_5_button a {
   background:url('/img/Starma-Astrology-Compatibility-Power-Sharing-Big.png') no-repeat center top;
-  cursor: default;
 }
 
 div.my_4_button a {
   background:url('/img/Starma-Astrology-Compatibility-Friends-Big.png') no-repeat center top;
-  cursor: default;
 }
 
 div.my_3_button a {
   background:url('/img/Starma-Astrology-Compatibility-Great-Admirers-Big.png') no-repeat center top;
-  cursor: default;
 }
 
 div.my_2_button a {
   background:url('/img/Starma-Astrology-Compatibility-Magnetic-Attraction-Big.png') no-repeat center top;
-  cursor: default;
 }
 
-div.my_1_button a {
+div.my_1_button {
   background:url('/img/Starma-Astrology-Compatibility-Peas-In-A-Pod-Big.png') no-repeat center top;
-  cursor: default;
 }
 
 div.my_unknown_button a {
   background:url('/img/Starma-Astrology-Compatibility-Unknown.png') no-repeat center top;
-  cursor: default;
 }
 /*//////////////// DYNAMIC ICONS ///////////////////////////////////////*/
 
@@ -1322,6 +1320,7 @@ div.poi_title {
   cursor: default;
 }
 
+/*
 #major_connections .dynamic_icon{
   width:478px;
   background-color:#D3DBF6;
@@ -1336,6 +1335,7 @@ div.poi_title {
   font-weight:bold;
   margin: auto;
 }
+*/
 
 #major_connections a span {
   position:relative;

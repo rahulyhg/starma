@@ -44,8 +44,8 @@ input{
 /*   --Matt--  Changed border radius, added left and right borders as placeholders   */
 #page_body {
     background-color: #FFFFFF;
-    border-left: 2px solid #2C3447;
-    border-right: 2px solid #2C3447;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
     /*border-top: 1px solid #2C3447;*/
     float: right;
     min-height: 582px;
@@ -242,10 +242,16 @@ input{
 /*//////////////TOP NAV BAR/////////////////////////////////////////////////////*/
 
 #topnav {
-  width:980px;
-  height:70px;
+  /*width:980px;*/
+  /*height:70px;*/
   background-color:#8393CA;
-  
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  height: 70px;
+  width: 980px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;  
 }
 
 #topnav ul li a {
@@ -255,6 +261,7 @@ input{
   font-family: 'later_on';
   font-weight: bold;
   letter-spacing: 2px;
+  font-size: 1.3em;
 }
 
 #topnav ul {
@@ -270,13 +277,16 @@ input{
   position: relative;
   display: inline;
   float: left;
-  margin-bottom: -4px;
   /*padding-right:20px;*/
-
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #topnav ul li a {
-  background-color:#8393CA;
+  background-color:#8393ca;
+  -webkit-box-shadow: 0px 0px 0px black inset;
+          box-shadow: 0px 0px 0px black inset;
 }
 
 #topnav ul li.selected a {
@@ -288,9 +298,92 @@ input{
 }
 
 #topnav ul li.logo a {
-  background:url('/img/top_nav_shorter/Starma-Astrology-TopNavLogo.png') no-repeat #8393CA;
+  background:url('/img/top_nav_shorter/Starma-Astrology-TopNavLogo.png') no-repeat;
   width:185px;
 }
+
+/*//////////////////////NEW TOP NAV///////////////////////////*/
+/*
+
+#topnav ul li.home_link a {
+  background:url('/img/tn_no_borders/Starma-Astrology-Home.png') no-repeat;
+  width:113px;
+}
+
+#topnav ul li.home_link:hover a {
+  background-color:#fbf0a4;
+}
+
+#topnav ul li.home_link a span {
+  top:46px;
+  left:39px;
+}
+
+#topnav ul li.profile_link a {
+  background:url('/img/tn_no_borders/Starma-Astrology-Profile.png') no-repeat;
+  width:113px;
+}
+
+
+#topnav ul li.profile_link:hover a {
+  background-color:#fbf0a4;
+}
+
+#topnav ul li.profile_link a span {
+   left: 35px;
+    top: 46px;
+}
+
+#topnav ul li.compare_link a {
+  background:url('/img/tn_no_borders/Starma-Astrology-Community.png') no-repeat;
+  width:113px;
+}
+
+#topnav ul li.compare_link:hover a {
+  background-color:#fbf0a4;
+}
+
+#topnav ul li.compare_link a span {
+  left: 21px;
+    top: 46px;
+}
+
+#topnav ul li.celeb_link a {
+  background:url('/img/tn_no_borders/Starma-Astrology-Celebrities.png') no-repeat;
+  width:113px;
+}
+
+
+#topnav ul li.celeb_link:hover a {
+  background-color:#fbf0a4;
+}
+
+#topnav ul li.celeb_link a span {
+  left: 18px;
+    top: 46px;
+}
+
+#topnav ul li.inbox_link a {
+  background:url('/img/tn_no_borders/Starma-Astrology-Mail.png') no-repeat;
+  width:113px;
+}
+
+
+#topnav ul li.inbox_link:hover a {
+ background-color:#fbf0a4;
+}
+
+
+#topnav ul li.inbox_link a span {
+  top:46px;
+  text-align: center;
+}
+
+*/
+
+/*//////////////////////OLD TOP NAV///////////////////////////*/
+
+
 
 #topnav ul li.home_link a {
   background:url('/img/top_nav_shorter/Starma-Astrology-Home.png') no-repeat #8393CA;
@@ -322,6 +415,7 @@ input{
 }
 
 
+
 /*
 #topnav ul li.chart_link a {
   background:url('/img/top_nav_shorter/Starma-Astrology-ChartTransparent.png') no-repeat #8393CA;
@@ -339,6 +433,7 @@ input{
   left:42px;
 }
 */
+
 
 #topnav ul li.compare_link a {
   background:url('/img/top_nav_shorter/Starma-Astrology-Community.png') no-repeat #8393CA;
@@ -379,10 +474,13 @@ input{
  background-color:#fbf0a4;
 }
 
+
 #topnav ul li.inbox_link a span {
   top:46px;
   text-align: center;
 }
+
+
 
 #topnav ul li.selected a {
   background-color:#fbf0a4;
@@ -498,6 +596,23 @@ input{
 #sidenav ul li a {
   background-color:#8393CA;
 }
+/*
+
+#sidenav .sidenav a {
+  height: 37px;
+  border: 1px solid black;
+}
+#sidenav .sidenav a:hover {
+  background-color: white;
+}
+
+#sidenav ul li.sidenav.selected.active a {
+  background-color: white;
+  border-right: 1px solid white;
+}
+*/
+
+
 
 #sidenav ul li.sidenav1 a {
   background:url('/img/Starma-Astrology-SideNav1.png') no-repeat;
@@ -581,6 +696,8 @@ input{
 #sidenav ul li a img {
   border:0px;
 }
+
+
 
 #register_side {
   position: absolute;
@@ -2149,7 +2266,7 @@ li.my_unknown_button a {
 .profile_info_area {
   width:177px;
   position:relative;
-  bottom:10px;
+  bottom:16px;
   
 }
 
@@ -2158,20 +2275,20 @@ li.my_unknown_button a {
 }
 
 .my_page .profile_info_area .nickname_area {
-  bottom:170px;
+  bottom:173px;
   
 }
 
 
 
 .profile_info_area .nickname_area {
-  font-size:1.1em;
+  font-size:1.5em;
   position:relative;
   bottom:161px; 
 }
 
 .profile_info_area .nickname_area_celeb {
-  font-size:1.1em;
+  font-size:1.5em;
   position:relative;
   bottom:154px;  
 }
@@ -2189,13 +2306,13 @@ li.my_unknown_button a {
 }
 
 .user_block .profile_info_area .nickname_area, #chart_1_pic .profile_info_area .nickname_area, #chart_2_pic .profile_info_area .nickname_area {
-    bottom: 142px;
-    font-weight: bold;
+    bottom: 143px;
     position: relative;
+    font-size: 1.4em;
 }
 
 #chart_1_pic .profile_info_area, #chart_2_pic .profile_info_area {
-    bottom: 27px;
+    bottom: 31px;
 
 }
 
@@ -2205,12 +2322,12 @@ li.my_unknown_button a {
 
 #chart_2_pic .profile_info_area .nickname_area_celeb {
   bottom: 126px;
-  font-weight: bold;
+  font-size: 1.4em;
 }
 
 .user_block .profile_info_area .nickname_area_celeb {
-  bottom: 141px;
-  font-weight: bold;
+  bottom: 143px;
+  font-size: 1.4em;
 }
 
 #chart_1_pic .profile_info_area .nickname_area span, #chart_2_pic .profile_info_area .nickname_area span, .nickname_area span {   
@@ -2243,17 +2360,21 @@ li.my_unknown_button a {
 
 #descriptors div {
    height:25px;
+   font-size: 1.19em;
+   font-family: 'later_on';
+   font-weight: bold;
+   letter-spacing: 2px;
 }
 
 #descriptors div .value {
-   bottom: 25px;
-    left: 20px;
-    position: relative;
-   width: 300px;
+  bottom: 25px;
+  left: 20px;
+  position: relative;
+  width: 300px;
 }
 
 #descriptors div .value_others {
-   bottom: 41px;
+   bottom: 48px;
     left: 20px;
     position: relative;
    width: 150px;
@@ -2302,8 +2423,11 @@ li.my_unknown_button a {
 }
 
 #homepage_profile_button_info #descriptors div {
-   height: 26px;
-   font-size: .95em;
+  height: 26px;
+  font-family: 'later_on';
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 1em; 
 }
 
 #homepage_profile_button_info #descriptors div .value {
@@ -2378,6 +2502,9 @@ li.my_unknown_button a {
 
 #interests div .title {
   font-weight:bold;
+  font-family: 'later_on';
+  font-size: 2em;
+  letter-spacing: 2px;
 }
 
 #interests div .value {
@@ -2401,8 +2528,8 @@ li.my_unknown_button a {
 
 #profile_sections {
     background: #D3DBF6;
-    border-top: 2px solid #2C3447;
-    border-right: 2px solid #2C3447;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
     top: 19px;
     float: left;
     position: relative;
@@ -2437,30 +2564,24 @@ li.my_unknown_button a {
   border-right: 2px solid #2C3447;
   border-top: 2px solid #2C3447;
   border-bottom: none;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+          border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+          border-top-right-radius: 5px;
   background-color: #8393CA;
-  /*background:-moz-linear-gradient(bottom, #4E5D84 0%, 
-    #8393CA 30%); /* FF3.6+ */
-  /*background: -webkit-gradient(linear, left bottom, left top, 
-    color-stop(0%, #4E5D84), 
-    color-stop(30%,#8393CA)); /* Chrome,Safari4+ */
-  /*background: -webkit-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* Chrome10+,Safari5.1+ */
-  /*background: -o-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* Opera 11.10+ */
-  /*background: -ms-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* IE10+ */
-  /*background: linear-gradient(to top, #4E5D84 0%, #8393CA 30%); /* W3C */
-  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4E5D84', endColorstr='#8393CA',GradientType=0 ); /* IE6-9 */
   border-right:0px;
   padding:5px;
   text-align:center;
   margin:0px;
   display:block;
   width:100px;
-  font-size: 0.8em;
+  font-size: 0.95em;
   height: 12px;
   line-height: 0.8em;
   color:black;
-    transition: hover .5s;
+  font-weight: bold;
+  font-family: 'later_on';
+  letter-spacing: 2px;
 }
 
 #profile_nav ul li.end a {
@@ -3558,7 +3679,7 @@ span.div_link {
 
 #footer {
   background-color: #8393CA;
-  border: 2px solid #2C3447;
+  border: 2px solid black;
   position: relative;
   width: 793px;
   margin-left: 183px;

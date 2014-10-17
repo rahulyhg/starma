@@ -26,7 +26,7 @@ if ($tier == "1") {
         //echo 'Search:';
       //echo '</div>';
       echo '<div id="search_bar_input">';
-        echo '<input type="text" id="js_search_bar" value="Search">';
+        echo '<input type="text" class="input_style" id="js_search_bar" value="Search">';
       echo '</div>';
     echo '</div>';
     display_all_users($url="?the_page=" . $the_page . "&the_left=nav2&tier=3&stage=2", 1);
