@@ -958,7 +958,7 @@ function show_general_info($chart_id) {
   }
   if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
   echo '<div class="profile_info_area">';
-    echo '<div class="nickname_area';
+    echo '<div class="later_on nickname_area';
       if ($is_celeb) {
         echo '_celeb">';
         echo $user_info["first_name"] . ' ' . $user_info["last_name"];
@@ -6056,7 +6056,7 @@ echo '<div id="settings_form">';
 
 echo '<br>';  
 //if ($_GET["error"] == 1) {
-  echo '<div id="settings_header">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
+  echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px; width:500px">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
   echo '<div id="pass_validation"></div>';
   //echo '<br><br>';
   //global $seed;
@@ -6067,24 +6067,24 @@ echo '<br>';
     <table id="reset_pass">
       <tbody>
       <tr>
-        <td><label for="oldpassword">Current Password:</label></td> 
+        <td><label class="later_on" for="oldpassword">Current Password:</label></td> 
       </tr>
       <tr>    
-        <td><input name="oldpassword" type="password" id="js_search_bar" maxlength="15" class="settings_pass"></td>
+        <td><input name="oldpassword" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"></td>
       </tr>
 
       <tr>
-        <td><label for="password">New Password:</label> </td>
+        <td><label class="later_on" for="password">New Password:</label> </td>
       </tr>
       <tr>
-        <td><input name="password" type="password" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+        <td><input name="password" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
       </tr>
 
       <tr>
-        <td><label for="password2">Re-type new password:</label> </td>
+        <td><label class="later_on" for="password2">Re-type new password:</label> </td>
       </tr>
       <tr>
-        <td><input name="password2" type="password" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+        <td><input name="password2" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
         <td><span class="pass_correct">Correct!</span>
       </tr>
   <tr> 
