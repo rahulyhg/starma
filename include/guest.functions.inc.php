@@ -217,7 +217,7 @@ function get_left_menu_guest ($the_page) {
   elseif ($the_page == 'hsel') {
     $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php','');
     $menu['nav2'] = array('About Starma&nbsp;&nbsp;', 'about_starma.php', '');
-    $menu['nav3'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php','');
+    $menu['nav3'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php','pop_guest_click');
     
   }
   elseif ($the_page == 'isel') {
