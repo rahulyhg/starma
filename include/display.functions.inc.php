@@ -876,7 +876,7 @@ function show_photo_cropper_old($photo_to_crop) {
 
 function show_photo_cropper($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];
-  $img_name = str_replace('\'','"', '', $photo_to_crop["picture"]);
+  $img_name = preg_replace('%\',"%', '', $photo_to_crop["picture"]);
   echo '<div class="photo_cropper_content">';
     echo '<div id="zoom">- Zoom +' . $img_name . '</div>';
     echo '<div class="cropSlider"></div>';
