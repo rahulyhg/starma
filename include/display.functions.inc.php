@@ -4045,15 +4045,15 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
 
     echo '<div id="profile_chart">';
-    /*
-      echo '<div id="chart_scroll">';
+
+    echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
 
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
-    */  
+
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $chart_id . '"/>';  //MATT added VALUE chart ID
       echo '<input type="hidden" name="poi_id"/>';
@@ -4588,8 +4588,9 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         //End Right Side
       }
       else {
-        //**********************GUEST VIEW OF OTHERS CHART*******************************//
-        //Left Side
+
+    //**********************GUEST VIEW OF OTHERS CHART*******************************//
+    //LEFT SIDE------------------------------------
       echo '<div class="chart_tabs left_side">';
       echo '<ul>';
         $poi_ids = array(1, 2, 3);
@@ -4618,18 +4619,20 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         echo '<li class="Blurred_button pop_guest_click">
                 <div class="chart_tabs_wrapper">
                   <span class="icon left pointer"><span class="poi_title">VENUS</span></span><span class="arrow"></span>
+                  <input type="hidden" class="pass_poi_id" value="0" />
                 </div> 
               </li>';        
         echo '<li class="Blurred_button pop_guest_click">
                 <div class="chart_tabs_wrapper">
                   <span class="icon left pointer"><span class="poi_title">MARS</span></span><span class="arrow"></span>
+                  <input type="hidden" class="pass_poi_id" value="0" />
                 </div> 
               </li>';        
         echo '</ul>'; //Close Left ul
         echo '</div>'; //Close Left Side
         //End Left Side
 
-        //Right Side
+      //RIGHT SIDE---------------------------------
         //$poi_list = get_poi_list();
         echo '<div class="chart_tabs right_side">';
         echo '<ul>';
@@ -4640,6 +4643,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
             echo '<div class="chart_tabs_wrapper">';
               echo '<span class="arrow"></span>';
               echo '<span class="icon right pointer"><span class="poi_title">' . $poi_list[$x] . '</span>';
+              echo '<input type="hidden" class="pass_poi_id" value="0" />';
               echo '</span>';
             echo '</div>';
           echo '</li>';
@@ -4651,6 +4655,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
                   echo '<span class="icon right pointer"><span class="poi_title">RAHU</span>';
                   echo '<span class="ketu_text">KETU</span>';
                   echo '</span>';
+                  echo '<input type="hidden" class="pass_poi_id" value="0" />';
                 echo '</div>';
          
         echo '</ul>'; //Close Right ul
@@ -4658,108 +4663,6 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         //End Right Side
       }
         
-
-      /* //OLD WAY
-     //Left Side;
-      echo '<div class="chart_tabs left_side"/>';
-      echo '<ul>';
-      while ($poi = mysql_fetch_array($poi_list)) {
-        if (in_array($poi["poi_id"], poi_left_side())) {
-          $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
-          echo '<li class="' . get_selector_name($button_sign_id);
-          if ($poi_id == $poi["poi_id"]) { 
-            echo ' selected';
-          }
-          echo '"><a ';
-          
-        
-          echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span></a></li>';
-          
-        }
-      }
-      echo '</ul>';
-      echo '</div>';
-      //End Left Side
-      //Left Side Chart Arrow
-      echo '<div class="chart_tabs left_side chart_arrow"/>';
-      echo '<ul>';
-      $poi_list = get_poi_list();
-      while ($poi = mysql_fetch_array($poi_list)) {
-        if (in_array($poi["poi_id"], poi_left_side())) {
-          if ($poi_id == $poi["poi_id"]) { 
-            $the_class="arrow";
-          }
-          else {
-            $the_class="";
-          }
-          echo '<li class="' . $the_class;
-          
-          echo '"><a></a></li>';
-          
-        }
-      }
-      echo '</ul>';
-      echo '</div>';
-      //End Left Side Chart Arrow
-
-      
-      //Right Side
-      $poi_list = get_poi_list();
-      echo '<div class="chart_tabs right_side"/>';
-      echo '<ul>';
-      
-      while ($poi = mysql_fetch_array($poi_list)) {
-        if (in_array($poi["poi_id"], poi_right_side ())) {
-          if ($poi["poi_id"] == 9) {
-            $rahu_sign_id = get_sign_from_poi ($calc_chart_id, 9);
-            $ketu_sign_id = get_sign_from_poi ($calc_chart_id, 10);
-            //echo '&&' . $ketu_sign_id . '&&';
-            echo '<li class="' . get_selector_name($rahu_sign_id, $ketu_sign_id); 
-          }
-          else {
-            $button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
-            echo '<li class="' . get_selector_name($button_sign_id);  
-          }
-          
-          if ($poi_id == $poi["poi_id"]) { 
-            echo ' selected';
-          }
-          
-          echo '"><a ';
-          
-          echo 'onclick="' . javascript_submit ($form_name="chart_browser", $action=$goTo, $hidden="poi_id", $value=$poi["poi_id"]) . '"/><span>' . $poi["poi_name"] . '</span>';
-          if ($poi["poi_id"] == 9) {
-            echo '<span class="ketu_text">Ketu</span>';
-          }
-          echo '</a></li>';
-          
-        }
-      }
-      echo '</ul>';
-      echo '</div>';
-      //End Right Side
-      //Right Side Chart Arrow
-      echo '<div class="chart_tabs right_side chart_arrow"/>';
-      echo '<ul>';
-      $poi_list = get_poi_list();
-      while ($poi = mysql_fetch_array($poi_list)) {
-        if (in_array($poi["poi_id"], poi_right_side())) {
-          if ($poi_id == $poi["poi_id"]) { 
-            $the_class="arrow";
-          }
-          else {
-            $the_class="";
-          }
-          echo '<li class="' . $the_class;
-          
-          echo '"><a></a></li>';
-        }
-      }
-      echo '</ul>';
-      echo '</div>';
-      //End Right Side Chart Arrow
-
-      */
       echo '<div id="blurb">';
         show_poi_info($poi_id, $calc_chart_id, $sign_id);
         show_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
