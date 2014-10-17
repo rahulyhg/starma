@@ -107,8 +107,8 @@ body select {
 */
 
 #frame {
-  /*width:982px;*/
-  width: 994px;
+  width:982px;
+  /*width: 994px;*/
   position:relative;
   border:0px solid black;
   /*min-height:890px;*/

@@ -53,7 +53,7 @@ input{
     padding: 10px;
     position: relative;
     /*top: -229px;*/
-    width: 785px;
+    width: 773px;
     /*right: 2px;*/
   }
 
@@ -271,9 +271,7 @@ input{
   position: relative;
   display: inline;
   float: left;
-  margin-bottom: -4px;
   /*padding-right:20px;*/
-  border: 1px solid;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -281,8 +279,8 @@ input{
 
 #topnav ul li a {
   background-color:#8393ca;
-  -webkit-box-shadow: 1px -1px 8px black inset;
-          box-shadow: 1px -1px 8px black inset;
+  -webkit-box-shadow: 0px 0px 0px black inset;
+          box-shadow: 0px 0px 0px black inset;
 }
 
 #topnav ul li.selected a {
@@ -598,7 +596,7 @@ input{
 
 #sidenav ul li.sidenav.selected.active a {
   background-color: white;
-  border-right: none;
+  border-right: 1px solid white;
 }
 
 /*
@@ -2255,7 +2253,7 @@ li.my_unknown_button a {
 .profile_info_area {
   width:177px;
   position:relative;
-  bottom:10px;
+  bottom:16px;
   
 }
 
@@ -2264,16 +2262,19 @@ li.my_unknown_button a {
 }
 
 .my_page .profile_info_area .nickname_area {
-  bottom:170px;
+  bottom:173px;
   
 }
 
 
 
 .profile_info_area .nickname_area {
-  font-size:1.1em;
+  font-size:1.5em;
   position:relative;
   bottom:161px; 
+  font-family: 'later_on';
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .profile_info_area .nickname_area_celeb {
@@ -2296,12 +2297,15 @@ li.my_unknown_button a {
 
 .user_block .profile_info_area .nickname_area, #chart_1_pic .profile_info_area .nickname_area, #chart_2_pic .profile_info_area .nickname_area {
     bottom: 142px;
-    font-weight: bold;
     position: relative;
+    font-family: 'later_on';
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.4em;
 }
 
 #chart_1_pic .profile_info_area, #chart_2_pic .profile_info_area {
-    bottom: 27px;
+    bottom: 31px;
 
 }
 
@@ -2349,17 +2353,21 @@ li.my_unknown_button a {
 
 #descriptors div {
    height:25px;
+   font-size: 1.19em;
+   font-family: 'later_on';
+   font-weight: bold;
+   letter-spacing: 2px;
 }
 
 #descriptors div .value {
-   bottom: 25px;
-    left: 20px;
-    position: relative;
-   width: 300px;
+  bottom: 25px;
+  left: 20px;
+  position: relative;
+  width: 300px;
 }
 
 #descriptors div .value_others {
-   bottom: 41px;
+   bottom: 48px;
     left: 20px;
     position: relative;
    width: 150px;
@@ -2408,8 +2416,11 @@ li.my_unknown_button a {
 }
 
 #homepage_profile_button_info #descriptors div {
-   height: 26px;
-   font-size: .95em;
+  height: 26px;
+  font-family: 'later_on';
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 1em; 
 }
 
 #homepage_profile_button_info #descriptors div .value {
@@ -2484,6 +2495,9 @@ li.my_unknown_button a {
 
 #interests div .title {
   font-weight:bold;
+  font-family: 'later_on';
+  font-size: 2em;
+  letter-spacing: 2px;
 }
 
 #interests div .value {
@@ -2543,30 +2557,24 @@ li.my_unknown_button a {
   border-right: 2px solid #2C3447;
   border-top: 2px solid #2C3447;
   border-bottom: none;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+          border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+          border-top-right-radius: 5px;
   background-color: #8393CA;
-  /*background:-moz-linear-gradient(bottom, #4E5D84 0%, 
-    #8393CA 30%); /* FF3.6+ */
-  /*background: -webkit-gradient(linear, left bottom, left top, 
-    color-stop(0%, #4E5D84), 
-    color-stop(30%,#8393CA)); /* Chrome,Safari4+ */
-  /*background: -webkit-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* Chrome10+,Safari5.1+ */
-  /*background: -o-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* Opera 11.10+ */
-  /*background: -ms-linear-gradient(bottom, #4E5D84 0%, #8393CA 30%); /* IE10+ */
-  /*background: linear-gradient(to top, #4E5D84 0%, #8393CA 30%); /* W3C */
-  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4E5D84', endColorstr='#8393CA',GradientType=0 ); /* IE6-9 */
   border-right:0px;
   padding:5px;
   text-align:center;
   margin:0px;
   display:block;
   width:100px;
-  font-size: 0.8em;
+  font-size: 0.95em;
   height: 12px;
   line-height: 0.8em;
   color:black;
-    transition: hover .5s;
+  font-weight: bold;
+  font-family: 'later_on';
+  letter-spacing: 2px;
 }
 
 #profile_nav ul li.end a {
@@ -3667,7 +3675,7 @@ span.div_link {
   border: 2px solid #2C3447;
   position: relative;
   width: 793px;
-  margin-left: 183px;
+  margin-left: 185px;
   height: 60px;
   /*top: -229px;*/
 }
