@@ -2902,8 +2902,8 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
               $relationship_id = $compare_data[$connection . '2' . $connection]["relationship_id"];
               $relationship_name = $compare_data[$connection . '2' . $connection]["relationship_title"];
-              echo '<div class="dynamic_column ' . get_rela_selector_name($relationship_id);
-              echo '"><a class="dynamic_icon" href="#"><span></span></a></div>';  
+              echo '<div class="dynamic_icon dynamic_column ' . get_rela_selector_name($relationship_id);
+              echo '"></div>';  
             
 
                   //blurb boxes
