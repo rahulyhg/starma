@@ -308,7 +308,7 @@ function activate_photo_cropper_old ($img_id, $img_name, $x1_name, $y1_name, $x2
 function activate_photo_cropper ($img_id, $img_name) {
   //$image = new SimpleImage();
   //$image->load(ORIGINAL_IMAGE_PATH() . $img_name);
-  echo $img_name;
+  
   echo '<script type="text/javascript">
  
    	  var foo = new CROP(\'\');
