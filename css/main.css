@@ -3422,6 +3422,18 @@ END OLD WAY*/
   padding: 5px;
 }
 
+#birth_info_custom input, #birth_info_custom select {
+    border: 2px solid #1a1d2a;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    color: #181a1c;
+    height: 33px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    position: relative;
+}
+
 #birth_info_form_custom {
   margin-left: 53px;
 }

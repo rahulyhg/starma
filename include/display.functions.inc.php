@@ -1948,7 +1948,7 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
      echo '     <tr>
                   <td id="birth_date_input" class="align_right">';
                      echo 'date of birth
-                     <input type="hidden" name="stage" value="' . $stage . '"/>';
+                     <input type="hidden" class="input_style" name="stage" value="' . $stage . '"/>';
                   echo '</td>
                   <td id="birth_date_input" colspan="2">';
                     date_select ($the_date=get_inputed_date($type), $the_name="birthday");
@@ -1964,7 +1964,7 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
                 place of birth
              </td>
              <td colspan="2" id="birth_place_input" class="no_move">
-                <input type="text" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>
+                <input type="text" class="input_style" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>
              </td>
             </tr>';
      $help_text_offset = '';
