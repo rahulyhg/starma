@@ -666,7 +666,7 @@ function show_my_general_info() {
     }
   }
   echo '<div class="profile_info_area">';
-    echo '<div class="nickname_area">';
+    echo '<div class="later_on nickname_area">';
     
       echo $user_info["nickname"];
     echo '</div>';
