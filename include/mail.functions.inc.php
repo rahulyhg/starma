@@ -509,7 +509,8 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     $async = false;
     $ip_pool = '';
     //$send_at = '';
-    $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
+    //$result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
+    $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
     return true;
   }
   catch(Mandrill_Error $e) {
