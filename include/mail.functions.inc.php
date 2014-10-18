@@ -511,7 +511,7 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     //$send_at = '';
     //$result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
     $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
-    return true;
+    return $result;
   }
   catch(Mandrill_Error $e) {
     // Mandrill errors are thrown as exceptions
