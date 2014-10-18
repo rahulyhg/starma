@@ -199,7 +199,7 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message)
       //            'reciever' => $reciever['nickname'],
         //          'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a>'
           //      );
-    $message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</> to view it!';
+    $message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a> to view it!';
  
     if (sendMail($receiver["email"], "You have received a new message from " . $sender["nickname"] . "!" , $message, "no-reply@" . get_email_domain()))
     { 
