@@ -176,14 +176,14 @@ password:  $newpassword<br>";
 
 function sendReportUserEmail($sender, $reported_user, $message) {
   $send_to = 'mticciati@gmail.com';
-  $message = array(
+  $content = array(
                   'reciever' => 'Matthew',
                   'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=53">Click Here</a>'
                 );
   //if (sendMail($send_to, 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_email_domain())) {
   //if (
-   //$result = sendTemplateMessage($send_to, 'report test template mandrill', $message, "no-reply@" . get_email_domain())) {
-    return 'hello';
+   $result = sendTemplateMessage($send_to, 'report test template mandrill', $content, "no-reply@" . get_email_domain())) {
+    return $result;
   //}
   //else {
     //return false;
@@ -443,8 +443,8 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     $template_name = 'message_test';
     $template_content = array(
         array(
-            'name' => 'username',
-            'content' => $content['reciever']
+            //'name' => 'username',
+            //'content' => $content['reciever']
             //'name' => 'click_here',
             //'content' => $content['link'],
             //'name' => 'signature',
@@ -510,15 +510,16 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     $ip_pool = '';
     //$send_at = '';
     $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
-
+    return true;
   }
   catch(Mandrill_Error $e) {
     // Mandrill errors are thrown as exceptions
     echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
     // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
     throw $e;
+    return $e;
   }
-  return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+  //return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
 }
 
 //END TEMPLATE TEST
