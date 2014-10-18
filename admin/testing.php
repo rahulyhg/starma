@@ -92,8 +92,8 @@ try {
     throw $e;
 }
 
-echo '<br><br>Info: ';
-$info = $mandrill->messages->info($result['_id']);
-print_r($info);
+//echo '<br><br>Info: ';
+//$info = $mandrill->messages->info($result['_id']);
+//print_r($info);
 
 ?>
