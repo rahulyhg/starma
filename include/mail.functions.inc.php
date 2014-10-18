@@ -443,7 +443,7 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     $template_content = array(
         array(
             'name' => 'username',
-            'content' => $content['reciever'],
+            'content' => $content['reciever']
             //'name' => 'click_here',
             //'content' => $content['link'],
             //'name' => 'signature',
@@ -500,14 +500,14 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
         //'subaccount' => 'customer-123',
         'google_analytics_domains' => array(),
         'google_analytics_campaign' => '',
-        'metadata' => array(),
+        'metadata' => array('website' => ''),
         'recipient_metadata' => array(),
         'attachments' => array(),
         'images' => array()
     );
     $async = false;
     $ip_pool = '';
-    $send_at = '';
+    //$send_at = '';
     $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
 
   }
