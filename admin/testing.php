@@ -70,6 +70,7 @@ try {
     $ip_pool = '';
     //$send_at = 'example send_at';
     $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
+    echo 'Result: ';
     print_r($result);
     /*
     Array
@@ -91,6 +92,7 @@ try {
     throw $e;
 }
 
+echo '<br><br>Info: ';
 $info = $mandrill->messages->info($result['_id']);
 print_r($info);
 
