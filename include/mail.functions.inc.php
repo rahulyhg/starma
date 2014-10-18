@@ -189,9 +189,14 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message)
  
     $sender = basic_user_data($sender_id);
     $receiver = basic_user_data($receiver_id);
-    $message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</> to view it!';
+    $message = array(
+                  'reciever' => $sender['nickname'],
+                  'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a>'
+                );
+    //$message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</> to view it!';
  
-    if (sendMail($receiver["email"], "You have received a new message from " . $sender["nickname"] . "!" , $message, "no-reply@" . get_email_domain()))
+    //if (sendMail($receiver["email"], "You have received a new message from " . $sender["nickname"] . "!" , $message, "no-reply@" . get_email_domain()))
+    if(sendTemplateMessage($receiver["email"], "You have received a new message from " . $sender["nickname"] . "!" , $message, "no-reply@" . get_email_domain()))
     {
         return true;
     } else
@@ -423,6 +428,93 @@ function sendMail($to, $subject, $message, $from, $footer="")
     
    
 }
+
+//TESTING SENDING A TEMPLATE FROM MANDRILL
+
+function sendTemplateMessage ($to, $subject, $content, $from) {
+  try {
+    $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
+    $template_name = 'message test';
+    $template_content = array(
+        array(
+            'name' => 'username',
+            'content' => $content['reciever'],
+            'name' => 'click_here',
+            'content' => $content['link'],
+            'name' => 'signature',
+            'content' => 'The Starma Team'
+        )
+    );
+    $message = array(
+        'html' => '',
+        'text' => '',
+        'subject' => $subject,
+        'from_email' => $from,
+        'from_name' => 'Starma',
+        'to' => array(
+            array(
+                'email' => $to,
+                //'name' => 'Recipient Name',
+                //'type' => 'to'
+            )
+        ),
+        'headers' => array('Reply-To' => $from),
+        'important' => false,
+        'track_opens' => true,
+        'track_clicks' => true,
+        'auto_text' => null,
+        'auto_html' => null,
+        'inline_css' => null,
+        'url_strip_qs' => null,
+        'preserve_recipients' => null,
+        'view_content_link' => null,
+        'bcc_address' => '',
+        'tracking_domain' => null,
+        'signing_domain' => null,
+        'return_path_domain' => null,
+        'merge' => true,
+        'merge_language' => 'mailchimp',
+        'global_merge_vars' => array(
+            array(
+                'name' => 'merge1',
+                'content' => 'merge1 content'
+            )
+        ),
+        'merge_vars' => array(
+            array(
+                'rcpt' => 'recipient.email@example.com',
+                'vars' => array(
+                    array(
+                        'name' => 'merge2',
+                        'content' => 'merge2 content'
+                    )
+                )
+            )
+        ),
+        'tags' => array('test_template'),
+        //'subaccount' => 'customer-123',
+        'google_analytics_domains' => array(),
+        'google_analytics_campaign' => '',
+        'metadata' => array(),
+        'recipient_metadata' => array(),
+        'attachments' => array(),
+        'images' => array()
+    );
+    $async = false;
+    $ip_pool = '';
+    $send_at = '';
+    $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
+
+  }
+  catch(Mandrill_Error $e) {
+    // Mandrill errors are thrown as exceptions
+    echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+    // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+    throw $e;
+}
+}
+
+//END TEMPLATE TEST
  
 function sendActivationEmail($email, $nickname, $password, $uid, $actcode)
 {
