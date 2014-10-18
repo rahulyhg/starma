@@ -22,7 +22,7 @@ $(document).ready(function(){
 				$('#close_report').show();
 			}
 			if (data.errors) {
-				$('#report_sent').html('<p>' + data + '</p>');
+				$('#report_sent').html('<p>' + data.message + '</p>');
 				$('#close_report').show();
 			}
 			/*
