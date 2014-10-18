@@ -91,4 +91,7 @@ try {
     throw $e;
 }
 
+$info = $mandrill->messages->info($result['_id']);
+print_r($info);
+
 ?>
