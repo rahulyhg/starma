@@ -298,7 +298,8 @@ input{
 }
 
 #topnav ul li.logo a {
-  background:url('/img/top_nav_shorter/Starma-Astrology-TopNavLogo.png') no-repeat;
+  /*background:url('/img/top_nav_shorter/Starma-Astrology-TopNavLogo.png') no-repeat;*/
+  background: url('/img/logoLaterOnLCHP.png') no-repeat;
   width:185px;
 }
 
@@ -517,7 +518,7 @@ input{
     border: 1px solid #652C1E;
     border-radius: 2px;
     box-shadow: 1px 2px 7px #8b4029 inset;*/
-    color: #fcf3f0;
+    color: black;
     cursor: pointer;
     font-size: 1.4em;
     left: 776px;
@@ -543,7 +544,7 @@ input{
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 1.4em;
-  color: #fcf3f0;
+  color: black;
 }
 
 /*//////////////// END TOP NAV BAR ////////////////////////////////////////*/

@@ -442,14 +442,14 @@
 
 #logo_test_img {
   position: relative;
-  left:  2% ;
+  left: 2%;
   display: inline-block;
   top: 5px;
 }
 
 #tagline {
-    bottom: 51px;
-    right: 40px;
+    bottom: 41px;
+    right: 158px;
     display: inline-block;
     /*color: #e7ebee;   
     font-family: "later_on";
@@ -464,11 +464,12 @@
 }
 
 #logo_test_img {
-  background: url('/img/LogoTest2.svg') no-repeat;
+  /*background: url('/img/LogoTest2.svg') no-repeat;
   background: url('/img/LogoTest2.png') no-repeat;
-  width:300px;
+  background: url('/img/logoLaterOn.png') no-repeat;*/
+  background: url('/img/logoLaterOnLCL.png') no-repeat;
+  width:185px;
   height: 132px;
-  background-size: 300px 132px;
 }
 
 

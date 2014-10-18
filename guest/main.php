@@ -215,12 +215,12 @@ if ($the_left=="nav1") {
   <div id="topnav">
     <ul>
       <li class="logo"><a href="../landing.php"></a></li>
-      <li class="home_link <?php echo $hsel;?>"><a title="Home" href="?the_page=hsel&the_left=nav1"><span>&nbsp;HOME</span></a></li>
-      <li class="profile_link <?php echo $psel;?>"><a title="Profile" href="?the_page=psel&the_left=nav1"><span>PROFILE</span></a></li>
-      <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&the_tier=1"><span>COMMUNITY</span></a></li>
-      <li class="celeb_link <?php echo $cesel;?>"><a title="Celebrities" href="?the_page=cesel&the_left=nav1"><span>CELEBRITIES</span></a></li>
-      <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>&nbsp;INBOX</span></a></li>
-      <li class="mail_area"><img src="/img/Starma-Astrology-Search.png"/></li>
+      <li class="home_link <?php echo $hsel;?>"><a title="Home" href="?the_page=hsel&the_left=nav1"><span>Home</span></a></li>
+      <li class="profile_link <?php echo $psel;?>"><a title="Profile" href="?the_page=psel&the_left=nav1"><span>Profile</span></a></li>
+      <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&the_tier=1"><span>Community</span></a></li>
+      <li class="celeb_link <?php echo $cesel;?>"><a title="Celebrities" href="?the_page=cesel&the_left=nav1"><span>Celebrities</span></a></li>
+      <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>Inbox</span></a></li>
+      <!--<li class="mail_area"><img src="/img/Starma-Astrology-Search.png"/></li>-->
     </ul>
     <div id="register_top">Sign Up</div><div id="login_top" class="pop_guest_login">Log In</div>
   </div>
