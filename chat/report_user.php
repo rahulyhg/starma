@@ -15,7 +15,7 @@ if (isLoggedIn()) {
   $reported_user = get_nickname($other_user_id);
   $message = $sender_name . ' user id: ' . $user_id .', is reporting ' . $reported_user . ' user id: ' . $other_user_id . '.  ' . $additional_comments;
   $data = array();
-
+/*
   if (sendReportUserEmail($sender_name, $reported_user, $message)) {
     $data['message'] = 'Your report has been sent.  We will contact you soon if we have any further questions.  Thank you for helping to keep our community safe for everyone.';
     $data['success'] = true;
@@ -23,7 +23,10 @@ if (isLoggedIn()) {
   else {
     $data['message'] = 'There was an error reporting this user.  Please try again later or <a href="mailto:contact@starma.com">contact</a> Starma directly.';
     $data['errors'] = true;
-  }
+  }*/
+
+  $data['errors'] = true;
+  $data['message'] = sendReportUserEmail($sender_name, $reported_user, $message);
 
   
   //$data['success'] = true;

@@ -181,12 +181,13 @@ function sendReportUserEmail($sender, $reported_user, $message) {
                   'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=53">Click Here</a>'
                 );
   //if (sendMail($send_to, 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_email_domain())) {
-  if (sendTemplateMessage($send_to, 'report test template mandrill', $message, "no-reply@" . get_email_domain())) {
-    return true;
-  }
-  else {
-    return false;
-  }
+  //if (
+   $result = sendTemplateMessage($send_to, 'report test template mandrill', $message, "no-reply@" . get_email_domain())) {
+    return $result;
+  //}
+  //else {
+    //return false;
+  //}
 }
 
 function sendNewMessageEmail($sender_id, $receiver_id, $message)
@@ -516,7 +517,8 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
     // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
     throw $e;
-}
+  }
+  return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
 }
 
 //END TEMPLATE TEST
