@@ -444,10 +444,10 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
         array(
             'name' => 'username',
             'content' => $content['reciever'],
-            'name' => 'click_here',
-            'content' => $content['link'],
-            'name' => 'signature',
-            'content' => 'The Starma Team'
+            //'name' => 'click_here',
+            //'content' => $content['link'],
+            //'name' => 'signature',
+            //'content' => 'The Starma Team'
         )
     );
     $message = array(
