@@ -176,7 +176,12 @@ password:  $newpassword<br>";
 
 function sendReportUserEmail($sender, $reported_user, $message) {
   $send_to = 'mticciati@gmail.com';
-  if (sendMail($send_to, 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_email_domain())) {
+  $message = array(
+                  'reciever' => 'Matthew',
+                  'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=53">Click Here</a>'
+                );
+  //if (sendMail($send_to, 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_email_domain())) {
+  if (sendTemplateMessage($send_to, 'report test template mandrill', $message, "no-reply@" . get_email_domain())) {
     return true;
   }
   else {
