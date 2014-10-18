@@ -5078,7 +5078,7 @@ else {
 
 //echo $chart_id;
 $rising_sign_id = get_sign_from_poi ($chart_id, 1);
-echo $rising_sign_id;
+//echo $rising_sign_id;
 //IF RISING SIGN EXISTS-------------------
   if($rising_sign_id !== -1) { //in user functions
     $sign_id_arr = array();
@@ -5152,7 +5152,9 @@ echo $rising_sign_id;
           echo '">';
           echo '<div class="hl_tabs_wrapper">';
 
-          echo '<span class="hl_icon left pointer"><span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span></span>';
+          echo '<div class="hl_icon left pointer">';
+            //echo '<span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span>';
+          echo '</div>';
           echo '<span class="arrow"></span>';
           echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
           echo '<input type="hidden" name="sign_id" value="' . $sign_id_arr[$h] . '" />';
@@ -5174,7 +5176,9 @@ echo $rising_sign_id;
           echo '<li class="hl_li ' . $h . '">';
           echo '<div class="hl_tabs_wrapper">';
 
-          echo '<span class="hl_icon right pointer"><span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span></span>';
+          echo '<div class="hl_icon right pointer">';
+          //echo '<span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span>';
+          echo '</div>';
           echo '<span class="arrow"></span>';
           echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
           echo '<input type="hidden" name="sign_id" value="' . $sign_id_arr[$h] . '" />';

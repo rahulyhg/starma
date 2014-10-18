@@ -15,8 +15,8 @@
 }
 
 .hl_li div.hl_tabs_wrapper {
-  width: 115px;
-  height: 90px;
+  /*width: 115px;
+  height: 90px;*/
   padding-bottom: 5px;
   position: relative;
   border: 1px solid black;
@@ -114,6 +114,11 @@
   display: inline-block;
 }
 
+.hl_icon {
+  width: 181px;
+  height: 151px;
+  background: url('/img/houseTest.png');
+}
 
 /*
 #house_column {
