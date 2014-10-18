@@ -182,7 +182,7 @@ function sendReportUserEmail($sender, $reported_user, $message) {
                 );
   //if (sendMail($send_to, 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_email_domain())) {
   //if (
-   $result = sendTemplateMessage($send_to, 'report test template mandrill', $content, "no-reply@" . get_email_domain())) {
+   $result = sendTemplateMessage($send_to, 'report test template mandrill', $content, "no-reply@" . get_email_domain());
     return $result;
   //}
   //else {
