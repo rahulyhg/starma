@@ -511,15 +511,16 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     //$send_at = '';
     //$result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
     $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
-    return $result;
+    return true;
   }
   catch(Mandrill_Error $e) {
     // Mandrill errors are thrown as exceptions
     echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
     // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
     throw $e;
-    return $e;
+    return false;
   }
+  return false;
   //return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
 }
 
