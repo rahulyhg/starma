@@ -441,13 +441,6 @@
   height: 132px;
 }
 
-#logo_test_img {
-  position: absolute;
-  left: 2%;
-  display: inline-block;
-  top: 5px;
-}
-
 #tagline {
     top: 68px;
     left: 2%;
@@ -468,6 +461,10 @@
   /*background: url('/img/LogoTest2.svg') no-repeat;
   background: url('/img/LogoTest2.png') no-repeat;
   background: url('/img/logoLaterOn.png') no-repeat;*/
+  position: absolute;
+  left: 2%;
+  display: inline-block;
+  top: 5px;
   background: url('/img/logoLaterOnLCL.png') no-repeat;
   width:185px;
   height: 132px;
