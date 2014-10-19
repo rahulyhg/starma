@@ -464,12 +464,16 @@ function sendTemplateReport ($to, $subject, $content, $from) {
     $template_content = array(
         array(
             'name' => 'report_user_msg',
-            'content' => $content,
-            //'name' => 'contact_us',
-            //'content' => $contact_us,
-            //'name' => 'current_year',
-            //'content' => date('Y')
-        )
+            'content' => $content
+        ),
+        array (
+            'name' => 'contact_us',
+            'content' => $contact_us
+        ),
+        array (
+            'name' => 'current_year',
+            'content' => date('Y')
+        )                       
     );
     $message = array(
         'html' => '',
