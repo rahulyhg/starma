@@ -111,8 +111,8 @@ if ($the_left=="nav1") {
     <!--end pop_guest_click-->
 
 <div id="img_preloader">
-
   
+  <img src="/js/ajax_loader_sign_up.gif" />
 
   <img src="/img/Starma-Astrology-SideNav1.png"/>
   <img src="/img/Starma-Astrology-SideNav2.png"/>
