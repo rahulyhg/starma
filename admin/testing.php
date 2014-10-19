@@ -8,7 +8,9 @@ try {
     $template_content = array(
         array(
             'name' => 'username',
-            'content' => 'Matthew'
+            'content' => 'Matthew',
+            'name' => 'click_here',
+            'content' => 'Click here to view it'
         )
     );
     $message = array(
