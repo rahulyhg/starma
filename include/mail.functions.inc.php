@@ -1,7 +1,7 @@
 <?php
 
 ## CONTACT US ##
-$contact_us = 'starma@contact.com';
+$contact_us = 'contact@starma.com';
 
 ##### Mail functions #####
 function email_profile_block ($user_id) {
