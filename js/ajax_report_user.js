@@ -18,7 +18,7 @@ $(document).ready(function(){
 			console.log(data);
 			//alert(data);
 			if(data.success) {
-				$('#report_sent').html('<p>' + data.message + '</p>');
+				$('#report_sent').html('<p>' + data.message + data.sender + data.reported + '</p>');
 				$('#close_report').show();
 			}
 			if (data.errors) {

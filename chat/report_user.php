@@ -19,6 +19,8 @@ if (isLoggedIn()) {
   if (sendReportUserEmail($sender_name, $reported_user, $message)) {
     $data['message'] = 'Your report has been sent.  We will contact you soon if we have any further questions.  Thank you for helping to keep our community safe for everyone.';
     $data['success'] = true;
+    $data['sender'] = $sender_name;
+    $data['reported'] = $reported_user;
   }
   else {
     $data['message'] = 'There was an error reporting this user.  Please try again later or <a href="mailto:contact@starma.com">contact</a> Starma directly.';
