@@ -467,11 +467,11 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     $template_content = array(
         array(
             'name' => 'sender',
-            'content' => $content[0],
+            'content' => $content['sender'],
             'name' => 'reported',
-            'content' => $content[1],
+            'content' => $content['reported'],
             'name' => 'message',
-            'content' => $content[2]
+            'content' => $content['message']
         )
     );
     $message = array(
