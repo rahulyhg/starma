@@ -174,6 +174,7 @@ password:  $newpassword<br>";
  
 }
 
+/*
 function sendReportUserEmail($sender, $reported_user, $message) {
   $send_to = 'mticciati@gmail.com';
   //$content = array(
@@ -189,6 +190,27 @@ function sendReportUserEmail($sender, $reported_user, $message) {
     return false;
   }
 }
+*/
+
+//MANDRILL DYNAMIC CONTENT TEMPLATE TEST!----------------------
+
+function sendReportUserEmail($sender, $reported_user, $message) {
+  $send_to = 'mticciati@gmail.com';
+  $content = array(
+                  'sender' => $sender,
+                  'reported' => $reported_user,
+                  'message' => $message
+                );
+  //if (sendMail($send_to, 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_email_domain())) {
+  if (sendTemplateMessage($send_to, 'report test template mandrill', $content, "no-reply@" . get_email_domain())) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+//END MANDRILL DYNAMIC CONTENT TEST
 
 function sendNewMessageEmail($sender_id, $receiver_id, $message)
 {
@@ -444,12 +466,12 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     $template_name = 'message_test';
     $template_content = array(
         array(
-            //'name' => 'username',
-            //'content' => $content['reciever']
-            //'name' => 'click_here',
-            //'content' => $content['link'],
-            //'name' => 'signature',
-            //'content' => 'The Starma Team'
+            'name' => 'sender',
+            'content' => $content['sender']
+            'name' => 'reported',
+            'content' => $content['reported'],
+            'name' => 'message',
+            'content' => $content['message']
         )
     );
     $message = array(
