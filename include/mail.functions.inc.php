@@ -212,7 +212,7 @@ function sendReportUserEmail($sender, $reported_user, $message) {
 function sendNewMessageEmail($sender_id, $reciever_id, $message) {
  
     $sender = basic_user_data($sender_id);
-    $reciever = basic_user_data($receiver_id);
+    $reciever = basic_user_data($reciever_id);
     $content = array(
                   'reciever' => $reciever['nickname'],
                   'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $reciever_id . '"> Click Here</a>',
