@@ -197,8 +197,8 @@ function sendReportUserEmail($sender, $reported_user, $message) {
 function sendReportUserEmail($sender, $reported_user, $message) {
   $send_to = 'mticciati@gmail.com';
   $content = array(
-                  'sender' => $sender,
-                  'reported' => $reported_user,
+                  'sender_name' => $sender,
+                  'reported_user' => $reported_user,
                   'message' => $message
                 );
   //if (sendMail($send_to, 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_email_domain())) {
@@ -466,10 +466,10 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     $template_name = 'message_test';
     $template_content = array(
         array(
-            'name' => 'sender',
-            'content' => $content['sender'],
-            'name' => 'reported',
-            'content' => $content['reported'],
+            'name' => 'sender_name',
+            'content' => $content['sender_name'],
+            'name' => 'reported_user',
+            'content' => $content['reported_user'],
             'name' => 'message',
             'content' => $content['message']
         )
