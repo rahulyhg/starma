@@ -174,7 +174,7 @@ password:  $newpassword<br>";
  
 }
 
-/*
+
 function sendReportUserEmail($sender, $reported_user, $message) {
   $send_to = 'mticciati@gmail.com';
   //$content = array(
@@ -190,10 +190,10 @@ function sendReportUserEmail($sender, $reported_user, $message) {
     return false;
   }
 }
-*/
+
 
 //MANDRILL DYNAMIC CONTENT TEMPLATE TEST!----------------------
-
+/*
 function sendReportUserEmail($sender, $reported_user, $message) {
   $send_to = 'mticciati@gmail.com';
   $content = array(
@@ -209,7 +209,7 @@ function sendReportUserEmail($sender, $reported_user, $message) {
     return false;
   }
 }
-
+*/
 //END MANDRILL DYNAMIC CONTENT TEST
 
 function sendNewMessageEmail($sender_id, $receiver_id, $message)
