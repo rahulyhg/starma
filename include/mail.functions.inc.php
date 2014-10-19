@@ -1,7 +1,8 @@
 <?php
 
-## CONTACT US ##
+## CONSTANTS ##
 $contact_us = 'contact@starma.com';
+$current_year = date('Y');
 
 ##### Mail functions #####
 function email_profile_block ($user_id) {
@@ -215,7 +216,7 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message) {
     $receiver = basic_user_data($receiver_id);
     $content = array(
                   'receiver' => $receiver['nickname'],
-                  'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $receiver_id . '"> Click Here</a>',
+                  'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $receiver_id . '">Click Here</a>',
                   'sender' => $sender["nickname"]
                 );
     //$message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a> to view it!';
@@ -497,7 +498,7 @@ function sendTemplateReport ($to, $subject, $content, $from) {
         ),
         array (
             'name' => 'current_year',
-            'content' => date('Y')
+            'content' => $current_year
         )                       
     );
     $message = array(
@@ -589,7 +590,11 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
         array (
             'name' => 'link',
             'content' => $content['link']
-        ),                       
+        ), 
+        array (
+            'name' => 'current_year',
+            'content' => $current_year
+        )                      
     );
     $message = array(
         'html' => '',
