@@ -71,6 +71,7 @@ var timer_username;
 				if(data.success) {
 					$('#reg_username_error').hide().removeClass('register_error').addClass('check').text('');
 					$('#reg_username_check').show().text(data.message);
+					$('#reg_err_username_exp').hide();
 					$('#register_username').css('border', '1px solid black');
 					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
 						//if ($('input[name=agreement]').is(':checked')) {
@@ -112,6 +113,7 @@ var timer_username;
 				if(data.success) {
 					$('#reg_birthday_error').hide().removeClass('register_error').addClass('check').text('');
 					$('#reg_birthday_check').show().text(data.message);
+					$('#reg_err_birthday_exp').hide();
 					$('#year').css('border', '1px solid black');
 					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
 						//if ($('input[name=agreement]').is(':checked')) {
@@ -152,6 +154,7 @@ var timer_username;
 				if(data.success) {
 					$('#reg_email_error').hide().removeClass('register_error').addClass('check').text('');
 					$('#reg_email_check').show().text(data.message);
+					$('#reg_err_email_exp').hide();
 					$('#register_email').css('border', '1px solid black');
 					//if(email_error1.hasClass('check')) { 
 					//	$('#reg_email2_error').show().removeClass('register_error').addClass('check').text('');
@@ -235,6 +238,7 @@ var timer_username;
 				if(data.success) {
 					$('#reg_password_error').hide().removeClass('register_error').addClass('check').text('');
 					$('#reg_password_check').show().text(data.message);
+					$('#reg_err_password_exp').hide();
 					$('#register_password').css('border', '1px solid black');
 					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
 						//if ($('input[name=agreement]').is(':checked')) {
