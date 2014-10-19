@@ -4,7 +4,7 @@ require_once('../header.php');
 
 try {
     $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
-    $template_name = 'message_test';
+    $template_name = 'message_mandrill';
     $template_content = array(
         array(
             'name' => 'username',
