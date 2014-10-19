@@ -1,5 +1,8 @@
 <?php
 
+## CONTACT US ##
+$contact_us = 'starma@contact.com';
+
 ##### Mail functions #####
 function email_profile_block ($user_id) {
   $block = '
@@ -192,13 +195,13 @@ function sendReportUserEmail($sender, $reported_user, $message) {
 }
 */
 
-//MANDRILL DYNAMIC CONTENT TEMPLATE TEST!----------------------
+//MANDRILL DYNAMIC CONTENT TEMPLATE ----------------------
 
 function sendReportUserEmail($sender, $reported_user, $message) {
   $send_to = 'mticciati@gmail.com';
   $content = $message;
   
-  if (sendTemplateReport($send_to, 'report test template mandrill', $content, "no-reply@" . get_email_domain())) {
+  if (sendTemplateReport($send_to, 'Reported User', $content, "no-reply@" . get_email_domain())) {
     return true;
   }
   else {
@@ -206,8 +209,30 @@ function sendReportUserEmail($sender, $reported_user, $message) {
   }
 }
 
-//END MANDRILL DYNAMIC CONTENT TEST
+function sendNewMessageEmail($sender_id, $receiver_id, $message) {
+ 
+    $sender = basic_user_data($sender_id);
+    $receiver = basic_user_data($receiver_id);
+    $content = array(
+                  'reciever' => $reciever['nickname'],
+                  //'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a>',
+                  'personal_msg' => $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a> to view it!';
+                );
+    //$message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a> to view it!';
+     
+    if(sendTemplateMessage($receiver["email"], "You have received a new message from " . $sender["nickname"] . "!" , $content, "no-reply@" . get_email_domain())) {
+    
+        return true;
+    } 
+    else {
+        return false;
+    }
+  
+}
 
+//END MANDRILL DYNAMIC CONTENT
+
+/*
 function sendNewMessageEmail($sender_id, $receiver_id, $message)
 {
  
@@ -231,6 +256,7 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message)
  
  
 }
+*/
 
 function sendComparedAlertEmail($user_id, $number)
 {
@@ -454,9 +480,9 @@ function sendMail($to, $subject, $message, $from, $footer="")
    
 }
 
-//TESTING SENDING A TEMPLATE FROM MANDRILL
+//SENDING A TEMPLATE FROM MANDRILL---------------------------------
+
 function sendTemplateReport ($to, $subject, $content, $from) {
-  $contact_us = 'starma@contact.com';
   try {
     $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
     $template_name = 'report user';
@@ -547,7 +573,96 @@ function sendTemplateReport ($to, $subject, $content, $from) {
   //return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
 }
 
-//END TEMPLATE TEST
+function sendTemplateMessage ($to, $subject, $content, $from) {
+  try {
+    $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
+    $template_name = 'personal msg';
+    $template_content = array(
+        array(
+            'name' => 'receiver',
+            'content' => $content['reciever']
+        ),
+        array (
+            'name' => 'personal_msg',
+            'content' => $content['personal_msg']
+        ),                      
+    );
+    $message = array(
+        'html' => '',
+        'text' => '',
+        'subject' => $subject,
+        'from_email' => $from,
+        'from_name' => 'Starma',
+        'to' => array(
+            array(
+                'email' => $to,
+                //'name' => 'Recipient Name',
+                //'type' => 'to'
+            )
+        ),
+        'headers' => array('Reply-To' => $from),
+        'important' => false,
+        'track_opens' => true,
+        'track_clicks' => true,
+        'auto_text' => null,
+        'auto_html' => null,
+        'inline_css' => null,
+        'url_strip_qs' => null,
+        'preserve_recipients' => null,
+        'view_content_link' => null,
+        'bcc_address' => '',
+        'tracking_domain' => null,
+        'signing_domain' => null,
+        'return_path_domain' => null,
+        'merge' => true,
+        'merge_language' => 'mailchimp',
+        'global_merge_vars' => array(
+            array(
+                'name' => 'merge1',
+                'content' => 'merge1 content'
+            )
+        ),
+        'merge_vars' => array(
+            array(
+                'rcpt' => 'recipient.email@example.com',
+                'vars' => array(
+                    array(
+                        'name' => 'merge2',
+                        'content' => 'merge2 content'
+                    )
+                )
+            )
+        ),
+        'tags' => array('personal msg'),
+        //'subaccount' => 'customer-123',
+        'google_analytics_domains' => array(),
+        'google_analytics_campaign' => '',
+        'metadata' => array('website' => ''),
+        'recipient_metadata' => array(),
+        'attachments' => array(),
+        'images' => array()
+    );
+    $async = false;
+    $ip_pool = '';
+    //$send_at = '';
+    //$result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
+    $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
+    return true;
+  }
+  catch(Mandrill_Error $e) {
+    // Mandrill errors are thrown as exceptions
+    echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+    // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+    throw $e;
+    return false;
+  }
+  return false;
+  //return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+}
+
+//END TEMPLATES---------------------------------------
+
+
  
 function sendActivationEmail($email, $nickname, $password, $uid, $actcode)
 {
