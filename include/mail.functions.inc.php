@@ -1,8 +1,8 @@
 <?php
 
 ## CONSTANTS ##
-function CONTACT_US() { 'contact@starma.com'; }
-function CURRENT_YEAR() { date('Y'); }
+function CONTACT_US() { return 'contact@starma.com'; }
+function CURRENT_YEAR() { return date('Y'); }
 
 ##### Mail functions #####
 function email_profile_block ($user_id) {
