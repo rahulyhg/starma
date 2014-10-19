@@ -455,7 +455,6 @@ function sendMail($to, $subject, $message, $from, $footer="")
 }
 
 //TESTING SENDING A TEMPLATE FROM MANDRILL
-
 function sendTemplateReport ($to, $subject, $content, $from) {
   $contact_us = 'starma@contact.com';
   try {
