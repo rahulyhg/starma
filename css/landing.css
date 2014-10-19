@@ -458,8 +458,8 @@
 }
 
 #logo_test_img {
-  background: url('/img/LogoTest2.svg') no-repeat;
-  background: url('/img/LogoTest2.png') no-repeat;
+  /*background: url('/img/LogoTest2.svg') no-repeat;
+  background: url('/img/LogoTest2.png') no-repeat;*/
   background: url('/img/logoLaterOn.png') no-repeat;
   position: absolute;
   left: 2%;
