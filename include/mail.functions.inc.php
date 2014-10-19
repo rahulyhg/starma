@@ -1,8 +1,8 @@
 <?php
 
 ## CONSTANTS ##
-$contact_us = 'contact@starma.com';
-$current_year = date('Y');
+function CONTACT_US() { 'contact@starma.com'; }
+function CURRENT_YEAR() { date('Y'); }
 
 ##### Mail functions #####
 function email_profile_block ($user_id) {
@@ -498,7 +498,7 @@ function sendTemplateReport ($to, $subject, $content, $from) {
         ),
         array (
             'name' => 'current_year',
-            'content' => $current_year
+            'content' => CURRENT_YEAR()
         )                       
     );
     $message = array(
@@ -593,7 +593,7 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
         ), 
         array (
             'name' => 'current_year',
-            'current_year' => $current_year
+            'content' => CURRENT_YEAR()
         )                      
     );
     $message = array(
