@@ -209,13 +209,13 @@ function sendReportUserEmail($sender, $reported_user, $message) {
   }
 }
 
-function sendNewMessageEmail($sender_id, $receiver_id, $message) {
+function sendNewMessageEmail($sender_id, $reciever_id, $message) {
  
     $sender = basic_user_data($sender_id);
-    $receiver = basic_user_data($receiver_id);
+    $reciever = basic_user_data($receiver_id);
     $content = array(
                   'reciever' => $reciever['nickname'],
-                  'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a>',
+                  'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $reciever_id . '"> Click Here</a>',
                   'sender' => $sender["nickname"]
                 );
     //$message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a> to view it!';
