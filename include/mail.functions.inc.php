@@ -215,8 +215,8 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message) {
     $receiver = basic_user_data($receiver_id);
     $content = array(
                   'reciever' => $reciever['nickname'],
-                  //'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a>',
-                  'personal_msg' => $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a> to view it!';
+                  'link' => '<a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a>',
+                  'sender' => $sender["nickname"]
                 );
     //$message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a> to view it!';
      
@@ -582,9 +582,13 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
             'name' => 'receiver',
             'content' => $content['reciever']
         ),
+        array(
+            'name' => 'sender',
+            'content' => $content['sender']
+        ),
         array (
-            'name' => 'personal_msg',
-            'content' => $content['personal_msg']
+            'name' => 'link',
+            'content' => $content['link']
         ),                      
     );
     $message = array(
