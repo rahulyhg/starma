@@ -457,6 +457,7 @@ function sendMail($to, $subject, $message, $from, $footer="")
 //TESTING SENDING A TEMPLATE FROM MANDRILL
 
 function sendTemplateReport ($to, $subject, $content, $from) {
+  $contact_us = 'starma@contact.com';
   try {
     $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
     $template_name = 'report user';
@@ -465,7 +466,7 @@ function sendTemplateReport ($to, $subject, $content, $from) {
             'name' => 'report_user_msg',
             'content' => $content,
             'name' => 'contact_us',
-            'content' => 'starma@gcontact.com',
+            'content' => $contact_us,
             'name' => 'current_year',
             'content' => date('Y')
         )
