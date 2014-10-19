@@ -593,7 +593,7 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
         ), 
         array (
             'name' => 'current_year',
-            'content' => $current_year
+            'current_year' => $current_year
         )                      
     );
     $message = array(
