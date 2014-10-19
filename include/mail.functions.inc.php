@@ -174,7 +174,7 @@ password:  $newpassword<br>";
  
 }
 
-
+/*
 function sendReportUserEmail($sender, $reported_user, $message) {
   $send_to = 'mticciati@gmail.com';
   //$content = array(
@@ -190,26 +190,22 @@ function sendReportUserEmail($sender, $reported_user, $message) {
     return false;
   }
 }
-
+*/
 
 //MANDRILL DYNAMIC CONTENT TEMPLATE TEST!----------------------
-/*
+
 function sendReportUserEmail($sender, $reported_user, $message) {
   $send_to = 'mticciati@gmail.com';
-  $content = array(
-                  'sender_name' => $sender,
-                  'reported_user' => $reported_user,
-                  'message' => $message
-                );
-  //if (sendMail($send_to, 'User ' . $sender . ' is reporting ' . $reported_user, $message, 'no-reply@' . get_email_domain())) {
-  if (sendTemplateMessage($send_to, 'report test template mandrill', $content, "no-reply@" . get_email_domain())) {
-    return $content;
+  $content = $message;
+  
+  if (sendTemplateReport($send_to, 'report test template mandrill', $content, "no-reply@" . get_email_domain())) {
+    return true;
   }
   else {
     return false;
   }
 }
-*/
+
 //END MANDRILL DYNAMIC CONTENT TEST
 
 function sendNewMessageEmail($sender_id, $receiver_id, $message)
@@ -460,18 +456,14 @@ function sendMail($to, $subject, $message, $from, $footer="")
 
 //TESTING SENDING A TEMPLATE FROM MANDRILL
 
-function sendTemplateMessage ($to, $subject, $content, $from) {
+function sendTemplateReport ($to, $subject, $content, $from) {
   try {
     $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
-    $template_name = 'message_test';
+    $template_name = 'report user';
     $template_content = array(
         array(
-            'name' => 'sender_name',
-            'content' => $content['sender_name'],
-            'name' => 'reported_user',
-            'content' => $content['reported_user'],
             'name' => 'message',
-            'content' => $content['message']
+            'content' => $content
         )
     );
     $message = array(
@@ -520,7 +512,7 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
                 )
             )
         ),
-        'tags' => array('test_template'),
+        'tags' => array('report user'),
         //'subaccount' => 'customer-123',
         'google_analytics_domains' => array(),
         'google_analytics_campaign' => '',
