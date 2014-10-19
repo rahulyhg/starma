@@ -462,7 +462,7 @@ function sendTemplateReport ($to, $subject, $content, $from) {
     $template_name = 'report user';
     $template_content = array(
         array(
-            'name' => 'message',
+            'name' => 'report_user_message',
             'content' => $content
         )
     );
