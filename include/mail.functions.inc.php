@@ -467,8 +467,8 @@ function sendTemplateReport ($to, $subject, $content, $from) {
             'content' => $content,
             //'name' => 'contact_us',
             //'content' => $contact_us,
-            //'name' => 'current_year',
-            //'content' => date('Y')
+            'name' => 'current_year',
+            'content' => date('Y')
         )
     );
     $message = array(
