@@ -589,7 +589,7 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
         array (
             'name' => 'link',
             'content' => $content['link']
-        ),                      
+        ),                       
     );
     $message = array(
         'html' => '',
