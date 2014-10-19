@@ -69,7 +69,7 @@
 }
 */
 #landing {
-  min-width: 1150px;
+  /*min-width: 900px;*/
   margin: 0 auto;
 }
 
@@ -118,9 +118,10 @@
   display: inline-block;
   font-size: 0.8em;
   position: relative;
-  top: 445px;
-  left: -1px;
-  /*width: 454px;*/
+  /*top: 445px;*/
+  left: 50%;
+  width: 455px;
+  margin-left: -228px;
 }
 
 #landing_footer #footer_links {
@@ -132,7 +133,6 @@
     list-style-type: none;
     margin: auto;
     padding: 0;
-    width: 1200px;
 }
 
 #landing_footer #footer_links ul li {
@@ -437,19 +437,20 @@
 
 #logo_test {
   width: 100%;
-  min-width: 1200px; 
+  min-width: 900px; 
+  height: 132px;
 }
 
 #logo_test_img {
-  position: relative;
-  left:  2% ;
+  position: absolute;
+  left: 2%;
   display: inline-block;
   top: 5px;
 }
 
 #tagline {
-    bottom: 51px;
-    right: 40px;
+    top: 68px;
+    left: 2%;
     display: inline-block;
     /*color: #e7ebee;   
     font-family: "later_on";
@@ -457,34 +458,40 @@
     font-weight: bold;
     left: -34px;
     letter-spacing: 4px;*/
-    position: relative;
+    position: absolute;
     background: url('/img/Starma-Astrology-Tagline.png') no-repeat;
     width: 375px;
     height: 23px;
 }
 
 #logo_test_img {
-  background: url('/img/LogoTest2.svg') no-repeat;
+  /*background: url('/img/LogoTest2.svg') no-repeat;
   background: url('/img/LogoTest2.png') no-repeat;
-  width:300px;
+  background: url('/img/logoLaterOn.png') no-repeat;*/
+  background: url('/img/logoLaterOnLCL.png') no-repeat;
+  width:185px;
   height: 132px;
-  background-size: 300px 132px;
 }
 
 
 /***************************************  LANDING LOGIN  ****************************************/
 
 #globe_and_footer {
-  margin: -36px auto auto;
-  width: 455px;
+  /*margin: -36px auto auto;
+  width: 455px;*/
+  
 }
 
 
 #globe_landing {
-  position: absolute;
+  position: relative;
   height: 376px;
   width: 376px;
-  margin-left: 19px;
+  /*margin: -1% 0 0 33%;*/
+  top: -2%;
+  left: 50%;
+  margin-left: -188px;
+  /*margin-left: 19px;*/
   padding: 20px;
   /*border-radius: 500px;*/
   background: url('/img/globeLanding.png') no-repeat;
@@ -515,7 +522,7 @@
   float: right;
   position: relative;
   right: 2%;
-  top: 44px;
+  top: 51px;
 }
 
 #forgot_password_landing {

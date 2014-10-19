@@ -72,15 +72,16 @@ if (isLoggedIn())
     echo '</div>';
   echo '</div>'; //Close logo_test
 
-  echo '<div style="width:100%; min-width:1150px;">';  //<!-- main page container -->
+  //echo '<div style="width:100%; min-width:900px;">';  //<!-- main page container -->
   
-  echo '<div style="position:absolute; width:100%;">';
-  echo '<div id="globe_and_footer">';
+  //echo '<div style="position:absolute; width:100%;">';
+  //echo '<div id="globe_and_footer">';
     echo '<div id="globe_landing">';
       echo '<div id="landing_sign_up_box">';
         show_sign_up_box_landing();
         show_registration_box_landing();
       echo '</div>';
+
     echo '</div>'; //close globe_landing
 
     echo '<div id="landing_footer">
@@ -93,28 +94,32 @@ if (isLoggedIn())
               <li><a href="mailto:contact@starma.com" title="contact@starma.com">Contact</a></li>
             </ul>
           </div>
-        </div>';
-  echo '</div>'; // <!-- Close globe_and_footer -->
+          </div>';
 
-  echo '</div>';
+  //echo '</div>'; // <!-- Close globe_and_footer -->
+
+  //echo '</div>'; // Close wierd div
 
 
 
-  echo '<div id="explore_container">
-          <div id="feet_bug"><a href="/guest/main.php"><span class="div_link"></span></a></div>
-          <div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>
-        </div>';
+  //echo '<div id="explore_container">
+    //      <div id="feet_bug"><a href="/guest/main.php"><span class="div_link"></span></a></div>
+      //    <div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>
+        //</div>';
 
   echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
   echo '<script type="text/javascript" src="/js/ajax_forgot_password.js"></script>';
 
-
+  echo '<div id="explore_container">
+              <div id="feet_bug"><a href="/guest/main.php"><span class="div_link"></span></a></div>
+              <div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>
+            </div>';
   
 
-  echo '<div id="planet"><img src="/img/planet.png" /></div>
+  echo '<div id="planet"><img src="/img/planet.png" /></div>';
 
 
-</div> <!-- Close main page container -->';
+  echo '</div>'; //close main container
 
   
   //show_bugaboos();
@@ -167,6 +172,8 @@ if (isLoggedIn())
 
 
 </div> --> <!-- Close main page container -->
+
+</div>  <!-- Close main landing -->
   
 <?php 
   //require_once ("landing_footer.php"); 
