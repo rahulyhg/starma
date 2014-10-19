@@ -463,7 +463,11 @@ function sendTemplateReport ($to, $subject, $content, $from) {
     $template_content = array(
         array(
             'name' => 'report_user_msg',
-            'content' => $content
+            'content' => $content,
+            'name' => 'contact_us',
+            'content' => 'starma@gcontact.com',
+            'name' => 'current_year',
+            'content' => date('Y')
         )
     );
     $message = array(
