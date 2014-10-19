@@ -220,7 +220,7 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message) {
                 );
     //$message = $receiver["nickname"] . ' - <Br><Br>' . $sender["nickname"] . ' has sent you a personal message on Starma.com.  <a href="' . get_full_domain () . '/main.php?the_page=isel&the_left=nav1&other_user_id=' . $sender_id . '">Click Here</a> to view it!';
      
-    if(sendTemplateMessage($receiver["email"], "You have received a new message from " . $sender["nickname"] . "!" , $content, "no-reply@" . get_email_domain())) {
+    if(sendTemplateMessage($receiver["email"], $sender["nickname"] . " sent you a message on Starma!" , $content, "no-reply@" . get_email_domain())) {
     
         return true;
     } 
