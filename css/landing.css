@@ -459,13 +459,13 @@
 
 #logo_test_img {
   /*background: url('/img/LogoTest2.svg') no-repeat;
-  background: url('/img/LogoTest2.png') no-repeat;*/
-  background: url('/img/logoLaterOn.png') no-repeat;
+  background: url('/img/LogoTest2.png') no-repeat;
+  background: url('/img/logoLaterOn.png') no-repeat;*/
   position: absolute;
   left: 2%;
   display: inline-block;
   top: 5px;
-  /*background: url('/img/logoLaterOnLCL.png') no-repeat;*/
+  background: url('/img/logoLaterOnLCL.png') no-repeat;
   width:185px;
   height: 132px;
 }
