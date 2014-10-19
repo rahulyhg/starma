@@ -579,7 +579,7 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
     $template_name = 'personal msg';
     $template_content = array(
         array(
-            'name' => 'receiver',
+            'name' => 'reciever',
             'content' => $content['reciever']
         ),
         array(
