@@ -70,6 +70,7 @@ $(document).ready(function(){
 					$('#reg_username_error').show().removeClass('register_error').addClass('check').text('');
 					$('#register_username').css('border', '1px solid black');
 					$('#reg_username_check').show().text(data.message);
+					$('#reg_err_username_exp_g').hide();
 					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
 						//if ($('input[name=agreement]').is(':checked')) {
 							$('#register_submit').css({
@@ -111,6 +112,7 @@ $(document).ready(function(){
 					$('#reg_birthday_error').show().removeClass('register_error').addClass('check').text('');
 					$('#year').css('border', '1px solid black');
 					$('#reg_birthday_check').show().text(data.message);
+					$('#reg_err_birthday_exp_g').hide();
 					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
 						//if ($('input[name=agreement]').is(':checked')) {
 							$('#register_submit').css({
@@ -151,6 +153,7 @@ $(document).ready(function(){
 					$('#reg_email_error').show().removeClass('register_error').addClass('check').text('');
 					$('#register_email').css('border', '1px solid black');
 					$('#reg_email_check').show().text(data.message);
+					$('#reg_err_email_exp_g').hide();
 					//if(email_error1.hasClass('check') && (email1 == email2)) { 
 					//	$('#reg_email2_error').show().removeClass('register_error').addClass('check').text('');
 					//}
@@ -235,6 +238,7 @@ $(document).ready(function(){
 					$('#reg_password_error').show().removeClass('register_error').addClass('check').text('');
 					$('#register_password').css('border', '1px solid black');
 					$('#reg_password_check').show().text(data.message);
+					$('#reg_err_password_exp_g').hide();
 					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
 						//if ($('input[name=agreement]').is(':checked')) {
 							$('#register_submit').css({
