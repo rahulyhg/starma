@@ -494,7 +494,7 @@ function sendTemplateReport ($to, $subject, $content, $from) {
         ),
         array (
             'name' => 'contact_us',
-            'content' => $contact_us
+            'content' => CONTACT_US()
         ),
         array (
             'name' => 'current_year',
@@ -594,6 +594,10 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
         array (
             'name' => 'current_year',
             'content' => CURRENT_YEAR()
+        ),
+        array (
+            'name' => 'contact_us',
+            'content' => CONTACT_US()
         )                      
     );
     $message = array(
