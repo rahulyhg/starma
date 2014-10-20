@@ -5121,7 +5121,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
   //BUILD HOUSE LORDS WITH ABOVE VARIABLES------------------------
     echo '<div id="profile_house_lords">';
 
-
+    /*
       echo '<div id="hl_scroll">';
         echo '<div id="hl_scroll_container">';
           echo '<div id="hl_prev">< Previous</div>';
@@ -5129,6 +5129,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
           echo '<div id="hl_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close hl_scroll
+    */
 
       echo '<form name="hl_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id_e" value="' . $chart_id . '"/>'; //FOR CHART SUBMIT
@@ -5138,12 +5139,13 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
       //if (my_chart_flag() == 1) {
       //  show_circle_and_arrow_hilite("down");
       //}
+      /*
 
     //LEFT SIDE-----------------------
       echo '<div class="hl_tabs left_side"/>';
       echo '<ul>';
       for ($h=1; $h < 7; $h++) {
-        
+      //for ($h=1; $h < 13; $h++)  {
           //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
           echo '<li class="hl_li ' . $h . ' ';
             if ($h == 1) {
@@ -5171,7 +5173,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
       echo '<div class="hl_tabs right_side"/>';
       echo '<ul>';
       for ($h=7; $h < 13; $h++) {
-        
+      //for ($h=1; $h < 13; $h++)  {  
           //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
           echo '<li class="hl_li ' . $h . '">';
           echo '<div class="hl_tabs_wrapper">';
@@ -5190,7 +5192,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
       }
       echo '</ul>';
       echo '</div>';
-
+  
       echo '<div id="blurb">';
         echo '<span id="rising_sign_id_err></span>';
         echo '<span id="house_id_err"></span>';
@@ -5201,11 +5203,63 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
           else {
             //H1 - PALENQUIN - H2 PIC GOES HERE
             //BLURB GOES HERE
-            echo get_house_ruler_blurb($rising_sign_id, 1, $house_of_res_arr[1]);
-            //show_poi_info($poi_id, $chart_id, $sign_id);
-            //show_poi_sign_blurb ($poi_id, $sign_id);
+            //echo get_house_ruler_blurb($rising_sign_id, 1, $house_of_res_arr[1]);
+            //echo '<div width="350px"><div id="palenquin_stars"></div></div>';
           }
       echo '</div>';//close blurb
+    */
+
+
+
+
+     //TEST TEST TEST 
+    echo '<div class="hl_nav_wrapper">';
+      //echo '<ul>';
+     for ($h=1; $h < 13; $h++) {
+      //for ($h=1; $h < 13; $h++)  {  
+          //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+          //echo '<li class="hl_li ' . $h . '">';
+          //echo '<div class="hl_tabs_wrapper">';
+
+          
+          //echo '<span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span>';
+          //echo '</div>';
+
+        echo '<div class="hl_icon pointer"></div>';
+        //echo '<div class="later_on hl_nav pointer">' . $h . '</div>';
+          /*if($h == 1) {
+            echo 'st';
+          }
+          elseif ($h == 2) {
+            echo 'nd';
+          }
+          elseif ($h == 3) {
+            echo 'rd';
+          }
+          else {
+            echo 'th';
+          }*/
+        //echo '</div>';
+          //echo '<div class="hl_icon left pointer"></div>';
+          //echo '<div class="hl_exp">Hello</div>';
+        
+          //echo '<div id="palenquin_stars"></div>'; 
+          //echo '<div class="hl_icon left pointer"></div>';
+          /*
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
+          echo '<input type="hidden" name="sign_id" value="' . $sign_id_arr[$h] . '" />';
+          echo '<input type="hidden" name="ruler_of_sign" value="' . $ruler_of_sign_arr[$h] . '" />';
+          echo '<input type="hidden" name="sign_of_res" value="' . $sign_of_res_arr[$h] . '" />';
+          echo '<input type="hidden" name="house_of_res" value="' . $house_of_res_arr[$h] . '" />'*/
+
+          //echo '</div>'; //close wrapper
+          //echo '</li>';
+      }
+    echo '</div>';
+     // echo '</ul>';
+  //TEST END TEST END TEST END
+
+
 
     echo '</div>'; //starma_house_lords
     echo '</form>';

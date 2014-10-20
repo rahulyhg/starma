@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+//HOUSE LORD UI
+
+$('.hl_nav_wrapper').mouseenter(function() {
+	$(this).children('.hl_exp').show();
+});
+$('.hl_nav_wrapper').mouseleave(function() {
+	$(this).children('.hl_exp').hide();
+});
 
 //SUBMIT FROM LI------------------------------
 

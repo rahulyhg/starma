@@ -19,7 +19,7 @@
   height: 90px;*/
   padding-bottom: 5px;
   position: relative;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 .hl_li .selected {
@@ -27,14 +27,15 @@
 }
 
 #starma_house_lords #blurb {
-    background: white;
-    border: 2px solid #2c3447;
-    height: 460px;
+    background: none;
+    /*border: 2px solid #2c3447;*/
+    /*height: 460px;*/
     margin-left: auto;
     margin-right: auto;
     overflow-y: scroll;
     text-align: left;
     width: 510px;
+    padding: 10px;
 }
 
 #starma_house_lords #hl_info {
@@ -84,7 +85,7 @@
 }
 
 #starma_house_lords #blurb {
-  padding: 10px;
+  
 }
 
 #palenquin_wrapper {
@@ -107,19 +108,44 @@
 }
 
 #palenquin_stars {
-  width: 292px;
+  width: 392px;
   height: 88px;
   background: url('/img/palenquinStars.png') no-repeat;
   margin: auto;
+  margin-left: 15px;
   display: inline-block;
+  float: left;
+}
+
+.hl_nav_wrapper {
+  /*display: inline-block;*/
+  width: 600px;
+  margin: auto auto;
+  margin-bottom: 240px;
+}
+
+.hl_nav {
+  margin-left: 23px;
+  display: inline-block;
+  font-size: 2em;
 }
 
 .hl_icon {
-  width: 181px;
-  height: 151px;
-  background: url('/img/houseTest.png');
+  /*width: 181px;
+  height: 151px;*/
+  margin-left: 10px;
+  width: 36px;
+  height: 46px;
+  background: url('/img/houseTest.png') no-repeat;
+  /*float: left;*/
+  display: inline-block;
 }
 
+.hl_exp {
+  display: none;
+  position: relative;
+  left: 7px;
+}
 /*
 #house_column {
   display: inline-block;
