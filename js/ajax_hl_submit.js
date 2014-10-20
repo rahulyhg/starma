@@ -9,6 +9,56 @@ $('.hl_nav_wrapper').mouseleave(function() {
 	$(this).children('.hl_exp').hide();
 });
 
+
+
+$('.hl_icon_nav').click(function(event){
+	//event.preventDefault();
+	var hl_data = {
+		'rising_sign_id'   :   $('input[name=rising_sign_id]').val(),
+		'house_id'         :   $(this).children('.pass_house_id').val(),	
+		'chart_id'   	   :   $('input[name=chart_id_e]').val(),			
+		'house_of_res'     :   $(this).children('input[name=house_of_res]').val()
+	};
+		
+			
+	$.ajax({
+		type: 'POST',
+		url: 'chat/houses_submit.php',
+		data: hl_data,
+		dataType: 'json',
+
+	})
+	.done(function(data){
+		if (data.errors) {
+			$('#hl_iconL').hide();
+			$('#hl_iconL').hide();
+			if (data.errors.rising_sign_id) {
+				$('#hl_blurb').text(data.errors.rising_sign_id);
+			}
+			if (data.errors.house_id) {
+				$('#hl_blurb').text(data.errors.house_id);
+			}
+			if (data.errors.house_of_res) {
+				$('#hl_blurb').text(data.errors.house_of_res);
+			}
+		}
+		if (!data.errors) {
+			$('#hl_blurb').text(data.blurb);
+			$('#hl_iconL').html('<img src="/img/houseIcon_' + data.house_id + '.png" />');
+			$('#hl_iconL').html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />');
+		}
+	});
+
+});
+
+
+
+
+/*
+//OLD WAY-------------------------------------------------
+
+
+
 //SUBMIT FROM LI------------------------------
 
 	$('.hl_li').click(function(){
@@ -242,6 +292,8 @@ $('.hl_nav_wrapper').mouseleave(function() {
 				$('.next').children().children('.arrow').addClass('arrow_right_on');
 			}
 	});
+*/
 
 
+//END OLD WAY------------------------------------------------------^
 });
