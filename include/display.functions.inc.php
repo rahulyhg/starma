@@ -879,7 +879,7 @@ function show_photo_cropper($photo_to_crop) {
   //$img_name = str_replace('\'', '', $photo_to_crop["picture"]);
   $img_name = $photo_to_crop["picture"];
   echo '<div class="photo_cropper_content">';
-    echo '<div id="zoom">- Zoom +' . $img_name . '</div>';
+    echo '<div id="zoom">Use scrollbar to zoom</div>';
     echo '<div class="cropSlider"></div>';
     echo '<div id="rotate">';
       echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
@@ -1336,6 +1336,9 @@ function upload_photo_form() {
     Upload Photo: <input type="file" name="image" /><input type="submit" value="Upload" name="action" />
     </form>
   </div>';
+  if (isset($_GET['error']) == 3) {
+    echo '<div style="color:#C82923; position:relative; left:524px; bottom: 58px;">No file selected</div>';
+  }
   echo '<div style="">
     Click on a photo to set it as your profile picture.
   </div>';
@@ -6655,7 +6658,7 @@ function show_photo_cropper_sign_up($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];
   $img_name = $photo_to_crop["picture"];
   echo '<div class="photo_cropper_content">';
-    echo '<div id="zoom">- Zoom +</div>';
+    echo '<div id="zoom">Use scroll bar to zoom</div>';
     echo '<div class="cropSlider"></div>';
     echo '<div id="rotate">';
       echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
