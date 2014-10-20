@@ -879,7 +879,7 @@ function show_photo_cropper($photo_to_crop) {
   //$img_name = str_replace('\'', '', $photo_to_crop["picture"]);
   $img_name = $photo_to_crop["picture"];
   echo '<div class="photo_cropper_content">';
-    echo '<div id="zoom">- Zoom +' . $img_name . '</div>';
+    echo '<div id="zoom">Use scrollbar to zoom</div>';
     echo '<div class="cropSlider"></div>';
     echo '<div id="rotate">';
       echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';
@@ -1336,6 +1336,9 @@ function upload_photo_form() {
     Upload Photo: <input type="file" name="image" /><input type="submit" value="Upload" name="action" />
     </form>
   </div>';
+  if (isset($_GET['error']) == 3) {
+    echo '<div style="color:#C82923; position:relative; left:524px; bottom: 58px;">No file selected</div>';
+  }
   echo '<div style="">
     Click on a photo to set it as your profile picture.
   </div>';
@@ -5121,7 +5124,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
   //BUILD HOUSE LORDS WITH ABOVE VARIABLES------------------------
     echo '<div id="profile_house_lords">';
 
-
+    /*
       echo '<div id="hl_scroll">';
         echo '<div id="hl_scroll_container">';
           echo '<div id="hl_prev">< Previous</div>';
@@ -5129,6 +5132,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
           echo '<div id="hl_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close hl_scroll
+    */
 
       echo '<form name="hl_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id_e" value="' . $chart_id . '"/>'; //FOR CHART SUBMIT
@@ -5138,12 +5142,18 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
       //if (my_chart_flag() == 1) {
       //  show_circle_and_arrow_hilite("down");
       //}
+      /*
+
+
+//OLD WAY--------------------------------
+
+
 
     //LEFT SIDE-----------------------
       echo '<div class="hl_tabs left_side"/>';
       echo '<ul>';
       for ($h=1; $h < 7; $h++) {
-        
+      //for ($h=1; $h < 13; $h++)  {
           //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
           echo '<li class="hl_li ' . $h . ' ';
             if ($h == 1) {
@@ -5171,7 +5181,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
       echo '<div class="hl_tabs right_side"/>';
       echo '<ul>';
       for ($h=7; $h < 13; $h++) {
-        
+      //for ($h=1; $h < 13; $h++)  {  
           //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
           echo '<li class="hl_li ' . $h . '">';
           echo '<div class="hl_tabs_wrapper">';
@@ -5190,7 +5200,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
       }
       echo '</ul>';
       echo '</div>';
-
+  
       echo '<div id="blurb">';
         echo '<span id="rising_sign_id_err></span>';
         echo '<span id="house_id_err"></span>';
@@ -5201,11 +5211,78 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
           else {
             //H1 - PALENQUIN - H2 PIC GOES HERE
             //BLURB GOES HERE
-            echo get_house_ruler_blurb($rising_sign_id, 1, $house_of_res_arr[1]);
-            //show_poi_info($poi_id, $chart_id, $sign_id);
-            //show_poi_sign_blurb ($poi_id, $sign_id);
+            //echo get_house_ruler_blurb($rising_sign_id, 1, $house_of_res_arr[1]);
+            //echo '<div width="350px"><div id="palenquin_stars"></div></div>';
           }
       echo '</div>';//close blurb
+    */
+
+
+//END OLD WAY------------------------------------^
+
+
+     //NEW WAY
+    echo '<div class="hl_nav_wrapper">';
+      //echo '<ul>';
+     for ($h=1; $h < 13; $h++) {
+      //for ($h=1; $h < 13; $h++)  {  
+          //$button_sign_id = get_sign_from_poi ($chart_id, $poi["poi_id"]);
+          //echo '<li class="hl_li ' . $h . '">';
+          //echo '<div class="hl_tabs_wrapper">';
+
+          
+          //echo '<span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span>';
+          //echo '</div>';
+
+        echo '<div class="hl_icon_nav pointer">';
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
+          echo '<input type="hidden" name="sign_id" value="' . $sign_id_arr[$h] . '" />';
+          echo '<input type="hidden" name="ruler_of_sign" value="' . $ruler_of_sign_arr[$h] . '" />';
+          echo '<input type="hidden" name="sign_of_res" value="' . $sign_of_res_arr[$h] . '" />';
+          echo '<input type="hidden" name="house_of_res" value="' . $house_of_res_arr[$h] . '" />';
+        echo '</div>';
+        //echo '<div class="later_on hl_nav pointer">' . $h . '</div>';
+          /*if($h == 1) {
+            echo 'st';
+          }
+          elseif ($h == 2) {
+            echo 'nd';
+          }
+          elseif ($h == 3) {
+            echo 'rd';
+          }
+          else {
+            echo 'th';
+          }*/
+        //echo '</div>';
+          //echo '<div class="hl_icon left pointer"></div>';
+          //echo '<div class="hl_exp">Hello</div>';
+        
+          //echo '<div id="palenquin_stars"></div>'; 
+          //echo '<div class="hl_icon left pointer"></div>';
+          /*
+          echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
+          echo '<input type="hidden" name="sign_id" value="' . $sign_id_arr[$h] . '" />';
+          echo '<input type="hidden" name="ruler_of_sign" value="' . $ruler_of_sign_arr[$h] . '" />';
+          echo '<input type="hidden" name="sign_of_res" value="' . $sign_of_res_arr[$h] . '" />';
+          echo '<input type="hidden" name="house_of_res" value="' . $house_of_res_arr[$h] . '" />'*/
+
+          //echo '</div>'; //close wrapper
+          //echo '</li>';
+      }
+    echo '</div>';
+     // echo '</ul>';
+    echo '<div id="hl_scroll_container">';
+      echo '<div id="hl_scroll">';
+        echo '<div id="hl_prev"></div><div id="hl_next"></div>';
+      echo '</div>';
+    echo '</div>';
+
+    show_hl_results();
+
+  //END NEW WAY
+
+
 
     echo '</div>'; //starma_house_lords
     echo '</form>';
@@ -5214,9 +5291,11 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
 
   }    
   else {  //RISING SIGN EQUALS -1 -------------------------
+
+
     echo '<div id="profile_house_lords">';
 
-
+    /*
       echo '<div id="hl_scroll">';
         echo '<div id="hl_scroll_container">';
           echo '<div id="hl_prev">< Previous</div>';
@@ -5224,7 +5303,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
           echo '<div id="hl_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close hl_scroll
-
+  */
       echo '<form name="hl_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id_e" value="' . $chart_id . '"/>'; //FOR CHART SUBMIT
       echo '<input type="hidden" name="rising_sign_id" value="' . $rising_sign_id . '"/>'; //FOR CHART SUBMIT
@@ -5233,7 +5312,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
       //if (my_chart_flag() == 1) {
       //  show_circle_and_arrow_hilite("down");
       //}
-
+  /*
     //LEFT SIDE-----------------------
       echo '<div class="hl_tabs left_side"/>';
       echo '<ul>';
@@ -5300,6 +5379,7 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
             //show_poi_sign_blurb ($poi_id, $sign_id);
           }
       echo '</div>';//close blurb
+    */
 
     echo '</div>'; //starma_house_lords
     echo '</form>';
@@ -5307,6 +5387,17 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
     echo '</div>';  //close #profile_house_lords
   }
 
+}
+
+function show_hl_results () {
+  echo '<div id="hl_results_container">';
+    echo '<div id="hl_iconL" class="pointer"></div>';
+    echo '<div id="palenquin_wrapper">';
+      echo '<div id="palenquin_stars" class="pointer"></div>';
+    echo '</div>';
+    echo '<div id="hl_iconR" class="pointer"></div>';
+  echo '</div>'; //close hl_results_container
+  echo '<div id="hl_blurb">When the Ruling Planet of your 4th House occupies your 7th House, you derive happiness from partnership, whether the partnership be romantic, friendly or business related.  This placement also shows a strong relationship with and influence from the mother. If you have a Capricorn Rising, you may have a harder time in these areas of life.</div>';
 }
 
 //////////////////ENDMATT
@@ -6601,7 +6692,7 @@ function show_photo_cropper_sign_up($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];
   $img_name = $photo_to_crop["picture"];
   echo '<div class="photo_cropper_content">';
-    echo '<div id="zoom">- Zoom +</div>';
+    echo '<div id="zoom">Use scroll bar to zoom</div>';
     echo '<div class="cropSlider"></div>';
     echo '<div id="rotate">';
       echo '<input id="rotate_left" type="submit" name="submit" value="<- Rotate"/>';

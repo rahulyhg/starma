@@ -36,7 +36,7 @@ if (sign_up_process_done()) {
                   show_3_words_photo_box();
                 }
             	}
-            	elseif (isset($_GET['2_5'])) {	
+            	elseif (isset($_GET['2_5'])) {
                 if (get_my_location() == "" || get_my_gender() == 'U') {
                   do_redirect( $url = get_domain() . '/sign_up.php?1');
                 }
@@ -127,7 +127,7 @@ if (sign_up_process_done()) {
       <li class="compare_link"><a title="Community" href="#"><span>community</span></a></li>
       <li class="celeb_link"><a title="Celebrities" href="#"><span>celebrities</span></a></li>
       <li class="inbox_link"><a title="Inbox" href="#"><span>inbox</span></a></li>
-      <li class="mail_area"><img src="/img/Starma-Astrology-Search.png"/></li>
+      <!--<li class="mail_area"><img src="/img/Starma-Astrology-Search.png"/></li>-->
     </ul>
      <div id="fake_invite">Invite a Friend</div>
   </div>

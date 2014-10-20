@@ -18,9 +18,9 @@ if (login_check_point($type="full")) {
 
   $unc_photos = uncropped_photos(get_my_user_id());
   if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
-      echo '<div style="position:relative; top:3px">';
-        flare_title ("Crop Your Photo");
-      echo '</div>';
+      //echo '<div style="position:relative; top:3px">';
+        //flare_title ("Crop Your Photo");
+      //echo '</div>';
         
       echo '<div id="photo_cropper">';
         echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
@@ -90,8 +90,8 @@ if (login_check_point($type="full")) {
           require('chart.php');
         }
         elseif($section =='houses_selected') {
-          require('houses.php');
-          //echo '<div style="height:300px;">Coming Soon...</div>';
+          //require('houses.php');
+          echo '<div style="height:300px;">Coming Soon...</div>';
         }
         elseif ($section == 'photos_selected') {
           require('photos.php');

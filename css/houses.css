@@ -19,7 +19,7 @@
   height: 90px;*/
   padding-bottom: 5px;
   position: relative;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 .hl_li .selected {
@@ -27,14 +27,15 @@
 }
 
 #starma_house_lords #blurb {
-    background: white;
-    border: 2px solid #2c3447;
-    height: 460px;
+    background: none;
+    /*border: 2px solid #2c3447;*/
+    /*height: 460px;*/
     margin-left: auto;
     margin-right: auto;
     overflow-y: scroll;
     text-align: left;
     width: 510px;
+    padding: 10px;
 }
 
 #starma_house_lords #hl_info {
@@ -48,7 +49,7 @@
 .hl_tabs ul {
   margin-top: 0;
 }
-
+/*
 #hl_scroll {
   position: relative;
   margin-top: -12px;
@@ -60,6 +61,7 @@
   margin-left: 129px;
   width: 472px;
 }
+
 
 #hl_prev {
   display: none;
@@ -82,15 +84,64 @@
   font-weight: bold;
   letter-spacing: 2px;
 }
+*/
 
-#starma_house_lords #blurb {
-  padding: 10px;
-}
-
-#palenquin_wrapper {
+#hl_scroll_container {
   width: 100%;
-  margin-bottom: 35px;
+  margin-top: 10px;
 }
+
+#hl_scroll {
+  width: 260px;
+  margin: auto; 
+}
+
+#hl_prev {
+  background: url('/img/houseArrowPrev.png') no-repeat;
+  width: 114px;
+  height: 21px;
+  display: inline-block;
+  margin-right: 30px;
+}
+
+#hl_next {
+  background: url('/img/houseArrowNext.png') no-repeat;
+  width: 114px;
+  height: 21px;
+  display: inline-block;
+}
+
+
+.hl_nav_wrapper {
+  /*display: inline-block;*/
+  width: 600px;
+  margin: auto auto;
+  /*margin-bottom: 240px;*/
+}
+
+.hl_nav {
+  margin-left: 23px;
+  display: inline-block;
+  font-size: 2em;
+}
+
+.hl_icon_nav {
+  /*width: 181px;
+  height: 151px;*/
+  margin-left: 10px;
+  width: 36px;
+  height: 46px;
+  background: url('/img/houseTest.png') no-repeat;
+  /*float: left;*/
+  display: inline-block;
+}
+
+.hl_exp {
+  display: none;
+  position: relative;
+  left: 7px;
+}
+
 
 #house_pic_test_left {
   height: 88px;
@@ -106,18 +157,64 @@
   border: 1px solid black;
 }
 
+#hl_results_container {
+  width: 100%;
+  margin-top: 30px;
+  height: 177px;
+}
+
+#hl_iconL {
+  /*width: 181px;
+  height: 151px;*/
+  width: 135px;
+  height: 177px;
+  /*background: url('/img/houseIcon.png') no-repeat;*/
+  float: left;
+  display: inline-block;
+}
+
+#hl_iconR {
+  /*width: 181px;
+  height: 151px;*/
+  width: 135px;
+  height: 177px;
+  /*background: url('/img/houseIcon.png') no-repeat;*/
+  float: right;
+  display: inline-block;
+}
+/*
+.hl_icon_1 {
+  background: url('/img/houseIcon.png') no-repeat;
+  width: 135px;
+  height: 177px;
+}
+*/
+#palenquin_wrapper {
+  width: 500px;
+  display: inline-block;
+  /*margin-bottom: 35px;*/
+}
+
 #palenquin_stars {
   width: 292px;
   height: 88px;
   background: url('/img/palenquinStars.png') no-repeat;
   margin: auto;
+  /*margin-left: 107px;
+  margin-right: 77px;*/
   display: inline-block;
+  /*float: left;*/
+  margin-left: 110px;
 }
 
-.hl_icon {
-  width: 181px;
-  height: 151px;
-  background: url('/img/houseTest.png');
+#hl_blurb {
+  width: 435px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  line-height: 125%;
+  letter-spacing: .05px;
+  position: relative;
+  top: -41px;
 }
 
 /*

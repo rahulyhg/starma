@@ -110,6 +110,7 @@ We deeply appreciate your participation and support, and we warmly welcome you t
 }
 
 //MATT INVITE USER
+/*
 function send_invite_user ($first_name, $last_name, $their_name, $email, $personal_message, $sender_id) {
   global $domain;
 
@@ -154,7 +155,7 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
 
 }
 
-
+*/
 function sendLostPasswordEmail($email, $newpassword)
 {
  
@@ -229,6 +230,50 @@ function sendNewMessageEmail($sender_id, $receiver_id, $message) {
         return false;
     }
   
+}
+
+function send_invite_user ($first_name, $last_name, $their_name, $email, $personal_message, $sender_id) {
+  global $domain;
+
+
+  $full_name = get_my_full_name();
+  if(!($full_name) || trim($full_name) == ""){
+    update_my_full_name($first_name, $last_name);
+    $full_name = get_my_full_name();
+    
+  }
+  
+  $gender = get_my_gender();
+  if($gender == 'M') {
+    $gender = 'him';
+  }
+  elseif($gender == 'H') {
+    $gender = 'her';
+  }
+  else {
+    $gender = 'them';
+  }
+
+  $message = 'Hi ' . $their_name . ',
+  <br/><br/> 
+
+  ' . $full_name . ' has invited you to join ' . $gender . ' on <a href="https://www.starma.com" title="www.starma.com">Starma</a>, a free astrology site that is easy to use and understand. Read about your Birth Chart, and see your compatibility with friends, family, lovers, and colleagues...even celebrities. <br /><br />';
+
+  if($personal_message !== '') {
+    $message = $message . ' ' . $personal_message;
+  }
+
+  $footer = '<br /><br /><div style="font-size: .75em;">You received this message because ' . $full_name . ' invited ' . $email . ' to join Starma. </div>';
+
+  if(sendTemplateInvite($email, $full_name . " invited you to join Starma", $message, "no-reply@" . get_email_domain(), $footer)) {
+    $data_1 = log_user_invite($sender_id, $email, $message);
+    log_this_action (blogosphere_action_user(), invited_basic_action(), $data_1);
+    return true;
+  }
+  else {
+    return false;
+  }
+
 }
 
 //END MANDRILL DYNAMIC CONTENT
@@ -483,6 +528,7 @@ function sendMail($to, $subject, $message, $from, $footer="")
 
 //SENDING A TEMPLATE FROM MANDRILL---------------------------------
 
+//REPORT USER
 function sendTemplateReport ($to, $subject, $content, $from) {
   try {
     $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
@@ -574,6 +620,7 @@ function sendTemplateReport ($to, $subject, $content, $from) {
   //return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
 }
 
+//PERSONAL MESSAGE
 function sendTemplateMessage ($to, $subject, $content, $from) {
   try {
     $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
@@ -647,6 +694,102 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
             )
         ),
         'tags' => array('personal msg'),
+        //'subaccount' => 'customer-123',
+        'google_analytics_domains' => array(),
+        'google_analytics_campaign' => '',
+        'metadata' => array('website' => ''),
+        'recipient_metadata' => array(),
+        'attachments' => array(),
+        'images' => array()
+    );
+    $async = false;
+    $ip_pool = '';
+    //$send_at = '';
+    //$result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
+    $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
+    return true;
+  }
+  catch(Mandrill_Error $e) {
+    // Mandrill errors are thrown as exceptions
+    echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+    // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+    throw $e;
+    return false;
+  }
+  return false;
+  //return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+}
+
+//INVITE
+function sendTemplateInvite ($to, $subject, $body, $from, $footer) {
+  try {
+    $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
+    $template_name = 'invite user';
+    $template_content = array(
+        array(
+            'name' => 'body',
+            'content' => $body
+        ),
+        array(
+            'name' => 'footer',
+            'content' => $footer
+        ),
+        array (
+            'name' => 'current_year',
+            'content' => CURRENT_YEAR()
+        ),
+        array (
+            'name' => 'contact_us',
+            'content' => CONTACT_US()
+        )                      
+    );
+    $message = array(
+        'html' => '',
+        'text' => '',
+        'subject' => $subject,
+        'from_email' => $from,
+        'from_name' => 'Starma',
+        'to' => array(
+            array(
+                'email' => $to,
+                //'name' => 'Recipient Name',
+                //'type' => 'to'
+            )
+        ),
+        'headers' => array('Reply-To' => $from),
+        'important' => false,
+        'track_opens' => true,
+        'track_clicks' => true,
+        'auto_text' => null,
+        'auto_html' => null,
+        'inline_css' => null,
+        'url_strip_qs' => null,
+        'preserve_recipients' => null,
+        'view_content_link' => null,
+        'bcc_address' => '',
+        'tracking_domain' => null,
+        'signing_domain' => null,
+        'return_path_domain' => null,
+        'merge' => true,
+        'merge_language' => 'mailchimp',
+        'global_merge_vars' => array(
+            array(
+                'name' => 'merge1',
+                'content' => 'merge1 content'
+            )
+        ),
+        'merge_vars' => array(
+            array(
+                'rcpt' => 'recipient.email@example.com',
+                'vars' => array(
+                    array(
+                        'name' => 'merge2',
+                        'content' => 'merge2 content'
+                    )
+                )
+            )
+        ),
+        'tags' => array('invite user'),
         //'subaccount' => 'customer-123',
         'google_analytics_domains' => array(),
         'google_analytics_campaign' => '',
