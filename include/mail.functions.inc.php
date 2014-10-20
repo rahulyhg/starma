@@ -260,7 +260,8 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
   ' . $full_name . ' has invited you to join ' . $gender . ' on <a href="https://www.starma.com" title="www.starma.com">Starma</a>, a free astrology site that is easy to use and understand. Read about your Birth Chart, and see your compatibility with friends, family, lovers, and colleagues...even celebrities. <br /><br />';
 
   if($personal_message !== '') {
-    $message = $message . ' ' . $personal_message;
+    $their_first_name = split(' ', $their_name)
+    $message = $message . ' ' . $their_first_name . ': ' . $personal_message;
   }
 
   $footer = '<br /><br /><div style="font-size: .75em;">You received this message because ' . $full_name . ' invited ' . $email . ' to join Starma. </div>';
