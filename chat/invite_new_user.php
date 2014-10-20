@@ -42,7 +42,7 @@ if(isLoggedIn()) {
 		if($their_name == '' || $their_name == 'name') {
 			$errors['their_name'] = 'Their name is required';
 		}
-		elseif(!preg_match('%^[0-9a-zA-Z-\s]{2,30}$%', $their_name)) {
+		elseif(!preg_match('%^[0-9a-zA-Z-\s\.]{2,30}$%', $their_name)) {
 			$errors['their_name'] = 'There was an error processing their name';
 		}
 	}
