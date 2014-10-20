@@ -30,7 +30,7 @@ $(document).ready(function(){
             
             if(data.errors) {
               //alert('success: ' + data);
-              $('#msg_sent').hide();
+              $('#invite_sent').hide();
               $('#send-message-area').show();
               if(data.errors.first_name){
                 $('#first_name_error').text(data.errors.first_name);
