@@ -5391,11 +5391,11 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
 
 function show_hl_results () {
   echo '<div id="hl_results_container">';
-    echo '<div class="hl_iconL pointer"></div>';
+    echo '<div id="hl_iconL" class="pointer"></div>';
     echo '<div id="palenquin_wrapper">';
       echo '<div id="palenquin_stars" class="pointer"></div>';
     echo '</div>';
-    echo '<div class="hl_iconR pointer"></div>';
+    echo '<div id="hl_iconR" class="pointer"></div>';
   echo '</div>'; //close hl_results_container
   echo '<div id="hl_blurb">When the Ruling Planet of your 4th House occupies your 7th House, you derive happiness from partnership, whether the partnership be romantic, friendly or business related.  This placement also shows a strong relationship with and influence from the mother. If you have a Capricorn Rising, you may have a harder time in these areas of life.</div>';
 }

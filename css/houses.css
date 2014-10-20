@@ -163,7 +163,7 @@
   height: 177px;
 }
 
-.hl_iconL {
+#hl_iconL {
   /*width: 181px;
   height: 151px;*/
   width: 135px;
@@ -173,7 +173,7 @@
   display: inline-block;
 }
 
-.hl_iconR {
+#hl_iconR {
   /*width: 181px;
   height: 151px;*/
   width: 135px;

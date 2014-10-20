@@ -45,7 +45,7 @@ $('.hl_icon_nav').click(function(event){
 		if (!data.errors) {
 			$('#hl_blurb').text(data.blurb);
 			$('#hl_iconL').html('<img src="/img/houseIcon_' + data.house_id + '.png" />');
-			$('#hl_iconL').html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />');
+			$('#hl_iconR').html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />');
 		}
 	});
 
