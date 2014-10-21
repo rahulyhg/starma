@@ -2027,6 +2027,14 @@ function register_new_user ($nickname, $password, $password2, $email, $year, $mo
     if (mysql_query($sql)) {
         $id = mysql_insert_id();
         $errors[] = $id; 
+        /*
+        if (sendWelcomeEmail($nickname, $email)) {
+          return $errors;
+        } 
+        else {
+          $errors[] = "User Inserted, but Email Failed";
+        }
+        */
     } 
     else {
         $errors[] = -1;
