@@ -19,9 +19,9 @@ function flare_title ($title) {
 function time_accuracy_select ($the_interval, $the_name="interval", $greyed=0) {
   $interval_array = array("Exact" => 0, "Within 5 Minutes" => "000500", "Within 15 Minutes" => "001500", "Within 30 Minutes" => "003000", "Within 45 Minutes" => "004500", "Within 1 hour" => "010000", "Within 2 hours" => "020000", "Within 3 hours" => "030000", "No Idea" => -1);
   echo '<select name="' . $the_name . '" id="' . $the_name . '" ';
-  if ((string)$greyed == '1') {
-    echo 'DISABLED="true"';
-  }
+  //if ((string)$greyed == '1') {
+    //echo 'DISABLED="true"';
+  //}
   echo '>';
   foreach ($interval_array as $interval_name => $interval_value) {
     echo '<option value=' . $interval_value;
@@ -226,9 +226,9 @@ function date_select ($the_date, $the_name) {
 
 function hour_select ($the_hour, $the_name="", $greyed=0) {
   echo '<select name="hour_' . $the_name . '" id="hour_' . $the_name . '" ';
-  if ((string)$greyed == '1') {
-    echo 'DISABLED="true"';
-  }
+  //if ((string)$greyed == '1') {
+    //echo 'DISABLED="true"';
+  //}
   echo '>';
   for ($x=1; $x <= 12;$x++) {
     echo '<option value=' . format_piece($x);
@@ -243,9 +243,9 @@ function hour_select ($the_hour, $the_name="", $greyed=0) {
 
 function minute_select ($the_minute, $the_name="", $greyed=0) {
   echo '<select name="minute_' . $the_name . '" id="minute_' . $the_name . '" ';
-  if ((string)$greyed == '1') {
-    echo 'DISABLED="true"';
-  }
+  //if ((string)$greyed == '1') {
+    //echo 'DISABLED="true"';
+  //}
   echo '>';
   for ($x=0; $x<=59;$x++) {
     echo '<option value=' . format_piece($x);
@@ -278,9 +278,9 @@ function second_select ($the_second, $the_name="", $greyed=0) {
 
 function meridiem_select ($the_meridiem, $the_name, $greyed=0) {
   echo '<select name="meridiem_' . $the_name . '" id="meridiem_' . $the_name . '" ';
-  if ((string)$greyed == '1') {
-    echo 'DISABLED="true"';
-  }
+  //if ((string)$greyed == '1') {
+    //echo 'DISABLED="true"';
+  //}
   echo '>';
   
     echo '<option value="am"';
