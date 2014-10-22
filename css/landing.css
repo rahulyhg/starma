@@ -32,7 +32,7 @@
 }
 
 /*#initial_confirm_form input[type="submit"], */
-
+/*
 #confirm_form_button {
   padding:5px;
   margin:5px;
@@ -42,6 +42,29 @@
   text-transform:capitalize;
   font-weight:bold;
   cursor: pointer;
+}
+*/
+
+#confirm_form_button {
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    background: none;
+    padding: 1px;
+    text-decoration: underline;
+}
+
+#confirm_form_button:active {
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: none;
+    text-decoration: underline;
 }
 
 #confirm_form_button:hover {
