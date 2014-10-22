@@ -5234,7 +5234,8 @@ $rising_sign_id = get_sign_from_poi ($chart_id, 1);
           //echo '<span class="hl_title">' . $h . '<br>' . $sign_name_arr[$h] . '</span>';
           //echo '</div>';
 
-        echo '<div class="hl_icon_nav pointer">';
+        echo '<div class="hl_nav hl_nav_icon_' . $h . ' pointer">';
+          echo '<div></div>';
           echo '<input type="hidden" class="pass_house_id" value="' . $h .'" />';
           echo '<input type="hidden" name="sign_id" value="' . $sign_id_arr[$h] . '" />';
           echo '<input type="hidden" name="ruler_of_sign" value="' . $ruler_of_sign_arr[$h] . '" />';

@@ -11,8 +11,11 @@ $('.hl_nav_wrapper').mouseleave(function() {
 
 
 
-$('.hl_icon_nav').click(function(event){
+$('.hl_nav').click(function(event){
 	//event.preventDefault();
+	$('.hl_nav').removeClass('hln_selected');
+	$(this).addClass('hln_selected');
+
 	var hl_data = {
 		'rising_sign_id'   :   $('input[name=rising_sign_id]').val(),
 		'house_id'         :   $(this).children('.pass_house_id').val(),	

@@ -90,8 +90,8 @@ if (login_check_point($type="full")) {
           require('chart.php');
         }
         elseif($section =='houses_selected') {
-          //require('houses.php');
-          echo '<div style="height:300px;">Coming Soon...</div>';
+          require('houses.php');
+          //echo '<div style="height:300px;">Coming Soon...</div>';
         }
         elseif ($section == 'photos_selected') {
           require('photos.php');
