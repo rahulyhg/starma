@@ -366,19 +366,19 @@ div.my_6_button {
   background:url('/img/Starma-Astrology-Compatibility-Differences-Big.png') no-repeat center top;
 }
 
-div.my_5_button a {
+div.my_5_button {
   background:url('/img/Starma-Astrology-Compatibility-Power-Sharing-Big.png') no-repeat center top;
 }
 
-div.my_4_button a {
+div.my_4_button {
   background:url('/img/Starma-Astrology-Compatibility-Friends-Big.png') no-repeat center top;
 }
 
-div.my_3_button a {
+div.my_3_button {
   background:url('/img/Starma-Astrology-Compatibility-Great-Admirers-Big.png') no-repeat center top;
 }
 
-div.my_2_button a {
+div.my_2_button {
   background:url('/img/Starma-Astrology-Compatibility-Magnetic-Attraction-Big.png') no-repeat center top;
 }
 
@@ -386,7 +386,7 @@ div.my_1_button {
   background:url('/img/Starma-Astrology-Compatibility-Peas-In-A-Pod-Big.png') no-repeat center top;
 }
 
-div.my_unknown_button a {
+div.my_unknown_button {
   background:url('/img/Starma-Astrology-Compatibility-Unknown.png') no-repeat center top;
 }
 /*//////////////// DYNAMIC ICONS ///////////////////////////////////////*/
