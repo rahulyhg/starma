@@ -924,6 +924,7 @@ function show_photo_grid ($user_id) {
     }
 //NEW PHOTO GRID-----------
     //print_r($user_photos);
+    
     echo '<table id="photo_table">';
       echo '<tr>';
       $total_photos = count($user_photos);
