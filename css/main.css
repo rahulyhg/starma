@@ -2238,7 +2238,7 @@ li.my_unknown_button a {
 
 #photos {
   position: relative;
-  height: 300px;
+  min-height: 300px;
 }
 
 #profile_photo_grid #my_photos {
