@@ -940,6 +940,7 @@ function show_photo_grid ($user_id) {
     if ($total_photos > 3) {
       echo '<tr>';
       $x2 = $x+1;
+      echo $x2;
       while ($x2 <= $total_photos) {
         echo '<td>' . $user_photos[$x2] . '</td>';        
         $x2++;
