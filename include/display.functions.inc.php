@@ -737,34 +737,39 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
   $photo_grid = get_photos ($user_id);
   //$length = sizeof($photo_list);
   
-
+  $my_photos = array();
+  $my_photo_ids = array();
   while ($photo = mysql_fetch_array($photo_grid)) {
       
       if ($photo["main"] == 0) {  
         
         if ($link==1) {
-          echo '<div class="grid_photo_wrapper_link">';
+          //echo '<div class="grid_photo_wrapper_link">';
           if (isAdmin() and $user_id != get_my_user_id()) { // IF ADMIN CHANGING SOMEONE ELSES PROFILE PIC, USE ADMIN TECH
-            $href='change_profile_pic.php?photo_id=' . $photo["user_pic_id"];
+            //$href='change_profile_pic.php?photo_id=' . $photo["user_pic_id"];
           }
           else {                                            // ELSE USE NORMAL TECH
-            $href='change_my_profile_pic.php?photo_id=' . $photo["user_pic_id"];
+            //$href='change_my_profile_pic.php?photo_id=' . $photo["user_pic_id"];
           }
         }
         else { 
-          echo '<div class="grid_photo_wrapper">';
+          //echo '<div class="grid_photo_wrapper">';
           $href="#";
         }
-            echo '<div class="grid_photo_border_wrapper profile_tiny">';
-              echo '<div class="grid_photo">';          
-                echo '<a href="' . $href . '">' . format_image($photo["picture"], $type="thumbnail") . '</a>';
-                    
-              echo '</div>';   
-            echo '</div>';
+            //echo '<div class="grid_photo_border_wrapper profile_tiny">';
+              //echo '<div class="grid_photo">'; 
+                //echo ORIGINAL_IMAGE_PATH() . $photo['picture'];
+                $p = '<a href="/img/user/compare/compare_' . $photo['picture'] . '" class="magnific_popup">' . format_image($photo["picture"], $type="compare") . '</a>'; 
+                $p_id = '<input type="hidden" name="p_id" value="' . $photo["user_pic_id"] . '" />'; 
+                //echo $photo["user_pic_id"] . ', ';       
+                //echo '<a href="' . $href . ' class="magnific_popup">' . format_image($photo["picture"], $type="thumbnail") . '</a>';
+                  
+              //echo '</div>';   
+            //echo '</div>';
             if ($link==1) { 
-              echo '<div class="delete_grid_photo">'; 
-                echo '<a href="' . $url_offset . 'delete_photo.php?photo_id=' . $photo["user_pic_id"] . '">Delete</a>';
-              echo '</div>';
+              //echo '<div class="delete_grid_photo">'; 
+                //echo '<a href="' . $url_offset . 'delete_photo.php?photo_id=' . $photo["user_pic_id"] . '">Delete</a>';
+              //echo '</div>';
             }
             else {
               echo '<div class="grid_photo_border_wrapper profile_mouseover">';
@@ -775,12 +780,45 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
             echo '</div>';
             }
         
-          echo '</div>';
-        
+          //echo '</div>';
+        array_push($my_photos, $p);  //USER'S PHOTOS
+        array_push($my_photo_ids, $p_id);  //USER'S PHOTO IDS
       }
       
-           
+        
   }
+  //print_r($my_photos);
+  //print_r($my_photo_ids);
+
+  //NEW PHOTO GRID
+  echo '<table id="photo_table">';
+    echo '<tr>';
+      $x = 0;
+      while ($x<4) {
+        if (!empty($my_photos[$x])) {
+          echo '<td class="has_photo"><div class="make_profile_pic later_on">Make Profile Pic</div>' . $my_photos[$x] . '<div class="delete_photo later_on">Delete</div>' . $my_photo_ids[$x] . '</td>';
+        }
+        else {
+          echo '<td class="later_on no_photo">Upload a photo</td>';
+        }
+        $x++;
+      }
+      unset($x);
+    echo '</tr>';
+    echo '<tr>';
+      $x = 4;
+      while ($x<8) {
+        if (!empty($my_photos[$x])) {
+          echo '<td class="has_photo"><div class="make_profile_pic later_on">Make Profile Pic</div>' . $my_photos[$x] . '<div class="delete_photo later_on">Delete</div>' . $my_photo_ids[$x] . '</td>';
+        }
+        else {
+          echo '<td class="later_on no_photo">Upload a photo</td>';
+        }
+        $x++;
+      }
+      unset($x);
+    echo '</tr>';
+  echo '</table>';
   
   echo '</div>';
 }
