@@ -704,6 +704,47 @@ function get_photos($user_id) {
   }
 }
 
+function get_my_photo_ids() {
+  return get_photo_ids($_SESSION["user_id"]);
+}
+
+function get_photo_ids($user_id) {
+  if (isLoggedIn()) {
+    $q = "SELECT user_pic_id from user_picture where user_id = " . $user_id;
+    $result = mysql_query($q) or die(mysql_error());
+    return $result;
+     
+  }
+  else {
+    return false;
+  }
+}
+
+function get_my_picture_number ($user_pic_id) {
+  return get_picture_number($_SESSION['user_id'], $user_pic_id);
+}
+
+function get_picture_number ($user_id, $user_pic_id) {
+  if(isLoggedIn()) {
+    $q = 'SELECT picture from user_picture where user_id = ' . $user_id . ' and user_pic_id = ' . $user_pic_id;
+    $result = mysql_query($q) or die(mysql_error());
+    if ($result = mysql_query($q)) {
+      if ($row = mysql_fetch_array ($result)) {
+        return $row["picture"];
+      }
+      else {
+        return false;
+      }
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
 function num_my_photos() { 
   return num_photos(get_my_user_id());
 }
@@ -988,6 +1029,28 @@ function get_my_picture() {
   
   if (isLoggedIn()) {
     $q = 'SELECT picture from user where user_id = ' . $_SESSION["user_id"];
+    if ($result = mysql_query($q)) {
+      if ($row = mysql_fetch_array ($result)) {
+        return $row["picture"];
+      }
+      else {
+        return false;
+      }
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+
+}
+
+function get_my_specific_picture($p_id) {
+  
+  if (isLoggedIn()) {
+    $q = 'SELECT picture from user_picture where user_id = ' . $_SESSION["user_id"] . ' and user_pic_id = ' . $p_id;
     if ($result = mysql_query($q)) {
       if ($row = mysql_fetch_array ($result)) {
         return $row["picture"];
