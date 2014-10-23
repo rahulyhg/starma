@@ -129,23 +129,10 @@
   cursor: pointer;
 }
 
-.p_profile_err {
+.profile_photo_err {
   color: #C82923;
-  cursor: pointer;
-  display: none;
-  line-height: 27px;
-  position: absolute;
-  right: 8px;
 }
 
-#p_profile_error {
-  top: 234px;
-  left: 232px;
-}
-
-#p_profile_err_exp {
-  top: 234px;
-}
 
 
 
