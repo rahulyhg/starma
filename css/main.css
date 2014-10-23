@@ -2238,7 +2238,7 @@ li.my_unknown_button a {
 
 #photos {
   position: relative;
-  height: 300px;
+  min-height: 300px;
 }
 
 #profile_photo_grid #my_photos {
@@ -2575,7 +2575,7 @@ li.my_unknown_button a {
   text-align:center;
   margin:0px;
   display:block;
-  width:100px;
+  width:102px;
   font-size: 0.95em;
   height: 12px;
   line-height: 0.8em;
@@ -3407,9 +3407,9 @@ END OLD WAY*/
     position: relative;
     width: 500px;
     height: 295px;
-    border: 1px solid #c7c7c7;
+    border: 2px solid black;
     padding: 15px 0;
-    background-color: #D3DBF6;
+    background-color: #e7ebee;
 }
 
 #birth_info_form_custom_heading {
@@ -3435,6 +3435,10 @@ END OLD WAY*/
     position: relative;
 }
 
+#birth_info_form_custom input[type="checkbox"] {
+  height: 19px;
+}
+
 #birth_info_form_custom {
   margin-left: 53px;
 }
@@ -3456,6 +3460,8 @@ END OLD WAY*/
     padding-right: 3px;
     position: relative;
     width: 7px;
+    display: inline-block;
+    margin-left: 10px;
 }
 
 #birth_time_hover_box_custom:hover {
@@ -3479,7 +3485,7 @@ END OLD WAY*/
     width: 390px;
     z-index: 5;
     font-family: helvetica;
-    font-size: .7em;
+    font-size: .93em;
     font-weight: normal;
 }
 
@@ -3499,7 +3505,6 @@ END OLD WAY*/
 }
 
 #bug_button:hover, #birth_info_custom input[name="submit"]:hover{
-  cursor: hand; 
   cursor: pointer;
   background:url('/img/account_info/Starma-Astrology-Space-BugHover.png') no-repeat;
   
@@ -3509,13 +3514,18 @@ END OLD WAY*/
   background: url('/img/Starma-Astrology-go-bug-path.png') no-repeat;
   float:left;
   width: 321px;
-  height: 63px;
+  height: 73px;
+  position: relative;
+  top: -28px;
 }
 
 #submit_div_custom {
   width: 76px;
   float: right; 
   margin-right: 50px;
+  position: relative;
+  top: -43px;
+  right: 28px;
 }
 
 /*///////////// END CUSTOM BIRTH INFO //////////////////////////////////*/
@@ -3630,15 +3640,18 @@ span.div_link {
 
 .gender_validation {
   display: none;
-  position: absolute;
-  top: 92px;
-  width: 114px;
-  font-size: .7em;
+  margin-left: 8px;
+  /*position: absolute;*/
+  /*top: 48px;*/
+  /*width: 100px;*/
+  /*right: 100px;*/
+  font-size: 1em;
 }
 
 .birth_place_validation {
   display: none;
-  font-size: .7em;
+  font-size: 1em;
+  margin-left: 8px;
 }
 
 

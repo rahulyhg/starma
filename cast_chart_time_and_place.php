@@ -38,10 +38,10 @@
   	}	
 
     if ($country_id !== 236) {
-      $address = $city . ', ' . $country_code;
+      $location = $city . ', ' . $country_code;
     }
     else {
-      $address = $city;
+      $location = $city;
     }
 
     //if ($address == '') {
@@ -102,7 +102,7 @@
           $error = 3;
         }
         */
-        if (!$coords = get_coordinates(exceptionizer ($address))) {
+        if (!$coords = get_coordinates(exceptionizer ($location))) {
           $error = 3;
           //do_redirect( get_domain() . '/sign_up.php?3&error=3');
         }
@@ -207,7 +207,7 @@
             $asc_sign_id = $return_vars1[7];
             $asc_coord2 = $return_vars2[6];
             $asc_sign_id2 = $return_vars2[7];
-            $address = $title; 
+            $location = $title; 
 
             //echo '<br><br><br>longitude: ' . $longitude . '<br>latitude: ' . $latitude . '<br>DST: ' . $DST . '<br>timezone: ' . $timezone . '<br>asc_coord: ' . $asc_coord . '<br>asc_sign_id: ' . $asc_sign_id . '<br>asc_coord2: ' . $asc_coord2 . '<br>asc_sign_id2: ' . $asc_sign_id2 . '<br>address: ' . $address;
 
@@ -296,7 +296,7 @@
             $timezone = $return_vars[5];    
             $asc_coord = $return_vars[6];
             $asc_sign_id = $return_vars[7];
-            $address = $title; 
+            $location = $title; 
 
             //echo '<br><br>' . 'nickname: ' . $nickname . '<br>longitude: ' . $longitude . '<br>latitude: ' . $latitude . '<br>DST: ' . $DST . '<br>timezone: ' . $timezone . '<br>asc_coord: ' . $asc_coord . '<br>asc_sign_id: ' . $asc_sign_id . '<br>address: ' . $address;
 

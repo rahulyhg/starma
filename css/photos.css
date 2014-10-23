@@ -48,6 +48,10 @@
   
 }
 
+
+
+
+
 #my_photos {
   min-height:100px;
   width:775px;
@@ -55,6 +59,82 @@
   /*bottom:100px;*/
   border-spacing:5px;
 }
+
+#photo_table {
+  margin: auto;
+}
+
+#photo_table td {
+  border: 2px solid black;
+  height: 123px;
+  width: 123px;
+  background: black;
+}
+
+#photo_table td.no_photo {
+  background: #424a65;
+  cursor: pointer;
+}
+
+#photo_table td.no_photo:hover {
+  /*text-decoration: underline;*/
+  /*background: #fbf0a4;*/
+  /*box-shadow: 1px 1px 13px 0 inset;*/
+}
+
+#photo_table td.no_photo:active {
+  /*text-decoration: underline;*/
+  /*background: #fbf0a4;*/
+  /*box-shadow: 1px 1px 20px 0 inset;*/
+}
+
+#photo_table td.has_photo, #photo_table td.has_photo img {
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in;
+}
+
+#photo_table td div.div_no_photo {
+  background: #e7ebee;
+  border: 2px solid black;
+  padding: 2px 5px;
+  text-align: center;
+  margin: auto auto;
+  width: 74px;
+}
+
+#photo_table td div.div_no_photo:hover {
+  box-shadow: 0 0 4px 0 black;
+  transition: .3s;
+}
+
+#photo_table .delete_photo, #photo_table .make_profile_pic {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  background-color: #17181C;
+  opacity: .8;
+  color: white;
+  z-index: 1;
+  cursor: pointer;
+  padding: 2px;
+}
+
+#photo_table .delete_photo {
+  top: 106px;
+}
+
+#cancel_photo {
+  margin: 10px 0 0 2px;
+  cursor: pointer;
+}
+
+.profile_photo_err {
+  color: #C82923;
+}
+
+
+
 
 #my_photos .delete_grid_photo {
     background-color: #8393CA;

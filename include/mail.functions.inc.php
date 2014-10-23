@@ -277,6 +277,17 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
 
 }
 
+function sendWelcomeEmail($username, $email) {
+  $message = 'Hi ' . $username . ', <br>
+    Welcome to Starma!  We\'re so glad you joined our community.  Starma is still in development so please <a href="mailto:'. CONTACT_US() . '">contact us</a> if you encounter any prolems.  Below are some of the ways to get started.  Enjoy!';
+    if (sendTemplateWelcome($email, 'Welcome to Starma', $message, "no-reply@" . get_email_domain())) {
+      return true;
+    }
+    else {
+      return false;
+    }
+}
+
 //END MANDRILL DYNAMIC CONTENT
 
 /*
@@ -791,6 +802,98 @@ function sendTemplateInvite ($to, $subject, $body, $from, $footer) {
             )
         ),
         'tags' => array('invite user'),
+        //'subaccount' => 'customer-123',
+        'google_analytics_domains' => array(),
+        'google_analytics_campaign' => '',
+        'metadata' => array('website' => ''),
+        'recipient_metadata' => array(),
+        'attachments' => array(),
+        'images' => array()
+    );
+    $async = false;
+    $ip_pool = '';
+    //$send_at = '';
+    //$result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
+    $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
+    return true;
+  }
+  catch(Mandrill_Error $e) {
+    // Mandrill errors are thrown as exceptions
+    echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+    // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+    throw $e;
+    return false;
+  }
+  return false;
+  //return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+}
+
+//INVITE
+function sendTemplateWelcome ($to, $subject, $body, $from) {
+  try {
+    $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
+    $template_name = 'welcome';
+    $template_content = array(
+        array(
+            'name' => 'body',
+            'content' => $body
+        ),
+        array (
+            'name' => 'current_year',
+            'content' => CURRENT_YEAR()
+        ),
+        array (
+            'name' => 'contact_us',
+            'content' => CONTACT_US()
+        )                      
+    );
+    $message = array(
+        'html' => '',
+        'text' => '',
+        'subject' => $subject,
+        'from_email' => $from,
+        'from_name' => 'Starma',
+        'to' => array(
+            array(
+                'email' => $to,
+                //'name' => 'Recipient Name',
+                //'type' => 'to'
+            )
+        ),
+        'headers' => array('Reply-To' => $from),
+        'important' => false,
+        'track_opens' => true,
+        'track_clicks' => true,
+        'auto_text' => null,
+        'auto_html' => null,
+        'inline_css' => null,
+        'url_strip_qs' => null,
+        'preserve_recipients' => null,
+        'view_content_link' => null,
+        'bcc_address' => '',
+        'tracking_domain' => null,
+        'signing_domain' => null,
+        'return_path_domain' => null,
+        'merge' => true,
+        'merge_language' => 'mailchimp',
+        'global_merge_vars' => array(
+            array(
+                'name' => 'merge1',
+                'content' => 'merge1 content'
+            )
+        ),
+        'merge_vars' => array(
+            array(
+                'rcpt' => 'recipient.email@example.com',
+                'vars' => array(
+                    array(
+                        'name' => 'merge2',
+                        'content' => 'merge2 content'
+                    )
+                )
+            )
+        ),
+        'tags' => array('welcome'),
         //'subaccount' => 'customer-123',
         'google_analytics_domains' => array(),
         'google_analytics_campaign' => '',

@@ -5,6 +5,8 @@ require_once ("header.php");
 if (login_check_point($type="full", $domain=$domain)) {
 
 log_this_action (profile_action_photos(), viewed_basic_action());
+
+  show_upload_photo_box();
     /*
     $unc_photos = uncropped_photos(get_my_user_id());
     if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
@@ -28,7 +30,8 @@ log_this_action (profile_action_photos(), viewed_basic_action());
       //echo '</div>';
       //echo 'NUM MY PHOTOS: ' . num_my_photos();
       echo '<div id="photos">';
-      upload_photo_form();
+      //upload_photo_form();
+      show_my_photo_grid();
  
       if (isset($_GET["error"])) {
         echo '<div id="photo_error">';
