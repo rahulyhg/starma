@@ -56,6 +56,52 @@
   border-spacing:5px;
 }
 
+#photo_table td {
+  border: 2px solid black;
+  height: 123px;
+  width: 123px;
+  background: black;
+}
+
+#photo_table td.no_photo {
+  background: black;
+  opacity: .7;
+  color: #e7ebee;
+  text-align: center;
+  cursor: pointer;
+}
+
+#photo_table td.no_photo:hover {
+  text-decoration: underline;
+  -webkit-box-shadow: 1px 1px 5px inset black;
+          box-shadow: 1px 1px 5px inset black;
+}
+
+#photo_table td.has_photo, #photo_table td.has_photo img {
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in;
+}
+
+#photo_table .delete_photo, #photo_table .make_profile_pic {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  background-color: #17181C;
+  opacity: .8;
+  color: white;
+  z-index: 1;
+  cursor: pointer;
+  padding: 2px;
+}
+
+#photo_table .delete_photo {
+  top: 106px;
+}
+
+
+
+
 #my_photos .delete_grid_photo {
     background-color: #8393CA;
     border: 1px solid #c7c7c7;
