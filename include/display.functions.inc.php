@@ -759,7 +759,7 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
             //echo '<div class="grid_photo_border_wrapper profile_tiny">';
               //echo '<div class="grid_photo">'; 
                 //echo ORIGINAL_IMAGE_PATH() . $photo['picture'];
-                $p = '<a href="/img/user/' . $photo['picture'] . '" class="magnific_popup">' . format_image($photo["picture"], $type="compare") . '</a>'; 
+                $p = '<a href="/img/user/original/original_' . $photo['picture'] . '" class="magnific_popup">' . format_image($photo["picture"], $type="compare") . '</a>'; 
                 $p_id = '<input type="hidden" name="p_id" value="' . $photo["user_pic_id"] . '" />'; 
                 //echo $photo["user_pic_id"] . ', ';       
                 //echo '<a href="' . $href . ' class="magnific_popup">' . format_image($photo["picture"], $type="thumbnail") . '</a>';
@@ -893,10 +893,16 @@ function show_photo_grid ($user_id) {
     $photo_grid = get_guest_photos();
   }
   if (mysql_num_rows($photo_grid) > 1) {
-  
+
+    $user_photos = array();
     while ($photo = mysql_fetch_array($photo_grid)) {
  
       if ($photo["main"] == 0) { 
+
+        $p = '<a href="/img/user/original/original_' . $photo['picture'] . '" class="magnific_popup">' . format_image($photo["picture"], $type="compare") . '</a>';
+        array_push($user_photos, $p);
+        //echo $photo['picture'];
+        /*
        echo '<div class="grid_photo_wrapper">';
 
         echo '<div class="grid_photo_border_wrapper profile_tiny">';
@@ -913,13 +919,39 @@ function show_photo_grid ($user_id) {
         echo '</div>';
         
        echo '</div>';
-      }  
-      
-           
+       */
+      }             
+    }
+//NEW PHOTO GRID-----------
+    //print_r($user_photos);
+
+    echo '<table id="photo_table">';
+      echo '<tr>';
+      $total_photos = count($user_photos);
+      //echo $total_photos;
+        $x = 0;
+        foreach ($user_photos as $photo_link) {
+          if ($x < 4 ) {
+            echo '<td>' . $photo_link . '</td>';
+            $x++;
+          }        
+        }
+      echo '</tr>';
+    if ($total_photos > 3) {
+      echo '<tr>';
+      $x2 = $x+1;
+      while ($x2 <= $total_photos) {
+        echo '<td>' . $user_photos[$x2] . '</td>';        
+        $x2++;
+      }
+      unset($x);
+      unset($x2);
+      echo '</tr>';
+    echo '</table>';
     }
   }
   else {
-    echo '<div>' . get_nickname($user_id) . ' has no other photos.</div>';
+    echo '<div class="later_on" style="font-size:1.5em;">' . get_nickname($user_id) . ' has no other photos.</div>';
   } 
   
   echo '</div>';
