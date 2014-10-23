@@ -18,20 +18,35 @@ if (login_check_point($type="full")) {
 
   $unc_photos = uncropped_photos(get_my_user_id());
   if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
+
+    echo '<div id="msg_sheen" class="pop_photo">';    
+    echo '<div id="msg_sheen_screen" class="pop_photo"></div>';
+      echo '<div id="msg_sheen_content" class="pop_photo">';
+        echo '<div id="crop_box">';
+              echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
+                show_photo_cropper_sign_up($photo_to_crop);
+                echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
+                echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
+              echo '</form>';
+        echo '</div>'; //close crop_box
+      echo '</div>'; //close msg_sheen_content
+  echo '</div>'; //close msg_sheen
+  }
+
       //echo '<div style="position:relative; top:3px">';
         //flare_title ("Crop Your Photo");
       //echo '</div>';
-        
+        /*
       echo '<div id="photo_cropper">';
         echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
           show_photo_cropper($photo_to_crop);
           echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
           echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
         echo '</div>';
-      echo '</div>';
+      echo '</div>'*/
       
-  }
-  else {
+  //}
+  //else {
 
     echo '<div id="profile_page" class="my_page">';
     //echo '<div class="header">';
@@ -123,7 +138,7 @@ if (login_check_point($type="full")) {
     echo'<script type="text/javascript" src="js/ajax_chart_submit.js"></script>';
     echo'<script type="text/javascript" src="js/profile_edit.js"></script>';
     echo '<script type="text/javascript" src="js/ajax_hl_submit.js"></script>';
-  }
+  //}
   
    
 }

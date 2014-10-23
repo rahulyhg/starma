@@ -120,4 +120,14 @@ $(document).ready(function(){
 		});
 	});
 
+//UPLOAD PHOTO-------------------------
+
+	$('.upload_photo').click(function(){
+		$('.pop_photo').slideFadeToggle();
+	});
+
+	$('#cancel_photo').click(function(){
+		$('.pop_photo').slideFadeToggle();
+	});
+
 });

@@ -759,7 +759,7 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
             //echo '<div class="grid_photo_border_wrapper profile_tiny">';
               //echo '<div class="grid_photo">'; 
                 //echo ORIGINAL_IMAGE_PATH() . $photo['picture'];
-                $p = '<a href="/img/user/compare/compare_' . $photo['picture'] . '" class="magnific_popup">' . format_image($photo["picture"], $type="compare") . '</a>'; 
+                $p = '<a href="/img/user/' . $photo['picture'] . '" class="magnific_popup">' . format_image($photo["picture"], $type="compare") . '</a>'; 
                 $p_id = '<input type="hidden" name="p_id" value="' . $photo["user_pic_id"] . '" />'; 
                 //echo $photo["user_pic_id"] . ', ';       
                 //echo '<a href="' . $href . ' class="magnific_popup">' . format_image($photo["picture"], $type="thumbnail") . '</a>';
@@ -799,7 +799,7 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
           echo '<td class="has_photo"><div class="make_profile_pic later_on">Make Profile Pic</div>' . $my_photos[$x] . '<div class="delete_photo later_on">Delete</div>' . $my_photo_ids[$x] . '</td>';
         }
         else {
-          echo '<td class="later_on no_photo">Upload a photo</td>';
+          echo '<td class="later_on no_photo upload_photo"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></td>';
         }
         $x++;
       }
@@ -812,7 +812,7 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
           echo '<td class="has_photo"><div class="make_profile_pic later_on">Make Profile Pic</div>' . $my_photos[$x] . '<div class="delete_photo later_on">Delete</div>' . $my_photo_ids[$x] . '</td>';
         }
         else {
-          echo '<td class="later_on no_photo">Upload a photo</td>';
+          echo '<td class="later_on no_photo upload_photo"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></td>';
         }
         $x++;
       }
@@ -823,6 +823,65 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
   echo '</div>';
 }
 
+function show_upload_photo_box () {
+  echo '<div id="msg_sheen" class="pop_photo">';    
+    echo '<div id="msg_sheen_screen" class="pop_photo"></div>';
+      echo '<div id="msg_sheen_content" class="pop_photo">';
+        echo '<div id="photo_form_profile">';      
+          echo '<div class="heading">Upload Your Photo</div>';
+
+        //ERRORS----------
+
+          if (isset($_GET['error'])) {
+            if ($_GET['error'] == 1) {
+              echo '<div class="photo_profile_err">There was an error.  Please try again.</div>';
+            }
+            if ($_GET['error'] == 2) {
+              echo '<div class="photo_profile_err">You have too many photos.  Please delete one to upload a new photo.</div>';
+            }
+            if ($_GET['error'] == 3) {
+              echo '<div class="photo_profile_err">Please select a photo with the Browse button.</div>';
+            }
+            if ($_GET['error'] == 4) {
+              echo '<div class="photo_profile_err">Pease select a valid file.</div>';
+            }
+          }
+
+        //END ERRORS------------
+
+            echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';          
+              echo '<input id="image" type="file" name="image"/>';
+              echo '<input type="submit" value="Upload" name="action" id="upload_photo" />';
+              echo '<div id="cancel_photo" class="later_on">Cancel</div>';
+           echo '</form>';
+        echo '</div>';
+      echo '</div>';
+  echo '</div>';
+}
+
+/*
+function show_profile_crop_box() {
+  echo '<div id="msg_sheen" class="pop_photo">';    
+    echo '<div id="msg_sheen_screen" class="pop_photo"></div>';
+      echo '<div id="msg_sheen_content" class="pop_photo">';
+        echo '<div id="crop_box">';
+          $unc_photos = uncropped_photos(get_my_user_id());
+            if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
+              echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
+                show_photo_cropper_sign_up($photo_to_crop);
+                echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
+                echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
+              echo '</form>';
+            }
+            else {
+              //echo '<div><a href="/sign_up.php?2">Please upload a photo</a></div>';
+              do_redirect(get_domain() . '?the_left=nav1&the_page=psel&section=photos_selected');
+            }
+        echo '</div>'; //close crop_box
+      echo '</div>'; //close msg_sheen_content
+  echo '</div>'; //close msg_sheen
+}
+*/
 
 function show_photo_grid ($user_id) {
   echo '<div id="my_photos">';
@@ -1377,9 +1436,9 @@ function upload_photo_form() {
   if (isset($_GET['error']) == 3) {
     echo '<div style="color:#C82923; position:relative; left:524px; bottom: 58px;">No file selected</div>';
   }
-  echo '<div style="">
-    Click on a photo to set it as your profile picture.
-  </div>';
+  //echo '<div style="">
+    //Click on a photo to set it as your profile picture.
+  //</div>';
   show_my_photo_grid();
    
   //move_on_form();

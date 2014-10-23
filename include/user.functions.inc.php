@@ -11,7 +11,7 @@ function max_descriptors() {
 }
 
 function max_photos() {
-  return 6;
+  return 9;
 }
 
 function isCeleb($user_id) {
