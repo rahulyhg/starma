@@ -121,7 +121,7 @@
 }
 
 #photo_table .delete_photo {
-  top: 106px;
+  bottom: 0;
 }
 
 #cancel_photo {
