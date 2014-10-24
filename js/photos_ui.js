@@ -116,6 +116,9 @@ function select_input(i) {
 			if(data.success) {
 				var input = select_input(data.d_p_id);
 				$(input).removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
+				$('.d_photo_pop').slideFadeToggle(function(){
+					$('#d_p_id').val('');
+				});
 				//$(this).parent('td').removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
 			}
 		});
