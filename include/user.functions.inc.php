@@ -641,10 +641,10 @@ function delete_photo ($photo_id, $user_id) {
     $file_name = get_photo($photo_id, $user_id);
     $q = "Delete from user_picture where user_id = " . $user_id . " and user_pic_id = " . $photo_id;
     if ($result = mysql_query($q) or die(mysql_error())) {
-      unlink('img/user/' . $file_name);
-      unlink('img/user/thumbnail/thumb_' . $file_name);
-      unlink('img/user/compare/compare_' . $file_name);
-      unlink('img/user/original/original_' . $file_name);
+      unlink('../img/user/' . $file_name);
+      unlink('../img/user/thumbnail/thumb_' . $file_name);
+      unlink('../img/user/compare/compare_' . $file_name);
+      unlink('../img/user/original/original_' . $file_name);
       return true;
     }
     else {
