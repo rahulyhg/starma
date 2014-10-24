@@ -127,7 +127,6 @@ function select_input(i) {
 
 
 
-
 //ERROR HANDLING----------------
 
 	if ($('#p_err_id').length) {
