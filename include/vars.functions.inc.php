@@ -11,7 +11,7 @@ function PERMISSIONS_ADMIN() {
 
 /*////////////////////////////////// LAYOUT CONSTANTS //////////////////////////////////*/
 function USER_BLOCK_COMPARE_HEIGHT() {
-   return 198;
+   return 200;
 }
 
 function USER_BLOCK_PER_ROW() {
