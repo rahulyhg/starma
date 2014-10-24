@@ -35,7 +35,6 @@
     			$data['failed'] = 'There was an error deleting this photo.  Please refresh and try again.';
     		}
    		}
-
    		echo json_encode($data);
 	}
 	
