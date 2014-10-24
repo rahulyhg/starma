@@ -114,9 +114,11 @@ $(document).ready(function(){
 				alert(data.failed);
 			}
 			if(data.success) {
-				var old_input = $('input[value="' + data.d_p_id + '"]').html();
-				alert('<div>' + old_input + '</div>');
-				//$(input).removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
+				var old_input_val = $('#d_p_id').val();
+				$('#d_p_id').val('');
+				//alert('<div>' + old_input + '</div>');
+				//$('input[value="' + old_input_val +'"]').val(data.d_p_id);
+				$('input[value="' + old_input_val +'"]').parent('td')removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
 				//$('.d_photo_pop').slideFadeToggle(function(){
 				//	$('#d_p_id').val('');
 				//});
