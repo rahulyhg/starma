@@ -33,6 +33,7 @@ date_default_timezone_set('America/Chicago');
 <script src="/js/jQuery.1.11.1.js" type="text/javascript"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
 
+
 <?php 
   if (isAdmin()) {
     echo '<LINK REL="StyleSheet" HREF="../css/reset.css" TYPE="text/css"/>';

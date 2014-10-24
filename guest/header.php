@@ -31,6 +31,7 @@ date_default_timezone_set('America/Chicago');
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  <!-- Matt updated jquery -->
 <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script> 
 <script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+
 <?php 
   
     echo '
