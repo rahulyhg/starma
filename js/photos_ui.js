@@ -84,7 +84,12 @@ function select_input(i) {
 		$('#d_p_id').val(d_p_id);
 	});
 
-	$('.delete_photo_confirm').click(function(event){
+	$('#cancel_delete_photo').click(function(){
+		$('.d_photo_pop').hide();
+		$('#d_p_id').val('');
+	});
+
+	$('#confirm_delete_photo').click(function(event){
 		event.preventDefault();
 		//var p_id = {'p_id'            :  $(this).siblings('input[name=p_id]').val()};
 		var p_id = {'p_id'            :  $('#d_p_id').val()};

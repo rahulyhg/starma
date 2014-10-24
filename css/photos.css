@@ -149,6 +149,7 @@
   border: none;
   background: #e7ebee;
   float: left;
+  margin-top: 15px;
 }
 
 #confirm_delete_photo {
@@ -156,6 +157,7 @@
   border: none;
   background: #e7ebee;
   float: right;
+  margin-top: 15px;
 }
 
 
