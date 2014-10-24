@@ -56,12 +56,12 @@ $(document).ready(function(){
 				}
 			}
 			if (data.success) {
-				var old_picture = $('.fitter').children('img').attr('src');
+				//var old_picture = $('.fitter').children('img').attr('src');
 				//alert(data.message);
 				//alert(data.picture);
 				$('.fitter').children('img').attr('src', '/img/user/' + data.picture);
-				$(this).siblings('a').children('img').attr('src', 'img/user/' + data.old_picture);
-				$(this).siblings('a').attr('href', 'img/user/compare/compare_' + data.old_picture);
+				$(this).siblings('a').children('img').attr('src', 'img/user/compare/compare_' + data.old_picture);
+				$(this).siblings('a').attr('href', 'img/user/' + data.old_picture);
 				$(this).siblings('input[name=p_id]').val(data.main_id);
 				//alert(old_picture);
 			}
