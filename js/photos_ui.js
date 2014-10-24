@@ -125,7 +125,7 @@ $(document).ready(function(){
 		alert('error');
 	}
 	*/
-	if (!$('#p_err_id').val() == 0) {
+	if ($('#p_err_id').val() != 0) {
 		$('.pop_photo').show();
 		alert('error');
 	}
