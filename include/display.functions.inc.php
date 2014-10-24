@@ -6563,7 +6563,7 @@ function show_login_box_landing () {
             
           //echo '</div>';
         
-          echo '<div id="go_bug_path_landing"></div>';
+          echo '<a href="#"><div id="go_bug_path_landing"></div></a>';
           //echo '</div>';
         echo '</form>';
     echo '</div>';
