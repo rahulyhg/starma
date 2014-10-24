@@ -140,11 +140,12 @@ if ($the_left=="nav1") {
   <img src="/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Scorpio-Taurus-ON.png"/>
   <img src="/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Taurus-Scorpio-ON.png"/>
   <img src="/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Virgo-Pisces-ON.png"/>
-
+<!--
   <img src="/img/Starma-Astrology-CelebritiesBoxH.png"/>
   <img src="/img/Starma-Astrology-ProfileBoxH.png"/>
   <img src="/img/Starma-Astrology-ChartBoxH.png"/>
   <img src="/img/Starma-Astrology-CompareBoxH.png"/>   
+  -->
 
   <img src="/img/sign_buttons_tall/Starma-Astrology-Aries-Tall-ON.png"/>
   <img src="/img/sign_buttons_tall/Starma-Astrology-Taurus-Tall-ON.png"/>
@@ -171,12 +172,12 @@ if ($the_left=="nav1") {
   <img src="/img/Starma-Astrology-Pillars-Base.png"/> 
 
   <img src="/img/Starma-Astrology-Compare-ButtonON.png"/> 
-  <img src="/img/Starma-Astrology-Compare-InviteON.png"/> 
+  <!--<img src="/img/Starma-Astrology-Compare-InviteON.png"/> -->
 
   <img src="/img/Starma-Astrology-Report-UserON.png"/> 
 
-  <img src="/img/profile/Starma-Astrology-Compare.png"/>
-  <img src="/img/profile/Starma-Astrology-CompareON.png"/>
+  <!--<img src="/img/profile/Starma-Astrology-Compare.png"/>
+  <img src="/img/profile/Starma-Astrology-CompareON.png"/>-->
   <img src="/img/profile/Starma-Astrology-Message.png"/>
   <img src="/img/profile/Starma-Astrology-MessageON.png"/>
   <img src="/img/profile/Starma-Astrology-Chat.png"/>
