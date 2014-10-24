@@ -6549,7 +6549,7 @@ function show_login_box_landing () {
           //echo '<input type="text" id="pass" name="password" placeholder="Password" />';           
           //echo '</div>';
 
-            echo '<button type="submit" id="hidden_submit_button" name="Login"></button>';
+            //echo '<button type="submit" id="hidden_submit_button" name="Login"></button>';
             echo '<div id="go_bug_button"></div>';
 
           echo '<div id="kmsi_f">';
