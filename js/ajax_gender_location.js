@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 
 //------------CITY VS ZIP
-	if ($('#country_id').val() !== 236) {
+	if ($('#country_id').val() != 236) {
 		$('#js_zip_div').hide();
     	$('#location_verification').css('visibility', 'hidden'); 
     	$('#js_city_div').show();
@@ -69,7 +69,7 @@ $('#zip').on('keyup blur', function(){
 	});
 
     $('#country_id').on('change', function(){
-    	if ($('#country_id').val() !== 0) {
+    	if ($('#country_id').val() != 0) {
 			$('#country_id').css('border', '2px solid black');
 			$('#gl_cid_error').hide().text('');
 		}
@@ -77,7 +77,7 @@ $('#zip').on('keyup blur', function(){
 			$('#city').css('border', '2px solid black');
 			$('#gl_city_error').hide().text('');
 		}
-		if ($('#country_id').val() !== 236) {
+		if ($('#country_id').val() != 236) {
 			$('#zip').css('border', '2px solid black');
 			$('#gl_zip_error').hide().text('');
 		}

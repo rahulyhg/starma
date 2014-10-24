@@ -127,7 +127,7 @@ $(document).ready(function(){
 	*/
 	if ($('#p_err_id').val() != 0) {
 		$('.pop_photo').show();
-		alert('error');
+		//alert('error');
 	}
 
 //UPLOAD PHOTO-----------------
