@@ -34,6 +34,19 @@ log_this_action (profile_action_photos(), viewed_basic_action());
       show_my_photo_grid();
  
       if (isset($_GET["error"])) {
+        if ($_GET['error'] == 1) {
+          echo '<input type="hidden" value="1" id="p_err_1" />';
+        }
+        if ($_GET['error'] == 2) {
+          echo '<input type="hidden" value="2" id="p_err_2" />';
+        }
+        if ($_GET['error'] == 3) {
+          echo '<input type="hidden" value="3" id="p_err_3" />';
+        }
+        if ($_GET['error'] == 4) {
+          echo '<input type="hidden" value="4" id="p_err_4" />';
+        }
+        /*
         echo '<div id="photo_error">';
           if ($_GET["error"] == 1) {
             echo "Error Deleting Photo.  Please contact Starma.com Administration.";
@@ -42,6 +55,7 @@ log_this_action (profile_action_photos(), viewed_basic_action());
             echo "You have reached the " . max_photos() . " maximum allowed profile photos.";
           }
         echo '</div>';
+        */
       }
    // }
     echo '</div>';  //close wrapper

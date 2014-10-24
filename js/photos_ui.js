@@ -103,9 +103,22 @@ $(document).ready(function(){
 	});
 
 
-//ERROR HANDLING FOR UPLOAD-----------------
-	//$('#upload_photo').click(function(event){
-	//	if ()
-	//});
+
+
+//ERROR HANDLING----------------
+	
+	if(('#p_err_1').length || ('#p_err_2').length || ('#p_err_3').length || ('#p_err_4').length) {
+		$('.pop_photo').slideFadeToggle();
+	}
+
+
+
+//UPLOAD PHOTO-----------------
+/*
+	$('#form_photo').submit(function(event){
+		event.preventDefault();
+
+	});
+*/
 
 });
