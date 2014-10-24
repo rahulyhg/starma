@@ -950,6 +950,7 @@ function show_photo_grid ($user_id) {
   echo '</div>';
 }
 
+
 /************---Matt adding tiny photo on Homepage about you box----*/
 
 function show_tiny_photo ($user_id) {
