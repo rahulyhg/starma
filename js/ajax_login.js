@@ -27,12 +27,12 @@ $(document).ready(function(){
 
 	$('#login_password').on('keypress', function(event){
 		if(event.which == 13) {
-			$('#login_a').click();
+			$('#go_bug_button').click();
 		}
 	});
 
 
-	$('#login_a').on('click vclick', function(event){
+	$('#go_bug_button').on('click', function(event){
 		//$('#login_from_landing').submit(function(event){
 			event.preventDefault();
 

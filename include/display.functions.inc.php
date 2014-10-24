@@ -6550,7 +6550,7 @@ function show_login_box_landing () {
           //echo '</div>';
 
             //echo '<button type="submit" id="go_bug_button" name="Login"></button>';
-            echo '<a href="#" id="login_a"><div id="go_bug_button"></div></a>';
+            echo '<div id="go_bug_button"></div>';
 
           echo '<div id="kmsi_f">';
             echo '<div id="stay_logged_in_landing"><input type="checkbox" name="stay_logged_in" value="" /><div>keep me signed in</div></div>';
