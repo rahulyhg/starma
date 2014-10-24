@@ -91,6 +91,8 @@ $(document).ready(function(){
 
 	$('#confirm_delete_photo').click(function(event){
 		event.preventDefault();
+		$('#cancel_delete_photo').prop('disabled', true);
+		$('#confirm_delete_photo').prop('disabled', true);
 		//var p_id = {'p_id'            :  $(this).siblings('input[name=p_id]').val()};
 		var p_id = {'p_id'            :  $('#d_p_id').val()};
 
@@ -105,14 +107,20 @@ $(document).ready(function(){
 			if (data.errors) { 
 				if (data.errors.not_mine) {
 					alert(data.errors.not_mine);
+					$('#cancel_delete_photo').prop('disabled', false);
+					$('#confirm_delete_photo').prop('disabled', false);
 				}						
 				if (data.errors.valid) {
 					alert(data.errors.valid);
+					$('#cancel_delete_photo').prop('disabled', false);
+					$('#confirm_delete_photo').prop('disabled', false);
 				}
 			}
 			if (data.failed) {
 				alert(data.failed);
-			}
+				$('#cancel_delete_photo').prop('disabled', false);
+				$('#confirm_delete_photo').prop('disabled', false);
+			}/*
 			if(data.success) {
 				var old_input_val = $('#d_p_id').val();
 				//$('#d_p_id').val('');
@@ -124,6 +132,7 @@ $(document).ready(function(){
 				});
 				//$(this).parent('td').removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
 			}
+			*/
 		});
 	});
 
