@@ -107,11 +107,22 @@ $(document).ready(function(){
 
 //ERROR HANDLING----------------
 	
-	if($('#p_err_1').length || $('#p_err_2').length || $('#p_err_3').length || $('#p_err_4').length) {
+	if ($('#p_err_1').length) {
 		$('.pop_photo').show();
 		alert('error');
 	}
-
+	if ($('#p_err_2').length) {
+		$('.pop_photo').show();
+		alert('error');
+	}
+	if ($('#p_err_3').length) {
+		$('.pop_photo').show();
+		alert('error');
+	}
+	if ($('#p_err_4').length) {
+		$('.pop_photo').show();
+		alert('error');
+	}
 
 
 //UPLOAD PHOTO-----------------
