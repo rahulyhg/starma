@@ -67,7 +67,7 @@ $(document).ready(function(){
 				}
 				if (data.url) {
 					//window.location.assign('/' + data.url);
-					document.location.reload(true);
+					window.location.reload(true);
 					//alert(data.url);
 				}
 			});
