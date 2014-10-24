@@ -106,6 +106,7 @@ $(document).ready(function(){
 
 
 //ERROR HANDLING----------------
+/*
 	$('.pop_photo').show();
 	if ($('#p_err_1').length) {
 		$('.pop_photo').show();
@@ -123,7 +124,11 @@ $(document).ready(function(){
 		$('.pop_photo').show();
 		alert('error');
 	}
-
+	*/
+	if ($('#p_err_1').val() !== 0) {
+		$('.pop_photo').show();
+		alert('error');
+	}
 
 //UPLOAD PHOTO-----------------
 /*

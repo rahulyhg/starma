@@ -32,7 +32,7 @@ log_this_action (profile_action_photos(), viewed_basic_action());
       echo '<div id="photos">';
       //upload_photo_form();
       show_my_photo_grid();
- 
+      /*
       if (isset($_GET["error"])) {
         if ($_GET['error'] == 1) {
           echo '<input type="hidden" value="1" id="p_err_1" />';
@@ -46,6 +46,7 @@ log_this_action (profile_action_photos(), viewed_basic_action());
         if ($_GET['error'] == 4) {
           echo '<input type="hidden" value="4" id="p_err_4" />';
         }
+        */
         /*
         echo '<div id="photo_error">';
           if ($_GET["error"] == 1) {
@@ -58,6 +59,26 @@ log_this_action (profile_action_photos(), viewed_basic_action());
         */
       }
    // }
+    echo '<input type="hidden" value="';
+      if (isset($_GET["error"])) {  
+        if ($_GET['error'] == 1) {
+          echo '1';
+        }
+        if ($_GET['error'] == 2) {
+          echo '2';
+        }
+        if ($_GET['error'] == 3) {
+          echo '3';
+        }
+        if ($_GET['error'] == 4) {
+          echo '4';
+        }
+      }
+      else {
+        echo '0';
+      }
+
+    echo '" id="p_err_id" />';
     echo '</div>';  //close wrapper
     
 }
