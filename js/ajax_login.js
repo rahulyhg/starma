@@ -62,7 +62,7 @@ $(document).ready(function(){
 						$('#login_password').css('border', '1px solid #C82923');
 					}	
 				}
-				else {
+				if (data.url) {
 					window.location.assign('/' + data.url);
 					//alert(data.url);
 				}
