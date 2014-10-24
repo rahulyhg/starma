@@ -132,6 +132,10 @@ $(document).ready(function(){
 		}
 	}
 
+	if ($('.crop_pop').length) {
+		$('.crop_pop').show();
+	}
+
 //UPLOAD PHOTO-----------------
 /*
 	$('#form_photo').submit(function(event){

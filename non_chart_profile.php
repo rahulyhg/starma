@@ -17,12 +17,12 @@ if (login_check_point($type="full")) {
   log_this_action (profile_action_profile(), viewed_basic_action());
 
   $unc_photos = uncropped_photos(get_my_user_id());
-  print_r($unc_photos);
+  //print_r($unc_photos);
   if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
 
-    echo '<div id="msg_sheen" class="pop_photo">';    
-    echo '<div id="msg_sheen_screen" class="pop_photo"></div>';
-      echo '<div id="msg_sheen_content" class="pop_photo">';
+    echo '<div id="msg_sheen" class="crop_pop">';    
+    echo '<div id="msg_sheen_screen" class="crop_pop"></div>';
+      echo '<div id="msg_sheen_content" class="crop_pop">';
         echo '<div id="crop_box">';
               echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
                 show_photo_cropper_sign_up($photo_to_crop);
