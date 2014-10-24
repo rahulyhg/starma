@@ -29,7 +29,7 @@
    			if (delete_photo ($photo_id, $user_id)) {
       			log_this_action (profile_action_photos(), deleted_basic_action(), $user_id);
       			//$data['success'] = true;
-            do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
+            do_redirect ('/main.php?the_left=nav1&the_page=psel&section=photos_selected');
     		}
     		else {
     			$data['failed'] = 'There was an error deleting this photo.  Please refresh and try again.';
