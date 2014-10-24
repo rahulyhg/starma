@@ -129,8 +129,9 @@
   cursor: pointer;
 }
 
-.profile_photo_err {
+.photo_profile_err {
   color: #C82923;
+  font-size: .8em;
 }
 
 
