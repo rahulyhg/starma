@@ -61,20 +61,20 @@ if (login_check_point($type="partial", $domain=$domain)) {
   if ($error == 0) {
     log_this_action (profile_action_photos(), uploaded_basic_action());
     if ($firsttime == 0) {
-      echo 'success';
-      //do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
+      //echo 'success';
+      do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected');
     }
     else {
-      //do_redirect (get_domain() . '/sign_up.php?2_5');
+      do_redirect (get_domain() . '/sign_up.php?2_5');
     }
   }
   else {
     if ($firsttime == 0) {
-      echo 'error:' . $error;
-      //do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
+      //echo 'error:' . $error;
+      do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
     }
     else {
-      //do_redirect (get_domain() . '/sign_up.php?2_5');
+      do_redirect (get_domain() . '/sign_up.php?2_5');
     }
   }
 

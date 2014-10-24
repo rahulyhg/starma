@@ -315,7 +315,7 @@ function activate_photo_cropper ($img_id, $img_name) {
 	    foo.init(\'.photo_cropper_content\');
 	    foo.loadImg("' . ORIGINAL_IMAGE_PATH() . $img_name . '?m=' . filemtime(ORIGINAL_IMAGE_PATH() . $img_name) . '");
  
-	    $(document).on(\'click\', \'.cropButton\', function() {
+	    $(\'.cropButton, #next_profile\').on(\'click\', function() {
                 
 		    $.ajax({
 			   type: "post",
