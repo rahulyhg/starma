@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-function select_input(i) {
-  return $('input[value="' + i + '"]').html();
-}
+//function select_input(i) {
+//  return $('input[value="' + i + '"]').html();
+//}
 		
 	$('#my_photos').magnificPopup({
 		delegate : 'a',
@@ -114,7 +114,7 @@ function select_input(i) {
 				alert(data.failed);
 			}
 			if(data.success) {
-				var old_input = select_input(data.d_p_id);
+				var old_input = $('input[value="' + data.d_p_id + '"]').html();
 				alert('<div>' + old_input + '</div>');
 				//$(input).removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
 				//$('.d_photo_pop').slideFadeToggle(function(){
