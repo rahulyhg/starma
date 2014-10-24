@@ -28,13 +28,13 @@ $(document).ready(function(){
 	$('#login_password').on('keypress', function(event){
 		if(event.which == 13) {
 			$('#go_bug_button').click();
-			$('#go_bug_button').trigger('touchstart');
-			$('#go_bug_button').trigger('tap');
+			//$('#go_bug_button').trigger('touchstart');
+			//$('#go_bug_button').trigger('tap');
 		}
 	});
 
 
-	$('#go_bug_button').on('click touchstart tap', function(event){
+	$('#go_bug_button').on('click', function(event){
 		//$('#login_from_landing').submit(function(event){
 			event.preventDefault();
 
