@@ -90,7 +90,7 @@ $(document).ready(function(){
 	});
 
 	$('#confirm_delete_photo').click(function(event){
-		event.preventDefault();
+		//event.preventDefault();
 		$('#cancel_delete_photo').prop('disabled', true);
 		$('#confirm_delete_photo').prop('disabled', true);
 		//var p_id = {'p_id'            :  $(this).siblings('input[name=p_id]').val()};
@@ -120,19 +120,20 @@ $(document).ready(function(){
 				alert(data.failed);
 				$('#cancel_delete_photo').prop('disabled', false);
 				$('#confirm_delete_photo').prop('disabled', false);
-			}/*
-			if(data.success) {
-				var old_input_val = $('#d_p_id').val();
+			}
+			if(data.url) {
+				window.location.assign('/' + data.url);
+				//var old_input_val = $('#d_p_id').val();
 				//$('#d_p_id').val('');
 				//alert('<div>' + old_input + '</div>');
 				//$('input[value="' + old_input_val +'"]').val(data.d_p_id);
-				$('input[value="' + old_input_val +'"]').parent('td').removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
-				$('.d_photo_pop').slideFadeToggle(function(){
-					$('#d_p_id').val('');
-				});
+				//$('input[value="' + old_input_val +'"]').parent('td').removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
+				//$('.d_photo_pop').slideFadeToggle(function(){
+				//	$('#d_p_id').val('');
+				//});
 				//$(this).parent('td').removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
 			}
-			*/
+			
 		});
 	});
 
