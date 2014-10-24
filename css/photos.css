@@ -136,16 +136,26 @@
 }
 
 #next_profile {
-    cursor: pointer;
-    font-family: "later_on";
     font-size: 1.19em;
-    font-weight: bold;
-    letter-spacing: 2px;
     text-align: right;
     border: none;
     background: #e7ebee;
     float: right;
     padding: 1px;
+}
+
+#cancel_delete_photo {
+  font-size: 1.19em; 
+  border: none;
+  background: #e7ebee;
+  float: left;
+}
+
+#confirm_delete_photo {
+  font-size: 1.19em; 
+  border: none;
+  background: #e7ebee;
+  float: right;
 }
 
 

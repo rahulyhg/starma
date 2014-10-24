@@ -864,11 +864,11 @@ function show_delete_photo_box() {
     echo '<div id="msg_sheen_screen" class="d_photo_pop"></div>';
       echo '<div id="msg_sheen_content" class="d_photo_pop">';
         echo '<div id="delete_photo_box">';
-          echo '<div class="heading">Are you sure you want to delete this photo?</div>';
+          echo '<div class="heading">Are you sure?</div>';
               echo '<form action="ajax_delete_photo.php" method="post" name="crop_photo_form">';
                 echo '<input type="hidden" name="d_p_id" value="" id="d_p_id" />';
-                echo '<div id="cancel_delete_photo" class="later_on">Cancel</div>';
-                echo '<div id="confirm_delete_photo" class="later_on">Delete</div>';
+                echo '<div id="cancel_delete_photo" class="later_on pointer">Cancel</div>';
+                echo '<div id="confirm_delete_photo" class="later_on pointer">Delete</div>';
               echo '</form>';
           echo '</div>'; //close crop_box
         echo '</div>'; //close msg_sheen_content
@@ -6870,7 +6870,7 @@ function show_photo_cropper_sign_up($photo_to_crop) {
     echo '</div>';
     echo '<div class="cropMain" style="margin:0 auto 16px;"></div>';
     if ($_GET['the_page'] == 'psel') {
-      echo '<button name="submit" id="next_profile">Next ></button>';
+      echo '<button name="submit" id="next_profile" class="later_on pointer">Next ></button>';
     }
     else {
       echo '<button name="submit" id="next">Next ></button>';
