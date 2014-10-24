@@ -64,10 +64,10 @@ $(document).ready(function(){
 						$('#login_password').css('border', '1px solid #C82923');
 					}	
 				}
-				if (data.url) {
-					window.location.assign('/' + data.url);
+				//if (data.url) {
+				//	window.location.assign('/' + data.url);
 					//alert(data.url);
-				}
+				//}
 			});
 		//});
 
