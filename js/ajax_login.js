@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 	$('#login_password').on('keypress', function(event){
 		if(event.which == 13) {
-			$('#go_bug_button').click(function(event){
+			//$('#go_bug_button').click(function(event){
 				$('#login_from_landing').submit(function(event){
 					event.preventDefault();
 
@@ -57,21 +57,21 @@ $(document).ready(function(){
 						$('#login_password').css('border', '1px solid #C82923');
 					}	
 				}
-				//if (data.url) {
-				//	window.location.assign('/' + data.url);
+				if (data.url) {
+					window.location.assign('/' + data.url);
 					//alert(data.url);
-				//}
+				}
 			});
-				});
-			});
+		});
+	//});
 			//$('#go_bug_button').trigger('touchstart');
 			//$('#go_bug_button').trigger('tap');
 		}
 	});
 
 
-	$('#go_bug_button').on('click', function(event){
-		$('#login_from_landing').submit(function(event){
+	$('#go_bug_button').click(function(event){
+		$('#hidden_submit_button').click(function(event){
 			event.preventDefault();
 
 			var data = {

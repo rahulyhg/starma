@@ -45,6 +45,10 @@
 }
 */
 
+#hidden_submit_button {
+  display: none;
+}
+
 #confirm_form_button {
     cursor: pointer;
     font-family: "later_on";
