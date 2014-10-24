@@ -1,8 +1,5 @@
 $(document).ready(function(){
 
-//function select_input(i) {
-//  return $('input[value="' + i + '"]').html();
-//}
 		
 	$('#my_photos').magnificPopup({
 		delegate : 'a',
@@ -22,15 +19,6 @@ $(document).ready(function(){
 		$(this).children('.make_profile_pic, .delete_photo').animate({opacity: 'toggle'}, 100);
 	});
 
-	/*
-	$('.no_photo').on('mouseenter', function(event) {
-		$(this).children('.div_no_photo').css({'box-shadow' : '0 0 4px 0 inset black'});
-	});
-
-	$('.no_photo').on('mouseleave', function(event) {
-		$(this).children('.div_no_photo').css('box-shadow', 'none');
-	});
-	*/
 
 //MAKE PROFILE PIC------------------------
 
@@ -63,6 +51,7 @@ $(document).ready(function(){
 				//var old_picture = $('.fitter').children('img').attr('src');
 				//alert(data.message);
 				//alert(data.picture);
+				//SWAPS THE IMAGES DYNAMICALLY CLIENT SIDE AND UPON REFRESH THINGS WILL BE CHANGED IN THE CODE
 				$('.fitter').children('img').attr('src', '/img/user/' + data.picture);
 				$(this).siblings('a').children('img').attr('src', 'img/user/compare/compare_' + data.old_picture);
 				$(this).siblings('a').attr('href', 'img/user/' + data.old_picture);
@@ -90,10 +79,10 @@ $(document).ready(function(){
 	});
 
 	$('#confirm_delete_photo').click(function(event){
-		//event.preventDefault();
+		
 		$('#cancel_delete_photo').prop('disabled', true);
 		$('#confirm_delete_photo').prop('disabled', true);
-		//var p_id = {'p_id'            :  $(this).siblings('input[name=p_id]').val()};
+		
 		var p_id = {'p_id'            :  $('#d_p_id').val()};
 
 		$.ajax({
@@ -123,15 +112,6 @@ $(document).ready(function(){
 			}
 			if(data.url) {
 				window.location.assign('/' + data.url);
-				//var old_input_val = $('#d_p_id').val();
-				//$('#d_p_id').val('');
-				//alert('<div>' + old_input + '</div>');
-				//$('input[value="' + old_input_val +'"]').val(data.d_p_id);
-				//$('input[value="' + old_input_val +'"]').parent('td').removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
-				//$('.d_photo_pop').slideFadeToggle(function(){
-				//	$('#d_p_id').val('');
-				//});
-				//$(this).parent('td').removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
 			}			
 		});
 	});
