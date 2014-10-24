@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 		
 	$('#my_photos').magnificPopup({
 		delegate : 'a',
