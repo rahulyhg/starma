@@ -12,6 +12,7 @@
   		}
   		if (in_array($_POST['p_id'], $photo_id_array)) {
   			$photo_id = $_POST['p_id'];
+        $data['d_p_id'] = $photo_id;
   			//$data['in_array'] = 'This photo is mine';
   		}
   		else {

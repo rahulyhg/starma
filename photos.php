@@ -7,6 +7,7 @@ if (login_check_point($type="full", $domain=$domain)) {
 log_this_action (profile_action_photos(), viewed_basic_action());
 
   show_upload_photo_box();
+  show_delete_photo_box();
     /*
     $unc_photos = uncropped_photos(get_my_user_id());
     if ($photo_to_crop = mysql_fetch_array($unc_photos)) {

@@ -1,4 +1,8 @@
 $(document).ready(function(){
+
+function select_input(i) {
+  return $('input[value="' + i + '"]').html();
+}
 		
 	$('#my_photos').magnificPopup({
 		delegate : 'a',
@@ -73,12 +77,20 @@ $(document).ready(function(){
 
 
 //DELETE PHOTO-------------------
-	$('.delete_photo').click(function(event){
+	
+	$('.delete_photo').click(function(){
+		var d_p_id = $(this).siblings('input[name=p_id]').val();
+		$('.d_photo_pop').show();
+		$('#d_p_id').val(d_p_id);
+	});
+
+	$('.delete_photo_confirm').click(function(event){
 		event.preventDefault();
-		var p_id = {'p_id'            :  $(this).siblings('input[name=p_id]').val()};
+		//var p_id = {'p_id'            :  $(this).siblings('input[name=p_id]').val()};
+		var p_id = {'p_id'            :  $('#d_p_id').val()};
 
 		$.ajax({
-			context  : this,
+			//context  : this,
 			type     : 'POST',
 			url      : '/chat/ajax_delete_photo.php',
 			data     : p_id,
@@ -97,7 +109,9 @@ $(document).ready(function(){
 				alert(data.failed);
 			}
 			if(data.success) {
-				$(this).parent('td').removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
+				var input = select_input(data.d_p_id);
+				$(input).removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
+				//$(this).parent('td').removeClass('has_photo').addClass('later_on no_photo').html('<div class="div_no_photo later_on">Upload<br> a<br> Photo</div>');
 			}
 		});
 	});
@@ -106,25 +120,7 @@ $(document).ready(function(){
 
 
 //ERROR HANDLING----------------
-/*
-	$('.pop_photo').show();
-	if ($('#p_err_1').length) {
-		$('.pop_photo').show();
-		alert('error');
-	}
-	if ($('#p_err_2').length) {
-		$('.pop_photo').show();
-		alert('error');
-	}
-	if ($('#p_err_3').length()) {
-		$('.pop_photo').show();
-		alert('error');
-	}
-	if ($('#p_err_4').length) {
-		$('.pop_photo').show();
-		alert('error');
-	}
-	*/
+
 	if ($('#p_err_id').length) {
 		if ($('#p_err_id').val() != 0) {
 			$('.pop_photo').show();
@@ -136,12 +132,6 @@ $(document).ready(function(){
 		$('.crop_pop').show();
 	}
 
-//UPLOAD PHOTO-----------------
-/*
-	$('#form_photo').submit(function(event){
-		event.preventDefault();
 
-	});
-*/
 
 });

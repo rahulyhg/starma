@@ -859,29 +859,21 @@ function show_upload_photo_box () {
   echo '</div>';
 }
 
-/*
-function show_profile_crop_box() {
-  echo '<div id="msg_sheen" class="pop_photo">';    
-    echo '<div id="msg_sheen_screen" class="pop_photo"></div>';
-      echo '<div id="msg_sheen_content" class="pop_photo">';
-        echo '<div id="crop_box">';
-          $unc_photos = uncropped_photos(get_my_user_id());
-            if ($photo_to_crop = mysql_fetch_array($unc_photos)) {
-              echo '<form action="crop_photo.php" method="post" name="crop_photo_form">';
-                show_photo_cropper_sign_up($photo_to_crop);
-                echo '<input type="hidden" name="imgName" value="' . $photo_to_crop["picture"] . '"/>';
-                echo '<input type="hidden" name="imgID" value="' . $photo_to_crop["user_pic_id"] . '"/>';
+function show_delete_photo_box() {
+  echo '<div id="msg_sheen" class="d_photo_pop">';    
+    echo '<div id="msg_sheen_screen" class="d_photo_pop"></div>';
+      echo '<div id="msg_sheen_content" class="d_photo_pop">';
+        echo '<div id="delete_photo_box">';
+          echo '<div class="heading">Are you sure you want to delete this photo?</div>';
+              echo '<form action="ajax_delete_photo.php" method="post" name="crop_photo_form">';
+                echo '<input type="hidden" name="d_p_id" value="" id="d_p_id" />';
+                echo '<div id="cancel_delete_photo" class="later_on">Cancel</div>';
+                echo '<div id="confirm_delete_photo" class="later_on">Delete</div>';
               echo '</form>';
-            }
-            else {
-              //echo '<div><a href="/sign_up.php?2">Please upload a photo</a></div>';
-              do_redirect(get_domain() . '?the_left=nav1&the_page=psel&section=photos_selected');
-            }
-        echo '</div>'; //close crop_box
-      echo '</div>'; //close msg_sheen_content
-  echo '</div>'; //close msg_sheen
+          echo '</div>'; //close crop_box
+        echo '</div>'; //close msg_sheen_content
+    echo '</div>'; //close msg_sheen
 }
-*/
 
 function show_photo_grid ($user_id) {
   echo '<div id="my_photos">';
