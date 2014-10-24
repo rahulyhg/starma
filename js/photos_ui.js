@@ -107,8 +107,8 @@ $(document).ready(function(){
 
 //ERROR HANDLING----------------
 	
-	if(('#p_err_1').length || ('#p_err_2').length || ('#p_err_3').length || ('#p_err_4').length) {
-		$('.pop_photo').slideFadeToggle();
+	if($('#p_err_1').length || $('#p_err_2').length || $('#p_err_3').length || $('#p_err_4').length) {
+		$('.pop_photo').show();
 	}
 
 
