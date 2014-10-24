@@ -32,7 +32,7 @@ $(document).ready(function(){
 	});
 
 
-	$('#login_a').click(function(event){
+	$('#login_a').on('click vclick', function(event){
 		//$('#login_from_landing').submit(function(event){
 			event.preventDefault();
 
