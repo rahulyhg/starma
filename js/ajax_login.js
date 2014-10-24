@@ -71,7 +71,7 @@ $(document).ready(function(){
 
 
 	$('#go_bug_button').click(function(event){
-		$('#hidden_submit_button').click(function(event){
+		$('#login_from_landing').submit(function(event){
 			event.preventDefault();
 
 			var data = {
