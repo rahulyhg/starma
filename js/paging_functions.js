@@ -15,7 +15,7 @@
          } 
 
          function maxHeight_inc (num_users) {
-           return (Math.ceil(num_users / 4)) * 198;
+           return (Math.ceil(num_users / 4)) * 200;
          }      
 
          function change_height_inc (height_inc) {
@@ -29,7 +29,7 @@
 
          function change_num_pages (num_users) {
            height_inc = $("#height_inc").val();
-           users_per_page = Math.ceil(height_inc / 198) * 4; // CONSTANTS HERE
+           users_per_page = Math.ceil(height_inc / 200) * 4; // CONSTANTS HERE
            num_pages = Math.ceil(num_users/users_per_page);
            $("#num_pages").val(num_pages);
          }
