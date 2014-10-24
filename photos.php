@@ -57,7 +57,7 @@ log_this_action (profile_action_photos(), viewed_basic_action());
           }
         echo '</div>';
         */
-      }
+      //}
    // }
     echo '<input type="hidden" value="';
       if (isset($_GET["error"])) {  
