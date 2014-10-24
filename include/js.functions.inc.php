@@ -219,7 +219,7 @@ function js_more_link ($div_name, $num_pages, $current_page, $height_inc, $num_u
    
      echo '<div id="view_select">';
          echo '<a id="view_all" onclick="change_height_inc(maxHeight_inc(' . $num_users . ')); change_num_pages (' .  $num_users . '); change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); $(\'#view_pages\').show(); $(\'#view_all\').hide(); $(\'#js_back_to_top\').fadeTo(200,0); $(\'#js_back_to_top\').show(); return false;" href="">View All</a>';
-         echo '<a style="display:none; margin-left: 87px;" id="view_pages" onclick="change_height_inc(792); change_num_pages (' .  $num_users . '); change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); $(\'#view_all\').show(); $(\'#view_pages\').hide(); $(\'#js_back_to_top\').fadeTo(200,0); $(\'#js_back_to_top\').hide(); return false;" href="">View Pages</a>';
+         echo '<a style="display:none; margin-left: 87px;" id="view_pages" onclick="change_height_inc(800); change_num_pages (' .  $num_users . '); change_page( parseInt(1)); animate_page_turn(\'' . $div_name . '\'); $(\'#view_all\').show(); $(\'#view_pages\').hide(); $(\'#js_back_to_top\').fadeTo(200,0); $(\'#js_back_to_top\').hide(); return false;" href="">View Pages</a>';
      echo '</div>';
 
      echo '<div id="js_back_to_top">';
