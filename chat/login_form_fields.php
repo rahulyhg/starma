@@ -73,7 +73,7 @@ if (!isLoggedIn()) {
           }
           else {
               //do_redirect( $url = get_domain() . '/' . get_landing());
-              $data['url'] = get_domain() . '/' . get_landing();
+              $data['url'] = get_landing();
               //do_redirect( $url = get_domain() . '/' . get_landing());
           }
         }
@@ -116,7 +116,7 @@ else {
     }
     else {
         //do_redirect( $url = get_domain() . '/' . get_landing());
-       $data['url'] = get_domain() . '/' . get_landing();
+       $data['url'] = get_landing();
     }
 }
 
