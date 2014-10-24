@@ -125,9 +125,11 @@ $(document).ready(function(){
 		alert('error');
 	}
 	*/
-	if ($('#p_err_id').val() != 0) {
-		$('.pop_photo').show();
-		//alert('error');
+	if ($('#p_err_id').length) {
+		if ($('#p_err_id').val() != 0) {
+			$('.pop_photo').show();
+			//alert('error');
+		}
 	}
 
 //UPLOAD PHOTO-----------------
