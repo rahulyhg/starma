@@ -1095,7 +1095,7 @@ function show_general_info($chart_id) {
           echo '">';
         }
         if (isLoggedIn()) {
-          echo '<span style="color:' . $online_color . '">•</span>';
+          echo '<span style="color:' . $online_color . '; font-family:arial;">•</span>';
         }
         echo $user_info["nickname"];
       }
