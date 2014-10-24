@@ -115,7 +115,7 @@ $(document).ready(function(){
 		$('.pop_photo').show();
 		alert('error');
 	}
-	if ($('#p_err_3').length) {
+	if ($('#p_err_3').length()) {
 		$('.pop_photo').show();
 		alert('error');
 	}
