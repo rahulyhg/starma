@@ -106,7 +106,7 @@ $(document).ready(function(){
 
 
 //ERROR HANDLING----------------
-	
+	$('.pop_photo').show();
 	if ($('#p_err_1').length) {
 		$('.pop_photo').show();
 		alert('error');
