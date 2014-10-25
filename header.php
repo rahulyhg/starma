@@ -49,6 +49,7 @@ date_default_timezone_set('America/Chicago');
     echo '<LINK REL="StyleSheet" HREF="../css/magnific.css" TYPE="text/css"/>';
     //echo '<LINK REL="StyleSheet" HREF="../autoSuggest/autoSuggest.css" TYPE="text/css"/>';
     echo '<link rel="stylesheet" type="text/css" href="../imgSelectArea/css/imgareaselect-default.css" />';
+    echo '<LINK REL="StyleSheet" HREF="../css/pop_tuts.css" TYPE="text/css"/>';
     echo '
       
       <script type="text/javascript" src="../autoSuggest/jquery.autoSuggest.js"></script>
@@ -77,6 +78,7 @@ date_default_timezone_set('America/Chicago');
       <LINK REL="StyleSheet" HREF="../css/sign_up.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="../css/houses.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="../css/magnific.css" TYPE="text/css"/>
+      <LINK REL="StyleSheet" HREF="../css/pop_tuts.css" TYPE="text/css"/>
       
       <script type="text/javascript" src="/autoSuggest/jquery.autoSuggest.js"></script>
       <script type="text/javascript" src="imgSelectArea/scripts/jquery.imgareaselect.pack.js"></script>

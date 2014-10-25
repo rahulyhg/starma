@@ -1,5 +1,12 @@
 $(document).ready(function(){
 
+	if ($('.chart_pop1').length) {
+		$('.chart_pop1').show();
+	}
+	$('#ct1_done').click(function(){
+		$('.chart_pop1').slideFadeToggle();
+	});
+
 	$('#clickMe').click(function(event){
 		if($('#cfc').prop('checked')) {
 			var data = {'cfc' : 1};

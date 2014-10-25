@@ -1,0 +1,13 @@
+#msg_sheen #msg_sheen_ct1 {
+    background: #e7ebee;
+    border: 2px solid black;
+    margin-left: -186px;
+    padding: 10px 20px;
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    /*width: 500px;*/
+    /*height: 150px;*/
+    display: none;
+    box-shadow: 1px 1px 40px black;
+}

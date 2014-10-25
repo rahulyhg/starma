@@ -4400,13 +4400,30 @@ function show_my_chart ($goTo = ".", $western=0) {
   }
   if ($chart_info) {
       $chart_id = $chart_info["chart_id"];
-      //CHART FLAG
+
+
+
+  //CHART FLAG TESTING---------------------------------
+
       //if (my_chart_flag()==1) {
         echo '<div style="margin-bottom:20px;">';
           //echo '<form name="flag_test" method="POST" action="flag_test">';
             echo '<input type="checkbox" id="cfc" /><div id="clickMe">CLICK</div><span> <- Click to set chart flag value</span><br><br>';
             echo '<div class="later_on">Chart flag: <span id="cfv" class="cfv_err">' . my_chart_flag() . '</span>';
         echo '</div>';
+
+        if(my_chart_flag() == 1) {
+          echo '<div id="msg_sheen" class="chart_pop1">';    
+            echo '<div id="msg_sheen_screen" class="chart_pop1"></div>';
+              echo '<div id="msg_sheen_ct1" class="chart_pop1">';
+                echo '<div id="chart_pop1">';
+                  echo '<div class="later_on">Over here you see meowfriends gallopping.</div>';
+                  echo '<div class="later_on" id="ct1_done">Done</div>';
+              echo '</div>'; //close crop_box
+            echo '</div>'; //close msg_sheen_content
+        echo '</div>'; //close msg_sheen
+        }
+
       //}
       /*
       if (!isset($_POST["poi_id"])) {
