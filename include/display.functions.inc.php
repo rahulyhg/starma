@@ -796,7 +796,7 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
       $x = 0;
       while ($x<4) {
         if (!empty($my_photos[$x])) {
-          echo '<td class="has_photo1"><div class="make_profile_pic later_on">Make Profile Pic</div>' . $my_photos[$x] . '<div class="delete_photo later_on">Delete</div>' . $my_photo_ids[$x] . '</td>';
+          echo '<td class="has_photo1"><div class="make_profile_pic later_on">Make Profile Pic</div>' . $my_photos[$x] . '<div class="delete_photo1 later_on">Delete</div>' . $my_photo_ids[$x] . '</td>';
         }
         else {
           echo '<td class="later_on no_photo upload_photo"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></td>';
@@ -809,7 +809,7 @@ function show_interactive_photo_grid ($user_id,$link=1,$url_offset='') {
       $x = 4;
       while ($x<8) {
         if (!empty($my_photos[$x])) {
-          echo '<td class="has_photo2"><div class="make_profile_pic later_on">Make Profile Pic</div>' . $my_photos[$x] . '<div class="delete_photo later_on">Delete</div>' . $my_photo_ids[$x] . '</td>';
+          echo '<td class="has_photo2"><div class="make_profile_pic later_on">Make Profile Pic</div>' . $my_photos[$x] . '<div class="delete_photo2 later_on">Delete</div>' . $my_photo_ids[$x] . '</td>';
         }
         else {
           echo '<td class="later_on no_photo upload_photo"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></td>';

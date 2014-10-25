@@ -74,7 +74,7 @@ $(document).ready(function(){
 
 //DELETE PHOTO-------------------
 	
-	$('.delete_photo').click(function(){
+	$('.delete_photo1, .delete_photo2').click(function(){
 		var d_p_id = $(this).siblings('input[name=p_id]').val();
 		$('.d_photo_pop').show();
 		$('#d_p_id').val(d_p_id);
