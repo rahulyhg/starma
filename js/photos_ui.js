@@ -10,12 +10,20 @@ $(document).ready(function(){
 		}
 	});
 
-	$('.has_photo').on('mouseenter tap', function(event) {
-		$(this).children('.make_profile_pic, .delete_photo').animate({opacity: 'toggle'}, 500);
+	$('.has_photo1').on('mouseenter tap', function(event) {
+		$(this).children('.make_profile_pic, .delete_photo1').animate({opacity: 'toggle'}, 500);
 	});
 
-	$('.has_photo').on('mouseleave tap', function(event) {
-		$(this).children('.make_profile_pic, .delete_photo').animate({opacity: 'toggle'}, 100);
+	$('.has_photo1').on('mouseleave tap', function(event) {
+		$(this).children('.make_profile_pic, .delete_photo1').animate({opacity: 'toggle'}, 100);
+	});
+
+	$('.has_photo2').on('mouseenter tap', function(event) {
+		$(this).children('.make_profile_pic, .delete_photo2').animate({opacity: 'toggle'}, 500);
+	});
+
+	$('.has_photo2').on('mouseleave tap', function(event) {
+		$(this).children('.make_profile_pic, .delete_photo2').animate({opacity: 'toggle'}, 100);
 	});
 
 
