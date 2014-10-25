@@ -4400,7 +4400,15 @@ function show_my_chart ($goTo = ".", $western=0) {
   }
   if ($chart_info) {
       $chart_id = $chart_info["chart_id"];
-      /*//CHART FLAG
+      //CHART FLAG
+      //if (my_chart_flag()==1) {
+        echo '<div style="margin-bottom:20px;">';
+          //echo '<form name="flag_test" method="POST" action="flag_test">';
+            echo '<input type="checkbox" id="cfc" /><div id="clickMe">CLICK</div><span> <- Click to set chart flag value</span><br><br>';
+            echo '<div class="later_on">Chart flag: <span id="cfv" class="cfv_err">' . my_chart_flag() . '</span>';
+        echo '</div>';
+      //}
+      /*
       if (!isset($_POST["poi_id"])) {
         #if (get_my_preferences("chart_more_info_flag", 1) == 0) { 
         if (my_chart_flag() == 1 && $western == 0) {

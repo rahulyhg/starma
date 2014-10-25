@@ -277,7 +277,7 @@ function set_my_welcome_flag ($flag=1) {
 }
 
 function set_my_chart_flag ($flag=1) {
-  set_chart_flag($flag,$_SESSION["user_id"]);
+  return set_chart_flag($flag,$_SESSION["user_id"]);
 }
 
 function set_welcome_flag ($flag=1, $user_id) {
