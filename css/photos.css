@@ -108,7 +108,7 @@
   transition: .3s;
 }
 
-#photo_table .delete_photo, #photo_table .make_profile_pic {
+#photo_table .delete_photo1, #photo_table .delete_photo2, #photo_table .make_profile_pic {
   display: none;
   cursor: pointer;
   position: absolute;
