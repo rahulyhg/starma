@@ -38,6 +38,8 @@
 
 			if(isset($_GET['search'])) {
 				$gender = $_GET['filter1'];
+
+				echo 'gender:' . $gender;
 			}
 
 		echo '</div>';  //close s_results

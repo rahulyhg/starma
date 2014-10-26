@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
-	$('$geneder_select').on('change', function() {
-		$('$geneder_select').css('border-color', 'black');
+	$('#gender_select').on('change', function() {
+		$('#gender_select').css('border-color', 'black');
 	});
 
-	$('s_vars_submit').click(function(event){
-		if($('#geneder_select').val() == 'none') {
+	$('#s_vars_submit').click(function(event){
+		if($('#gender_select').val() == 'none') {
 			event.preventDefault();
-			$('$geneder_select').css('border-color', '#C82923');
+			$('#gender_select').css('border-color', '#C82923');
 		}
 	});
 

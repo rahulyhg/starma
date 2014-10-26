@@ -1,5 +1,5 @@
 <?php
-	require_once('header.php');
+	require_once('../header.php');
 
 	if (isset($_POST['s_vars'])) {
 		if ($_POST['gender'] !== 'none') {
