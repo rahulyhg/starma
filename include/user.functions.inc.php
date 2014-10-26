@@ -1310,7 +1310,7 @@ function get_user_list_search ($gender, $age_low, $age_high) {
       $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           left outer join user_picture on user.user_id = user_picture.user_id 
-          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 ORDER BY main desc, user_id desc LIMIT 8';
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and gender = "' . $gender . '" and user.birthday between "' . mysql_real_escape_string($age_low) . '" and "' . mysql_real_escape_string($age_high) . '" ORDER BY main desc, user_id desc LIMIT 8';
     }
     if ($result = mysql_query($q)) {
       return $result;
