@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+	/*
 	$('#gender_select').on('change', function() {
 		$('#gender_select').css('border-color', 'black');
 	});
@@ -11,5 +11,5 @@ $(document).ready(function() {
 		}
 	});
 
-
+	*/
 });

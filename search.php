@@ -22,10 +22,22 @@
 							echo '<td>Gender</td>';
 							echo '<td><select id="gender_select" name="gender">
 										<option value="none">Select a gender</option>
-										<option value="F">Female</option>
-										<option value="M">Male</option>
+										<option value="F" ';
+											if($_GET['filter1'] == 'F') {
+												echo 'selected="SELECTED"';
+											}
+										echo '>Female</option>
+										<option value="M" ';
+											if($_GET['filter1'] == 'M') {
+												echo 'selected="SELECTED"';
+											}
+										echo '>Male</option>
 									</select>
 									</td>';
+						echo '</tr>';
+						echo '<tr>';
+							echo '<td>Age Range:</td>';
+							echo '<td><input name="age_low" type="text" class="age_range" maxlength="3" /><input name="age_high" type="text" class="age_range" maxlength="3" /></td>';
 						echo '</tr>';
 				echo '</table>';			
 			echo '<input type="submit" name="s_vars" id="s_vars_submit" class="s_button" value="Search" />';
@@ -38,66 +50,34 @@
 
 			if(isset($_GET['search'])) {
 				$gender = $_GET['filter1'];
-				switch ($gender) {
-					case 'M':
-						//echo 'gender:' . $gender;
-						$chart_id = get_my_chart_id();
-						$user_list = get_user_list_search($gender);
-						$user_array = query_to_array($user_list);
+				$age = $_GET['filter2'];
+					$chart_id = get_my_chart_id();
+					$user_list = get_user_list_search($gender, $age_low, $age_high);
+					$user_array = query_to_array($user_list);
 
-
-						if (count($user_array) > 0) {
-
-	    					foreach ($user_array as $user) {
- 			
-    			  				echo '<div class="user_block js_user_' . $user["user_id"] . '">';
-        							echo '<div class="photo_border_wrapper_compare">';
-          								echo '<div class="compare_photo">';
-            								show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
-            								//echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';
-         			
+					if (count($user_array) > 0) {
+	    				foreach ($user_array as $user) {
+    			  			echo '<div class="user_block js_user_' . $user["user_id"] . '">';
+        						echo '<div class="photo_border_wrapper_compare">';
+          							echo '<div class="compare_photo">';
+            							show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
+            							//echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';		
           								echo '</div>';
         							echo '</div>'; 
-        							show_general_info($user["chart_id"]);
-        							//echo '<div class="user_info">' . $user["nickname"] . '</div>';      
-			        				//echo '*' . $user["score"] . '*';
-    			  				echo '</div>';        
-    						}
-  						}
-  						else {
-    						echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
-  						}
-  						break;
-  					case 'F':
-						//echo 'gender:' . $gender;
-						$chart_id = get_my_chart_id();
-						$user_list = get_user_list_search($gender);
-						$user_array = query_to_array($user_list);
-
-
-						if (count($user_array) > 0) {
-
-	    					foreach ($user_array as $user) {
- 			
-    			  				echo '<div class="user_block js_user_' . $user["user_id"] . '">';
-        							echo '<div class="photo_border_wrapper_compare">';
-          								echo '<div class="compare_photo">';
-            								show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
-            								//echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';
-         			
-          								echo '</div>';
-        							echo '</div>'; 
-        							show_general_info($user["chart_id"]);
-        							//echo '<div class="user_info">' . $user["nickname"] . '</div>';      
-			        				//echo '*' . $user["score"] . '*';
-    			  				echo '</div>';        
-    						}
-  						}
-  						else {
-    						echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
-  						}
-  						break;
-  				}
+        						show_general_info($user["chart_id"]);
+        						//echo '<div class="user_info">' . $user["nickname"] . '</div>';      
+			        			//echo '*' . $user["score"] . '*';
+    			  			echo '</div>';        
+    					}
+  					}
+  					else {
+  						echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
+  					}  				
+			}
+			elseif (isset($_GET['error'])) {
+				if($_GET['error'] == 1) {
+					echo '<div class="s_err">There was an error with the gender field.  Please select a gender.</div>';
+				}
 			}
 
 		echo '</div>';  //close s_results

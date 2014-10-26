@@ -3823,6 +3823,14 @@ span.div_link {
     vertical-align: bottom;
 }
 
+.age_range {
+  width: 33px;
+  height: 33px;
+  border: 2px solid black;
+  display:inline-block;
+  margin-right: 5px;
+}
+
 /*//////////////// END SEARCH ///////////////////////////////////////*/
 
 

@@ -1298,12 +1298,20 @@ function get_celeb_list() {  // THIS FUNCTION FOR ADMINS ONLY, TO MANAGE CELEBRI
 
 //SEARCH FUNCTIONS------------------------------------------
 
-function get_user_list_search ($gender) {
+function get_user_list_search ($gender, $age_low, $age_high) {
   if(isLoggedIn()) {
-    $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+    if ($gender !== 'none') {
+      $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           left outer join user_picture on user.user_id = user_picture.user_id 
-          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and gender = "' . $gender . '" ORDER BY main desc, user_id desc LIMIT 8';
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and gender = "' . $gender . '" user.birthday between DATE_SUB(CURDATE(), INTERVAL "' . $age_low . '" YEAR) and DATE_SUB(CURDATE(), INTERVAL "' . $age_high . '" YEAR) ORDER BY main desc, user_id desc LIMIT 8';
+    }
+    else {
+      $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+          inner join chart on user.user_id = chart.user_id 
+          left outer join user_picture on user.user_id = user_picture.user_id 
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 ORDER BY main desc, user_id desc LIMIT 8';
+    }
     if ($result = mysql_query($q)) {
       return $result;
     }
