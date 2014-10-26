@@ -67,7 +67,7 @@ $(document).ready(function(){
 	$('button[name=sign_up_email]').click(function(){
 		$('#sign_up_box').hide();
 		$('#create_account').show();
-		$('#username>input').focus();
+		//$('#username>input').focus();
 	});
 	
 	$('#cancel_email_sign_up').click(function(){
