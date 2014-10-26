@@ -50,10 +50,12 @@
 
 			if(isset($_GET['search'])) {
 				$gender = $_GET['filter1'];
-				$age = explode(",", $_POST['filter2']);
+				$age = explode(",", $_GET['filter2']);
 				$age_low = $age[0];
 				$age_high = $age[1];
-				/*
+
+				//echo 'age_low: ' . $age_low . ', age_high: ' . $age_high;
+				
 					$chart_id = get_my_chart_id();
 					$user_list = get_user_list_search($gender, $age_low, $age_high);
 					$user_array = query_to_array($user_list);
@@ -76,7 +78,7 @@
   					else {
   						echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
   					} 
-  					*/ 				
+  									
 			}
 			elseif (isset($_GET['error'])) {
 				if($_GET['error'] == 1) {
