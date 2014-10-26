@@ -3755,3 +3755,42 @@ span.div_link {
 
 /*//////////////// END FOOTER ///////////////////////////////////////*/
 
+
+
+/*//////////////// SEARCH ///////////////////////////////////////*/
+
+#s_inputs {
+  display: inline-block;
+  position: relative;
+}
+
+#s_vars {
+  display: inline-block;
+  position: relative;
+}
+
+#sfb_friends {
+  margin-bottom: 15px;
+  width: 264px;
+  border: 1px solid #1a1d2a; 
+  color: white;
+  box-shadow: 0 0 2px 0 #4b5a80 inset;
+  cursor: pointer;
+  padding: 8px;
+  font-family: 'later_on';
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 8px;
+  background-color: #6F83BB;
+}
+
+#sfb_friends:hover {
+  box-shadow: 0 0 3px #3E4D74 inset;
+  text-decoration: underline; 
+}
+
+/*//////////////// END SEARCH ///////////////////////////////////////*/
+
+
+
+
