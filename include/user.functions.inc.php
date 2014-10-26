@@ -1290,6 +1290,13 @@ function get_celeb_list() {  // THIS FUNCTION FOR ADMINS ONLY, TO MANAGE CELEBRI
   }
 }
 
+
+//SEARCH FUNCTIONS------------------------------------------
+
+
+
+//END SEARCH-------------------------------------------------
+
 function is_my_favorite ($favorite_user_id) {
   if (isLoggedIn()) {
     $q = 'SELECT * from favorite where user_id = ' . get_my_user_id() . ' AND favorite_user_id = ' . $favorite_user_id;
