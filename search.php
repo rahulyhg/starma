@@ -38,8 +38,66 @@
 
 			if(isset($_GET['search'])) {
 				$gender = $_GET['filter1'];
+				switch ($gender) {
+					case 'M':
+						//echo 'gender:' . $gender;
+						$chart_id = get_my_chart_id();
+						$user_list = get_user_list_search($gender);
+						$user_array = query_to_array($user_list);
 
-				echo 'gender:' . $gender;
+
+						if (count($user_array) > 0) {
+
+	    					foreach ($user_array as $user) {
+ 			
+    			  				echo '<div class="user_block js_user_' . $user["user_id"] . '">';
+        							echo '<div class="photo_border_wrapper_compare">';
+          								echo '<div class="compare_photo">';
+            								show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
+            								//echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';
+         			
+          								echo '</div>';
+        							echo '</div>'; 
+        							show_general_info($user["chart_id"]);
+        							//echo '<div class="user_info">' . $user["nickname"] . '</div>';      
+			        				//echo '*' . $user["score"] . '*';
+    			  				echo '</div>';        
+    						}
+  						}
+  						else {
+    						echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
+  						}
+  						break;
+  					case 'F':
+						//echo 'gender:' . $gender;
+						$chart_id = get_my_chart_id();
+						$user_list = get_user_list_search($gender);
+						$user_array = query_to_array($user_list);
+
+
+						if (count($user_array) > 0) {
+
+	    					foreach ($user_array as $user) {
+ 			
+    			  				echo '<div class="user_block js_user_' . $user["user_id"] . '">';
+        							echo '<div class="photo_border_wrapper_compare">';
+          								echo '<div class="compare_photo">';
+            								show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
+            								//echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';
+         			
+          								echo '</div>';
+        							echo '</div>'; 
+        							show_general_info($user["chart_id"]);
+        							//echo '<div class="user_info">' . $user["nickname"] . '</div>';      
+			        				//echo '*' . $user["score"] . '*';
+    			  				echo '</div>';        
+    						}
+  						}
+  						else {
+    						echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
+  						}
+  						break;
+  				}
 			}
 
 		echo '</div>';  //close s_results

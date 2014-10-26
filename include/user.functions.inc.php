@@ -1291,11 +1291,39 @@ function get_celeb_list() {  // THIS FUNCTION FOR ADMINS ONLY, TO MANAGE CELEBRI
 }
 
 
+
+
+
+
+
 //SEARCH FUNCTIONS------------------------------------------
 
+function get_user_list_search ($gender) {
+  if(isLoggedIn()) {
+    $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+          inner join chart on user.user_id = chart.user_id 
+          left outer join user_picture on user.user_id = user_picture.user_id 
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and gender = "' . $gender . '" ORDER BY main desc, user_id desc LIMIT 8';
+    if ($result = mysql_query($q)) {
+      return $result;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
 
 
 //END SEARCH-------------------------------------------------
+
+
+
+
+
+
 
 function is_my_favorite ($favorite_user_id) {
   if (isLoggedIn()) {

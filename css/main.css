@@ -3811,6 +3811,18 @@ span.div_link {
   border-top: 2px solid black;
 }
 
+#s_results .user_block {
+    border-spacing: 20px;
+    bottom: 13px;
+    display: inline-block;
+    height: 153px;
+    line-height: 0.8em;
+    padding: 32px 15px 15px;
+    position: relative;
+    text-align: center;
+    vertical-align: bottom;
+}
+
 /*//////////////// END SEARCH ///////////////////////////////////////*/
 
 
