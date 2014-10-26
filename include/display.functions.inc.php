@@ -558,8 +558,8 @@ function show_my_descriptors_info_home() {
       echo '<div class="title">' . (string)($counter+1) . '.</div>';
       echo '<div class="value_home">';
         echo '<span>';
-          if (strlen($word['descriptor']) > 7) {
-            echo substr($word["descriptor"], 0, 7) . '...';
+          if (strlen($word['descriptor']) > 10) {
+            echo substr($word["descriptor"], 0, 10) . '...';
           } 
           else {
             echo $word["descriptor"];
@@ -1510,6 +1510,7 @@ function get_left_menu ($the_page) {
     $menu['nav2'] = array('Favorites&nbsp;&nbsp;','favorites.php');
     //$menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
     $menu['nav3'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php');
+    $menu['nav4'] = array('Matches&nbsp;&nbsp;', 'search.php');  //SEARCH TESTING
     
   }
   elseif ($the_page == 'hsel') {
