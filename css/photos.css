@@ -101,6 +101,7 @@
   text-align: center;
   margin: auto auto;
   width: 74px;
+  z-index: 1;
 }
 
 #photo_table td div.div_no_photo:hover {
