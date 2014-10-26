@@ -53,11 +53,17 @@
 				$age = explode(",", $_GET['filter2']);
 				$age_low = $age[0];
 				$age_high = $age[1];
+				$age_low = CURRENT_YEAR() - $age_low;
+				//$age_low = $age_low . '-00-00';
+				$age_high = CURRENT_YEAR() - $age_high;
+				//$age_high = $age_high . '-00-00';
+				$low_bound = (string)$age_high . '-00-00'; //SWAP TO PUT IN QUERY IN CORRECT ORDER
+				$high_bound = (string)$age_low . '-00-00';
 
-				//echo 'age_low: ' . $age_low . ', age_high: ' . $age_high;
+				//echo 'age_low: ' .mysql_real_escape_string($age_low) . ', age_high: ' . mysql_real_escape_string($age_high);
 				
 					$chart_id = get_my_chart_id();
-					$user_list = get_user_list_search($gender, $age_low, $age_high);
+					$user_list = get_user_list_search($gender, $low_bound, $high_bound);
 					$user_array = query_to_array($user_list);
 
 					if (count($user_array) > 0) {
