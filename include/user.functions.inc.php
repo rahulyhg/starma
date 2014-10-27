@@ -302,6 +302,7 @@ function set_chart_flag ($flag=1, $user_id) {
   }
 }
 
+
 /*
 function is_online($user_id) {
   if (isLoggedIn()) {
@@ -361,7 +362,8 @@ function is_preference_there ($pref_name, $user_id) {
     $q = "SELECT * from user_preferences where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     if ($row = mysql_fetch_array($result)) {
-      return $row[$pref_name];
+      //return $row[$pref_name];
+      return true;
     }
     else {
       return false;

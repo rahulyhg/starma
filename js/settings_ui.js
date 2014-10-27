@@ -21,7 +21,7 @@ $(document).ready(function(){
 	//if ($('input[name=change_pass]').prop('disabled', false)) {
 		
 		$('#change_pass').click(function(){
-			$('#ajax_loader').html('<img src="/js/ajax_loader.gif" />');
+			$('#ajax_loader').html('<img src="/js/ajax_loader_sign_up.gif" />');
 			var data_pass = {
 				'oldpassword'  : $('input[name=oldpassword]').val(),
 				'password'     : $('input[name=password]').val(),
@@ -68,6 +68,36 @@ $(document).ready(function(){
 		});
 	//}
 	
+
+	$('#hlcb').click(function(){
+		if($('#hlcb').prop('checked')) {
+			var data = { 'hlcb' : 1 };
+		}
+		if(!$('#hlcb').prop('checked')) {
+			var data = { 'hlcb' : 0 };
+		}
+		//alert(data);
+		$.ajax({
+				type: 'POST',
+				url: 'chat/ajax_privacy.php',
+				data: data,
+				dataType: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				if (data.errors.invalid) {
+					$('#hl_done').show().text(data.errors.invalid);
+				}
+				if (data.errors.set) {
+					$('#hl_done').show().text(data.errors.set);
+				}
+			}
+			if (data.msg) {
+				$('#hl_done').show().text(data.msg).fadeOut(1200);
+			}
+		});
+
+	});
 	
 
 
