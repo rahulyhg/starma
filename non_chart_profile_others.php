@@ -203,8 +203,8 @@ echo '</div><!--MYSTERY-->';  //MYSTERIOUS FIX FOR FOOTER...
             require('chart_others.php');
           }
           elseif ($section == 'houses_selected') {
-            //require('houses.php');
-            echo '<div style="height:300px;">Coming Soon...</div>';
+            require('houses.php');
+            //echo '<div style="height:300px;">Coming Soon...</div>';
           }
           elseif (($section == 'photos_selected') && (!$isCeleb)) {
             require('photos_others.php');
