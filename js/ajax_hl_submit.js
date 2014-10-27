@@ -12,6 +12,7 @@ $('.hl_nav_wrapper').mouseleave(function() {
 
 
 $('.hl_nav').click(function(event){
+	$('#hl_intro').hide();
 	//event.preventDefault();
 	$('.hl_nav').removeClass('hln_selected');
 	$(this).addClass('hln_selected');
@@ -34,7 +35,7 @@ $('.hl_nav').click(function(event){
 	.done(function(data){
 		if (data.errors) {
 			$('#hl_iconL').hide();
-			$('#hl_iconL').hide();
+			$('#hl_iconR').hide();
 			if (data.errors.rising_sign_id) {
 				$('#hl_blurb').text(data.errors.rising_sign_id);
 			}
@@ -47,8 +48,10 @@ $('.hl_nav').click(function(event){
 		}
 		if (!data.errors) {
 			$('#hl_blurb').text(data.blurb);
-			$('#hl_iconL').html('<img src="/img/houseIcon_' + data.house_id + '.png" />');
-			$('#hl_iconR').html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />');
+			$('#hl_iconL').html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
+			$('#hl_iconR').html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show()
+			$('#palenquin_stars').show();
+			
 		}
 	});
 
