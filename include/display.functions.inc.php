@@ -5268,6 +5268,7 @@ function show_house_lords () {
       $chart = get_chart_by_name ("Freebie1");
       $chart_id = $chart["chart_id"];
       $pref = 0;
+      $custum = true;
     } 
   }
   else {                                //GUEST USER
@@ -5392,6 +5393,9 @@ function show_house_lords () {
 
           if ($chart_id == get_my_chart_id()) {
             echo '<div class="later_on" style=font-size:1.5em;>Oh no!  We can\'t tell you about your House Lords without a more accurate <a href="' . get_domain() . '/main.php?the_left=nav4&the_page=psel" title="My Birth Time">time of birth</a></div>';
+          }
+          elseif ($custom) {
+            echo '<div class="later_on" style=font-size:1.5em;>Oh no!  We can\'t tell you about this peron\'s House Lords without a more accurate time of birth</div>';
           }
           else {
             echo '<div class="later_on" style=font-size:1.5em;>Oh no!  We can\'t tell you about ' . $username . '\'s House Lords without a more accurate time of birth</div>';
