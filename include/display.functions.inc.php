@@ -5257,12 +5257,18 @@ function show_house_lords () {
       $chart_id = get_my_chart_id();
       $pref = 0;
     }
-    elseif (isset($_GET['chart_id2'])) {  //OTHER USER
+    elseif (is_freebie_chart($_GET['chart_id2'])) { //CUSTOM
+      $chart_id = chart_already_there("Freebie1",get_my_user_id());
+      $pref = 0;
+      $custum = true;
+    }
+    else {  //OTHER USER
       //$chart_name = 'other_user';
       $chart_id = $_GET['chart_id2'];
       $pref = get_preferences(get_user_id_from_chart_id($chart_id), $pref_name, 0);
       $username = get_nickname(get_user_id_from_chart_id($chart_id));
     }
+    /*
     else {                              //CUSTOM
       //$chart_name = 'custom';
       $chart = get_chart_by_name ("Freebie1");
@@ -5270,6 +5276,7 @@ function show_house_lords () {
       $pref = 0;
       $custum = true;
     } 
+    */
   }
   else {                                //GUEST USER
     if(!isset($_GET['chart_id2'])) {    //GUEST EXPLORER
@@ -5392,13 +5399,13 @@ function show_house_lords () {
           echo '<div id="starma_house_lords">';
 
           if ($chart_id == get_my_chart_id()) {
-            echo '<div class="later_on" style=font-size:1.5em;>Oh no!  We can\'t tell you about your House Lords without a more accurate <a href="' . get_domain() . '/main.php?the_left=nav4&the_page=psel" title="My Birth Time">time of birth</a></div>';
+            echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">Oh no!  We can\'t tell you about your House Lords without a more accurate <a href="' . get_domain() . '/main.php?the_left=nav4&the_page=psel" title="My Birth Time">time of birth</a></div>';
           }
           elseif ($custom) {
-            echo '<div class="later_on" style=font-size:1.5em;>Oh no!  We can\'t tell you about this peron\'s House Lords without a more accurate time of birth</div>';
+            echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">Oh no!  We can\'t tell you about this peron\'s House Lords without a more accurate time of birth</div>';
           }
           else {
-            echo '<div class="later_on" style=font-size:1.5em;>Oh no!  We can\'t tell you about ' . $username . '\'s House Lords without a more accurate time of birth</div>';
+            echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">Oh no!  We can\'t tell you about ' . $username . '\'s House Lords without a more accurate time of birth</div>';
           }
       //if (my_chart_flag() == 1) {
       //  show_circle_and_arrow_hilite("down");
