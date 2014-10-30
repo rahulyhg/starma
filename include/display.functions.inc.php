@@ -6297,7 +6297,7 @@ function display_thumbnails_sign_up($celebs, $generic) {
 
 function display_search_results($user_array, $users_per_page, $chart_id) {
 
-    if (count($user_array) > 24) {
+    if (count($user_array) > 0) {
   
         $num_pages = count($user_array) / $users_per_page; // DIVIDED BY THE NUMBER OF USER PROFILES PER PAGE
         $num_pages = ceil($num_pages); //NUMBER OF PAGES
@@ -6333,13 +6333,17 @@ function display_search_results($user_array, $users_per_page, $chart_id) {
                     //echo 'upp: ' . $upp . '<br>';
                   }
             //}
-            echo '<input type="hidden" value="2" />';
+            if (count($user_array) > 24) {
+              echo '<input type="hidden" class="next_page" value="2" />';
+              echo '<input type="hidden" class="load_next" value="true" />';
+            }
             //echo '</div>'; //close s_nav
               
             //$x++;
                 //echo 'x= ' . $x . '<br>';
         //}
       }
+      /*
       elseif (count($user_array) < 24) {
 
         foreach ($user_array as $user) {
@@ -6356,6 +6360,7 @@ function display_search_results($user_array, $users_per_page, $chart_id) {
             echo '</div>';                            
             }
       }
+      */
       else {
         echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
       }
