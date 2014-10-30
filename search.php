@@ -65,69 +65,19 @@
 					$chart_id = get_my_chart_id();
 					$user_list = get_user_list_search($gender, $low_bound, $high_bound);
 					$user_array = query_to_array($user_list);
+					$users_per_page = 24;
 
-					if (count($user_array) > 0) {
-						$users_per_page = 24;
-						$num_pages = count($user_array) / $users_per_page; // DIVIDED BY THE NUMBER OF USER PROFILES PER PAGE
-						$num_pages = ceil($num_pages); //NUMBER OF PAGES
-						//echo 'num_pages: ' . $num_pages . '<br>';
-						//echo 'number of users: ' . count($user_array) . '<br>';
-						$pages = array_chunk($user_array, $users_per_page, true);  //PROFILES SPLIT INTO PAGE ARRAYS
+					display_search_results($user_array, $users_per_page, $chart_id);
 
-						//print_r($pages);
-						
-						$x=0;
-						foreach ($pages as $page) {		
-							echo '<div id="page_' . $x . '">';	
-											
-							if ($x == 0) {
-									$upp = 0;
-									foreach ($user_array as $user) {
-										
-										if ($upp < $users_per_page) {
-    				  						echo '<div class="user_block js_user_' . $user["user_id"] . '">';
-        										echo '<div class="photo_border_wrapper_compare">';
-          											echo '<div class="compare_photo">';
-            											show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
-            											//echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';		
-          												echo '</div>';
-        											echo '</div>'; 
-        										show_general_info($user["chart_id"]);
-        										//echo '<div class="user_info">' . $user["nickname"] . '</div>';      
-			        							//echo '*' . $user["score"] . '*';
-    			  							echo '</div>';       
-    									}
-    									else {
-    										break;
-    									}
-    									$upp++; 
-    									//echo 'upp: ' . $upp . '<br>';
-									}
-							}
-							else {
-								//echo '<div id="page_' . $x . '">';
-								echo '<a href="#"></a>';
-							}
-							echo '</div>'; //close page_
-							
-	    					$x++;
-	    					//echo 'x= ' . $x . '<br>';
-    					}
-    					
-    					
-  					}
-  					else {
-  						echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
-  					}
-  					unset($x);
-  					unset($upp); 
-  									
-			}
-			elseif (isset($_GET['error'])) {
-				if($_GET['error'] == 1) {
-					echo '<div class="s_err">There was an error with the gender field.  Please select a gender.</div>';
+  				}
+  				elseif (isset($_GET['error'])) {
+					if($_GET['error'] == 1) {
+						echo '<div class="s_err">There was an error with the gender field.  Please select a gender.</div>';
+					}
 				}
-			}
+  				else {
+  					echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
+  				}
 
 		echo '</div>';  //close s_results
 
