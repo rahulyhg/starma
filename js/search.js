@@ -12,11 +12,13 @@ $(document).ready(function() {
 	});
 
 	*/
-	if ()
-	$('#s_results').scroll(function() {
-		if ($(window).scrollTop() + $(window).height() > )
+	alert($('.next_page').scrollTop());
+	if ($('.next_page').length()) {
+		$('#s_results').scroll(function() {
+			if ($(window).scrollTop() + $(window).height() > )
 
-		alert($(this).attr('class'));
-	});
+			alert($('.next_page').val());
+		});
+	}
 	
 });
