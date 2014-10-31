@@ -12,13 +12,45 @@ $(document).ready(function() {
 	});
 
 	*/
-	alert($('.next_page').scrollTop());
-	if ($('.next_page').length()) {
-		$('#s_results').scroll(function() {
-			if ($(window).scrollTop() + $(window).height() > )
+	//alert($('#s_results').scrollTop());
+	var load_next = $('.load_next').val();
 
-			alert($('.next_page').val());
-		});
-	}
+	$(window).scroll(function() {
+		var H = $(window).height();
+		var top = $(window).scrollTop();
+		var all = document.body.clientHeight;
+		console.log('height: ' + H);
+		console.log('scrollTop: ' + top);
+		console.log('all: ' + all);
+		if (H + top == all && load_next == 'true') {
+			var data = { 'page'  : $('.next_page').val(),
+						 'limit' : 24,
+						}; 
+
+			$.ajax({
+				type      : 'POST',
+				url       : '/chat/scroll.php',
+				data      : data,
+				dataType  : 'json'
+			})
+			.done(function(data){
+				if (data.errors) {
+					alert(data.errors.page);
+				}
+				if (!data.errors) {
+					//alert('page: ' + data.page + 'begin: ' + data.begin + 'limit: ' + data.limit);
+					
+				}
+			});
+		}
+		//if (height => $('.user_block').scrollTop())
+	});
+	//if ($('.next_page').length()) {
+		//$('#s_results').scroll(function() {
+		//	if ($(window).scrollTop() + $(window).height() > )
+
+		//	alert($('.next_page').val());
+		//});
+	//}
 	
 });

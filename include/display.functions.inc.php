@@ -6295,25 +6295,21 @@ function display_thumbnails_sign_up($celebs, $generic) {
 //SEARCH RESULTS-----------------------------------
 
 
-function display_search_results($user_array, $users_per_page, $chart_id) {
+function display_search_results($user_array, $chart_id) {
 
     if (count($user_array) > 0) {
   
-        $num_pages = count($user_array) / $users_per_page; // DIVIDED BY THE NUMBER OF USER PROFILES PER PAGE
-        $num_pages = ceil($num_pages); //NUMBER OF PAGES
-        //echo 'num_pages: ' . $num_pages . '<br>';
-        //echo 'number of users: ' . count($user_array) . '<br>';
-        $pages = array_chunk($user_array, $users_per_page, true);  //PROFILES SPLIT INTO PAGE ARRAYS
+        
 
         //print_r($pages);      
         //$x=0;
         //foreach ($pages as $page) {   
           //echo '<div class="s_nav ' . $x . '">';              
             //if ($x == 0) {
-                $upp = 0;
+                //$upp = 0;
                 foreach ($user_array as $user) {
                   
-                  if ($upp < $users_per_page) {
+                  //if ($upp < $users_per_page) {
                         echo '<div class="user_block js_user_' . $user["user_id"] . '">';
                           echo '<div class="photo_border_wrapper_compare">';
                               echo '<div class="compare_photo">';
@@ -6325,42 +6321,22 @@ function display_search_results($user_array, $users_per_page, $chart_id) {
                           //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
                           //echo '*' . $user["score"] . '*';
                         echo '</div>';       
-                    }
-                    else {
-                      break;
-                    }
-                    $upp++; 
+                    //}
+                    //else {
+                      //break;
+                   //}
+                    //$upp++; 
                     //echo 'upp: ' . $upp . '<br>';
                   }
+                  echo '<input type="hidden" class="next_page" value="" />';
+                  echo '<input type="hidden" class="load_next" value="" />';
             //}
-            if (count($user_array) > 24) {
-              echo '<input type="hidden" class="next_page" value="2" />';
-              echo '<input type="hidden" class="load_next" value="true" />';
-            }
             //echo '</div>'; //close s_nav
               
             //$x++;
                 //echo 'x= ' . $x . '<br>';
         //}
       }
-      /*
-      elseif (count($user_array) < 24) {
-
-        foreach ($user_array as $user) {
-          echo '<div class="user_block js_user_' . $user["user_id"] . '">';
-            echo '<div class="photo_border_wrapper_compare">';
-              echo '<div class="compare_photo">';
-                  show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
-                          //echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';   
-              echo '</div>';
-            echo '</div>'; 
-            show_general_info($user["chart_id"]);
-            //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
-            //echo '*' . $user["score"] . '*';
-            echo '</div>';                            
-            }
-      }
-      */
       else {
         echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
       }

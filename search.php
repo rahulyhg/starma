@@ -60,14 +60,27 @@
 				$low_bound = (string)$age_high . '-00-00'; //SWAP TO PUT IN QUERY IN CORRECT ORDER
 				$high_bound = (string)$age_low . '-00-00';
 
+				$num_pages = count($user_array) / $users_per_page; // DIVIDED BY THE NUMBER OF USER PROFILES PER PAGE
+       		 	$num_pages = ceil($num_pages); //NUMBER OF PAGES
+        		//echo 'num_pages: ' . $num_pages . '<br>';
+        		//echo 'number of users: ' . count($user_array) . '<br>';
+        		$pages = array_chunk($user_array, $users_per_page, true);  //PROFILES SPLIT INTO PAGE ARRAYS
+
 				//echo 'age_low: ' .mysql_real_escape_string($age_low) . ', age_high: ' . mysql_real_escape_string($age_high);
 				
 					$chart_id = get_my_chart_id();
-					$user_list = get_user_list_search($gender, $low_bound, $high_bound);
+					$user_list = get_user_list_search($gender, $low_bound, $high_bound, $begin=0, $limit=24);
 					$user_array = query_to_array($user_list);
 					$users_per_page = 24;
 
-					display_search_results($user_array, $users_per_page, $chart_id);
+					display_search_results($user_array, $chart_id);
+
+
+
+					//if (count($user_array) > 24) {
+              			//echo '<input type="hidden" class="next_page" value="" />';
+              			//echo '<input type="hidden" class="load_next" value="" />';
+            		//}
 
   				}
   				elseif (isset($_GET['error'])) {
