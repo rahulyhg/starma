@@ -1300,19 +1300,19 @@ function get_celeb_list() {  // THIS FUNCTION FOR ADMINS ONLY, TO MANAGE CELEBRI
 
 //SEARCH FUNCTIONS------------------------------------------
 
-function get_user_list_search ($gender, $age_low, $age_high, $begin, $limit) {
+function get_user_list_search ($gender, $low_bound, $high_bound, $begin, $limit) {
   if(isLoggedIn()) {
     if ($gender !== 'none') {
       $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           left outer join user_picture on user.user_id = user_picture.user_id 
-          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and gender = "' . $gender . '" and user.birthday between "' . mysql_real_escape_string($age_low) . '" and "' . mysql_real_escape_string($age_high) . '" ORDER BY main desc, user_id desc LIMIT ' . $begin . ',' . $limit;
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and gender = "' . $gender . '" and user.birthday between "' . mysql_real_escape_string($low_bound) . '" and "' . mysql_real_escape_string($high_bound) . '" ORDER BY main desc, user_id desc LIMIT ' . $begin . ',' . $limit;
     }
     else {
       $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           left outer join user_picture on user.user_id = user_picture.user_id 
-          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and birthday between "' . mysql_real_escape_string($age_low) . '" and "' . mysql_real_escape_string($age_high) . '" ORDER BY main desc, user_id desc LIMIT ' . $begin . ',' . $limit;
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and user.birthday between "' . mysql_real_escape_string($low_bound) . '" and "' . mysql_real_escape_string($high_bound) . '" ORDER BY main desc, user_id desc LIMIT ' . $begin . ',' . $limit;
     }
     if ($result = mysql_query($q)) {
       return $result;
@@ -1320,15 +1320,6 @@ function get_user_list_search ($gender, $age_low, $age_high, $begin, $limit) {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
-}
-
-function get_s_results_next_page ($page, $begin, $limit) {
-  if(isLoggedIn()) {
-
   }
   else {
     return false;

@@ -3831,6 +3831,17 @@ span.div_link {
   margin-right: 5px;
 }
 
+#s_loading {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  width: 100px;
+  height: 70px;
+  background: black;
+  color: #e7ebee;
+  opacity: .7;
+}
+
 /*//////////////// END SEARCH ///////////////////////////////////////*/
 
 
