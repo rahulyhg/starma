@@ -42,8 +42,9 @@ $(document).ready(function() {
 					alert('error');
 				}
 				if (data.new_users) {
-					//$('#s_results').append(data.list);
-					console.log('page: ' + data.page + 'begin: ' + data.begin + 'limit: ' + data.limit);
+					$('#s_results').append(data.new_users);
+					//alert(data.new_users);
+					//console.log('page: ' + data.page + 'begin: ' + data.begin + 'limit: ' + data.limit);
 					$('#s_loading').hide();
 				}
 			});

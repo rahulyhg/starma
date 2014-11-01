@@ -104,12 +104,13 @@
 				}
   				else {
   					echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
+  					//echo general_info_for_scroll(176, 13);
   				}
 
 		echo '</div>';  //close s_results
 
 
-	echo '<div id="s_loading">Loading...</div>';
+	echo '<div id="s_loading" class="later_on">Loading...</div>';
 
 
 	}

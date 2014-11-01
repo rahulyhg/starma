@@ -8,10 +8,10 @@
 			$errors['page'] = 'the page request must be a number...';
 		}
 		else {
-			$limit = $_POST['limit'];
+			$users_per_page = $_POST['limit'];
 			$page = $_POST['page'];
-			$begin = ($page - 1) * $limit;
-			$limit = $page * $limit;
+			$begin = ($page - 1) * $users_per_page;
+			$limit = $page * $users_per_page;
 			$data['page'] = $page;
 			$data['begin'] = $begin;
 			$data['limit'] = $limit;
@@ -62,9 +62,10 @@
 			$user_array = query_to_array($user_list);
 			$new_users = array();
 			$url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
-			//$i = 0;
+			
+			$upp = 0;
 			foreach ($user_array as $user) {
-
+				if ($upp < $users_per_page) {
                         $u1 = '<div class="user_block js_user_' . $user["user_id"] . '"><div class="photo_border_wrapper_compare"><div class="compare_photo">';
                                 //$u_pic = show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
                         		$u_pic = user_compare_picture_for_scroll ($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
@@ -73,15 +74,26 @@
                           	//$u_gen = show_general_info($user["chart_id"]);
                         $u_gen = general_info_for_scroll($user["chart_id"], $user["user_id"]);
                         $u3 = $u2 . $u_gen . '</div>';  
-                    array_push($new_users, $u3);   
-                    //$i++ ; 
+                    array_push($new_users, $u3);  
+                } 
+                else {
+                    break;
+                }
+                $upp++;
 
             }
+            
            	$data['new_users'] = $new_users;
+           	//$data['new_users'] = true;
+           	$data['user_array'] = $user_array;
 		}
 
 		echo json_encode($data);
 
+	}
+	else {
+		$data = 'Hello';
+		echo json_encode($data);
 	}
 
 

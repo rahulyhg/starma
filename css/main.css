@@ -3835,11 +3835,15 @@ span.div_link {
   display: none;
   position: absolute;
   bottom: 50px;
-  width: 100px;
-  height: 70px;
+  left: 50%;
+  margin-left: -100px;
   background: black;
   color: #e7ebee;
   opacity: .7;
+  z-index: 100;
+  text-align: center;
+  padding: 40px;
+  font-size: 2em;
 }
 
 /*//////////////// END SEARCH ///////////////////////////////////////*/
