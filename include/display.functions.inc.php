@@ -1100,7 +1100,6 @@ function show_general_info($chart_id) {
         echo $user_info["nickname"];
       }
     echo '</div>';
-    echo '<div class="name_area">';
       if ($is_celeb) {
         $chart = get_chart ($chart_id);
         $birthday = $chart["birthday"];
@@ -1109,17 +1108,73 @@ function show_general_info($chart_id) {
         $birthday = $user_info["birthday"];
       }
       if (!$is_celeb) {
+        echo '<div class="name_area">';
         echo calculate_age(substr((string)$birthday, 0, 10));
         if (get_gender($user_info["user_id"]) != "U") {
           echo '/' . get_gender($user_info["user_id"]);
         }
         echo ' ' . $location;
+        echo '</div>';
       }
-    echo '</div>';
+    
     //echo '<div class="location_area">';
     //  echo $location;
     //echo '</div>';
   echo '</div>';
+}
+
+
+function general_info_for_scroll ($chart_id, $user_id) {
+  //$user_id = get_user_id_from_chart_id ($chart_id);
+  $user_info = profile_info($user_id);
+  $is_celeb = $user_info["permissions_id"] == PERMISSIONS_CELEB();
+  if (trim($user_info["location"]) == "") {
+    $location = "Unknown";
+  }
+  else {
+    $location = $user_info["location"];
+    if ($user_info["country_id"] == 236) {  // UNITED STATES
+      $state = get_state ($user_info["state_id"]);
+      $location = $user_info["location"]. ', ' . strtoupper($state["state_code"]);
+    }
+    if (isLoggedIn()) {
+      $my_info = my_profile_info();      
+    }
+    else {
+      $my_info['country_id'] = 236;
+    }
+    if (!($user_info["country_id"] == $my_info["country_id"])) {
+      $country = get_country ($user_info["country_id"]);
+      $location = $location . ', ' . format_country_name ($country["country_title"]);
+    }
+  }
+  if (is_online($user_id)) {$online_color = 'green';} elseif (is_away($user_id)) {$online_color = 'orange';} else {$online_color = 'red';} 
+
+  if (isLoggedIn()) {
+    if(!$is_celeb) { //USER
+      $birthday = $user_info["birthday"];
+      $age = calculate_age(substr((string)$birthday, 0, 10));
+      return '<div class="profile_info_area"><div class="later_on nickname_area"><span style="color:' . $online_color . '; font-family:arial;">•</span>' . $user_info["nickname"] . '</div><div class="name_area">' . $user_info["birthday"] . $age . '/' . get_gender($user_info["user_id"]) . ' ' . $location . '</div></div>';
+    }
+    else { //IS_CELEB
+      return '<div class="profile_info_area"><div class="later_on nickname_area_celeb">' . $user_info["first_name"] . ' ' . $user_info["last_name"] . '</div></div>';
+    }
+  }
+  else { //NOT LOGGED IN
+    if(!$is_celeb) { //USER
+      $birthday = $user_info["birthday"];
+      $age = calculate_age(substr((string)$birthday, 0, 10));
+      if($_GET['the_page'] != 'psel' && ($_GET['tier'] == 2 || $_GET['tier'] == 3)) {
+        return '<div class="profile_info_area"><div class="later_on nickname_area" style="line-height:2;">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_info["user_id"]) . ' ' . $location . '</div></div>';
+      }
+      else {
+        return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_info["user_id"]) . ' ' . $location . '</div></div>';
+      }     
+    }
+    else { //IS_CELEB
+      return '<div class="profile_info_area"><div class="later_on nickname_area_celeb">' . $user_info["first_name"] . ' ' . $user_info["last_name"] . '</div></div>';
+    }
+  }
 }
 
 //-----------------Matt added so Interests on Other's Profile only show up if filled out
@@ -6148,6 +6203,10 @@ function show_user_compare_picture ($url, $user_id) {
   echo '<div class="user_button"><a href="' . $url . '">' . format_image($picture=get_main_photo($user_id), $type="compare", $user_id) . '</a></div>';
 }
 
+function user_compare_picture_for_scroll ($url, $user_id) {
+  return '<div class="user_button"><a href="' . $url . '">' . format_image($picture=get_main_photo($user_id), $type="compare", $user_id) . '</a></div>';
+}
+
 function show_user_inbox_picture ($url, $user_id) {
   if ($url == '') {
     echo '<div class="user_inbox_button"><a>' . format_image($picture=get_main_photo($user_id), $type="thumbnail", $user_id) . '</a></div>'; 
@@ -6295,8 +6354,9 @@ function display_thumbnails_sign_up($celebs, $generic) {
 //SEARCH RESULTS-----------------------------------
 
 
-function display_search_results($user_array, $chart_id) {
+function display_search_results($user_array, $users_per_page, $chart_id, $gender, $low_bound, $high_bound) {
 
+    $url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
     if (count($user_array) > 0) {
   
         
@@ -6306,10 +6366,10 @@ function display_search_results($user_array, $chart_id) {
         //foreach ($pages as $page) {   
           //echo '<div class="s_nav ' . $x . '">';              
             //if ($x == 0) {
-                //$upp = 0;
+                $upp = 0;
                 foreach ($user_array as $user) {
                   
-                  //if ($upp < $users_per_page) {
+                  if ($upp < $users_per_page) {
                         echo '<div class="user_block js_user_' . $user["user_id"] . '">';
                           echo '<div class="photo_border_wrapper_compare">';
                               echo '<div class="compare_photo">';
@@ -6321,15 +6381,14 @@ function display_search_results($user_array, $chart_id) {
                           //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
                           //echo '*' . $user["score"] . '*';
                         echo '</div>';       
-                    //}
-                    //else {
-                      //break;
-                   //}
-                    //$upp++; 
+                    }
+                    else {
+                      break;
+                   }
+                    $upp++; 
                     //echo 'upp: ' . $upp . '<br>';
                   }
-                  echo '<input type="hidden" class="next_page" value="" />';
-                  echo '<input type="hidden" class="load_next" value="" />';
+                  
             //}
             //echo '</div>'; //close s_nav
               
