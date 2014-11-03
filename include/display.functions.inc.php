@@ -1934,9 +1934,9 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
                //<td colspan="1" id="gender_select_input" class="no_move">';
     if($_GET['the_page'] == 'cosel') {
       echo '<div style="display:inline-block;">';
-        echo '<div class="later_on" style="font-size:1.19em;">Gender<span class="gender_validation"></span></div>';
+        echo '<div class="later_on" style="font-size:1.19em;">Gender</div>';
                 echo gender_select($gender);
-       //echo '</td><td><div class="gender_validation"></div></td>
+       //echo '</td><td><div class="gender_validation"></div></td><span class="gender_validation"></span>
              //</tr>';
       echo '</div>';
     }
