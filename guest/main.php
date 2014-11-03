@@ -204,8 +204,49 @@ if ($the_left=="nav1") {
   <img src="/img/profile/Starma-Astrology-Favorites.png"/>
   <img src="/img/profile/Starma-Astrology-FavoritesON.png"/>
 
-  <img src="/img/goBug.png"/>
-  <img src="/img/goBugON.png"/>
+  <img src="/img/GoBug.png"/>
+  <img src="/img/GoBugON.png"/>
+
+  <img src="/img/hl_nav_icon_1.png"/>
+  <img src="/img/hl_nav_icon_1ON.png"/>
+  <img src="/img/hl_nav_icon_2.png"/>
+  <img src="/img/hl_nav_icon_2ON.png"/>
+  <img src="/img/hl_nav_icon_3.png"/>
+  <img src="/img/hl_nav_icon_3ON.png"/>
+  <img src="/img/hl_nav_icon_4.png"/>
+  <img src="/img/hl_nav_icon_4ON.png"/>
+  <img src="/img/hl_nav_icon_5.png"/>
+  <img src="/img/hl_nav_icon_5ON.png"/>
+  <img src="/img/hl_nav_icon_6.png"/>
+  <img src="/img/hl_nav_icon_6ON.png"/>
+  <img src="/img/hl_nav_icon_7.png"/>
+  <img src="/img/hl_nav_icon_7ON.png"/>
+  <img src="/img/hl_nav_icon_7.png"/>
+  <img src="/img/hl_nav_icon_7ON.png"/>
+  <img src="/img/hl_nav_icon_8.png"/>
+  <img src="/img/hl_nav_icon_8ON.png"/>
+  <img src="/img/hl_nav_icon_9.png"/>
+  <img src="/img/hl_nav_icon_9ON.png"/>
+  <img src="/img/hl_nav_icon_10.png"/>
+  <img src="/img/hl_nav_icon_10ON.png"/>
+  <img src="/img/hl_nav_icon_11.png"/>
+  <img src="/img/hl_nav_icon_11ON.png"/>
+  <img src="/img/hl_nav_icon_12.png"/>
+  <img src="/img/hl_nav_icon_12ON.png"/>
+
+  <img src="/img/houseIcon_1.png"/>
+  <img src="/img/houseIcon_2.png"/>
+  <img src="/img/houseIcon_3.png"/>
+  <img src="/img/houseIcon_4.png"/>
+  <img src="/img/houseIcon_5.png"/>
+  <img src="/img/houseIcon_6.png"/>
+  <img src="/img/houseIcon_7.png"/>
+  <img src="/img/houseIcon_8.png"/>
+  <img src="/img/houseIcon_9.png"/>
+  <img src="/img/houseIcon_10.png"/>
+  <img src="/img/houseIcon_11.png"/>
+  <img src="/img/houseIcon_12.png"/>
+  <img src="/img/palenquinStars.png" />
    
 </div>
 
