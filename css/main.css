@@ -3294,8 +3294,8 @@ ul.as-list li.as-result-item em {
 #co_box_blurb {
   display: inline-block;
   position: relative;
-  bottom: 0px;
-  right: 15px;
+  bottom: 41px;
+  right: -4px;
   width: 330px;
 }
 
@@ -3309,8 +3309,8 @@ ul.as-list li.as-result-item em {
 #ce_box_blurb {
   display: inline-block;
   position: relative;
-  bottom: 1px;
-  right: 12px;
+  bottom: 41px;
+  right: -6px;
   width: 325px;
 }
 
