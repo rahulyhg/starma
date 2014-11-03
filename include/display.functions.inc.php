@@ -5432,7 +5432,7 @@ function show_house_lords () {
         // echo '</ul>';
           echo '<div id="hl_scroll_container">';
             echo '<div id="hl_scroll">';
-              echo '<div id="hl_prev"></div><div id="hl_next"></div>';
+              echo '<div id="hl_prev" class="pointer"></div><div id="hl_next" class="pointer"></div>';
             echo '</div>';
           echo '</div>';
 

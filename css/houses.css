@@ -375,6 +375,11 @@
   top: -41px;
 }
 
+#hl_loader{
+  width: 16px;
+  margin:auto;
+}
+
 /*
 #house_column {
   display: inline-block;
