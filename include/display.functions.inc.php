@@ -1566,7 +1566,7 @@ function get_left_menu ($the_page) {
     $menu['nav2'] = array('Favorites&nbsp;&nbsp;','favorites.php');
     //$menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
     $menu['nav3'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php');
-    $menu['nav4'] = array('Matches&nbsp;&nbsp;', 'search.php');  //SEARCH TESTING
+    //$menu['nav4'] = array('Matches&nbsp;&nbsp;', 'search.php');  //SEARCH TESTING
     
   }
   elseif ($the_page == 'hsel') {
