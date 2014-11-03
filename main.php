@@ -93,6 +93,9 @@ if ($the_left=="nav1") {
               show_user_invite();
   echo '</div>';
 
+
+  echo '<script type="text/javascript" src="/js/pop_tuts.js"></script>';
+
     ?>
 
 <div id="img_preloader">

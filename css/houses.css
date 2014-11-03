@@ -318,20 +318,24 @@
 }
 
 #hl_iconL {
+  width: 162px;
+  height: 182px;
   /*width: 181px;
   height: 151px;*/
-  width: 135px;
-  height: 177px;
+  /*width: 135px;
+  height: 177px;*/
   /*background: url('/img/houseIcon.png') no-repeat;*/
   float: left;
   display: inline-block;
 }
 
 #hl_iconR {
+  width: 162px;
+  height: 182px;
   /*width: 181px;
   height: 151px;*/
-  width: 135px;
-  height: 177px;
+  /*width: 135px;
+  height: 177px;*/
   /*background: url('/img/houseIcon.png') no-repeat;*/
   float: right;
   display: inline-block;
@@ -344,7 +348,7 @@
 }
 */
 #palenquin_wrapper {
-  width: 500px;
+  width: 440px;
   display: inline-block;
   /*margin-bottom: 35px;*/
 }
@@ -358,17 +362,22 @@
   margin-right: 77px;*/
   display: inline-block;
   /*float: left;*/
-  margin-left: 110px;
+  margin-left: 90px;
 }
 
 #hl_blurb {
-  width: 435px;
+  width: 390px;
   margin: 0 auto;
   margin-bottom: 40px;
   line-height: 125%;
   letter-spacing: .05px;
   position: relative;
   top: -41px;
+}
+
+#hl_loader{
+  width: 16px;
+  margin:auto;
 }
 
 /*

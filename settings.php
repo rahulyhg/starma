@@ -20,9 +20,15 @@ if (isLoggedIn() == true)
  
     }*/ 
     //else {
+
+    echo '<div id="settings">';
         show_changepassword_form(); 
+
+        show_privacy_form();
+
+    echo '</div>';
     //}
- 
+ echo '<script typt="text/javascript" src="/js/settings_ui.js"></script>';
 } 
 else {
 	// user is not loggedin

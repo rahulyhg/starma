@@ -2378,7 +2378,7 @@ li.my_unknown_button a {
    bottom: 48px;
     left: 20px;
     position: relative;
-   width: 150px;
+   width: 180px;
 }
 
 #descriptors div .value_home {
@@ -3294,8 +3294,8 @@ ul.as-list li.as-result-item em {
 #co_box_blurb {
   display: inline-block;
   position: relative;
-  bottom: 0px;
-  right: 15px;
+  bottom: 41px;
+  right: -4px;
   width: 330px;
 }
 
@@ -3309,8 +3309,8 @@ ul.as-list li.as-result-item em {
 #ce_box_blurb {
   display: inline-block;
   position: relative;
-  bottom: 1px;
-  right: 12px;
+  bottom: 41px;
+  right: -6px;
   width: 325px;
 }
 
@@ -3754,4 +3754,100 @@ span.div_link {
 }
 
 /*//////////////// END FOOTER ///////////////////////////////////////*/
+
+
+
+/*//////////////// SEARCH ///////////////////////////////////////*/
+
+#s_top_bar {
+  height: 200px;
+}
+
+#s_inputs {
+  width: 282px;
+  margin-left: 50px;
+  display: inline-block;
+  position: relative;
+}
+
+#s_vars {
+  width: 270px;
+  display: inline-block;
+  position: relative;
+  margin-left: 75px;
+}
+
+.s_button {
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid #1a1d2a; 
+  color: white;
+  -webkit-box-shadow: 0 0 2px 0 #4b5a80 inset;
+          box-shadow: 0 0 2px 0 #4b5a80 inset;
+  cursor: pointer;
+  padding: 8px;
+  font-family: 'later_on';
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 8px;
+  background-color: #6F83BB;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.s_button:hover {
+  -webkit-box-shadow: 0 0 3px #3E4D74 inset;
+          box-shadow: 0 0 3px #3E4D74 inset;
+  text-decoration: underline; 
+}
+
+#gender_select {
+  border: 2px solid #1a1d2a;
+  height: 33px;
+}
+
+#s_results {
+  border-top: 2px solid black;
+}
+
+#s_results .user_block {
+    border-spacing: 20px;
+    bottom: 13px;
+    display: inline-block;
+    height: 153px;
+    line-height: 0.8em;
+    padding: 32px 15px 15px;
+    position: relative;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.age_range {
+  width: 33px;
+  height: 33px;
+  border: 2px solid black;
+  display:inline-block;
+  margin-right: 5px;
+}
+
+#s_loading {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  margin-left: -100px;
+  background: black;
+  color: #e7ebee;
+  opacity: .7;
+  z-index: 100;
+  text-align: center;
+  padding: 40px;
+  font-size: 2em;
+}
+
+/*//////////////// END SEARCH ///////////////////////////////////////*/
+
+
+
 

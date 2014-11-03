@@ -196,7 +196,7 @@ echo '<div id="profile_top_bar">';
           echo '<div id="profile_nav">
           <ul>
             <li><a class="' . $chart_selected . '" href="?the_left=nav3&the_page=cosel&tier=4&western=0&section=chart_selected">Birth Chart</a></li>';
-            echo '<li><a class="' . $houses_selected . '" href="?the_page=cosel&the_left=nav3&tier=4&western=0&section=houses_selected">Houses</a></li>';   
+            echo '<li><a class="' . $houses_selected . '" href="?the_page=cosel&the_left=nav3&tier=4&western=0&section=houses_selected">House Lords</a></li>';   
             echo '<li class="end"><a class="' . $western_selected . '" href="?the_page=cosel&the_left=nav3&tier=4&chart_id2=' . $chart_id2 . '&western=1&section=western_selected">Western View</a></li>';
           echo '</ul>
         </div>';
@@ -208,8 +208,8 @@ echo '<div id="profile_top_bar">';
             require('chart_others.php');
           }
           elseif ($section == 'houses_selected') {
-            //require('houses.php');
-            echo '<div style="height:300px;">Coming Soon...</div>';
+            require('houses.php');
+            //echo '<div style="height:300px;">Coming Soon...</div>';
           }
           elseif ($section == 'western_selected') {
             require('chart_others.php');

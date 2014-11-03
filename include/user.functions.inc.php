@@ -277,7 +277,7 @@ function set_my_welcome_flag ($flag=1) {
 }
 
 function set_my_chart_flag ($flag=1) {
-  set_chart_flag($flag,$_SESSION["user_id"]);
+  return set_chart_flag($flag,$_SESSION["user_id"]);
 }
 
 function set_welcome_flag ($flag=1, $user_id) {
@@ -301,6 +301,7 @@ function set_chart_flag ($flag=1, $user_id) {
     return false;
   }
 }
+
 
 /*
 function is_online($user_id) {
@@ -361,7 +362,8 @@ function is_preference_there ($pref_name, $user_id) {
     $q = "SELECT * from user_preferences where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     if ($row = mysql_fetch_array($result)) {
-      return $row[$pref_name];
+      //return $row[$pref_name];
+      return true;
     }
     else {
       return false;
@@ -1289,6 +1291,49 @@ function get_celeb_list() {  // THIS FUNCTION FOR ADMINS ONLY, TO MANAGE CELEBRI
     return false;
   }
 }
+
+
+
+
+
+
+
+//SEARCH FUNCTIONS------------------------------------------
+
+function get_user_list_search ($gender, $low_bound, $high_bound, $begin, $limit) {
+  if(isLoggedIn()) {
+    if ($gender !== 'none') {
+      $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+          inner join chart on user.user_id = chart.user_id 
+          left outer join user_picture on user.user_id = user_picture.user_id 
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and gender = "' . $gender . '" and user.birthday between "' . mysql_real_escape_string($low_bound) . '" and "' . mysql_real_escape_string($high_bound) . '" ORDER BY main desc, user_id desc LIMIT ' . $begin . ',' . $limit;
+    }
+    else {
+      $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+          inner join chart on user.user_id = chart.user_id 
+          left outer join user_picture on user.user_id = user_picture.user_id 
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and user.birthday between "' . mysql_real_escape_string($low_bound) . '" and "' . mysql_real_escape_string($high_bound) . '" ORDER BY main desc, user_id desc LIMIT ' . $begin . ',' . $limit;
+    }
+    if ($result = mysql_query($q)) {
+      return $result;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
+
+//END SEARCH-------------------------------------------------
+
+
+
+
+
+
 
 function is_my_favorite ($favorite_user_id) {
   if (isLoggedIn()) {

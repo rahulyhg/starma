@@ -36,8 +36,8 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
         <?php
           display_welcome_page_thumbnails(0, 1);
         ?>
-      <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
       </div>
+      <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
     </div>
 
     <div id="compatibility_sample_link" class="homepage_div">
@@ -90,8 +90,8 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
         <?php
           display_welcome_page_thumbnails(1, 1);
         ?>
-        <div id="ce_box_blurb"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
       </div>
+      <div id="ce_box_blurb"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
     </div>
  </div> 
 

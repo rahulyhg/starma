@@ -46,8 +46,8 @@ require_once "header.php";
         <?php
           display_welcome_page_thumbnails($celebs=0);
         ?>
-      <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
       </div>
+      <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
     </div>
     <div id="horoscope_box_link" class="homepage_div">
       <span class="header">Read Your Birth Chart</span>
@@ -72,8 +72,8 @@ require_once "header.php";
         <?php
           display_welcome_page_thumbnails(1);
         ?>
-        <div id="ce_box_blurb"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
       </div>
+      <div id="ce_box_blurb"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
     </div>
  </div> 
 
