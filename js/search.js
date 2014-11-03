@@ -13,9 +13,10 @@ $(document).ready(function() {
 
 	*/
 	//alert($('#s_results').scrollTop());
-	var load_next = $('#load_next').val();
+	
 
 	$(window).scroll(function() {
+		var load_next = $('#load_next').val();
 		var H = $(window).height();
 		var top = $(window).scrollTop();
 		var all = document.body.clientHeight;
@@ -25,7 +26,7 @@ $(document).ready(function() {
 		if (H + top == all && load_next == 'true') {
 			$('#s_loading').show();
 			var data = { 'page'  		:  $('#next_page').val(),
-						 'limit' 		:  24,
+						 'limit' 		:  25,
 						 'low_bound'	:  $('#low_bound').val(),
 						 'high_bound'	:  $('#high_bound').val(),
 						 'gender' 		:  $('#gender').val(),
@@ -42,6 +43,13 @@ $(document).ready(function() {
 					alert('error');
 				}
 				if (data.new_users) {
+					if (data.next_page) {
+						$('#next_page').val(data.next_page);
+					}
+					if (data.end) {
+						$('#next_page').remove();
+						$('#load_next').val('false');
+					}
 					$('#s_results').append(data.new_users);
 					//alert(data.new_users);
 					//console.log('page: ' + data.page + 'begin: ' + data.begin + 'limit: ' + data.limit);

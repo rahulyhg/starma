@@ -88,14 +88,6 @@
               			//echo '<input type="hidden" class="load_next" value="" />';
             		//}
 
-            		if (count($user_array) > 24) {
-                    	echo '<input type="hidden" id="next_page" value="2" />';
-                    	echo '<input type="hidden" id="load_next" value="true" />';
-                    	echo '<input type="hidden" id="low_bound" value="' . $low_bound . '" />';
-                    	echo '<input type="hidden" id="high_bound" value="' . $high_bound . '" />';
-                    	echo '<input type="hidden" id="gender" value="' . $gender . '" />';
-        			}
-
   				}
   				elseif (isset($_GET['error'])) {
 					if($_GET['error'] == 1) {
@@ -107,7 +99,16 @@
   					//echo general_info_for_scroll(176, 13);
   				}
 
+
 		echo '</div>';  //close s_results
+		if (count($user_array) > 24) {
+            echo '<input type="hidden" id="next_page" value="2" />';
+           	echo '<input type="hidden" id="load_next" value="true" />';
+          	echo '<input type="hidden" id="low_bound" value="' . $low_bound . '" />';
+            echo '<input type="hidden" id="high_bound" value="' . $high_bound . '" />';
+            echo '<input type="hidden" id="gender" value="' . $gender . '" />';
+        }
+
 
 
 	echo '<div id="s_loading" class="later_on">Loading...</div>';

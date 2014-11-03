@@ -8,7 +8,8 @@
 			$errors['page'] = 'the page request must be a number...';
 		}
 		else {
-			$users_per_page = $_POST['limit'];
+			$users_per_page = ($_POST['limit'] - 1);
+			$one_above_limit = $_POST['limit'];
 			$page = $_POST['page'];
 			$begin = ($page - 1) * $users_per_page;
 			$limit = $page * $users_per_page;
@@ -58,11 +59,17 @@
 			$high_bound = (string)$age_low . '-00-00';
 			$chart_id = get_my_chart_id();
 
-			$user_list = get_user_list_search($gender, $low_bound, $high_bound, $begin, $limit);
+			$user_list = get_user_list_search($gender, $low_bound, $high_bound, $begin, $one_above_limit);
 			$user_array = query_to_array($user_list);
+			if (count($user_array) > 24) {
+				$data['next_page'] = $page + 1;
+			}
+			else {
+				$data['end'] = true;
+			}
+
 			$new_users = array();
 			$url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
-			
 			$upp = 0;
 			foreach ($user_array as $user) {
 				if ($upp < $users_per_page) {
