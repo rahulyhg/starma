@@ -231,6 +231,7 @@ if ($the_left=="nav1") {
   <img src="/img/houseIcon_10.png"/>
   <img src="/img/houseIcon_11.png"/>
   <img src="/img/houseIcon_12.png"/>
+  <img src="/img/palenquinStars.png" />
 
 </div>
 
