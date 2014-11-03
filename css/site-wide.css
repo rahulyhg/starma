@@ -18,18 +18,10 @@
          url('/css/fonts/later_on-webfont.woff') format('woff'),
          url('/css/fonts/later_on-webfont.ttf') format('truetype'),
          url('/css/fonts/later_on-webfont.svg#later_onregular') format('svg');
-    font-weight: bold;
     font-style: normal;
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
-/*
-@font-face {
-  font-family: later_on;
-  src: url('/css/fonts/later_on.ttf'),
-       url('/css/fonts/later_on.eot?#iefix') format('embedded-opentype'),
-       url('/css/fonts/later_on.ttf') format('truetype');
-}
-*/
 @font-face {
   font-family: jellyka;
   src: url('/css/fonts/Saint-Andrews-Queen.ttf');
