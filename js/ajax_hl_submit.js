@@ -12,6 +12,7 @@ $('.hl_nav_wrapper').mouseleave(function() {
 
 
 $('.hl_nav').click(function(event){
+	$('#hl_desc').hide();
 	$('#hl_blurb').hide();
 	$('#hl_iconL').hide();
 	$('#hl_iconR').hide();
@@ -52,6 +53,7 @@ $('.hl_nav').click(function(event){
 			}
 		}
 		if (!data.errors) {
+			$('#hl_desc').show().text(data.hl_desc);
 			$('#hl_blurb').show().text(data.blurb);
 			$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 			$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();

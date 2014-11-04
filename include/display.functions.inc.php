@@ -4034,6 +4034,23 @@ function blurb_form ($blurb_type, $the_value1=1, $the_value2=1, $the_value3=1, $
    echo '</tr>';
   }
 
+  elseif ($blurb_type == 'hl_desc_blurb') {
+   echo '<tr>';
+   echo '<td>Select a House: </td>';
+   echo '<td>';
+   house_select ($the_name="house_id", $the_value=$the_value1, $auto_submit=true, $form="blurb_edit_form");
+   echo '</td>'; 
+   echo '</tr>';
+   echo '<tr>';
+   echo '<td>House Description:</td>';
+   echo '<td>';
+   //echo $the_value1 . ' and ' . $the_value2 . ' and ' . $the_value3;
+   //$poi_house_ruler_blurb = get_poi_house_ruler_blurb ($the_value1, $the_value2, $the_value3);
+   echo '<textarea style="width:300px; height:200px" name="hl_desc_blurb">' . get_hl_desc ($the_value1) . '</textarea>';
+   echo '</td>'; 
+   echo '</tr>';
+  }
+
   echo '</table>';
   echo '<input type="submit" value="Update" name="Update">';
   echo '</form>';
@@ -5498,7 +5515,10 @@ function show_hl_results ($chart_id, $username) {
     echo '</div>';
     echo '<div id="hl_iconR" class="pointer"></div>';
   echo '</div>'; //close hl_results_container
-  echo '<div id="hl_blurb"></div>';
+  echo '<div id="hl_text_container">';
+    echo '<div id="hl_desc" class="text_block"></div>';
+    echo '<div id="hl_blurb" class="text_block"></div>';
+  echo '</div>';
 }
 
 
