@@ -63,6 +63,10 @@ $(document).ready(function(){
 						//alert(data.errors.password);
 						//$('#login_password_error').text(data.errors.password);
 						$('#login_password').css('border', '1px solid #C82923');
+					}
+					if (data.errors.login) {
+						$('#login_password').css('border', '1px solid #C82923');
+						$('#login_email').css('border', '1px solid #C82923');
 					}	
 				}
 				if (data.url) {

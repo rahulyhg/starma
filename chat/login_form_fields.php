@@ -29,14 +29,14 @@ if (!isLoggedIn()) {
 	else {
 		$errors['password'] = 'Please enter your password';
 	}
-	if(!empty($errors)) {
-		$data['errors'] = $errors;
+	//if(!empty($errors)) {
+	//	$data['errors'] = $errors;
 		//$data['success'] = false;
 		//echo json_encode($data);
-	}
-	else {
+	//}
+	//else {
 		if(checkLogin($e, $p)) {
-			if (isset($_POST["stay_logged_in"]) &&  $_POST["stay_logged_in"] == "on") {
+			    if (isset($_POST["stay_logged_in"]) &&  $_POST["stay_logged_in"] == "on") {
               	setcookie("email", $_POST['email'], time()+60*60*24*30, '/', get_domain(), true, true);
               	setcookie("password", $_POST['password'], time()+60*60*24*30, '/', get_domain(), true, true);
         	}
@@ -78,12 +78,17 @@ if (!isLoggedIn()) {
           }
         }
         else {
-        	$errors['login'] = 'There was an error loggin you in.  Please try again later.';
-        	$data['errors'] = $errors;
+        	$errors['login'] = 'There was an error logging you in.  Please try again later.';
+        	//$data['errors'] = $errors;
         	//echo json_encode($data);
         }
+        if(!empty($errors)) {
+          $data['errors'] = $errors;
+          //$data['success'] = false;
+          //echo json_encode($data);
+        }
 
-	}
+	//}
   echo json_encode($data);
 }
 else {
