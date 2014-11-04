@@ -43,7 +43,7 @@ $('.hl_nav').click(function(event){
 			//$('#hl_iconL').hide();
 			//$('#hl_iconR').hide();
 			if (data.errors.rising_sign_id) {
-				$('#hl_intro').show().text(data.errors.rising_sign_id);
+				$('#hl_intro').show().html(data.errors.rising_sign_id);
 			}
 			if (data.errors.house_id) {
 				$('#hl_intro').show().text(data.errors.house_id);
@@ -54,7 +54,7 @@ $('.hl_nav').click(function(event){
 		}
 		if (!data.errors) {
 			$('#hl_desc').show().text(data.hl_desc);
-			$('#hl_blurb').show().text(data.blurb);
+			$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
 			$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 			$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
 			$('#palenquin_stars').show();
@@ -68,6 +68,7 @@ $('.hl_nav').click(function(event){
 //PREV BUTTON---------------------------------------
 
 	$('#hl_prev').click(function(){
+		$('#hl_desc').hide();
 		$('#hl_blurb').hide();
 		$('#hl_iconL').hide();
 		$('#hl_iconR').hide();
@@ -125,7 +126,8 @@ $('.hl_nav').click(function(event){
 					}
 				}
 				if (!data.errors) {
-					$('#hl_blurb').show().text(data.blurb);
+					$('#hl_desc').show().text(data.hl_desc);
+					$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
 					$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 					$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
 					$('#palenquin_stars').show();			
@@ -140,6 +142,7 @@ $('.hl_nav').click(function(event){
 //NEXT BUTTON---------------------------------------
 
 	$('#hl_next').click(function(){
+		$('#hl_desc').hide();
 		$('#hl_blurb').hide();
 		$('#hl_iconL').hide();
 		$('#hl_iconR').hide();
@@ -200,7 +203,8 @@ $('.hl_nav').click(function(event){
 					}
 				}
 				if (!data.errors) {
-					$('#hl_blurb').show().text(data.blurb);
+					$('#hl_desc').show().text(data.hl_desc);
+					$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
 					$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 					$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
 					$('#palenquin_stars').show();
