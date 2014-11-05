@@ -1562,11 +1562,12 @@ function get_left_menu ($the_page) {
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
   }
   elseif ($the_page == 'cosel') {
-    $menu['nav1'] = array('New to Starma&nbsp;&nbsp;','all_users.php');
+    //$menu['nav1'] = array('New to Starma&nbsp;&nbsp;','all_users.php');
+    $menu['nav1'] = array('New to Starma&nbsp;&nbsp;','new_to_starma.php');
     $menu['nav2'] = array('Favorites&nbsp;&nbsp;','favorites.php');
     //$menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
     $menu['nav3'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php');
-    //$menu['nav4'] = array('Matches&nbsp;&nbsp;', 'search.php');  //SEARCH TESTING
+    //$menu['nav4'] = array('Find Friends&nbsp;&nbsp;', 'search.php');  //SEARCH TESTING
     
   }
   elseif ($the_page == 'hsel') {
@@ -6375,7 +6376,7 @@ function display_thumbnails_sign_up($celebs, $generic) {
 //SEARCH RESULTS-----------------------------------
 
 
-function display_search_results($user_array, $users_per_page, $chart_id, $gender, $low_bound, $high_bound) {
+function show_search_results($user_array, $users_per_page, $chart_id, $gender, $low_bound, $high_bound) {
 
     $url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
     if (count($user_array) > 0) {
@@ -6418,7 +6419,7 @@ function display_search_results($user_array, $users_per_page, $chart_id, $gender
         //}
       }
       else {
-        echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
+        echo '<div class="later_on" style="font-size:1.5em;">We currently have no users matching your search.  Try widening your net...</div>';
       }
       unset($x);
       unset($upp); 
@@ -6429,6 +6430,83 @@ function display_search_results($user_array, $users_per_page, $chart_id, $gender
 
 
 //END SEARCH RESULTS-----------------------------------
+
+
+//SHOW NEW TO STARMA -----------------------------------
+
+
+function show_users ($url="", $limit, $filter=0) {
+  $begin = 0;
+  $users_per_page = 24;
+
+  if ($filter == 0) {
+    $user_list = get_user_list ($begin, $limit);
+    
+  }
+  elseif ($filter == 1) {
+    $user_list = get_favorties_user_list ();
+    
+  }
+  else {
+    $user_list = get_celebrity_user_list ();
+  }
+  //$length = sizeof($user_list);
+  $user_array = query_to_array($user_list);
+  //$user_array = add_scores ($user_list);
+  //$user_array = quicksort_users($user_array);
+  
+  //while ($user = mysql_fetch_array($user_list)) {
+
+  if (isLoggedIn()) {
+    $chart_id = get_my_chart_id();
+  }
+  else {
+    $chart_id = get_guest_chart_id(get_guest_user_id());
+  }
+
+
+    //$url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
+    if (count($user_array) > 0) {
+  
+                $upp = 0;
+                foreach ($user_array as $user) {
+                  
+                  if ($upp < $users_per_page) {
+                        echo '<div class="user_block js_user_' . $user["user_id"] . '">';
+                          echo '<div class="photo_border_wrapper_compare">';
+                              echo '<div class="compare_photo">';
+                                show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
+                                //echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';   
+                                echo '</div>';
+                            echo '</div>'; 
+                          show_general_info($user["chart_id"]);
+                          //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
+                          //echo '*' . $user["score"] . '*';
+                        echo '</div>';       
+                    }
+                    else {
+                      break;
+                   }
+                    $upp++; 
+                    //echo 'upp: ' . $upp . '<br>';
+                  }
+
+      }
+      else {
+        echo '<div class="later_on" style="font-size:1.5em;">Sorry! There was an error, please refresh the page.</div>';
+      }
+      unset($x);
+      unset($upp); 
+
+      if (count($user_array) > 24) {
+        echo '<input type="hidden" id="next_page" value="2" />';
+        echo '<input type="hidden" id="load_next" value="true" />';
+      }
+
+}
+
+
+//END NEW TO STARMA -----------------------------------
 
 /********************** ALL USERS TEST **********************************/
 function display_all_users_test ($url="", $filter=0) {

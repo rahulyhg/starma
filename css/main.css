@@ -3805,6 +3805,7 @@ span.div_link {
 
 #s_results {
   border-top: 2px solid black;
+  margin-left: 40px;
 }
 
 #s_results .user_block {

@@ -55,6 +55,7 @@ date_default_timezone_set('America/Chicago');
       <script type="text/javascript" src="js/ajax_register_guest.js"></script>
       <script type="text/javascript" src="js/ajax_login_guest.js"></script>
       <script type="text/javascript" src="js/guest_popup.js"></script>
+      <script type="text/javascript" src="/js/scroll.js"></script>
     ';
   
 ?>

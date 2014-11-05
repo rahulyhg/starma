@@ -1112,6 +1112,10 @@ function get_ruling_planet($chart_id) {
   }
 }
 
+
+
+//OLD WAY--------------------------------------
+/*
 function get_user_list () {
   
   //if (isLoggedIn()) {
@@ -1131,6 +1135,25 @@ function get_user_list () {
   //  return false;
   //}
 }
+*/
+//NEW WAY ------------------------------------
+
+function get_user_list ($begin, $limit) {
+  
+  //if (isLoggedIn()) {
+    $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+          inner join chart on user.user_id = chart.user_id 
+          left outer join user_picture on user.user_id = user_picture.user_id 
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 ORDER BY main desc, user_id desc LIMIT ' . $begin . ',' . $limit; // where user_id = ' . $_SESSION["user_id"]; add LIMIT 32 to limit list
+    
+    if ($result = mysql_query($q)) {
+      return $result;
+    }
+    else {
+      return false;
+    }
+}
+
 
 function get_user_list_pics_only () {
   
