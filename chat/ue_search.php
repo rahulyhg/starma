@@ -9,6 +9,10 @@
   	else {
     	$chart_id = get_guest_chart_id(get_guest_user_id());
   	}
+
+
+//EMAIL SEARCH-----------------------------
+
 	if (isset($_POST['email'])) {
 		$e = trim($_POST['email']);
 		if (!valid_email($e)) {
@@ -20,23 +24,31 @@
 		else {
 			$e = mysql_real_escape_string($e);
 		}
+		if (!$user = get_user_from_email($e)) {
+			$errors['user'] = 'Sorry!  We couldn\'t find a user with that email.  Maybe you should invite them...';
+		}
+
 		if (!empty($errors)) {
 			$data['errors'] = $errors;
 		}
 		else {
 			$url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
-			$user = get_user_from_email($e);
-
 			
 			$u1 = '<div class="user_block js_user_' . $user["user_id"] . '"><div class="photo_border_wrapper_compare"><div class="compare_photo">';
-            $u_pic = user_compare_picture_for_scroll ($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);   
+            $u_pic = user_compare_picture_for_scroll ($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user['chart_id'], $user["user_id"]);   
             $u2 = $u1 . $u_pic . '</div></div>'; 
             $u_gen = general_info_for_scroll($user["chart_id"], $user["user_id"]);
             $u3 = $u2 . $u_gen . '</div>';  
 
             $data['user'] = $u3;
+            //$data['user'] = true;
+            //$data['user_id'] = $user['user_id'];
+            //$data['chart_id'] = $chart_id2;
 		}
 	}
+
+
+//USERNAME SEARCH-----------------------------
 
 	if (isset($_POST['username'])) {
 		$u = trim($_POST['username']);
@@ -49,13 +61,15 @@
 		else {
 			$u = mysql_real_escape_string($u);
 		}
+		if (!$user = get_user_from_username($u)) {
+			$errors['user'] = 'Sorry!  We couldn\'t find a user with that name.  Maybe you should invite them...';
+		}
 
 		if (!empty($errors)) {
 			$data['errors'] = $errors;
 		}
 		else {
 			$url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
-			$user = get_user_from_username($u);
              
             $u1 = '<div class="user_block js_user_' . $user["user_id"] . '"><div class="photo_border_wrapper_compare"><div class="compare_photo">';
             $u_pic = user_compare_picture_for_scroll ($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);   

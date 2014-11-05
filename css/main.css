@@ -3758,7 +3758,8 @@ span.div_link {
 /*//////////////// SEARCH ///////////////////////////////////////*/
 
 #s_top_bar {
-  height: 200px;
+  height: 60px;
+  margin-top: 14px;
 }
 
 #s_inputs {
@@ -3776,19 +3777,19 @@ span.div_link {
 }
 
 .s_button {
+  /*width: 235px;*/
   margin-bottom: 15px;
-  width: 400px;
   border: 1px solid #1a1d2a; 
-  color: white;
+  color: black;
   -webkit-box-shadow: 0 0 2px 0 #4b5a80 inset;
           box-shadow: 0 0 2px 0 #4b5a80 inset;
   cursor: pointer;
   padding: 8px;
   font-family: 'later_on';
   font-weight: bold;
-  font-size: 1.4em;
-  letter-spacing: 8px;
-  background-color: #6F83BB;
+  font-size: 1em;
+  letter-spacing: 2px;
+  background-color: #d3dbf6;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -3800,6 +3801,17 @@ span.div_link {
   text-decoration: underline; 
 }
 
+#ues_button {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+#ue_search {
+  border: 1px solid #1a1d2a;
+  -webkit-box-shadow: 0 0 2px 0 #4b5a80 inset;
+          box-shadow: 0 0 2px 0 #4b5a80 inset;
+}
+
 #gender_select {
   border: 2px solid #1a1d2a;
   height: 33px;
@@ -3808,15 +3820,13 @@ span.div_link {
 #single_u {
   display: none;
   margin-left: 40px;
-  border-top: 2px solid black;
 }
 
 #s_results {
-  border-top: 2px solid black;
   margin-left: 40px;
 }
 
-#s_results .user_block {
+.user_block {
     border-spacing: 20px;
     bottom: 13px;
     display: inline-block;
@@ -3838,16 +3848,10 @@ span.div_link {
 
 #s_loading {
   display: none;
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  margin-left: -100px;
-  background: black;
-  color: #e7ebee;
-  opacity: .7;
+  color: black;
   z-index: 100;
   text-align: center;
-  padding: 40px;
+  padding: 20px;
   font-size: 2em;
 }
 
