@@ -2475,11 +2475,7 @@ li.my_unknown_button a {
 }
  
 #interests .column {
-  width:450px;
-  font-family: arial;
-  font-size: .93em;
-  letter-spacing: .05px;
-  line-height: 1.5;   
+  width:450px;  
 }
 
 #interests #left_column {

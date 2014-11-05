@@ -1207,56 +1207,56 @@ function show_interests_info($chart_id, $isCeleb) {
 
      echo '<div id="biography" class="single_interest">';
         echo '<div class="title">Biography</div>';
-         echo '<div class="value">';
+         echo '<div class="value text_block">';
           echo '<span>' . $user_info["about_me"] . '</span>';
         echo '</div>';
       echo '</div>';
 
       echo '<div id="activities" class="single_interest">';
         echo '<div class="title">Activities</div>';
-          echo '<div class="value">';
+          echo '<div class="value text_block">';
             echo '<span>' . $user_info["activities"] . '</span>';
        echo '</div>';
      echo '</div>';
 
      echo '<div id="music" class="single_interest">';
         echo '<div class="title" ]>Music</div>';
-         echo '<div class="value">';
+         echo '<div class="value text_block">';
           echo '<span>' . $user_info["music"] . '</span>';
         echo '</div>';
       echo '</div>';
 
       echo '<div id="film_television" class="single_interest">';
         echo '<div class="title">Film & Television</div>';
-        echo '<div class="value">';
+        echo '<div class="value text_block">';
           echo '<span>' . $user_info["film_television"] . '</span>';
         echo '</div>';
       echo '</div>';
 
       echo '<div id="books" class="single_interest">';
         echo '<div class="title">Books</div>';
-        echo '<div class="value">';
+        echo '<div class="value text_block">';
           echo '<span>' . $user_info["books"] . '</span>';
         echo '</div>';
       echo '</div>';
 
       echo '<div id="political" class="single_interest">';
         echo '<div class="title">Political Views</div>';
-        echo '<div class="value">';
+        echo '<div class="value text_block">';
           echo '<span>' . $user_info["political"] . '</span>';
         echo '</div>';
       echo '</div>';
 
       echo '<div id="spiritual" class="single_interest">';
         echo '<div class="title">Religion/Spirituality</div>';
-        echo '<div class="value">';
+        echo '<div class="value text_block">';
           echo '<span>' . $user_info["spiritual"] . '</span>';
         echo '</div>';
       echo '</div>';
   
       echo '<div id="inspirational_figures" class="single_interest">';
         echo '<div class="title">Inspirational Figures</div>';
-        echo '<div class="value">';
+        echo '<div class="value text_block">';
           echo '<span>' . $user_info["inspirational_figures"] . '</span>';
         echo '</div>';
       echo '</div>';
@@ -1292,7 +1292,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["about_me"]) != 0) {
            echo '<div id="biography" class="single_interest">';
               echo '<div class="title">Biography</div>';
-               echo '<div class="value">';
+               echo '<div class="value text_block">';
                 echo '<span>' . $user_info["about_me"] . '</span>';
               echo '</div>';
             echo '</div>';
@@ -1303,7 +1303,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["activities"]) !=0) {
           echo '<div id="activities" class="single_interest">';
            echo '<div class="title">Activities</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["activities"] . '</span>';
             echo '</div>';
           echo '</div>';
@@ -1314,7 +1314,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["music"]) != 0) {
           echo '<div id="music" class="single_interest">';
               echo '<div class="title" ]>Music</div>';
-               echo '<div class="value">';
+               echo '<div class="value text_block">';
                 echo '<span>' . $user_info["music"] . '</span>';
              echo '</div>';
             echo '</div>';
@@ -1325,7 +1325,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["film_television"]) != 0) {
             echo '<div id="film_television" class="single_interest">';
               echo '<div class="title">Film & Television</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["film_television"] . '</span>';
               echo '</div>';
             echo '</div>';
@@ -1336,7 +1336,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["books"]) != 0) {
             echo '<div id="books" class="single_interest">';
               echo '<div class="title">Books</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["books"] . '</span>';
              echo '</div>';
             echo '</div>';
@@ -1347,7 +1347,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["political"]) != 0) {
             echo '<div id="political" class="single_interest">';
               echo '<div class="title">Political Views</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["political"] . '</span>';
               echo '</div>';
            echo '</div>';
@@ -1358,7 +1358,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["spiritual"]) != 0) {
             echo '<div id="spiritual" class="single_interest">';
               echo '<div class="title">Religion/Spirituality</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["spiritual"] . '</span>';
               echo '</div>';
             echo '</div>';
@@ -1369,7 +1369,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["inspirational_figures"]) != 0) {  
             echo '<div id="inspirational_figures" class="single_interest">';
               echo '<div class="title">Inspirational Figures</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["inspirational_figures"] . '</span>';
               echo '</div>';
             echo '</div>';
@@ -3141,7 +3141,7 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
                     $connection_data = $compare_data[$connection . '2' . $connection];
                     $relationship_id = $connection_data["relationship_id"];
                     echo '<div class="text"><span class="hide_show">SHOW TEXT</span></div>';
-                    echo "<span class='small_intro'>" . substr(get_dynamic_blurb ($connection_poi_id, $connection_poi_id), 0, 53); 
+                    echo "<span class='small_intro text_block'>" . substr(get_dynamic_blurb ($connection_poi_id, $connection_poi_id), 0, 53); 
                     echo "...</span>";
                     show_dynamic_info($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
                     show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, $text_type, $chart_id1, $chart_id2);
@@ -3380,7 +3380,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                           $connection_poi_id_B = get_poi_id (strtoupper($con_x));
                             //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
                               //Blurb box
-                              echo "<div class='blurb_supporting leg" . $zzz . "'>";
+                              echo "<div class='blurb_supporting text_block leg" . $zzz . "'>";
                                 if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
                                   echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
                                 }
@@ -3406,7 +3406,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         $connection_poi_id_A = get_poi_id (strtoupper($con_x));
                         $connection_poi_id_B = get_poi_id (strtoupper($con_y));
                         //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
-                          echo "<div class='blurb_supporting leg" . $zzzz . "'>";
+                          echo "<div class='blurb_supporting text_block leg" . $zzzz . "'>";
                             if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
                               echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
                             }
@@ -4175,10 +4175,10 @@ function show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relat
     $blurb = gender_converter_wrapper ($alt_gender, get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2));
   }
   if($connection_poi_id == -1) {
-    echo "<span class='dynamic_blurb'><strong>" . $poi_name1 . ' ' . ucfirst(strtolower($sign_name1)) . ' to ' . $poi_name2 . ' ' . ucfirst(strtolower($sign_name2)) . ": </strong>" . $blurb . "</span>";
+    echo "<span class='dynamic_blurb text_block'><strong>" . $poi_name1 . ' ' . ucfirst(strtolower($sign_name1)) . ' to ' . $poi_name2 . ' ' . ucfirst(strtolower($sign_name2)) . ": </strong>" . $blurb . "</span>";
   }
   else {
-    echo "<span class='dynamic_blurb'><strong>" . ucfirst(strtolower($sign_name1)) . ' ' . ucfirst(strtolower($poi_name1)) . ' to ' . ucfirst(strtolower($sign_name2)) . ' ' . ucfirst(strtolower($poi_name2)) . ": </strong>" . $blurb . "</span>";
+    echo "<span class='dynamic_blurb text_block'><strong>" . ucfirst(strtolower($sign_name1)) . ' ' . ucfirst(strtolower($poi_name1)) . ' to ' . ucfirst(strtolower($sign_name2)) . ' ' . ucfirst(strtolower($poi_name2)) . ": </strong>" . $blurb . "</span>";
   } 
 }
 
@@ -4230,7 +4230,7 @@ function show_dynamic_info ($connection_poi_id, $connection_poi_id2, $relationsh
     echo '</h><br>';
   echo '</div>';
 */
-  echo '<div class="dynamic_info">'; 
+  echo '<div class="dynamic_info text_block">'; 
     if ($connection_poi_id == -1) {
       echo 'The relationship between the Ruling Planet signs further emphasizes the dynamic between the Rising Signs. If the Rising is the lens through which you see the world, the Ruling Planet is the filter that colors that lens.';
     }
@@ -4445,7 +4445,7 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
       echo '</div>';
       //End Right Side Chart Arrow
       */
-      echo '<div id="blurb">';
+      echo '<div id="blurb" class="text_block">';
         if ($poi_id == 0) {
           show_intro_text();
         }
@@ -4687,7 +4687,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '</div>';
       //End Right Side Chart Arrow
       */
-      echo '<div id="blurb">';
+      echo '<div id="blurb" class="text_block">';
         if ($poi_id == 0) {
           $chart_info = get_chart_by_name("Alternate",get_my_user_id());  //GET WESTERN SUN SIGN
           $western_sun_sign = get_sign_name(get_sign_from_poi ($chart_info['chart_id'], 2));
@@ -4937,7 +4937,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         //End Right Side
       }
         
-      echo '<div id="blurb">';
+      echo '<div id="blurb" class="text_block">';
         show_poi_info($poi_id, $calc_chart_id, $sign_id);
         show_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
         
