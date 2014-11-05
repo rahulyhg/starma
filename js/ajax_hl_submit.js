@@ -57,7 +57,7 @@ $('.hl_nav').click(function(event){
 			$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
 			$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 			$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
-			$('#palenquin_stars').show();
+			$('#palenquin_stars').css('background', 'url("/img/palanquin_' + data.house_id + '.png")').show();
 			
 		}
 	});
@@ -130,7 +130,7 @@ $('.hl_nav').click(function(event){
 					$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
 					$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 					$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
-					$('#palenquin_stars').show();			
+					$('#palenquin_stars').css('background', 'url("/img/palanquin_' + data.house_id + '.png")').show();			
 				}
 			
 			$('div.hl_nav').removeClass('hln_selected');
@@ -207,7 +207,7 @@ $('.hl_nav').click(function(event){
 					$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
 					$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 					$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
-					$('#palenquin_stars').show();
+					$('#palenquin_stars').css('background', 'url("/img/palanquin_' + data.house_id + '.png")').show();
 			
 				}
 			
