@@ -313,7 +313,7 @@
 
 #hl_results_container {
   width: 690px;
-  margin: 30px 0 0 40px;
+  margin: 25px 0 14px 40px;
   height: 177px;
 }
 
@@ -350,13 +350,14 @@
 #palenquin_wrapper {
   width: 440px;
   display: inline-block;
+  margin-top: -23px;
   /*margin-bottom: 35px;*/
 }
 
 #palenquin_stars {
   width: 292px;
-  height: 88px;
-  background: url('/img/palenquinStars.png') no-repeat;
+  height: 132px;
+  /*background: url('/img/palenquinStars.png') no-repeat;*/
   margin: auto;
   /*margin-left: 107px;
   margin-right: 77px;*/
