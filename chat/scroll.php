@@ -1,6 +1,13 @@
 <?php
 	require_once('ajax_header.php');
 
+	if (isLoggedIn()) {
+    	$chart_id = get_my_chart_id();
+  	}
+  	else {
+    	$chart_id = get_guest_chart_id(get_guest_user_id());
+  	}
+
 	if(isset($_POST['search'])) {
 		$data = array();
 		$errors = array();
@@ -57,7 +64,7 @@
 			$age_high = CURRENT_YEAR() - $high_bound;
 			$low_bound = (string)$age_high . '-00-00'; //SWAP TO PUT IN QUERY IN CORRECT ORDER
 			$high_bound = (string)$age_low . '-00-00';
-			$chart_id = get_my_chart_id();
+			//$chart_id = get_my_chart_id();
 
 			$user_list = get_user_list_search($gender, $low_bound, $high_bound, $begin, $one_above_limit);
 			$user_array = query_to_array($user_list);
@@ -117,12 +124,6 @@
 			$data['errors'] = $errors;
 		}
 		else {
-			if (isLoggedIn()) {
-    			$chart_id = get_my_chart_id();
-  			}
-  			else {
-    			$chart_id = get_guest_chart_id(get_guest_user_id());
-  			}
 			$user_list = get_user_list($begin, $one_above_limit);
 			$user_array = query_to_array($user_list);
 			if (count($user_array) > 24) {

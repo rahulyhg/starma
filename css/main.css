@@ -3324,6 +3324,7 @@ ul.as-list li.as-result-item em {
   
 }
 
+/*
 #search_bar_div {
     position: relative;
     margin:auto;
@@ -3337,8 +3338,9 @@ ul.as-list li.as-result-item em {
     position: relative;
     width: 500px;
 }
+*/
 
-#search_bar_div #search_bar_input input[type="text"]{
+#ue_search input[type="text"]{
     color: #c0c0c0;
     width: 200px;
 }
@@ -3775,7 +3777,7 @@ span.div_link {
 
 .s_button {
   margin-bottom: 15px;
-  width: 100%;
+  width: 400px;
   border: 1px solid #1a1d2a; 
   color: white;
   -webkit-box-shadow: 0 0 2px 0 #4b5a80 inset;
@@ -3801,6 +3803,12 @@ span.div_link {
 #gender_select {
   border: 2px solid #1a1d2a;
   height: 33px;
+}
+
+#single_u {
+  display: none;
+  margin-left: 40px;
+  border-top: 2px solid black;
 }
 
 #s_results {

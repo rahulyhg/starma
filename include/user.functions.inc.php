@@ -1349,6 +1349,50 @@ function get_user_list_search ($gender, $low_bound, $high_bound, $begin, $limit)
   }
 }
 
+function get_user_from_username ($u) {
+  $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+          inner join chart on user.user_id = chart.user_id 
+          left outer join user_picture on user.user_id = user_picture.user_id 
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and user.nickname = "' . $u . '"';
+
+  if ($result = mysql_query($q)) {
+    return $result;
+  }
+  else {
+    return false;
+  }
+
+}
+
+function get_user_from_email ($e) {
+  $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+          inner join chart on user.user_id = chart.user_id 
+          left outer join user_picture on user.user_id = user_picture.user_id 
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and user.email = "' . $e . '"';
+
+  if ($result = mysql_query($q)) {
+    return $result;
+  }
+  else {
+    return false;
+  }
+
+}
+
+
+function email_exists($e) {
+  $e = mysql_real_escape_string($e);
+  $q = 'SELECT * from user where email="' . $e . '"';
+  $result = mysql_query($q);
+  if (mysql_num_rows($result) > 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
+
+}
+
 
 //END SEARCH-------------------------------------------------
 

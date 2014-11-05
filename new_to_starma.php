@@ -27,12 +27,11 @@ if (login_check_point($type="full")) {
   		echo '<div id="new_to_starma">';
 
     		//js_more_link ("js_user_frame", $num_pages, $current_page, $height_inc, $num_users);
-    		echo '<div id="search_bar_div">';
-     			echo '<div id="search_bar_input">';
-       				echo '<input type="text" class="input_style" id="js_search_bar" value="Search by Username or Email">';
-      			echo '</div>';
-   			echo '</div>';
 
+       			echo '<div><input type="text" class="input_style" id="ue_search" placeholder="Search by Username or Email"><span class="later_on pointer" id="ues_button">Search!</span></div>';
+      			echo '<button id="sfb_friends" class="s_button">Find My Facebook Friends</button>';
+   			//echo '</div>';
+      		echo '<div id="single_u"></div>';
     		echo '<div id="s_results">';
       			//echo '<div id="js_user_frame">';
       				//$chart_id = get_my_chart_id();
