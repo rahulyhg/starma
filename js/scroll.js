@@ -48,14 +48,13 @@ $(document).ready(function() {
 					type      : 'POST',
 					url       : '/chat/scroll.php',
 					data      : data,
-					dataType  : 'json'
+					dataType  : 'json',
 				})
 				.done(function(data){
 					if (data.errors) {
 						alert('error');
 					}
 					if (data.new_users) {
-						//alert(data.begin);
 						if (data.next_page) {
 							if(data.next_page == 3) {
 								$('#js_back_to_top').fadeTo(200,0); 
@@ -71,14 +70,12 @@ $(document).ready(function() {
 							$('#load_next').val('true');
 						}
 						$('#s_results').append(data.new_users);
-						//alert(data.new_users);
 						//console.log('page: ' + data.page + 'begin: ' + data.begin + 'limit: ' + data.limit);
 						$('#s_loading').hide();
 					}
 				});
 			}
 		}
-		//if (height => $('.user_block').scrollTop())
 	});
 	
 });
