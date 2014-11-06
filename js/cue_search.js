@@ -16,7 +16,7 @@ $(document).ready(function() {
 					if (from == 'nts') {
 						var data = {'username' : s_val};
 					}
-					if (from == 'c') {
+					if (from == 'celeb') {
 						var data = {'celebname' : s_val};
 					}
 				}
@@ -86,19 +86,24 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#ues_button').on('click', function(){
-		$('#ues_button').html('<img src="/js/ajax_loader_sign_up.gif" />');
+	$('#cue_button').on('click', function(){
+		$('#cue_button').html('<img src="/js/ajax_loader_sign_up.gif" />');
 		//$('#single_u>.user_block').remove();
 		$('#single_u').html('');
-			var s_val = $('#ue_search').val();
+			var s_val = $('#cue_search').val();
 			//alert(s_val);
 			if (!s_val == '') {
 				if (s_val.search(/@/) == -1) {
-					alert('username');
-					var data = {'username' : s_val};
+					//alert('username');
+					if (from == 'nts') {
+						var data = {'username' : s_val};
+					}
+					if (from == 'celeb') {
+						var data = {'celebname' : s_val};
+					}
 				}
 				if (s_val.search(/@/) != -1) {
-					alert('email');
+					//alert('email');
 					var data = {'email' : s_val};
 				}
 
@@ -109,7 +114,7 @@ $(document).ready(function() {
 					dataType	: 'json',
 				})
 				.done(function(data){
-					$('#ues_button').html('Go!');
+					$('#cue_button').html('Go!');
 					$('#s_results').hide();
 					if (data.errors) {
 						if (data.errors.username) {
