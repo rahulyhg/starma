@@ -1166,7 +1166,7 @@ function general_info_for_scroll ($chart_id, $user_id) {
     if(!$is_celeb) { //USER
       $birthday = $user_info["birthday"];
       $age = calculate_age(substr((string)$birthday, 0, 10));
-      if($_GET['the_page'] != 'psel' && ($_GET['tier'] == 2 || $_GET['tier'] == 3)) {
+      if($_GET['the_page'] != 'psel' && ($_GET['the_tier'] == 2 || $_GET['the_tier'] == 3)) {
         return '<div class="profile_info_area"><div class="later_on nickname_area" style="line-height:2;">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';
       }
       else {
@@ -4008,12 +4008,12 @@ function blurb_form ($blurb_type, $the_value1=1, $the_value2=1, $the_value3=1, $
 
   //MATT ADDED HOUSESE
   elseif ($blurb_type == 'poi_house_ruler') {
-   echo '<tr>';
-   echo '<td>Select a Rising Sign: </td>';
-   echo '<td>';
-   sign_select ($the_name="sign_id", $the_value=$the_value1, $auto_submit=true, $form="blurb_edit_form");
-   echo '</td>'; 
-   echo '</tr>';
+   //echo '<tr>';
+   //echo '<td>Select a Rising Sign: </td>';
+   //echo '<td>';
+   //sign_select ($the_name="sign_id", $the_value=$the_value1, $auto_submit=true, $form="blurb_edit_form");
+   //echo '</td>'; 
+   //echo '</tr>';
    echo '<tr>';
    echo '<td>Select Ruler of the: </td>';
    echo '<td>';
