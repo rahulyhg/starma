@@ -55,7 +55,7 @@ $(document).ready(function() {
 						alert('error');
 					}
 					if (data.new_users) {
-						alert(data.begin);
+						//alert(data.begin);
 						if (data.next_page) {
 							if(data.next_page == 3) {
 								$('#js_back_to_top').fadeTo(200,0); 

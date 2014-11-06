@@ -3,6 +3,7 @@ $(document).ready(function() {
 	$('#hide_s').click(function(){
 		$('#single_u').html('').hide();
 		$('#s_results').show();
+		$('#hide_s').hide();
 	});
 
 
@@ -16,7 +17,6 @@ $(document).ready(function() {
 			if (!s_val == '') {
 				$('#cue_button').html('<img src="/js/ajax_loader_sign_up.gif" />');
 				$('#single_u').html('');
-				$('#hide_s').show();
 				if (s_val.search(/@/) == -1) {
 					//alert('username');
 					if (from == 'nts') {
@@ -41,6 +41,7 @@ $(document).ready(function() {
 					.done(function(data){
 						$('#cue_button').html('Go!');
 						$('#s_results').hide();
+						$('#hide_s').show();
 						if (data.errors) {
 							if (data.errors.username) {
 								//alert(data.errors.username);
@@ -98,7 +99,6 @@ $(document).ready(function() {
 			if (!s_val == '') {
 				$('#cue_button').html('<img src="/js/ajax_loader_sign_up.gif" />');
 				$('#single_u').html('');
-				$('#hide_s').show();
 				if (s_val.search(/@/) == -1) {
 					//alert('username');
 					if (from == 'nts') {
@@ -122,6 +122,7 @@ $(document).ready(function() {
 				.done(function(data){
 					$('#cue_button').html('Go!');
 					$('#s_results').hide();
+					$('#hide_s').show();
 					if (data.errors) {
 						if (data.errors.username) {
 							//alert(data.errors.username);

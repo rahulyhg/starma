@@ -3758,8 +3758,7 @@ span.div_link {
 /*//////////////// SEARCH ///////////////////////////////////////*/
 
 #s_top_bar {
-  height: 60px;
-  margin-top: 14px;
+  padding: 10px 0;
 }
 
 #s_inputs {
