@@ -1372,16 +1372,20 @@ function get_user_from_username ($u) {
   $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           left outer join user_picture on user.user_id = user_picture.user_id 
-          where chart.nickname="main" and permissions_id = 0 and (main = 1 or main is null) and private = 0 and user.nickname = "' . $u . '"';
-
-  if ($result = mysql_query($q)) {
-    if ($row = mysql_fetch_array($result)) {
-      return $row;
-    }
-    else {
-      return false;
-    }
-    
+          where chart.nickname="main" and permissions_id = 0 and (main = 1 or main is null) and private = 0 and user.nickname LIKE "%' . $u . '%"';
+  $result = mysql_query($q);
+  if (mysql_num_rows($result) > 0) {
+    //if () {
+    //if ($row = mysql_fetch_array($result)) {
+      return $result;
+    //}
+    //else {
+      //return false;
+    //}
+    //}
+    //else {
+    //  return false;
+    //}
   }
   else {
     return false;
@@ -1416,6 +1420,29 @@ function email_exists($e) {
   $result = mysql_query($q);
   if (mysql_num_rows($result) > 0) {
     return true;
+  }
+  else {
+    return false;
+  }
+
+}
+
+
+function get_celeb_from_celebname ($c) {
+  $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+          inner join chart on user.user_id = chart.user_id 
+          left outer join user_picture on user.user_id = user_picture.user_id 
+          where chart.nickname="main" and permissions_id = -1 and (main = 1 or main is null) and private = 0 and user.nickname LIKE "%' . $c . '%"';
+  $result = mysql_query($q);
+  if (mysql_num_rows($result) > 0) {
+    //if () {
+    //if ($row = mysql_fetch_array($result)) {
+      return $result;
+    //}
+    //else {
+      //return false;
+    //}
+    
   }
   else {
     return false;

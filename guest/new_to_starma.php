@@ -1,8 +1,6 @@
 <?php
 require_once ("header.php");
 
-  
-if (login_check_point($type="full")) {
 
 	if (isset($_GET["tier"])) {
   		$tier=$_GET["tier"];
@@ -29,7 +27,7 @@ if (login_check_point($type="full")) {
     		//js_more_link ("js_user_frame", $num_pages, $current_page, $height_inc, $num_users);
   			echo '<div id="s_top_bar">';
   				//echo '<div style="display:inline-block; margin: 0 20px 0 54px;"><button id="sfb_friends" class="s_button">Find Facebook Friends</button></div>';
-  				echo '<div style="display:inline-block; margin-bottom: 10px;"><input type="text" id="cue_search" placeholder="Search by Username or Email"><div class="later_on pointer" id="cue_button">Go!</div></div>';
+  				echo '<div style="display:inline-block; margin-bottom: 10px;"><input type="text" class="pop_guest_click" id="cue_search" placeholder="Search by Username or Email"><div class="later_on pointer" id="cue_button">Go!</div></div>';
        			echo '<div id="hide_s" class="later_on pointer"><- Back</div>';
    			echo '</div>'; //close s_top_bar
 
@@ -102,6 +100,5 @@ if (login_check_point($type="full")) {
 	}
 	//echo '<script type="text/javascript" src="/js/new_to_starma_ui.js"></script>';
 
-}
 
 ?>

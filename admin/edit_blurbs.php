@@ -16,7 +16,9 @@
         edit_poi_dynamic_blurb ($_POST["poi_id_A"], $_POST["poi_id_B"], $_POST["dynamic_id"], $_POST["section_id"], $_POST["blurb"]);
       }
       elseif ($_POST["blurb_type"] == 'poi_house_ruler') {
-        edit_house_ruler_blurb ($_POST["sign_id"], $_POST["house_id"], $_POST["house_id2"], $_POST["blurb"]);
+        for ($x=1; $x<13; $x++) {
+          edit_house_ruler_blurb ($x, $_POST["house_id"], $_POST["house_id2"], $_POST["blurb"]);
+        }
       }
       elseif ($_POST["blurb_type"] == 'hl_desc_blurb') {
         edit_hl_desc($_POST["house_id"], $_POST["hl_desc_blurb"]);
