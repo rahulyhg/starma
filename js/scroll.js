@@ -13,7 +13,8 @@ $(document).ready(function() {
 			if (parseInt(H) + parseInt(top) > (parseInt(all) - 800) && load_next == 'true') {
 				$('#load_next').val('false');
 				$('#s_loading').show();
-				if ($('#search').val() == 'true') {
+				
+				if ($('#from').val() == 'search') {
 					var data = { 
 							 'page'  		:  $('#next_page').val(),
 						 	 'limit' 		:  25,
@@ -23,14 +24,25 @@ $(document).ready(function() {
 						 	 'search'		:  $('#search').val(),
 					}; 
 				}
-				if ($('#nts').val() == 'true') {
+				
+				if ($('#from').val() == 'nts') {
 					var data = {
 							 'page'  		:  $('#next_page').val(),
 						 	 'limit' 		:  25, 
-						 	 'nts'			:  $('#nts').val(),
+						 	 'nts'			:  $('#from').val(),
 						 	 'url'			:  $('#url').val(),
 					};
 				}
+				
+				if ($('#from').val() == 'celeb') {
+					var data = {
+							 'page'  		:  $('#next_page').val(),
+						 	 'limit' 		:  25, 
+						 	 'celeb'		:  $('#from').val(),
+						 	 'url'			:  $('#url').val(),
+					};
+				}
+				
 
 				$.ajax({
 					type      : 'POST',
@@ -43,6 +55,7 @@ $(document).ready(function() {
 						alert('error');
 					}
 					if (data.new_users) {
+						alert(data.begin);
 						if (data.next_page) {
 							if(data.next_page == 3) {
 								$('#js_back_to_top').fadeTo(200,0); 

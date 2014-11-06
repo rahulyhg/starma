@@ -30,7 +30,7 @@ if (login_check_point($type="full")) {
   			echo '<div id="s_top_bar">';
   				//echo '<div class="later_on" style="font-size: 1.3em; display:inline-block; margin: 0 20px 0 20px;">Search: </div>';
   				echo '<div style="display:inline-block; margin: 0 20px 0 54px;"><button id="sfb_friends" class="s_button">Find Facebook Friends</button></div>';
-  				echo '<div style="display:inline-block; margin-left: 50px;"><input type="text" id="ue_search" placeholder="Search by Username or Email"><div class="later_on pointer" id="ues_button">Go!</div></div>';
+  				echo '<div style="display:inline-block;"><input type="text" id="cue_search" placeholder="Search by Username or Email"><div class="later_on pointer" id="cue_button">Go!</div></div>';
        			//echo '<div style="display:inline-block; margin-left: 50px;"><input type="text" class="input_style" id="ue_search" placeholder="Search by Username or Email"><span class="later_on pointer" id="ues_button">Go!</span></div>';
    			echo '</div>'; //close s_top_bar
 
@@ -41,7 +41,7 @@ if (login_check_point($type="full")) {
 					//$user_list = get_user_list($limit=25);
 					//$user_array = query_to_array($user_list);
 					//$users_per_page = 24;
-					show_users($url="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&stage=2", $limit=25);
+					show_profiles($url="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&stage=2", $limit=25);
 
         			//display_all_users($url="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&stage=2");
         			//addJSSearchEvents("js_search_bar","filterAllUsers");
@@ -52,11 +52,13 @@ if (login_check_point($type="full")) {
      		echo '</div>';
      		addBackToTopHandler();
 
-    		echo '<input type="hidden" id="nts" value="true" />';
+    		//echo '<input type="hidden" id="nts" value="true" />';
     		echo '<input type="hidden" id="url" value="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=3&stage=2" />';
-  		echo '</div>';
+    		echo '<input type="hidden" id="from" value="nts" />';
+  		
+  		echo '</div>'; //close_new_to_starma
 
-  		echo '<div id="s_loading" class="later_on">Loading...</div>';
+  		echo '<div id="s_loading" class="later_on"><div style="width:220px; margin:auto;"><img src="img/loading.gif" /></div></div>';
   		//display_my_chart_list();
 	}
 	elseif ($tier == "2") {

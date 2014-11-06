@@ -6435,7 +6435,7 @@ function show_search_results($user_array, $users_per_page, $chart_id, $gender, $
 //SHOW NEW TO STARMA -----------------------------------
 
 
-function show_users ($url="", $limit, $filter=0) {
+function show_profiles ($url="", $limit, $filter=0) {
   $begin = 0;
   $users_per_page = 24;
 
@@ -6448,7 +6448,7 @@ function show_users ($url="", $limit, $filter=0) {
     
   }
   else {
-    $user_list = get_celebrity_user_list ();
+    $user_list = get_celebrity_user_list ($begin, $limit);
   }
   //$length = sizeof($user_list);
   $user_array = query_to_array($user_list);

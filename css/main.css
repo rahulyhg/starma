@@ -3801,13 +3801,16 @@ span.div_link {
   text-decoration: underline; 
 }
 
-#ues_button {
+#cue_button {
   margin-left: 10px;
   display: inline-block;
 }
 
-#ue_search {
+#cue_search {
   border: 1px solid #1a1d2a;
+  height: 34px;
+  padding: 5px;
+  width: 200px;
   -webkit-box-shadow: 0 0 2px 0 #4b5a80 inset;
           box-shadow: 0 0 2px 0 #4b5a80 inset;
 }
@@ -3851,7 +3854,6 @@ span.div_link {
   color: black;
   z-index: 100;
   text-align: center;
-  padding: 20px;
   font-size: 2em;
 }
 
