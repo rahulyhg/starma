@@ -4031,7 +4031,7 @@ function blurb_form ($blurb_type, $the_value1=1, $the_value2=1, $the_value3=1, $
    echo '<td>';
    //echo $the_value1 . ' and ' . $the_value2 . ' and ' . $the_value3;
    //$poi_house_ruler_blurb = get_poi_house_ruler_blurb ($the_value1, $the_value2, $the_value3);
-   echo '<textarea style="width:300px; height:200px" name="blurb">' . get_house_ruler_blurb ($the_value1, $the_value2, $the_value3) . '</textarea>';
+   echo '<textarea style="width:300px; height:200px" name="blurb">' . get_house_ruler_blurb (1, $the_value2, $the_value3) . '</textarea>';
    echo '</td>'; 
    echo '</tr>';
   }

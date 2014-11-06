@@ -44,7 +44,7 @@
         blurb_form($blurb_type, $the_value1=$_POST["poi_id_A"], $the_value2=$_POST["poi_id_B"], $the_value3=$_POST["dynamic_id"], $the_value4=$_POST["section_id"]);
       }
       elseif ($_POST["blurb_type"] == 'poi_house_ruler') {
-        blurb_form ($blurb_type, $the_value1=$_POST["sign_id"], $the_value2=$_POST["house_id"], $the_valu3=$_POST["house_id2"]);
+        blurb_form ($blurb_type, $the_value1=1, $the_value2=$_POST["house_id"], $the_valu3=$_POST["house_id2"]);
       }
       elseif ($_POST["blurb_type"] == 'hl_desc_blurb') {
         blurb_form ($blurb_type, $the_value1=$_POST["house_id"]);
