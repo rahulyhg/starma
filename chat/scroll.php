@@ -98,10 +98,8 @@
             }
             
            	$data['new_users'] = $new_users;
-           	$data['user_array'] = $user_array;
+           	//$data['user_array'] = $user_array;
 		}
-
-		echo json_encode($data);
 
 	}
 	elseif (isset($_POST['nts'])) {	//NEW TO STARMA
@@ -153,14 +151,13 @@
                 $upp++;
 			}
 			$data['new_users'] = $new_users;
-           	$data['user_array'] = $user_array;
-
-           	echo json_encode($data);
+           	//$data['user_array'] = $user_array;
 		}	
 	}
 	elseif (isset($_POST['celeb'])) {	//CELEBRITY SCROLL
 		$data = array();
 		$errors = array();
+		
 		if(!preg_match('%[\d]+%', $_POST['page'])) {
 			$errors['page'] = 'the page request must be a number...';
 		}
@@ -177,6 +174,7 @@
 		if (!empty($errors)) {
 			$data['errors'] = $errors;
 		}
+
 		else {
 			$user_list = get_celebrity_user_list($begin, $one_above_limit);
 			$user_array = query_to_array($user_list);
@@ -188,10 +186,12 @@
 			}
 			$new_users = array();
 			$url = $_POST['url'];
-			
+	
 			$upp = 0;
 			foreach ($user_array as $user) {
 				if ($upp < $users_per_page) {
+					//$u3 = 'Hello' . $upp;
+					
                         $u1 = '<div class="user_block js_user_' . $user["user_id"] . '"><div class="photo_border_wrapper_compare"><div class="compare_photo">';
                                 //$u_pic = show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
                         		$u_pic = user_compare_picture_for_scroll ($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
@@ -200,6 +200,7 @@
                           	//$u_gen = show_general_info($user["chart_id"]);
                         $u_gen = general_info_for_scroll($user["chart_id"], $user["user_id"]);
                         $u3 = $u2 . $u_gen . '</div>';  
+                    
                     array_push($new_users, $u3);  
                 } 
                 else {
@@ -208,17 +209,16 @@
                 $upp++;
 			}
 			
-			//$data['new_users'] = true;
+			//$data['new_users'] = 'celebrity';
+			//$data['user_number'] = count($user_array);
 			$data['new_users'] = $new_users;
-           	$data['user_array'] = $user_array;
-
-           	echo json_encode($data);
+           	
 		}	
 	}
 	else {
 		$data = 'Hello';
-		echo json_encode($data);
+		
 	}
-
+	echo json_encode($data);
 
 ?>
