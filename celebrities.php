@@ -15,11 +15,11 @@ if ($tier == "1") {
 
   echo '<div id="celebrities">';
         echo '<div id="s_top_bar">';      
-          echo '<div style="display:inline-block;"><input type="text" id="cue_search" placeholder="Search by Celebrity Name"><div class="later_on pointer" id="cue_button">Go!</div></div>';
+          echo '<div style="display:inline-block; margin-bottom: 10px;"><input type="text" id="cue_search" placeholder="Search by Celebrity Name"><div class="later_on pointer" id="cue_button">Go!</div></div>';
           echo '<div id="hide_s" class="later_on pointer"><- Back</div>';
         echo '</div>'; //close s_top_bar
 
-          echo '<div id="single_u"></div>';
+          echo '<div id="users_found"></div>';
         echo '<div id="s_results">';
           show_profiles($url="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&stage=2", $limit=25, $filter=2);
         echo '</div>';
