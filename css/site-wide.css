@@ -126,6 +126,12 @@ body select {
   cursor: default;
 }
 
+.text_block {
+  font-size: .93em;
+  letter-spacing: 0.05px;
+  line-height: 1.5
+}
+
 .later_on {
   font-family: 'later_on';
   font-weight: bold;

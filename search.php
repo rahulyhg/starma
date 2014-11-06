@@ -2,7 +2,7 @@
 	require_once ("header.php");
 
 	if(isLoggedIn()) {
-		echo '<script type="text/javascript" src="/js/search.js"></script>'; //MOVE WHEN DONE
+		//echo '<script type="text/javascript" src="/js/scroll.js"></script>'; //MOVE WHEN DONE
 
 		echo '<div id="s_top_bar">';
 
@@ -79,25 +79,21 @@
 					$user_array = query_to_array($user_list);
 					$users_per_page = 24;
 
-					display_search_results($user_array, $users_per_page, $chart_id, $gender, $low_bound, $high_bound);
+					show_search_results($user_array, $users_per_page, $chart_id, $gender, $low_bound, $high_bound);
 
 
 
-					//if (count($user_array) > 24) {
-              			//echo '<input type="hidden" class="next_page" value="" />';
-              			//echo '<input type="hidden" class="load_next" value="" />';
-            		//}
+					if (count($user_array) == 0) {
+  						echo '<div class="later_on" style="font-size:1.5em;">We currently have no users matching your search.  Try widening your net...</div>';
+  					//echo general_info_for_scroll(176, 13);
+  					}
 
   				}
   				elseif (isset($_GET['error'])) {
 					if($_GET['error'] == 1) {
-						echo '<div class="s_err">There was an error with the gender field.  Please select a gender.</div>';
+						echo '<div class="s_err later_on" style="font-size:1.5em;">There was an error with the gender field.  Please select a gender.</div>';
 					}
 				}
-  				else {
-  					echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
-  					//echo general_info_for_scroll(176, 13);
-  				}
 
 
 		echo '</div>';  //close s_results
@@ -107,6 +103,7 @@
           	echo '<input type="hidden" id="low_bound" value="' . $low_bound . '" />';
             echo '<input type="hidden" id="high_bound" value="' . $high_bound . '" />';
             echo '<input type="hidden" id="gender" value="' . $gender . '" />';
+            echo '<input type="hidden" id="search" value="true" />';
         }
 
 

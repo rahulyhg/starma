@@ -312,14 +312,14 @@
 }
 
 #hl_results_container {
-  width: 100%;
-  margin-top: 30px;
+  width: 690px;
+  margin: 25px 0 14px 40px;
   height: 177px;
 }
 
 #hl_iconL {
-  width: 162px;
-  height: 182px;
+  width: 102px;
+  height: 102px;
   /*width: 181px;
   height: 151px;*/
   /*width: 135px;
@@ -330,12 +330,12 @@
 }
 
 #hl_iconR {
-  width: 162px;
-  height: 182px;
+  /*width: 136px;
+  height: 177px;*/
   /*width: 181px;
   height: 151px;*/
-  /*width: 135px;
-  height: 177px;*/
+  width: 102px;
+  height: 102px;
   /*background: url('/img/houseIcon.png') no-repeat;*/
   float: right;
   display: inline-block;
@@ -350,13 +350,14 @@
 #palenquin_wrapper {
   width: 440px;
   display: inline-block;
+  margin-top: -23px;
   /*margin-bottom: 35px;*/
 }
 
 #palenquin_stars {
   width: 292px;
-  height: 88px;
-  background: url('/img/palenquinStars.png') no-repeat;
+  height: 132px;
+  /*background: url('/img/palenquinStars.png') no-repeat;*/
   margin: auto;
   /*margin-left: 107px;
   margin-right: 77px;*/
@@ -365,73 +366,16 @@
   margin-left: 90px;
 }
 
-#hl_blurb {
-  width: 390px;
+#hl_text_container {
+  width: 470px;
   margin: 0 auto;
   margin-bottom: 40px;
-  line-height: 125%;
-  letter-spacing: .05px;
   position: relative;
-  top: -41px;
+  top: -62px;
 }
 
 #hl_loader{
   width: 16px;
   margin:auto;
 }
-
-/*
-#house_column {
-  display: inline-block;
-  margin: 10px 20px;
-  border: 1px solid black;
-  min-height: 252px;
-}
-
-.house_column_wrapper {
-  display: inline-block;
-}
-
-#house_column div.ruled_house {
-  display: inline-block;
-  padding: 0 2px;
-  border: 1px solid black;
-  height: 88px;
-  width: 75px;
-  float: left;
-}
-
-#house_column div.residence {
-  display: inline-block;
-  padding: 0 2px;
-  border: 1px solid black;
-  float:left;
-}
-
-#house_column div.house_blurb {
-  padding: 10px;
-  height: auto;
-  border: 1px solid black;
-  display: inline-block;
-  float: left;
-  width: 478px;
-  margin: 0 20px;
-}
-
-#house_column div.house_residence {
-  float:right;
-  height: 88px;
-  width: 75px;
-  border: 1px solid black;
-  display: inline-block;
-  padding: 0 2px;
-}
-
-#house_column ul li {
-  margin: 10px;
-}
-*/
-
-
-
 

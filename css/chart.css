@@ -414,16 +414,11 @@ div.my_unknown_button {
 #starma_chart #blurb span {
     padding:10px 20px;
     display:block;
-    font-size: .93em;
-    letter-spacing: .05px;
-    line-height: 1.5;
 }
 
 
 #starma_chart #header {
   width: 100%;
-  /*font-weight:bold;
-  font-size:1.6em;*/
   margin-left:auto;
   margin-right:auto;
   padding-bottom:0px;
@@ -460,9 +455,6 @@ div.my_unknown_button {
 #starma_chart #planet_info {
   text-align:left;  
   padding:10px 20px;
-  font-size: .93em;
-  letter-spacing: .05px;
-  line-height: 1.5;
 }
 
 /* not in use */
@@ -1230,9 +1222,9 @@ div.poi_title {
   top: 10px;
   left: 10px;
   float: left;
-  font-size: .93em;
+  /*font-size: .93em;
   line-height: 1.5;
-  letter-spacing: .05px;  
+  letter-spacing: .05px;  */
 }
 
 
@@ -1246,9 +1238,6 @@ div.poi_title {
 
 
 #major_connections .blurb {
-    /*background-color:white;
-    border:2px solid black;
-    width:602px;*/
     bottom: 29px;
     width: 496px;
     margin-left:85px;
@@ -1261,17 +1250,11 @@ div.poi_title {
     padding:10px;
     display:none;
     text-align:left;
-    font-size: .93em;
-    line-height: 1.5;
-    letter-spacing: .05px;  
 }
 
 #major_connections .dynamic_info {
   text-align:left;  
   padding:10px;
-  font-size:.93em;
-  line-height: 1.5;
-  letter-spacing: .05px;
   display: none;
 
 }
@@ -1578,12 +1561,6 @@ span.minor_poi_title {
 
 .blurb_supporting_show{
   display: inline;
-}
-
-#minor_connections .blurb_supporting span {
-  font-size:.93em;
-  line-height: 1.5;
-  letter-spacing: .05px;
 }
 
 #minor_connections .dynamic_blurb {

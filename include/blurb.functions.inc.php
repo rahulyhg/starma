@@ -54,6 +54,30 @@ function edit_house_ruler_blurb ($rising_sign_id, $ruled_house_id, $residing_hou
   $do_q = mysql_query ($q) or die(mysql_error());
 }
 
+
+function get_hl_desc ($hl_desc_id) {
+  $q = 'SELECT hl_desc_blurb from house_descriptions where hl_desc_id = ' . $hl_desc_id;
+  $do_q = mysql_query($q) or die(mysql_error());
+  if ($results = mysql_fetch_array($do_q)) {
+    return $results['hl_desc_blurb'];
+  }
+  else {
+    return false;
+  }
+}
+
+function edit_hl_desc ($hl_desc_id, $hl_desc_blurb) {
+  $q = 'SELECT hl_desc_blurb from house_descriptions WHERE hl_desc_id = ' . $hl_desc_id;
+  $do_q = mysql_query($q) or die(mysql_error());
+  if (mysql_num_rows($do_q) == 0) {
+    $q = 'INSERT INTO house_descriptions (hl_desc_id, hl_desc_blurb) VALUES (' . $hl_desc_id . ',"' . mysql_real_escape_string($hl_desc_blurb) . '")';    
+  }
+  else {
+    $q = 'UPDATE house_descriptions SET hl_desc_blurb = "' . mysql_real_escape_string($hl_desc_blurb) . '" WHERE hl_desc_id = ' . $hl_desc_id; 
+  }
+  $do_q = mysql_query ($q) or die(mysql_error());
+}
+
 //ENDMATT HOUSES
 
 function get_poi_sign_blurb ($poi_id, $sign_id, $other_chart_id=-1) {

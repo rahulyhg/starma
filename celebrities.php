@@ -13,6 +13,31 @@ else {
 
 if ($tier == "1") {
 
+  echo '<div id="celebrities">';
+        echo '<div id="s_top_bar">';      
+          echo '<div style="display:inline-block;"><input type="text" id="cue_search" placeholder="Search by Celebrity Name"><div class="later_on pointer" id="cue_button">Go!</div></div>';
+          echo '<div id="hide_s" class="later_on pointer"><- Back</div>';
+        echo '</div>'; //close s_top_bar
+
+          echo '<div id="single_u"></div>';
+        echo '<div id="s_results">';
+          show_profiles($url="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=3&stage=2", $limit=25, $filter=2);
+        echo '</div>';
+
+        echo '<div id="js_back_to_top">';
+            echo '<a onclick="$(\'html,body\').animate({ scrollTop: 0 }, \'fast\'); return false;" href="">^<br>Back<br>To Top</a>';
+        echo '</div>';
+        addBackToTopHandler();
+
+        //echo '<input type="hidden" id="nts" value="true" />';
+        echo '<input type="hidden" id="url" value="?the_page=' . $the_page . '&the_left=' . $the_left . '&tier=3&stage=2" />';
+        echo '<input type="hidden" id="from" value="celeb" />';
+  
+  echo '</div>'; //close celebrities
+
+  echo '<div id="s_loading" class="later_on"><div style="width:120px; margin:auto;"><img src="img/loading.gif" /></div></div>';
+
+/*
   $celebs = get_celebrity_user_list();
   $num_celebs = mysql_num_rows($celebs);
   $celebs_per_page = grab_var('celebs_per_page', 16);
@@ -44,6 +69,8 @@ if ($tier == "1") {
      echo '</div>';
     echo '</div>';
   echo '</div>';
+  */
+
 }
 elseif ($tier == "2") {
     if (isset($_GET["results_type"])) {

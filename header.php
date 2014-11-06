@@ -56,7 +56,9 @@ date_default_timezone_set('America/Chicago');
       <script type="text/javascript" src="../imgSelectArea/scripts/jquery.imgareaselect.pack.js"></script>
       <script type="text/javascript" src="../js/paging_functions.js"></script>
       <script type="text/javascript" src="../js/crop.js"></script>
-      <script type="text/javascript" src="../js/jQueryRotate.js"></script>     
+      <script type="text/javascript" src="../js/jQueryRotate.js"></script>  
+      <script type="text/javascript" src="/js/scroll.js"></script>  
+      <script type="text/javascript" src="/js/cue_search.js"></script> 
     ';
     echo "<script type='text/javascript' src='js/ajax_invite_new_user.js'></script>";
     echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
@@ -85,6 +87,8 @@ date_default_timezone_set('America/Chicago');
       <script type="text/javascript" src="/js/paging_functions.js"></script>
       <script type="text/javascript" src="/js/crop.js"></script>
       <script type="text/javascript" src="/js/jQueryRotate.js"></script>
+      <script type="text/javascript" src="/js/scroll.js"></script>
+      <script type="text/javascript" src="/js/cue_search.js"></script> 
     ';
     echo "<script type='text/javascript' src='js/ajax_invite_new_user.js'></script>";
     echo "<script type='text/javascript' src='js/msg_popup.js'></script>";

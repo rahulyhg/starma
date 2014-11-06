@@ -1207,56 +1207,56 @@ function show_interests_info($chart_id, $isCeleb) {
 
      echo '<div id="biography" class="single_interest">';
         echo '<div class="title">Biography</div>';
-         echo '<div class="value">';
+         echo '<div class="value text_block">';
           echo '<span>' . $user_info["about_me"] . '</span>';
         echo '</div>';
       echo '</div>';
 
       echo '<div id="activities" class="single_interest">';
         echo '<div class="title">Activities</div>';
-          echo '<div class="value">';
+          echo '<div class="value text_block">';
             echo '<span>' . $user_info["activities"] . '</span>';
        echo '</div>';
      echo '</div>';
 
      echo '<div id="music" class="single_interest">';
         echo '<div class="title" ]>Music</div>';
-         echo '<div class="value">';
+         echo '<div class="value text_block">';
           echo '<span>' . $user_info["music"] . '</span>';
         echo '</div>';
       echo '</div>';
 
       echo '<div id="film_television" class="single_interest">';
         echo '<div class="title">Film & Television</div>';
-        echo '<div class="value">';
+        echo '<div class="value text_block">';
           echo '<span>' . $user_info["film_television"] . '</span>';
         echo '</div>';
       echo '</div>';
 
       echo '<div id="books" class="single_interest">';
         echo '<div class="title">Books</div>';
-        echo '<div class="value">';
+        echo '<div class="value text_block">';
           echo '<span>' . $user_info["books"] . '</span>';
         echo '</div>';
       echo '</div>';
 
       echo '<div id="political" class="single_interest">';
         echo '<div class="title">Political Views</div>';
-        echo '<div class="value">';
+        echo '<div class="value text_block">';
           echo '<span>' . $user_info["political"] . '</span>';
         echo '</div>';
       echo '</div>';
 
       echo '<div id="spiritual" class="single_interest">';
         echo '<div class="title">Religion/Spirituality</div>';
-        echo '<div class="value">';
+        echo '<div class="value text_block">';
           echo '<span>' . $user_info["spiritual"] . '</span>';
         echo '</div>';
       echo '</div>';
   
       echo '<div id="inspirational_figures" class="single_interest">';
         echo '<div class="title">Inspirational Figures</div>';
-        echo '<div class="value">';
+        echo '<div class="value text_block">';
           echo '<span>' . $user_info["inspirational_figures"] . '</span>';
         echo '</div>';
       echo '</div>';
@@ -1292,7 +1292,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["about_me"]) != 0) {
            echo '<div id="biography" class="single_interest">';
               echo '<div class="title">Biography</div>';
-               echo '<div class="value">';
+               echo '<div class="value text_block">';
                 echo '<span>' . $user_info["about_me"] . '</span>';
               echo '</div>';
             echo '</div>';
@@ -1303,7 +1303,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["activities"]) !=0) {
           echo '<div id="activities" class="single_interest">';
            echo '<div class="title">Activities</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["activities"] . '</span>';
             echo '</div>';
           echo '</div>';
@@ -1314,7 +1314,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["music"]) != 0) {
           echo '<div id="music" class="single_interest">';
               echo '<div class="title" ]>Music</div>';
-               echo '<div class="value">';
+               echo '<div class="value text_block">';
                 echo '<span>' . $user_info["music"] . '</span>';
              echo '</div>';
             echo '</div>';
@@ -1325,7 +1325,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["film_television"]) != 0) {
             echo '<div id="film_television" class="single_interest">';
               echo '<div class="title">Film & Television</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["film_television"] . '</span>';
               echo '</div>';
             echo '</div>';
@@ -1336,7 +1336,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["books"]) != 0) {
             echo '<div id="books" class="single_interest">';
               echo '<div class="title">Books</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["books"] . '</span>';
              echo '</div>';
             echo '</div>';
@@ -1347,7 +1347,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["political"]) != 0) {
             echo '<div id="political" class="single_interest">';
               echo '<div class="title">Political Views</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["political"] . '</span>';
               echo '</div>';
            echo '</div>';
@@ -1358,7 +1358,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["spiritual"]) != 0) {
             echo '<div id="spiritual" class="single_interest">';
               echo '<div class="title">Religion/Spirituality</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["spiritual"] . '</span>';
               echo '</div>';
             echo '</div>';
@@ -1369,7 +1369,7 @@ function show_interests_info($chart_id, $isCeleb) {
         if(strlen($user_info["inspirational_figures"]) != 0) {  
             echo '<div id="inspirational_figures" class="single_interest">';
               echo '<div class="title">Inspirational Figures</div>';
-              echo '<div class="value">';
+              echo '<div class="value text_block">';
                 echo '<span>' . $user_info["inspirational_figures"] . '</span>';
               echo '</div>';
             echo '</div>';
@@ -1562,11 +1562,12 @@ function get_left_menu ($the_page) {
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
   }
   elseif ($the_page == 'cosel') {
-    $menu['nav1'] = array('New to Starma&nbsp;&nbsp;','all_users.php');
+    //$menu['nav1'] = array('New to Starma&nbsp;&nbsp;','all_users.php');
+    $menu['nav1'] = array('New to Starma&nbsp;&nbsp;','new_to_starma.php');
     $menu['nav2'] = array('Favorites&nbsp;&nbsp;','favorites.php');
     //$menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php');
     $menu['nav3'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php');
-    //$menu['nav4'] = array('Matches&nbsp;&nbsp;', 'search.php');  //SEARCH TESTING
+    //$menu['nav4'] = array('Find Friends&nbsp;&nbsp;', 'search.php');  //SEARCH TESTING
     
   }
   elseif ($the_page == 'hsel') {
@@ -1934,9 +1935,9 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
                //<td colspan="1" id="gender_select_input" class="no_move">';
     if($_GET['the_page'] == 'cosel') {
       echo '<div style="display:inline-block;">';
-        echo '<div class="later_on" style="font-size:1.19em;">Gender<span class="gender_validation"></span></div>';
+        echo '<div class="later_on" style="font-size:1.19em;">Gender</div>';
                 echo gender_select($gender);
-       //echo '</td><td><div class="gender_validation"></div></td>
+       //echo '</td><td><div class="gender_validation"></div></td><span class="gender_validation"></span>
              //</tr>';
       echo '</div>';
     }
@@ -3141,7 +3142,7 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
                     $connection_data = $compare_data[$connection . '2' . $connection];
                     $relationship_id = $connection_data["relationship_id"];
                     echo '<div class="text"><span class="hide_show">SHOW TEXT</span></div>';
-                    echo "<span class='small_intro'>" . substr(get_dynamic_blurb ($connection_poi_id, $connection_poi_id), 0, 53); 
+                    echo "<span class='small_intro text_block'>" . substr(get_dynamic_blurb ($connection_poi_id, $connection_poi_id), 0, 53); 
                     echo "...</span>";
                     show_dynamic_info($connection_poi_id, $connection_poi_id, $relationship_id, $chart_id1, $chart_id2);
                     show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id, $relationship_id, $text_type, $chart_id1, $chart_id2);
@@ -3380,7 +3381,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                           $connection_poi_id_B = get_poi_id (strtoupper($con_x));
                             //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
                               //Blurb box
-                              echo "<div class='blurb_supporting leg" . $zzz . "'>";
+                              echo "<div class='blurb_supporting text_block leg" . $zzz . "'>";
                                 if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
                                   echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
                                 }
@@ -3406,7 +3407,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         $connection_poi_id_A = get_poi_id (strtoupper($con_x));
                         $connection_poi_id_B = get_poi_id (strtoupper($con_y));
                         //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
-                          echo "<div class='blurb_supporting leg" . $zzzz . "'>";
+                          echo "<div class='blurb_supporting text_block leg" . $zzzz . "'>";
                             if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
                               echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
                             }
@@ -4034,6 +4035,23 @@ function blurb_form ($blurb_type, $the_value1=1, $the_value2=1, $the_value3=1, $
    echo '</tr>';
   }
 
+  elseif ($blurb_type == 'hl_desc_blurb') {
+   echo '<tr>';
+   echo '<td>Select a House: </td>';
+   echo '<td>';
+   house_select ($the_name="house_id", $the_value=$the_value1, $auto_submit=true, $form="blurb_edit_form");
+   echo '</td>'; 
+   echo '</tr>';
+   echo '<tr>';
+   echo '<td>House Description:</td>';
+   echo '<td>';
+   //echo $the_value1 . ' and ' . $the_value2 . ' and ' . $the_value3;
+   //$poi_house_ruler_blurb = get_poi_house_ruler_blurb ($the_value1, $the_value2, $the_value3);
+   echo '<textarea style="width:300px; height:200px" name="hl_desc_blurb">' . get_hl_desc ($the_value1) . '</textarea>';
+   echo '</td>'; 
+   echo '</tr>';
+  }
+
   echo '</table>';
   echo '<input type="submit" value="Update" name="Update">';
   echo '</form>';
@@ -4158,10 +4176,10 @@ function show_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relat
     $blurb = gender_converter_wrapper ($alt_gender, get_poi_dynamic_blurb ($connection_poi_id, $connection_poi_id2, $relationship_id, $section_id, $chart_id1, $chart_id2));
   }
   if($connection_poi_id == -1) {
-    echo "<span class='dynamic_blurb'><strong>" . $poi_name1 . ' ' . ucfirst(strtolower($sign_name1)) . ' to ' . $poi_name2 . ' ' . ucfirst(strtolower($sign_name2)) . ": </strong>" . $blurb . "</span>";
+    echo "<span class='dynamic_blurb text_block'><strong>" . $poi_name1 . ' ' . ucfirst(strtolower($sign_name1)) . ' to ' . $poi_name2 . ' ' . ucfirst(strtolower($sign_name2)) . ": </strong>" . $blurb . "</span>";
   }
   else {
-    echo "<span class='dynamic_blurb'><strong>" . ucfirst(strtolower($sign_name1)) . ' ' . ucfirst(strtolower($poi_name1)) . ' to ' . ucfirst(strtolower($sign_name2)) . ' ' . ucfirst(strtolower($poi_name2)) . ": </strong>" . $blurb . "</span>";
+    echo "<span class='dynamic_blurb text_block'><strong>" . ucfirst(strtolower($sign_name1)) . ' ' . ucfirst(strtolower($poi_name1)) . ' to ' . ucfirst(strtolower($sign_name2)) . ' ' . ucfirst(strtolower($poi_name2)) . ": </strong>" . $blurb . "</span>";
   } 
 }
 
@@ -4213,7 +4231,7 @@ function show_dynamic_info ($connection_poi_id, $connection_poi_id2, $relationsh
     echo '</h><br>';
   echo '</div>';
 */
-  echo '<div class="dynamic_info">'; 
+  echo '<div class="dynamic_info text_block">'; 
     if ($connection_poi_id == -1) {
       echo 'The relationship between the Ruling Planet signs further emphasizes the dynamic between the Rising Signs. If the Rising is the lens through which you see the world, the Ruling Planet is the filter that colors that lens.';
     }
@@ -4428,7 +4446,7 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
       echo '</div>';
       //End Right Side Chart Arrow
       */
-      echo '<div id="blurb">';
+      echo '<div id="blurb" class="text_block">';
         if ($poi_id == 0) {
           show_intro_text();
         }
@@ -4670,7 +4688,7 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '</div>';
       //End Right Side Chart Arrow
       */
-      echo '<div id="blurb">';
+      echo '<div id="blurb" class="text_block">';
         if ($poi_id == 0) {
           $chart_info = get_chart_by_name("Alternate",get_my_user_id());  //GET WESTERN SUN SIGN
           $western_sun_sign = get_sign_name(get_sign_from_poi ($chart_info['chart_id'], 2));
@@ -4920,7 +4938,7 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         //End Right Side
       }
         
-      echo '<div id="blurb">';
+      echo '<div id="blurb" class="text_block">';
         show_poi_info($poi_id, $calc_chart_id, $sign_id);
         show_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
         
@@ -5498,7 +5516,10 @@ function show_hl_results ($chart_id, $username) {
     echo '</div>';
     echo '<div id="hl_iconR" class="pointer"></div>';
   echo '</div>'; //close hl_results_container
-  echo '<div id="hl_blurb"></div>';
+  echo '<div id="hl_text_container">';
+    echo '<div id="hl_desc" class="text_block"></div>';
+    echo '<div id="hl_blurb" class="text_block"></div>';
+  echo '</div>';
 }
 
 
@@ -6355,7 +6376,7 @@ function display_thumbnails_sign_up($celebs, $generic) {
 //SEARCH RESULTS-----------------------------------
 
 
-function display_search_results($user_array, $users_per_page, $chart_id, $gender, $low_bound, $high_bound) {
+function show_search_results($user_array, $users_per_page, $chart_id, $gender, $low_bound, $high_bound) {
 
     $url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
     if (count($user_array) > 0) {
@@ -6398,7 +6419,7 @@ function display_search_results($user_array, $users_per_page, $chart_id, $gender
         //}
       }
       else {
-        echo '<div>We currently have no users matching your search.  Try widening your net...</div>';
+        echo '<div class="later_on" style="font-size:1.5em;">We currently have no users matching your search.  Try widening your net...</div>';
       }
       unset($x);
       unset($upp); 
@@ -6409,6 +6430,83 @@ function display_search_results($user_array, $users_per_page, $chart_id, $gender
 
 
 //END SEARCH RESULTS-----------------------------------
+
+
+//SHOW NEW TO STARMA -----------------------------------
+
+
+function show_profiles ($url="", $limit, $filter=0) {
+  $begin = 0;
+  $users_per_page = 24;
+
+  if ($filter == 0) {
+    $user_list = get_user_list ($begin, $limit);
+    
+  }
+  elseif ($filter == 1) {
+    $user_list = get_favorties_user_list ();
+    
+  }
+  else {
+    $user_list = get_celebrity_user_list ($begin, $limit);
+  }
+  //$length = sizeof($user_list);
+  $user_array = query_to_array($user_list);
+  //$user_array = add_scores ($user_list);
+  //$user_array = quicksort_users($user_array);
+  
+  //while ($user = mysql_fetch_array($user_list)) {
+
+  if (isLoggedIn()) {
+    $chart_id = get_my_chart_id();
+  }
+  else {
+    $chart_id = get_guest_chart_id(get_guest_user_id());
+  }
+
+
+    //$url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
+    if (count($user_array) > 0) {
+  
+                $upp = 0;
+                foreach ($user_array as $user) {
+                  
+                  if ($upp < $users_per_page) {
+                        echo '<div class="user_block js_user_' . $user["user_id"] . '">';
+                          echo '<div class="photo_border_wrapper_compare">';
+                              echo '<div class="compare_photo">';
+                                show_user_compare_picture($url . '&chart_id1=' . $chart_id . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
+                                //echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';   
+                                echo '</div>';
+                            echo '</div>'; 
+                          show_general_info($user["chart_id"]);
+                          //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
+                          //echo '*' . $user["score"] . '*';
+                        echo '</div>';       
+                    }
+                    else {
+                      break;
+                   }
+                    $upp++; 
+                    //echo 'upp: ' . $upp . '<br>';
+                  }
+
+      }
+      else {
+        echo '<div class="later_on" style="font-size:1.5em;">Sorry! There was an error, please refresh the page.</div>';
+      }
+      unset($x);
+      unset($upp); 
+
+      if (count($user_array) > 24) {
+        echo '<input type="hidden" id="next_page" value="2" />';
+        echo '<input type="hidden" id="load_next" value="true" />';
+      }
+
+}
+
+
+//END NEW TO STARMA -----------------------------------
 
 /********************** ALL USERS TEST **********************************/
 function display_all_users_test ($url="", $filter=0) {
