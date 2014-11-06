@@ -28,10 +28,9 @@ if (login_check_point($type="full")) {
 
     		//js_more_link ("js_user_frame", $num_pages, $current_page, $height_inc, $num_users);
   			echo '<div id="s_top_bar">';
-  				//echo '<div class="later_on" style="font-size: 1.3em; display:inline-block; margin: 0 20px 0 20px;">Search: </div>';
   				echo '<div style="display:inline-block; margin: 0 20px 0 54px;"><button id="sfb_friends" class="s_button">Find Facebook Friends</button></div>';
   				echo '<div style="display:inline-block;"><input type="text" id="cue_search" placeholder="Search by Username or Email"><div class="later_on pointer" id="cue_button">Go!</div></div>';
-       			//echo '<div style="display:inline-block; margin-left: 50px;"><input type="text" class="input_style" id="ue_search" placeholder="Search by Username or Email"><span class="later_on pointer" id="ues_button">Go!</span></div>';
+       			echo '<div id="hide_s" class="later_on"><- Back</div>';
    			echo '</div>'; //close s_top_bar
 
       		echo '<div id="single_u"></div>';

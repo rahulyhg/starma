@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+	$('#hide_s').click(function(){
+		$('#single_u').html('').hide();
+		$('#s_results').show();
+	});
+
 
 //CELEB USERNAME AND EMAIL FOR REGULAR USER SEARCH---------------------------------
 
@@ -11,6 +16,7 @@ $(document).ready(function() {
 			if (!s_val == '') {
 				$('#cue_button').html('<img src="/js/ajax_loader_sign_up.gif" />');
 				$('#single_u').html('');
+				$('#hide_s').show();
 				if (s_val.search(/@/) == -1) {
 					//alert('username');
 					if (from == 'nts') {
@@ -87,12 +93,12 @@ $(document).ready(function() {
 	});
 
 	$('#cue_button').on('click', function(){
-		$('#cue_button').html('<img src="/js/ajax_loader_sign_up.gif" />');
-		//$('#single_u>.user_block').remove();
-		$('#single_u').html('');
 			var s_val = $('#cue_search').val();
-			//alert(s_val);
+			var from = $('#from').val();
 			if (!s_val == '') {
+				$('#cue_button').html('<img src="/js/ajax_loader_sign_up.gif" />');
+				$('#single_u').html('');
+				$('#hide_s').show();
 				if (s_val.search(/@/) == -1) {
 					//alert('username');
 					if (from == 'nts') {

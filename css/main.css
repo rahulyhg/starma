@@ -3829,6 +3829,10 @@ span.div_link {
   margin-left: 40px;
 }
 
+#hide_s {
+  display: none;
+}
+
 .user_block {
     border-spacing: 20px;
     bottom: 13px;
