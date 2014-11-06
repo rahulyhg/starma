@@ -53,7 +53,7 @@ $('.hl_nav').click(function(event){
 			}
 		}
 		if (!data.errors) {
-			$('#hl_desc').show().text(data.hl_desc);
+			$('#hl_desc').show().html(data.hl_desc);
 			$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
 			$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 			$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
@@ -126,7 +126,7 @@ $('.hl_nav').click(function(event){
 					}
 				}
 				if (!data.errors) {
-					$('#hl_desc').show().text(data.hl_desc);
+					$('#hl_desc').show().html(data.hl_desc);
 					$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
 					$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 					$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
@@ -203,7 +203,7 @@ $('.hl_nav').click(function(event){
 					}
 				}
 				if (!data.errors) {
-					$('#hl_desc').show().text(data.hl_desc);
+					$('#hl_desc').show().html(data.hl_desc);
 					$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
 					$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 					$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();

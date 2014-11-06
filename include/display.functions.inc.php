@@ -1158,7 +1158,8 @@ function general_info_for_scroll ($chart_id, $user_id) {
       return '<div class="profile_info_area"><div class="later_on nickname_area"><span style="color:' . $online_color . '; font-family:arial;">&bull;</span>' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';
     }
     else { //IS_CELEB
-      return '<div class="profile_info_area"><div class="later_on nickname_area_celeb">' . $user_info["first_name"] . ' ' . $user_info["last_name"] . '</div></div>';
+      return 'Hello';
+      //return '<div class="profile_info_area"><div class="later_on nickname_area_celeb">' . $user_info["first_name"] . ' ' . $user_info["last_name"] . '</div></div>';
     }
   }
   else { //NOT LOGGED IN

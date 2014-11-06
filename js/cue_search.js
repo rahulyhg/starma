@@ -42,6 +42,7 @@ $(document).ready(function() {
 						$('#cue_button').html('Go!');
 						$('#s_results').hide();
 						$('#hide_s').show();
+						$('#single_u').show();
 						if (data.errors) {
 							if (data.errors.username) {
 								//alert(data.errors.username);
@@ -72,6 +73,7 @@ $(document).ready(function() {
 					.done(function(data){
 						$('#cue_button').html('Go!');
 						$('#s_results').hide();
+						$('#single_u').show();
 						if (data.errors) {
 							if (data.errors.celebname) {
 								//alert(data.errors.username);
@@ -113,37 +115,67 @@ $(document).ready(function() {
 					var data = {'email' : s_val};
 				}
 
-				$.ajax ({
-					type		: 'POST',
-					url			: '/chat/cue_search.php',
-					data		: data,
-					dataType	: 'json',
-				})
-				.done(function(data){
-					$('#cue_button').html('Go!');
-					$('#s_results').hide();
-					$('#hide_s').show();
-					if (data.errors) {
-						if (data.errors.username) {
-							//alert(data.errors.username);
-							$('#single_u').html('<div id="s_err" class="later_on" style="font-size:1.4em;">' + data.errors.username + '</div>');
+				if (from == 'nts') {
+					$.ajax ({
+						type		: 'POST',
+						url			: '/chat/cue_search.php',
+						data		: data,
+						dataType	: 'json',
+					})
+					.done(function(data){
+						$('#cue_button').html('Go!');
+						$('#s_results').hide();
+						$('#hide_s').show();
+						$('#single_u').show();
+						if (data.errors) {
+							if (data.errors.username) {
+								//alert(data.errors.username);
+								$('#single_u').html('<div id="s_err" class="later_on" style="font-size:1.4em;">' + data.errors.username + '</div>');
+							}
+							if (data.errors.email) {
+								//alert(data.errors.email);
+								$('#single_u').html('<div id="s_err" class="later_on" style="font-size:1.4em;">' + data.errors.email + '</div>');
+							}
+							if (data.errors.user) {
+								//alert(data.errors.user);
+								$('#single_u').html('<div id="s_err" class="later_on" style="font-size:1.4em;">' + data.errors.user + '</div>');
+							}
 						}
-						if (data.errors.email) {
-							//alert(data.errors.email);
-							$('#single_u').html('<div id="s_err" class="later_on" style="font-size:1.4em;">' + data.errors.email + '</div>');
+						if(data.user) {
+							//alert(data.user_id + ', ' + data.chart_id);
+							$('#single_u').show().append(data.user);
+						}		
+					});
+				}
+				if (from == 'c') {
+					$.ajax ({
+						type		: 'POST',
+						url			: '/chat/cue_search.php',
+						data		: data,
+						dataType	: 'json',
+					})
+					.done(function(data){
+						$('#cue_button').html('Go!');
+						$('#s_results').hide();
+						$('#single_u').show();
+						if (data.errors) {
+							if (data.errors.celebname) {
+								//alert(data.errors.username);
+								$('#single_u').html('<div id="s_err" class="later_on" style="font-size:1.4em;">' + data.errors.celebname + '</div>');
+							}
+							if (data.errors.celeb) {
+								//alert(data.errors.user);
+								$('#single_u').html('<div id="s_err" class="later_on" style="font-size:1.4em;">' + data.errors.user + '</div>');
+							}
 						}
-						if (data.errors.user) {
-							//alert(data.errors.user);
-							$('#single_u').html('<div id="s_err" class="later_on" style="font-size:1.4em;">' + data.errors.user + '</div>');
-						}
-					}
-					if(data.user) {
-						//alert(data.user);
-						$('#single_u').show().append(data.user);
-					}		
-				});
+						if(data.user) {
+							//alert(data.user_id + ', ' + data.chart_id);
+							$('#single_u').show().append(data.celeb);
+						}		
+					});
+				}
+				
 			}
-		//}
 		
-	});
+		});
 });

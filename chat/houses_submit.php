@@ -39,7 +39,12 @@ if (isset($_POST['house_id'])) {
 if (isset($_POST['house_of_res'])) {
 	if(preg_match('%\d{1,2}%', $_POST['house_of_res'])) {
 		$house_of_res = $_POST['house_of_res'];
-		$hl_desc2 = get_hl_desc($house_of_res);	
+		if ($house_id == $house_of_res) {
+			$hl_desc2 = '';
+		}
+		else {
+			$hl_desc2 = get_hl_desc($house_of_res);	
+		}
 		if ($house_of_res == 1) {
 			$h2 = (string)$house_of_res .'st';
 		}
@@ -75,7 +80,7 @@ else {
 		$blurb = get_house_ruler_blurb($rising_sign_id, $house_id, $house_of_res, $chart_id);
 	}
 
-	$data['hl_desc'] = $hl_desc1 . ' ' . $hl_desc2;	
+	$data['hl_desc'] = $hl_desc1 . '<br>' . $hl_desc2;	
 	$data['blurb_start'] = 'Lord of the ' . $h1 . ' in the ' . $h2 . ': ';
 	$data['blurb'] = $blurb;
 	$data['house_id'] = $house_id;
