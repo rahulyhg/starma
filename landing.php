@@ -50,13 +50,13 @@ if (isLoggedIn())
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+      //document.getElementById('status').innerHTML = 'Please log ' +
+      //  'into this app.';
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
+      //document.getElementById('status').innerHTML = 'Please log ' +
+      // 'into Facebook.';
     }
   }
 
@@ -77,6 +77,12 @@ if (isLoggedIn())
       status     : true
     });
 
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  };
+
+  function fblogin () {
     FB.login(function(response) {
       // handle the response'
       if (response.status === 'connected') {
@@ -90,11 +96,7 @@ if (isLoggedIn())
         // they are logged into this app or not.
       }
     }, {scope: 'public_profile,email,user_friends'});
-
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  };
+  }
 
   (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];
