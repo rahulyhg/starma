@@ -48,6 +48,8 @@ if (isLoggedIn())
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+      console.log('accessToken');
+      console.log(response.authResponse.accessToken);
     } 
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -67,8 +69,8 @@ if (isLoggedIn())
   // code below.
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
-      console.log('accessToken');
-      console.log(response.authResponse.accessToken);
+      //console.log('accessToken');
+      //console.log(response.authResponse.accessToken);
       statusChangeCallback(response);
     });
   }
@@ -90,8 +92,8 @@ if (isLoggedIn())
     FB.login(function(response) {
       // handle the response'
       if (response.status === 'connected') {
-        console.log('accessToken');
-        console.log(response.authResponse.accessToken);
+        //console.log('accessToken');
+        //console.log(response.authResponse.accessToken);
         // Logged into your app and Facebook.
       } 
       else if (response.status === 'not_authorized') {
@@ -116,8 +118,6 @@ if (isLoggedIn())
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      console.log('accessToken');
-      console.log(response.authResponse.accessToken);
       //document.getElementById('status').innerHTML =
       //  'Thanks for logging in, ' + response.name + '!';
     });
