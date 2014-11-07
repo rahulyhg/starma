@@ -149,7 +149,7 @@ if ($the_left=="nav1") {
       });
     }
 
-  </script>";
+  </script>
 
   <?php
   echo '<div id="msg_sheen" class="pop_invite">';
