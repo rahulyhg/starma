@@ -121,6 +121,9 @@ if ($the_left=="nav1") {
         console.log(response.authResponse.accessToken);
         statusChangeCallback(response);
       });
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
     }
 
     window.fbAsyncInit = function() {
