@@ -65,6 +65,8 @@ if (isLoggedIn())
   // code below.
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
+      console.log('accessToken');
+      console.log(response.authResponse.accessToken);
       statusChangeCallback(response);
     });
   }
@@ -86,6 +88,8 @@ if (isLoggedIn())
     FB.login(function(response) {
       // handle the response'
       if (response.status === 'connected') {
+        console.log('accessToken');
+        console.log(response.authResponse.accessToken);
         // Logged into your app and Facebook.
       } 
       else if (response.status === 'not_authorized') {
