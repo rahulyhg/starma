@@ -6880,7 +6880,8 @@ function show_sign_up_box_landing () {
       echo  '<div class="heading">Create an Account</div>';
           echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
           echo '<div id="or">~ or ~</div>';
-          echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
+          echo '<fb:login-button scope="public_profile,email,user_friends" onlogin="checkLoginState();"></fb:login-button>';
+          //echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
       echo '</div>'; //Close sign_up_box
 }
 
