@@ -60,6 +60,20 @@ if (isLoggedIn())
     }
   }
 
+  FB.login(function(response) {
+    // handle the response'
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+    } 
+    else if (response.status === 'not_authorized') {
+    // The person is logged into Facebook, but not your app.
+    } 
+    else {
+    // The person is not logged into Facebook, so we're not sure if
+    // they are logged into this app or not.
+    }
+  }, {scope: 'public_profile,email,user_friends'});
+
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
