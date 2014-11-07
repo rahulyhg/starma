@@ -44,7 +44,7 @@ if ($tier == "1") {
   
   echo '</div>'; //close celebrities
 
-  echo '<div id="s_loading" class="later_on"><div style="width:120px; margin:auto;"><img src="img/loading.gif" /></div></div>';
+  echo '<div id="s_loading" class="later_on"><div style="width:120px; margin:auto;"><img src="../img/loading.gif" /></div></div>';
 }
 elseif ($tier == "2") {
     if (isset($_GET["results_type"])) {

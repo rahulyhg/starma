@@ -55,7 +55,7 @@ require_once ("header.php");
   		
   		echo '</div>'; //close_new_to_starma
 
-  		echo '<div id="s_loading" class="later_on"><div style="width:220px; margin:auto;"><img src="img/loading.gif" /></div></div>';
+  		echo '<div id="s_loading" class="later_on"><div style="width:220px; margin:auto;"><img src="../img/loading.gif" /></div></div>';
   		//display_my_chart_list();
 	}
 	elseif ($tier == "2") {
