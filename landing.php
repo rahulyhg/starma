@@ -60,10 +60,10 @@ if (isLoggedIn())
         }
       );
       FB.api(
-        "/me/friendlists",
+        "/me/friends",
         function (response) {
           if (response && !response.error) {
-            console.log('friendlists');
+            console.log('friends');
             console.log(response);
           }
         }
