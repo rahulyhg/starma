@@ -69,11 +69,11 @@ if (isLoggedIn())
         }
       );
       FB.api(
-        "/me/birthday",
+        "/me",
         function (response) {
           if (response && !response.error) {
             console.log('birthday');
-            console.log(response);
+            console.log(response.birthday);
           }
         }
       );
