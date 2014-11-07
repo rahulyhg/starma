@@ -1166,12 +1166,12 @@ function general_info_for_scroll ($chart_id, $user_id) {
     if(!$is_celeb) { //USER
       $birthday = $user_info["birthday"];
       $age = calculate_age(substr((string)$birthday, 0, 10));
-      if($_GET['the_page'] != 'psel' && ($_GET['the_tier'] == 2 || $_GET['the_tier'] == 3)) {
-        return '<div class="profile_info_area"><div class="later_on nickname_area" style="line-height:2;">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';
-      }
-      else {
+      //if($_GET['the_page'] != 'psel' && ($_GET['tier'] == 2 || $_GET['tier'] == 3)) {
         return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';
-      }     
+     // }
+      //else {
+      //  return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';
+      //}     
     }
     else { //IS_CELEB
       return '<div class="profile_info_area"><div class="later_on nickname_area_celeb">' . $user_info["first_name"] . ' ' . $user_info["last_name"] . '</div></div>';
