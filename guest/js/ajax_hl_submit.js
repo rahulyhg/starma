@@ -55,10 +55,10 @@ $('.hl_nav').click(function(event){
 		if (!data.errors) {
 			$('#hl_desc').show().html(data.hl_desc);
 			$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
+			$('#palenquin_stars').css('background', 'url("/img/palanquin_' + data.house_id + '.png")');
 			$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 			$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
-			$('#palenquin_stars').css('background', 'url("/img/palanquin_' + data.house_id + '.png")').show();
-			
+			$('#palenquin_stars').show();
 		}
 	});
 
@@ -128,9 +128,10 @@ $('.hl_nav').click(function(event){
 				if (!data.errors) {
 					$('#hl_desc').show().html(data.hl_desc);
 					$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
+					$('#palenquin_stars').css('background', 'url("/img/palanquin_' + data.house_id + '.png")');
 					$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 					$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
-					$('#palenquin_stars').css('background', 'url("/img/palanquin_' + data.house_id + '.png")').show();		
+					$('#palenquin_stars').show();	
 				}
 			
 			$('div.hl_nav').removeClass('hln_selected');
@@ -205,10 +206,10 @@ $('.hl_nav').click(function(event){
 				if (!data.errors) {
 					$('#hl_desc').show().html(data.hl_desc);
 					$('#hl_blurb').show().html('<strong>' + data.blurb_start + '</strong>' + data.blurb);
+					$('#palenquin_stars').css('background', 'url("/img/palanquin_' + data.house_id + '.png")');
 					$('#hl_iconL').show().html('<img src="/img/houseIcon_' + data.house_id + '.png" />').show();
 					$('#hl_iconR').show().html('<img src="/img/houseIcon_' + data.house_of_res + '.png" />').show();
-					$('#palenquin_stars').css('background', 'url("/img/palanquin_' + data.house_id + '.png")').show();
-			
+					$('#palenquin_stars').show();
 				}
 			
 			$('div.hl_nav').removeClass('hln_selected');
