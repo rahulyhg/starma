@@ -246,7 +246,19 @@ if ($the_left=="nav1") {
   <img src="/img/houseIcon_10.png"/>
   <img src="/img/houseIcon_11.png"/>
   <img src="/img/houseIcon_12.png"/>
-  <img src="/img/palenquinStars.png" />
+  
+  <img src="/img/palenquin_1.png" />
+  <img src="/img/palenquin_2.png" />
+  <img src="/img/palenquin_3.png" />
+  <img src="/img/palenquin_4.png" />
+  <img src="/img/palenquin_5.png" />
+  <img src="/img/palenquin_6.png" />
+  <img src="/img/palenquin_7.png" />
+  <img src="/img/palenquin_8.png" />
+  <img src="/img/palenquin_9.png" />
+  <img src="/img/palenquin_10.png" />
+  <img src="/img/palenquin_11.png" />
+  <img src="/img/palenquin_12.png" />
    
 </div>
 
