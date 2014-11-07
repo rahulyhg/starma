@@ -121,9 +121,6 @@ if ($the_left=="nav1") {
         console.log(response.authResponse.accessToken);
         statusChangeCallback(response);
       });
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
     }
 
     window.fbAsyncInit = function() {
@@ -132,6 +129,10 @@ if ($the_left=="nav1") {
         xfbml      : true,
         version    : 'v2.1',
         status     : true
+      });
+
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
       });
     };
 
