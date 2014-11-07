@@ -87,13 +87,12 @@
 */
 
 #hl_scroll_container {
-  width: 100%;
-  margin-top: 10px;
+  width: 600px;
+  margin: 10px auto auto;
 }
 
 #hl_scroll {
-  width: 260px;
-  margin: auto; 
+  height: 20px;
 }
 
 #hl_prev {
@@ -102,6 +101,7 @@
   height: 21px;
   display: inline-block;
   margin-right: 30px;
+  float: left;
 }
 
 #hl_next {
@@ -109,6 +109,7 @@
   width: 114px;
   height: 21px;
   display: inline-block;
+  float: right;
 }
 
 
@@ -123,7 +124,7 @@
 /*//------------- HL NAV ----------------------//*/
 
 .hl_nav {
-  margin-left: 10px;
+  margin-left: 13px;
   display: inline-block;
   width: 36px;
   height: 46px;
@@ -316,7 +317,7 @@
 
 #hl_results_container {
   width: 690px;
-  margin: 25px 0 14px 40px;
+  margin: 30px 0 14px 40px;
   height: 177px;
 }
 
@@ -330,6 +331,8 @@
   /*background: url('/img/houseIcon.png') no-repeat;*/
   float: left;
   display: inline-block;
+  position: relative;
+  z-index: 2;
 }
 
 #hl_iconR {
@@ -351,24 +354,28 @@
 }
 */
 #palenquin_wrapper {
-  width: 486px;
+  width: 496px;
   display: inline-block;
-  margin-top: -23px;
+  margin-top: -35px;
+  margin-left: -14px;
+  background: url('/img/palanquin_road.png') no-repeat;
   /*margin-bottom: 35px;*/
 }
 
 #palenquin_stars {
   width: 292px;
   height: 132px;
-  margin: auto;
+  margin-left: 36px;
+  position: relative;
+  bottom: 6px;
 }
 
 #hl_text_container {
-  width: 592px;
+  width: 500px;
   margin: 0 auto;
   margin-bottom: 40px;
   position: relative;
-  top: -75px;
+  top: -94px;
 }
 
 #hl_loader{

@@ -5506,11 +5506,11 @@ function show_hl_results ($chart_id, $username) {
       }
    
     echo '</div>';
-    echo '<div id="hl_iconL" class="pointer"></div>';
+    echo '<div id="hl_iconL"></div>';
     echo '<div id="palenquin_wrapper">';
-      echo '<div id="palenquin_stars" style="display:none;" class="pointer"></div>';
+      echo '<div id="palenquin_stars" style="display:none;"></div>';
     echo '</div>';
-    echo '<div id="hl_iconR" class="pointer"></div>';
+    echo '<div id="hl_iconR"></div>';
   echo '</div>'; //close hl_results_container
   echo '<div id="hl_text_container">';
     echo '<div id="hl_desc" class="text_block"></div>';
