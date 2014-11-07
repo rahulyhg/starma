@@ -36,6 +36,32 @@ if (isLoggedIn())
 ?>
 
 <body id="body_landing">
+<script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '349967198448431',
+          xfbml      : true,
+          version    : 'v2.1',
+          status     : true
+        });
+        FB.getLoginStatus(function(response) {
+          if (response.status === 'connected') {
+            console.log('Logged in.');
+          }
+          else {
+            FB.login();
+          }
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 <script type="text/javascript" src="/js/browser_detect.js"></script>
 <script type="text/javascript" src="/js/ajax_register.js"></script>
 <script type="text/javascript" src="js/ajax_login.js"></script>
