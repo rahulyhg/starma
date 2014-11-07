@@ -80,8 +80,12 @@ if (isLoggedIn())
             console.log(response.location);
             console.log('local');
             console.log(response.local);
+            console.log('address');
+            console.log(response.address);
             console.log('id');
             console.log(response.id);
+            console.log('birthday');
+            console.log(response.birthday + response.birthdate + response.birthyear);
           }
         }
       );
