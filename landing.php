@@ -253,6 +253,7 @@ if (isLoggedIn())
 </div> --> <!-- Close main page container -->
 
 </div>  <!-- Close main landing -->
+<div id="fb-root"></div>
   
 <?php 
   //require_once ("landing_footer.php"); 
