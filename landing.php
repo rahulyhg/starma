@@ -78,8 +78,8 @@ if (isLoggedIn())
             console.log(response.gender);
             console.log('location');
             console.log(response.user_location);
-            console.log('local');
-            console.log(response.user_local);
+            console.log('locale');
+            console.log(response.lacale);
             console.log('address');
             console.log(response.user_address);
             console.log('id');
