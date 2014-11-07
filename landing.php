@@ -77,15 +77,15 @@ if (isLoggedIn())
             console.log('gender');
             console.log(response.gender);
             console.log('location');
-            console.log(response.location);
+            console.log(response.user_location);
             console.log('local');
-            console.log(response.local);
+            console.log(response.user_local);
             console.log('address');
-            console.log(response.address);
+            console.log(response.user_address);
             console.log('id');
             console.log(response.id);
             console.log('birthday');
-            console.log(response.birthday + response.birthdate + response.birthyear);
+            console.log(response.user_birthday);
           }
         }
       );
