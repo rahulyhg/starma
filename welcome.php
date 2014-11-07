@@ -41,7 +41,7 @@ require_once "header.php";
     </div>
     <div id="community_box_link" class="homepage_div">
       <span class="header">Explore the Community</span>
-      <a class="box_link" href="main.php?the_page=cosel&the_left=nav1&the_tier=1"></a>
+      <a class="box_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"></a>
       <div id="homepage_thumbnails">
         <?php
           display_welcome_page_thumbnails($celebs=0);
@@ -67,7 +67,7 @@ require_once "header.php";
     </div>
     <div id="celebrities_box_link" class="homepage_div">
       <span class="header">Browse Celebrities</span>
-      <a class="box_link" href="main.php?the_page=cesel&the_left=nav1"></a>
+      <a class="box_link" href="main.php?the_page=cesel&the_left=nav1&tier=1"></a>
       <div id="homepage_thumbnails">
         <?php
           display_welcome_page_thumbnails(1);

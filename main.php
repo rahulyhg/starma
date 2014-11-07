@@ -237,51 +237,13 @@ if ($the_left=="nav1") {
 
 <div id="frame">
 
-  <!--register_teaser_test
-    <div id="msg_sheen" class="pop_test">
-      <div id="msg_sheen_screen" class="pop_test pop_reg"></div>
-        <div style="position:absolute; z-index:100; top:30%; left:45%;">
-          <?php               
-            //echo '<div id="landing_sign_up_box" class="pop_test">';
-              show_sign_up_box_landing();
-              show_registration_box_landing();
-            //echo '</div>';
-          ?>  
-      </div>
-    </div> close msg_sheen   
-    <script type="text/javascript" src="/js/ajax_register.js"></script>
-    end pop_guest_click-->
-   
-    
-    <!--
-    <script type="text/javascript">
-      
-      $(document).ready(function(){
-        $('#pop_test').click(function(){
-          $('.pop_test').show();
-        });
-        $('button[name=sign_up_email]').click(function(){
-          $('#sign_up_box').hide();
-          $('#create_account').show();
-          $('#username>input').focus();
-        });
-  
-        $('#cancel_email_sign_up').click(function(){
-          $('#sign_up_box').show();
-          $('#create_account').hide();
-        });
-      });
-
-    </script>
-  -->
-
   <div id="topnav">
     <ul>
       <li class="logo"><a href="?the_page=hsel&the_left=nav1"></a></li>
       <li class="home_link <?php echo $hsel;?>"><a title="Home" href="?the_page=hsel&the_left=nav1"><span>Home</span></a></li>
       <li class="profile_link <?php echo $psel;?>"><a title="Profile" href="?the_page=psel&the_left=nav1"><span>Profile</span></a></li>
-      <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&the_tier=1"><span>Community</span></a></li>
-      <li class="celeb_link <?php echo $cesel;?>"><a title="Celebrities" href="?the_page=cesel&the_left=nav1"><span>Celebrities</span></a></li>
+      <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&tier=1"><span>Community</span></a></li>
+      <li class="celeb_link <?php echo $cesel;?>"><a title="Celebrities" href="?the_page=cesel&the_left=nav1&tier=1"><span>Celebrities</span></a></li>
       <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>Inbox</span></a></li>
       <li class="mail_area"></li>
     </ul>
