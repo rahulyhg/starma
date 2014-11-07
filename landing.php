@@ -68,6 +68,15 @@ if (isLoggedIn())
           }
         }
       );
+      FB.api(
+        "/me/birthday",
+        function (response) {
+          if (response && !response.error) {
+            console.log('birthday');
+            console.log(response);
+          }
+        }
+      );
     } 
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
