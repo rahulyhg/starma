@@ -72,8 +72,8 @@ if (isLoggedIn())
         "/me",
         function (response) {
           if (response && !response.error) {
-            console.log('birthday');
-            console.log(response.birthday);
+            console.log('email');
+            console.log(response.email);
           }
         }
       );
