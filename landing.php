@@ -54,14 +54,16 @@ if (isLoggedIn())
         "/me/permissions",
         function (response) {
           if (response && !response.error) {
+            console.log('permissions');
             console.log(response);
           }
         }
       );
       FB.api(
-        "/{friendlist-id}",
+        "/me/friendlists",
         function (response) {
           if (response && !response.error) {
+            console.log('friendlists');
             console.log(response);
           }
         }
