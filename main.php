@@ -393,7 +393,7 @@ if ($the_left=="nav1") {
 <?php
  require_once "footer.php";
 ?> 
-
+<div id="fb-root"></div>
 <script type="text/javascript" src="/js/magnific.js"></script>
 <script type="text/javascript" src="/js/photos_ui.js"></script>
 </body>
