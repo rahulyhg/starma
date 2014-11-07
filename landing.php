@@ -74,6 +74,14 @@ if (isLoggedIn())
           if (response && !response.error) {
             console.log('email');
             console.log(response.email);
+            console.log('gender');
+            console.log(response.gender);
+            console.log('location');
+            console.log(response.location);
+            console.log('local');
+            console.log(response.local);
+            console.log('id');
+            console.log(response.id);
           }
         }
       );
