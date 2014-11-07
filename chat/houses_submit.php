@@ -80,7 +80,7 @@ else {
 		$blurb = get_house_ruler_blurb($rising_sign_id, $house_id, $house_of_res, $chart_id);
 	}
 
-	$data['hl_desc'] = $hl_desc1 . '<br>' . $hl_desc2;	
+	$data['hl_desc'] = '<div style="padding-bottom:20px">' . $hl_desc1 . '<div style="padding-bottom:20px"></div>' . $hl_desc2 . '</div>';	
 	$data['blurb_start'] = 'Lord of the ' . $h1 . ' in the ' . $h2 . ': ';
 	$data['blurb'] = $blurb;
 	$data['house_id'] = $house_id;

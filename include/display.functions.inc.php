@@ -1166,12 +1166,7 @@ function general_info_for_scroll ($chart_id, $user_id) {
     if(!$is_celeb) { //USER
       $birthday = $user_info["birthday"];
       $age = calculate_age(substr((string)$birthday, 0, 10));
-      //if($_GET['the_page'] != 'psel' && ($_GET['tier'] == 2 || $_GET['tier'] == 3)) {
-        return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';
-     // }
-      //else {
-      //  return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';
-      //}     
+      return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';  
     }
     else { //IS_CELEB
       return '<div class="profile_info_area"><div class="later_on nickname_area_celeb">' . $user_info["first_name"] . ' ' . $user_info["last_name"] . '</div></div>';
@@ -5511,11 +5506,11 @@ function show_hl_results ($chart_id, $username) {
       }
    
     echo '</div>';
-    echo '<div id="hl_iconL" class="pointer"></div>';
+    echo '<div id="hl_iconL"></div>';
     echo '<div id="palenquin_wrapper">';
-      echo '<div id="palenquin_stars" style="display:none;" class="pointer"></div>';
+      echo '<div id="palenquin_stars" style="display:none;"></div>';
     echo '</div>';
-    echo '<div id="hl_iconR" class="pointer"></div>';
+    echo '<div id="hl_iconR"></div>';
   echo '</div>'; //close hl_results_container
   echo '<div id="hl_text_container">';
     echo '<div id="hl_desc" class="text_block"></div>';
