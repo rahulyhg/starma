@@ -50,6 +50,22 @@ if (isLoggedIn())
       testAPI();
       console.log('accessToken');
       console.log(response.authResponse.accessToken);
+      FB.api(
+        "/me/permissions",
+        function (response) {
+          if (response && !response.error) {
+            console.log(response);
+          }
+        }
+      );
+      FB.api(
+        "/{friendlist-id}",
+        function (response) {
+          if (response && !response.error) {
+            console.log(response);
+          }
+        }
+      );
     } 
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -69,8 +85,6 @@ if (isLoggedIn())
   // code below.
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
-      //console.log('accessToken');
-      //console.log(response.authResponse.accessToken);
       statusChangeCallback(response);
     });
   }
@@ -90,10 +104,9 @@ if (isLoggedIn())
 
   function fblogin () {
     FB.login(function(response) {
+    //checkLoginState();
       // handle the response'
       if (response.status === 'connected') {
-        //console.log('accessToken');
-        //console.log(response.authResponse.accessToken);
         // Logged into your app and Facebook.
       } 
       else if (response.status === 'not_authorized') {
