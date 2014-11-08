@@ -96,7 +96,7 @@ if (isLoggedIn())
 
             $.ajax({
               type      : 'POST',
-              url       : '/chat/fb_data',
+              url       : '/chat/fb_data.php',
               data      : data,
               dataType  : 'json'
             })
