@@ -39,16 +39,15 @@ if (isLoggedIn())
 <script>
     // This is called with the results from from FB.getLoginStatus().
   function deleteMe () {
-    FB.getLoginStatus(function(response) {
       FB.api(
-      'DELETE/' + response.authResponse.accessToken + '/permissions',
-      function (data) {
-        if (data && !data.error) {
+      'me/permissions',
+      'DELETE',
+      function (response) {
+        if (response && !response.error) {
             console.log('delete');
-            console.log(data);
+            console.log(response);
           }
       });
-    });
   }
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
