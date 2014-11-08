@@ -92,7 +92,7 @@ if (isLoggedIn())
             console.log('id');
             console.log(response.id);
 
-            var data = response.id;
+            var data = {'fb_id' : response.id};
 
             $.ajax({
               type      : 'POST',
