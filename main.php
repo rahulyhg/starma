@@ -123,6 +123,10 @@ if ($the_left=="nav1") {
       });
     }
 
+    function fbLogout () {
+      FB.logout();
+    }
+
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '349967198448431',

@@ -303,7 +303,7 @@ function show_account_menu () {
   echo '<div class="dropdown">';
     echo '<ul>';
       echo '<li><a href="main.php?the_page=ssel&the_left=nav1&the_tier=1">Settings</a></li>';
-      echo '<li><a style="border-bottom:2px solid black" href="logout.php">Logout</a></li>';
+      echo '<li><a style="border-bottom:2px solid black" onClick="fbLogout();" href="logout.php">Logout</a></li>';
     echo '</ul>';
   echo '</div>';
   echo '</div>';
@@ -6879,7 +6879,7 @@ function show_sign_up_box_landing () {
     echo '<div id="sign_up_box">';
       echo  '<div class="heading">Create an Account</div>';
           echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
-          //echo '<div id="or">~ or ~</div>';
+          echo '<div id="or">~ or ~</div>';
           //echo '<button type="button" onClick="revokeFB();">revoke fb</button>';
           echo '<button type="button" name="sign_up_fb" class="sign_up" onClick="fbLogin();">Facebook</button>';
       echo '</div>'; //Close sign_up_box
