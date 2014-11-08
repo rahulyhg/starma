@@ -38,6 +38,16 @@ if (isLoggedIn())
 <body id="body_landing">
 <script>
     // This is called with the results from from FB.getLoginStatus().
+  function deleteMe () {
+    FB.api(
+      'DELETE/me',
+      function (responst) {
+        if (response && !response.error) {
+            console.log('delete');
+            console.log(response);
+          }
+      });
+  }
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -76,16 +86,19 @@ if (isLoggedIn())
             console.log(response.email);
             console.log('gender');
             console.log(response.gender);
-            console.log('location');
-            console.log(response.user_location);
-            console.log('locale');
-            console.log(response.lacale);
             console.log('address');
             console.log(response.user_address);
             console.log('id');
             console.log(response.id);
-            console.log('birthday');
-            console.log(response.user_birthday);
+          }
+        }
+      );
+      FB.api(
+        "/me",
+        function (response) {
+          if (response && !response.error) {
+            console.log('age_range');
+            console.log(response.age_range);
           }
         }
       );
