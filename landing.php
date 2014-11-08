@@ -101,7 +101,7 @@ if (isLoggedIn())
               dataType  : 'json'
             })
             .done(function(data){
-              alert(data.fb_id + ', ' + data.check);
+              alert(data.check);
             });
           }
         }

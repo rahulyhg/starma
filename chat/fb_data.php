@@ -8,7 +8,7 @@
 		$data['fb_id'] = $_SESSION['fb_id'];
 		$data['check'] = 'got through';
 	}
-	//10152592251101696
+
 	echo json_encode($data);
 
 ?>
