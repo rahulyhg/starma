@@ -139,7 +139,7 @@ if (isLoggedIn())
     });
   };
 
-  function fblogin () {
+  function fbLogin () {
     FB.login(function(response) {
     //checkLoginState();
       // handle the response'

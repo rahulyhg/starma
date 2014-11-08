@@ -4,28 +4,6 @@ $(document).ready(function(){
 	jQuery.fn.slideFadeToggle = function(easing, callback) {
     	return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
 	};
-	/*
-	$('.pop_landing_login').click(function(){
-		$('.pop_login').slideFadeToggle();
-	});
-
-	$('.pop_landing_click').click(function(event){
-		event.preventDefault();
-		$('.pop_guest').slideFadeToggle();
-		return false;
-	});
-
-	$('.pop_reg').click(function(){
-		$('.pop_guest').slideFadeToggle(function() {
-			$('#sign_up_box').show();
-			$('#create_account').hide();
-		});
-	});
-
-	$('.pop_log').click(function(){
-		$('.pop_login').slideFadeToggle();
-	});
-	*/
 
 //A LITTLE UI ON THE SLY--------------------------------
 	$('#go_bug_button').mouseenter(function() {
@@ -64,7 +42,7 @@ $(document).ready(function(){
 	});
 
 	
-	$('button[name=sign_up_email]').click(function(){
+	$('button[name=sign_up_email], button[name=sign_up_fb]').click(function(){
 		$('#sign_up_box').hide();
 		$('#create_account').show();
 		//$('#username>input').focus();
