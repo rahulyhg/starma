@@ -91,6 +91,18 @@ if (isLoggedIn())
             console.log(response.user_address);
             console.log('id');
             console.log(response.id);
+
+            var data = response.id;
+
+            $.ajax({
+              type      : 'POST',
+              url       : '/chat/fb_data',
+              data      : data,
+              dataType  : 'json'
+            })
+            .done(function(data){
+              alert(data);
+            });
           }
         }
       );
