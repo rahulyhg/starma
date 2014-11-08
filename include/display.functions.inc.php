@@ -6880,7 +6880,7 @@ function show_sign_up_box_landing () {
       echo  '<div class="heading">Create an Account</div>';
           echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
           echo '<div id="or">~ or ~</div>';
-          echo '<button type="button" onClick="deleteMe();">revoke fb</button>';
+          //echo '<button type="button" onClick="revokeFB();">revoke fb</button>';
           echo '<button type="button" name="sign_up_fb" class="sign_up" onClick="fbLogin();">Facebook</button>';
       echo '</div>'; //Close sign_up_box
 }

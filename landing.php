@@ -38,7 +38,7 @@ if (isLoggedIn())
 <body id="body_landing">
 <script>
     // This is called with the results from from FB.getLoginStatus().
-  function deleteMe () {
+  function revokeFB () {
       FB.api(
       'me/permissions',
       'DELETE',
