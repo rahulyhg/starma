@@ -150,8 +150,8 @@
 
 		if(!empty($errors)) {
 			$data['errors'] = $errors;
-			echo '<br>errors: ';
-			print_r($errors);
+			//echo '<br>errors: ';
+			//print_r($errors);
 		}
 		else {
 			$data['success'] = true;
