@@ -7040,11 +7040,11 @@ function show_3_words_photo_box () {
       echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
         echo '<div id="edit_words">';
         if ($desc = mysql_fetch_array($descriptors)) {
-          $x = 1;
+          $x = 0;
           while ($desc = mysql_fetch_array($descriptors)) {
             //echo '<div id="' . $x . '">';
               //echo '<div class="value">';
-                echo '<input type="text" id="word_' . $x . '" placeholder="' . $x . '. " value="' . $desc["descriptor"] . '"/>';
+                echo '<input type="text" id="word_' . ($x + 1) . '" placeholder="' . ($x + 1) . '. " value="' . $desc["descriptor"] . '"/>';
               //echo '</div>';
                 //echo '<span class="w_err" id="w_' . $x . '_error"></span>';
                 //echo '<div class="w_err_exp" id="w_' . $x . '_err_exp"></div>';
@@ -7075,6 +7075,12 @@ function show_3_words_photo_box () {
                   }
                 echo '/>';  
           //}
+        }
+
+        if ($x < 3) {
+          for ($x; $x == 3; $x++;) {
+            echo '<input type="text" id="word_' . $x . '" placeholder="' . $x . '. " value=""/>';
+          }
         }
         echo '<input type="hidden" value="words" id="words" />';
         echo '</div>'; //close edit_words
