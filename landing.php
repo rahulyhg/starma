@@ -2,7 +2,7 @@
 //SEO
 $pageTitle = 'Starma.com - Compatibility Horoscopes Community';
 
-$pageDescription = '';
+$pageDescription = 'Free detailed astrology made simple.  Read your horoscope and birth chart and see your compatibility with friends and celebrities...';
 
  require_once ("header.php");
  //if (!permissions_check ($req = 10)) {
