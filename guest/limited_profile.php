@@ -11,9 +11,10 @@ require_once ("header.php");
   if (valid_chart_view($_GET["chart_id2"])) {
     $guest_user_id = get_guest_user_id();
     $guest_chart_id = get_guest_chart_id($guest_user_id);
+    $western_there = grab_var('western_there',chart_already_there("Alternate",get_user_id_from_chart_id($_GET["chart_id2"])) );
     /*
     $section = grab_var('section','chart_selected');
-    $western_there = grab_var('western_there',chart_already_there("Alternate",get_user_id_from_chart_id($_GET["chart_id2"])) );
+    
     
 
     $chart_selected = '';
@@ -217,9 +218,9 @@ require_once ("header.php");
               echo ' class="end pop_guest_click"';
             } 
             echo '><a href="#" class="pop_guest_click">About</a></li>';
-            //if ($western_there)  {        
-              echo '<li class="end"><a href="#" class="pop_guest_click">Western View</a></li>';
-            //}
+            if ($western_there)  {        
+              echo '<li class="end pop_guest_click"><a href="#" class="pop_guest_click">Western View</a></li>';
+            }
           echo '</ul>
         </div>';
 
