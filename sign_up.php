@@ -1,4 +1,5 @@
 <?php
+$pageTitle = 'Starma.com - Compatibility Horoscopes Community';
 require_once ("header.php");
 
 if (sign_up_process_done()) {
