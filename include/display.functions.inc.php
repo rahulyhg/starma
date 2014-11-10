@@ -7084,6 +7084,7 @@ function show_3_words_photo_box () {
             echo '<input type="text" id="word_' . $i . '" placeholder="' . $i . '. " value=""/>';
           }
         }
+        unset($x);
         
         echo '<input type="hidden" value="words" id="words" />';
         echo '</div>'; //close edit_words
