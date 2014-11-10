@@ -7077,11 +7077,13 @@ function show_3_words_photo_box () {
           //}
         }
 
+        /*
         if ($x < 3) {
           for ($x; $x == 3; $x++;) {
             echo '<input type="text" id="word_' . $x . '" placeholder="' . $x . '. " value=""/>';
           }
         }
+        */
         echo '<input type="hidden" value="words" id="words" />';
         echo '</div>'; //close edit_words
 
