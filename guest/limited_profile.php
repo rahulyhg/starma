@@ -213,9 +213,9 @@ require_once ("header.php");
               echo '<li><a href="#" class="pop_guest_click">Photos</a></li>';
             }
             echo '<li';
-            //if (!$western_there) {
-              //echo ' class="end"';
-            //} 
+            if (!$western_there) {
+              echo ' class="end pop_guest_click"';
+            } 
             echo '><a href="#" class="pop_guest_click">About</a></li>';
             //if ($western_there)  {        
               echo '<li class="end"><a href="#" class="pop_guest_click">Western View</a></li>';
