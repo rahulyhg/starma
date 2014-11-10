@@ -7056,7 +7056,7 @@ function show_3_words_photo_box () {
         }        
         else {
            //for ($x = 1; $x<4; $x++) {
-           
+            $x = 4;
               //echo '<div class="value">';
                echo '<input type="text" id="word_1" placeholder="1. "';
                   if(isset($_SESSION['word_1'])) {
