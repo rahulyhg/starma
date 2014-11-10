@@ -26,7 +26,7 @@ $(document).ready(function(){
 			//alert(data);
 			if (data.success) {
 				$('#sending').html(data.message);
-				$('.pop_landing').fadeOut(1800);
+				$('.pop_landing').fadeOut(2100);
 			}
 			if (data.errors) {
 				$('#sending').html(data.errors.message);
