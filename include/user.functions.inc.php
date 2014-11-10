@@ -1768,7 +1768,7 @@ function consolidateCharts ($chart_name_low,$chart_name_high,$user_id,$chart_nam
 }
 
 function chart_already_there($nickname, $user_id) {
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = 'SELECT * from chart where user_id = ' . $user_id . ' and nickname = "' . $nickname . '"';
     $result = mysql_query($q) or die(mysql_error());
     if ($row = mysql_fetch_array($result)) {
@@ -1778,10 +1778,10 @@ function chart_already_there($nickname, $user_id) {
     else {
       return false;
     }
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+  //  return false;
+  //}
 }
 
 

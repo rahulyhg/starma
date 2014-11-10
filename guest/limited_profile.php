@@ -219,7 +219,7 @@ require_once ("header.php");
             } 
             echo '><a href="#" class="pop_guest_click">About</a></li>';
             if ($western_there)  {        
-              echo '<li class="end pop_guest_click"><a href="#" class="pop_guest_click">Western View</a></li>';
+              echo '<li class="end"><a href="#" class="pop_guest_click">Western View</a></li>';
             }
           echo '</ul>
         </div>';
