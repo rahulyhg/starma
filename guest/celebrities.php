@@ -24,7 +24,7 @@ if ($tier == "1") {
   clear_compare_data();
    echo '<div id="celebrities">';
         echo '<div id="s_top_bar">';      
-          echo '<div style="display:inline-block; margin-bottom: 10px;"><input type="text" class="pop_guest_click" id="cue_search" placeholder="Search by Celebrity Name" disabled><div class="later_on pointer" id="cue_button">Go!</div></div>';
+          echo '<div class="pop_guest_click" style="display:inline-block; margin-bottom: 10px;"><input type="text" id="cue_search" placeholder="Search by Celebrity Name" disabled><div class="later_on pointer" id="cue_button">Go!</div></div>';
           echo '<div id="hide_s" class="later_on pointer"><- Back</div>';
         echo '</div>'; //close s_top_bar
 
