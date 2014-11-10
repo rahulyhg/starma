@@ -23,7 +23,8 @@ date_default_timezone_set('America/Chicago');
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Starma.com - </title>
+<title><?php echo $pageTitle; ?></title>
+<meta name="description" content="<?php echo $pageDescription; ?>">
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">   <!-- Matt should we change to charset=utf-8 so json_encode will work?  -->
 
 <!--HI MY NAME IS SLIM SHADY--->

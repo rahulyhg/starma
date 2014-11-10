@@ -1,4 +1,8 @@
 <?php 
+//SEO
+$pageTitle = 'Starma.com - Compatibility Horoscopes Community';
+
+$pageDescription = '';
 
  require_once ("header.php");
  //if (!permissions_check ($req = 10)) {
