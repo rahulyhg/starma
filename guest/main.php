@@ -1,5 +1,5 @@
 <?php
-
+$pageTitle = 'Starma.com - Compatibility Horoscopes Community';
 require_once ("header.php");
  
 // IF YOU ARE ALREADY LOGGED IN, THEN GET KICKED THE FUCK OUT
