@@ -7079,7 +7079,7 @@ function show_3_words_photo_box () {
 
         //echo 'X = ' . $x;
         if ($x < 3) {
-          for ($i = $x; $i = 3; $i++) {
+          for ($i = $x; $i < 4; $i++) {
             echo '<input type="text" id="word_' . $i . '" placeholder="' . $i . '. " value=""/>';
           }
         }
