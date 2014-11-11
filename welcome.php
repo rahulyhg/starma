@@ -6,8 +6,8 @@ require_once "header.php";
 
  <div id="welcome">
     <!--<?php flare_title();?>-->
-    <div id="header">
-      Welcome to Starma.com. We're so glad you've joined our community!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
+    <div class="later_on welcome_text">
+      Welcome to Starma!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
     </div>
  
     <div id="profile_box_link" class="homepage_div">

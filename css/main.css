@@ -63,6 +63,19 @@ input{
   padding-right:25px;
 }
 
+.welcome_text {
+  font-size: 1.3em;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.welcome_text a {
+  text-decoration: underline;
+  color: black;
+  font-family: 'later_on';
+  letter-spacing: 2px;
+}
+
 
 #welcome .flare_title .title_content {
   font-size:1.8em;
