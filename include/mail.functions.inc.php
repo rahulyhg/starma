@@ -156,6 +156,8 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
 }
 
 */
+
+/*
 function sendLostPasswordEmail($email, $newpassword)
 {
  
@@ -178,6 +180,7 @@ password:  $newpassword<br>";
  
  
 }
+*/
 
 /*
 function sendReportUserEmail($sender, $reported_user, $message) {
@@ -286,6 +289,29 @@ function sendWelcomeEmail($username, $email) {
     else {
       return false;
     }
+}
+
+function sendTemplatePassword($email, $newpassword)
+{
+ 
+    
+    $message = "
+You have requested a new password on https://www." . get_domain() . "/,<br>
+<br> 
+Your new information:<br>
+<br> 
+username:  $email<br>
+password:  $newpassword<br>";
+ 
+    if (sendMail($email, "Your password has been reset.", $message, "no-reply@" . get_email_domain()))
+    {
+        return true;
+    } else
+    {
+        return false;
+    }
+ 
+ 
 }
 
 //END MANDRILL DYNAMIC CONTENT
@@ -828,7 +854,7 @@ function sendTemplateInvite ($to, $subject, $body, $from, $footer) {
   //return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
 }
 
-//INVITE
+//WELCOME
 function sendTemplateWelcome ($to, $subject, $body, $from) {
   try {
     $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
@@ -894,6 +920,98 @@ function sendTemplateWelcome ($to, $subject, $body, $from) {
             )
         ),
         'tags' => array('welcome'),
+        //'subaccount' => 'customer-123',
+        'google_analytics_domains' => array(),
+        'google_analytics_campaign' => '',
+        'metadata' => array('website' => ''),
+        'recipient_metadata' => array(),
+        'attachments' => array(),
+        'images' => array()
+    );
+    $async = false;
+    $ip_pool = '';
+    //$send_at = '';
+    //$result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool, $send_at);
+    $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
+    return true;
+  }
+  catch(Mandrill_Error $e) {
+    // Mandrill errors are thrown as exceptions
+    echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+    // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+    throw $e;
+    return false;
+  }
+  return false;
+  //return 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+}
+
+//FORGET PASSWORD
+function sendTemplatePassword ($to, $subject, $content, $from) {
+  try {
+    $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
+    $template_name = 'forgot_pass';
+    $template_content = array(
+        array(
+            'name' => 'body',
+            'content' => $content
+        ),
+        array (
+            'name' => 'contact_us',
+            'content' => CONTACT_US()
+        ),
+        array (
+            'name' => 'current_year',
+            'content' => CURRENT_YEAR()
+        )                       
+    );
+    $message = array(
+        'html' => '',
+        'text' => '',
+        'subject' => $subject,
+        'from_email' => $from,
+        'from_name' => 'Starma',
+        'to' => array(
+            array(
+                'email' => $to,
+                //'name' => 'Recipient Name',
+                //'type' => 'to'
+            )
+        ),
+        'headers' => array('Reply-To' => $from),
+        'important' => false,
+        'track_opens' => true,
+        'track_clicks' => true,
+        'auto_text' => null,
+        'auto_html' => null,
+        'inline_css' => null,
+        'url_strip_qs' => null,
+        'preserve_recipients' => null,
+        'view_content_link' => null,
+        'bcc_address' => '',
+        'tracking_domain' => null,
+        'signing_domain' => null,
+        'return_path_domain' => null,
+        'merge' => true,
+        'merge_language' => 'mailchimp',
+        'global_merge_vars' => array(
+            array(
+                'name' => 'merge1',
+                'content' => 'merge1 content'
+            )
+        ),
+        'merge_vars' => array(
+            array(
+                'rcpt' => 'recipient.email@example.com',
+                'vars' => array(
+                    array(
+                        'name' => 'merge2',
+                        'content' => 'merge2 content'
+                    )
+                )
+            )
+        ),
+        'tags' => array('report user'),
         //'subaccount' => 'customer-123',
         'google_analytics_domains' => array(),
         'google_analytics_campaign' => '',
