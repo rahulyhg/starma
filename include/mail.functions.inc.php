@@ -292,7 +292,7 @@ function sendWelcomeEmail($username, $email) {
 }
 
 
-function lostPassword($email, $newpassword) {
+function sendLostPasswordEmail($email, $newpassword) {
 
     $message = "You have requested a new password on " . get_full_domain() . ",<br><br> Your new information:<br><br> username:  $email<br>password:  $newpassword<br>";
  
