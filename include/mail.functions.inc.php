@@ -291,7 +291,7 @@ function sendWelcomeEmail($username, $email) {
     }
 }
 
-function sendTemplatePassword($email, $newpassword)
+function lostPassword($email, $newpassword)
 {
  
     
@@ -303,7 +303,7 @@ Your new information:<br>
 username:  $email<br>
 password:  $newpassword<br>";
  
-    if (sendMail($email, "Your password has been reset.", $message, "no-reply@" . get_email_domain()))
+    if (sendTemplatePassword($email, "Your password has been reset.", $message, "no-reply@" . get_email_domain()))
     {
         return true;
     } else
