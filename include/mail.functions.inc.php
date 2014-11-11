@@ -953,7 +953,7 @@ function sendTemplatePassword ($to, $subject, $content, $from) {
     $template_name = 'forgot_pass';
     $template_content = array(
         array(
-            'name' => 'forgot_pass',
+            'name' => 'body',
             'content' => $content
         ),
         array (
