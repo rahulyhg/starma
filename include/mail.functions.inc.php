@@ -291,6 +291,7 @@ function sendWelcomeEmail($username, $email) {
     }
 }
 
+/*
 function lostPassword($email, $newpassword)
 {
  
@@ -313,6 +314,7 @@ password:  $newpassword<br>";
  
  
 }
+*/
 
 //END MANDRILL DYNAMIC CONTENT
 
