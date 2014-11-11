@@ -291,18 +291,10 @@ function sendWelcomeEmail($username, $email) {
     }
 }
 
-/*
-function lostPassword($email, $newpassword)
-{
- 
-    
-    $message = "
-You have requested a new password on https://www." . get_domain() . "/,<br>
-<br> 
-Your new information:<br>
-<br> 
-username:  $email<br>
-password:  $newpassword<br>";
+
+function lostPassword($email, $newpassword) {
+
+    $message = "You have requested a new password on " . get_full_domain() . ",<br><br> Your new information:<br><br> username:  $email<br>password:  $newpassword<br>";
  
     if (sendTemplatePassword($email, "Your password has been reset.", $message, "no-reply@" . get_email_domain()))
     {
@@ -314,7 +306,7 @@ password:  $newpassword<br>";
  
  
 }
-*/
+
 
 //END MANDRILL DYNAMIC CONTENT
 
