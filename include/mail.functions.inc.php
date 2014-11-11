@@ -296,15 +296,12 @@ function lostPassword($email, $newpassword) {
 
     $message = "You have requested a new password on " . get_full_domain() . ",<br><br> Your new information:<br><br> username:  $email<br>password:  $newpassword<br>";
  
-    if (sendMail($email, "Your password has been reset.", $message, "no-reply@" . get_email_domain()))
-    {
-        return true;
-    } else
-    {
-        return false;
-    }
- 
- 
+    if (sendTemplatePassword($email, 'Your password has been reset.', $message, "no-reply@" . get_email_domain())) {
+      return true;
+    } 
+    else {
+      return false;
+    } 
 }
 
 
