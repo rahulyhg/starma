@@ -2276,6 +2276,48 @@ function register_new_user ($nickname, $password, $password2, $email, $year, $mo
     return $errors;
 
 }
+
+
+//FACEBOOK REGISTER
+
+function register_new_user_fb ($nickname_fb, $email_fb, $year_fb, $month_fb, $day_fb) {
+  //global $seed;
+
+  $errors = validate_registration_fb($nickname_fb, $email_fb, $year_fb, $month_fb, $day_fb);
+
+  if(sizeof($errors) > 1 ) {
+    return $errors;
+  }
+  $birthday_fb = strtotime($year_fb . "-" . $month_fb . "-" . $day_fb);
+    
+
+    $errors = array(); 
+    
+    $code = generate_code(20);
+    $sql = sprintf("insert into user (nickname,email,actcode,birthday,activated) value ('%s','%s','%s','%s',1)",
+        mysql_real_escape_string($nickname_fb), mysql_real_escape_string($email_fb), mysql_real_escape_string($code),date("Y-m-d",$birthday_fb));
+ 
+ 
+    if (mysql_query($sql)) {
+        $id = mysql_insert_id();
+        $errors[] = $id; 
+        /*
+        if (sendWelcomeEmail($nickname, $email)) {
+          return $errors;
+        } 
+        else {
+          $errors[] = "User Inserted, but Email Failed";
+        }
+        */
+    } 
+    else {
+        $errors[] = -1;
+        $errors[] = "User Inserted Query Failed";
+    }
+    
+    return $errors;
+
+}
  
 
 

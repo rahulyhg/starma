@@ -62,6 +62,7 @@ if (isLoggedIn())
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
+      /*
       testAPI();
       console.log('accessToken');
       console.log(response.authResponse.accessToken);
@@ -108,6 +109,7 @@ if (isLoggedIn())
           }
         }
       );
+      */
     } 
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -146,10 +148,13 @@ if (isLoggedIn())
 
   function fbSignUp () {
     FB.login(function(response) {
-    //checkLoginState();
+    checkLoginState();
       // handle the response'
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
+        $('#sign_up_box').hide();
+        $('#create_account_fb').show();
+        
         var data = {'fb_id' : response.id};
 
             $.ajax({

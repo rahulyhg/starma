@@ -6884,7 +6884,7 @@ require_once ("landing_footer.php");
 //********************************  LANDING BOXES  ********************************/
 
 function show_login_options_landing () {
-  echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLogin();">Login with Facebook</button></div>';
+  //echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLogin();">Login with Facebook</button></div>';
   echo '<div style="width:245px; display: inline-block;"><button type="button" class="sign_in" id="login_email_landing">Login with Email</button></div>';
 }
 
@@ -6960,9 +6960,9 @@ function show_sign_up_box_landing () {
     echo '<div id="sign_up_box">';
       echo  '<div class="heading">Create an Account</div>';
           echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
-          echo '<div id="or">~ or ~</div>';
-          //echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; onClick="fbSignUp();"
-          echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
+          //echo '<div id="or">~ or ~</div>';
+          //echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; 
+          //echo '<button type="button" name="sign_up_fb" class="sign_up" onClick="fbSignUp();">Facebook</button>';
       echo '</div>'; //Close sign_up_box
 }
 
