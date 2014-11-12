@@ -81,10 +81,10 @@ $(document).ready(function(){
 		})
 		.done(function(data){
 			if (data.errors) {
-				alert(data.errors.chart_flag);
+				console.log(data.errors.chart_flag);
 			}
 			if (data.chart_flag) {
-				alert(data.chart_flag);
+				console.log(data.chart_flag);
 			}
 		});
 	});

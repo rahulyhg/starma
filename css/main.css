@@ -3705,18 +3705,27 @@ span.div_link {
   margin-top: 3px;
 }
 
+#settings_forms {
+  width: 670px;
+  margin: 15px auto auto;
+}
+
 #password {
-  width: 350px;
+  width: 250px;
   display: inline-block;
+  float: left;
+  margin-right: 100px;
 }
 
-#privacy_form {
-  width: 350px;
+#privacy {
+  width: 250px;
   display: inline-block;
+  margin-bottom: 50px;
 }
 
-#tutorials_form {
-  margin: 20px 0;
+#tutorials {
+  width: 250px;
+  display: inline-block;
 }
 
 /*//////////////// END SETTINGS ///////////////////////////////////////*/
