@@ -7100,7 +7100,7 @@ function show_3_words_photo_box () {
           }
         }        
         if (isset($x) && $x == 0) {
-          echo $x;
+          //echo $x;
            //for ($x = 1; $x<4; $x++) {
             //$x = 4;
               //echo '<div class="value">';
