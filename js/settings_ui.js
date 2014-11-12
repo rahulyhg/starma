@@ -69,6 +69,8 @@ $(document).ready(function(){
 	//}
 	
 
+//PRIVACY --------------------------------------
+
 	$('#hlcb').click(function(){
 		if($('#hlcb').prop('checked')) {
 			var data = { 'hlcb' : 1 };
@@ -97,6 +99,37 @@ $(document).ready(function(){
 			}
 		});
 
+	});
+
+//TUTORIALS --------------------------------------
+
+	$('#cfcb').click(function() {
+		if($('#cfcb').prop('checked')) {
+			var data = {'cfcb' : 1};
+		}
+		if(!$('#cfcb').prop('checked')) {
+			var data = {'cfcb' : 0};
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: '/chat/ajax_settings_tuts.php',
+			data: data,
+			dataType: 'json',
+		})
+		.done(function(data) {
+			if (data.errors) {
+				if(data.errors.invalid) {
+					$('#cf_done').show().text(data.errors.invalid);
+				}
+				if (data.errors.set) {
+					$('#cf_done').show().text(data.errors.set);
+				}
+			}
+			if (data.msg) {
+				$('#cf_done').show().text(data.msg).fadeOut(1200);
+			}
+		});
 	});
 	
 

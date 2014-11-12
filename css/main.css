@@ -63,6 +63,19 @@ input{
   padding-right:25px;
 }
 
+.welcome_text {
+  font-size: 1.3em;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.welcome_text a {
+  text-decoration: underline;
+  color: black;
+  font-family: 'later_on';
+  letter-spacing: 2px;
+}
+
 
 #welcome .flare_title .title_content {
   font-size:1.8em;
@@ -3690,6 +3703,29 @@ span.div_link {
 #change_pass {
   margin-right: 15px;
   margin-top: 3px;
+}
+
+#settings_forms {
+  width: 670px;
+  margin: 15px auto auto;
+}
+
+#password {
+  width: 250px;
+  display: inline-block;
+  float: left;
+  margin-right: 100px;
+}
+
+#privacy {
+  width: 250px;
+  display: inline-block;
+  margin-bottom: 50px;
+}
+
+#tutorials {
+  width: 250px;
+  display: inline-block;
 }
 
 /*//////////////// END SETTINGS ///////////////////////////////////////*/

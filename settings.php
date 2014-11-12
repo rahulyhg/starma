@@ -22,10 +22,19 @@ if (isLoggedIn() == true)
     //else {
 
     echo '<div id="settings">';
-        show_changepassword_form(); 
+        echo '<div id="settings_forms">';
+            echo '<div id="password">';
+                show_changepassword_form(); 
+            echo '</div>';
 
-        show_privacy_form();
+            echo '<div id="privacy">';
+                show_privacy_form();
+            echo '</div>';
 
+            echo '<div id="tutorials">';
+                show_tutorials_form();
+            echo '</div>';
+        echo '</div>';
     echo '</div>';
     //}
  echo '<script typt="text/javascript" src="/js/settings_ui.js"></script>';

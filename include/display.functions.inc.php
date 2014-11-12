@@ -1551,9 +1551,10 @@ function get_left_menu ($the_page) {
   elseif ($the_page == 'psel') {
     $menu['nav1'] = array('Profile&nbsp;&nbsp;','non_chart_profile.php');
     //$menu['nav2'] = array('houses&nbsp;&nbsp;','#');
-    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','romantic_advice.php');
-    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','career_advice.php');
-    $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
+    //$menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','romantic_advice.php');
+    //$menu['nav3'] = array('Career Advice&nbsp;&nbsp;','career_advice.php');
+    $menu['nav2'] = array('Why Vedic Astrology?&nbsp;&nbsp;','two_zodiacs.php');
+    $menu['nav3'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#');
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
   }
@@ -1569,7 +1570,7 @@ function get_left_menu ($the_page) {
   elseif ($the_page == 'hsel') {
     $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php');
     $menu['nav2'] = array('About Starma&nbsp;&nbsp;', 'about_starma.php');
-    $menu['nav3'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php');
+    $menu['nav3'] = array('Why Vedic Astrology&nbsp;&nbsp;','two_zodiacs.php');
     
   }
   elseif ($the_page == 'isel') {
@@ -2908,10 +2909,10 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         }
         else {
           if ($freebie) {
-            $help_text="Oh no!  We can't give you an accurate Starma Rating because either your <a href='main.php?the_left=nav4&the_page=psel'>birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
+            $help_text="Oh no!  We can't give you an accurate Starma Rating because either your <a href='main.php?the_left=nav3&the_page=psel'>birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
           }
           else {
-            $help_text="Oh no!  We can't give you an accurate Starma Rating without a more accurate <a href='main.php?the_left=nav4&the_page=psel'>time of birth</a>.  If your time of birth is already exact, please encourage " . $username2 = get_nickname ($user_id_2) . " to enter a more accurate time of birth.";
+            $help_text="Oh no!  We can't give you an accurate Starma Rating without a more accurate <a href='main.php?the_left=nav3&the_page=psel'>time of birth</a>.  If your time of birth is already exact, please encourage " . $username2 = get_nickname ($user_id_2) . " to enter a more accurate time of birth.";
           }
           echo '<div class="hover_box">';
           for ($x=1; $x<=5; $x++) {
@@ -4475,7 +4476,7 @@ function show_my_chart ($goTo = ".", $western=0) {
 
 
   //CHART FLAG TESTING---------------------------------
-      /*
+      
       //if (my_chart_flag()==1) {
         echo '<div style="margin-bottom:20px;">';
           //echo '<form name="flag_test" method="POST" action="flag_test">';
@@ -4484,17 +4485,47 @@ function show_my_chart ($goTo = ".", $western=0) {
         echo '</div>';
 
         if(my_chart_flag() == 1) {
-          echo '<div id="msg_sheen" class="chart_pop1">';    
-            echo '<div id="msg_sheen_screen" class="chart_pop1"></div>';
-              echo '<div id="msg_sheen_ct1" class="chart_pop1">';
+          echo '<div id="msg_sheen" class="chart_pop">';    
+            echo '<div id="msg_sheen_screen_ct" class="chart_pop"></div>';
+              
+              echo '<div id="msg_sheen_ct1" class="chart_pop msg_sheen_ct">';
                 echo '<div id="chart_pop1">';
-                  echo '<div class="later_on">Over here you see meowfriends gallopping.</div>';
-                  echo '<div class="later_on" id="ct1_done">Done</div>';
-              echo '</div>'; //close crop_box
-            echo '</div>'; //close msg_sheen_content
+                  echo '<div class="later_on ct_text">Your Birth Chart is a collection of ALL your signs (Sun, Moon, Venus, etc.)  Most of us know at least a little about our Sun Sign, but reading a Birth Chart gives us a more complete picture on different aspects of our astrological make up.  We\'ve calculated your Birth Chart using Vedic astrology (Jyotish).  As such, some of your signs will be different than what you\'re accustomed to seeing in your Western Chart.</div>';
+                  echo '<div class="later_on ct_next" id="ct1_done"><a href="#" class="later_on">Next</a></div>';
+              echo '</div>'; //close #chart_pop1
+            echo '</div>'; //close msg_sheen_ct1
+
+            echo '<div id="msg_sheen_ct2" class="msg_sheen_ct">';
+                echo '<div id="chart_pop2">';
+                  echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Western View."</div>';
+                  echo '<div class="later_on ct_next" id="ct2_done"><a href="#" class="later_on">Next</a></div>';
+              echo '</div>'; //close #chart_pop1
+            echo '</div>'; //close msg_sheen_ct2
+
+            echo '<div id="msg_sheen_ct3" class="msg_sheen_ct">';
+                echo '<div id="chart_pop3">';
+                  echo '<div class="later_on ct_text">To learn why we use Vedic Astrology, click "Why Vedic Astrology?".</div>';
+                  echo '<div class="later_on ct_next" id="ct3_done"><a href="#" class="later_on">Next</a></div>';
+              echo '</div>'; //close #chart_pop1
+            echo '</div>'; //close msg_sheen_ct3
+
+            echo '<div id="msg_sheen_ct4" class="msg_sheen_ct">';
+                echo '<div id="chart_pop4">';
+                  echo '<div class="later_on ct_text">Important! As you read through your Birth Chart, keep this analogy in mind: If you had never eaten cake before, and you separately tasted eggs, sugar, flour and milk, it might be hard to imagine the result of having them all baked together. Similarly, if you separately read your Sun, Moon and Venus signs, they might all have their own contradictory meaning. Understanding how the ingredients of your chart all "bake" together is the job of an astrologer. What you\'re about to read, we affectionately refer to as "Cook Book Astrology." For a more in depth understanding of your Birth Chart, please consult an astrologer.</div>';
+                  echo '<div class="later_on ct_next" id="ct4_done"><a href="#ct5" class="later_on">Next</a></div>';
+              echo '</div>'; //close #chart_pop1
+            echo '</div>'; //close msg_sheen_ct3
+
+            echo '<div id="msg_sheen_ct5" class="msg_sheen_ct">';
+                echo '<div id="chart_pop5">';
+                  echo '<div class="later_on ct_text">Click through these links to read different aspects of your birth chart. If you want to see this tutorial again, go to "Settings" and select "Turn on Birth Chart Tutorial".  Enjoy!</div>';
+                  echo '<div class="later_on ct_next" id="ct5_done"><a href="#" class="later_on">Done</a></div>';
+              echo '</div>'; //close #chart_pop1
+            echo '</div>'; //close msg_sheen_ct3
+
         echo '</div>'; //close msg_sheen
         }
-        */
+        
 
       //}
       /*
@@ -4546,7 +4577,8 @@ function show_my_chart ($goTo = ".", $western=0) {
    
       if (my_chart_flag() == 1) {
         //show_circle_and_arrow_hilite("down");
-       
+       echo '<div id="poi_circle_left"></div>';
+       echo '<div id="poi_circle_right"></div>';
       }
 
 /***  --Matt-- Rebuilt with span icons for ajax submit ***/
@@ -5469,7 +5501,7 @@ function show_house_lords () {
           echo '<div id="starma_house_lords">';
 
           if ($chart_id == get_my_chart_id()) {
-            echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">Oh no!  We can\'t tell you about your House Lords without a more accurate <a href="' . get_domain() . '/main.php?the_left=nav4&the_page=psel" title="My Birth Time">time of birth</a></div>';
+            echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">Oh no!  We can\'t tell you about your House Lords without a more accurate <a href="' . get_domain() . '/main.php?the_left=nav3&the_page=psel" title="My Birth Time">time of birth</a></div>';
           }
           elseif ($custom) {
             echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">Oh no!  We can\'t tell you about this peron\'s House Lords without a more accurate time of birth</div>';
@@ -6601,7 +6633,7 @@ echo '<div class="heading">Change Password</div>';
 
 echo '<br>';  
 //if ($_GET["error"] == 1) {
-  echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px; width:500px">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
+  echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px;">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
   echo '<div id="pass_validation"></div>';
   //echo '<br><br>';
   //global $seed;
@@ -6658,10 +6690,22 @@ function show_privacy_form () {
    //echo '</form>';
 
 
-  echo '</div>';
+  echo '</div>'; //close Privacy
 
 }
 
+function show_tutorials_form () {
+  echo '<div id="tutorials_form">';
+    echo '<div class="heading">Tutorials</div>';
+      echo '<input type="checkbox" ';
+        if (my_chart_flag() == 1) {
+          echo 'checked';
+        }
+      echo ' name="chart_flag" id="cfcb" style="display:inline-block; margin-right:8px;"/>';
+      echo '<div class="later_on" style="display:inline-block;">Turn on Birth Chart Tutorial<span id="cf_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+      echo '</div>';
+  echo '</div>'; //close Tutorials
+}
 
 
  
@@ -7028,7 +7072,7 @@ function show_gender_location_box() {
 
 function show_3_words_photo_box () {
   //$user_id = get_my_user_id();
-  //$descriptors = get_descriptors(get_my_user_id());
+  $descriptors = get_descriptors(get_my_user_id());
   //print_r($descriptors);
   //echo '<br>descriptor1: ' . $descriptors[0]['descriptor'];
   echo '<div id="words_photo">';
@@ -7040,7 +7084,7 @@ function show_3_words_photo_box () {
       echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
         echo '<div id="edit_words">';
         //if ($desc = mysql_fetch_array($descriptors)) {
-        if ($descriptors = get_descriptors(get_my_user_id())) {
+        if (isset($descriptors)) {
           $x = 0;
           while ($desc = mysql_fetch_array($descriptors)) {
             //echo '<div id="' . $x . '">';

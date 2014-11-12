@@ -165,9 +165,6 @@ if ($the_left=="nav1") {
     echo '<div id="msg_sheen_screen" class="pop_invite pop_close"></div>';
               show_user_invite();
   echo '</div>';
-
-
-  echo '<script type="text/javascript" src="/js/pop_tuts.js"></script>';
   ?>
 
 <div id="img_preloader">

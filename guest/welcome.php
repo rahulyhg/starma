@@ -6,8 +6,8 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
 ?>
  <div id="welcome">
     <!--<?php flare_title();?>-->
-    <div id="header"> 
-      Welcome to Starma.com. We're so glad you've joined our community!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
+    <div class="later_on welcome_text"> 
+      Welcome to Starma!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
     </div>
  
     <div id="horoscope_box_link_guest" class="homepage_div">
