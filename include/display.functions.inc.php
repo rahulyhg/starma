@@ -5533,7 +5533,7 @@ function show_hl_results ($chart_id, $username) {
   echo '<div id="hl_results_container">';
     echo '<div id="hl_intro" class="later_on" style="font-size:2em; margin:auto; width:400px;">';
       if($chart_id == get_my_chart_id()) {
-        echo 'Select a house from the 12 above to read more details about your birth chart...';
+        echo 'Reviewing the Lords of your Houses is common practice for Vedic Astrologers.  It is not necessary to understand how the Lord of a House is determined in order to read about the meaning a House Lord has in your chart, but if this is something you would like to know, click here.  All you have to know is that there are 12 Houses, each House has a Lord, and each Lord has a House it occupies.  The relationship between the House the Lord rules and the House the Lord occupies can tell you a lot about your astrological make up.  We recommend that you start by clicking on your 1st House and read on to see where all 12 of your House Lords reside.';
       }
       else {
         echo 'Select a house from the 12 above to read more details about ' . $username . '\'s birth chart...';
