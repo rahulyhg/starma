@@ -7085,7 +7085,7 @@ function show_3_words_photo_box () {
         echo '<div id="edit_words">';
         //if ($desc = mysql_fetch_array($descriptors)) {
         if (isset($descriptors)) {
-          echo $descriptors;
+          //echo $descriptors;
           $x = 0;
           while ($desc = mysql_fetch_array($descriptors)) {
             //echo '<div id="' . $x . '">';
@@ -7099,7 +7099,7 @@ function show_3_words_photo_box () {
             $x = $x + 1;
           }
         }        
-        else {
+        if (isset($x) && $x = 0) {
            //for ($x = 1; $x<4; $x++) {
             $x = 4;
               //echo '<div class="value">';
@@ -7123,7 +7123,7 @@ function show_3_words_photo_box () {
           //}
         }
 
-        echo 'X = ' . $x;
+        //echo 'X = ' . $x;
         //echo $_SESSION['word_1'];
         //echo $_SESSION['word_2'];
         //echo $_SESSION['word_3'];
