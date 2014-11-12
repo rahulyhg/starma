@@ -7100,8 +7100,9 @@ function show_3_words_photo_box () {
           }
         }        
         if (isset($x) && $x = 0) {
+          echo $x;
            //for ($x = 1; $x<4; $x++) {
-            $x = 4;
+            //$x = 4;
               //echo '<div class="value">';
                echo '<input type="text" id="word_1" placeholder="1. "';
                   if(isset($_SESSION['word_1'])) {
@@ -7127,7 +7128,7 @@ function show_3_words_photo_box () {
         //echo $_SESSION['word_1'];
         //echo $_SESSION['word_2'];
         //echo $_SESSION['word_3'];
-        if (isset($x) && $x < 3) {
+        elseif (isset($x) && $x > 0 && $x < 3) {
           for ($i = ($x + 1); $i < 4; $i++) {
             echo '<input type="text" id="word_' . $i . '" placeholder="' . $i . '. " value=""/>';
           }
