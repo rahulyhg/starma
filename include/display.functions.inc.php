@@ -4520,7 +4520,7 @@ function show_my_chart ($goTo = ".", $western=0) {
 
             echo '<div id="msg_sheen_ct5" class="msg_sheen_ct">';
                 echo '<div id="chart_pop5">';
-                  echo '<div class="later_on ct_text">Click through these links to read different aspects of your birth chart. If you want to see this tutorial again, go to "Settings" and select "Turn on Birth Chart Tutorial".  Enjoy!</div>';
+                  echo '<div class="later_on ct_text">Click through these links to read different aspects of your Birth Chart. If you want to see this tutorial again, go to "Settings" and select "Turn on Birth Chart Tutorial".</div>';
                   echo '<div class="later_on ct_next" id="ct5_done"><a href="#" class="later_on">Done</a></div>';
               echo '</div>'; //close #chart_pop1
             echo '</div>'; //close msg_sheen_ct3
