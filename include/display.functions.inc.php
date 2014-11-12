@@ -7099,7 +7099,7 @@ function show_3_words_photo_box () {
             $x = $x + 1;
           }
         }        
-        if (isset($x) && $x = 0) {
+        if (isset($x) && $x == 0) {
           echo $x;
            //for ($x = 1; $x<4; $x++) {
             //$x = 4;
