@@ -13,7 +13,7 @@ function get_r_sign_x_ruled_house_id ($rising_sign_id, $ruled_house_id) {
 function get_house_ruler_blurb ($rising_sign_id, $ruled_house_id, $residing_house_id, $other_chart_id=-1) {
   if ($rising_sign_id == -1) {
     if ($other_chart_id == -1) {
-      return "Oh no!  Since your birth time is not currently accurate enough to find your Rising sign, we can't tell you about your house lords.  To see your house lords, please enter a more precise <a href='main.php?the_left=nav4&the_page=psel'>time of birth.</a>";
+      return "Oh no!  Since your birth time is not currently accurate enough to find your Rising sign, we can't tell you about your house lords.  To see your house lords, please enter a more precise <a href='main.php?the_left=nav3&the_page=psel'>time of birth.</a>";
     }
     else {
       if ($other_user_id = get_user_id_from_chart_id($other_chart_id)) {
@@ -90,7 +90,7 @@ function get_poi_sign_blurb ($poi_id, $sign_id, $other_chart_id=-1) {
   else {
     $poi_name = ucfirst(strtolower(get_poi_name($poi_id)));
     if ($other_chart_id == -1) { 
-      return "Oh no!  We can't tell you about your " . $poi_name . " sign with your current birth information.  To find your " . $poi_name . " sign, please enter a more precise <a href='main.php?the_left=nav4&the_page=psel'>time of birth.</a>";
+      return "Oh no!  We can't tell you about your " . $poi_name . " sign with your current birth information.  To find your " . $poi_name . " sign, please enter a more precise <a href='main.php?the_left=nav3&the_page=psel'>time of birth.</a>";
     }
     else {
       if ($other_user_id = get_user_id_from_chart_id($other_chart_id)) {

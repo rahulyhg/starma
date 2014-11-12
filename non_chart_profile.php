@@ -82,6 +82,16 @@ if (login_check_point($type="full")) {
 
       //End edit current location
 
+
+// CHART POP TUT --------------------------------------
+
+    if(my_chart_flag() == 1) {
+      echo '<div id="western_circle"></div>';
+      echo '<div id="why_vedic_circle"></div>';
+    }
+
+// END CHART POP TUT --------------------------------------
+
     echo '<div id="profile_nav">
         <ul>
           <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>     

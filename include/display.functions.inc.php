@@ -1551,9 +1551,10 @@ function get_left_menu ($the_page) {
   elseif ($the_page == 'psel') {
     $menu['nav1'] = array('Profile&nbsp;&nbsp;','non_chart_profile.php');
     //$menu['nav2'] = array('houses&nbsp;&nbsp;','#');
-    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','romantic_advice.php');
-    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','career_advice.php');
-    $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
+    //$menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','romantic_advice.php');
+    //$menu['nav3'] = array('Career Advice&nbsp;&nbsp;','career_advice.php');
+    $menu['nav2'] = array('Why Vedic Astrology?&nbsp;&nbsp;','two_zodiacs.php');
+    $menu['nav3'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#');
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
   }
@@ -1569,7 +1570,7 @@ function get_left_menu ($the_page) {
   elseif ($the_page == 'hsel') {
     $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php');
     $menu['nav2'] = array('About Starma&nbsp;&nbsp;', 'about_starma.php');
-    $menu['nav3'] = array('About Astrology&nbsp;&nbsp;','two_zodiacs.php');
+    $menu['nav3'] = array('Why Vedic Astrology&nbsp;&nbsp;','two_zodiacs.php');
     
   }
   elseif ($the_page == 'isel') {
@@ -2908,10 +2909,10 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         }
         else {
           if ($freebie) {
-            $help_text="Oh no!  We can't give you an accurate Starma Rating because either your <a href='main.php?the_left=nav4&the_page=psel'>birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
+            $help_text="Oh no!  We can't give you an accurate Starma Rating because either your <a href='main.php?the_left=nav3&the_page=psel'>birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
           }
           else {
-            $help_text="Oh no!  We can't give you an accurate Starma Rating without a more accurate <a href='main.php?the_left=nav4&the_page=psel'>time of birth</a>.  If your time of birth is already exact, please encourage " . $username2 = get_nickname ($user_id_2) . " to enter a more accurate time of birth.";
+            $help_text="Oh no!  We can't give you an accurate Starma Rating without a more accurate <a href='main.php?the_left=nav3&the_page=psel'>time of birth</a>.  If your time of birth is already exact, please encourage " . $username2 = get_nickname ($user_id_2) . " to enter a more accurate time of birth.";
           }
           echo '<div class="hover_box">';
           for ($x=1; $x<=5; $x++) {
@@ -4475,7 +4476,7 @@ function show_my_chart ($goTo = ".", $western=0) {
 
 
   //CHART FLAG TESTING---------------------------------
-      /*
+      
       //if (my_chart_flag()==1) {
         echo '<div style="margin-bottom:20px;">';
           //echo '<form name="flag_test" method="POST" action="flag_test">';
@@ -4484,17 +4485,40 @@ function show_my_chart ($goTo = ".", $western=0) {
         echo '</div>';
 
         if(my_chart_flag() == 1) {
-          echo '<div id="msg_sheen" class="chart_pop1">';    
-            echo '<div id="msg_sheen_screen" class="chart_pop1"></div>';
-              echo '<div id="msg_sheen_ct1" class="chart_pop1">';
+          echo '<div id="msg_sheen" class="chart_pop">';    
+            echo '<div id="msg_sheen_screen" class="chart_pop"></div>';
+              
+              echo '<div id="msg_sheen_ct1" class="chart_pop">';
                 echo '<div id="chart_pop1">';
-                  echo '<div class="later_on">Over here you see meowfriends gallopping.</div>';
-                  echo '<div class="later_on" id="ct1_done">Done</div>';
-              echo '</div>'; //close crop_box
-            echo '</div>'; //close msg_sheen_content
+                  echo '<div class="later_on ct_text">Your Birth Chart is a collection of ALL your signs (Sun, Moon, Venus, etc.)  Most of us know at least a little about our Sun Sign, but reading a Birth Chart gives us a more complete picture on different aspects of our astrological make up.  We\'ve calculated your Birth Chart using Vedic astrology (Jyotish).  As such, some of your signs will be different than what you\'re accustomed to seeing in your Western Chart.</div>';
+                  echo '<div class="later_on ct_next" id="ct1_done"><a href="#" class="later_on">Next</a></div>';
+              echo '</div>'; //close #chart_pop1
+            echo '</div>'; //close msg_sheen_ct1
+
+            echo '<div id="msg_sheen_ct2">';
+                echo '<div id="chart_pop2">';
+                  echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Western View."</div>';
+                  echo '<div class="later_on ct_next" id="ct2_done"><a href="#" class="later_on">Next</a></div>';
+              echo '</div>'; //close #chart_pop1
+            echo '</div>'; //close msg_sheen_ct2
+
+            echo '<div id="msg_sheen_ct3">';
+                echo '<div id="chart_pop3">';
+                  echo '<div class="later_on ct_text">To learn why we use Vedic Astrology, click "Why Vedic Astrology?".</div>';
+                  echo '<div class="later_on ct_next" id="ct3_done"><a href="#" class="later_on">Next</a></div>';
+              echo '</div>'; //close #chart_pop1
+            echo '</div>'; //close msg_sheen_ct3
+
+            echo '<div id="msg_sheen_ct4">';
+                echo '<div id="chart_pop4">';
+                  echo '<div class="later_on ct_text"><strong>Important!</strong> Reading through your birth chart is like tasting different ingredients in a recipe.  If you had never eaten cake before, and you separately tasted eggs, sugar, flour and milk, it might be hard to imagine the delicious result of having them all baked together.  Similarly, while reading through your Birth Chart, keep in mind that the placements that make up your chart may seem very different (even contradictory) when taken out of context, but when combined, they may have a different flavor.  It takes a professional astrologer to know what all the ingredients of your chart add up to, but we hope you\'ll enjoy the sampling platter we\'ve created.  We affectionately call this "Cook Book Astrology."</div>';
+                  echo '<div class="later_on ct_next" id="ct4_done"><a href="#" class="later_on">Next</a></div>';
+              echo '</div>'; //close #chart_pop1
+            echo '</div>'; //close msg_sheen_ct3
+
         echo '</div>'; //close msg_sheen
         }
-        */
+        
 
       //}
       /*
@@ -5469,7 +5493,7 @@ function show_house_lords () {
           echo '<div id="starma_house_lords">';
 
           if ($chart_id == get_my_chart_id()) {
-            echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">Oh no!  We can\'t tell you about your House Lords without a more accurate <a href="' . get_domain() . '/main.php?the_left=nav4&the_page=psel" title="My Birth Time">time of birth</a></div>';
+            echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">Oh no!  We can\'t tell you about your House Lords without a more accurate <a href="' . get_domain() . '/main.php?the_left=nav3&the_page=psel" title="My Birth Time">time of birth</a></div>';
           }
           elseif ($custom) {
             echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">Oh no!  We can\'t tell you about this peron\'s House Lords without a more accurate time of birth</div>';

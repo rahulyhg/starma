@@ -186,7 +186,7 @@
          $_SESSION["interval"] = $interval;
          $_SESSION["time_unknown"] = $time_unknown;
          $_SESSION["method"] = $method;
-         do_redirect ($url=get_domain() . "/main.php?the_left=nav4&the_page=psel");
+         do_redirect ($url=get_domain() . "/main.php?the_left=nav3&the_page=psel");
        }
        //BIRTH INFO FIRST TIME
        else {
@@ -214,7 +214,7 @@
        }
        elseif (get_my_chart_id()) { //IF UPDATING YOUR BIRTH INFO
          $_SESSION["errors"] = $errors;
-         do_redirect ($url=get_domain() . "/main.php?the_left=nav4&the_page=psel");
+         do_redirect ($url=get_domain() . "/main.php?the_left=nav3&the_page=psel");
        }
        elseif (isAdmin()) { //IF ADMIN CASTING ANOTHER CHART
          $_SESSION["errors"] = $errors;
