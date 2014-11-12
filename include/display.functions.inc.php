@@ -7123,7 +7123,7 @@ function show_3_words_photo_box () {
         }
 
         //echo 'X = ' . $x;
-        if ($x < 3) {
+        if (isset($x) && $x < 3) {
           for ($i = ($x + 1); $i < 4; $i++) {
             echo '<input type="text" id="word_' . $i . '" placeholder="' . $i . '. " value=""/>';
           }
