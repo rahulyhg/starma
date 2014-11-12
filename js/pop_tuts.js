@@ -44,6 +44,7 @@ $(document).ready(function(){
 		$('#msg_sheen_ct1').fadeOut(300);
 		$('#msg_sheen_ct2').fadeIn(300);
 		$('#western_circle').fadeIn(300);
+		//$('#msg_sheen_screen_ct').fadeTo('slow', 0.0);
 	});
 
 	$('#ct2_done').click(function(){
@@ -54,10 +55,38 @@ $(document).ready(function(){
 	});
 
 	$('#ct3_done').click(function(){
+		//$('#msg_sheen_screen_ct').fadeTo('slow', 0.71);
 		$('#msg_sheen_ct3').fadeOut(300);
 		$('#why_vedic_circle').fadeOut(300);
 		$('#msg_sheen_ct4'). fadeIn(300);
 	});
 
+	$('#ct4_done').click(function(){
+		$('#msg_sheen_ct4').fadeOut(300);
+		$('#msg_sheen_ct5').fadeIn(300);
+		$('#poi_circle_left, #poi_circle_right').fadeIn(300);
+	});
+
+	$('#ct5_done').click(function(){
+		$('#msg_sheen_ct5').fadeOut(300);
+		$('#poi_circle_left, #poi_circle_right').fadeOut(300);
+		$('.chart_pop').fadeOut(300);
+
+		var data = {'chart_flag' : 0};
+		$.ajax({
+			type 		:  'POST',
+			url 		:  '/chat/pop_tuts.php',
+			data 		:  data,
+			dataType 	: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				alert(data.errors.chart_flag);
+			}
+			if (data.chart_flag) {
+				alert(data.chart_flag);
+			}
+		});
+	});
 
 });

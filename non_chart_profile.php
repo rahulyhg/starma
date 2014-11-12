@@ -92,7 +92,11 @@ if (login_check_point($type="full")) {
 
 // END CHART POP TUT --------------------------------------
 
-    echo '<div id="profile_nav">
+    echo '<div id="profile_nav">';
+      if(my_chart_flag() == 1) {
+        echo '<a name="ct5"></a>';
+      }
+    echo '
         <ul>
           <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>     
           <li><a class="' . $houses_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=houses_selected">House Lords</a></li>

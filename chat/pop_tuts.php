@@ -1,9 +1,11 @@
 <?php
 	require_once('ajax_header.php');
 
+	$data = array();
+	$errors = array();
+
 	if(isset($_POST['cfc'])) {
-		$data = array();
-		$errors = array();
+		
 		$cfc = $_POST['cfc'];
 		
 		if(!set_my_chart_flag($cfc)) {
@@ -19,14 +21,23 @@
 			$data['success'] = true;
 			$data['cfv'] = $cfv;
 		}
-		echo json_encode($data);
+		
+	}
+
+	if (isset($_POST['chart_flag'])) {
+		$chart_flag = $_POST['chart_flag'];
+		if (!set_my_chart_flag($chart_flag)) {
+			$errors['chart_flag'] = 'There was an error turning off the tutorial.  Please refresh the page and try again.';
+		}
+		else {
+			$data['chart_flag'] = 'Success!';
+		}
 	}
 
 
 
 
-
-
+	echo json_encode($data);
 
 
 

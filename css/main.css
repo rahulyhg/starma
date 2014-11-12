@@ -3705,6 +3705,20 @@ span.div_link {
   margin-top: 3px;
 }
 
+#password {
+  width: 350px;
+  display: inline-block;
+}
+
+#privacy_form {
+  width: 350px;
+  display: inline-block;
+}
+
+#tutorials_form {
+  margin: 20px 0;
+}
+
 /*//////////////// END SETTINGS ///////////////////////////////////////*/
 
 

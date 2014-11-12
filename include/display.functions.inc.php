@@ -4486,33 +4486,40 @@ function show_my_chart ($goTo = ".", $western=0) {
 
         if(my_chart_flag() == 1) {
           echo '<div id="msg_sheen" class="chart_pop">';    
-            echo '<div id="msg_sheen_screen" class="chart_pop"></div>';
+            echo '<div id="msg_sheen_screen_ct" class="chart_pop"></div>';
               
-              echo '<div id="msg_sheen_ct1" class="chart_pop">';
+              echo '<div id="msg_sheen_ct1" class="chart_pop msg_sheen_ct">';
                 echo '<div id="chart_pop1">';
                   echo '<div class="later_on ct_text">Your Birth Chart is a collection of ALL your signs (Sun, Moon, Venus, etc.)  Most of us know at least a little about our Sun Sign, but reading a Birth Chart gives us a more complete picture on different aspects of our astrological make up.  We\'ve calculated your Birth Chart using Vedic astrology (Jyotish).  As such, some of your signs will be different than what you\'re accustomed to seeing in your Western Chart.</div>';
                   echo '<div class="later_on ct_next" id="ct1_done"><a href="#" class="later_on">Next</a></div>';
               echo '</div>'; //close #chart_pop1
             echo '</div>'; //close msg_sheen_ct1
 
-            echo '<div id="msg_sheen_ct2">';
+            echo '<div id="msg_sheen_ct2" class="msg_sheen_ct">';
                 echo '<div id="chart_pop2">';
                   echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Western View."</div>';
                   echo '<div class="later_on ct_next" id="ct2_done"><a href="#" class="later_on">Next</a></div>';
               echo '</div>'; //close #chart_pop1
             echo '</div>'; //close msg_sheen_ct2
 
-            echo '<div id="msg_sheen_ct3">';
+            echo '<div id="msg_sheen_ct3" class="msg_sheen_ct">';
                 echo '<div id="chart_pop3">';
                   echo '<div class="later_on ct_text">To learn why we use Vedic Astrology, click "Why Vedic Astrology?".</div>';
                   echo '<div class="later_on ct_next" id="ct3_done"><a href="#" class="later_on">Next</a></div>';
               echo '</div>'; //close #chart_pop1
             echo '</div>'; //close msg_sheen_ct3
 
-            echo '<div id="msg_sheen_ct4">';
+            echo '<div id="msg_sheen_ct4" class="msg_sheen_ct">';
                 echo '<div id="chart_pop4">';
-                  echo '<div class="later_on ct_text"><strong>Important!</strong> Reading through your birth chart is like tasting different ingredients in a recipe.  If you had never eaten cake before, and you separately tasted eggs, sugar, flour and milk, it might be hard to imagine the delicious result of having them all baked together.  Similarly, while reading through your Birth Chart, keep in mind that the placements that make up your chart may seem very different (even contradictory) when taken out of context, but when combined, they may have a different flavor.  It takes a professional astrologer to know what all the ingredients of your chart add up to, but we hope you\'ll enjoy the sampling platter we\'ve created.  We affectionately call this "Cook Book Astrology."</div>';
-                  echo '<div class="later_on ct_next" id="ct4_done"><a href="#" class="later_on">Next</a></div>';
+                  echo '<div class="later_on ct_text">Important! As you read through your Birth Chart, keep this analogy in mind: If you had never eaten cake before, and you separately tasted eggs, sugar, flour and milk, it might be hard to imagine the result of having them all baked together. Similarly, if you separately read your Sun, Moon and Venus signs, they might all have their own contradictory meaning. Understanding how the ingredients of your chart all "bake" together is the job of an astrologer. What you\'re about to read, we affectionately refer to as "Cook Book Astrology." For a more in depth understanding of your Birth Chart, please consult an astrologer.</div>';
+                  echo '<div class="later_on ct_next" id="ct4_done"><a href="#ct5" class="later_on">Next</a></div>';
+              echo '</div>'; //close #chart_pop1
+            echo '</div>'; //close msg_sheen_ct3
+
+            echo '<div id="msg_sheen_ct5" class="msg_sheen_ct">';
+                echo '<div id="chart_pop5">';
+                  echo '<div class="later_on ct_text">Click through these links to read different aspects of your birth chart. If you want to see this tutorial again, go to "Settings" and select "Turn on Birth Chart Tutorial".  Enjoy!</div>';
+                  echo '<div class="later_on ct_next" id="ct5_done"><a href="#" class="later_on">Done</a></div>';
               echo '</div>'; //close #chart_pop1
             echo '</div>'; //close msg_sheen_ct3
 
@@ -4570,7 +4577,8 @@ function show_my_chart ($goTo = ".", $western=0) {
    
       if (my_chart_flag() == 1) {
         //show_circle_and_arrow_hilite("down");
-       
+       echo '<div id="poi_circle_left"></div>';
+       echo '<div id="poi_circle_right"></div>';
       }
 
 /***  --Matt-- Rebuilt with span icons for ajax submit ***/
@@ -6625,7 +6633,7 @@ echo '<div class="heading">Change Password</div>';
 
 echo '<br>';  
 //if ($_GET["error"] == 1) {
-  echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px; width:500px">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
+  echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px;">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
   echo '<div id="pass_validation"></div>';
   //echo '<br><br>';
   //global $seed;
@@ -6682,10 +6690,22 @@ function show_privacy_form () {
    //echo '</form>';
 
 
-  echo '</div>';
+  echo '</div>'; //close Privacy
 
 }
 
+function show_tutorials_form () {
+  echo '<div id="tutorials_form">';
+    echo '<div class="heading">Tutorials</div>';
+      echo '<input type="checkbox" ';
+        if (my_chart_flag() == 1) {
+          echo 'checked';
+        }
+      echo ' name="chart_flag" id="cfcb" style="display:inline-block; margin-right:8px;"/>';
+      echo '<div class="later_on" style="display:inline-block;">Turn on Birth Chart Tutorial<span id="cf_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+      echo '</div>';
+  echo '</div>'; //close Tutorials
+}
 
 
  
