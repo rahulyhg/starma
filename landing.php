@@ -265,7 +265,7 @@ if (isLoggedIn())
       echo '<div id="landing_sign_up_box">';
         show_sign_up_box_landing();
         show_registration_box_landing();
-        show_fb_registration_box_landing();
+        //show_fb_registration_box_landing();
       echo '</div>';
 
     echo '</div>'; //close globe_landing
