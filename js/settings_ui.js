@@ -72,6 +72,7 @@ $(document).ready(function(){
 //PRIVACY --------------------------------------
 
 	$('#hlcb').click(function(){
+		$('#hl_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
 		if($('#hlcb').prop('checked')) {
 			var data = { 'hlcb' : 1 };
 		}
@@ -88,14 +89,14 @@ $(document).ready(function(){
 		.done(function(data){
 			if (data.errors) {
 				if (data.errors.invalid) {
-					$('#hl_done').show().text(data.errors.invalid);
+					$('#hl_done').show().html(data.errors.invalid);
 				}
 				if (data.errors.set) {
-					$('#hl_done').show().text(data.errors.set);
+					$('#hl_done').show().html(data.errors.set);
 				}
 			}
 			if (data.msg) {
-				$('#hl_done').show().text(data.msg).fadeOut(1200);
+				$('#hl_done').show().html(data.msg).fadeOut(1200);
 			}
 		});
 
@@ -105,6 +106,7 @@ $(document).ready(function(){
 //TUTORIALS --------------------------------------
 
 	$('#cfcb').click(function() {
+		$('#cf_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
 		if($('#cfcb').prop('checked')) {
 			var data = {'cfcb' : 1};
 		}
@@ -121,14 +123,14 @@ $(document).ready(function(){
 		.done(function(data) {
 			if (data.errors) {
 				if(data.errors.invalid) {
-					$('#cf_done').show().text(data.errors.invalid);
+					$('#cf_done').show().html(data.errors.invalid);
 				}
 				if (data.errors.set) {
-					$('#cf_done').show().text(data.errors.set);
+					$('#cf_done').show().html(data.errors.set);
 				}
 			}
 			if (data.msg) {
-				$('#cf_done').show().text(data.msg).fadeOut(1200);
+				$('#cf_done').show().html(data.msg).fadeOut(1200);
 			}
 		});
 	});

@@ -3711,10 +3711,10 @@ span.div_link {
 }
 
 #password {
-  width: 290px;
+  width: 250px;
   display: inline-block;
   float: left;
-  margin-right: 70px;
+  margin-right: 100px;
 }
 
 #privacy {

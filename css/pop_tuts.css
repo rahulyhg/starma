@@ -1,5 +1,12 @@
 /*/////////////////////////// CHART POP TUTS //////////////////////////////*/
 
+.ct_step {
+    margin-bottom: 0;
+    margin-right: -12px;
+    margin-top: -12px;
+    text-align: right;
+}
+
 #western_circle {
     display: none;
     background: url('/img/western-chart-circle.png') no-repeat;
