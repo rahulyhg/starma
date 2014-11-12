@@ -747,7 +747,7 @@
 }
 
 #login_box #go_bug_path_guest {
-  background: url('/img/GoBugPathGuest.png') no-repeat;
+  background: url('/img/goBugPathGuest.png') no-repeat;
   height: 30px;
   width: 175px;
   position: absolute;
