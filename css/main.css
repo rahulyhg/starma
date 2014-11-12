@@ -272,7 +272,7 @@ input{
   height:70px;
   color:black;
   font-family: 'later_on';
-  /*font-weight: bold;*/
+  font-weight: bold;
   letter-spacing: 2px;
   font-size: 1.3em;
 }
@@ -583,7 +583,7 @@ input{
   padding:0px;
   line-height:37px;
   font-family: 'later_on';
-  /*font-weight: bold;*/
+  font-weight: bold;
   letter-spacing: 2px;
 }
 
