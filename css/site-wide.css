@@ -18,7 +18,6 @@
          url('/css/fonts/later_on-webfont.woff') format('woff'),
          url('/css/fonts/later_on-webfont.ttf') format('truetype'),
          url('/css/fonts/later_on-webfont.svg#later_onregular') format('svg');
-    font-style: normal;
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
