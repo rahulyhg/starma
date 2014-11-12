@@ -5531,7 +5531,7 @@ function show_house_lords () {
 function show_hl_results ($chart_id, $username) {
 
   echo '<div id="hl_results_container">';
-    echo '<div id="hl_intro" class="later_on" style="font-size:2em; margin:auto; width:450px;">';
+    echo '<div id="hl_intro" class="later_on" style="font-size:1.3em; line-height: 1.3; margin:auto; width:450px;">';
       if($chart_id == get_my_chart_id()) {
         echo 'The Zodiac is not only divided into 12 Signs, but also into 12 Houses.  One way that astrologers read a chart is by determining where the Lord of a House resides.  Sound confusing? Don't worry, you don't need to understand how this is determined, in order to read about what this means.  All you have to know is that there are 12 Houses, each House has a Lord, and each Lord has a House it occupies.  The relationship between the House the Lord rules and the House the Lord occupies can tell you a lot about your astrological make up.  We recommend that you start by clicking on your 1st House and read on to see where all 12 of your House Lords reside.';
       }
