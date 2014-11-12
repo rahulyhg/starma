@@ -96,17 +96,6 @@ if (isLoggedIn())
             console.log('id');
             console.log(response.id);
 
-            var data = {'fb_id' : response.id};
-
-            $.ajax({
-              type      : 'POST',
-              url       : '/chat/fb_data.php',
-              data      : data,
-              dataType  : 'json'
-            })
-            .done(function(data){
-              //alert(data.check);
-            });
           }
         }
       );
@@ -155,9 +144,36 @@ if (isLoggedIn())
     });
   };
 
-  function fbLogin () {
+  function fbSignUp () {
     FB.login(function(response) {
     //checkLoginState();
+      // handle the response'
+      if (response.status === 'connected') {
+        // Logged into your app and Facebook.
+        var data = {'fb_id' : response.id};
+
+            $.ajax({
+              type      : 'POST',
+              url       : '/chat/fb_data.php',
+              data      : data,
+              dataType  : 'json'
+            })
+            .done(function(data){
+              //alert(data.check);
+            });
+      } 
+      else if (response.status === 'not_authorized') {
+        // The person is logged into Facebook, but not your app.
+      } 
+      else {
+        // The person is not logged into Facebook, so we're not sure if
+        // they are logged into this app or not.
+      }
+    }, {scope: 'public_profile,email,user_friends'});
+  }
+  function fbLogin () {
+    FB.login(function(response) {
+    checkLoginState();
       // handle the response'
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
@@ -200,12 +216,23 @@ if (isLoggedIn())
 <div id="landing">
 
   <!--pop_landing_click-->
-    <div id="msg_sheen" class="pop_landing">
-      <div id="msg_sheen_screen_landing" class="pop_landing_click"></div>
-        <div id="msg_sheen_content_landing" class="pop_landing">
+    <div id="msg_sheen" class="pop_fp">
+      <div id="msg_sheen_screen_landing" class="pop_fp_click"></div>
+        <div id="msg_sheen_content_landing" class="pop_fp">
           <?php 
             //show_registration_box_landing(); 
             show_forgot_password_box();
+          ?>
+        </div>
+    </div>
+
+
+    <div id="msg_sheen" class="pop_login_landing">
+      <div id="msg_sheen_screen_landing" class="pop_login_click"></div>
+        <div id="msg_sheen_content_guest" class="pop_login_landing">
+          <?php 
+            //show_registration_box_landing(); 
+            show_login_box_landing();
           ?>
         </div>
     </div>
@@ -221,7 +248,7 @@ if (isLoggedIn())
     echo '</div>';
     echo '<div id="tagline"></div>';
     echo '<div id="landing_login_box">';
-      show_login_box_landing();
+      show_login_options_landing();
     echo '</div>';
   echo '</div>'; //Close logo_test
 
@@ -233,6 +260,7 @@ if (isLoggedIn())
       echo '<div id="landing_sign_up_box">';
         show_sign_up_box_landing();
         show_registration_box_landing();
+        show_fb_registration_box_landing();
       echo '</div>';
 
     echo '</div>'; //close globe_landing
@@ -280,51 +308,6 @@ if (isLoggedIn())
   //show_bugaboos();
 
 ?>
-  <!--<div class="bg" id="sign_in">
-    <div class="title">sign in</div>-->
-    <!--<img src="img/account_info/Starma-Astrology-Sign-In-Boxes.png"/>-->
-    <!--<div id="login_form">
-          <form name="login" method="post" action="./process_login.php">
-            <table>
-              <tr>
-                <td class="align_right">email</td><td><input type="text" name="email" value="<?php echo $_GET['email'];?>"/></td>
-              </tr>
-              <tr>
-                <td class="align_right">password</td><td><input type="password" name="password"/></td>
-              </tr>
-              <tr>
-                <td class="align_right"><input type="checkbox" name="stay_logged_in"></td><td class="info_font">keep me signed in</td>
-              </tr>
-              
-              
-            </table>
-            <div id="login_button_div"><div id="go_bug_path"></div><input type="submit" id="bug_button" name="Login" value=""/></div>
-            <div id="forgot_password">
-              <a style="color:black;" href="lostpassword.php">forgot your password?</a>
-            </div>
-          </form>
-      
-     </div>
-  </div>
-  <div id="create_account_old">
-    Not a member?<br>
-    <?php flare_title ('<a style="color:black;" href="register.php">Create a FREE account!</a>');?>
-    
-  </div>
-  -->
-  <!--
-  <div id="landing_footer">
-   <div id="footer_links">
-    <ul>
-      <li><a>Starma LLC 2014</a></li>
-      <li><a title="Coming soon...">About Starma</a></li>
-      <li><a href="docs/privacyPolicy.htm" target="_blank">Privacy</a></li>
-      <li><a href="docs/termsOfUse.htm" target="_blank">Terms</a></li>
-      <li><a href="mailto:contact@starma.com" title="contact@starma.com">Contact</a></li>
-    </ul>
-   </div>
-  </div>
-
 
 </div> --> <!-- Close main page container -->
 

@@ -5542,7 +5542,7 @@ function show_hl_results ($chart_id, $username) {
         echo 'The Zodiac is not only divided into 12 Signs, but also into 12 Houses.  One way that astrologers read a chart is by determining where the Lord of a House resides.  Sound confusing? Don\'t worry, you don\'t need to understand how this is determined in order to read about what this means.  All you have to know is that there are 12 Houses, each House has a Lord, and each Lord has a House it occupies.  The relationship between the House the Lord rules and the House the Lord occupies can tell you a lot about your astrological make up.  We recommend that you start by clicking on your 1st House and read on to see where all 12 of your House Lords reside.';
       }
       else {
-        echo 'Select a house from the 12 above to read more details about ' . $username . '\'s birth chart...';
+        echo 'The Zodiac is not only divided into 12 Signs, but also into 12 Houses.  One way that astrologers read a chart is by determining where the Lord of a House resides.  Sound confusing? Don\'t worry, you don\'t need to understand how this is determined in order to read about what this means.  All you have to know is that there are 12 Houses, each House has a Lord, and each Lord has a House it occupies.  The relationship between the House the Lord rules and the House the Lord occupies can tell you a lot about your astrological make up.  We recommend that you start by clicking on the 1st House and read on to see where all 12 of the House Lords reside.';
       }
    
     echo '</div>';
@@ -6883,8 +6883,36 @@ require_once ("landing_footer.php");
 
 //********************************  LANDING BOXES  ********************************/
 
+function show_login_options_landing () {
+  echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLogin();">Login with Facebook</button></div>';
+  echo '<div style="width:245px; display: inline-block;"><button type="button" class="sign_in" id="login_email_landing">Login with Email</button></div>';
+}
+
 function show_login_box_landing () {
-    echo '<div id="login_box_landing">';
+    echo '<div id="login_box">';
+      echo '<div class="heading">Log In</div>';
+        echo '<form action="/chat/login_form_fields.php" method="POST" id="login_from_guest">';
+          echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
+            if(isset($_GET['email'])) {
+              echo $_GET['email'];
+            }
+          echo '"/>';
+          //echo '<div class="register_error_area" id="login_email_error"></div>';
+          echo '<input type="password" id="login_password" name="password" placeholder="Password" />';
+          //echo '<input type="text" id="pass" name="password" placeholder="Password" />';
+          //echo '<div class="register_error_area" id="login_password_error"></div>';
+          echo '<div id="kmsi_fp">';  
+            echo '<div id="forgot_password_landing">forgot your password?</div>';
+            echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="" /><div>keep me signed in</div></div>';
+          echo '</div>';
+          echo '<button type="submit" id="go_bug_button" name="Login"></button>';
+          //echo '<div class="sign_up_text">Go ></div>';
+          //echo '<input type="submit" id="go_bug_button" name="Login" value=""/>';
+          //echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
+        echo '</form>';
+        echo '<div id="go_bug_path_guest"></div>';
+
+      /*
       //echo '<div class="title">Log In</div>';
         echo '<form action="/chat/login_form_fields.php" method="POST" id="login_from_landing">';
           //echo '<div style="margin-right:15px; display:inline-block;">';
@@ -6918,6 +6946,7 @@ function show_login_box_landing () {
           echo '<div id="go_bug_path_landing"></div>';
           //echo '</div>';
         echo '</form>';
+        */
     echo '</div>';
 
   //ERRORS----------------------
@@ -6931,9 +6960,9 @@ function show_sign_up_box_landing () {
     echo '<div id="sign_up_box">';
       echo  '<div class="heading">Create an Account</div>';
           echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
-          //echo '<div id="or">~ or ~</div>';
-          //echo '<button type="button" onClick="revokeFB();">revoke fb</button>';
-          //echo '<button type="button" name="sign_up_fb" class="sign_up" onClick="fbLogin();">Facebook</button>';
+          echo '<div id="or">~ or ~</div>';
+          //echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; onClick="fbSignUp();"
+          echo '<button type="button" name="sign_up_fb" class="sign_up">Facebook</button>';
       echo '</div>'; //Close sign_up_box
 }
 
@@ -6975,6 +7004,31 @@ echo '</div>';  //close #create_account
 
 //echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
 
+}
+
+function show_fb_registration_box_landing () {
+
+  
+echo '<div id="create_account_fb">';  
+  echo '<div id="register_form_fb">';
+    echo '<form name="register_form_fb" action="../chat/register_user.php" method="post" id="r_form_fb">';
+      echo '<div class="register_error_area_fb" id="reg_user_exists_fb"></div>';
+      echo '<div id="username_fb"><input type="text" id="register_username_fb" placeholder="Choose a Username" /><span class="reg_err check" id="reg_username_check_fb"></span><span class="reg_err" id="reg_username_error_fb"></span><div class="reg_err_exp" id="reg_err_username_exp_fb"></div></div>'; 
+      echo '<div id="birthday_fb">';
+        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<span>';
+          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday", $for="sign_up_fb");
+        echo '</span>';
+        echo '<span class="reg_err check" id="reg_birthday_check_fb"></span><span class="reg_err" id="reg_birthday_error_fb"></span><div class="reg_err_exp" id="reg_err_birthday_exp_fb"></div>';
+      echo '</div>';
+      echo '<div id="email_fb"><input type="text" id="register_email_fb" placeholder="Your Email" /><span class="reg_err check" id="reg_email_check_fb"></span><span class="reg_err" id="reg_email_error_fb"></span><div class="reg_err_exp" id="reg_err_email_exp_fb"></div></div>';
+      echo '<div id="terms">By using Starma, I agree to the <a href="../docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="../docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
+      echo '<input type="submit" name="submit_fb" class="sign_me_up" id="register_submit_fb" value="Create Account" />';
+      echo '<input type="hidden" name="fb"/>';
+    echo '</form>';  
+  echo '</div>'; //Close register_form
+  echo '<div><div id="cancel_sign_up_fb">Cancel</div></div>';
+echo '</div>';  //close #create_account
 }
 
 

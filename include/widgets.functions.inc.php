@@ -178,8 +178,16 @@ function section_select ($the_name="section_id", $the_value="", $auto_submit=fal
 }
 
 
-function year_select ($the_year, $the_name="") {
-  echo '<select name="year_' . $the_name . '" id="year">';
+function year_select ($the_year, $the_name="", $for) {
+  echo '<select name="year_' . $the_name . '" id="';
+  if ($for == 'sign_up_fb') {
+   echo 'year_fb';
+  }
+  else {
+    echo 'year';
+  }
+
+  echo '"">';
   //for ($x=1900; $x<=(int)date("Y")+5;$x++) {
   for ($x=1900; $x<=2020;$x++) {
     echo '<option value=' . $x;
@@ -192,9 +200,17 @@ function year_select ($the_year, $the_name="") {
 }
 
 
-function month_select ($the_month, $the_name="") {
+function month_select ($the_month, $the_name="", $for) {
   $months = array (1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December');
-  echo '<select name="month_' . $the_name . '" id="month">';
+  echo '<select name="month_' . $the_name . '" id="';
+  if ($for == 'sign_up_fb') {
+   echo 'month_fb';
+  }
+  else {
+    echo 'month';
+  }
+
+  echo '">';
   for ($x=1; $x<=12;$x++) {
     echo '<option value=' . format_piece($x);
     if ((int)$the_month == (int)$x) {
@@ -205,8 +221,16 @@ function month_select ($the_month, $the_name="") {
   echo '</select>';
 }
 
-function day_select ($the_day, $the_name="") {
-  echo '<select name="day_' . $the_name . '" id="day">';
+function day_select ($the_day, $the_name="", $for) {
+  echo '<select name="day_' . $the_name . '" id="';
+  if ($for == 'sign_up_fb') {
+   echo 'day_fb';
+  }
+  else {
+    echo 'day';
+  }
+
+  echo '">';
   for ($x=1; $x<=31;$x++) {
     echo '<option value=' . format_piece($x);
     if ((int)$the_day == (int)$x) {
@@ -217,10 +241,10 @@ function day_select ($the_day, $the_name="") {
   echo '</select>';
 }
 
-function date_select ($the_date, $the_name) {
-  month_select ($the_month = (int)date("m", $the_date), $the_name = $the_name);
-  day_select ($the_day = (int)date("d", $the_date), $the_name = $the_name);
-  year_select ($the_year = (int)date("Y", $the_date), $the_name = $the_name);
+function date_select ($the_date, $the_name, $for="") {
+  month_select ($the_month = (int)date("m", $the_date), $the_name = $the_name, $for);
+  day_select ($the_day = (int)date("d", $the_date), $the_name = $the_name, $for);
+  year_select ($the_year = (int)date("Y", $the_date), $the_name = $the_name, $for);
 }
 
 

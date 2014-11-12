@@ -98,47 +98,6 @@
   margin: 0 auto;
 }
 
-/*
-
-#landing .bg, #register .bg, #birth_info_first_time .bg, #gender_location_first_time .bg, #desc_photo_first_time .bg, #initial_confirm_form #logo {
-  position:relative;
-  display:block;
-}
-
-#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo, #sign_in, #enter_info, #initial_confirm_form #logo {
-  margin-left:auto; 
-  margin-right:auto
-}
-
-#landing #logo, #register #logo, #birth_info_first_time #logo, #gender_location_first_time #logo, #desc_photo_first_time #logo, #initial_confirm_form #logo {
-  width:500px;
-  height:170px;
-  top:25px;
-  
-}
-
-#birth_info_first_time #enter_info, #gender_location_first_time #enter_info, #desc_photo_first_time #enter_info {
-  width:668px;
-  top:50px;
-  text-align:center;
-  background: #8393CA;
-}
-
-#landing #sign_in {
-  width:668px;
-  top:70px;
-  text-align:center;
-  background: #8393CA;
-}
-
-#landing #sign_in img, #birth_info_first_time #enter_info img, #gender_location_first_time #enter_info img, #desc_photo_first_time #enter_info img {
- margin-right:auto;
- margin-left:auto;
-}
-
-
-*/
-
 #landing_footer {
   display: inline-block;
   font-size: 0.8em;
@@ -198,14 +157,6 @@
     right: 45px;
 }
 
-/*
-#login_form table tr td, #register_form table tr td, #gender_location_form table tr td, #birth_info table tr td{
-  padding:5px;
-  
-}
-*/
-
-
 
 #login_form input[type="text"],
 #login_form input[type="password"] {
@@ -249,27 +200,6 @@
     left: 230px;
     position: absolute;
 }
-
-/*
-
-#landing #create_account_old {
-  position:relative;
-  text-align:center;
-  width:300px;
-  margin-left: 60%;
-  top: 76px;
-}
-
-
-#landing #forgot_password {
-    bottom: 114px;
-    font-size: 0.7em;
-    left: 434px;
-    position: relative;
-    text-align: left;
-    width: 200px;
-}
-*/
 
 .landing_error {
     bottom: 131px;
@@ -387,6 +317,26 @@
   text-decoration: underline; 
 }
 
+.sign_in {
+  width: 100%;
+  border: 1px solid #1a1d2a; 
+  color: #1a1d2a;
+  box-shadow: 0 0 2px 0 #4b5a80 inset;
+  cursor: pointer;
+  padding: 8px;
+  font-family: 'later_on';
+  font-size: 1em;
+  letter-spacing: 6px;
+  border-radius: 3px;
+  background: white;
+}
+
+.sign_in:hover {
+  box-shadow: 0 0 3px #3E4D74 inset;
+  background-color: #6F83BB;
+  text-decoration: underline; 
+}
+
 .sign_me_up {
   margin-bottom: 6px;
   width: 100%;
@@ -407,27 +357,6 @@
   background-color: #6F83BB;
   text-decoration: underline; 
 }
-
-/*
-.sign_me_up {
-  width: 100%;
-  border-top: 1px solid #5F78B1;
-  border-bottom: 1px solid #6680BE;
-  border-left: 1px solid #6376A9;
-  border-right: 1px solid #6B7FB6;
-  color: white;
-  background-color: #6F83BB;
-  box-shadow: 0 0 1px #4B5A80;
-  cursor: pointer;
-  padding: 5px;
-  font-size: 1.2em;
-  letter-spacing: 1px;
-  text-shadow: -1px -1px #4b5a80;
-  border-radius: 3px;
-  margin-bottom: 5px;
-}
-
-*/
 
 #or {
   color: #1a1d2a;
@@ -463,12 +392,6 @@
     top: 68px;
     left: 2%;
     display: inline-block;
-    /*color: #e7ebee;   
-    font-family: "later_on";
-    font-size: 1.25em;
-    font-weight: bold;
-    left: -34px;
-    letter-spacing: 4px;*/
     position: absolute;
     background: url('/img/Starma-Astrology-Compatibility-Horoscopes-Community.png') no-repeat;
     width: 375px;
@@ -476,9 +399,6 @@
 }
 
 #logo_test_img {
-  /*background: url('/img/LogoTest2.svg') no-repeat;
-  background: url('/img/LogoTest2.png') no-repeat;
-  background: url('/img/logoLaterOn.png') no-repeat;*/
   position: absolute;
   left: 2%;
   display: inline-block;
@@ -502,22 +422,11 @@
   position: relative;
   height: 376px;
   width: 376px;
-  /*margin: -1% 0 0 33%;*/
   top: -2%;
   left: 50%;
   margin-left: -188px;
-  /*margin-left: 19px;*/
   padding: 20px;
-  /*border-radius: 500px;*/
   background: url('/img/globeLanding.png') no-repeat;
-  /*
-  background: #8393ca;
-  background: radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black);
-  background: -webkit-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); 
-  background: -o-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); 
-  background: -moz-radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); 
-  background: radial-gradient(circle, #8393ca 29%, #424e6f 91%, #353e57 32%, #161b24 85%, black); 
-  */
 }
 
 
@@ -536,21 +445,19 @@
   display: inline-block;
   float: right;
   position: relative;
-  right: 2%;
-  top: 51px;
+  right: 4%;
+  top: 25px;
 }
 
 #forgot_password_landing {
-  color: #e7ebee;
-  font-size: 12px;
+  line-height: .9;
   position: relative;
   cursor: pointer;
-  width: 129px;
-  font-family: "ClarendonBT-Light";
-  letter-spacing: 1px;
-  display: inline-block;
-  margin-left: 34px;
-  z-index: 1;
+  width: 100%;
+  font-family: 'later_on';
+  font-size: .7em;
+  margin-bottom: 13px;
+  margin-left: 2px;
 }
 
 #stay_logged_in_landing {
@@ -613,8 +520,93 @@
 
 
 
-/***************************************  LANDING REGISTRATION  ****************************************/
+/***************************************  FB REGISTRATION  ****************************************/
 
+/* FB */
+
+#create_account_fb {
+  display: none;
+  width: 244px;
+  margin: auto;
+}
+
+#create_account_fb .title {
+  font-family: 'later_on';
+  font-size: 2.2em;
+  color: #1a1d2a;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  width: 100%;
+  text-align: center;
+}
+
+#create_account_fb .small_title {
+  font-size: .75em;
+  color: #6F83BB;
+  text-align: left;
+  margin-bottom: 5px;
+  letter-spacing: .5px;
+}
+
+#create_account_fb #birthday_fb {
+  margin-bottom: 8px;
+}
+
+#create_account_fb #birthday_fb span select {
+  color: #777777;
+  border: 1px solid black;
+  height: 33px;
+}
+
+#register_form_fb input[type="text"] {
+  color: #181A1C;
+  position: relative;
+  margin-bottom: 8px;
+  width: 100%;
+  height: 33px;
+  padding: 0 10px;
+  border: 1px solid black;
+  /*box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;*/
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+::-webkit-input-placeholder {
+  
+}
+
+:-moz-placeholder { /* Firefox 18- */
+ 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    
+}
+
+:-ms-input-placeholder {  
+ 
+}
+
+#email_fb {
+  margin:0;
+}
+
+#cancel_sign_up_fb {
+  text-align: center;
+  font-size: .65em;
+  cursor: pointer;
+  color: #939393;
+  text-decoration: underline;
+  margin: auto;
+  width: 60px;
+}
+
+#cancel_sign_up_fb:hover {
+  color: #444444;
+}
+
+/* END FB */
 
 
 
@@ -794,15 +786,6 @@
   letter-spacing: 2px;
   width: 100%;
   text-align: center;
-  /*
-  font-size: 1.6em;
-  color: #6F83BB;
-  margin-bottom: 20px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  width: 100%;
-  text-align: center;
-  */
 }
 
 #create_account .small_title {
@@ -811,14 +794,6 @@
   text-align: left;
   margin-bottom: 5px;
   letter-spacing: .5px;
-  /*
-    font-family: 'later_on';
-    font-size: 1.19em;
-    letter-spacing: 2px;
-    margin-bottom: 5px;
-    text-align: left;
-    font-weight: bold;
-  */
 }
 
 #create_account #birthday {
@@ -904,6 +879,8 @@
   margin:0;
 }
 
+
+
 /*--ERRORS--*/
 
 
@@ -962,12 +939,22 @@
   width: 140px;
 }
 
+#reg_err_username_exp_fb {
+  top:82px;
+  width: 140px;
+}
+
 #reg_err_username_exp_g {
   top:20px;
   width: 140px;
 }
 
 #reg_err_birthday_exp {
+  top:138px;
+  width: 140px;
+}
+
+#reg_err_birthday_exp_fb {
   top:138px;
   width: 140px;
 }
@@ -981,6 +968,12 @@
   top:181px;
   width: 140px;
 }
+
+#reg_err_email_exp_fb {
+  top:181px;
+  width: 140px;
+}
+
 #reg_err_email_exp_g {
   top:119px;
   width: 140px;
@@ -1006,6 +999,8 @@
 
 /*--END NEW WAY--*/
 
+
+/*
 
 #register #create_account {
   width:800px;
@@ -1233,6 +1228,8 @@
   display: inline-block;
   margin-left: 50px;
 }
+
+*/
 
 /***************************DESC AND PHOTO FIRST TIME PAGE ONLY*******************************/
 #desc_photo_first_time {
@@ -1755,43 +1752,6 @@
   position:relative;
   top:40px;
 }
-
-/*
-#register #email2_title {
-  bottom:18px;
-}
-
-#register #email2_input {
-  bottom:36px;
-}
-
-#register #password_title {
-  bottom:27px;
-}
-
-#register #password_input {
-  bottom:46px;
-}
-
-#register img.token_img {
-  position:relative;
-  display:block;
-  bottom:320px;
-  right:65px;
-}
-
-#register #token_title {
-  bottom:23px;
-  left:180px;
-}
-
-#register #token_input {
-  bottom:39px;
-  left:165px;
-  z-index:1;
-}
-
-*/
 
 
 /*********************BUGABOOS**************************/
