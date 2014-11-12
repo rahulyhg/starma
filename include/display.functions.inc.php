@@ -4478,11 +4478,13 @@ function show_my_chart ($goTo = ".", $western=0) {
   //CHART FLAG TESTING---------------------------------
       
       //if (my_chart_flag()==1) {
+      /*
         echo '<div style="margin-bottom:20px;">';
           //echo '<form name="flag_test" method="POST" action="flag_test">';
             echo '<input type="checkbox" id="cfc" /><div id="clickMe">CLICK</div><span> <- Click to set chart flag value</span><br><br>';
             echo '<div class="later_on">Chart flag: <span id="cfv" class="cfv_err">' . my_chart_flag() . '</span>';
         echo '</div>';
+      */
 
         if(my_chart_flag() == 1) {
           echo '<div id="msg_sheen" class="chart_pop">';    
