@@ -96,7 +96,7 @@ function valid_photo($photo_id, $user_id) {
   return mysql_num_rows($result) >= 1;
 }
 
-/*
+
 function get_email_domain() {
   return 'starma.com';
 }
@@ -120,7 +120,7 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: https://www.' . $url);
 }
-*/
+
 
 /**********************BEGIN STAGING SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
@@ -147,7 +147,7 @@ function do_redirect ($url) {
 
 /**********************BEGIN LOCAL DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
-
+/*
 function get_domain () {
   return '127.0.0.1:8080';
   //return '192.168.1.141:8080';
@@ -168,7 +168,7 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: http://' . $url);
 }
-
+*/
 
 
 /**********************END LOCAL DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
@@ -226,20 +226,55 @@ function validate_registration ($nickname, $password, $password2, $email, $year,
         $errors['underage'] = 'You must be at least 18 to join Starma.com';
     }
   
-    //if (!($token_id = token_valid($token))) {
-    //  $errors[] = TOKEN_ERROR();
-    //}
-    //echo $checked;
-    //die();
-    /*
-    if (!($checked == 'plegalblot7')) {
-      $errors[] = TERMS_ERROR();
-    }
-    */
-    //echo $year . "-" . $month . "-" . $day;
-    //echo date("m-d-Y",$birthday);
-    //die();
+    return $errors;
+    
+}
 
+
+//FACEBOOK VALIDATE USER
+
+function validate_registration_fb ($nickname_fb, $email_fb, $year_fb, $month_fb, $day_fb) {
+    $errors = array();
+    
+    //the first entry in the error array is reserved for a returned ID of a successful registration
+    $errors[] = -1;
+ 
+    
+    if (!valid_nickname($nickname_fb)) {
+      //$errors[] = USERNAME_ERROR();
+      $errors['username'] = 'Please enter a valid username';
+    }
+
+    if (!valid_email($email_fb)) {
+      //$errors[] = EMAIL_ERROR();
+      $errors['email'] = 'Please enter a valid email';
+    }
+
+    //if ($email != $email2) {
+      //$errors[] = EMAIL_NO_MATCH_ERROR();
+      //$errors['email2'] = 'Emails must match';
+    //}
+
+    if (user_exists($email_fb, $nickname_fb)) {
+      //$errors[] = USER_EXISTS_ERROR();
+      $errors['user_exists'] = 'This user already exists';
+    }
+
+    $birthday_fb = $year_fb . "-" . $month_fb . "-" . $day_fb;    
+
+    if (!(strtotime($birthday_fb))) {
+      //$errors[] = DATE_ERROR();
+      $errors['strtotime'] = 'There was an error storing your birthday.  Please try again later';
+    }
+    elseif ((int)(calculate_age(substr((string)$birthday_fb, 0, 10))) < 18) {
+      
+      
+        //echo substr((string)$birthday, 0, 10) . '<br>';
+        //echo (int)(calculate_age(substr((string)$birthday, 0, 10)));
+        //die();
+        //$errors[] = UNDERAGE_ERROR();
+        $errors['underage'] = 'You must be at least 18 to join Starma.com';
+    }
     
     return $errors;
     
