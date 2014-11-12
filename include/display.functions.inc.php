@@ -7122,7 +7122,10 @@ function show_3_words_photo_box () {
           //}
         }
 
-        //echo 'X = ' . $x;
+        echo 'X = ' . $x;
+        echo $_SESSION['word_1'];
+        echo $_SESSION['word_2'];
+        echo $_SESSION['word_3'];
         if (isset($x) && $x < 3) {
           for ($i = ($x + 1); $i < 4; $i++) {
             echo '<input type="text" id="word_' . $i . '" placeholder="' . $i . '. " value=""/>';
