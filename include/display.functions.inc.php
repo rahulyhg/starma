@@ -4492,6 +4492,8 @@ function show_my_chart ($goTo = ".", $western=0) {
               
               echo '<div id="msg_sheen_ct1" class="chart_pop msg_sheen_ct">';
                 echo '<div id="chart_pop1">';
+                  echo '<div class="heading">Birth Chart Tutorial</div>';
+                  echo '<div id="step">1 / 5</div>';
                   echo '<div class="later_on ct_text">Your Birth Chart is a collection of ALL your signs (Sun, Moon, Venus, etc.)  Most of us know at least a little about our Sun Sign, but reading a Birth Chart gives us a more complete picture on different aspects of our astrological make up.  We\'ve calculated your Birth Chart using Vedic astrology (Jyotish).  As such, some of your signs will be different than what you\'re accustomed to seeing in your Western Chart.</div>';
                   echo '<div class="later_on ct_next" id="ct1_done"><a href="#" class="later_on">Next></a></div>';
               echo '</div>'; //close #chart_pop1
@@ -4499,6 +4501,7 @@ function show_my_chart ($goTo = ".", $western=0) {
 
             echo '<div id="msg_sheen_ct2" class="msg_sheen_ct">';
                 echo '<div id="chart_pop2">';
+                echo '<div id="step">2 / 5</div>';
                   echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Western View."</div>';
                   echo '<div class="later_on ct_next" id="ct2_done"><a href="#" class="later_on">Next></a></div>';
               echo '</div>'; //close #chart_pop1
@@ -4506,6 +4509,7 @@ function show_my_chart ($goTo = ".", $western=0) {
 
             echo '<div id="msg_sheen_ct3" class="msg_sheen_ct">';
                 echo '<div id="chart_pop3">';
+                echo '<div id="step">3 / 5</div>';
                   echo '<div class="later_on ct_text">To learn why we use Vedic Astrology, click "Why Vedic Astrology?".</div>';
                   echo '<div class="later_on ct_next" id="ct3_done"><a href="#" class="later_on">Next></a></div>';
               echo '</div>'; //close #chart_pop1
@@ -4513,6 +4517,7 @@ function show_my_chart ($goTo = ".", $western=0) {
 
             echo '<div id="msg_sheen_ct4" class="msg_sheen_ct">';
                 echo '<div id="chart_pop4">';
+                echo '<div id="step">4 / 5</div>';
                   echo '<div class="later_on ct_text">Important! As you read through your Birth Chart, keep this analogy in mind: If you had never eaten cake before, and you separately tasted eggs, sugar, flour and milk, it might be hard to imagine the result of having them all baked together. Similarly, if you separately read your Sun, Moon and Venus signs, they might all have their own contradictory meaning. Understanding how the ingredients of your chart all "bake" together is the job of an astrologer. What you\'re about to read, we affectionately refer to as "Cook Book Astrology." For a more in depth understanding of your Birth Chart, please consult an astrologer.</div>';
                   echo '<div class="later_on ct_next" id="ct4_done"><a href="#ct5" class="later_on">Next></a></div>';
               echo '</div>'; //close #chart_pop1
@@ -4520,6 +4525,7 @@ function show_my_chart ($goTo = ".", $western=0) {
 
             echo '<div id="msg_sheen_ct5" class="msg_sheen_ct">';
                 echo '<div id="chart_pop5">';
+                echo '<div id="step">5 / 5</div>';
                   echo '<div class="later_on ct_text">Click through these links to read different aspects of your Birth Chart. If you want to see this tutorial again, go to "Settings" and select "Turn on Birth Chart Tutorial".</div>';
                   echo '<div class="later_on ct_next" id="ct5_done"><a href="#" class="later_on">Done</a></div>';
               echo '</div>'; //close #chart_pop1
