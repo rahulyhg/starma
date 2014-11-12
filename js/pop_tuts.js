@@ -44,7 +44,7 @@ $(document).ready(function(){
 		$('#msg_sheen_ct1').fadeOut(300);
 		$('#msg_sheen_ct2').fadeIn(300);
 		$('#western_circle').fadeIn(300);
-		//$('#msg_sheen_screen_ct').fadeTo('slow', 0.0);
+		//$('#msg_sheen_screen_ct').fadeTo('slow', 0.45);
 	});
 
 	$('#ct2_done').click(function(){
