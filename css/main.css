@@ -49,7 +49,7 @@ input{
     /*border-top: 1px solid #2C3447;*/
     float: right;
     min-height: 582px;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
     position: relative;
     /*top: -229px;*/
     width: 773px;
@@ -2298,7 +2298,7 @@ li.my_unknown_button a {
 .profile_info_area .nickname_area {
   font-size:1.5em;
   position:relative;
-  bottom:161px; 
+  bottom:164px; 
 }
 
 .profile_info_area .nickname_area_celeb {
@@ -2362,7 +2362,7 @@ li.my_unknown_button a {
 #profile_photo_and_info .profile_info_area .name_area {
   line-height: 1.3em;
   position: relative;
-  top: 3px;
+  top: 0;
 }
   
 #descriptors {
@@ -2540,7 +2540,7 @@ li.my_unknown_button a {
     background: #D3DBF6;
     border-top: 2px solid black;
     border-right: 2px solid black;
-    top: 19px;
+    top: 3px;
     float: left;
     position: relative;
     right: 10px;
@@ -2560,7 +2560,11 @@ li.my_unknown_button a {
     position: relative;
     float: left;
     z-index: 2;
-    margin-top: -21px;
+    margin-top: -5px;
+}
+
+#profile_nav ul {
+  margin: 0;
 }
 
 #profile_nav ul li {
@@ -3639,7 +3643,7 @@ span.div_link {
     float: left;
     position: relative;
     right: 10px;
-    top: 19px;
+    top: 3px;
     width: 793px;
 }
 
