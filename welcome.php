@@ -34,7 +34,7 @@ require_once "header.php";
       });
     </script>';
      echo '<div id="tfb">fb test</div>';
-     echo $_SESSION['fb_id'];
+     //echo $_SESSION['fb_id'];
  ?>
     <!--<?php flare_title();?>-->
     <div class="later_on welcome_text">
