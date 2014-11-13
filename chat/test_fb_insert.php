@@ -4,9 +4,11 @@
 	$errors = array();
 
 	if (isset($_POST['test'])) {
+		/*
 		if (!update_my_fb_id($_SESSION['user_id'], $_SESSION['fb_id'])) {
 			$errors['update'] = 'error updating';
 		}
+		*/
 		if (!get_fb_id($_SESSION['user_id'])) {
 			$errors['get'] = 'error getting id';
 		}

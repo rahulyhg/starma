@@ -49,10 +49,10 @@ $('#zip').on('keyup blur', function(){
 	        })
            	.done(function(data){
                 if (data.title_js) {                               
-    				$('#location_verification').html(data.title_js).removeClass('zip_err');
+    				$('#location_verification').show().html(data.title_js).removeClass('zip_err');
                 }
                 else {
-                    $('#location_verification').text('Unknown zip code').addClass('zip_err');  
+                    $('#location_verification').show().text('Unknown zip code').addClass('zip_err');  
                 } 
                                                                     
 			});

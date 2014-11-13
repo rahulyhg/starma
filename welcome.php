@@ -6,7 +6,7 @@ require_once "header.php";
 
  <div id="welcome">
  <?php
- /*
+ 
     echo '<script>
       $(document).ready(function(){
         $("#tfb").click(function(event){
@@ -21,22 +21,22 @@ require_once "header.php";
           .done(function(data){
             if (data.errors) {
               if (data.errors.update) {
-                alert(data.errors.update);
+                console.log(data.errors.update);
               }
               if (data.errors.get) {
-                alert(data.errors.get);
+                console.log(data.errors.get);
               }
             }
             if (data.fb_id) {
-              alert(data.fb_id);
+              console.log(data.fb_id);
             }            
           });
         });
       });
     </script>';
      echo '<div id="tfb">fb test</div>';
-     //echo $_SESSION['fb_id'];
-     */
+     echo $_SESSION['fb_id'];
+     
  ?>
     <!--<?php flare_title();?>-->
     <div class="later_on welcome_text">
