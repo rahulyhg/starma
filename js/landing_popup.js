@@ -68,11 +68,11 @@ $(document).ready(function(){
 	});
 
 
-	$('button[name=sign_up_fb]').click(function(){
-		checkLoginState();	
+	//$('button[name=sign_up_fb]').click(function(){
+		//checkLoginState();	
 		//$('#sign_up_box').hide();
 		//$('#create_account_fb').show();
-	});
+	//});
 
 	$('#cancel_sign_up_fb').click(function(){
 		$('#create_account_fb').hide();
