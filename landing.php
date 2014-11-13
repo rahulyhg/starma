@@ -63,7 +63,7 @@ if (isLoggedIn())
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       $('#sign_up_box').hide();
-        $('#create_account_fb').show();
+      $('#create_account_fb').show();
         
         var data = {'fb_id' : response.id};
 
@@ -121,6 +121,7 @@ if (isLoggedIn())
     FB.login(function(response) {
     checkLoginState();
       // handle the response'
+      /*
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
       } 
@@ -133,6 +134,7 @@ if (isLoggedIn())
         // they are logged into this app or not.
         checkLoginState();
       }
+      */
     }, {scope: 'public_profile,email,user_friends'});
   }
   function fbLogin () {
@@ -202,7 +204,6 @@ if (isLoggedIn())
     </div>
   
   <?php //show_landing_logo();
-
   echo '<div id="logo_test">';
     echo '<div id="logo_test_img">';
       //echo '<img src="img/Logotest.png" height="240px" />';

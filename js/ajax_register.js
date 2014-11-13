@@ -522,6 +522,9 @@ var timer_username;
 					$('#register_email_fb').css('border', '1px solid #C82923');
 					$('#reg_email_error_fb').show().addClass('register_error').removeClass('check').text('?');
 				}
+				if (data.errors.fb_id) {
+					alert(data.errors.fb_id);
+				}
 			}
 			if (data.failed) {
 				if (data.failed.username_fb) {

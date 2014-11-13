@@ -10,6 +10,7 @@ require_once("ajax_header.php");
 		$birthday_fb = $year_fb . "-" . $month_fb . "-" . $day_fb;  
 		$email_fb = $_POST['email_fb'];
 		$valid_username_fb = valid_nickname($username_fb);
+		$fb_id = $_SESSION['fb_id'];
 
 		$data_fb = array();
 		$errors = array();
@@ -28,6 +29,9 @@ require_once("ajax_header.php");
 		}
 		if ($email_fb == '') {
 			$errors['email_empty_fb'] = 'Please enter a valid email';
+		}
+		if ($fb_id == '') {
+			$errors['fb_id'] = 'there was an error with your facebook id';
 		}
 
 		if (!empty($errors)) {
@@ -50,10 +54,11 @@ require_once("ajax_header.php");
           		//echo '*' . $user["user_id"] . '*<br>';
           		//print_r ($user); 
           		//die();
+          		//update_my_fb_id ($user['user_id'], $_SESSION['fb_id']);
           		loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id']);
           		//do_redirect( $url = get_domain_sign_up(1);
           		//echo "Thank you for registering with Starma.com!  We have sent you an email with a verification link.  Please follow this link to activate your account.";        
-          	
+
           		$data_fb['success'] = true;
           		$data_fb['url'] = 'sign_up.php?1';
     		}
@@ -66,7 +71,7 @@ require_once("ajax_header.php");
     		}
     	 	
 		}
-		echo json_encode($data);
+		echo json_encode($data_fb);
 
 	}
 	else {		//REGULAR REGISTRATION

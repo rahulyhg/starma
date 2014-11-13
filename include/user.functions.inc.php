@@ -1553,6 +1553,47 @@ function get_my_user_id() {
   }
 }
 
+function update_my_fb_id ($user_id, $fb_id) {
+  $fb_id_there = get_fb_id($user_id);
+  if (isset($fb_id_there)) {
+    $q = 'UPDATE fb_data set fb_data = ' . $fb_id . ' where user_id = ' . $user_id;
+  }
+  else {
+    $q = 'INSERT into fb_data (user_id, fb_id) VALUES (' . $user_id . ', ' . $fb_id . ')';
+  }
+  if ($result = mysql_query($q)) {
+    return get_fb_id($user_id);
+  }
+  else {
+    return 'error updating your facebook id';
+  }
+}
+
+function get_my_fb_id () {
+  if (isLoggedIn()) {
+    $fb_id = get_fb_id($_SESSION['user_id']);
+    return $fb_id;
+  }
+  else {
+    return false;
+  }
+}
+
+function get_fb_id ($user_id) {
+  $q = 'SELECT fb_id from fb_data where user_id = ' . $user_id;
+  if ($result = mysql_query($q)) {
+    if ($row = mysql_fetch_array($result)) {
+      return $row['fb_id'];
+    }
+    else {
+      return false;
+    }
+  }
+  else { 
+    return false;
+  }
+}
+
 function get_my_chart () {
   if (isLoggedIn()) {
     $q = 'SELECT * from chart where user_id = ' . $_SESSION["user_id"] . ' and personal = 1';
