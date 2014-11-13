@@ -373,7 +373,7 @@ var timer_username;
 		var email_error1 = $('#reg_email_error_fb');
 		clearInterval(timer_username);
 		timer_username_fb = setTimeout(function() {
-			var username_fb = { 'username_fb' : $('#register_username_fb').val()};
+			var username_fb = { 'username' : $('#register_username_fb').val()};
 
 			$.post('/chat/register_form_fields.php', username_fb, function(data){
 				if(data.errors) {	

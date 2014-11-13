@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'Starma.com - Compatibility Horoscopes Community';
+$pageTitle = 'Starma - Compatibility Horoscopes Community';
 require_once ("header.php");
 
   
