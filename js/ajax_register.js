@@ -509,7 +509,7 @@ var timer_username;
 					$('#reg_birthday_error_fb').show().addClass('register_error').removeClass('check').text('?');
 				}
 				if (data.errors.underage_fb) {
-					$('#reg_err_birthday_ex_fp').text(data.errors.underage_fb);
+					$('#reg_err_birthday_exp_fp').text(data.errors.underage_fb);
 					$('#year_fb').css('border', '1px solid #C82923');
 					$('#reg_birthday_error_fb').show().addClass('register_error').removeClass('check').text('?');
 				}
