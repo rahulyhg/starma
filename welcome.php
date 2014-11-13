@@ -10,7 +10,7 @@ require_once "header.php";
       $(document).ready(function(){
         $("#tfb").click(function(event){
           event.preventDefault();
-          var data {"test" : "test"};
+          var data = {"test" : "test"};
           $.ajax({
             type: "POST",
             url: "/chat/test_fb_insert.php",
