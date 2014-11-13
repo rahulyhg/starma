@@ -22,6 +22,9 @@ require_once "header.php";
               if (data.errors.update) {
                 alert(data.errors.update);
               }
+              if (data.errors.get) {
+                alert(data.errors.get);
+              }
             }
             if (data.fb_id) {
               alert(data.fb_id);
