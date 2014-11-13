@@ -53,6 +53,27 @@ if (isLoggedIn())
           }
       });
   }
+
+  function sendID () {
+    FB.api('/me', function(response) {
+        //console.log('Successful login for: ' + response.name);
+        //document.getElementById('status').innerHTML =
+        //  'Thanks for logging in, ' + response.name + '!';
+        var data = {'fb_id' : response.id};
+
+            $.ajax({
+              type      : 'POST',
+              url       : '/chat/fb_data.php',
+              data      : data,
+              dataType  : 'json'
+            })
+            .done(function(data){
+              //alert(data.check);
+              console.log(data.fb_id);
+            });
+      });
+  }
+
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -63,7 +84,7 @@ if (isLoggedIn())
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       //testAPI();
-      
+      sendID();
     } 
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -112,19 +133,6 @@ if (isLoggedIn())
         // Logged into your app and Facebook.
         $('#sign_up_box').hide();
         $('#create_account_fb').show();
-        
-        var data = {'fb_id' : response.id};
-
-            $.ajax({
-              type      : 'POST',
-              url       : '/chat/fb_data.php',
-              data      : data,
-              dataType  : 'json'
-            })
-            .done(function(data){
-              //alert(data.check);
-              console.log(data.fb_id);
-            });
       } 
       else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
