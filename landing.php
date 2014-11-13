@@ -113,9 +113,11 @@ if (isLoggedIn())
       status     : true
     });
 
+    /*
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
     });
+    */
   };
 
   function fbSignUp () {
