@@ -1579,6 +1579,7 @@ function get_my_fb_id () {
   }
 }
 
+/*
 function get_fb_id ($user_id) {
   $q = 'SELECT fb_id from fb_data where user_id = ' . $user_id;
   if ($result = mysql_query($q)) {
@@ -1593,6 +1594,7 @@ function get_fb_id ($user_id) {
     return false;
   }
 }
+*/
 
 function get_my_chart () {
   if (isLoggedIn()) {
