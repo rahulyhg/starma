@@ -17,7 +17,14 @@ require_once "header.php";
             dataType: "json"
           })
           .done(function(data){
-            alert(data.fb_id);
+            if (data.errors) {
+              if (data.errors.update) {
+                alert(data.errors.update);
+              }
+            }
+            if (data.fb_id) {
+              alert(data.fb_id);
+            }            
           });
         });
       });

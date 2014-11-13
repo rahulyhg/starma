@@ -4,7 +4,15 @@
 	$errors = array();
 
 	if (isset($_POST['test'])) {
-		$data['fb_id'] = update_my_fb_id($_SESSION['user_id'], $_SESSION['fb_id']);
+		if (!update_my_fb_id($_SESSION['user_id'], $_SESSION['fb_id'])) {
+			$errors['update'] = 'error updating';
+		}
+		if (!empty($errors)){
+			$data['errors'] = $errors;
+		}
+		else {
+			$data['fb_id'] = 'Success!';
+		}
 		echo json_encode($data);
 	}
 
