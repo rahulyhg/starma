@@ -18,4 +18,6 @@ require_once "header.php";
 <p>Using the Tropical Zodiac makes it so that everyone born on the same day, no matter the year or the constellation over head, will have the same Birth Chart.  Because, at Starma, we consider not just the relationship of the sun, the moon and the planets to the earth, but also the relationship of the stars, we choose to use the Sidereal Zodiac to calculate Birth Charts.  That being said, we believe astrology is an art, not a science.  Although for most of history astronomers were also astrologers, unlike astronomy, astrology cannot be proven in a scientific manner.  When you consider this, a belief that a Birth Chart should be determined by the Sun has as much merit as a belief that it should include the relationship of the stars.  Most of the features on Starma have been created using the Sidereal Zodiac, but for those of you interested in the Tropical Zodiac, we’ve included what we call the “Western View” on your profile.  Please enjoy the site, and email us with more questions.  We’ll be including a frequently asked questions section soon!</p>
 </div>';
 
+echo '</div>';
+
 ?>

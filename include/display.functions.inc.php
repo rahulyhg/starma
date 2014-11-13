@@ -1277,11 +1277,11 @@ function show_interests_info($chart_id, $isCeleb) {
           + strlen($user_info["film_television"]) + strlen($user_info["books"]) + strlen($user_info["political"]) 
           + strlen($user_info["spiritual"]) + strlen($user_info["inspirational_figures"])) == 0 ) {
       if (!$isCeleb) {
-        echo "<div id='profile_empty'>" . $nickname . " has not filled out " . $gender . " profile yet</div>";
+        echo "<div class='later_on' style='font-size:1.3em;' id='profile_empty'>" . $nickname . " has not filled out " . $gender . " profile yet</div>";
         echo "</div>"; //Close left_column
       }
       else {
-        echo "<div id='profile_empty'>We have not added content for " . $user_info['first_name'] . " " . $user_info['last_name'] . " yet.</div>";
+        echo "<div class='later_on' style='font-size:1.3em;' id='profile_empty'>We have not added content for " . $user_info['first_name'] . " " . $user_info['last_name'] . " yet.</div>";
         echo "</div>"; //Close left_column
       }
      }

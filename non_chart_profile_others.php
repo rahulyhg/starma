@@ -159,13 +159,13 @@ if (login_check_point($type="full")) {
               echo '</div>';
   }
   
-//echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
+echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
 
   echo '</div>';  //close profile_top_bar
   //echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
-  if($isCeleb) {
+  //if($isCeleb) {
     echo '<div style="clear:both;"></div>';
-  }
+  //}
       echo '<div id="profile_nav">
           <ul>
             <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=chart_selected">Birth Chart</a></li>';
@@ -217,7 +217,7 @@ if (login_check_point($type="full")) {
       //echo '<div class="profile_button compare_button"><a href="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare</a></div>';     
 
      
-  echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
+  //echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
    echo "<script type='text/javascript' src='js/ajax_msg_send_from_popup.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_chart_submit.js'></script>";
    echo "<script type='text/javascript' src='js/ajax_add_favs.js'></script>";
