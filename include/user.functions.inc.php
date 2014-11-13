@@ -1582,8 +1582,13 @@ function get_my_fb_id () {
 function get_fb_id ($user_id) {
   $q = 'SELECT fb_id from fb_data where user_id = ' . $user_id;
   if ($result = mysql_query($q)) {
-    if ($row = mysql_fetch_array($result)) {
-      return $row['fb_id'];
+    if (mysql_num_rows($result) > 0) {
+      if ($row = mysql_fetch_array($result)) {
+        return $row['fb_id'];
+      }
+      else {
+        return false;
+      }
     }
     else {
       return false;
