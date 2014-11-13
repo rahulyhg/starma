@@ -326,7 +326,7 @@ if ($the_left=="nav1") {
       <li class="compare_link <?php echo $cosel;?>"><a title="Community" href="?the_page=cosel&the_left=nav1&tier=1"><span>Community</span></a></li>
       <li class="celeb_link <?php echo $cesel;?>"><a title="Celebrities" href="?the_page=cesel&the_left=nav1&tier=1"><span>Celebrities</span></a></li>
       <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>Inbox</span></a></li>
-      <li class="mail_area"></li>
+      <li class="mail_area"><?php show_donate_button()?></li>
     </ul>
      <div id="pop_invite_top">Invite a Friend</div>
   </div>

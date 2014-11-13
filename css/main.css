@@ -560,6 +560,12 @@ input{
   color: black;
 }
 
+#donate_button_div {
+  left: 14px;
+    position: relative;
+    top: 5px;
+}
+
 /*//////////////// END TOP NAV BAR ////////////////////////////////////////*/
 
 
