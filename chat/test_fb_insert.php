@@ -9,17 +9,19 @@
 			$errors['update'] = 'error updating';
 		}
 		*/
+		/*
 		if (!get_fb_id($_SESSION['user_id'])) {
 			$errors['get'] = 'error getting id';
 		}
 		else {
 			$get = get_fb_id($_SESSION['user_id']);
 		}
+		*/
 		if (!empty($errors)){
 			$data['errors'] = $errors;
 		}
 		else {
-			$data['fb_id'] = $get;
+			$data['fb_id'] = $_SESSION['fb_id'];
 		}
 		echo json_encode($data);
 	}
