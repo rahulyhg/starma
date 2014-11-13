@@ -1555,7 +1555,7 @@ function get_my_user_id() {
 
 function update_my_fb_id ($user_id, $fb_id) {
   if ($fb_id_there = get_fb_id($user_id)) {
-    $q = 'UPDATE fb_data set fb_data = ' . $fb_id . ' where user_id = ' . $user_id;
+    $q = 'UPDATE fb_data set fb_id = ' . $fb_id . ' where user_id = ' . $user_id;
   }
   else {
     $q = 'INSERT into fb_data (user_id, fb_id) VALUES (' . $user_id . ', ' . $fb_id . ')';
