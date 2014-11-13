@@ -201,9 +201,8 @@ function get_left_menu_guest ($the_page) {
   elseif ($the_page == 'psel') {
     $menu['nav1'] = array('Profile&nbsp;&nbsp;','non_chart_profile.php','');
     //$menu['nav2'] = array('houses&nbsp;&nbsp;','#','');
-    $menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','romantic_advice.php','pop_guest_click');
-    $menu['nav3'] = array('Career Advice&nbsp;&nbsp;','career_advice.php','pop_guest_click');
-    $menu['nav4'] = array('My Birth Info&nbsp;&nbsp;','','pop_guest_click');
+    $menu['nav2'] = array('Why Vedic Astrology?&nbsp;&nbsp;','', 'pop_guest_click');
+    $menu['nav3'] = array('My Birth Info&nbsp;&nbsp;','','pop_guest_click');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#','');
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php','');
   }
@@ -211,7 +210,7 @@ function get_left_menu_guest ($the_page) {
     $menu['nav1'] = array('New to Starma&nbsp;&nbsp;','new_to_starma.php','');
     $menu['nav2'] = array('Favorites&nbsp;&nbsp;','','pop_guest_click');
     //$menu['nav3'] = array('Celebrities&nbsp;&nbsp;','celebrities.php','');
-    $menu['nav3'] = array('Custom Chart&nbsp;&nbsp;', 'enter_user.php','');
+    $menu['nav3'] = array('Custom Chart&nbsp;&nbsp;', '','pop_guest_click');
     
   }
   elseif ($the_page == 'hsel') {

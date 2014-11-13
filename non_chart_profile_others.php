@@ -51,12 +51,9 @@ if (login_check_point($type="full")) {
       }
 
        //TEST FOR ADDING text_type to compare_button <span class="compare_button_title">Compare</span>
-//<<<<<<< HEAD
-  //echo '<div class="profile_button compare_button">';
 
-//=======
+
     echo '<div class="profile_button compare_button">';
-//>>>>>>> Public-Front-End-3.0
       echo '<div id="compare_menu"><a href="">Compare</a>';
         echo '<div class="dropdown">';
           echo '<ul>';
@@ -66,14 +63,6 @@ if (login_check_point($type="full")) {
         echo '</div>';
       echo '</div>';
     echo '</div>'; //Close compare_button
-        
-        /*
-        echo  '<select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
-                <option value="">Compare</option>
-                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Romance</option>
-                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Friends</option>
-              </select>';
-        */
   
 
       if (!$isCeleb) {
@@ -170,7 +159,7 @@ if (login_check_point($type="full")) {
               echo '</div>';
   }
   
-echo '</div><!--MYSTERY-->';  //MYSTERIOUS FIX FOR FOOTER...
+echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
 
   echo '</div>';  //close profile_top_bar
   //echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...

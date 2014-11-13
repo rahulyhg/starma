@@ -93,7 +93,7 @@ require_once ("header.php");
 
 	}
 	elseif ($tier == "3") {
-  		require("non_chart_profile_others.php");
+  		require("limited_profile.php");
 	}
 	elseif ($tier == "4") {
   		require("chart_others.php");
