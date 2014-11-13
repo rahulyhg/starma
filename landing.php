@@ -74,7 +74,7 @@ if (isLoggedIn())
               dataType  : 'json'
             })
             .done(function(data){
-              alert(data.check);
+              //alert(data.check);
               console.log(data.fb_id);
             });
       
