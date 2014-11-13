@@ -2927,14 +2927,14 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '</div>';
       
       echo '<div id="explanation" class="explanation_less">';
-          echo '<span class="exp_less">The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.'; 
+          echo '<span class="exp_less">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs...'; 
             
             if($results_type == 'major') {
               echo 'Your Major Connections...'; 
             }
 
           echo '</span>';
-          echo '<span class="exp_more">The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.  Your Major Connections represent the direct relationships between the four primary points of influence: Rising Sign, Sun Sign, Moon Sign, and Venus Sign.</span>';
+          echo '<span class="exp_more">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs – we call these the “Major Connections.” You’re likely to see contradictory dynamics.  That’s normal!  It only takes a few good placements to make a relationship work.  Be sure to remember the Cake Analogy!</span>';
         echo '<div id="explain_more">MORE</div>';
         /*//TAKING OUT FOR REDESIGN
         echo 'Display Text For:';
@@ -6885,7 +6885,7 @@ require_once ("landing_footer.php");
 //********************************  LANDING BOXES  ********************************/
 
 function show_login_options_landing () {
-  //echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLogin();">Login with Facebook</button></div>';
+  echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLogin();">Login with Facebook</button></div>';
   echo '<div style="width:245px; display: inline-block;"><button type="button" class="sign_in" id="login_email_landing">Login with Email</button></div>';
 }
 

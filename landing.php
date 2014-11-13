@@ -42,7 +42,7 @@ if (isLoggedIn())
 <body id="body_landing">
 <script>
     // This is called with the results from from FB.getLoginStatus().
-  function revokeFB () {
+  function revokeFB() {
       FB.api(
       'me/permissions',
       'DELETE',
@@ -54,7 +54,7 @@ if (isLoggedIn())
       });
   }
 
-  function sendID () {
+  function sendID() {
     FB.api('/me', function(response) {
         //console.log('Successful login for: ' + response.name);
         //document.getElementById('status').innerHTML =
@@ -72,6 +72,20 @@ if (isLoggedIn())
               console.log(data.fb_id);
             });
       });
+  }
+
+  function userExistFB() {
+    var data = {'exist', 'exist'};
+
+    $.ajax({
+      type: 'POST',
+      url: '/chat/fb_data.php',
+      data: data,
+      dataType: 'json'
+    })
+    .done(function(data){
+
+    });
   }
 
   function statusChangeCallback(response) {
@@ -151,6 +165,7 @@ if (isLoggedIn())
       // handle the response'
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
+        sendID();
       } 
       else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.

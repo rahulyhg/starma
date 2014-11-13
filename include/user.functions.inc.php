@@ -2034,6 +2034,26 @@ function get_user_id_from_chart_id ($chart_id) {
   //}
 }
 
+function get_user_id_from_fb_id ($fb_id) {
+  $q = 'SELECT user_id from fb_data where fb_id = ' . $fb_id;
+  if($result = mysql_query($q)) {
+    if (mysql_num_rows($result) > 0) {
+      if ($row = mysql_fetch_array($result)) {
+        return $row['user_id'];
+      }
+      else{
+        return false;
+      }
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
 function get_chart_id_from_user_id ($user_id) {
   if (isLoggedIn()) {
     $q = 'SELECT chart_id from chart where user_id=' . $user_id . ' and nickname = "main"';
