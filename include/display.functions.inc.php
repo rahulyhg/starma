@@ -685,7 +685,7 @@ function show_my_general_info() {
       }
       echo '<span id="location">&nbsp;' . $location . '</span>';
        //Adding editable location
-      echo '<span class="location_edit"></span>';
+      //echo '<span class="location_edit"></span>';  //HIDING UNTIL COORDINATE WITH LOCATION CHANGES FROM SIGN UP
     echo '</div>';
    
     //echo '<div class="location_area">';
