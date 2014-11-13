@@ -940,8 +940,9 @@ function show_photo_grid ($user_id) {
       unset($x);
       unset($x2);
       echo '</tr>';
-    echo '</table>';
+    
     }
+    echo '</table>';
   }
   else {
     echo '<div class="later_on" style="font-size:1.5em;">' . get_nickname($user_id) . ' has no other photos.</div>';
