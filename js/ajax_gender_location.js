@@ -8,6 +8,12 @@ $(document).ready(function() {
     	$('#js_city_div').show();
     }
 
+    if ($('#country_id').val() == 236) {
+    	$('#js_city_div').hide();
+		$('#js_zip_div').show();
+    	$('#location_verification').css('visibility', 'hidden'); 
+    }
+
 	$('#country_id').change(function(event) { 
       	if ($('#country_id').val() == 236) {
         	$('#js_zip_div').show();
