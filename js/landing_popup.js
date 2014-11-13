@@ -36,6 +36,7 @@ $(document).ready(function(){
 
 	$('#login_email_landing').click(function(){
 		$('.pop_login_landing').show();
+		$('#login_email').focus();
 		$('.pop_login_click').show();
 		$('#login_box').show();
 	});
