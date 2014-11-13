@@ -5,6 +5,25 @@ require_once "header.php";
 
 
  <div id="welcome">
+ <?php
+    echo '<script>
+      $(document).ready(function(){
+        $("#tfb").click(function(event){
+          event.preventDefault();
+          $.ajax({
+            type: "POST",
+            url: "/chat/test_fb_insert.php",
+            data: "test",
+            dataType: "json"
+          })
+          .done(function(data){
+            alert(data.fb_id);
+          });
+        });
+      });
+    </script>';
+     echo '<div id="tfb">fb test</div>';
+ ?>
     <!--<?php flare_title();?>-->
     <div class="later_on welcome_text">
       Welcome to Starma!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.

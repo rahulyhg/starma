@@ -373,7 +373,7 @@ var timer_username;
 		var email_error1 = $('#reg_email_error_fb');
 		clearInterval(timer_username);
 		timer_username_fb = setTimeout(function() {
-			var username_fb = { 'username_fb' : $('#register_username_fb').val()};
+			var username_fb = { 'username' : $('#register_username_fb').val()};
 
 			$.post('/chat/register_form_fields.php', username_fb, function(data){
 				if(data.errors) {	
@@ -521,6 +521,9 @@ var timer_username;
 					$('#reg_err_email_exp_fb').text(data.errors.email_empty_fb);
 					$('#register_email_fb').css('border', '1px solid #C82923');
 					$('#reg_email_error_fb').show().addClass('register_error').removeClass('check').text('?');
+				}
+				if (data.errors.fb_id) {
+					alert(data.errors.fb_id);
 				}
 			}
 			if (data.failed) {

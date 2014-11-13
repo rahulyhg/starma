@@ -1,6 +1,6 @@
 <?php 
 //SEO
-$pageTitle = 'Starma.com - Compatibility Horoscopes Community';
+$pageTitle = 'Starma - Compatibility Horoscopes Community';
 
 $pageDescription = 'Free detailed astrology made simple.  Read your horoscope and birth chart and see your compatibility with friends and celebrities...';
 
@@ -62,65 +62,37 @@ if (isLoggedIn())
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      /*
-      testAPI();
-      console.log('accessToken');
-      console.log(response.authResponse.accessToken);
-      FB.api(
-        "/me/permissions",
-        function (response) {
-          if (response && !response.error) {
-            console.log('permissions');
-            console.log(response);
-          }
-        }
-      );
-      FB.api(
-        "/me/friends",
-        function (response) {
-          if (response && !response.error) {
-            console.log('friends');
-            console.log(response);
-          }
-        }
-      );
-      FB.api(
-        "/me",
-        function (response) {
-          if (response && !response.error) {
-            console.log('email');
-            console.log(response.email);
-            console.log('gender');
-            console.log(response.gender);
-            console.log('address');
-            console.log(response.user_address);
-            console.log('id');
-            console.log(response.id);
+      $('#sign_up_box').hide();
+      $('#create_account_fb').show();
+        
+        var data = {'fb_id' : response.id};
 
-          }
-        }
-      );
-      FB.api(
-        "/me",
-        function (response) {
-          if (response && !response.error) {
-            console.log('age_range');
-            console.log(response.age_range);
-          }
-        }
-      );
-      */
+            $.ajax({
+              type      : 'POST',
+              url       : '/chat/fb_data.php',
+              data      : data,
+              dataType  : 'json'
+            })
+            .done(function(data){
+              alert(data.check);
+              console.log(data.fb_id);
+            });
+      
+      //testAPI();
+      
     } 
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       //document.getElementById('status').innerHTML = 'Please log ' +
       //  'into this app.';
+      setTimeout('checkLoginState()', 1000);
     } 
     else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
       //document.getElementById('status').innerHTML = 'Please log ' +
       // 'into Facebook.';
+      setTimeout('checkLoginState()', 1000);
     }
   }
 
@@ -150,30 +122,20 @@ if (isLoggedIn())
     FB.login(function(response) {
     checkLoginState();
       // handle the response'
+      /*
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        $('#sign_up_box').hide();
-        $('#create_account_fb').show();
-        
-        var data = {'fb_id' : response.id};
-
-            $.ajax({
-              type      : 'POST',
-              url       : '/chat/fb_data.php',
-              data      : data,
-              dataType  : 'json'
-            })
-            .done(function(data){
-              //alert(data.check);
-            });
       } 
       else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
+        checkLoginState();
       } 
       else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
+        checkLoginState();
       }
+      */
     }, {scope: 'public_profile,email,user_friends'});
   }
   function fbLogin () {
@@ -243,7 +205,6 @@ if (isLoggedIn())
     </div>
   
   <?php //show_landing_logo();
-
   echo '<div id="logo_test">';
     echo '<div id="logo_test_img">';
       //echo '<img src="img/Logotest.png" height="240px" />';

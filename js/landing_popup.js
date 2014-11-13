@@ -67,12 +67,13 @@ $(document).ready(function(){
 		$('#sign_up_box').show();
 	});
 
-/*
-	$('button[name=sign_up_fb]').click(function(){
-		$('#sign_up_box').hide();
-		$('#create_account_fb').show();
-	});
-*/
+
+	//$('button[name=sign_up_fb]').click(function(){
+		//checkLoginState();	
+		//$('#sign_up_box').hide();
+		//$('#create_account_fb').show();
+	//});
+
 	$('#cancel_sign_up_fb').click(function(){
 		$('#create_account_fb').hide();
 		$('#sign_up_box').show();
