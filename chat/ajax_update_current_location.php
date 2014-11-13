@@ -48,7 +48,7 @@ if(isLoggedIn()) {
 			$gender = get_my_gender();
 			$location = $result["location"];
         	$state_id = get_state_id_from_code ($result["state_code"]);
-        	update_my_profile_info($user["first_name"], $user["last_name"], $gender, $location);
+        	update_my_profile_info($gender, $location);
         	update_my_extended_location($state_id, $country_id);
         	$updated_user = my_profile_info();
         	if ($updated_user["country_id"] == 236) {  // UNITED STATES
