@@ -356,6 +356,9 @@ function gender_select ($the_gender, $the_name="gender") {
 
 function country_select ($country_id, $the_name="country_id") {     //ADDED ERROR=1 FOR ERROR BORDER ON SIGN UP
   $country_list = get_country_list ();
+  if (!$country_id) {
+    $country_id = 236;
+  }
   echo '<select name="' . $the_name . '" id="country_id"';
     if ($_GET['error'] == 1) {
       echo ' style="border: 2px solid #C82923;"';
