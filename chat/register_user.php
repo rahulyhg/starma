@@ -44,7 +44,7 @@ require_once("ajax_header.php");
 			if (sizeof($output_fb) <= 1)  {
 			
         		log_this_action (account_action_user(), registered_basic_action(), -1, -1, -1, $output_fb[0]);
-          		if ($user = basic_user_data($output[0])) {
+          		if ($user = basic_user_data($output_fb[0])) {
             		$data_fb['user_there'] = 'User ' . $user["user_id"] . 'is there.<br>';
          		}
           		else {
@@ -60,7 +60,7 @@ require_once("ajax_header.php");
           		//echo "Thank you for registering with Starma.com!  We have sent you an email with a verification link.  Please follow this link to activate your account.";        
 
           		$data_fb['success'] = true;
-          		$data_fb['url'] = 'sign_up.php?1';
+          		$data_fb['url_fb'] = 'sign_up.php?1';
     		}
     	
     		else {
