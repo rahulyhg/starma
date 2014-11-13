@@ -54,8 +54,8 @@ require_once("ajax_header.php");
           		//echo '*' . $user["user_id"] . '*<br>';
           		//print_r ($user); 
           		//die();
-          		//update_my_fb_id ($user['user_id'], $_SESSION['fb_id']);
-          		loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id']);
+          		update_my_fb_id ($user['user_id'], $_SESSION['fb_id']);
+          		loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id'], $_SESSION['fb_id']);
           		//do_redirect( $url = get_domain_sign_up(1);
           		//echo "Thank you for registering with Starma.com!  We have sent you an email with a verification link.  Please follow this link to activate your account.";        
 

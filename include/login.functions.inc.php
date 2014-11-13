@@ -70,13 +70,13 @@ global $seed; // global because $seed is declared in the header.php file
     {
         // Log the User In
         $row = mysql_fetch_array($result);
-        loginUser($row['user_id'], $row['email'], $row['nickname'], $row['permissions_id']);
+        loginUser($row['user_id'], $row['email'], $row['nickname'], $row['permissions_id'], $_SESSION['fb_id']);
         return true;
     }
     return false;
 }
 
-function loginUser($user_id, $email, $nickname, $permissions_id) {
+function loginUser($user_id, $email, $nickname, $permissions_id, $fb_id) {
         // Save the user ID for use later
         $_SESSION['user_id'] = $user_id;
         // Save the email for use later
@@ -85,6 +85,8 @@ function loginUser($user_id, $email, $nickname, $permissions_id) {
         $_SESSION['nickname'] = $nickname;
         //save the permissions id
         $_SESSION['permissions_id'] = $permissions_id;
+        //save Facebook ID
+        $_SESSION['fb_id'] = $fb_id;
         //Log the Login
         log_this_action (login_action(), login_basic_action());
 }

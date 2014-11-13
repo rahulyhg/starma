@@ -7025,7 +7025,7 @@ echo '<div id="create_account_fb">';
       echo '<div id="email_fb"><input type="text" id="register_email_fb" placeholder="Your Email" /><span class="reg_err check" id="reg_email_check_fb"></span><span class="reg_err" id="reg_email_error_fb"></span><div class="reg_err_exp" id="reg_err_email_exp_fb"></div></div>';
       echo '<div id="terms">By using Starma, I agree to the <a href="/docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="/docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
       echo '<input type="submit" name="submit_fb" class="sign_me_up" id="register_submit_fb" value="Create Account" />';
-      echo '<input type="hidden" name="fb"/>';
+      //echo '<input type="hidden" name="fb" id="from_fb" value="fb" />';
     echo '</form>';  
   echo '</div>'; //Close register_form
   echo '<div><div id="cancel_sign_up_fb">Cancel</div></div>';

@@ -479,6 +479,7 @@ var timer_username;
 	$('#r_form_fb').submit(function(event){
 
 		var data_fb = {
+			'fb' 				 :  'fb',
 			'username_fb'        :  $('#register_username_fb').val(),
 			'year_birthday_fb'   :  $('#year_fb').val(),
 			'month_birthday_fb'  :  $('#month_fb').val(),
