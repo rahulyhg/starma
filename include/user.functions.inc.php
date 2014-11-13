@@ -1554,8 +1554,7 @@ function get_my_user_id() {
 }
 
 function update_my_fb_id ($user_id, $fb_id) {
-  $fb_id_there = get_fb_id($user_id);
-  if (isset($fb_id_there)) {
+  if ($fb_id_there = get_fb_id($user_id)) {
     $q = 'UPDATE fb_data set fb_data = ' . $fb_id . ' where user_id = ' . $user_id;
   }
   else {
@@ -1579,7 +1578,7 @@ function get_my_fb_id () {
   }
 }
 
-/*
+
 function get_fb_id ($user_id) {
   $q = 'SELECT fb_id from fb_data where user_id = ' . $user_id;
   if ($result = mysql_query($q)) {
@@ -1594,7 +1593,7 @@ function get_fb_id ($user_id) {
     return false;
   }
 }
-*/
+
 
 function get_my_chart () {
   if (isLoggedIn()) {
