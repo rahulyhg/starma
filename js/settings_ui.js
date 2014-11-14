@@ -130,8 +130,11 @@ $(document).ready(function(){
 					$('#fb_done').show().html(data.errors.set);
 				}
 			}
-			if (data.msg) {
+			if (data.success) {
 				$('#fb_done').show().html(data.msg).fadeOut(1200);
+				if (data.unset) {
+					window.location.reload(true);
+				}
 			}
 		});
 

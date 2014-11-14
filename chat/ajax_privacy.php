@@ -46,7 +46,13 @@
 				$data['errors'] = $errors;
 			}				
 			else {
-				$data['msg'] = 'Success!';
+				$data['success'] = true;
+				if (get_my_preferences($pref_name, 0) == 1) {
+					$data['unset'] = true;
+				}
+				else {
+					$data['set'] = true;
+				}
 			}
 				//$data['msg'] = is_preference_there($pref_name, get_my_user_id());
 			
