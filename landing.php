@@ -105,17 +105,16 @@ if (isLoggedIn())
       dataType: 'json'
     })
     .done(function(data){
-      console.log(data);
+      console.log(data.user_id);
       if (data.errors) {
         if (data.errors.user_id) {
-          //console.log(data.errors.user_id);
+          console.log(data.errors.user_id);
         }
         if (data.errors.exists) {
-          //console.log(data.errors.exists);
+          console.log(data.errors.exists);
         }
       }
       if (data.success) {
-        console.log(data);
        // window.location.reload(true);
       }
     });
