@@ -2223,6 +2223,18 @@ function user_exists($email,$nickname)
     return false;
  
 }
+
+function user_exists_from_id ($user_id) {
+  $q = 'SELECT * from user where user_id = ' . $user_id;
+  $result = mysql_query($q);
+ 
+  if (mysql_num_rows($result) > 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
  
 function email_there($email)
 {

@@ -84,7 +84,17 @@ if (isLoggedIn())
       dataType: 'json'
     })
     .done(function(data){
-
+      if (data.errors) {
+        if (data.errors.user_id) {
+          console.log(data.errors.user_id);
+        }
+        if (data.errors.exists) {
+          console.log(data.errors.exists);
+        }
+      }
+      if (data.success) {
+        window.location.reload(true);
+      }
     });
   }
 
@@ -165,7 +175,8 @@ if (isLoggedIn())
       // handle the response'
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        sendID();
+        //sendID();
+        userExistFB();
       } 
       else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
