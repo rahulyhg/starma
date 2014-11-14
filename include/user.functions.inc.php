@@ -2229,7 +2229,12 @@ function user_exists_from_id ($user_id) {
   $result = mysql_query($q);
  
   if (mysql_num_rows($result) > 0) {
-    return $result;
+    if ($user = mysql_fetch_array($result)) {
+      return $user;
+    }
+    else {
+      return false;
+    }
   }
   else {
     return false;
