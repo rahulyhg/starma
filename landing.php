@@ -74,6 +74,27 @@ if (isLoggedIn())
       });
   }
 
+  function assignID() {
+    FB.api('/me', function(response) {
+        //console.log('Successful login for: ' + response.name);
+        //document.getElementById('status').innerHTML =
+        //  'Thanks for logging in, ' + response.name + '!';
+        var data = {'fb_id' : response.id};
+
+            $.ajax({
+              type      : 'POST',
+              url       : '/chat/fb_data.php',
+              data      : data,
+              dataType  : 'json'
+            })
+            .done(function(data){
+              //alert(data.check);
+              console.log(data.fb_id);
+              userExistFB();
+            });
+      });
+  }
+
   function userExistFB() {
     var data = {'exist' : 'exist'};
 
@@ -176,7 +197,8 @@ if (isLoggedIn())
       // handle the response'
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        sendID().queue(function(){userExistFB();});
+        assignID();
+        //userExistFB();
       } 
       else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
