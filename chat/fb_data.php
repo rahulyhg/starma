@@ -38,6 +38,15 @@
 
 	}
 
+	if (isset($_POST['reconnect_fb'])) {
+		if(!set_my_preference('fb_connected', 1)) {
+			$errors['set'] = 'Unable to set preference';
+		}
+		else {
+			$data['success'] = true;
+		}
+	}
+
 
 	echo json_encode($data);
 

@@ -107,7 +107,7 @@ $(document).ready(function(){
 	$('#fbcb').click(function(){
 		$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
 		if($('#fbcb').prop('checked')) {
-			fbLogin();
+			fbLoginSettings();
 			var data = { 'fbcb' : 1 };
 		}
 		if(!$('#fbcb').prop('checked')) {

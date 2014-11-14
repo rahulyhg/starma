@@ -101,12 +101,14 @@ if ($the_left=="nav1") {
       });
     }
 
-    function assignID() {
+    function assignIDSettings() {
     FB.api('/me', function(response) {
         //console.log('Successful login for: ' + response.name);
         //document.getElementById('status').innerHTML =
         //  'Thanks for logging in, ' + response.name + '!';
-        var data = {'fb_id' : response.id};
+        var data = {'fb_id'         : response.id,
+                    'reconnect_fb'  : 'reconnect_fb'
+                  };
 
             $.ajax({
               type      : 'POST',
@@ -115,9 +117,17 @@ if ($the_left=="nav1") {
               dataType  : 'json'
             })
             .done(function(data){
+              if (data.errors) {
+                if (data.errors.set) {
+                  console.log(data.errors.set);
+                }
+              }
+              if (data.success) {
+                console.log(data.success);
+              }
               //alert(data.check);
               //console.log(data.fb_id);
-              userExistFB();
+              //userExistFB();
             });
       });
     }
@@ -149,13 +159,13 @@ if ($the_left=="nav1") {
     });
   }
 
-    function fbLogin () {
+    function fbLoginSettings () {
     FB.login(function(response) {
     checkLoginState();
       // handle the response'
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        assignID();
+        assignIDSettings();
         //userExistFB();
       } 
       else if (response.status === 'not_authorized') {
