@@ -180,6 +180,14 @@ if ($the_left=="nav1") {
       // for FB.getLoginStatus().
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
+        FB.api({
+          '/me/permissions',
+          function (response) {
+            if (response && !response.error) {
+              console.log('permissions');
+              console.log(response);
+            }
+        });
         //testAPI();
       } 
       else if (response.status === 'not_authorized') {
@@ -218,9 +226,9 @@ if ($the_left=="nav1") {
         status     : true
       });
 
-      //FB.getLoginStatus(function(response) {
-      //  statusChangeCallback(response);
-      //});
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
     };
 
     (function(d, s, id){
