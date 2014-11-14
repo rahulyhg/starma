@@ -180,8 +180,8 @@ if ($the_left=="nav1") {
       // for FB.getLoginStatus().
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        FB.api({
-          'me/permissions',
+        FB.api(
+          '/me/permissions',
           function (response) {
             if (response && !response.error) {
               console.log('permissions');
