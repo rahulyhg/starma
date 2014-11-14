@@ -19,12 +19,15 @@
 				$errors['exists'] = true;
 			}
 		}
+		if (!loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id'], $_SESSION['fb_id'])) {
+			$errors['login'] = 'error at login';
+		}
 		if (!empty($errors)) {
 			$data['errors'] = $errors;
 		}
 		else {
 			$data['sucess'] = true;
-			loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id'], $_SESSION['fb_id']);
+			//loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id'], $_SESSION['fb_id']);
 		}
 
 	}
