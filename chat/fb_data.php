@@ -13,6 +13,9 @@
 	if (isset($_POST['exist'])) {
 		if (!$user_id = get_user_id_from_fb_id($_SESSION['fb_id'])) {
 			$errors['user_id'] = 'Could not obtain user id';
+			
+		}
+		else {
 			$data['user_id'] = $user_id;
 		}
 		/*
