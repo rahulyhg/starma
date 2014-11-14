@@ -105,12 +105,14 @@ if (isLoggedIn())
       dataType: 'json'
     })
     .done(function(data){
-      console.log(data.user);
+      //console.log(data.user);
       if (data.errors) {
         if (data.errors.user_id) {
           console.log(data.errors.user_id);
         }
         if (data.errors.exists) {
+          $('#sign_up_box').hide();
+          $('#create_account_fb').show();
           console.log(data.errors.exists);
         }
       }
