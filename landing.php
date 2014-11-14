@@ -108,7 +108,7 @@ if (isLoggedIn())
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       //testAPI();
-      sendID();
+      //sendID();
     } 
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -155,6 +155,7 @@ if (isLoggedIn())
       // handle the response'
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
+        sendID();
         $('#sign_up_box').hide();
         $('#create_account_fb').show();
       } 
