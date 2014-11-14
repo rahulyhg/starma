@@ -33,6 +33,7 @@
 		else {
 			$data['success'] = true;
 			loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id'], $_SESSION['fb_id']);
+			set_my_preference('fb_connected', 1);
 		}
 
 	}

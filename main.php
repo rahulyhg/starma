@@ -88,6 +88,88 @@ if ($the_left=="nav1") {
     
 <body id="bg_stars">
   <script>
+
+    function revokeFB() {
+      FB.api(
+      'me/permissions',
+      'DELETE',
+      function (response) {
+        if (response && !response.error) {
+            console.log('delete');
+            console.log(response);
+          }
+      });
+    }
+
+    function assignID() {
+    FB.api('/me', function(response) {
+        //console.log('Successful login for: ' + response.name);
+        //document.getElementById('status').innerHTML =
+        //  'Thanks for logging in, ' + response.name + '!';
+        var data = {'fb_id' : response.id};
+
+            $.ajax({
+              type      : 'POST',
+              url       : '/chat/fb_data.php',
+              data      : data,
+              dataType  : 'json'
+            })
+            .done(function(data){
+              //alert(data.check);
+              //console.log(data.fb_id);
+              userExistFB();
+            });
+      });
+    }
+
+  function userExistFB() {
+    var data = {'exist' : 'exist'};
+
+    $.ajax({
+      type: 'POST',
+      url: '/chat/fb_data.php',
+      data: data,
+      dataType: 'json'
+    })
+    .done(function(data){
+      //console.log(data.user);
+      if (data.errors) {
+        if (data.errors.user_id) {
+          console.log(data.errors.user_id);
+        }
+        if (data.errors.exists) {
+          $('#sign_up_box').hide();
+          $('#create_account_fb').show();
+          console.log(data.errors.exists);
+        }
+      }
+      if (data.success) {
+        window.location.reload(true);
+      }
+    });
+  }
+
+    function fbLogin () {
+    FB.login(function(response) {
+    checkLoginState();
+      // handle the response'
+      if (response.status === 'connected') {
+        // Logged into your app and Facebook.
+        assignID();
+        //userExistFB();
+      } 
+      else if (response.status === 'not_authorized') {
+        // The person is logged into Facebook, but not your app.
+        //setTimeout(fbLogin(), 1000);
+      } 
+      else {
+        // The person is not logged into Facebook, so we're not sure if
+        // they are logged into this app or not.
+        //setTimeout(fbLogin(), 1000);
+      }
+    }, {scope: 'public_profile,email,user_friends'});
+  }
+
     // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {
       console.log('statusChangeCallback');

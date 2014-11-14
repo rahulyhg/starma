@@ -101,7 +101,42 @@ $(document).ready(function(){
 		});
 
 	});
+
+//FB CONNECTED --------------------------------------
 	
+	$('#fbcb').click(function(){
+		$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
+		if($('#fbcb').prop('checked')) {
+			fbLogin();
+			var data = { 'fbcb' : 1 };
+		}
+		if(!$('#fbcb').prop('checked')) {
+			revokeFB();
+			var data = { 'fbcb' : 0 };
+		}
+		//alert(data);
+		$.ajax({
+				type: 'POST',
+				url: 'chat/ajax_privacy.php',
+				data: data,
+				dataType: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				if (data.errors.invalid) {
+					$('#fb_done').show().html(data.errors.invalid);
+				}
+				if (data.errors.set) {
+					$('#fb_done').show().html(data.errors.set);
+				}
+			}
+			if (data.msg) {
+				$('#fb_done').show().html(data.msg).fadeOut(1200);
+			}
+		});
+
+	});
+
 
 //TUTORIALS --------------------------------------
 
@@ -134,7 +169,8 @@ $(document).ready(function(){
 			}
 		});
 	});
-	
+
+
 
 
 });

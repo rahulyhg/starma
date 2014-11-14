@@ -6697,7 +6697,15 @@ function show_privacy_form () {
           echo 'checked';
         }
       echo ' name="house_lords" id="hlcb" style="display:inline-block; margin-right:8px;"/>';
-        echo '<div class="later_on" style="display:inline-block;">Keep my house lords private<span id="hl_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+      echo '<div class="later_on" style="display:inline-block;">Keep my house lords private<span id="hl_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+
+      echo '<input type="checkbox" ';
+        if (get_my_preferences('fb_connected', 0) == 1) {
+          echo 'checked';
+        }
+      echo ' name="fb_connected" id="fbcb" style="display:inline-block; margin-right:8px;"/>';
+        echo '<div class="later_on" style="display:inline-block;">Connect with my Facebook account<span id="fb_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+
     echo '</div>';
 
    //echo '</form>';
@@ -6966,7 +6974,7 @@ function show_sign_up_box_landing () {
       echo  '<div class="heading">Create an Account</div>';
           echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
           echo '<div id="or">~ or ~</div>';
-          echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; 
+          //echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; 
           echo '<button type="button" name="sign_up_fb" class="sign_up" onClick="fbSignUp();">Facebook</button>';
       echo '</div>'; //Close sign_up_box
 }
