@@ -21,6 +21,7 @@
 		}
 		if (!loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id'], $_SESSION['fb_id'])) {
 			$errors['login'] = 'error at login';
+			$errors['user'] = $user;
 		}
 		if (!empty($errors)) {
 			$data['errors'] = $errors;
