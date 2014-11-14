@@ -75,7 +75,7 @@ if (isLoggedIn())
   }
 
   function userExistFB() {
-    var data = {'exist', 'exist'};
+    var data = {'exist' : 'exist'};
 
     $.ajax({
       type: 'POST',
