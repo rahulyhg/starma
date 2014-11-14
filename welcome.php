@@ -6,7 +6,7 @@ require_once "header.php";
 
  <div id="welcome">
  <?php
-  
+  /*
     echo '<script>
       $(document).ready(function(){
         $("#tfb").click(function(event){
@@ -36,7 +36,7 @@ require_once "header.php";
     </script>';
      echo '<div id="tfb">fb test</div>';
      echo $_SESSION['fb_id'];
-    
+    */
      
  ?>
     <!--<?php flare_title();?>-->
