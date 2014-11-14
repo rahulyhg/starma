@@ -115,7 +115,8 @@ if (isLoggedIn())
         }
       }
       if (data.success) {
-        window.location.reload(true);
+        console.log(data);
+       // window.location.reload(true);
       }
     });
   }

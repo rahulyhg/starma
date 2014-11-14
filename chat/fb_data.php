@@ -15,6 +15,7 @@
 			$errors['user_id'] = 'Could not obtain user id';
 			$data['user_id'] = $user_id;
 		}
+		/*
 		else {
 			if (!$user = user_exists_from_id($user_id)) {
 				$errors['exists'] = true;
@@ -24,6 +25,7 @@
 		if (!loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id'], $_SESSION['fb_id'])) {
 			$errors['login'] = 'error at login';
 		}
+		*/
 		if (!empty($errors)) {
 			$data['errors'] = $errors;
 		}
