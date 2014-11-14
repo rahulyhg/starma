@@ -47,7 +47,7 @@
 			}				
 			else {
 				$data['success'] = true;
-				if (get_my_preferences($pref_name, 0) == 1) {
+				if (get_my_preferences($pref_name, 0) == 0) {
 					$data['unset'] = true;
 				}
 				else {
