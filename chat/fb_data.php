@@ -16,15 +16,14 @@
 			
 		}
 		else {
-			$data['user_id'] = $user_id;
-		}
-		/*
-		else {
 			if (!$user = user_exists_from_id($user_id)) {
-				$errors['exists'] = true;
+				$errors['exists'] = 'does not exist';
+			}
+			else {
 				$data['user'] = $user;
 			}
 		}
+		/*
 		if (!loginUser($user['user_id'], $user['email'], $user['nickname'], $user['permissions_id'], $_SESSION['fb_id'])) {
 			$errors['login'] = 'error at login';
 		}

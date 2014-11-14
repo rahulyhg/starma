@@ -105,7 +105,7 @@ if (isLoggedIn())
       dataType: 'json'
     })
     .done(function(data){
-      console.log(data.user_id);
+      console.log(data.user);
       if (data.errors) {
         if (data.errors.user_id) {
           console.log(data.errors.user_id);
