@@ -176,8 +176,7 @@ if (isLoggedIn())
       // handle the response'
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        //sendID();
-        userExistFB();
+        $.when(sendID()).then(function(){userExistFB()});
       } 
       else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
