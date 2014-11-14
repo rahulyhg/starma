@@ -6692,7 +6692,7 @@ function show_privacy_form () {
   echo '<div id="privacy_form">';
   echo '<div class="heading">Privacy Settings</div>';
    //echo '<form name="privacy_form" method="POST" action="privacy_settings.php">';
-      echo '<div>';
+      echo '<div style="margin-bottom:10px;">';
         echo '<input type="checkbox" ';
           if (get_my_preferences('hl_private', 0) == 1) {
             echo 'checked';
