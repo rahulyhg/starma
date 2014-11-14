@@ -136,9 +136,9 @@ if ($the_left=="nav1") {
         status     : true
       });
 
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
+      //FB.getLoginStatus(function(response) {
+      //  statusChangeCallback(response);
+      //});
     };
 
     (function(d, s, id){
@@ -148,15 +148,6 @@ if ($the_left=="nav1") {
       js.src = "//connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-
-    function testAPI() {
-      console.log('Welcome!  Fetching your information.... ');
-      FB.api('/me', function(response) {
-        console.log('Successful login for: ' + response.name);
-        //document.getElementById('status').innerHTML =
-          'Thanks for logging in, ' + response.name + '!';
-      });
-    }
 
   </script>
 

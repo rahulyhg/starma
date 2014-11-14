@@ -695,11 +695,8 @@ div.poi_title {
 
 #star_rating {
   position:relative;
-  /*top:13px;*/
-  /* Matt adding for mockup*/
   display: inline-block;
   height: 38px;
-  /*left: 167px;*/
   top: 29px;
   width: 438px;
 }
@@ -995,27 +992,21 @@ div.poi_title {
 }
 
 #compare_results #explanation {
-    font-size: 0.93em;
-    line-height: 1.5em;
-    letter-spacing: .05px;
+    font-size: 1.3em;
+    line-height: 1.3em;
     margin: auto;
     padding: 8px 0 0 12px;
     position: absolute;
     text-align: left;
-    /*top: 8px;
-    width: 465px;  MATT REDESIGN*/
-    top: 75px;
-    left: 165px;
-    width: 429px;
+    top: 46px;
+    left: 176px;
+    width: 402px;
     min-height: 81px;
-    /*height: 110px;*/
 }
 
 .explanation_less {
  /* background: url("/img/Starma-Astrology-Thought-Bubble.png") no-repeat scroll 0 0 / 450px 110px rgba(0, 0, 0, 0); */
   height: auto;
-  border: 1px solid black;
-  background: white;
   position: absolute;
   z-index: 3;
 }
@@ -1023,7 +1014,6 @@ div.poi_title {
 .explanation_more {
   /*background: url("/img/Starma-Astrology-Thought-Bubble-Big.png") no-repeat scroll 0 0 / 450px 110px rgba(0, 0, 0, 0);*/
   height: auto;
-  border: 1px solid black;
   background: white;
   position: absolute;
   z-index: 3;
@@ -1166,7 +1156,7 @@ div.poi_title {
 
 .poi_column {
   display:block;
-  margin-left:50px;
+  margin-left:61px;
   width: 670px; 
   float: left;
   height:100%; 
