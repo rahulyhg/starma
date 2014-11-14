@@ -25,8 +25,8 @@ $(document).ready(function(){
 		$('#major_select').click(function(){
 			$('.selector').removeClass('selected');
 			$('#major_select').addClass('selected');
-			$('.exp_less').text('The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.');
-			$('.exp_more').text('The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.  Your Major Connections represent the direct relationships between the four primary points of influence: Rising Sign, Sun Sign, Moon Sign, and Venus Sign.');
+			$('.exp_less').text('Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs...');
+			$('.exp_more').text('Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs - we call these the “Major Connections.”  You’re likely to see both positive and negative dynamics, so keep in mind that a relationship can work with even one good dynamic!  It’s also normal to encounter contradictory information, so be sure to remember the Cake Analogy!  Enjoy!');
 			$('#explain_more').show();
 			$('#major').show();
 			$('#minor').hide();
@@ -36,8 +36,8 @@ $(document).ready(function(){
 		$('#minor_select').click(function(){
 			$('.selector').removeClass('selected');
 			$('#minor_select').addClass('selected');
-			$('.exp_less').text('The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.');
-			$('.exp_more').text('The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to take them all into account.  Your Minor Connections represent cross compatibility between the primary points of influence.  This section shows how cross compatibility can support or detract from your Major Connections.  For example, if your Rising Signs are in the dynamic of "Challenges", but your Sun, Moon and Venus signs are all in positive dynamics with his or her Rising Sign, this will lend great support to the connection between your Rising Signs.');
+			$('.exp_less').text('Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs...');
+			$('.exp_more').text('Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs - we call these the “Major Connections.”  You’re likely to see both positive and negative dynamics, so keep in mind that a relationship can work with even one good dynamic!  It’s also normal to encounter contradictory information, so be sure to remember the Cake Analogy!  Enjoy!');
 			$('#explain_more').show();
 			$('#minor').show();
 			$('#major').hide();

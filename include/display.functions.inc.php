@@ -2924,18 +2924,22 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         }
         //echo '<br>';
         //echo '*' . $score . '*';
-      echo '</div>';
+      echo '</div>'; //close star_rating
       
-      echo '<div id="explanation" class="explanation_less">';
+
+      /*
+      echo '<div id="explanation" class="explanation_less later_on">';
           echo '<span class="exp_less">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs...'; 
             
-            if($results_type == 'major') {
-              echo 'Your Major Connections...'; 
-            }
+            //if($results_type == 'major') {
+              //echo 'Your Major Connections...'; 
+            //}
 
           echo '</span>';
-          echo '<span class="exp_more">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs – we call these the “Major Connections.” You’re likely to see contradictory dynamics.  That’s normal!  It only takes a few good placements to make a relationship work.  Be sure to remember the Cake Analogy!</span>';
+          echo '<span class="exp_more">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs - we call these the “Major Connections.”  You’re likely to see both positive and negative dynamics, so keep in mind that a relationship can work with even one good dynamic!  It’s also normal to encounter contradictory information, so be sure to remember the Cake Analogy!  Enjoy!</span>';
         echo '<div id="explain_more">MORE</div>';
+        */
+
         /*//TAKING OUT FOR REDESIGN
         echo 'Display Text For:';
         //echo 'Below is the basic structure of compatibility.  It must be read as a whole with the understanding that a strong dynamic can compensate for a weak one.  The Major Connections have the strongest influence on compatibility and the Minor Connections have the potential to support or weaken them.';
@@ -2960,7 +2964,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         echo '</div>';
         */
         
-      echo '</div>';
+      //echo '</div>'; //close explanation
 
       //if ($results_type == "major") {
         //echo '<div id="major_small_bubble"><img src="/img/Starma-Astrology-Major-Small-Bubble.png" height="10px" width="10px" /></div>';
