@@ -46,7 +46,9 @@ if (login_check_point($type="full", $domain=$domain)) {
       echo '</div>';
   }
 */
-  show_my_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&western=" . $western . "&section=" . $section, $western);
+  //show_my_chart($goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&western=" . $western . "&section=" . $section, $western);
+
+  show_my_chart($the_page, $the_left, $western);
 
   if ($western == 0) {
     if (isset($_SESSION["chart_more_info_flag"])) {

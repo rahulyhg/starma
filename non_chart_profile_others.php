@@ -25,6 +25,7 @@ if (login_check_point($type="full")) {
     $chart_id2 = $_GET["chart_id2"];
     $other_user_id = get_user_id_from_chart_id ($chart_id2);
 
+
     //*************---endMatt stuff
 
     log_this_action (profile_action_profile(), viewed_basic_action(), $_GET["chart_id2"], get_user_id_from_chart_id($_GET["chart_id2"]));
@@ -174,7 +175,7 @@ echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
             if (!$isCeleb)  {
               echo '<li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=photos_selected">Photos</a></li>';
             }
-            echo '<li class="end"><a class="' . $astrologers_view_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left .'&chart_id2=' . $_GET['chart_id2'] . '&western=0&section=astrologers_view_selected">Astrologers View</a></li>';
+            echo '<li class="end"><a class="' . $astrologers_view_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left .'&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=astrologers_view_selected">Astrologers View</a></li>';
             /*
             echo '<li';
             if (!$western_there) {
