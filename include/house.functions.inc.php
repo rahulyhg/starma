@@ -62,6 +62,14 @@ function get_sign_in_house_id ($chart_id, $house_id) {
   }
 }
 
+function get_poi_in_house_id ($chart_id, $house_id) {
+  $q = 'SELECT poi.poi_id, poi_name, poi_abbr from chart_x_house_x_poi inner join chart_x_house on chart_x_house.chart_x_house_id = chart_x_house_x_poi.chart_x_house_id inner join poi on poi.poi_id = chart_x_house_x_poi.poi_id WHERE chart_id = ' . $chart_id . ' and house_id = ' . $house_id;
+  $do_q = mysql_query($q) or die(mysql_error());
+  
+  return $do_q;
+  
+}
+
 
 
 //MATT

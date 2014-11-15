@@ -2643,6 +2643,150 @@ li.my_unknown_button a {
   position: relative;
 }
 
+#house_chart {
+  background: url('/img/profile/blank_house_chart.png');
+  height:601px;
+  width:601px;
+  position:relative;
+}
+
+#house_chart div {
+  position:absolute;
+  font-weight:bold;
+  width:20px;
+  text-align:center;
+}
+
+#house_chart div table tr td {
+  height:134px;
+}
+
+#house_chart div table tr td {
+  vertical-align:middle; /* <---- this is why its in a table ---- */
+  text-align:center;
+}
+
+/** House Chart Sign Div Positions **/
+
+#house_chart #house_1_sign {
+  left: 290px;
+    top: 266px;
+}
+
+#house_chart #house_2_sign {
+   left: 143px;
+    top: 118px;
+}
+
+#house_chart #house_3_sign {
+   left: 121px;
+    top: 142px;
+}
+
+#house_chart #house_4_sign {
+  left: 268px;
+    top: 288px;
+}
+
+#house_chart #house_5_sign {
+   left: 121px;
+    top: 437px;
+}
+
+#house_chart #house_6_sign {
+    left: 142px;
+    top: 457px;
+}
+#house_chart #house_7_sign {
+   left: 290px;
+    top: 310px;
+}
+
+#house_chart #house_8_sign {
+    left: 438px;
+    top: 457px;
+}
+
+#house_chart #house_9_sign {
+   left: 457px;
+    top: 437px;
+}
+
+#house_chart #house_10_sign {
+   left: 311px;
+    top: 288px;
+}
+
+#house_chart #house_11_sign {
+  left: 457px;
+    top: 142px;
+}
+
+#house_chart #house_12_sign {
+  left: 439px;
+    top: 118px;
+}
+
+/*** House Chart Poi Div positions **/
+
+#house_chart #house_1_poi {
+   left: 292px;
+    top: 85px;
+}
+
+#house_chart #house_2_poi {
+   left: 143px;
+    top: -7px;
+}
+
+#house_chart #house_3_poi {
+       left: 41px;
+    top: 82px;
+}
+
+#house_chart #house_4_poi {
+ left: 142px;
+    top: 229px;
+}
+
+#house_chart #house_5_poi {
+   left: 41px;
+    top: 378px;
+}
+
+#house_chart #house_6_poi {
+    left: 142px;
+    top: 457px;
+}
+#house_chart #house_7_poi {
+   left: 290px;
+    top: 378px;
+}
+
+#house_chart #house_8_poi {
+    left: 438px;
+    top: 457px;
+}
+
+#house_chart #house_9_poi {
+   left: 534px;
+    top: 380px;
+}
+
+#house_chart #house_10_poi {
+    left: 434px;
+    top: 230px;
+}
+
+#house_chart #house_11_poi {
+  left: 534px;
+    top: 85px;
+}
+
+#house_chart #house_12_poi {
+  left: 439px;
+    top: -7px;
+}
 
 /************---Matt adding things to others Profile */
 

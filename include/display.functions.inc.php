@@ -8,6 +8,30 @@ function isWord($word) {
  }
 }
 
+function show_house_chart($chart_id) {
+  
+  echo '<div id="house_chart">';
+  $houses = get_house_list();
+  while ($house = mysql_fetch_array($houses)) {
+    echo '<div id="house_' . $house['house_id'] . '_sign">';
+      echo get_sign_in_house_id($chart_id, $house['house_id']);  
+    echo '</div>';
+     
+    $poi_list = get_poi_in_house_id($chart_id, $house['house_id']);
+    
+    echo '<div id="house_' . $house['house_id'] . '_poi">';
+      echo '<table><tr><td>';
+      while ($poi = mysql_fetch_array($poi_list)) {
+        echo '<span>' . $poi['poi_abbr'] . '</span><br>';
+      }
+      echo '</td></tr></table>';
+    echo '</div>';
+  }
+     
+
+  echo '</div>';
+}
+
 
 function show_sheen ($flag=0, $form_function) {
    echo '<div id="sheen">';
