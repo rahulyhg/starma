@@ -91,7 +91,7 @@ if (login_check_point($type="full")) {
     }
 
 // END CHART POP TUT --------------------------------------
-
+    echo '<div style="clear:both;"></div>';
     echo '<div id="profile_nav">';
       if(my_chart_flag() == 1) {
         echo '<a name="ct5"></a>';
