@@ -13,7 +13,8 @@ if (login_check_point($type="full")) {
     $chart_selected = '';
     $photos_selected = '';
     $about_selected = '';
-    $western_selected = '';
+    //$western_selected = '';
+    $astrologers_view_selected = '';
   
     $$section = 'selected';
     $$tab = 'not_selected';
@@ -173,6 +174,8 @@ echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
             if (!$isCeleb)  {
               echo '<li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=photos_selected">Photos</a></li>';
             }
+            echo '<li class="end"><a class="' . $astrologers_view_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left .'&chart_id2=' . $_GET['chart_id2'] . '&western=0&section=astrologers_view_selected">Astrologers View</a></li>';
+            /*
             echo '<li';
             if (!$western_there) {
               echo ' class="end"';
@@ -181,6 +184,7 @@ echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
             if ($western_there)  {        
               echo '<li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=1&tier=3&section=western_selected">Western View</a></li>';
             }
+            */
           echo '</ul>
         </div>';
   //echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
@@ -208,9 +212,13 @@ echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
             //echo '</div>';   
             }
           }
-          elseif ($section == 'western_selected') {
-            require('chart_others.php');
+          elseif ($section == 'astrologers_view_selected') {
+            require ('astrologers_view.php');
           }
+
+          //elseif ($section == 'western_selected') {
+          //  require('chart_others.php');
+          //}
         echo '</div>';
       echo '</div>';
 

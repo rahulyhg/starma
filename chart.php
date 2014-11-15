@@ -26,14 +26,14 @@ if (login_check_point($type="full", $domain=$domain)) {
   //Log the Action
   log_this_action (chart_action(), viewed_basic_action(), $log_poi_id, $western);
 
-  if ($western == 1) {
+  //if ($western == 1) {
     if (!chart_already_there("Alternate",get_my_user_id())) {
       $chart_to_cast_from = get_my_chart();
       if (!single_click_cast ("Alternate", $chart_to_cast_from["birthday"], substr($chart_to_cast_from["latitude"], 0, 6), substr($chart_to_cast_from["longitude"], 0, 7), substr($chart_to_cast_from["latitude"], -1), substr($chart_to_cast_from["longitude"], -1), $chart_to_cast_from["timezone"], $chart_to_cast_from["DST"], $chart_to_cast_from["location"], $chart_to_cast_from["interval_time"], $chart_to_cast_from["time_unknown"], "W")) {
          echo 'Error Obtaining Western Chart';
       }
     }
-  }
+  //}
 /*
   if ($western == 0) {
       echo '<div id="chart_direction_link_west">';

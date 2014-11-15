@@ -8,9 +8,9 @@ function isWord($word) {
  }
 }
 
-function show_house_chart($chart_id) {
+function show_astrologers_view($chart_id) {
   
-  echo '<div id="house_chart">';
+  echo '<div id="astrologers_view">';
   $houses = get_house_list();
   while ($house = mysql_fetch_array($houses)) {
     echo '<div id="house_' . $house['house_id'] . '_sign">';
@@ -4491,6 +4491,9 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
 
 
 function show_my_chart ($goTo = ".", $western=0) {
+
+  //$western = $_GET['western'];
+
   if ($western == 0) {
     $chart_info = get_my_chart();
   }
@@ -4531,7 +4534,7 @@ function show_my_chart ($goTo = ".", $western=0) {
             echo '<div id="msg_sheen_ct2" class="msg_sheen_ct">';
                 echo '<div id="chart_pop2">';
                 echo '<div class="ct_step later_on">2 / 5</div>';
-                  echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Western View."</div>';
+                  echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Switch to Western View."</div>';
                   echo '<div class="later_on ct_next" id="ct2_done"><a href="#" class="later_on">Next></a></div>';
               echo '</div>'; //close #chart_pop1
             echo '</div>'; //close msg_sheen_ct2
@@ -4600,7 +4603,12 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
-
+          if ($western == 0) {
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=psel&the_left=nav1&western=1&section=chart_selected">Switch to Western View</a></div>';
+          }
+          else {
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=psel&the_left=nav1&western=0&section=chart_selected">Switch to Vedic View</a></div>';
+          }
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll

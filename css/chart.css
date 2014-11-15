@@ -104,6 +104,21 @@
   width: 472px;
 }
 
+#birth_chart_type {
+  margin-left: 165px;
+  width: 175px;
+  position: absolute;
+}
+
+#birth_chart_type a {
+  font-size: 1em;
+  color: black;
+}
+
+#birth_chart_type a:hover, #birth_chart_type a:active {
+  color: black;
+}
+
 #chart_prev {
   display: none;
   position: relative;
@@ -117,7 +132,7 @@
 
 #chart_next {
   position: relative;
-  left: 44px;
+  left: 48px;
   cursor: pointer;
   float: right;
   font-family: 'later_on';
