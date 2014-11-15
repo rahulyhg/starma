@@ -52,8 +52,8 @@ if ($tier == "1") {
   clear_compare_data();
   
     //flare_title ("Custom Chart");
-    echo '<div id="header_desc">';
-      echo 'Use the form below to enter the birth information of a friend or family member who\'s chart you would like to see.  You can even check compatibility between the two of you!';
+    echo '<div class="later_on" style="font-size: 1.3em; line-height:1.3; padding: 20px 100px; text-align: center;">';
+      echo 'Enter the birth information of a friend or family member to view their Birth Chart and see your compatibility.';
     echo '</div>';
   
   if (isset($_SESSION["errors"])) {

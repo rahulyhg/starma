@@ -419,7 +419,7 @@ if ($the_left=="nav1") {
       <li class="inbox_link <?php echo $isel;?>"><a title="Inbox" href="?the_page=isel&the_left=nav1"><span>Inbox</span></a></li>
       <li class="mail_area"><?php show_donate_button()?></li>
     </ul>
-     <div id="pop_invite_top">Invite a Friend</div>
+     <div class="later_on" id="pop_invite_top">Invite a Friend</div>
   </div>
 
   <!--<img src="/img/top_nav_shorter/Starma-Astrology-SearchBar.png"/>-->

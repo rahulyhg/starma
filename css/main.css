@@ -517,10 +517,10 @@ input{
 
 #pop_invite_top {
   position: absolute;
-  left: 769px;
-  top: 51px;
-  font-size: .75em;
-  z-index: 10;
+  left: 759px;
+  top: 46px;
+  font-size: 1.05em;
+  z-index: 1;
   cursor: pointer;
 }
 
@@ -561,9 +561,9 @@ input{
 }
 
 #donate_button_div {
-  left: 14px;
+  left: 126px;
     position: relative;
-    top: 5px;
+    top: 38px;
 }
 
 /*//////////////// END TOP NAV BAR ////////////////////////////////////////*/
@@ -2248,12 +2248,14 @@ li.my_unknown_button a {
   padding-bottom:0px;
 }
 
+/*
 #custom_chart #header_desc {
   padding:10px;
   padding-top:20px;
   padding-bottom:20px;
   text-align:center;
 }
+*/
 
 #photos {
   position: relative;
@@ -2590,11 +2592,11 @@ li.my_unknown_button a {
           border-top-right-radius: 5px;
   background-color: #8393CA;
   border-right:0px;
-  padding:5px;
+  padding:5px 7px;
   text-align:center;
   margin:0px;
   display:block;
-  width:102px;
+  /*width:102px;*/
   font-size: 0.95em;
   height: 12px;
   line-height: 0.8em;

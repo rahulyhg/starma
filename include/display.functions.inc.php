@@ -323,11 +323,11 @@ function showNewMessageAlert() {
 
 
 function show_account_menu () {
-  echo '<div id="account_menu"><a href="">' . get_my_nickname() . '&nbsp;&nbsp;&nbsp;&nbsp;</a>';
+  echo '<div id="account_menu"><a class="later_on" href="">' . get_my_nickname() . '&nbsp;&nbsp;&nbsp;&nbsp;</a>';
   echo '<div class="dropdown">';
     echo '<ul>';
-      echo '<li><a href="main.php?the_page=ssel&the_left=nav1&the_tier=1">Settings</a></li>';
-      echo '<li><a style="border-bottom:2px solid black" onClick="fbLogout();" href="logout.php">Logout</a></li>';
+      echo '<li><a class="later_on" href="main.php?the_page=ssel&the_left=nav1&the_tier=1">Settings</a></li>';
+      echo '<li><a class="later_on" style="border-bottom:2px solid black" onClick="fbLogout();" href="logout.php">Logout</a></li>';
     echo '</ul>';
   echo '</div>';
   echo '</div>';
