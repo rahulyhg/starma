@@ -1828,7 +1828,7 @@ li.my_1_button a {
 }
 
 li.my_unknown_button a {
-  background:url('/img/Starma-Astrology-Compatibility-Unknown.png') no-repeat center top;
+  background:url('/img/Starma-Astrology-Compatibility-Unknown-Big.png') no-repeat center top;
 }
 /*//////////////// DYNAMIC ICONS ///////////////////////////////////////*/
 
@@ -2646,9 +2646,9 @@ li.my_unknown_button a {
 }
 
 #astrologers_view {
-  background: url('/img/profile/blank_house_chart.png');
-  height:601px;
-  width:601px;
+  background: url('/img/profile/blank_house_chart.png') no-repeat;
+  height: 347px;
+  width: 515px;
   position:relative;
   margin-top: 25px;
 }
