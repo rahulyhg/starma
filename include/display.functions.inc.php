@@ -8,7 +8,44 @@ function isWord($word) {
  }
 }
 
-function show_astrologers_view($chart_id) {
+function show_astrologers_view() {
+  if (isLoggedIn()) {
+    if ($_GET['the_page'] == 'psel') {  //MY PROFILE
+      if ($_GET['western'] == 0) {  //VEDIC
+        $chart_id = get_my_chart_id();
+      }
+      else {  //WESTERN
+        $chart_info = get_chart_by_name("Alternate",get_my_user_id());  
+        $chart_id = $chart_info['chart_id'];
+      }
+    }
+    else {  //ANOTHER PROFILE
+      if ($_GET['western'] == 0) {  //VEDIC
+        $chart_id = $_GET['chart_id2'];
+      }
+      else {  //WESTERN
+        $chart_id = $_GET['chart_id2'];
+        if (!is_freebie_chart($chart_id)) { //USER OR CELEB
+          $chart_info = get_chart_by_name("Alternate",get_user_id_from_chart_id($chart_id));  
+          $chart_id = $chart_info['chart_id'];
+        }
+        else {  //FREEBIE
+          $chart_id = chart_already_there("Alternate_Freebie1",get_my_user_id());
+        }    
+      }
+    }
+  }
+  else {  //GUEST VIEW
+    $guest_user_id = get_guest_user_id();
+    if ($_GET['western'] == 0) {  //VEDIC
+      $chart_id = get_guest_chart_id($guest_user_id);
+    }
+    else {  //WESTERN VIEW
+      $chart_info = get_chart_by_name("Alternate",get_guest_user_id());  
+      $chart_id = $chart_info['chart_id'];
+    }
+  }
+   
   $rising_sign_id = get_sign_from_poi ($chart_id, 1);
   if ($rising_sign_id !== -1) {
     echo '<div id="astrologers_view">';
@@ -30,16 +67,22 @@ function show_astrologers_view($chart_id) {
     }
   }
   else {
-    $isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($_GET["chart_id2"])));
-    $user_info = profile_info(get_user_id_from_chart_id($chart_id2));
+    $isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($chart_id)));
+    $user_info = profile_info(get_user_id_from_chart_id($chart_id));
     if ($isCeleb) {
       $user_title = $user_info['first_name'] . ' ' . $user_info['last_name'];
     }
-    elseif (!is_freebie_chart($chart_id2)) {
+    elseif (!is_freebie_chart($chart_id)) {
         $user_title = $user_info["nickname"];
     }
-    echo '<div class="later_on" style="font-size:1.3em; margin-bottom: 250px;">Sorry!  We can\'t show you the Astrologers View because ' . $user_title . ' doesn\'t have a precise birth time.</div>';
+    if (!is_freebie_chart($chart_id)) {
+      echo '<div class="later_on" style="font-size:1.3em; margin-bottom: 225px; margin-top:25px;">Sorry!  We can\'t show you the Astrologers View because ' . $user_title . ' doesn\'t have a precise birth time.</div>';
+    }
+    else {
+      echo '<div class="later_on" style="font-size:1.3em; margin-bottom: 225px; margin-top:25px;">Sorry!  We can\'t show you the Astrologers View because we don\'t have a precise birth time for this Custom Chart.</div>';
+    }
   }
+  
   echo '</div>'; //close astrologers_view
 }
 
@@ -4295,7 +4338,7 @@ function show_intro_text($western_sun_sign) {
   //echo '</div>';
 }
 
-function show_guest_chart($goto = ".", $user_id, $western=0) {
+function show_guest_chart($the_page, $the_left, $user_id, $western=0) {
   if ($western == 0) {
     $chart_info = get_guest_chart($user_id);
   }
@@ -4317,13 +4360,7 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
       else {
         $poi_id = $_POST["poi_id"];
       }
-      /*
-      if ($poi_id > 0 and my_chart_flag() == 1) {
-  
-         set_my_chart_flag(0);
-      
-      }
-      */
+
       $poi_list = get_poi_list();
      
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
@@ -4333,6 +4370,12 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
     echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
+          if ($western == 0) {
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=1&section=chart_selected">Switch to Western View</a></div>';
+          }
+          else {
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Switch to Vedic View</a></div>';
+          }
 
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
@@ -4814,14 +4857,20 @@ function show_others_chart ($the_page, $the_left, $chart_id2, $western=0) {
       //echo '&&' . $sign_id . '&&<br>';
     echo '<div id="profile_chart">';
 
+    if (!is_freebie_chart($chart_id2)) {
+      $tier = 3;
+    }
+    else {
+      $tier = 4;
+    }
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
           if ($western == 0) {
-            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=3&western=1&section=chart_selected">Switch to Western View</a></div>';
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=1&section=chart_selected">Switch to Western View</a></div>';
           }
           else {
-            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=3&western=0&section=chart_selected">Switch to Vedic View</a></div>';
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=0&section=chart_selected">Switch to Vedic View</a></div>';
           }
 
           echo '<div id="chart_next">Next ></div>';
@@ -5032,7 +5081,8 @@ function show_others_chart ($the_page, $the_left, $chart_id2, $western=0) {
     elseif (!is_freebie_chart($chart_id2)) {
         $user_title = $user_info["nickname"];
     }
-    echo '<div class="later_on" style="font-size:1.3em; margin-bottom: 250px;">' . $user_title . ' does\'t have a western Birth Chart yet.</div>';
+    echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=3&western=0&section=chart_selected">< Back to Vedic View</a></div>';
+    echo '<div class="later_on" style="font-size:1.3em; margin-bottom: 225px; margin-top: 25px;">' . $user_title . ' does\'t have a western Birth Chart yet.</div>';
   }
 }
 
