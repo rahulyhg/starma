@@ -48,7 +48,7 @@ function show_astrologers_view() {
    
   $rising_sign_id = get_sign_from_poi ($chart_id, 1);
   if ($rising_sign_id !== -1) {
-    echo '<div id="astrologers_view">';
+    echo '<div id="astrologers_view" class="later_on">';
     $houses = get_house_list();
     while ($house = mysql_fetch_array($houses)) {
       echo '<div id="house_' . $house['house_id'] . '_sign">';
@@ -56,14 +56,26 @@ function show_astrologers_view() {
       echo '</div>';
      
       $poi_list = get_poi_in_house_id($chart_id, $house['house_id']);
-    
-      echo '<div id="house_' . $house['house_id'] . '_poi">';
-        echo '<table><tr><td>';
-        while ($poi = mysql_fetch_array($poi_list)) {
-          echo '<span>' . $poi['poi_abbr'] . '</span><br>';
-        }
-        echo '</td></tr></table>';
-      echo '</div>';
+      
+      if ($house['house_id'] == 2 || $house['house_id'] == 6 || $house['house_id'] == 8 || $house['house_id'] == 12) {
+        echo '<div id="house_' . $house['house_id'] . '_poi">';
+          echo '<div style="text-align:center; width: 177px;">';
+          while ($poi = mysql_fetch_array($poi_list)) {
+            echo '<span>' . $poi['poi_abbr'] . '&nbsp;</span>';
+          }
+          echo '</div>';
+        echo '</div>';
+      }  
+      else {
+        echo '<div id="house_' . $house['house_id'] . '_poi">';
+          echo '<table><tr><td>';
+          while ($poi = mysql_fetch_array($poi_list)) {
+            echo '<span>' . $poi['poi_abbr'] . '</span><br>';
+          }
+          echo '</td></tr></table>';
+        echo '</div>';
+      }
+      
     }
   }
   else {

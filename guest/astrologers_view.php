@@ -5,12 +5,21 @@
 
 		$western = $_GET['western'];
 		
-    	if ($western == 0) {
-            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=1&section=astrologers_view_selected">See Western Chart</a></div>';
-        }
-        else {
-            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=astrologers_view_selected">See Vedic Chart</a></div>';
-        }
+    	echo '<div id="av_type" class="later_on">';
+            echo '<a class="later_on" ';
+              if ($western == 0) {
+                echo 'style="text-decoration:underline;"';
+              }
+            echo ' href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=astrologers_view_selected">Vedic</a>  |  <span>Western (Coming Soon)</span>';
+                
+                /*//IMPLEMENT AFTER WESTERN VIEW EXISTS
+                echo '<a class="later_on" ';
+                if ($western == 1) {
+                  echo 'style="text-decoration:underline;"';
+                }
+                echo ' href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=1&section=astrologers_view_selected">Western</a>';
+                */
+        echo '</div>';
     			
 		show_astrologers_view();
 

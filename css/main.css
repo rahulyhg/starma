@@ -2650,7 +2650,20 @@ li.my_unknown_button a {
   height: 347px;
   width: 515px;
   position:relative;
-  margin-top: 25px;
+  margin: 25px auto auto;
+  font-size: 1.3em;
+}
+
+#av_type {
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+#av_type a, #av_type a:hover, #av_type a:active, #av_type a:visited {
+  color: black;
+  cursor: pointer;
 }
 
 #astrologers_view div {
@@ -2672,123 +2685,123 @@ li.my_unknown_button a {
 /** House Chart Sign Div Positions **/
 
 #astrologers_view #house_1_sign {
-  left: 290px;
-    top: 266px;
+  left: 244px;
+  top: 140px;
 }
 
 #astrologers_view #house_2_sign {
-   left: 143px;
-    top: 118px;
+  left: 120px;
+  top: 59px;
 }
 
 #astrologers_view #house_3_sign {
-   left: 121px;
-    top: 142px;
+  left: 88px;
+  top: 85px;
 }
 
 #astrologers_view #house_4_sign {
-  left: 268px;
-    top: 288px;
+  left: 210px;
+  top: 166px;
 }
 
 #astrologers_view #house_5_sign {
-   left: 121px;
-    top: 437px;
+  left: 88px;
+  top: 245px;
 }
 
 #astrologers_view #house_6_sign {
-    left: 142px;
-    top: 457px;
+    left: 125px;
+    top: 267px;
 }
 #astrologers_view #house_7_sign {
-   left: 290px;
-    top: 310px;
+  left: 245px;
+  top: 189px;
 }
 
 #astrologers_view #house_8_sign {
-    left: 438px;
-    top: 457px;
+    left: 366px;
+    top: 265px;
 }
 
 #astrologers_view #house_9_sign {
-   left: 457px;
-    top: 437px;
+  left: 395px;
+  top: 243px;
 }
 
 #astrologers_view #house_10_sign {
-   left: 311px;
-    top: 288px;
+  left: 277px;
+  top: 164px;
 }
 
 #astrologers_view #house_11_sign {
-  left: 457px;
-    top: 142px;
+  left: 400px;
+  top: 80px;
 }
 
 #astrologers_view #house_12_sign {
-  left: 439px;
-    top: 118px;
+  left: 368px;
+  top: 55px;
 }
 
 /*** House Chart Poi Div positions **/
 
 #astrologers_view #house_1_poi {
-   left: 292px;
-    top: 85px;
+  left: 244px;
+  top: 15px;
 }
 
 #astrologers_view #house_2_poi {
-   left: 143px;
-    top: -7px;
+  left: 40px;
+  top: 12px;
 }
 
 #astrologers_view #house_3_poi {
-       left: 41px;
-    top: 82px;
+  left: 12px;
+  top: 26px;
 }
 
 #astrologers_view #house_4_poi {
- left: 142px;
-    top: 229px;
+  left: 120px;
+  top: 107px;
 }
 
 #astrologers_view #house_5_poi {
-   left: 41px;
-    top: 378px;
+  left: 12px;
+  top: 186px;
 }
 
 #astrologers_view #house_6_poi {
-    left: 142px;
-    top: 457px;
+  left: 45px;
+  top: 314px;
 }
 #astrologers_view #house_7_poi {
-   left: 290px;
-    top: 378px;
+  left: 245px;
+  top: 193px;
 }
 
 #astrologers_view #house_8_poi {
-    left: 438px;
-    top: 457px;
+  left: 292px;
+  top: 314px;
 }
 
 #astrologers_view #house_9_poi {
-   left: 534px;
-    top: 380px;
+  left: 480px;
+  top: 185px;
 }
 
 #astrologers_view #house_10_poi {
-    left: 434px;
-    top: 230px;
+  left: 366px;
+  top: 103px;
 }
 
 #astrologers_view #house_11_poi {
-  left: 534px;
-    top: 85px;
+  left: 478px;
+  top: 18px;
 }
 
 #astrologers_view #house_12_poi {
-  left: 439px;
-    top: -7px;
+  left: 288px;
+  top: 12px;
 }
 
 /************---Matt adding things to others Profile */
