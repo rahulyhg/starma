@@ -59,7 +59,7 @@ $(document).ready(function(){
 	});
 
 
-	$('input[name=create_an_account]').click(function(){
+	$('#create_an_account').click(function(){
 		//$('#intro').hide();
 		$('#sign_up_box').hide();
 		$('#fb_or_email_guest').show();
@@ -75,6 +75,19 @@ $(document).ready(function(){
 	$('button[name=sign_up_email]').click(function(){
 		$('#fb_or_email_guest').hide();
 		$('#create_account').show();
+	});
+
+	$('button[name=sign_up_fb]').click(function(){
+		$('#fb_or_email_guest').hide();
+		$('#create_account_fb').show();
+	});
+
+	$('#cancel_sign_up_fb').click(function(){
+		$('.pop_guest').slideFadeToggle(function() {
+			$('#sign_up_box').show();
+			$('#create_account_fb').hide();
+			$('#fb_or_email_guest').hide();
+		});
 	});
 
 	

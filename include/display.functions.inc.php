@@ -7704,6 +7704,31 @@ echo '</div>';  //close #create_account
 
 }
 
+function show_fb_registration_box_guest () {
+
+  
+echo '<div id="create_account_fb">';  
+  echo '<div id="register_form_fb">';
+    echo '<form name="register_form_fb" action="../chat/register_user.php" method="post" id="r_form_fb">';
+      echo '<div class="register_error_area_fb" id="reg_user_exists_fb"></div>';
+      echo '<div id="username_fb"><input type="text" id="register_username_fb" placeholder="Choose a Username" /><span class="reg_err check" id="reg_username_check_fb"></span><span class="reg_err" id="reg_username_error_fb"></span><div class="reg_err_exp" id="reg_err_username_exp_fb"></div></div>'; 
+      echo '<div id="birthday_fb">';
+        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<span>';
+          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday", $for="sign_up_fb");
+        echo '</span>';
+        echo '<span class="reg_err check" id="reg_birthday_check_fb"></span><span class="reg_err" id="reg_birthday_error_fb"></span><div class="reg_err_exp" id="reg_err_birthday_exp_fb"></div>';
+      echo '</div>';
+      echo '<div id="email_fb"><input type="text" id="register_email_fb" placeholder="Your Email" /><span class="reg_err check" id="reg_email_check_fb"></span><span class="reg_err" id="reg_email_error_fb"></span><div class="reg_err_exp" id="reg_err_email_exp_fb"></div></div>';
+      echo '<div id="terms">By using Starma, I agree to the <a href="/docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="/docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
+      echo '<input type="submit" name="submit_fb" class="sign_me_up" id="register_submit_fb" value="Create Account" />';
+      //echo '<input type="hidden" name="fb" id="from_fb" value="fb" />';
+    echo '</form>';  
+  echo '</div>'; //Close register_form
+  echo '<div><div id="cancel_sign_up_fb">Cancel</div></div>';
+echo '</div>';  //close #create_account
+}
+
 
 
 ?>
