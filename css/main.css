@@ -3792,16 +3792,6 @@ END OLD WAY*/
     
 }
 
-span.div_link {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-}
-
 #profile_sections_custom {
     background: none repeat scroll 0 0 #D3DBF6;
     border-right: 2px solid #2C3447;

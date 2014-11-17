@@ -166,7 +166,10 @@ echo '<div id="profile_top_bar">';
 
           //REDESIGN
           echo '<div class="profile_button compare_button">';
-
+            echo '<div style="position:relative; top:32px; left:5px; text-align:center;">
+              <a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Compare<span class="div_link"></span></a>
+            </div>';
+            /*
             echo '<div id="compare_menu"><a href="">Compare</a>';
               echo '<div class="dropdown">';
                 echo '<ul>';
@@ -175,14 +178,7 @@ echo '<div id="profile_top_bar">';
                 echo '</ul>';
               echo '</div>';
             echo '</div>';
-          /*
-          echo '<span class="compare_button_title">Compare</span>
-              <select id="compare_select" onchange="location = this.options[this.selectedIndex].value;">
-                <option value="">Compatiblity Test</option>
-                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Romance</option>
-                <option value="?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=2&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Friends</option>
-              </select>';
-           */ 
+            */
            echo '</div>'; //close compare button
 
           //************---Matt adding jquery popup from Message button

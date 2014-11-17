@@ -56,6 +56,10 @@ if (login_check_point($type="full")) {
 
 
     echo '<div class="profile_button compare_button">';
+      echo '<div style="position:relative; top:32px; left:5px; text-align:center;">
+              <a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare<span class="div_link"></span></a>
+            </div>';
+      /*
       echo '<div id="compare_menu"><a href="">Compare</a>';
         echo '<div class="dropdown">';
           echo '<ul>';
@@ -64,6 +68,7 @@ if (login_check_point($type="full")) {
           echo '</ul>';
         echo '</div>';
       echo '</div>';
+    */
     echo '</div>'; //Close compare_button
   
 

@@ -47,7 +47,10 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
 
       //TEST FOR ADDING text_type to compare_button
       echo '<div class="profile_button compare_button">';
-
+      echo '<div style="position:relative; top:32px; left:5px; text-align:center;">
+              <a href="main.php?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true">Compare<span class="div_link"></span></a>
+            </div>';
+      /*
       echo '<div id="compare_menu">Compare';
         echo '<div class="dropdown">';
           echo '<ul>';
@@ -56,6 +59,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
           echo '</ul>';
         echo '</div>';
       echo '</div>';
+      */
     echo '</div>';
 
   echo '</div>'; //Close Profile top bar
