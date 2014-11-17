@@ -1338,6 +1338,40 @@ div.poi_title {
 
 /*////////////////////// Minor ///////////////////*/
 
+#minor_subnav {
+  font-size: 1.3em;
+  width: 650px;
+  margin: auto;
+}
+
+#minor_subnav div {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+#minor_subnav div.mc {
+  border: 2px solid black;
+  background-color: #8393ca;
+  cursor: pointer;
+}
+
+#minor_subnav div.mc:hover {
+  background-color: #fbf0a4;
+}
+
+#minor_subnav div.selected {
+  background-color: #fbf0a4;
+}
+
+#minor_connections .poi_column {
+  margin-top: 15px;
+}
+
+#mc_sun, #mc_moon, #mc_venus {
+  display: none;
+}
+
 .poi_column div.poi_column_wrapper_minor {
   position: relative;
   display: inline-block;

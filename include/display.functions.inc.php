@@ -3259,6 +3259,7 @@ function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
 function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
 
+
   //echo $chart_id1 . ' ' . $chart_id2;
   if(isset($_SESSION['alternate_chart_gender'])) {
     $alt_gender = $_SESSION['alternate_chart_gender'];
@@ -3304,6 +3305,14 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       echo '<div id="minor">';
     //----ENDMATT--- 
 
+        echo '<div id="minor_subnav" class="later_on">';
+          echo '<div style="position: relative; bottom: 13px;">Support For: </div>';
+          echo '<div class="mc mc_rising selected">Rising Sign <br/> Connection <input type="hidden" value="0" /></div>';
+          echo '<div class="mc mc_sun">Sun Sign <br/> Connection <input type="hidden" value="1" /></div>';
+          echo '<div class="mc mc_moon">Moon Sign <br/> Connection <input type="hidden" value="2" /></div>';
+          echo '<div class="mc mc_venus">Venus Sign <br/> Connection <input type="hidden" value="3" /></div>';
+        echo '</div>';
+
       echo '<form name="minor_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
       echo '<div id="minor_connections">'; 
@@ -3312,17 +3321,34 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
       
       echo '<div class="poi_column">';
-      echo '<ul>';
+      //echo '<ul>';
       //echo '*' . $connection_type . '*';
       $support_con = array();
       $support_con = get_cornerstones();
+      //$connection = get_cornerstones();
+      //$connection = $connection[0];
+
       $x = 0;
       foreach (get_cornerstones() as $connection) {
 
+      //for ($x = 0; $x < 5; $x++) {
 
         //$connection_type = $support_con[$x];
-
-          echo '<li>'; 
+          echo '<div id="mc_';
+            if ($x == 0) {
+              echo 'rising';
+            }
+            elseif ($x == 1) {
+              echo 'sun';
+            }
+            elseif ($x == 2) {
+              echo 'moon';
+            }
+            else {
+              echo 'venus';
+            }
+          echo '">';
+          //echo '<li>'; 
           echo '<div class="poi_column_wrapper_minor">';
           $button_sign_id = get_sign_from_poi ($chart_id1, get_poi_id (ucfirst($connection)));  //in user functions
           $button_sign_id2 = get_sign_from_poi ($chart_id2, get_poi_id (ucfirst($connection)));
@@ -3336,19 +3362,6 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
             echo '<div class="right no_hover right_icon_adjust ' . get_selector_name($button_sign_id2) . '_tall';
             echo '"><span class="icon"><span class="minor_poi_title">' . $gender . '</span><span class="poi_title_tall">' . strtoupper($connection) . '</span></span></div>';  //End Right Side
 
-            
-              //Middle Relationships
-              /*
-                $relationship_id1 = $compare_data[$connection_type . '2' . $connection]["relationship_id"];
-                $relationship_name = $compare_data[$connection_type . '2' . $connection]["relationship_title"];
-                //$connection_poi_id_A = get_poi_id (strtoupper($connection_type));
-                //$connection_poi_id_B = get_poi_id (strtoupper($connection));
-                //echo 'rID1: ' . $relationship_id1;
-
-                echo '<div class="dynamic_column ' . get_rela_selector_name($relationship_id1);
-                echo '"><a class="dynamic_icon" href="#"><span></span></a></div>'; 
-              */
-               
                 //Pillars Images
 
                 //Bridge top
@@ -3384,9 +3397,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         else {
                           echo 'pillar_broken">';
                         }
-                      //echo '<div class="add_arrow_bottom"><img src="/img/Starma-Astrology-Arrow.png" /></div>';
-                      //echo '<div class="pillar_title">YOUR</div>';
-          
+
                       //echo '">';
                         echo '<div class="pillar_icon_minor L ' . get_selector_name($button_sign_id3) . '_tall';
                         echo '"><span class="icon pointer main to_leg' . $z . '"><span class="minor_poi_title">YOUR</span><span class="poi_title_tall">' . strtoupper($con_y) . '</span></span></div>';                     
@@ -3415,37 +3426,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         else {
                           echo 'pillar_broken">';
                         }
-                      /*
-                      echo '<div class="pillar_title">';
-
-                        if($temp_id = get_user_id_from_chart_id($chart_id2)) {
-                          if (get_gender($temp_id) == "M") {
-                            echo 'HIS';
-                          }
-                          elseif (get_gender($temp_id) == "F") {
-                            echo 'HER';
-                          }
-                          else {
-                            echo '';
-                          }
-                        }
-                        elseif ($alt_gender) {
-                          if ($alt_gender == "M") {
-                            echo 'HIS';
-                          }
-                          elseif ($alt_gender == "F") {
-                            echo 'HER';
-                          }
-                          else {
-                            echo '';
-                          }
-                        }
-                        else {
-                          echo '';
-                        }
-
-                      echo '</div>';
-                    */
+                    
                         echo '<div class="pillar_icon_minor R ' . get_selector_name($button_sign_id4) . '_tall';
                         echo '"><span class="icon pointer main to_leg' . $zz . '"><span class="minor_poi_title">' . $gender . '</span>';
 
@@ -3492,8 +3473,8 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                   //Blurb Boxes for 4-6 (theirs to yours)
                   $zzzz = 4;    
                   for ($y = 0; $y < count(get_cornerstones()); $y++) {
-                    $con_x = $support_con[$x];
-                    $con_y = $support_con[$y];
+                      $con_x = $support_con[$x];
+                      $con_y = $support_con[$y];
                       if ($con_x != $con_y) {
                         $relationship_id2 = $compare_data[$con_x .'2' . $con_y]["relationship_id"];
                         $connection_poi_id_A = get_poi_id (strtoupper($con_x));
@@ -3520,11 +3501,13 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                 //End Pillars
                   
                  echo "</div>"; //close poi_column_wrapper
-                 echo '</li>';
+                 //echo '</li>';
+                 echo '</div>'; //close mc_poi
               $x++;
             } //end ForEach <li>
+            //} //TEST FOR LOOP
 
-          echo '</ul>';
+          //echo '</ul>';
         echo '</div>'; //close poi_column
        echo '</div>'; //close minor_connections
       echo '</form>';
