@@ -137,6 +137,16 @@ body select {
   letter-spacing: 2px;
 }
 
+span.div_link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
 #img_preloader {
   display:none;
 }
