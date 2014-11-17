@@ -33,6 +33,7 @@ require_once ("header.php");
     $other_user_id = get_user_id_from_chart_id ($chart_id2);
 
     //*************---endMatt stuff
+
     //LOGGING
     //log_this_action (profile_action_profile(), viewed_basic_action(), $_GET["chart_id2"], get_user_id_from_chart_id($_GET["chart_id2"]));
     echo '<div id="profile_page"';
