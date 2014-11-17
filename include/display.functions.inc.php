@@ -4351,6 +4351,9 @@ function show_intro_text($western_sun_sign) {
 }
 
 function show_guest_chart($the_page, $the_left, $user_id, $western=0) {
+  $guest_user_id = get_guest_user_id();
+  $guest_chart_id = get_guest_chart_id($guest_user_id);
+  
   if ($western == 0) {
     $chart_info = get_guest_chart($user_id);
   }
@@ -4382,12 +4385,17 @@ function show_guest_chart($the_page, $the_left, $user_id, $western=0) {
     echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
-          if ($western == 0) {
-            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=1&section=chart_selected">Switch to Western View</a></div>';
-          }
-          else {
-            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Switch to Vedic View</a></div>';
-          }
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" ';
+              if ($western == 0) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=0&section=chart_selected">Vedic</a>  |  ';
+              echo '<a class="later_on" ';
+              if ($western == 1) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=1&section=chart_selected">Western</a>';
+            echo '</div>'; //close birth_chart_type
 
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
@@ -4669,12 +4677,18 @@ function show_my_chart ($the_page, $the_left, $western=0) {
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
-          if ($western == 0) {
-            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=1&section=chart_selected">Switch to Western View</a></div>';
-          }
-          else {
-            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Switch to Vedic View</a></div>';
-          }
+          echo '<div id="birth_chart_type" class="pointer"><a class="later_on" ';
+            if ($western == 0) {
+              echo 'style="text-decoration:underline;"';
+            }
+            echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=0&section=chart_selected">Vedic</a>  |  ';
+            echo '<a class="later_on" ';
+            if ($western == 1) {
+              echo 'style="text-decoration:underline;"';
+              //echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Switch to Vedic View</a></div>';
+            }
+            echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=1&section=chart_selected">Western</a>';
+          echo '</div>'; //close birth_chart_type
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
@@ -4847,7 +4861,7 @@ function show_my_chart ($the_page, $the_left, $western=0) {
 
 function show_others_chart ($the_page, $the_left, $chart_id2, $western=0) {
 
-  
+  //$western_there = grab_var('western_there',chart_already_there("Alternate",get_user_id_from_chart_id($chart_id2)));
   if ($western == 0 or is_freebie_chart($chart_id2)) {
     //$chart_info = get_chart($chart_id);
     $calc_chart_id = $chart_id2;
@@ -4878,13 +4892,26 @@ function show_others_chart ($the_page, $the_left, $chart_id2, $western=0) {
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
-          if ($western == 0) {
-            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=1&section=chart_selected">Switch to Western View</a></div>';
+          if (isLoggedIn()) {
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" ';
+              if ($western == 0) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=0&section=chart_selected">Vedic</a>  |  ';
+              echo '<a class="later_on" ';
+              if ($western == 1) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=1&section=chart_selected">Western</a>';
+            echo '</div>'; //close birth_chart_type
           }
           else {
-            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=0&section=chart_selected">Switch to Vedic View</a></div>';
+            echo '<div id="birth_chart_type" class="pointer">';
+              echo '<a class="later_on" style="text-decoration:underline;">Vedic</a>  |  ';
+              echo '<a class="later_on pop_guest_click">Western</a>';
+            echo '</div>'; //close birth_chart_type
           }
-
+          
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
@@ -5093,8 +5120,8 @@ function show_others_chart ($the_page, $the_left, $chart_id2, $western=0) {
     elseif (!is_freebie_chart($chart_id2)) {
         $user_title = $user_info["nickname"];
     }
-    echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=3&western=0&section=chart_selected">< Back to Vedic View</a></div>';
-    echo '<div class="later_on" style="font-size:1.3em; margin-bottom: 225px; margin-top: 25px;">' . $user_title . ' does\'t have a western Birth Chart yet.</div>';
+    echo '<div style="font-size:1.3em;" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=3&western=0&section=chart_selected">< Back to Vedic View</a></div>';
+    echo '<div class="later_on" style="font-size:1.3em; margin-bottom: 225px; margin-top: 10px;">' . $user_title . ' does\'t have a western Birth Chart yet.</div>';
   }
 }
 
@@ -7654,7 +7681,7 @@ function show_sign_up_box_guest () {
         echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with ' . $user_info['first_name'] . ' ' . $user_info['last_name'] . '...';
       }
     }
-    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
+    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || $_GET['section'] == 'astrologers_view_selected' || !isset($_GET['section']))) {
       echo 'You\'re about to see an example of a birth chart.  To view your own birth chart...';
     }
     else {
