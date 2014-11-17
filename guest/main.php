@@ -165,46 +165,6 @@ if ($the_left=="nav1") {
   <img src="/img/Starma-Astrology-ChartBoxH.png"/>
   <img src="/img/Starma-Astrology-CompareBoxH.png"/>   
 
-  
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Aries-Tall-ON.png"/>
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Taurus-Tall-ON.png"/>
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Gemini-Tall-ON.png"/>
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Cancer-Tall-ON.png"/>
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Leo-Tall-ON.png"/>
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Virgo-Tall-ON.png"/>
-
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Libra-Tall-ON.png"/>
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Scorpio-Tall-ON.png"/>
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Sagittarius-Tall-ON.png"/>
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Capricorn-Tall-ON.png"/>
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Aquarius-Tall-ON.png"/>
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Pisces-Tall-ON.png"/>
-
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-ON.png"/>  
-  <img src="/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-OFF.png"/> 
-
-  <img src="/img/Starma-Astrology-Pillar.png"/> 
-  <img src="/img/Starma-Astrology-Pillar-Arrow.png"/> 
-  <img src="/img/Starma-Astrology-Pillar-Broken.png"/> 
-  <img src="/img/Starma-Astrology-Pillar-Broken-Arrow.png"/> 
-  <img src="/img/Starma-Astrology-Pillars-Top.png"/> 
-  <img src="/img/Starma-Astrology-Pillars-Base.png"/> 
-
-  <img src="/img/Starma-Astrology-Compare-ButtonON.png"/> 
-  <img src="/img/Starma-Astrology-Compare-InviteON.png"/> 
-
-  <img src="/img/Starma-Astrology-Report-UserON.png"/> 
-
-  <img src="/img/profile/Starma-Astrology-Compare.png"/>
-  <img src="/img/profile/Starma-Astrology-CompareON.png"/>
-  <img src="/img/profile/Starma-Astrology-Message.png"/>
-  <img src="/img/profile/Starma-Astrology-MessageON.png"/>
-  <img src="/img/profile/Starma-Astrology-Chat.png"/>
-  <img src="/img/profile/Starma-Astrology-ChatON.png"/>
-
-  <img src="/img/profile/Starma-Astrology-Favorites.png"/>
-  <img src="/img/profile/Starma-Astrology-FavoritesON.png"/>
-
   <img src="/img/GoBug.png"/>
   <img src="/img/GoBugON.png"/>
    

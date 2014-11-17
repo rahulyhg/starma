@@ -34,6 +34,15 @@ require_once ("header.php");
 
     //*************---endMatt stuff
 
+    echo '<div id="img_preloader">
+    <img src="/img/Starma-Astrology-Compare-ButtonON.png"/> 
+    <img src="/img/Starma-Astrology-Compare-InviteON.png"/> 
+    <img src="/img/Starma-Astrology-Report-UserON.png"/> 
+    <img src="/img/profile/Starma-Astrology-CompareON.png"/>
+    <img src="/img/profile/Starma-Astrology-MessageON.png"/>
+    <img src="/img/profile/Starma-Astrology-FavoritesON.png"/>
+    </div>';
+
     //LOGGING
     //log_this_action (profile_action_profile(), viewed_basic_action(), $_GET["chart_id2"], get_user_id_from_chart_id($_GET["chart_id2"]));
     echo '<div id="profile_page"';

@@ -59,6 +59,28 @@ require_once ("header.php");
   		//display_my_chart_list();
 	}
 	elseif ($tier == "2") {
+    echo '<div id="img_preloader">
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Aries-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Taurus-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Gemini-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Cancer-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Leo-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Virgo-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Libra-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Scorpio-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Sagittarius-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Capricorn-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Aquarius-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Pisces-Tall-ON.png"/>
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-ON.png"/>  
+  <img src="/img/sign_buttons_tall/Starma-Astrology-Unknown-Tall-OFF.png"/> 
+  <img src="/img/Starma-Astrology-Pillar.png"/> 
+  <img src="/img/Starma-Astrology-Pillar-Arrow.png"/> 
+  <img src="/img/Starma-Astrology-Pillar-Broken.png"/> 
+  <img src="/img/Starma-Astrology-Pillar-Broken-Arrow.png"/> 
+  <img src="/img/Starma-Astrology-Pillars-Top.png"/> 
+  <img src="/img/Starma-Astrology-Pillars-Base.png"/> 
+  </div>';
    		//if(isset($_GET['from_profile'])) {    // in compare_tier_2 now
       	//clear_compare_data();
     	//}
