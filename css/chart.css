@@ -1347,13 +1347,16 @@ div.poi_title {
 #minor_subnav div {
   display: inline-block;
   padding: 10px;
-  cursor: pointer;
-  border: 2px solid black;
   margin-right: 10px;
-  background-color: #8393ca;
 }
 
-#minor_subnav div:hover {
+#minor_subnav div.mc {
+  border: 2px solid black;
+  background-color: #8393ca;
+  cursor: pointer;
+}
+
+#minor_subnav div.mc:hover {
   background-color: #fbf0a4;
 }
 

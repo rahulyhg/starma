@@ -3306,7 +3306,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
     //----ENDMATT--- 
 
         echo '<div id="minor_subnav" class="later_on">';
-          echo '<div style="border: none; background-color:none; position: relative; bottom: 13px; cursor:default;">Support For: </div>';
+          echo '<div style="position: relative; bottom: 13px;">Support For: </div>';
           echo '<div class="mc mc_rising selected">Rising Sign <br/> Connection <input type="hidden" value="0" /></div>';
           echo '<div class="mc mc_sun">Sun Sign <br/> Connection <input type="hidden" value="1" /></div>';
           echo '<div class="mc mc_moon">Moon Sign <br/> Connection <input type="hidden" value="2" /></div>';
