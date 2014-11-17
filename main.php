@@ -302,6 +302,8 @@ if ($the_left=="nav1") {
   <img src="/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Scorpio-Taurus-ON.png"/>
   <img src="/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Taurus-Scorpio-ON.png"/>
   <img src="/img/sign_buttons/Starma-Astrology-Rahu-Ketu-Virgo-Pisces-ON.png"/>
+  <img src="/img/Starma-Astrology-Profile-Pic-Small-Frame.png"/>
+  
 
   <img src="/img/GoBug.png"/>
   <img src="/img/GoBugON.png"/>
