@@ -25,7 +25,7 @@ if (login_check_point($type="full")) {
     $chart_id2 = $_GET["chart_id2"];
     $other_user_id = get_user_id_from_chart_id ($chart_id2);
 
-    echo '
+    echo '<div id="img_preloader">
   <img src="/img/hl_nav_icon_1ON.png"/>
   <img src="/img/hl_nav_icon_2ON.png"/>
   <img src="/img/hl_nav_icon_3ON.png"/>
@@ -63,7 +63,8 @@ if (login_check_point($type="full")) {
   <img src="/img/palanquin_9.png" />
   <img src="/img/palanquin_10.png" />
   <img src="/img/palanquin_11.png" />
-  <img src="/img/palanquin_12.png" />';
+  <img src="/img/palanquin_12.png" />
+  </div>';
 
     //*************---endMatt stuff
 

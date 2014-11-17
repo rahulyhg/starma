@@ -35,7 +35,7 @@ if (login_check_point($type="full")) {
   echo '</div>'; //close msg_sheen
   }
 
-  echo '
+  echo '<div id="img_preloader">
   <img src="/img/hl_nav_icon_1ON.png"/>
   <img src="/img/hl_nav_icon_2ON.png"/>
   <img src="/img/hl_nav_icon_3ON.png"/>
@@ -73,9 +73,10 @@ if (login_check_point($type="full")) {
   <img src="/img/palanquin_9.png" />
   <img src="/img/palanquin_10.png" />
   <img src="/img/palanquin_11.png" />
-  <img src="/img/palanquin_12.png" />';
+  <img src="/img/palanquin_12.png" />
+  </div>';
 
-  
+
       //echo '<div style="position:relative; top:3px">';
         //flare_title ("Crop Your Photo");
       //echo '</div>';
