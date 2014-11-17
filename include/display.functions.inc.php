@@ -4608,7 +4608,7 @@ function show_my_chart ($the_page, $the_left, $western=0) {
             echo '<div id="msg_sheen_ct2" class="msg_sheen_ct">';
                 echo '<div id="chart_pop2">';
                 echo '<div class="ct_step later_on">2 / 5</div>';
-                  echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Switch to Western View."</div>';
+                  echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Western".</div>';
                   echo '<div class="later_on ct_next" id="ct2_done"><a href="#" class="later_on">Next></a></div>';
               echo '</div>'; //close #chart_pop1
             echo '</div>'; //close msg_sheen_ct2
