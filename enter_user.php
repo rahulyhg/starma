@@ -149,6 +149,7 @@ elseif ($tier == "4") {
   }
 
   echo '<div id="img_preloader">
+  <img src="/img/Starma-Astrology-Compare-ButtonON.png"/> 
   <img src="/img/hl_nav_icon_1ON.png"/>
   <img src="/img/hl_nav_icon_2ON.png"/>
   <img src="/img/hl_nav_icon_3ON.png"/>
