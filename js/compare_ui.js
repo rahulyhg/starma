@@ -339,8 +339,74 @@ $(document).ready(function(){
 		});
 
 
+//POST MINOR COMPARE SUPPORT FOR-----------------------------------------------
 
+	$('.mc').click(function(){
+		$('.mc').removeClass('selected');
+		var mc = $(this).children('input').val();
+		if (mc == 0) {
+			$('#mc_sun').hide();
+			$('#mc_moon').hide();
+			$('#mc_venus').hide();
+			$('.mc_rising').addClass('selected');
+			$('#mc_rising').fadeIn(300);
+		}
+		if (mc == 1) {
+			$('#mc_rising').hide();
+			$('#mc_moon').hide();
+			$('#mc_venus').hide();
+			$('.mc_sun').addClass('selected');
+			$('#mc_sun').fadeIn(300);
+		}
+		if (mc == 2) {
+			$('#mc_rising').hide();
+			$('#mc_sun').hide();
+			$('#mc_venus').hide();
+			$('.mc_moon').addClass('selected');
+			$('#mc_moon').fadeIn(300);
+		}
+		if (mc == 3) {
+			$('#mc_rising').hide();
+			$('#mc_sun').hide();
+			$('#mc_moon').hide();
+			$('.mc_venus').addClass('selected');
+			$('#mc_venus').fadeIn(300);
+		}
+	});
 
+	/*
+	$('.mc').click(function(){
+		$('#mc_results').html('<div><img src="/js/ajax_loader_sign_up.gif" /></div>');
+		var data = { 'mc' 			: $(this).children('input').val(),
+					 'chart_id1' 	: $('#chart_id1').val(),
+					 'chart_id2' 	: $('#chart_id2').val()
+					};
+
+		$.ajax({
+			method : 'POST',
+			url: '/chat/minor_compare_submit.php',
+			data: data,
+			dataType: 'json'
+		})
+		.done(function(data){
+			if (data.errors) {
+				if (data.errors.mc) {
+
+				}
+				if (data.errors.chart_id1) {
+					
+				}
+				if (data.errors.chart_id2) {
+					
+				}
+			}
+			if (data.results) {
+				alert('con_x: ' + data.con_x + ' con_y: ' + data.con_y + ' poi_id_a: ' + data.poi_id_a + ' poi_id_b: ' + data.poi_id_b + ' rel_id2: ' + data.relationship_id2 + ' chart_id1: ' + data.chart_id1 + ' chart_id2: ' + data.chart_id2 + ' blurb: ' + data.blurb);
+				$('#mc_results').html(data.results);
+			}
+		});
+	});
+	*/
 });
 
 
