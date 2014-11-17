@@ -92,6 +92,7 @@ if ($the_left=="nav1") {
             show_sign_up_box_guest();
             show_fb_or_email_box_guest();
             show_registration_box_guest();
+            show_fb_registration_box_guest();
           ?>  
         </div> <!--close msg_sheen_content_guest-->
     </div> <!--close msg_sheen-->    

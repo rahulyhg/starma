@@ -197,7 +197,8 @@ echo '<div id="profile_top_bar">';
           <ul>
             <li><a class="' . $chart_selected . '" href="?the_left=nav3&the_page=cosel&tier=4&western=0&section=chart_selected">Birth Chart</a></li>';
             echo '<li><a class="' . $houses_selected . '" href="?the_page=cosel&the_left=nav3&tier=4&western=0&section=houses_selected">House Lords</a></li>';   
-            echo '<li class="end"><a class="' . $western_selected . '" href="?the_page=cosel&the_left=nav3&tier=4&chart_id2=' . $chart_id2 . '&western=1&section=western_selected">Western View</a></li>';
+            echo '<li class="end"><a class="' . $astrologers_view_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left .'&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=4&section=astrologers_view_selected">Astrologers View</a></li>';
+            //echo '<li class="end"><a class="' . $western_selected . '" href="?the_page=cosel&the_left=nav3&tier=4&chart_id2=' . $chart_id2 . '&western=1&section=western_selected">Western View</a></li>';
           echo '</ul>
         </div>';
 
@@ -211,9 +212,12 @@ echo '<div id="profile_top_bar">';
             require('houses.php');
             //echo '<div style="height:300px;">Coming Soon...</div>';
           }
-          elseif ($section == 'western_selected') {
-            require('chart_others.php');
+          elseif ($section == 'astrologers_view_selected') {
+            require ('astrologers_view.php');
           }
+          //elseif ($section == 'western_selected') {
+          //  require('chart_others.php');
+          //}
         echo '</div>';
       echo '</div>';
   //require("chart_others.php");

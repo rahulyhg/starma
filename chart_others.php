@@ -34,6 +34,8 @@ if (login_check_point($type="full", $domain=$domain)) {
     $section = $_GET["section"];
     }
 
+   
+
 /*// OLD LINKS FOR CUSTOM CHART
     $show_links = false;
     if (is_freebie_chart($chart_id2)) {
@@ -67,7 +69,7 @@ if (login_check_point($type="full", $domain=$domain)) {
     else {
       $goTo="?the_page=" . $the_page . "&the_left=" . $the_left . "&tier=4&western=" . $western . "&section=" . $section; 
     }
-    show_others_chart($goTo, $chart_id2, $western);
+    show_others_chart($the_page, $the_left, $chart_id2, $western);
     // If Freebie Chart //////////////////
     if (is_freebie_chart($chart_id2)) { 
       //if ($western == 0) {

@@ -10,7 +10,8 @@ if (login_check_point($type="full")) {
   $chart_selected = '';
   $photos_selected = '';
   $about_selected = '';
-  $western_selected = '';
+  //$western_selected = '';
+  $astrologers_view_selected = '';
   
   $$section = 'selected';
   
@@ -102,7 +103,7 @@ if (login_check_point($type="full")) {
           <li><a class="' . $houses_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=houses_selected">House Lords</a></li>
           <li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=photos_selected">Photos</a></li>
           <li><a class="' . $about_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected">About</a></li>
-          <li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=1&section=western_selected">Western View</a></li>
+          <li class="end"><a class="' . $astrologers_view_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=astrologers_view_selected">Astrologers View</a></li>
         </ul>
       </div>';
     
@@ -113,6 +114,7 @@ if (login_check_point($type="full")) {
           <li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=photos_selected">Photos</a></li>
           <li><a class="' . $about_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected">About</a></li>
           <li class="end"><a class="' . $western_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=1&section=western_selected">Western View</a></li>
+
         </ul>
       </div>';*/
       echo '<div id="section">';
@@ -141,8 +143,8 @@ if (login_check_point($type="full")) {
           }
           
         }
-        elseif ($section == 'western_selected') {
-          require('chart.php');
+        elseif ($section == 'astrologers_view_selected') {
+          require('astrologers_view.php');
         }
       echo '</div>';
     echo '</div>';

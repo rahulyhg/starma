@@ -10,11 +10,11 @@
 #western_circle {
     display: none;
     background: url('/img/western-chart-circle.png') no-repeat;
-    width: 180px;
-    height: 60px;
+    width: 248px;
+    height: 70px;
     position: absolute;
-    top: 236px;
-    left: 530px;
+    top: 264px;
+    left: 273px;
     z-index: 1001;
 }
 
@@ -110,7 +110,7 @@
 
 #msg_sheen #msg_sheen_ct2 {
     top: 180px;
-    left: 350px;
+    left: 108px;
 }
 
 #msg_sheen #msg_sheen_ct3 {

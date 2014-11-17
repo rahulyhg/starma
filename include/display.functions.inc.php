@@ -8,28 +8,94 @@ function isWord($word) {
  }
 }
 
-function show_house_chart($chart_id) {
-  
-  echo '<div id="house_chart">';
-  $houses = get_house_list();
-  while ($house = mysql_fetch_array($houses)) {
-    echo '<div id="house_' . $house['house_id'] . '_sign">';
-      echo get_sign_in_house_id($chart_id, $house['house_id']);  
-    echo '</div>';
-     
-    $poi_list = get_poi_in_house_id($chart_id, $house['house_id']);
-    
-    echo '<div id="house_' . $house['house_id'] . '_poi">';
-      echo '<table><tr><td>';
-      while ($poi = mysql_fetch_array($poi_list)) {
-        echo '<span>' . $poi['poi_abbr'] . '</span><br>';
+function show_astrologers_view() {
+  if (isLoggedIn()) {
+    if ($_GET['the_page'] == 'psel') {  //MY PROFILE
+      if ($_GET['western'] == 0) {  //VEDIC
+        $chart_id = get_my_chart_id();
       }
-      echo '</td></tr></table>';
-    echo '</div>';
+      else {  //WESTERN
+        $chart_info = get_chart_by_name("Alternate",get_my_user_id());  
+        $chart_id = $chart_info['chart_id'];
+      }
+    }
+    else {  //ANOTHER PROFILE
+      if ($_GET['western'] == 0) {  //VEDIC
+        $chart_id = $_GET['chart_id2'];
+      }
+      else {  //WESTERN
+        $chart_id = $_GET['chart_id2'];
+        if (!is_freebie_chart($chart_id)) { //USER OR CELEB
+          $chart_info = get_chart_by_name("Alternate",get_user_id_from_chart_id($chart_id));  
+          $chart_id = $chart_info['chart_id'];
+        }
+        else {  //FREEBIE
+          $chart_id = chart_already_there("Alternate_Freebie1",get_my_user_id());
+        }    
+      }
+    }
   }
+  else {  //GUEST VIEW
+    $guest_user_id = get_guest_user_id();
+    if ($_GET['western'] == 0) {  //VEDIC
+      $chart_id = get_guest_chart_id($guest_user_id);
+    }
+    else {  //WESTERN VIEW
+      $chart_info = get_chart_by_name("Alternate",get_guest_user_id());  
+      $chart_id = $chart_info['chart_id'];
+    }
+  }
+   
+  $rising_sign_id = get_sign_from_poi ($chart_id, 1);
+  if ($rising_sign_id !== -1) {
+    echo '<div id="astrologers_view" class="later_on">';
+    $houses = get_house_list();
+    while ($house = mysql_fetch_array($houses)) {
+      echo '<div id="house_' . $house['house_id'] . '_sign">';
+        echo get_sign_in_house_id($chart_id, $house['house_id']);  
+      echo '</div>';
      
-
-  echo '</div>';
+      $poi_list = get_poi_in_house_id($chart_id, $house['house_id']);
+      
+      if ($house['house_id'] == 2 || $house['house_id'] == 6 || $house['house_id'] == 8 || $house['house_id'] == 12) {
+        echo '<div id="house_' . $house['house_id'] . '_poi">';
+          echo '<div style="text-align:center; width: 177px;">';
+          while ($poi = mysql_fetch_array($poi_list)) {
+            echo '<span>' . $poi['poi_abbr'] . '&nbsp;</span>';
+          }
+          echo '</div>';
+        echo '</div>';
+      }  
+      else {
+        echo '<div id="house_' . $house['house_id'] . '_poi">';
+          echo '<table><tr><td>';
+          while ($poi = mysql_fetch_array($poi_list)) {
+            echo '<span>' . $poi['poi_abbr'] . '</span><br>';
+          }
+          echo '</td></tr></table>';
+        echo '</div>';
+      }
+      
+    }
+  }
+  else {
+    $isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($chart_id)));
+    $user_info = profile_info(get_user_id_from_chart_id($chart_id));
+    if ($isCeleb) {
+      $user_title = $user_info['first_name'] . ' ' . $user_info['last_name'];
+    }
+    elseif (!is_freebie_chart($chart_id)) {
+        $user_title = $user_info["nickname"];
+    }
+    if (!is_freebie_chart($chart_id)) {
+      echo '<div class="later_on" style="font-size:1.3em; margin-bottom: 225px; margin-top:25px;">Sorry!  We can\'t show you the Astrologers View because ' . $user_title . ' doesn\'t have a precise birth time.</div>';
+    }
+    else {
+      echo '<div class="later_on" style="font-size:1.3em; margin-bottom: 225px; margin-top:25px;">Sorry!  We can\'t show you the Astrologers View because we don\'t have a precise birth time for this Custom Chart.</div>';
+    }
+  }
+  
+  echo '</div>'; //close astrologers_view
 }
 
 
@@ -4284,7 +4350,10 @@ function show_intro_text($western_sun_sign) {
   //echo '</div>';
 }
 
-function show_guest_chart($goto = ".", $user_id, $western=0) {
+function show_guest_chart($the_page, $the_left, $user_id, $western=0) {
+  $guest_user_id = get_guest_user_id();
+  $guest_chart_id = get_guest_chart_id($guest_user_id);
+  
   if ($western == 0) {
     $chart_info = get_guest_chart($user_id);
   }
@@ -4306,13 +4375,7 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
       else {
         $poi_id = $_POST["poi_id"];
       }
-      /*
-      if ($poi_id > 0 and my_chart_flag() == 1) {
-  
-         set_my_chart_flag(0);
-      
-      }
-      */
+
       $poi_list = get_poi_list();
      
       $sign_id = get_sign_from_poi ($chart_id, $poi_id);
@@ -4322,6 +4385,17 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
     echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" ';
+              if ($western == 0) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=0&section=chart_selected">Vedic</a>  |  ';
+              echo '<a class="later_on" ';
+              if ($western == 1) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=1&section=chart_selected">Western</a>';
+            echo '</div>'; //close birth_chart_type
 
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
@@ -4490,7 +4564,10 @@ function show_guest_chart($goto = ".", $user_id, $western=0) {
 
 
 
-function show_my_chart ($goTo = ".", $western=0) {
+function show_my_chart ($the_page, $the_left, $western=0) {
+
+  //$western = $_GET['western'];
+
   if ($western == 0) {
     $chart_info = get_my_chart();
   }
@@ -4531,7 +4608,7 @@ function show_my_chart ($goTo = ".", $western=0) {
             echo '<div id="msg_sheen_ct2" class="msg_sheen_ct">';
                 echo '<div id="chart_pop2">';
                 echo '<div class="ct_step later_on">2 / 5</div>';
-                  echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Western View."</div>';
+                  echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Switch to Western View."</div>';
                   echo '<div class="later_on ct_next" id="ct2_done"><a href="#" class="later_on">Next></a></div>';
               echo '</div>'; //close #chart_pop1
             echo '</div>'; //close msg_sheen_ct2
@@ -4600,7 +4677,18 @@ function show_my_chart ($goTo = ".", $western=0) {
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
-
+          echo '<div id="birth_chart_type" class="pointer"><a class="later_on" ';
+            if ($western == 0) {
+              echo 'style="text-decoration:underline;"';
+            }
+            echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=0&section=chart_selected">Vedic</a>  |  ';
+            echo '<a class="later_on" ';
+            if ($western == 1) {
+              echo 'style="text-decoration:underline;"';
+              //echo '<div id="birth_chart_type" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Switch to Vedic View</a></div>';
+            }
+            echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&western=1&section=chart_selected">Western</a>';
+          echo '</div>'; //close birth_chart_type
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
@@ -4771,16 +4859,18 @@ function show_my_chart ($goTo = ".", $western=0) {
   }
 }
 
-function show_others_chart ($goTo = ".", $chart_id, $western=0) {
-  if ($western == 0 or is_freebie_chart($chart_id)) {
+function show_others_chart ($the_page, $the_left, $chart_id2, $western=0) {
+
+  //$western_there = grab_var('western_there',chart_already_there("Alternate",get_user_id_from_chart_id($chart_id2)));
+  if ($western == 0 or is_freebie_chart($chart_id2)) {
     //$chart_info = get_chart($chart_id);
-    $calc_chart_id = $chart_id;
+    $calc_chart_id = $chart_id2;
   }
   else {
-    $calc_chart_id = chart_already_there("Alternate",get_user_id_from_chart_id($chart_id));  
+    $calc_chart_id = chart_already_there("Alternate",get_user_id_from_chart_id($chart_id2));  
   }
   if ($chart_info = get_chart($calc_chart_id)) {
-      $goTo = $goTo . '&chart_id2=' . $chart_id;
+      $goTo = $goTo . '&chart_id2=' . $chart_id2;
       if (!isset($_POST["poi_id"])) {
         $poi_id = 1;
       }
@@ -4793,22 +4883,47 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
       //echo '&&' . $sign_id . '&&<br>';
     echo '<div id="profile_chart">';
 
+    if (!is_freebie_chart($chart_id2)) {
+      $tier = 3;
+    }
+    else {
+      $tier = 4;
+    }
       echo '<div id="chart_scroll">';
         echo '<div id="chart_scroll_container">';
           echo '<div id="chart_prev">< Previous</div>';
-
+          if (isLoggedIn()) {
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" ';
+              if ($western == 0) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=0&section=chart_selected">Vedic</a>  |  ';
+              echo '<a class="later_on" ';
+              if ($western == 1) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=1&section=chart_selected">Western</a>';
+            echo '</div>'; //close birth_chart_type
+          }
+          else {
+            echo '<div id="birth_chart_type" class="pointer">';
+              echo '<a class="later_on" style="text-decoration:underline;">Vedic</a>  |  ';
+              echo '<a class="later_on pop_guest_click">Western</a>';
+            echo '</div>'; //close birth_chart_type
+          }
+          
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
 
       echo '<form name="chart_browser" action="." method="post">';
       echo '<input type="hidden" name="chart_id" value="' . $calc_chart_id . '"/>';
-      echo '<input type="hidden" name="chart_id_e" value="' . $_GET['chart_id2'] . '"/>';  //FOR CHART SUBMIT AJAX
+      echo '<input type="hidden" name="chart_id_e" value="' . $chart_id2 . '"/>';  //FOR CHART SUBMIT AJAX
       echo '<input type="hidden" name="poi_id"/>';
       echo '<div id="starma_chart">';
       $header = "";
-      if (!is_freebie_chart($chart_id)) {
-        $user_info = profile_info(get_user_id_from_chart_id($chart_id));
+      if (!is_freebie_chart($chart_id2)) {
+        $user_info = profile_info(get_user_id_from_chart_id($chart_id2));
         
         $user_title = $user_info["nickname"];
         if (substr(strtoupper($user_info["nickname"]), -1) == "S") {
@@ -4818,25 +4933,8 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
           $user_title = $user_title . "'s";
         }
         $header = $header . $user_title . " Chart";
-          }
-      //else {
-      //  $header = 'Custom Chart';     //TOOK OUT CUSTOM CHART HEADER
-      //}
-      //if ($header == "Custom Chart") {
-      //  echo '<div id="header">';    
-      //    flare_title($header);
-      //    //echo $header;
-      //  echo '</div>';
-      //}
-      //echo '<div id="profile_back_link">';
-      //  if ($header != 'Custom Chart') {
-      //    echo '<a href="' . $goTo . '&tier=3&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id . '">< Back to Profile</a>';
-      //  }
-      //echo '</div>';   
-
-      //echo '<div id="explanation">';
-      //  echo 'Your Starma Chart is calculated using Jyotish (Eastern Astrology).  You might notice have a different sign.  This is because Jyotish uses a different calendar thought to be more astronomically accurate.  To view your chart in a Western configuation click here.';
-      //echo '</div>';
+      }
+    
        //echo '<div id="top_ad_space">';
        //  echo 'Your Ad Here';
        //echo '</div>';
@@ -5005,13 +5103,25 @@ function show_others_chart ($goTo = ".", $chart_id, $western=0) {
         
       echo '<div id="blurb" class="text_block">';
         show_poi_info($poi_id, $calc_chart_id, $sign_id);
-        show_poi_sign_blurb ($poi_id, $sign_id, $chart_id);
+        show_poi_sign_blurb ($poi_id, $sign_id, $chart_id2);
         
       echo '</div>';
       echo '</div>';
       echo '</form>';
 
     echo '</div>';  //close #profile_chart
+  }
+  else {
+    $isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($_GET["chart_id2"])));
+    $user_info = profile_info(get_user_id_from_chart_id($chart_id2));
+    if ($isCeleb) {
+      $user_title = $user_info['first_name'] . ' ' . $user_info['last_name'];
+    }
+    elseif (!is_freebie_chart($chart_id2)) {
+        $user_title = $user_info["nickname"];
+    }
+    echo '<div style="font-size:1.3em;" class="pointer"><a class="later_on" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=3&western=0&section=chart_selected">< Back to Vedic View</a></div>';
+    echo '<div class="later_on" style="font-size:1.3em; margin-bottom: 225px; margin-top: 10px;">' . $user_title . ' does\'t have a western Birth Chart yet.</div>';
   }
 }
 
@@ -7571,7 +7681,7 @@ function show_sign_up_box_guest () {
         echo 'You\'re about to see an example of two people\'s compatibility.  To view your own compatibility with ' . $user_info['first_name'] . ' ' . $user_info['last_name'] . '...';
       }
     }
-    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || !isset($_GET['section']))) {
+    elseif ($_GET['the_page'] == 'psel' && ($_GET['section'] == 'chart_selected' || $_GET['section'] == 'western_selected' || $_GET['section'] == 'astrologers_view_selected' || !isset($_GET['section']))) {
       echo 'You\'re about to see an example of a birth chart.  To view your own birth chart...';
     }
     else {
@@ -7631,6 +7741,31 @@ echo '</div>';  //close #create_account
 
 //echo '<script type="text/javascript" src="js/ajax_register_guest.js"></script>';
 
+}
+
+function show_fb_registration_box_guest () {
+
+  
+echo '<div id="create_account_fb">';  
+  echo '<div id="register_form_fb">';
+    echo '<form name="register_form_fb" action="../chat/register_user.php" method="post" id="r_form_fb">';
+      echo '<div class="register_error_area_fb" id="reg_user_exists_fb"></div>';
+      echo '<div id="username_fb"><input type="text" id="register_username_fb" placeholder="Choose a Username" /><span class="reg_err check" id="reg_username_check_fb"></span><span class="reg_err" id="reg_username_error_fb"></span><div class="reg_err_exp" id="reg_err_username_exp_fb"></div></div>'; 
+      echo '<div id="birthday_fb">';
+        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<span>';
+          date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday", $for="sign_up_fb");
+        echo '</span>';
+        echo '<span class="reg_err check" id="reg_birthday_check_fb"></span><span class="reg_err" id="reg_birthday_error_fb"></span><div class="reg_err_exp" id="reg_err_birthday_exp_fb"></div>';
+      echo '</div>';
+      echo '<div id="email_fb"><input type="text" id="register_email_fb" placeholder="Your Email" /><span class="reg_err check" id="reg_email_check_fb"></span><span class="reg_err" id="reg_email_error_fb"></span><div class="reg_err_exp" id="reg_err_email_exp_fb"></div></div>';
+      echo '<div id="terms">By using Starma, I agree to the <a href="/docs/termsOfUse.htm" target="_blank">Terms of Use</a> and <a href="/docs/privacyPolicy.htm" target="_blank">Privacy Policy</a>.</div>';
+      echo '<input type="submit" name="submit_fb" class="sign_me_up" id="register_submit_fb" value="Create Account" />';
+      //echo '<input type="hidden" name="fb" id="from_fb" value="fb" />';
+    echo '</form>';  
+  echo '</div>'; //Close register_form
+  echo '<div><div id="cancel_sign_up_fb">Cancel</div></div>';
+echo '</div>';  //close #create_account
 }
 
 

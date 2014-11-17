@@ -104,6 +104,21 @@
   width: 472px;
 }
 
+#birth_chart_type {
+  margin-left: 194px;
+  width: 175px;
+  position: absolute;
+}
+
+#birth_chart_type a {
+  font-size: 1.3em;
+  color: black;
+}
+
+#birth_chart_type a:hover, #birth_chart_type a:active, #birth_chart_type a:visited {
+  color: black;
+}
+
 #chart_prev {
   display: none;
   position: relative;
@@ -117,7 +132,7 @@
 
 #chart_next {
   position: relative;
-  left: 44px;
+  left: 48px;
   cursor: pointer;
   float: right;
   font-family: 'later_on';
@@ -377,7 +392,7 @@ div.my_1_button {
 }
 
 div.my_unknown_button {
-  background:url('/img/Starma-Astrology-Compatibility-Unknown.png') no-repeat center top;
+  background:url('/img/Starma-Astrology-Compatibility-Unknown-Big.png') no-repeat center top;
 }
 /*//////////////// DYNAMIC ICONS ///////////////////////////////////////*/
 
