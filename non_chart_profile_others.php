@@ -225,6 +225,7 @@ echo '</div>';  //MYSTERIOUS FIX FOR FOOTER...
             if (!$isCeleb)  {
               echo '<li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=photos_selected">Photos</a></li>';
             }
+            echo '<li><a class="' . $about_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=about_selected">About</a></li>';
             echo '<li class="end"><a class="' . $astrologers_view_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left .'&chart_id2=' . $_GET['chart_id2'] . '&western=0&tier=3&section=astrologers_view_selected">Astrologers View</a></li>';
             /*
             echo '<li';
