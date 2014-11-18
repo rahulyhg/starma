@@ -2891,53 +2891,53 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
 
       //COMPARE FLAG----------------------------------------
 
-      if(my_chart_flag() == 1) {
+      if(my_compare_flag() == 1) {
 
         //MAJOR ------------------
 
           echo '<div id="msg_sheen" class="compare_pop">';    
             echo '<div id="msg_sheen_screen_ct" class="compare_pop"></div>';
               
-              echo '<div id="msg_sheen_ct1" class="compare_pop msg_sheen_cot">';
-                echo '<div id="chart_pop1">';
+              echo '<div id="msg_sheen_cot1" class="compare_pop msg_sheen_cot">';
+                echo '<div id="compare_pop1">';
                 echo '<div class="ct_step later_on">1 / 5</div>';
-                  echo '<div class="heading">Birth Chart Tutorial</div>';
+                  echo '<div class="heading">Compatibility Tutorial</div>';
                   echo '<div class="later_on ct_text">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs - we call these the “Major Connections.”  You’re likely to see both positive and negative dynamics, so keep in mind that a relationship can work with even one good dynamic!  It’s also normal to encounter contradictory information, so be sure to remember the Cake Analogy!</div>';
-                  echo '<div class="later_on ct_next" id="ct1_done"><a href="#" class="later_on">Next></a></div>';
-              echo '</div>'; //close #chart_pop1
-            echo '</div>'; //close msg_sheen_ct1
+                  echo '<div class="later_on cot_next" id="cot1_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
 
-            echo '<div id="msg_sheen_ct2" class="msg_sheen_cot">';
-                echo '<div id="chart_pop2">';
+            echo '<div id="msg_sheen_cot2" class="msg_sheen_cot">';
+                echo '<div id="compare_pop2">';
                 echo '<div class="ct_step later_on">2 / 5</div>';
-                  echo '<div class="later_on ct_text">Most of Starma is built using Vedic astrology, but if you want to see your Western chart, select "Western".</div>';
-                  echo '<div class="later_on ct_next" id="ct2_done"><a href="#" class="later_on">Next></a></div>';
-              echo '</div>'; //close #chart_pop1
-            echo '</div>'; //close msg_sheen_ct2
+                  echo '<div class="later_on ct_text">Your Major connections show...</div>';
+                  echo '<div class="later_on cot_next" id="cot2_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
 
-            echo '<div id="msg_sheen_ct3" class="msg_sheen_ct">';
-                echo '<div id="chart_pop3">';
+            echo '<div id="msg_sheen_cot3" class="msg_sheen_cot">';
+                echo '<div id="compare_pop3">';
                 echo '<div class="ct_step later_on">3 / 5</div>';
-                  echo '<div class="later_on ct_text">To learn why we use Vedic Astrology, click "Why Vedic Astrology?".</div>';
-                  echo '<div class="later_on ct_next" id="ct3_done"><a href="#" class="later_on">Next></a></div>';
-              echo '</div>'; //close #chart_pop1
-            echo '</div>'; //close msg_sheen_ct3
+                  echo '<div class="later_on ct_text">Your Minor connections show...</div>';
+                  echo '<div class="later_on cot_next" id="cot3_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
 
-            echo '<div id="msg_sheen_ct4" class="msg_sheen_ct">';
-                echo '<div id="chart_pop4">';
+            echo '<div id="msg_sheen_cot4" class="msg_sheen_cot">';
+                echo '<div id="compare_pop4">';
                 echo '<div class="ct_step later_on">4 / 5</div>';
-                  echo '<div class="later_on ct_text">Important! As you read through your Birth Chart, keep this analogy in mind: If you had never eaten cake before, and you separately tasted eggs, sugar, flour and milk, it might be hard to imagine the result of having them all baked together. Similarly, if you separately read your Sun, Moon and Venus signs, they might all have their own contradictory meaning. Understanding how the ingredients of your chart all "bake" together is the job of an astrologer. What you\'re about to read, we affectionately refer to as "Cook Book Astrology." For a more in depth understanding of your Birth Chart, please consult an astrologer.</div>';
-                  echo '<div class="later_on ct_next" id="ct4_done"><a href="#ct5" class="later_on">Next></a></div>';
-              echo '</div>'; //close #chart_pop1
-            echo '</div>'; //close msg_sheen_ct3
+                  echo '<div class="later_on ct_text">Bonus and Jupiter connections are taken into account in our compatibility equation, but the content is still on it\'s way...</div>';
+                  echo '<div class="later_on cot_next" id="cot4_done"><a href="#ct5" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
 
-            echo '<div id="msg_sheen_ct5" class="msg_sheen_ct">';
-                echo '<div id="chart_pop5">';
+            echo '<div id="msg_sheen_cot5" class="msg_sheen_cot">';
+                echo '<div id="compare_pop5">';
                 echo '<div class="ct_step later_on">5 / 5</div>';
-                  echo '<div class="later_on ct_text">Click through these links to read different aspects of your Birth Chart. If you want to see this tutorial again, go to "Settings" and select "Turn on Birth Chart Tutorial".</div>';
-                  echo '<div class="later_on ct_next" id="ct5_done"><a href="#" class="later_on">Done</a></div>';
-              echo '</div>'; //close #chart_pop1
-            echo '</div>'; //close msg_sheen_ct3
+                  echo '<div class="later_on ct_text">When you are ready, click Minor Connections to see a very brief tutorial on how they work...</div>';
+                  echo '<div class="later_on cot_next" id="cot5_done"><a href="#" class="later_on">Done</a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
 
         echo '</div>'; //close msg_sheen
         }
