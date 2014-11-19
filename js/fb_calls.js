@@ -25,7 +25,7 @@ $(document).ready(function(){
       						console.log('response: ');
       						console.log(response);
       						console.log('response id: '); 
-      						console.log(response.id);
+      						console.log(response.data.id);
       						fb_f.push(data.fb_friends[i]);
       						//console.log('name: ' + response.name + ', id: ' + response.id);
         					/* handle the result */
