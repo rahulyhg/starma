@@ -25,10 +25,10 @@ $(document).ready(function(){
       						//console.log('response: ');
       						//console.log(response);
       						if (response['data'].length > 0) {
-      							console.log('response id: '); 
-      							console.log(response['data'][0].id);
-      							console.log('response name: '); 
-      							console.log(response['data'][0].name);
+      							//console.log('response id: '); 
+      							//console.log(response['data'][0].id);
+      							//console.log('response name: '); 
+      							//console.log(response['data'][0].name);
       							fb_f.push(response['data'][0].id);
       							//console.log('name: ' + response.name + ', id: ' + response.id);
         						/* handle the result */
@@ -39,6 +39,18 @@ $(document).ready(function(){
 			}
 			console.log('fb_f:');
 			console.log(fb_f);
+
+			var fb_f = {'fb_f' : fb_f};
+			$.ajax({
+				type : 'POST',
+				url : '/chat/fb_data.php',
+				data : fb_f,
+				dataType : 'json'
+			})
+			.done(function(data){
+				console.log('fb_f return: ');
+				console.log(data);
+			});
 			//$('#s_results').html(data);
 		});
 	});
