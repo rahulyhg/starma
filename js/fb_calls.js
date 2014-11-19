@@ -39,7 +39,6 @@ $(document).ready(function(){
 			}
 			console.log('fb_f:');
 			console.log(fb_f);
-
 			var fb_f_ids = {'fb_f' : fb_f};
 			$.ajax({
 				type : 'POST',
