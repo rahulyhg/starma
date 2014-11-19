@@ -27,6 +27,8 @@ $(document).ready(function(){
       						if (response['data']) {
       							console.log('response id: '); 
       							console.log(response['data'][0].id);
+      							console.log('response name: '); 
+      							console.log(response['data'][0].name);
       							fb_f.push(response['data'][0].id);
       							//console.log('name: ' + response.name + ', id: ' + response.id);
         						/* handle the result */
@@ -35,7 +37,8 @@ $(document).ready(function(){
     				}
 				);
 			}
-			console.log('fb_f:' + fb_f);
+			console.log('fb_f:');
+			console.log(fb_f);
 			//$('#s_results').html(data);
 		});
 	});
