@@ -15,16 +15,16 @@ $(document).ready(function(){
 			console.log('data: ');
 			console.log(data);
 			var fb_f = [];
-			alert(data.fb_friends.length);
+			//alert(data.fb_friends.length);
 			for (i = 0; i < data.fb_friends.length; i++) {
 				//alert(data.fb_friends[i]);
 				FB.api(
     				'/me/friends/' + data.fb_friends[i],
     				function (response) {
       					if (response != '' && !response.error) {
-      						console.log('response: ');
-      						console.log(response);
-      						if (response['data']) {
+      						//console.log('response: ');
+      						//console.log(response);
+      						if (response['data'].length > 0) {
       							console.log('response id: '); 
       							console.log(response['data'][0].id);
       							console.log('response name: '); 
