@@ -12,7 +12,7 @@ $(document).ready(function(){
 			dataType : 'json'
 		})
 		.done(function(data){
-			console.log(data);
+			console.log('data: ' + data);
 			var fb_f = [];
 			//alert(data.fb_friends.length);
 			for (i = 0; i < data.fb_friends.length; i++) {
@@ -22,7 +22,7 @@ $(document).ready(function(){
     				function (response) {
       					if (response && !response.error) {
       						console.log('response: ' + response);
-      						console.log('response: ' + response.id);
+      						console.log('response id: ' + response.id);
       						fb_f.push(data.fb_friends[i]);
       						console.log('name: ' + response.name + ', id: ' + response.id);
         					/* handle the result */
