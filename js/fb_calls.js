@@ -24,11 +24,13 @@ $(document).ready(function(){
       					if (response != '' && !response.error) {
       						//console.log('response: ');
       						//console.log(response);
-      						console.log('response id: '); 
-      						console.log(response['data'][0].id);
-      						fb_f.push(response['data'][0].id);
-      						//console.log('name: ' + response.name + ', id: ' + response.id);
-        					/* handle the result */
+      						if (response['data']) {
+      							console.log('response id: '); 
+      							console.log(response['data'][0].id);
+      							fb_f.push(response['data'][0].id);
+      							//console.log('name: ' + response.name + ', id: ' + response.id);
+        						/* handle the result */
+      						}
       					}
     				}
 				);
