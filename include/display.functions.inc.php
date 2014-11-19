@@ -2896,7 +2896,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         //MAJOR ------------------
 
           echo '<div id="msg_sheen" class="compare_pop">';    
-            echo '<div id="msg_sheen_screen_ct" class="compare_pop"></div>';
+            echo '<div id="msg_sheen_screen_cot" class="compare_pop"></div>';
               
               echo '<div id="msg_sheen_cot1" class="compare_pop msg_sheen_cot">';
                 echo '<div id="compare_pop1">';
@@ -6895,12 +6895,20 @@ function show_privacy_form () {
 function show_tutorials_form () {
   echo '<div id="tutorials_form">';
     echo '<div class="heading">Tutorials</div>';
-      echo '<input type="checkbox" ';
+      echo '<div style="margin-bottom:10px;"><input type="checkbox" ';
         if (my_chart_flag() == 1) {
           echo 'checked';
         }
       echo ' name="chart_flag" id="cfcb" style="display:inline-block; margin-right:8px;"/>';
-      echo '<div class="later_on" style="display:inline-block;">Turn on Birth Chart Tutorial<span id="cf_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+      echo '<div class="later_on" style="display:inline-block;">Turn on Birth Chart Tutorial<span id="cf_done" class="later_on" style="display:none; padding-left:10px;"></span></div>';
+      echo '</div>';
+
+      echo '<div><input type="checkbox" ';
+        if (my_compare_flag() == 1) {
+          echo 'checked';
+        }
+      echo ' name="compare_flag" id="cofcb" style="display:inline-block; margin-right:8px;"/>';
+      echo '<div class="later_on" style="display:inline-block;">Turn on Compatibility Tutorial<span id="cof_done" class="later_on" style="display:none; padding-left:10px;"></span></div>';
       echo '</div>';
   echo '</div>'; //close Tutorials
 }

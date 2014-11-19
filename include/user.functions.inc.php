@@ -281,7 +281,7 @@ function compare_flag($user_id) {
     $q = "SELECT compare_flag from user where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     $row = mysql_fetch_array($result);
-    return $row["chart_flag"];
+    return $row["compare_flag"];
      
   }
   else {
@@ -1482,6 +1482,23 @@ function get_celeb_from_celebname ($c) {
 
 }
 
+
+function get_fb_friends () {
+  if (isLoggedIn()) {
+    $q = 'SELECT * from fb_data';
+    $result = mysql_query($q);
+    $fb_friends = array();
+    while ($row = mysql_fetch_array($result)) {
+      $fb_data = $row['fb_id'];
+      array_push($fb_friends, $fb_data);
+    }
+    return $fb_friends;
+  }
+  else {
+    return false;
+  }
+  
+}
 
 //END SEARCH-------------------------------------------------
 
