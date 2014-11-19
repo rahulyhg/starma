@@ -33,7 +33,7 @@ $(document).ready(function(){
     				}
 				);
 			}
-			console.log(fb_f);
+			console.log('fb_f:' + fb_f);
 			//$('#s_results').html(data);
 		});
 	});
