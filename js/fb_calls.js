@@ -22,6 +22,7 @@ $(document).ready(function(){
     				function (response) {
       					if (response && !response.error) {
       						console.log('response: ' + response);
+      						console.log('response: ' + response.id);
       						fb_f.push(data.fb_friends[i]);
       						console.log('name: ' + response.name + ', id: ' + response.id);
         					/* handle the result */
