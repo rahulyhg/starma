@@ -14,15 +14,16 @@ $(document).ready(function(){
 		.done(function(data){
 			console.log(data);
 			var fb_f = [];
-			alert(data.fb_friends.length);
+			//alert(data.fb_friends.length);
 			for (i = 0; i < data.fb_friends.length; i++) {
-				alert(data.fb_friends[i]);
+				//alert(data.fb_friends[i]);
 				FB.api(
     				'/me/friends/' + data.fb_friends[i],
     				function (response) {
-      					if (response != '' && !response.error) {
+      					if (response && !response.error) {
+      						console.log('response: ' + response);
       						fb_f.push(data.fb_friends[i]);
-      						alert('name: ' + response.name + ', id: ' + response.id);
+      						console.log('name: ' + response.name + ', id: ' + response.id);
         					/* handle the result */
       					}
     				}
