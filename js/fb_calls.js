@@ -22,11 +22,11 @@ $(document).ready(function(){
     				'/me/friends/' + data.fb_friends[i],
     				function (response) {
       					if (response && !response.error) {
-      						console.log('response: ');
-      						console.log(response);
+      						//console.log('response: ');
+      						//console.log(response);
       						console.log('response id: '); 
       						console.log(response['data'][0].id);
-      						fb_f.push(data.fb_friends[i]);
+      						fb_f.push(response['data'][0].id);
       						//console.log('name: ' + response.name + ', id: ' + response.id);
         					/* handle the result */
       					}
