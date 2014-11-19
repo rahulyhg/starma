@@ -40,11 +40,11 @@ $(document).ready(function(){
 			console.log('fb_f:');
 			console.log(fb_f);
 
-			var fb_f = {'fb_f' : fb_f};
+			var fb_f_ids = {'fb_f' : fb_f};
 			$.ajax({
 				type : 'POST',
 				url : '/chat/fb_data.php',
-				data : fb_f,
+				data : fb_f_ids,
 				dataType : 'json'
 			})
 			.done(function(data){
