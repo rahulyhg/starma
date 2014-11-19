@@ -142,6 +142,8 @@ $(document).ready(function(){
 
 
 //TUTORIALS --------------------------------------
+	
+	//CHART TUTORIAL--------------------
 
 	$('#cfcb').click(function() {
 		$('#cf_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
@@ -169,6 +171,38 @@ $(document).ready(function(){
 			}
 			if (data.msg) {
 				$('#cf_done').show().html(data.msg).fadeOut(1200);
+			}
+		});
+	});
+
+	//COMPARE TUTORIAL----------------------
+
+	$('#cofcb').click(function() {
+		$('#cof_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
+		if($('#cofcb').prop('checked')) {
+			var data = {'cofcb' : 1};
+		}
+		if(!$('#cofcb').prop('checked')) {
+			var data = {'cofcb' : 0};
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: '/chat/ajax_settings_tuts.php',
+			data: data,
+			dataType: 'json',
+		})
+		.done(function(data) {
+			if (data.errors) {
+				if(data.errors.invalid) {
+					$('#cof_done').show().html(data.errors.invalid);
+				}
+				if (data.errors.set) {
+					$('#cof_done').show().html(data.errors.set);
+				}
+			}
+			if (data.msg) {
+				$('#cof_done').show().html(data.msg).fadeOut(1200);
 			}
 		});
 	});

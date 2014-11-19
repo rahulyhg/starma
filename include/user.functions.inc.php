@@ -246,6 +246,10 @@ function my_chart_flag() {
   return chart_flag($_SESSION["user_id"]);
 }
 
+function my_compare_flag() {
+  return compare_flag($_SESSION["user_id"]);
+}
+
 function welcome_flag ($user_id) {
   if (isLoggedIn()) {
     $q = "SELECT welcome_flag from user where user_id = " . $user_id;
@@ -272,6 +276,19 @@ function chart_flag ($user_id) {
   }
 }
 
+function compare_flag($user_id) {
+  if (isLoggedIn()) {
+    $q = "SELECT compare_flag from user where user_id = " . $user_id;
+    $result = mysql_query($q) or die(mysql_error());
+    $row = mysql_fetch_array($result);
+    return $row["compare_flag"];
+     
+  }
+  else {
+    return false;
+  }
+}
+
 function set_my_welcome_flag ($flag=1) {
   set_welcome_flag($flag,$_SESSION["user_id"]);
 }
@@ -291,9 +308,24 @@ function set_welcome_flag ($flag=1, $user_id) {
   }
 }
 
+function set_my_compare_flag ($flag=1) {
+  return set_compare_flag($flag,$_SESSION["user_id"]);
+}
+
 function set_chart_flag ($flag=1, $user_id) {
   if (isLoggedIn()) {
     $q = "UPDATE user set chart_flag = " . $flag . " where user_id = " . $user_id;
+    $result = mysql_query($q) or die(mysql_error());
+    return true; 
+  }
+  else {
+    return false;
+  }
+}
+
+function set_compare_flag ($flag=1, $user_id) {
+  if (isLoggedIn()) {
+    $q = "UPDATE user set compare_flag = " . $flag . " where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     return true; 
   }
@@ -1450,6 +1482,23 @@ function get_celeb_from_celebname ($c) {
 
 }
 
+
+function get_fb_friends () {
+  if (isLoggedIn()) {
+    $q = 'SELECT * from fb_data';
+    $result = mysql_query($q);
+    $fb_friends = array();
+    while ($row = mysql_fetch_array($result)) {
+      $fb_data = $row['fb_id'];
+      array_push($fb_friends, $fb_data);
+    }
+    return $fb_friends;
+  }
+  else {
+    return false;
+  }
+  
+}
 
 //END SEARCH-------------------------------------------------
 

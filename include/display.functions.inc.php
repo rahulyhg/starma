@@ -2888,6 +2888,63 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
           //echo $_SESSION['alternate_chart_gender'];
         } 
       }
+
+      //COMPARE FLAG----------------------------------------
+
+      if(my_compare_flag() == 1) {
+
+        //MAJOR ------------------
+
+          echo '<div id="msg_sheen" class="compare_pop">';    
+            echo '<div id="msg_sheen_screen_cot" class="compare_pop"></div>';
+              
+              echo '<div id="msg_sheen_cot1" class="compare_pop msg_sheen_cot">';
+                echo '<div id="compare_pop1">';
+                echo '<div class="ct_step later_on">1 / 5</div>';
+                  echo '<div class="heading">Compatibility Tutorial</div>';
+                  echo '<div class="later_on ct_text">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs - we call these the “Major Connections.”  You’re likely to see both positive and negative dynamics, so keep in mind that a relationship can work with even one good dynamic!  It’s also normal to encounter contradictory information, so be sure to remember the Cake Analogy!</div>';
+                  echo '<div class="later_on cot_next" id="cot1_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+            echo '<div id="msg_sheen_cot2" class="msg_sheen_cot">';
+                echo '<div id="compare_pop2">';
+                echo '<div class="ct_step later_on">2 / 5</div>';
+                  echo '<div class="later_on ct_text">Your Major connections show...</div>';
+                  echo '<div class="later_on cot_next" id="cot2_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+            echo '<div id="msg_sheen_cot3" class="msg_sheen_cot">';
+                echo '<div id="compare_pop3">';
+                echo '<div class="ct_step later_on">3 / 5</div>';
+                  echo '<div class="later_on ct_text">Your Minor connections show...</div>';
+                  echo '<div class="later_on cot_next" id="cot3_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+            echo '<div id="msg_sheen_cot4" class="msg_sheen_cot">';
+                echo '<div id="compare_pop4">';
+                echo '<div class="ct_step later_on">4 / 5</div>';
+                  echo '<div class="later_on ct_text">Bonus and Jupiter connections are taken into account in our compatibility equation, but the content is still on it\'s way...</div>';
+                  echo '<div class="later_on cot_next" id="cot4_done"><a href="#ct5" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+            echo '<div id="msg_sheen_cot5" class="msg_sheen_cot">';
+                echo '<div id="compare_pop5">';
+                echo '<div class="ct_step later_on">5 / 5</div>';
+                  echo '<div class="later_on ct_text">When you are ready, click Minor Connections to see a very brief tutorial on how they work...</div>';
+                  echo '<div class="later_on cot_next" id="cot5_done"><a href="#" class="later_on">Done</a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+        echo '</div>'; //close msg_sheen
+        }
+
+        //END COMPARE FLAG------------------------------------
+
+
        
        $text_type = $_GET["text_type"];
 
@@ -6838,12 +6895,20 @@ function show_privacy_form () {
 function show_tutorials_form () {
   echo '<div id="tutorials_form">';
     echo '<div class="heading">Tutorials</div>';
-      echo '<input type="checkbox" ';
+      echo '<div style="margin-bottom:10px;"><input type="checkbox" ';
         if (my_chart_flag() == 1) {
           echo 'checked';
         }
       echo ' name="chart_flag" id="cfcb" style="display:inline-block; margin-right:8px;"/>';
-      echo '<div class="later_on" style="display:inline-block;">Turn on Birth Chart Tutorial<span id="cf_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+      echo '<div class="later_on" style="display:inline-block;">Turn on Birth Chart Tutorial<span id="cf_done" class="later_on" style="display:none; padding-left:10px;"></span></div>';
+      echo '</div>';
+
+      echo '<div><input type="checkbox" ';
+        if (my_compare_flag() == 1) {
+          echo 'checked';
+        }
+      echo ' name="compare_flag" id="cofcb" style="display:inline-block; margin-right:8px;"/>';
+      echo '<div class="later_on" style="display:inline-block;">Turn on Compatibility Tutorial<span id="cof_done" class="later_on" style="display:none; padding-left:10px;"></span></div>';
       echo '</div>';
   echo '</div>'; //close Tutorials
 }

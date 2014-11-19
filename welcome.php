@@ -6,6 +6,7 @@ require_once "header.php";
 
  <div id="welcome">
  <?php
+ //echo my_compare_flag();
   /*
     echo '<script>
       $(document).ready(function(){

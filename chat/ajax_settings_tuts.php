@@ -24,8 +24,33 @@
 				$data['msg'] = 'Success!';
 			}
 				//$data['msg'] = is_preference_there($pref_name, get_my_user_id());
-			echo json_encode($data);
+			
 		}
+
+		if (isset($_POST['cofcb'])) {
+			if (!preg_match('%^[\d]{1}$%', $_POST['cofcb'])) {
+				$errors['invald'] = 'There was an error. Please refresh and try again.';
+			}
+			else {
+				$cofcb = $_POST['cofcb'];
+				//$data['hlcb'] = $hlcb;
+				//$data['msg'] = $hlcb;
+			}
+			if (!set_my_compare_flag($cofcb)) {
+				$errors['set'] = 'Unable to set preference.  Please refresh and try again';
+			}
+			
+			if (!empty($errors)) {
+				$data['errors'] = $errors;
+			}				
+			else {
+				$data['msg'] = 'Success!';
+			}
+				//$data['msg'] = is_preference_there($pref_name, get_my_user_id());
+			
+		}
+
+		echo json_encode($data);
 
 	}
 	else {

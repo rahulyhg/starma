@@ -48,6 +48,18 @@
 	}
 
 
+//FIND FB FRIENDS--------------------------------
+
+	if (isset($_POST['fb_friends'])) {
+		if (!$fb_friends = get_fb_friends()) {
+			$errors['fb_friends'] = 'There was a problem accessing your Facebook friends';
+		}
+		else {
+			$data['fb_friends'] = $fb_friends;
+		}
+	}
+
+
 	echo json_encode($data);
 
 ?>
