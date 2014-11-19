@@ -1485,7 +1485,7 @@ function get_celeb_from_celebname ($c) {
 
 function get_fb_friends () {
   if (isLoggedIn()) {
-    $q = 'SELECT * from fb_data';
+    $q = 'SELECT * from fb_data where NOT user_id = ' . $_SESSION['user_id'];
     $result = mysql_query($q);
     $fb_friends = array();
     while ($row = mysql_fetch_array($result)) {
