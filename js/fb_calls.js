@@ -21,7 +21,7 @@ $(document).ready(function(){
 				FB.api(
     				'/me/friends/' + data.fb_friends[i],
     				function (response) {
-      					if (response && !response.error) {
+      					if (response != '' && !response.error) {
       						//console.log('response: ');
       						//console.log(response);
       						console.log('response id: '); 
