@@ -71,6 +71,7 @@ if (isLoggedIn())
             .done(function(data){
               //alert(data.check);
               //console.log(data.fb_id);
+              userExistFB();
             });
       });
   }
