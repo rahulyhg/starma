@@ -100,9 +100,9 @@ function revokeFB() {
 				console.log('fb_f return: ');
 				console.log(data);
 			});
+*/
 			//$('#s_results').html(data);
 		});
-*/
 	});
 
 
