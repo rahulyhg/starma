@@ -96,13 +96,14 @@ function sendIDGuest() {
 
             $.ajax({
               type      : 'POST',
-              url       : '/chat/fb_data.php',
+              url       : '../chat/fb_data.php',
               data      : data,
               dataType  : 'json'
             })
             .done(function(data){
               //alert(data.check);
               //console.log(data.fb_id);
+              userExistFBGuest();
             });
       });
   }
@@ -116,7 +117,7 @@ function sendIDGuest() {
 
             $.ajax({
               type      : 'POST',
-              url       : '/chat/fb_data.php',
+              url       : '../chat/fb_data.php',
               data      : data,
               dataType  : 'json'
             })
@@ -133,7 +134,7 @@ function sendIDGuest() {
 
     $.ajax({
       type: 'POST',
-      url: '/chat/fb_data.php',
+      url: '../chat/fb_data.php',
       data: data,
       dataType: 'json'
     })
@@ -196,7 +197,7 @@ function sendIDGuest() {
       }
     }, {scope: 'public_profile,email,user_friends'});
   }
-  
+
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
