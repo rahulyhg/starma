@@ -13,7 +13,7 @@ function revokeFB() {
           }
       });
   }
-
+/*
   function sendID() {
     FB.api('/me', function(response) {
         //console.log('Successful login for: ' + response.name);
@@ -81,7 +81,7 @@ function revokeFB() {
       }
     });
   }
-
+*/
   function assignIDSettings() {
     FB.api('/me', function(response) {
         //console.log('Successful login for: ' + response.name);
@@ -115,7 +115,7 @@ function revokeFB() {
 
 
 //SIGN UP AND LOGIN LANDING------------------------------------------
-
+/*
   function fbSignUp () {
     FB.login(function(response) {
     checkLoginState();
@@ -271,7 +271,7 @@ function sendIDGuest() {
       }
     }, {scope: 'public_profile,email,user_friends'});
   }
-
+*/
 
 
  //FIND FRIENDS -------------------------------------------
