@@ -7754,10 +7754,10 @@ function show_fb_or_email_box_guest () {
 function show_fb_or_email_login_box_guest () {
   echo '<div id="fb_or_email_login_guest">';
     echo  '<div class="heading">Log In With...</div>';
-      echo '<button type="button" name="login_email" class="sign_up">Email</button>';
+      echo '<button type="button" name="login_fb" class="sign_up" onClick="fbLoginGuest();">Facebook</button>';
       echo '<div id="or">~ or ~</div>';
       echo '<button type="button" onClick="revokeFB();">revoke fb</button>';
-      echo '<button type="button" name="login_fb" class="sign_up" onClick="fbLoginGuest();">Facebook</button>';
+      echo '<button type="button" name="login_email" class="sign_up">Email</button>';
   echo '</div>'; //Close sign_up_box
 }
 

@@ -113,5 +113,10 @@ $(document).ready(function(){
 		//$('#fb_or_email_login_guest').hide();
 	});
 
+	$('button[name=login_email]').click(function(){
+		$('#fb_or_email_login_guest').hide();
+		$('#login_box').show();
+	});
+
 
 });
