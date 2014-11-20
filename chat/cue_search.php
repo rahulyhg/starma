@@ -40,7 +40,7 @@
             $u_gen = general_info_for_scroll($user["chart_id"], $user["user_id"]);
             $u3 = $u2 . $u_gen . '</div>';  
 
-            $data['user'] = $u3;
+            $data['users_found'] = $u3;
             //$data['user'] = true;
             //$data['user_id'] = $user['user_id'];
             //$data['chart_id'] = $chart_id2;

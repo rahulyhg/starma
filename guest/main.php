@@ -82,7 +82,69 @@ if ($the_left=="nav1") {
     <![endif]-->
     
 <body id="bg_stars">
+<script>
+    // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      //testAPI();
+      //sendID();
+    } 
+    else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      //document.getElementById('status').innerHTML = 'Please log ' +
+      //  'into this app.';
+      //setTimeout('checkLoginState()', 1000);
+    } 
+    else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      //document.getElementById('status').innerHTML = 'Please log ' +
+      // 'into Facebook.';
+      //setTimeout('checkLoginState()', 1000);
+    }
+  }
 
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '349967198448431',
+      xfbml      : true,
+      version    : 'v2.1',
+      status     : true
+    });
+
+    
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+    
+  };
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    </script>
+<script type="text/javascript" src="/js/fb_calls.js"></script>
   <!--pop_guest_click-->
     <div id="msg_sheen" class="pop_guest">
       <div id="msg_sheen_screen" class="pop_guest pop_reg"></div>

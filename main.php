@@ -88,7 +88,7 @@ if ($the_left=="nav1") {
     
 <body id="bg_stars">
   <script>
-
+  /*
     function revokeFB() {
       FB.api(
       'me/permissions',
@@ -100,6 +100,7 @@ if ($the_left=="nav1") {
           }
       });
     }
+
 
     function assignIDSettings() {
     FB.api('/me', function(response) {
@@ -158,7 +159,7 @@ if ($the_left=="nav1") {
       }
     });
   }
-
+  */
     function fbLoginSettings () {
     FB.login(function(response) {
     checkLoginState();
@@ -250,6 +251,7 @@ if ($the_left=="nav1") {
     }(document, 'script', 'facebook-jssdk'));
 
   </script>
+  <script type="text/javascript" src="/js/fb_calls.js"></script>
 
   <?php
   echo '<div id="msg_sheen" class="pop_invite">';
