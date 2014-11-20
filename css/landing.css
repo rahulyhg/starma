@@ -628,6 +628,7 @@
 }
 
 #login_box {
+  display: none;
   /*width: 244px;*/
   /*margin: auto;*/
 }
