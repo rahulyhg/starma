@@ -42,6 +42,7 @@ if (isLoggedIn())
 <body id="body_landing">
 <script>
     // This is called with the results from from FB.getLoginStatus().
+    /*
   function revokeFB() {
       FB.api(
       'me/permissions',
@@ -121,6 +122,7 @@ if (isLoggedIn())
       }
     });
   }
+  */
 
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -173,6 +175,7 @@ if (isLoggedIn())
     
   };
 
+/*
   function fbSignUp () {
     FB.login(function(response) {
     checkLoginState();
@@ -214,7 +217,7 @@ if (isLoggedIn())
       }
     }, {scope: 'public_profile,email,user_friends'});
   }
-
+*/
   (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) {return;}
@@ -223,15 +226,8 @@ if (isLoggedIn())
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      //document.getElementById('status').innerHTML =
-      //  'Thanks for logging in, ' + response.name + '!';
-    });
-  }
     </script>
+<script type="text/javascript" src="/js/fb_calls.js"></script>
 <script type="text/javascript" src="/js/browser_detect.js"></script>
 <script type="text/javascript" src="/js/ajax_register.js"></script>
 <script type="text/javascript" src="js/ajax_login.js"></script>

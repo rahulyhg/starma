@@ -7,21 +7,6 @@ $(document).ready(function(){
 
 	var generic_text = 'This part of the site is reserved for Starma members only. In order to view this content...';
 
-	$('.pop_guest_login').click(function(){
-		$('.pop_login').slideFadeToggle(function () {
-			$('#login_box').show();
-			$('#login_email').focus();
-			$('#forgot_password_box').hide();
-		});
-	});
-
-	$('.pop_log').click(function(){
-		$('.pop_login').slideFadeToggle(function() {
-			$('#login_box').show();
-			$('#forgot_password_box').hide();
-		});
-	});
-
 	$('.pop_guest_click').click(function(event){
 		event.preventDefault();
 		$('#sign_up_box_text').text(generic_text);
@@ -105,60 +90,28 @@ $(document).ready(function(){
 		$('#login_box').hide();
 	});
 
-//GENERIC POPUP BOX----------------------
+//LOGIN POPUP BOX----------------------
 
-/*
-
-	$('.pop_guest_click_generic').click(function(event){
-		event.preventDefault();
-		$('.pop_guest').slideFadeToggle(function(){
-			$('#sign_up_box').show();
-			$('.sign_up_text').text(generic_text);
-			$('#create_account').hide();
-			$('#fb_or_email_guest').hide();
-		});
-		//return false;
-	});
-
-	$('.pop_reg').click(function(){
-		$('.pop_guest_g').slideFadeToggle(function() {
-			$('#generic_box').show();
-			$('#create_account_g').hide();
-			$('#fb_or_email_guest_g').hide();
+	$('.pop_guest_login').click(function(){
+		$('.pop_login').slideFadeToggle(function () {
 			//$('#login_box').show();
-			//$('#forgot_password_box').hide();
+			//$('#login_email').focus();
+			$('#fb_or_email_login_guest').show();
+			$('#forgot_password_box').hide();
 		});
 	});
 
-	$('#close_g').click(function(){
-		$('.pop_guest_g').slideFadeToggle(function() {
-			//$('#sign_up_box').show();
-			$('#generic_box').hide();
-			$('#create_account_g').hide();
-			$('#fb_or_email_guest_g').hide();
+	$('.pop_log').click(function(){
+		$('.pop_login').slideFadeToggle(function() {
+			$('#fb_or_email_login_guest').show();
+			$('#login_box').hide();
+			$('#forgot_password_box').hide();
 		});
 	});
 
-	$('input[name=create_an_account_g]').click(function(){
-		$('#generic_box').hide();
-		//$('#sign_up_box').hide();
-		$('#fb_or_email_guest_g').show();
+	$('button[name=login_fb]').click(function(){
+		$('#fb_or_email_login_guest').hide();
 	});
 
-	$('button[name=sign_up_email_g]').click(function(){
-		$('#fb_or_email_guest_g').hide();
-		$('#create_account_g').show();
-	});
-
-	
-	$('#cancel_email_sign_up_g').click(function(){
-		$('.pop_guest_g').slideFadeToggle(function() {
-			//$('#sign_up_box').show();
-			$('#generic_box').show();
-			$('#create_account_g').hide();
-			$('#fb_or_email_guest_g').hide();
-		});
-	});
-*/
 
 });
