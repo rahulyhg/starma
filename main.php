@@ -88,7 +88,7 @@ if ($the_left=="nav1") {
     
 <body id="bg_stars">
   <script>
-  /*
+  
     function revokeFB() {
       FB.api(
       'me/permissions',
@@ -101,7 +101,7 @@ if ($the_left=="nav1") {
       });
     }
 
-
+/*
     function assignIDSettings() {
     FB.api('/me', function(response) {
         //console.log('Successful login for: ' + response.name);

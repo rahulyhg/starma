@@ -84,6 +84,119 @@ if ($the_left=="nav1") {
 <body id="bg_stars">
 <script>
     // This is called with the results from from FB.getLoginStatus().
+
+    //GUEST SIGN UP LOGIN--------------------------------------
+
+function sendIDGuest() {
+    FB.api('/me', function(response) {
+        //console.log('Successful login for: ' + response.name);
+        //document.getElementById('status').innerHTML =
+        //  'Thanks for logging in, ' + response.name + '!';
+        var data = {'fb_id' : response.id};
+
+            $.ajax({
+              type      : 'POST',
+              url       : '/chat/fb_data.php',
+              data      : data,
+              dataType  : 'json'
+            })
+            .done(function(data){
+              //alert(data.check);
+              //console.log(data.fb_id);
+            });
+      });
+  }
+
+  function assignIDGuest() {
+    FB.api('/me', function(response) {
+        //console.log('Successful login for: ' + response.name);
+        //document.getElementById('status').innerHTML =
+        //  'Thanks for logging in, ' + response.name + '!';
+        var data = {'fb_id' : response.id};
+
+            $.ajax({
+              type      : 'POST',
+              url       : '/chat/fb_data.php',
+              data      : data,
+              dataType  : 'json'
+            })
+            .done(function(data){
+              //alert(data.check);
+              //console.log(data.fb_id);
+              userExistFBGuest();
+            });
+      });
+  }
+
+  function userExistFBGuest() {
+    var data = {'exist' : 'exist'};
+
+    $.ajax({
+      type: 'POST',
+      url: '/chat/fb_data.php',
+      data: data,
+      dataType: 'json'
+    })
+    .done(function(data){
+      //console.log(data.user);
+      if (data.errors) {
+        if (data.errors.user_id) {
+          console.log(data.errors.user_id);
+        }
+        if (data.errors.exists) {
+          $('#fb_or_email_login_guest').hide();
+          $('#create_account_fb').show();
+          console.log(data.errors.exists);
+        }
+      }
+      if (data.success) {
+        window.location.reload(true);
+      }
+    });
+  }
+
+  function fbSignUpGuest () {
+    FB.login(function(response) {
+    checkLoginState();
+      // handle the response'
+      if (response.status === 'connected') {
+        // Logged into your app and Facebook.
+        sendIDGuest();
+        $('#fb_or_email_guest').hide();
+        $('#create_account_fb').show();
+      } 
+      else if (response.status === 'not_authorized') {
+        // The person is logged into Facebook, but not your app.
+        setTimeout(checkLoginState(), 1000);
+      } 
+      else {
+        // The person is not logged into Facebook, so we're not sure if
+        // they are logged into this app or not.
+        setTimeout(checkLoginState(), 1000);
+      }
+    }, {scope: 'public_profile,email,user_friends'});
+  }
+  function fbLoginGuest () {
+    FB.login(function(response) {
+    checkLoginState();
+      // handle the response'
+      if (response.status === 'connected') {
+        // Logged into your app and Facebook.
+        assignIDGuest();
+        //userExistFB();
+      } 
+      else if (response.status === 'not_authorized') {
+        // The person is logged into Facebook, but not your app.
+        //setTimeout(fbLogin(), 1000);
+      } 
+      else {
+        // The person is not logged into Facebook, so we're not sure if
+        // they are logged into this app or not.
+        //setTimeout(fbLogin(), 1000);
+      }
+    }, {scope: 'public_profile,email,user_friends'});
+  }
+  
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -144,7 +257,6 @@ if ($the_left=="nav1") {
     }(document, 'script', 'facebook-jssdk'));
 
     </script>
-<script type="text/javascript" src="../js/fb_calls.js"></script>
   <!--pop_guest_click-->
     <div id="msg_sheen" class="pop_guest">
       <div id="msg_sheen_screen" class="pop_guest pop_reg"></div>
