@@ -165,7 +165,8 @@ if ($the_left=="nav1") {
     <div id="msg_sheen" class="pop_login">   
       <div id="msg_sheen_screen" class="pop_login pop_log"></div>
         <div id="msg_sheen_content_guest" class="pop_login">
-          <?php               
+          <?php          
+            show_fb_or_email_login_box_guest();     
             show_login_box_guest();
             show_forgot_password_box();
           ?>  
@@ -176,14 +177,14 @@ if ($the_left=="nav1") {
 <div id="img_preloader">
   
   <img src="/js/ajax_loader_sign_up.gif" />
-
+<!--
   <img src="/img/Starma-Astrology-SideNav1.png"/>
   <img src="/img/Starma-Astrology-SideNav2.png"/>
   <img src="/img/Starma-Astrology-SideNav3.png"/>
   <img src="/img/Starma-Astrology-SideNav4.png"/>
   <img src="/img/Starma-Astrology-SideNav5.png"/>
   <img src="/img/Starma-Astrology-SideNav6.png"/>
-
+-->
   <img src="/img/Starma-Astrology-SideNav1On.png"/>
   <img src="/img/Starma-Astrology-SideNav2On.png"/>
   <img src="/img/Starma-Astrology-SideNav3On.png"/>

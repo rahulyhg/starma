@@ -110,7 +110,7 @@ $(document).ready(function(){
 	});
 
 	$('button[name=login_fb]').click(function(){
-		$('#fb_or_email_login_guest').hide();
+		//$('#fb_or_email_login_guest').hide();
 	});
 
 
