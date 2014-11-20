@@ -144,7 +144,7 @@ if ($the_left=="nav1") {
     }(document, 'script', 'facebook-jssdk'));
 
     </script>
-<script type="text/javascript" src="/js/fb_calls.js"></script>
+<script type="text/javascript" src="../js/fb_calls.js"></script>
   <!--pop_guest_click-->
     <div id="msg_sheen" class="pop_guest">
       <div id="msg_sheen_screen" class="pop_guest pop_reg"></div>

@@ -171,7 +171,7 @@ function sendIDGuest() {
 
             $.ajax({
               type      : 'POST',
-              url       : '../chat/fb_data.php',
+              url       : '/chat/fb_data.php',
               data      : data,
               dataType  : 'json'
             })
@@ -191,7 +191,7 @@ function sendIDGuest() {
 
             $.ajax({
               type      : 'POST',
-              url       : '../chat/fb_data.php',
+              url       : '/chat/fb_data.php',
               data      : data,
               dataType  : 'json'
             })
@@ -208,7 +208,7 @@ function sendIDGuest() {
 
     $.ajax({
       type: 'POST',
-      url: '../chat/fb_data.php',
+      url: '/chat/fb_data.php',
       data: data,
       dataType: 'json'
     })
