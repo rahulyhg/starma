@@ -77,7 +77,7 @@ function revokeFB() {
       							//console.log(response['data'][0].id);
       							//console.log('response name: '); 
       							//console.log(response['data'][0].name);
-      							fb_f.push(response['data'][0].id);
+      							fb_f.push('"' + response['data'][0].id + '"');
       							//console.log('name: ' + response.name + ', id: ' + response.id);
         						/* handle the result */
       						}
