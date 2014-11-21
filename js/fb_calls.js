@@ -68,7 +68,10 @@ function revokeFB() {
 			for (i = 0; i < data.fb_friends.length; i++) {
         //console.log('data.fb_friends' + i + ': ');
 				//console.log(data.fb_friends[i]);
-        //fb_f.push('hello', 'world');
+        fb_f.push(data.fb_friends[i]);
+        console.log('fb_f' + i + ': ');
+        console.log(fb_f);
+        
 				FB.api(
     				'/me/friends/' + data.fb_friends[i],
     				function (response) {
@@ -82,16 +85,17 @@ function revokeFB() {
       							//console.log(response['data'][0].name);
                     //var id = {}
                     //id = response['data'][0].id;
-                    fb_f.push('hello');
-      							//fb_f.push(response['data'][0].id);
+                    //fb_f.push('hello');
+      							fb_f.push(response['data'][0].id);
                     //fb_f[x] = response['data'][0].id.toString();
       							//console.log('name: ' + response.name + ', id: ' + response.id);
-        						/* handle the result */
+        						
                     x++;
       						}
       					}
     				}
 				);
+      
 			}
       var t = [];
       t.push("2352");
