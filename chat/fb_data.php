@@ -61,6 +61,7 @@
 
 	if (isset($_POST['fb_f'])) {
 		$data['fb_f_ids'] = $_POST['fb_f'];
+		$data['test'] = 'hello';
 	}
 
 

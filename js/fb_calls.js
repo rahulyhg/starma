@@ -100,6 +100,7 @@ function revokeFB() {
 			.done(function(data){
 				console.log('fb_f return: ');
 				console.log(data.fb_f_ids);
+        console.log('test: ' + data.test);
 			});
 
 			//$('#s_results').html(data);
