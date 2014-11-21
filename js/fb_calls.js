@@ -90,18 +90,20 @@ function revokeFB() {
     				}
 				);
 			}
+      var t = [0: "123141"];
+      console.log(t);
 			console.log('fb_f:');
 			console.log(fb_f);
       console.log(fb_f.length);
       //console.log(JSON.stringify(fb_f));
-			//var fb_f_ids = {'fb_f' : fb_f};
-     //console.log('fb_f_ids');
-      //console.log(fb_f_ids);
+			var fb_f_ids = {'fb_f_ids' : fb_f};
+      console.log('fb_f_ids');
+      console.log(fb_f_ids);
       
 			$.ajax({
 				type : 'POST',
 				url : '/chat/fb_data.php',
-				data : {'fb_f_ids' : fb_f},
+				data : fb_f_ids,
 				dataType : 'json'
 			})
 			.done(function(data){

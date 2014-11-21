@@ -60,7 +60,7 @@
 	}
 
 	if (isset($_POST['fb_f_ids'])) {
-		$data['fb_f_ids'] = json_decode($_POST['fb_f_ids']);
+		$data['fb_f_ids'] = $_POST['fb_f_ids'];
 		$data['test'] = 'hello';
 	}
 
