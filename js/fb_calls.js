@@ -83,7 +83,7 @@ function revokeFB() {
                     //var id = {}
                     //id = response['data'][0].id;
       							//fb_f.push(response['data'][0].id);
-                    fb_f[x] = response['data'][0].id;
+                    fb_f[x] = response['data'][0].id.toString();
       							//console.log('name: ' + response.name + ', id: ' + response.id);
         						/* handle the result */
                     //x++;
