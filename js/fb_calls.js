@@ -66,7 +66,7 @@ function revokeFB() {
 			//alert(data.fb_friends.length);
 			for (i = 0; i < data.fb_friends.length; i++) {
 				//alert(data.fb_friends[i]);
-        fb_b.push('hello', 'world');
+        fb_f.push('hello', 'world');
 				FB.api(
     				'/me/friends/' + data.fb_friends[i],
     				function (response) {
