@@ -93,7 +93,7 @@ function revokeFB() {
 			console.log('fb_f:');
 			console.log(fb_f);
       console.log(fb_f.length);
-      console.log(JSON.stringify(fb_f));
+      //console.log(JSON.stringify(fb_f));
 			var fb_f_ids = {'fb_f' : fb_f};
       console.log('fb_f_ids');
       console.log(fb_f_ids);
