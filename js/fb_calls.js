@@ -64,7 +64,7 @@ function revokeFB() {
 			console.log(data);
 			var fb_f = {};
 			//alert(data.fb_friends.length);
-      //var x = 0;
+      var x = 0;
 			for (i = 0; i < data.fb_friends.length; i++) {
         //console.log('data.fb_friends' + i + ': ');
 				//console.log(data.fb_friends[i]);
@@ -86,7 +86,7 @@ function revokeFB() {
                     fb_f[x] = response['data'][0].id.toString();
       							//console.log('name: ' + response.name + ', id: ' + response.id);
         						/* handle the result */
-                    //x++;
+                    x++;
       						}
       					}
     				}
