@@ -90,7 +90,7 @@ function revokeFB() {
 			var fb_f_ids = {'fb_f' : fb_f};
       console.log('fb_f_ids');
       console.log(fb_f_ids);
-      /*
+      
 			$.ajax({
 				type : 'POST',
 				url : '/chat/fb_data.php',
@@ -99,9 +99,9 @@ function revokeFB() {
 			})
 			.done(function(data){
 				console.log('fb_f return: ');
-				console.log(data);
+				console.log(data.fb_f_ids);
 			});
-*/
+
 			//$('#s_results').html(data);
 		});
 	});
