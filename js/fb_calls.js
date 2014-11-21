@@ -87,6 +87,7 @@ function revokeFB() {
 			}
 			console.log('fb_f:');
 			console.log(fb_f);
+      console.log(fb_f.toString());
 			var fb_f_ids = {'fb_f' : fb_f.toString()};
       console.log('fb_f_ids');
       console.log(fb_f_ids);
