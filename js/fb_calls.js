@@ -93,9 +93,10 @@ function revokeFB() {
     				}
 				);
 			}
-      //var t = [];
-      //t[0] = "2352";
-      //console.log(t);
+      var t = [];
+      t.push("2352");
+      console.log('t: ');
+      console.log(t);
 			console.log('fb_f:');
 			console.log(fb_f);
       console.log(fb_f.length);
