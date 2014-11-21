@@ -66,7 +66,8 @@ function revokeFB() {
 			//alert(data.fb_friends.length);
       //var x = 0;
 			for (i = 0; i < data.fb_friends.length; i++) {
-				//alert(data.fb_friends[i]);
+        console.log('data.fb_friends' + i + ': ');
+				console.log(data.fb_friends[i]);
         //fb_f.push('hello', 'world');
 				FB.api(
     				'/me/friends/' + data.fb_friends[i],
@@ -90,17 +91,18 @@ function revokeFB() {
     				}
 				);
 			}
-      var t = [];
-      t[0] = "2352";
-      console.log(t);
+      //var t = [];
+      //t[0] = "2352";
+      //console.log(t);
 			console.log('fb_f:');
 			console.log(fb_f);
       console.log(fb_f.length);
       //console.log(JSON.stringify(fb_f));
-			var fb_f_ids = {'fb_f_ids' : t};
+			//var fb_f_ids = {'fb_f_ids' : t};
       console.log('fb_f_ids');
       console.log(fb_f_ids);
       
+      /*
 			$.ajax({
 				type : 'POST',
 				url : '/chat/fb_data.php',
@@ -112,7 +114,7 @@ function revokeFB() {
 				console.log(data.fb_f_ids);
         console.log('test: ' + data.test);
 			});
-
+    */
 			//$('#s_results').html(data);
 		});
 	});
