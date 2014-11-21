@@ -66,6 +66,7 @@ function revokeFB() {
 			//alert(data.fb_friends.length);
 			for (i = 0; i < data.fb_friends.length; i++) {
 				//alert(data.fb_friends[i]);
+        fb_b.push('hello', 'world');
 				FB.api(
     				'/me/friends/' + data.fb_friends[i],
     				function (response) {
@@ -77,7 +78,7 @@ function revokeFB() {
       							//console.log(response['data'][0].id);
       							//console.log('response name: '); 
       							//console.log(response['data'][0].name);
-      							fb_f.push('"' + response['data'][0].id + '"');
+      							fb_f.push(response['data'][0].id);
       							//console.log('name: ' + response.name + ', id: ' + response.id);
         						/* handle the result */
       						}
