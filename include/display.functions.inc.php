@@ -2890,7 +2890,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       }
 
       //COMPARE FLAG----------------------------------------
-      /*
+      
       if(my_compare_flag() == 1) {
 
         //MAJOR ------------------
@@ -2941,7 +2941,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
 
         echo '</div>'; //close msg_sheen
         }
-  */
+  
         //END COMPARE FLAG------------------------------------
 
 
