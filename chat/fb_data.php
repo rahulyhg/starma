@@ -51,11 +51,11 @@
 //FIND FB FRIENDS--------------------------------
 
 	if (isset($_POST['fb_friends'])) {
-		if (!$user_array = get_fb_users()) {
+		if (!$user_list = get_fb_users()) {
 			$errors['fb_friends'] = 'There was a problem accessing your Facebook friends';
 		}
 		else {
-			$$user_array = query_to_array($user_array);
+			$$user_array = query_to_array($user_list);
 			$url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
 			$fb_friends = array();
 			$fb_ids = array();
