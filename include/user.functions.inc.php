@@ -1508,7 +1508,7 @@ function get_fb_users() {
           fb_data inner join user on user.user_id = fb_data.user_id 
           inner join chart on chart.user_id = fb_data.user_id 
           inner join user_picture on user.user_id = user_picture.user_id 
-          where chart.nickname = "main" and user_picture.main = 1 and NOT user_id = ' . $_SESSION['user_id'];
+          where chart.nickname = "main" and user_picture.main = 1 and NOT fb_data.user_id = ' . $_SESSION['user_id'];
     if ($result = mysql_query($q)) {
       return $result;
     }
