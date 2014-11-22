@@ -51,11 +51,33 @@
 //FIND FB FRIENDS--------------------------------
 
 	if (isset($_POST['fb_friends'])) {
-		if (!$fb_friends = get_fb_friends()) {
+		if (!$user_array = get_fb_users()) {
 			$errors['fb_friends'] = 'There was a problem accessing your Facebook friends';
 		}
 		else {
+			$$user_array = query_to_array($user_array);
+			$url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
+			$fb_friends = array();
+			$fb_ids = array();
+			foreach ($user_array as $user) {
+			
+				$u1 = '<div class="user_block js_user_' . $user["user_id"] . '"><div class="photo_border_wrapper_compare"><div class="compare_photo">';
+                
+                $u_pic = user_compare_picture_for_scroll ($url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
+                  
+                $u2 = $u1 . $u_pic . '</div></div>'; 
+                          	
+                $u_gen = general_info_for_scroll($user["chart_id"], $user["user_id"]);
+                $u3 = $u2 . $u_gen . '</div>';  
+				
+				$id = $user['fb_id'];
+
+				array_push($fb_friends, $u3); 
+				array_push($fb_ids, $id); 
+               } 
+			
 			$data['fb_friends'] = $fb_friends;
+			$data['fb_ids'] = $fb_ids;
 		}
 	}
 
