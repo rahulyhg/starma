@@ -65,14 +65,15 @@ function revokeFB() {
 			var fb_f = [];
       var t = [];
 			//alert(data.fb_friends.length);
-      //var x = 0;
+      var done = 0;
+      var x = 0;
 			for (i = 0; i < data.fb_friends.length; i++) {
         //console.log('data.fb_friends' + i + ': ');
 				//console.log(data.fb_friends[i]);
         //fb_f.push(data.fb_friends[i]);
         //console.log('fb_f' + i + ': ');
         //console.log(fb_f);
-        
+        done = 0;
 				FB.api(
     				'/me/friends/' + data.fb_friends[i],
     				function (response) {
@@ -90,13 +91,15 @@ function revokeFB() {
       							fb_f.push(response['data'][0].id);
                     //fb_f[x] = response['data'][0].id.toString();
       							//console.log('name: ' + response.name + ', id: ' + response.id);
-        						t.push("2352");
-                   // x++;
+        						//t.push("2352");
+                    done = 1;
       						}
       					}
     				}
 				);
-      
+        while (done == 0) {
+          setTimeout(10);
+        }
 			}
       
       
