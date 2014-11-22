@@ -92,10 +92,11 @@ function revokeFB() {
                     //fb_f[x] = response['data'][0].id.toString();
       							//console.log('name: ' + response.name + ', id: ' + response.id);
         						//t.push("2352");
-                    done = 1;
       						}
       					}
+                done = 1;
     				}
+
 				);
         while (done == 0) {
           setTimeout(10);
