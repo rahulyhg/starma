@@ -96,11 +96,7 @@ function revokeFB() {
       					}
                 done = 1;
     				}
-
 				);
-        while (done == 0) {
-          setTimeout(10);
-        }
 			}
       
       
