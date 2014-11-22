@@ -100,7 +100,7 @@ function revokeFB() {
 				);
         x++;
         if(x == data.fb_ids.length) {
-          $('#s_results').append(data.fb_friends);
+          $('#s_results').append(fb_f);
         }
 			}
       
