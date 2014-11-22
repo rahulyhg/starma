@@ -1500,6 +1500,7 @@ function get_fb_friends () {
   
 }
 
+/*
 function get_fb_users() {
   if (isLoggedIn()){
     $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main, fb_data.fb_id
@@ -1513,6 +1514,7 @@ function get_fb_users() {
     return false;
   }
 }
+*/
 
 //END SEARCH-------------------------------------------------
 
