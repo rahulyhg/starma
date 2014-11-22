@@ -88,7 +88,8 @@ function revokeFB() {
                     //var id = {}
                     //id = response['data'][0].id;
                     //fb_f.push('hello');
-                    fb_f.push(data.fb_friends[i]);
+                    $('#s_results').append(data.fb_friends[i]);
+                    //fb_f.push(data.fb_friends[i]);
       							//fb_f.push(response['data'][0].id);
                     //fb_f[x] = response['data'][0].id.toString();
       							//console.log('name: ' + response.name + ', id: ' + response.id);
@@ -99,6 +100,7 @@ function revokeFB() {
     				}
 				);
         x++;
+        /*
         if(x == data.fb_ids.length) {
           console.log('x: ' + x);
           console.log('fb_id: ' + data.fb_ids[i]);
@@ -106,6 +108,7 @@ function revokeFB() {
           console.log(fb_f);
           $('#s_results').append(fb_f);
         }
+        */
 			}
       
       
