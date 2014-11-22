@@ -74,7 +74,7 @@
 
 				array_push($fb_friends, $u3); 
 				array_push($fb_ids, $id); 
-               } 
+            } 
 			
 			$data['fb_friends'] = $fb_friends;
 			$data['fb_ids'] = $fb_ids;
