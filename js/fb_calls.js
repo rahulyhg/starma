@@ -85,10 +85,22 @@ function revokeFB() {
       							console.log(response['data'][0].id);
       							//console.log('response name: '); 
       							//console.log(response['data'][0].name);
+                    var send_id = {'fb_f_loop_id' : response['data'][0].id,
+
+                                  }
+                    $.ajax({
+                      type: 'POST',
+                      url: '/chat/fb_data.php',
+                      data: send_id,
+                      dataType: 'json',
+                    })
+                    .done(function(data){
+                      $('#s_results').append(data.fb_friend);
+                    });
                     //var id = {}
                     //id = response['data'][0].id;
                     //fb_f.push('hello');
-                    $('#s_results').append(data.fb_friends[i]);
+                    //$('#s_results').append(data.fb_friends[i]);
                     //fb_f.push(data.fb_friends[i]);
       							//fb_f.push(response['data'][0].id);
                     //fb_f[x] = response['data'][0].id.toString();

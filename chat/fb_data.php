@@ -50,6 +50,8 @@
 
 //FIND FB FRIENDS--------------------------------
 
+
+	/*
 	if (isset($_POST['fb_friends'])) {
 		if (!$user_list = get_fb_users()) {
 			$errors['fb_friends'] = 'There was a problem accessing your Facebook friends';
@@ -80,10 +82,48 @@
 			$data['fb_ids'] = $fb_ids;
 		}
 	}
+	*/
+
+	if (isset($_POST['fb_friends'])) {
+		if (!$fb_id_list = get_fb_ids()) {
+			$errors['fb_friends'] = 'There was a problem accessing your Facebook friends';
+		}
+		else {
+			$fb_ids = query_to_array($fb_id_list);
+			$data['fb_ids'] = $fb_ids;
+		}
+		
+	}
 
 	if (isset($_POST['fb_f_ids'])) {
 		$data['fb_f_ids'] = $_POST['fb_f_ids'];
 		$data['test'] = 'hello';
+	}
+
+	if (isset($_POST['fb_f_loop_id'])){
+		$fb_id = $_POST['fb_f_loop_id'];
+		if (!$user_q = get_single_fb_user($fb_id)) {
+			$errors['fb_friends'] = 'There was a problem accessing your Facebook friends';
+		}
+		else {
+			$user = query_to_array($user_q);
+			$url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
+			
+				$u1 = '<div class="user_block js_user_' . $user["user_id"] . '"><div class="photo_border_wrapper_compare"><div class="compare_photo">';
+                
+                $u_pic = user_compare_picture_for_scroll ($url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"], $user["user_id"]);
+                  
+                $u2 = $u1 . $u_pic . '</div></div>'; 
+                          	
+                $u_gen = general_info_for_scroll($user["chart_id"], $user["user_id"]);
+                $u3 = $u2 . $u_gen . '</div>';  
+				
+				//$id = $user['fb_id'];
+			
+			$data['fb_friend'] = $u3;
+			//$data['fb_ids'] = $fb_ids;
+		}
+		//$data['fb_f_loop_id'] = $_POST['fb_f_loop_id'];
 	}
 
 
