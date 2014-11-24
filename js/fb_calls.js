@@ -64,7 +64,7 @@ function revokeFB() {
 			console.log(data);
 			var fb_f = [];
       //var t = [];
-			//alert(data.fb_friends.length);
+			alert(data.fb_friends.length);
       //var done = 0;
       var x = 0;
 			for (i = 0; i < data.fb_ids.length; i++) {
