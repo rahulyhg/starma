@@ -10,6 +10,16 @@
 		$data['check'] = 'got through';
 	}
 
+	if (isset($_POST['fb_id_settings'])) {
+		$fb_id = $_POST['fb_id_settings'];
+		if(!update_my_fb_id($_SESSION['user_id'], $fb_id)) {
+			$errors['update_fb_id'] = 'Failed to update your Facebook ID';
+		}
+		else {
+			$data['success'] = 'Facebook ID updated';
+		}
+	}
+
 	if (isset($_POST['exist'])) {
 		if (!$user_id = get_user_id_from_fb_id($_SESSION['fb_id'])) {
 			$errors['user_id'] = 'Could not obtain user id';

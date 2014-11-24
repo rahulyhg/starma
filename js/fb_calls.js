@@ -2,50 +2,6 @@ $(document).ready(function(){
 
 //GENERAL CALLS ---------------------------------
 
-function revokeFB() {
-      FB.api(
-      'me/permissions',
-      'DELETE',
-      function (response) {
-        if (response && !response.error) {
-            console.log('delete');
-            console.log(response);
-          }
-      });
-  }
-
-  function assignIDSettings() {
-    FB.api('/me', function(response) {
-        //console.log('Successful login for: ' + response.name);
-        //document.getElementById('status').innerHTML =
-        //  'Thanks for logging in, ' + response.name + '!';
-        var data = {'fb_id'         : response.id,
-                    'reconnect_fb'  : 'reconnect_fb'
-                  };
-
-            $.ajax({
-              type      : 'POST',
-              url       : '/chat/fb_data.php',
-              data      : data,
-              dataType  : 'json'
-            })
-            .done(function(data){
-              if (data.errors) {
-                if (data.errors.set) {
-                  console.log(data.errors.set);
-                }
-              }
-              if (data.success) {
-                console.log(data.success);
-              }
-              //alert(data.check);
-              //console.log(data.fb_id);
-              //userExistFB();
-            });
-      });
-    }
-
-
  //FIND FRIENDS -------------------------------------------
 
 	$('#sfb_friends').click(function(){
