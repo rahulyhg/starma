@@ -64,7 +64,7 @@ function revokeFB() {
 			console.log(data);
 			var fb_f = [];
       //var t = [];
-			alert(data.fb_ids.length);
+			//alert(data.fb_ids.length);
       //var done = 0;
       var x = 0;
 			for (i = 0; i < data.fb_ids.length; i++) {
@@ -87,7 +87,7 @@ function revokeFB() {
       							//console.log(response['data'][0].name);
                     var send_id = {'fb_f_loop_id' : response['data'][0].id,
 
-                                  }
+                                  };
                     $.ajax({
                       type: 'POST',
                       url: '/chat/fb_data.php',
