@@ -85,9 +85,7 @@ function revokeFB() {
       							console.log(response['data'][0].id);
       							//console.log('response name: '); 
       							//console.log(response['data'][0].name);
-                    var send_id = {'fb_f_loop_id' : response['data'][0].id,
-
-                                  };
+                    var send_id = {'fb_f_loop_id' : response['data'][0].id};
                     $.ajax({
                       type: 'POST',
                       url: '/chat/fb_data.php',
