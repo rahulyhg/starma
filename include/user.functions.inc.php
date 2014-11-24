@@ -1712,8 +1712,22 @@ function get_fb_id ($user_id) {
 
 function revoke_fb_id ($user_id) {
   if(isLoggedIn()) {
-    $q = 'DELETE fb_id from fb_data where user_id = ' . $user_id;
+    $q = 'DELETE * from fb_data where user_id = ' . $user_id;
     if (mysql_query($q)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
+function revoke_my_fb_id ()  {
+  if (isLoggedIn()){
+    if (revoke_fb_id($_SESSION['user_id'])) {
       return true;
     }
     else {

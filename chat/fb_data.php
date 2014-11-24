@@ -58,7 +58,7 @@
 	}
 
 	if (isset($_POST['revokeFB'])){
-		if (!revoke_my_fb_id($_SESSION['user_id'])) {
+		if (!revoke_my_fb_id()) {
 			$errors['revokeFB'] = 'Failed to remove your Facebook ID';
 		}
 		else {
