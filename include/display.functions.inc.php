@@ -2890,11 +2890,11 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       }
 
       //COMPARE FLAG----------------------------------------
-      
+      /*
       if(my_compare_flag() == 1) {
 
         //MAJOR ------------------
-        /*
+        
           echo '<div id="msg_sheen" class="compare_pop">';    
             echo '<div id="msg_sheen_screen_cot" class="compare_pop"></div>';
               
