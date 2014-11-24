@@ -343,6 +343,11 @@ $(document).ready(function(){
 
 	$('.mc').click(function(){
 		$('.mc').removeClass('selected');
+		$('.pillar_icon_minor, .left, .right').removeClass('selected');
+		$('.pillar').removeClass('pillar_arrow');
+		$('.pillar_broken').removeClass('pillar_broken_arrow');
+		$('.blurb_supporting').hide();
+		$('.add_arrow_top').hide();
 		var mc = $(this).children('input').val();
 		if (mc == 0) {
 			$('#mc_sun').hide();
