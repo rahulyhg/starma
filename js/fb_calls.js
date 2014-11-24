@@ -77,6 +77,8 @@ function revokeFB() {
 				FB.api(
     				'/me/friends/' + data.fb_ids[i],
     				function (response) {
+              console.log('full response: ');
+              console.log(response);
       					if (response != '' && !response.error) {
       						console.log('response: ');
       						console.log(response);
