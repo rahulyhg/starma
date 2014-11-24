@@ -81,8 +81,8 @@ function revokeFB() {
       						console.log('response: ');
       						console.log(response);
       						if (response['data'].length > 0) {
-      							//console.log('response id: '); 
-      							//console.log(response['data'][0].id);
+      							console.log('response id: '); 
+      							console.log(response['data'][0].id);
       							//console.log('response name: '); 
       							//console.log(response['data'][0].name);
                     //var id = {}
