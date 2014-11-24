@@ -1710,6 +1710,21 @@ function get_fb_id ($user_id) {
   }
 }
 
+function revoke_fb_id ($user_id) {
+  if(isLoggedIn()) {
+    $q = 'DELETE fb_id from fb_data where user_id = ' . $user_id;
+    if (mysql_query($q)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
+
 
 function get_my_chart () {
   if (isLoggedIn()) {

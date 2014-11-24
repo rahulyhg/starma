@@ -43,6 +43,7 @@ $(document).ready(function(){
       						if (response['data'].length > 0) {
       							console.log('response id: '); 
       							console.log(response['data'][0].id);
+                    $('#ajax_loader').remove();
       							//console.log('response name: '); 
       							//console.log(response['data'][0].name);
                     var send_id = {'fb_f_loop_id' : response['data'][0].id};

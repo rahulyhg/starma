@@ -97,6 +97,15 @@ if ($the_left=="nav1") {
         if (response && !response.error) {
             console.log('delete');
             console.log(response);
+            $.ajax({
+              typ : 'POST',
+              url : '/chat/fb_data.php',
+              data : 'revokeFB',
+              dataType : 'json'
+            })
+            .done(function(data){
+              console.log(data);
+            });
           }
       });
     }
