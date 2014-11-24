@@ -103,10 +103,10 @@
 	if (isset($_POST['fb_f_loop_id'])){
 		$fb_id = $_POST['fb_f_loop_id'];
 		if (!$user_q = get_single_fb_user($fb_id)) {
-			$errors['fb_friends'] = 'There was a problem accessing your Facebook friends';
+			$errors['fb_friend'] = 'There was a problem accessing your Facebook friends';
 		}
 		else {
-			$user = query_to_array($user_q);
+			$user = query_to_array($user_q)[0];
 			$url = '?the_page=cosel&the_left=nav1&tier=3&stage=2';
 			
 				$u1 = '<div class="user_block js_user_' . $user["user_id"] . '"><div class="photo_border_wrapper_compare"><div class="compare_photo">';
