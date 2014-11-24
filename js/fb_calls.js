@@ -92,8 +92,8 @@ function revokeFB() {
                       data: send_id,
                       dataType: 'json',
                     })
-                    .done(function(data){
-                      $('#s_results').append(data.fb_friend);
+                    .done(function(r){
+                      $('#s_results').append(r.fb_friend);
                     });
                     //var id = {}
                     //id = response['data'][0].id;
