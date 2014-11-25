@@ -11,7 +11,5 @@ $(document).ready(function(){
     checkLoginStateNTS();    
 	});
 
-  $('#sfb_friends').prop('disabled', false);
-
 
 });

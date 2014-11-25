@@ -389,9 +389,10 @@ function statusChangeCallbackNTS(response) {
         status     : true
       });
 
-      //FB.getLoginStatus(function(response) {
-      //  statusChangeCallback(response);
-      //});
+      FB.getLoginStatus(function(response) {
+        $('#sfb_friends').prop('disabled', false);
+        //statusChangeCallback(response);
+      });
     };
 
     (function(d, s, id){
