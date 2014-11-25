@@ -1712,7 +1712,7 @@ function get_fb_id ($user_id) {
 
 function revoke_fb_id ($user_id) {
   if(isLoggedIn()) {
-    $q = 'DELETE * from fb_data where user_id = ' . $user_id;
+    $q = 'DELETE from fb_data where user_id = ' . $user_id;
     mysql_query($q);
     return true;
 
