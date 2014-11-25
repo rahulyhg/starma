@@ -97,10 +97,11 @@ if ($the_left=="nav1") {
         if (response && !response.error) {
             console.log('delete');
             console.log(response);
+            var data = {'revokeFB' : true};
             $.ajax({
-              typ : 'POST',
+              type : 'POST',
               url : '/chat/fb_data.php',
-              data : 'revokeFB',
+              data : data,
               dataType : 'json'
             })
             .done(function(data){
@@ -119,7 +120,7 @@ if ($the_left=="nav1") {
             console.log(response);
             var data = {'revokeFB' : true};
             $.ajax({
-              typ : 'POST',
+              type : 'POST',
               url : '/chat/fb_data.php',
               data : data,
               dataType : 'json'
