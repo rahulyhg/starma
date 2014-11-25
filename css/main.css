@@ -3971,6 +3971,13 @@ END OLD WAY*/
   margin-left: 75px;
 }
 
+#fb_f_empty {
+  display: none;
+  font-size: 1.3em;
+  margin: 10px 0;
+  position: relative;
+}
+
 .s_button {
   /*width: 235px;*/
   margin-bottom: 15px;

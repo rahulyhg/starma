@@ -156,11 +156,12 @@ function statusChangeCallbackNTS(response) {
         .done(function(data){
           console.log('data: ');
           console.log(data);
-          var fb_f = [];
+          var fb_f = 0;
           //alert(data.fb_ids.length);
           console.log('fb_ids: ');
           console.log(data.fb_ids);
-          //var x = 0;
+          var x = 0;
+          var done = 0;
           for (i = 0; i < data.fb_ids.length; i++) {
             //console.log('data.fb_friends' + i + ': ');
             //console.log(data.fb_friends[i]);
@@ -173,6 +174,9 @@ function statusChangeCallbackNTS(response) {
                   if (response != '' && !response.error) {
                     console.log('response: ');
                     console.log(response);
+                    if (x == data.fb_ids.length) {
+                      done = 1;
+                    }
                     if (response['data'].length > 0) {
                       console.log('response id: '); 
                       console.log(response['data'][0].id);
@@ -186,6 +190,7 @@ function statusChangeCallbackNTS(response) {
                       })
                       .done(function(r){
                         $('#users_found').append(r.fb_friend);
+                        fb_f++;
                       });
                       //id = response['data'][0].id;
                       //fb_f.push('hello');
@@ -193,10 +198,15 @@ function statusChangeCallbackNTS(response) {
                       //fb_f.push(data.fb_friends[i]);
                       //fb_f.push(response['data'][0].id);
                     }
+                    if (done == 1) {
+                      if (fb_f == 0) {
+                        $('#fb_f_empty').show().html('We were unable to find your Facebook friends on Starma.  This could mean that they signed up but didn\'t connect their Facebook account yet, or that none of your Facebook friends are on Starma.  Would you like to invite them to join?');
+                      }
+                    }
                   }
               }
             );
-            //x++;
+            x++;
           }        
         }); //close done function
       } 

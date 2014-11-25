@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	$('#hide_s').click(function(){
 		$('#users_found').html('').hide();
+		$('#fb_f_empty').hide();	//if FB friends search is empty
 		$('#s_results').show();
 		$('#hide_s').hide();
 	});
