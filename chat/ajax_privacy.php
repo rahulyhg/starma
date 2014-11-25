@@ -28,17 +28,17 @@
 			
 		}
 
-		elseif (isset($_POST['fbcb'])) {
+		elseif (isset($_POST['pref_fb'])) {
 			$pref_name = 'fb_connected';
-			if (!preg_match('%^[\d]{1}$%', $_POST['fbcb'])) {
+			if (!preg_match('%^[\d]{1}$%', $_POST['pref_fb'])) {
 				$errors['invald'] = 'There was an error. Please refresh and try again.';
 			}
 			else {
-				$fbcb = $_POST['fbcb'];
+				$pref_fb = $_POST['pref_fb'];
 				//$data['hlcb'] = $hlcb;
 				//$data['msg'] = $hlcb;
 			}
-			if (!set_my_preference($pref_name, $fbcb)) {
+			if (!set_my_preference($pref_name, $pref_fb)) {
 				$errors['set'] = 'Unable to set preference.  Please refresh and try again';
 			}
 			
