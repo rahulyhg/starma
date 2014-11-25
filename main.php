@@ -213,7 +213,7 @@ function statusChangeCallbackNTS(response) {
                     if (done == 1) {
                       if (fb_f == 0) {
                         $('#ajax_loader').remove();
-                        $('#fb_f_invite').show().html('You currently have no Facebook friends on Starma.  To invite more Facebook friends to join Starma, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
+                        $('#fb_f_invite').show().html('You currently have no Facebook friends on Starma.  To invite your Facebook friends, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
                       }
                     }
                   }
