@@ -293,6 +293,7 @@ function statusChangeCallbackNTS(response) {
               }
               if (data.success) {
                 console.log(data.success);
+                window.location.reload(true);
               }
               //alert(data.check);
               //console.log(data.fb_id);
