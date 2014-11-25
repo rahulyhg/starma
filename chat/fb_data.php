@@ -61,6 +61,9 @@
 		if (!revoke_my_fb_id()) {
 			$errors['revokeFB'] = 'Failed to remove your Facebook ID';
 		}
+		if(!empty($errors)) {
+			$data['errors'] = $errors;
+		}
 		else {
 			$data['revokeFB'] = 'Success!';
 		}
