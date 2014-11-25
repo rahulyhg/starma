@@ -135,6 +135,12 @@ if ($the_left=="nav1") {
       });
     }
 
+function sendDialogue () {
+  FB.ui({
+    method: 'send',
+    link: 'https://www.starma.com',
+  });
+}
 
 function statusChangeCallbackNTS(response) {
       console.log('statusChangeCallback');
@@ -202,7 +208,7 @@ function statusChangeCallbackNTS(response) {
                     if (done == 1) {
                       if (fb_f == 0) {
                         $('#ajax_loader').remove();
-                        $('#fb_f_empty').show().html('We were unable to find your Facebook friends on Starma.  This could mean that they signed up but didn\'t connect their Facebook account yet, or that none of your Facebook friends are on Starma.  Would you like to invite them to join?');
+                        $('#fb_f_empty').show().html('We were unable to find your Facebook friends on Starma.  This could mean that they signed up but didn\'t connect their Facebook account yet, or that none of your Facebook friends are on Starma.  Would you like to <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">invite them to join?</span>');
                       }
                     }
                   }
