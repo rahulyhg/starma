@@ -199,7 +199,7 @@ if ($the_left=="nav1") {
       });
     }
 
-    function fbLoginSettings () {
+    function fbLoginMain () {
     FB.login(function(response) {
     checkLoginState();
       // handle the response'
@@ -261,6 +261,14 @@ if ($the_left=="nav1") {
         console.log('accessToken');
         console.log(response.authResponse.accessToken);
         statusChangeCallback(response);
+      });
+    }
+
+    function checkLoginStateNTS() {
+      FB.getLoginStatus(function(response) {
+        //console.log('accessToken');
+        //console.log(response.authResponse.accessToken);
+        statusChangeCallbackNTS(response);
       });
     }
 

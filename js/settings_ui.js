@@ -136,7 +136,7 @@ $(document).ready(function(){
 					revokeFBSettings();
 				}
 				if (data.set) {
-					fbLoginSettings();
+					fbLoginMain();
 				}
 			}
 		});
