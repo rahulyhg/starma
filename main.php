@@ -210,6 +210,9 @@ function statusChangeCallbackNTS(response) {
                         $('#ajax_loader').remove();
                         $('#fb_f_empty').show().html('We were unable to find your Facebook friends on Starma.  This could mean that they signed up but didn\'t connect their Facebook account yet, or that none of your Facebook friends are on Starma.  Would you like to <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">invite them to join?</span>');
                       }
+                      else {
+                         $('#fb_f_empty').show().html('Here are your Facebook friends that are on Starma.  Would you like to <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">invite other Facebook friends to join?</span>');
+                      }
                     }
                   }
               }
