@@ -128,7 +128,7 @@ if ($the_left=="nav1") {
               dataType : 'json'
             })
             .done(function(data){
-              window.location.reload(true);
+              //window.location.reload(true);
               console.log(data);
             });
           }
