@@ -115,8 +115,8 @@ if ($the_left=="nav1") {
       'me/permissions',
       'DELETE',
       function (response) {
-        //console.log('response: ');
-        //console.log(response);
+        console.log('response: ');
+        console.log(response);
         if (response && !response.error) {
             console.log('delete');
             console.log(response);
@@ -271,7 +271,7 @@ function statusChangeCallbackNTS(response) {
 
   function assignIDSettings() {
     FB.api('/me', function(response) {
-        //console.log('Successful login for: ' + response.name);
+        console.log('Successful login for: ' + response.name);
         //document.getElementById('status').innerHTML =
         //  'Thanks for logging in, ' + response.name + '!';
         var data = {'fb_id_settings' : response.id,
@@ -295,7 +295,7 @@ function statusChangeCallbackNTS(response) {
               }
               if (data.success) {
                 console.log(data.success);
-                window.location.reload(true);
+                //window.location.reload(true);
               }
               //alert(data.check);
               //console.log(data.fb_id);
