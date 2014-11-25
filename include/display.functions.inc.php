@@ -6876,7 +6876,13 @@ function show_privacy_form () {
         echo '</div>';
       echo '</div>';
 
-      //echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLogin();">Login with Facebook</button></div>';
+      if (get_my_preferences('fb_connected', 0) == 1) {
+        echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLogin();">Disconnect from Facebook</button></div>';
+      }
+      else {
+        echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLoginMain();">Connect with Facebook</button></div>';
+      }
+      /*
       echo '<div>';
         echo '<input type="checkbox" ';
           if (get_my_preferences('fb_connected', 0) == 1) {
@@ -6886,6 +6892,7 @@ function show_privacy_form () {
         echo '<div class="later_on" style="display:inline-block;">Connect with my Facebook account<span id="fb_done" class="later_on" style="display:none; padding-left:10px;"></span>';
         echo '</div>';
       echo '</div>';
+      */
    //echo '</form>';
 
 

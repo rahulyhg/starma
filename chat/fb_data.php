@@ -16,7 +16,7 @@
 			$errors['update_fb_id'] = 'Failed to update your Facebook ID';
 		}
 		else {
-			$data['success'] = 'Facebook ID updated';
+			$data['update_fb_id'] = 'Facebook ID updated';
 		}
 	}
 
