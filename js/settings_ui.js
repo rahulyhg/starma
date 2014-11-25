@@ -148,11 +148,11 @@ $(document).ready(function(){
 		$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
 		if($('#pref_fb').hasClass('disconnect_fb')) {
 			//fbLoginSettings();
-			var data = { 'fbcb' : 0 };
+			var data = { 'pref_fb' : 0 };
 		}
 		if(!$('#pref_fb').hasClass('connect_fb')) {
 			//revokeFB();
-			var data = { 'fbcb' : 1 };
+			var data = { 'pref_fb' : 1 };
 		}
 		//alert(data);
 		$.ajax({
