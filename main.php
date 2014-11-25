@@ -97,7 +97,7 @@ if ($the_left=="nav1") {
         if (response && !response.error) {
             console.log('delete');
             console.log(response);
-            var data = {'revokeFB' : true};
+            var data = {'revokeFB' : 'revokeFB'};
             $.ajax({
               type : 'POST',
               url : '/chat/fb_data.php',
@@ -115,10 +115,12 @@ if ($the_left=="nav1") {
       'me/permissions',
       'DELETE',
       function (response) {
+        console.log('response: ');
+        console.log(response);
         if (response && !response.error) {
             console.log('delete');
             console.log(response);
-            var data = {'revokeFB' : true};
+            var data = {'revokeFB' : 'revokeFB'};
             $.ajax({
               type : 'POST',
               url : '/chat/fb_data.php',
