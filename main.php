@@ -171,6 +171,12 @@ function statusChangeCallbackNTS(response) {
           for (i = 0; i < data.fb_ids.length; i++) {
             //console.log('data.fb_friends' + i + ': ');
             //console.log(data.fb_friends[i]);
+            if (x == (data.fb_ids.length - 1)) {
+              done = 1;
+            }
+            else {
+              x++;
+            }   
         
             FB.api(
               '/me/friends/' + data.fb_ids[i].fb_id,
@@ -212,13 +218,7 @@ function statusChangeCallbackNTS(response) {
                           $('#fb_f_invite').show().html('You currently have no Facebook friends on Starma.  To invite your Facebook friends, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
                         }
                       }
-                    }  
-                    if (x == (data.fb_ids.length - 1)) {
-                      done = 1;
-                    }
-                    else {
-                      x++;
-                    }                 
+                    }                
                   }
               }
             );
