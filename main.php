@@ -95,8 +95,8 @@ if ($the_left=="nav1") {
       'DELETE',
       function (response) {
         if (response && !response.error) {
-            console.log('delete');
-            console.log(response);
+            //console.log('delete');
+            //console.log(response);
             var data = {'revokeFB' : 'revokeFB'};
             $.ajax({
               type : 'POST',
@@ -115,8 +115,8 @@ if ($the_left=="nav1") {
       'me/permissions',
       'DELETE',
       function (response) {
-        console.log('response: ');
-        console.log(response);
+        //console.log('response: ');
+        //console.log(response);
         if (response && !response.error) {
             console.log('delete');
             console.log(response);
@@ -143,8 +143,8 @@ function sendDialogue () {
 }
 
 function statusChangeCallbackNTS(response) {
-      console.log('statusChangeCallback');
-      console.log(response);
+      //console.log('statusChangeCallback');
+      //console.log(response);
       // The response object is returned with a status field that lets the
       // app know the current login status of the person.
       // Full docs on the response object can be found in the documentation
@@ -160,12 +160,12 @@ function statusChangeCallbackNTS(response) {
           dataType : 'json'
         })
         .done(function(data){
-          console.log('data: ');
-          console.log(data);
+          //console.log('data: ');
+          //console.log(data);
           var fb_f = 0;
           //alert(data.fb_ids.length);
-          console.log('fb_ids: ');
-          console.log(data.fb_ids);
+          //console.log('fb_ids: ');
+          //console.log(data.fb_ids);
           var x = 0;
           var done = 0;
           for (i = 0; i < data.fb_ids.length; i++) {
@@ -175,8 +175,8 @@ function statusChangeCallbackNTS(response) {
             FB.api(
               '/me/friends/' + data.fb_ids[i].fb_id,
               function (response) {
-                console.log('full response: ');
-                console.log(response);
+                //console.log('full response: ');
+                //console.log(response);
                   if (response != '' && !response.error) {
                     console.log('response: ');
                     console.log(response);
@@ -184,8 +184,8 @@ function statusChangeCallbackNTS(response) {
                       done = 1;
                     }
                     if (response['data'].length > 0) {
-                      console.log('response id: '); 
-                      console.log(response['data'][0].id);
+                      //console.log('response id: '); 
+                      //console.log(response['data'][0].id);
                       $('#ajax_loader').remove();
                       var send_id = {'fb_f_loop_id' : response['data'][0].id};
                       $.ajax({
@@ -325,8 +325,8 @@ function statusChangeCallbackNTS(response) {
 
     // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {
-      console.log('statusChangeCallback');
-      console.log(response);
+      //console.log('statusChangeCallback');
+      //console.log(response);
       // The response object is returned with a status field that lets the
       // app know the current login status of the person.
       // Full docs on the response object can be found in the documentation
@@ -337,8 +337,8 @@ function statusChangeCallbackNTS(response) {
           '/me/permissions',
           function (response) {
             if (response && !response.error) {
-              console.log('permissions');
-              console.log(response);
+              //console.log('permissions');
+              //console.log(response);
             }
         });
         //testAPI();
@@ -387,9 +387,9 @@ function statusChangeCallbackNTS(response) {
         status     : true
       });
 
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
+      //FB.getLoginStatus(function(response) {
+      //  statusChangeCallback(response);
+      //});
     };
 
     (function(d, s, id){
