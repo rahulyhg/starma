@@ -271,6 +271,7 @@ if (isLoggedIn())
     echo '<div id="tagline"></div>';
     echo '<div id="landing_login_box">';
       show_login_options_landing();
+      echo '<div id="rocketship"></div>';
     echo '</div>';
   echo '</div>'; //Close logo_test
 
@@ -279,6 +280,7 @@ if (isLoggedIn())
   //echo '<div style="position:absolute; width:100%;">';
   //echo '<div id="globe_and_footer">';
     echo '<div id="globe_landing">';
+      //echo '<div id="login_tab" class="later_on">Log In</div>';
       echo '<div id="landing_sign_up_box">';
         show_sign_up_box_landing();
         show_registration_box_landing();
@@ -331,7 +333,7 @@ if (isLoggedIn())
 
 ?>
 
-</div> --> <!-- Close main page container -->
+</div> <!-- Close main page container -->
 
 </div>  <!-- Close main landing -->
 <div id="fb-root"></div>

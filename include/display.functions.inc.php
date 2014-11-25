@@ -7082,8 +7082,8 @@ require_once ("landing_footer.php");
 //********************************  LANDING BOXES  ********************************/
 
 function show_login_options_landing () {
-  echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLogin();">Login with Facebook</button></div>';
-  echo '<div style="width:245px; display: inline-block;"><button type="button" class="sign_in" id="login_email_landing">Login with Email</button></div>';
+  //echo '<div style="width:190px; margin:0 20px 10px 0;"><button type="button" class="login_options later_on" onClick="fbLogin();">Facebook Login</button></div>';
+  //echo '<div style="width:100px; display: inline-block;"><button type="button" class="sign_up" id="login_email_landing">Log In</button></div>';
 }
 
 function show_login_box_landing () {
