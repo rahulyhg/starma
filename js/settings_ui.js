@@ -150,7 +150,7 @@ $(document).ready(function(){
 			//fbLoginSettings();
 			var data = { 'pref_fb' : 0 };
 		}
-		if(!$('#pref_fb').hasClass('connect_fb')) {
+		if($('#pref_fb').hasClass('connect_fb')) {
 			//revokeFB();
 			var data = { 'pref_fb' : 1 };
 		}
