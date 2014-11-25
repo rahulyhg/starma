@@ -178,15 +178,11 @@ function statusChangeCallbackNTS(response) {
                 //console.log('full response: ');
                 //console.log(response);
                   if (response != '' && !response.error) {
-                    console.log('response: ');
-                    console.log(response);
-                    if (x == data.fb_ids.length) {
-                      done = 1;
-                    }
+                    //console.log('response: ');
+                    //console.log(response);
                     if (response['data'].length > 0) {
                       //console.log('response id: '); 
                       //console.log(response['data'][0].id);
-                      $('#ajax_loader').remove();
                       var send_id = {'fb_f_loop_id' : response['data'][0].id};
                       $.ajax({
                         type: 'POST',
@@ -198,9 +194,7 @@ function statusChangeCallbackNTS(response) {
                         $('#users_found').append(r.fb_friend);
                         fb_f++;
                         if (done == 1) {
-                          if (fb_f > 0) {
-                            $('#fb_f_invite').show().html('To invite more Facebook friends to join Starma, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
-                          }
+                          $('#fb_f_invite').show().html('To invite more Facebook friends to join Starma, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
                         }
                         //$('#fb_f_empty').hide();
                       });
@@ -212,16 +206,21 @@ function statusChangeCallbackNTS(response) {
                     }
                     else {
                       if (done == 1) {
+                        $('#ajax_loader').remove();
                         if (fb_f == 0) {
-                          $('#ajax_loader').remove();
                           $('#fb_f_invite').show().html('You currently have no Facebook friends on Starma.  To invite your Facebook friends, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
                         }
                       }
-                    }                   
+                    }  
+                    if (x == (data.fb_ids.length - 1)) {
+                      done = 1;
+                    }
+                    else {
+                      x++;
+                    }                 
                   }
               }
             );
-            x++;
           }        
         }); //close done function
       } 
