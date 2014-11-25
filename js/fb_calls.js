@@ -2,12 +2,7 @@ $(document).ready(function(){
 
 //GENERAL CALLS ---------------------------------
 
- //FIND FRIENDS -------------------------------------------
-
-	$('#sfb_friends').click(function(){
-		$('#s_results').html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /></div>');
-
-    function statusChangeCallbackNTS(response) {
+function statusChangeCallbackNTS(response) {
       console.log('statusChangeCallback');
       console.log(response);
       // The response object is returned with a status field that lets the
@@ -70,7 +65,7 @@ $(document).ready(function(){
             //x++;
           }        
       } 
-      else if (response.status === 'not_authorized') {
+      if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
         //document.getElementById('status').innerHTML = 'Please log ' +
         //  'into this app.';
@@ -84,7 +79,14 @@ $(document).ready(function(){
       }
     }
 
-		});
+    });
+
+ //FIND FRIENDS -------------------------------------------
+
+	$('#sfb_friends').click(function(){
+		$('#s_results').html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /></div>');
+    checkLoginStateNTS();
+    
 	});
 
 
