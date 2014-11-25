@@ -33,7 +33,7 @@ if (login_check_point($type="full")) {
        			echo '<div id="hide_s" class="later_on pointer"><- Back</div>';
    			echo '</div>'; //close s_top_bar
 
-      		echo '<div id="users_found"></div>';
+      	echo '<div id="users_found"></div>';
     		echo '<div id="s_results">';
       			//echo '<div id="js_user_frame">';
       				//$chart_id = get_my_chart_id();

@@ -135,7 +135,7 @@ if ($the_left=="nav1") {
       });
     }
 
-    
+
 function statusChangeCallbackNTS(response) {
       console.log('statusChangeCallback');
       console.log(response);
@@ -185,7 +185,7 @@ function statusChangeCallbackNTS(response) {
                         dataType: 'json',
                       })
                       .done(function(r){
-                        $('#s_results').append(r.fb_friend);
+                        $('#users_found').append(r.fb_friend);
                       });
                       //id = response['data'][0].id;
                       //fb_f.push('hello');
