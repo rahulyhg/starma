@@ -213,7 +213,7 @@ function statusChangeCallbackNTS(response) {
                     if (done == 1) {
                       if (fb_f == 0) {
                         $('#ajax_loader').remove();
-                        $('#fb_f_invite').show().html('We were unable to find your Facebook friends on Starma.  This could mean that they signed up but didn\'t connect their Facebook account yet, or that none of your Facebook friends are on Starma.  Would you like to <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">invite them to join?</span>');
+                        $('#fb_f_invite').show().html('You currently have no Facebook friends on Starma.  To invite more Facebook friends to join Starma, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
                       }
                     }
                   }
