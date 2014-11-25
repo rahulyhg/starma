@@ -210,12 +210,14 @@ function statusChangeCallbackNTS(response) {
                       //fb_f.push(data.fb_friends[i]);
                       //fb_f.push(response['data'][0].id);
                     }
-                    if (done == 1) {
-                      if (fb_f == 0) {
-                        $('#ajax_loader').remove();
-                        $('#fb_f_invite').show().html('You currently have no Facebook friends on Starma.  To invite your Facebook friends, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
+                    else {
+                      if (done == 1) {
+                        if (fb_f == 0) {
+                          $('#ajax_loader').remove();
+                          $('#fb_f_invite').show().html('You currently have no Facebook friends on Starma.  To invite your Facebook friends, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
+                        }
                       }
-                    }
+                    }                   
                   }
               }
             );
