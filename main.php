@@ -109,6 +109,27 @@ if ($the_left=="nav1") {
           }
       });
     }
+    function revokeFBSettings() {
+      FB.api(
+      'me/permissions',
+      'DELETE',
+      function (response) {
+        if (response && !response.error) {
+            console.log('delete');
+            console.log(response);
+            $.ajax({
+              typ : 'POST',
+              url : '/chat/fb_data.php',
+              data : 'revokeFB',
+              dataType : 'json'
+            })
+            .done(function(data){
+              window.location.reload(true);
+              console.log(data);
+            });
+          }
+      });
+    }
 
 /*
 

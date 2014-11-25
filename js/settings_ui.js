@@ -107,11 +107,11 @@ $(document).ready(function(){
 	$('#fbcb').click(function(){
 		$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
 		if($('#fbcb').prop('checked')) {
-			fbLoginSettings();
+			//fbLoginSettings();
 			var data = { 'fbcb' : 1 };
 		}
 		if(!$('#fbcb').prop('checked')) {
-			revokeFB();
+			//revokeFB();
 			var data = { 'fbcb' : 0 };
 		}
 		//alert(data);
@@ -133,7 +133,10 @@ $(document).ready(function(){
 			if (data.success) {
 				$('#fb_done').show().html(data.msg).fadeOut(1200);
 				if (data.unset) {
-					window.location.reload(true);
+					revokeFBSettings()
+				}
+				if (data.set) {
+					fbLoginSettings();
 				}
 			}
 		});
