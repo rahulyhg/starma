@@ -64,8 +64,9 @@ function statusChangeCallbackNTS(response) {
             );
             //x++;
           }        
+        }); //close done function
       } 
-      if (response.status === 'not_authorized') {
+      else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
         //document.getElementById('status').innerHTML = 'Please log ' +
         //  'into this app.';
@@ -78,8 +79,6 @@ function statusChangeCallbackNTS(response) {
         // 'into Facebook.';
       }
     }
-
-    });
 
  //FIND FRIENDS -------------------------------------------
 
