@@ -133,7 +133,7 @@ $(document).ready(function(){
 			if (data.success) {
 				$('#fb_done').show().html(data.msg).fadeOut(1200);
 				if (data.unset) {
-					revokeFBSettings()
+					revokeFBSettings();
 				}
 				if (data.set) {
 					fbLoginSettings();
