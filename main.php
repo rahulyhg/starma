@@ -199,7 +199,7 @@ function statusChangeCallbackNTS(response) {
                         fb_f++;
                         if (done == 1) {
                           if (fb_f > 0) {
-                            $('#fb_f_invite').show().html('<span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">Invite more Facebook</span> friends to join Starma');
+                            $('#fb_f_invite').show().html('To invite more Facebook friends to join Starma, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
                           }
                         }
                         //$('#fb_f_empty').hide();
