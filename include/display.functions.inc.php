@@ -6877,10 +6877,10 @@ function show_privacy_form () {
       echo '</div>';
 
       if (get_my_preferences('fb_connected', 0) == 1) {
-        echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLogin();">Disconnect from Facebook</button></div>';
+        echo '<div style="display: inline-block; margin-right:20px;"><button type="button" class="s_button" onClick="fbLogin();">Disconnect from Facebook</button></div>';
       }
       else {
-        echo '<div style="width:245px; display: inline-block; margin-right:20px;"><button type="button" class="sign_in" onClick="fbLoginMain();">Connect with Facebook</button></div>';
+        echo '<div style="display: inline-block; margin-right:20px;"><button type="button" class="s_button" onClick="fbLoginMain();">Connect with Facebook</button></div>';
       }
       /*
       echo '<div>';
