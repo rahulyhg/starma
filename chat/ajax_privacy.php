@@ -47,6 +47,7 @@
 			}				
 			else {
 				$data['success'] = true;
+				$data['msg'] = 'Success!';
 				if (get_my_preferences($pref_name, 0) == 0) {
 					$data['unset'] = true;
 				}

@@ -128,7 +128,7 @@ if ($the_left=="nav1") {
               dataType : 'json'
             })
             .done(function(data){
-              //window.location.reload(true);
+              window.location.reload(true);
               console.log(data);
             });
           }
@@ -191,6 +191,7 @@ function statusChangeCallbackNTS(response) {
                       .done(function(r){
                         $('#users_found').append(r.fb_friend);
                         fb_f++;
+                        $('#fb_f_empty').hide();
                       });
                       //id = response['data'][0].id;
                       //fb_f.push('hello');
@@ -200,6 +201,7 @@ function statusChangeCallbackNTS(response) {
                     }
                     if (done == 1) {
                       if (fb_f == 0) {
+                        $('#ajax_loader').remove();
                         $('#fb_f_empty').show().html('We were unable to find your Facebook friends on Starma.  This could mean that they signed up but didn\'t connect their Facebook account yet, or that none of your Facebook friends are on Starma.  Would you like to invite them to join?');
                       }
                     }
