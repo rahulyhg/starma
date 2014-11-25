@@ -128,7 +128,7 @@ if ($the_left=="nav1") {
               dataType : 'json'
             })
             .done(function(data){
-              //window.location.reload(true);
+              window.location.reload(true);
               console.log(data);
             });
           }
@@ -295,7 +295,7 @@ function statusChangeCallbackNTS(response) {
               }
               if (data.success) {
                 console.log(data.success);
-                //window.location.reload(true);
+                window.location.reload(true);
               }
               //alert(data.check);
               //console.log(data.fb_id);
