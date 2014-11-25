@@ -194,6 +194,7 @@ function statusChangeCallbackNTS(response) {
                         $('#users_found').append(r.fb_friend);
                         fb_f++;
                         if (done == 1) {
+                          $('#ajax_loader').remove();
                           $('#fb_f_invite').show().html('To invite more Facebook friends to join Starma, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
                         }
                         //$('#fb_f_empty').hide();
