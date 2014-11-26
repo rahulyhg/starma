@@ -147,41 +147,7 @@ $(document).ready(function(){
 	$('#pref_fb').click(function(){
 		$('#pref_fb').prop('disabled', true);
 		$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
-		if($('#pref_fb').hasClass('disconnect_fb')) {
-			//fbLoginSettings();
-			var data = { 'pref_fb' : 0 };
-		}
-		if($('#pref_fb').hasClass('connect_fb')) {
-			//revokeFB();
-			var data = { 'pref_fb' : 1 };
-		}
-		//alert(data);
-		$.ajax({
-				type: 'POST',
-				url: 'chat/ajax_privacy.php',
-				data: data,
-				dataType: 'json',
-		})
-		.done(function(data){
-			if (data.errors) {
-				if (data.errors.invalid) {
-					$('#fb_done').show().html(data.errors.invalid);
-				}
-				if (data.errors.set) {
-					$('#fb_done').show().html(data.errors.set);
-				}
-			}
-			if (data.success) {
-				$('#fb_done').show().html(data.msg).fadeOut(1200);
-				if (data.unset) {
-					revokeFBSettings();
-				}
-				if (data.set) {
-					fbLoginMain();
-				}
-			}
-		});
-
+		statusChangeCallbackSettings();
 	});
 
 
