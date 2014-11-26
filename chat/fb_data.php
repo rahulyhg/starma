@@ -61,6 +61,9 @@
 		if (!revoke_my_fb_id()) {
 			$errors['revokeFB'] = 'Failed to remove your Facebook ID';
 		}
+		if (!set_my_preference('fb_connected', 0)) {
+			$errors['set'] = 'Failed to set preference';
+		}
 		if(!empty($errors)) {
 			$data['errors'] = $errors;
 		}

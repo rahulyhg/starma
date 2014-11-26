@@ -147,7 +147,12 @@ $(document).ready(function(){
 	$('#pref_fb').click(function(){
 		$('#pref_fb').prop('disabled', true);
 		$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
-		checkLoginStateSettings();
+		if ($('#pref_fb').hasClass('connect_fb')) {
+			fbLoginMain();
+		}
+		if($('#pref_fb').hasClass('disconnect_fb')) {
+			revokeFBSettings();
+		}
 	});
 
 

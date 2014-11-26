@@ -358,56 +358,6 @@ function statusChangeCallbackNTS(response) {
       }
     }
 
-    function statusChangeCallbackSettings(response) {
-      if (response.status === 'connected') {
-        // Logged into your app and Facebook.
-        FB.api(
-          '/me/permissions',
-          function (response) {
-            if (response && !response.error) {
-              if($('#pref_fb').hasClass('disconnect_fb')) {
-                var data = { 'pref_fb' : 0 };
-              }
-              if($('#pref_fb').hasClass('connect_fb')) {
-                var data = { 'pref_fb' : 1 };
-              }
-
-              $.ajax({
-                type: 'POST',
-                url: 'chat/ajax_privacy.php',
-                data: data,
-                dataType: 'json',
-              })
-              .done(function(data){
-                if (data.errors) {
-                  if (data.errors.invalid) {
-                    $('#fb_done').show().html(data.errors.invalid);
-                  }
-                  if (data.errors.set) {
-                    $('#fb_done').show().html(data.errors.set);
-                  }
-                }
-                if (data.success) {
-                  $('#fb_done').show().html(data.msg).fadeOut(1200);
-                  if (data.unset) {
-                    revokeFBSettings();
-                  }
-                  if (data.set) {
-                    fbLoginMain();
-                  }
-                }
-              });
-            }
-          }
-        );
-      } 
-      else if (response.status === 'not_authorized') {
-        $('#fb_done').fadeOut(1200);
-      } 
-      else {
-        $('#fb_done').fadeOut(1200);
-      }
-    }
 
     function checkLoginState() {
       FB.getLoginStatus(function(response) {
@@ -422,14 +372,6 @@ function statusChangeCallbackNTS(response) {
         //console.log('accessToken');
         //console.log(response.authResponse.accessToken);
         statusChangeCallbackNTS(response);
-      });
-    }
-
-    function checkLoginStateSettings() {
-      FB.getLoginStatus(function(response) {
-        //console.log('accessToken');
-        //console.log(response.authResponse.accessToken);
-        statusChangeCallbackSettings(response);
       });
     }
 
