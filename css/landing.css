@@ -297,7 +297,7 @@
 
 
 .sign_up {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   width: 100%;
   border: 1px solid #1a1d2a; 
   color: #1a1d2a;
@@ -361,7 +361,7 @@
 #or {
   color: #1a1d2a;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 6px;
   font-family: 'later_on';
   font-size: 2.2em;
 }
@@ -405,12 +405,11 @@
 
 #rocketship {
   background: url('/img/rocketship.png') no-repeat;
-  width: 161px;
-  height: 78px;
-  position: relative;
-  float: right;
-  right: 4%;
-  top: 20px;
+  width: 126px;
+  height: 64px;
+  position: absolute;
+  right: 89px;
+  top: -14px;
   cursor: pointer;
 }
 
@@ -524,6 +523,7 @@
   background: transparent;
 }
 
+/*
 #go_bug_path_landing {
   background: url('/img/Starma-Astrology-go-bug-path.png') no-repeat;
   width: 344px;
@@ -533,7 +533,18 @@
   left: 13px;
   float: right;
 }
+*/
 
+#login_box #go_bug_path_landing {
+  background: url('/img/goBugPathGuest.png') no-repeat;
+  height: 30px;
+  width: 175px;
+  position: relative;
+  bottom: 6px;
+  left: 14px;
+}
+
+/*
 #landing_login_box #go_bug_button {
     background: url("/img/GoBug.png") no-repeat;
     border: 0 none;
@@ -544,14 +555,49 @@
     display: inline-block;
     float: right;
     bottom: 18px;
-    /*top: -12px;*/
-    /*left: 346px;*/
 }
 
 #landing_login_box #go_bug_button:hover {
   background: url('/img/GoBugON.png') no-repeat;
 }
+*/
 
+/*
+#go { 
+    width: 50px;
+    font-size: 2em;
+    cursor: pointer;
+    text-align: right;
+    border: none;
+    background: #e7ebee;
+    float: right;
+    padding: 1px;
+}
+
+#go:active {
+    cursor: pointer;
+    text-align: right;
+    border: none;
+    background: #e7ebee;
+    float: right;
+}
+*/
+
+#cancel_login {
+    color: #939393;
+    cursor: pointer;
+    font-size: 0.65em;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    text-decoration: underline;
+    top: 38px;
+    width: 60px;
+}
+
+#cancel_login:hover {
+  color: #444444;
+}
 
 
 /***************************************  FB REGISTRATION  ****************************************/
@@ -763,7 +809,6 @@
 
 #login_box_landing input[type=checkbox] {
   position: relative;
-  float: left;
   margin: 0 5px 0 6px;
 }
 
@@ -777,8 +822,7 @@
     display: inline-block;
     float: right;
     bottom: 4px;
-    /*top: -12px;*/
-    /*left: 346px;*/
+    z-index: 1;
 }
 
 #login_box #go_bug_path_guest {

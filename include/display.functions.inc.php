@@ -7088,7 +7088,9 @@ function show_login_options_landing () {
 
 function show_login_box_landing () {
     echo '<div id="login_box">';
-      echo '<div class="heading">Log In</div>';
+      //echo '<div class="heading">Log In</div>';
+        echo '<button type="button" class="sign_up" onClick="fbLogin();">Facebook Login</button>';
+        echo '<div id="or">~ or ~</div>';
         echo '<form action="/chat/login_form_fields.php" method="POST" id="login_from_guest">';
           echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
             if(isset($_GET['email'])) {
@@ -7101,14 +7103,16 @@ function show_login_box_landing () {
           //echo '<div class="register_error_area" id="login_password_error"></div>';
           echo '<div id="kmsi_fp">';  
             echo '<div id="forgot_password_landing">forgot your password?</div>';
-            echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="" /><div>keep me signed in</div></div>';
+            echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="" /><div style="float:left; font-size: 1.1em;">keep me signed in</div></div>';
           echo '</div>';
+          //echo '<button type="submit" id="go" class="later_on" name="Login">Go!</button>';
           echo '<button type="submit" id="go_bug_button" name="Login"></button>';
           //echo '<div class="sign_up_text">Go ></div>';
           //echo '<input type="submit" id="go_bug_button" name="Login" value=""/>';
           //echo '<button type="submit" name="login_submit" class="sign_up">Log In</button>';
         echo '</form>';
-        echo '<div id="go_bug_path_guest"></div>';
+        echo '<div id="cancel_login">Cancel</div>';
+        echo '<div id="go_bug_path_landing"></div>';
 
       /*
       //echo '<div class="title">Log In</div>';
@@ -7157,10 +7161,12 @@ function show_sign_up_box_landing () {
   
     echo '<div id="sign_up_box">';
       echo  '<div class="heading">Create an Account</div>';
-          echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
+        echo '<div style="margin-top: 27px;">';
+          echo '<div style="margin-bottom: 12px;"><button type="button" name="sign_up_fb" class="sign_up" onClick="fbSignUp();">Facebook</button></div>';
           echo '<div id="or">~ or ~</div>';
           //echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; 
-          echo '<button type="button" name="sign_up_fb" class="sign_up" onClick="fbSignUp();">Facebook</button>';
+          echo '<div style="margin-top: 23px;"><button type="button" name="sign_up_email" class="sign_up">Email</button></div>';
+        echo '</div>';
       echo '</div>'; //Close sign_up_box
 }
 
@@ -7685,7 +7691,9 @@ function show_donate_button() {
 
 function show_login_box_guest () {
     echo '<div id="login_box">';
-      echo '<div class="heading">Log In</div>';
+      //echo '<div class="heading">Log In</div>';
+        echo '<button type="button" class="sign_up" onClick="fbLogin();">Facebook Login</button>';
+        echo '<div id="or">~ or ~</div>';
         echo '<form action="../chat/login_form_fields.php" method="POST" id="login_from_guest">';
           echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
             if(isset($_GET['email'])) {

@@ -4,7 +4,7 @@ $(document).ready(function(){
 	jQuery.fn.slideFadeToggle = function(easing, callback) {
     	return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
 	};
-
+/*
 //A LITTLE UI ON THE SLY--------------------------------
 	$('#go_bug_button').mouseenter(function() {
 		$('#go_bug_path_landing').css('background-image', 'url(/img/goBugPathLandingON.png)');
@@ -24,7 +24,7 @@ $(document).ready(function(){
 		$('#explore a').css('color', '#1a1d2a');
 	});
 
-
+*/
 	$('.pop_fp_click').click(function(){
 		$('#create_account').hide();
 		$('#forgot_password_box').hide();
@@ -53,6 +53,20 @@ $(document).ready(function(){
 			//$('#landing_sign_up_box').show();
 			$('#create_account').hide();
 		});
+	});
+
+	//STARTS HERE
+
+	$('#rocketship').click(function(){
+		$('#sign_up_box').hide();
+		$('#create_account').hide();
+		$('#create_account_fb').hide();
+		$('#login_box').show();
+	});
+
+	$('#cancel_login').click(function(){
+		$('#login_box').hide();
+		$('#sign_up_box').show();
 	});
 
 	
