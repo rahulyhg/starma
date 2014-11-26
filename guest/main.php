@@ -279,7 +279,7 @@ function sendIDGuest() {
       <div id="msg_sheen_screen" class="pop_login pop_log"></div>
         <div id="msg_sheen_content_guest" class="pop_login">
           <?php          
-            show_fb_or_email_login_box_guest();     
+            //show_fb_or_email_login_box_guest();     
             show_login_box_guest();
             show_forgot_password_box();
           ?>  

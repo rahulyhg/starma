@@ -7702,7 +7702,7 @@ function show_donate_button() {
 function show_login_box_guest () {
     echo '<div id="login_box">';
       //echo '<div class="heading">Log In</div>';
-        echo '<button type="button" class="sign_up" onClick="fbLogin();">Facebook Login</button>';
+        echo '<button type="button" class="sign_up" onClick="fbLoginGuest();">Facebook Login</button>';
         echo '<div id="or">~ or ~</div>';
         echo '<form action="../chat/login_form_fields.php" method="POST" id="login_from_guest">';
           echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';

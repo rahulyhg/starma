@@ -96,19 +96,21 @@ $(document).ready(function(){
 		$('.pop_login').slideFadeToggle(function () {
 			//$('#login_box').show();
 			//$('#login_email').focus();
-			$('#fb_or_email_login_guest').show();
+			//$('#fb_or_email_login_guest').show();
+			$('#login_box').show();
 			$('#forgot_password_box').hide();
 		});
 	});
 
 	$('.pop_log').click(function(){
 		$('.pop_login').slideFadeToggle(function() {
-			$('#fb_or_email_login_guest').show();
-			$('#login_box').hide();
+			//$('#fb_or_email_login_guest').show();
+			$('#login_box').show();
 			$('#forgot_password_box').hide();
 		});
 	});
 
+	/*
 	$('button[name=login_fb]').click(function(){
 		//$('#fb_or_email_login_guest').hide();
 	});
@@ -117,6 +119,6 @@ $(document).ready(function(){
 		$('#fb_or_email_login_guest').hide();
 		$('#login_box').show();
 	});
-
+	*/
 
 });
