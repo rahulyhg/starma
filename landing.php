@@ -255,7 +255,7 @@ if (isLoggedIn())
         <div id="msg_sheen_content_guest" class="pop_login_landing">
           <?php 
             //show_registration_box_landing(); 
-            show_login_box_landing();
+            //show_login_box_landing();
           ?>
         </div>
     </div>
@@ -269,9 +269,10 @@ if (isLoggedIn())
       //echo '<!--[if !IE]> --><img src="/img/LogoTest2.svg" style="width:300px;" /><!-- <![endif]-->';
     echo '</div>';
     echo '<div id="tagline"></div>';
-    echo '<div id="landing_login_box">';
-      show_login_options_landing();
-    echo '</div>';
+    //echo '<div id="landing_login_box">';
+      //show_login_options_landing();
+      //echo '<div id="rocketship"></div>';
+    //echo '</div>';
   echo '</div>'; //Close logo_test
 
   //echo '<div style="width:100%; min-width:900px;">';  //<!-- main page container -->
@@ -279,7 +280,10 @@ if (isLoggedIn())
   //echo '<div style="position:absolute; width:100%;">';
   //echo '<div id="globe_and_footer">';
     echo '<div id="globe_landing">';
+      echo '<div id="rocketship"></div>';
+      //echo '<div id="login_tab" class="later_on">Log In</div>';
       echo '<div id="landing_sign_up_box">';
+        show_login_box_landing();
         show_sign_up_box_landing();
         show_registration_box_landing();
         show_fb_registration_box_landing();
@@ -331,7 +335,7 @@ if (isLoggedIn())
 
 ?>
 
-</div> --> <!-- Close main page container -->
+</div> <!-- Close main page container -->
 
 </div>  <!-- Close main landing -->
 <div id="fb-root"></div>
