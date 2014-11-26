@@ -367,8 +367,8 @@ function statusChangeCallbackNTS(response) {
 
     function checkLoginState() {
       FB.getLoginStatus(function(response) {
-        console.log('accessToken');
-        console.log(response.authResponse.accessToken);
+        //console.log('accessToken');
+        //console.log(response.authResponse.accessToken);
         statusChangeCallback(response);
       });
     }
