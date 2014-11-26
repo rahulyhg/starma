@@ -389,8 +389,9 @@ function statusChangeCallbackNTS(response) {
         status     : true
       });
 
-      FB.getLoginStatus(function(response) {
+      FB.getLoginStatus(function(response) {  //LIST BUTTONS DISABLED UNTIL PAGE LOADS 
         $('#sfb_friends').prop('disabled', false);
+        $('#pref_fb').prop('disabled', false);
         //statusChangeCallback(response);
       });
     };

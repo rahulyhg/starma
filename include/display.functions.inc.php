@@ -6879,10 +6879,10 @@ function show_privacy_form () {
       //echo $pref = get_my_preferences('fb_connected', 0);
 
       if (get_my_preferences('fb_connected', 0) == 1) {
-        echo '<div style="display: inline-block; margin-right:20px;"><button type="button" id="pref_fb" class="s_button disconnect_fb">Disconnect from Facebook</button></div><span id="fb_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo '<div style="display: inline-block; margin-right:20px;"><button type="button" id="pref_fb" class="s_button disconnect_fb" disabled="disabled">Disconnect from Facebook</button></div><span id="fb_done" class="later_on" style="display:none; padding-left:10px;"></span>';
       }
       if (get_my_preferences('fb_connected', 0) == 0) {
-        echo '<div style="display: inline-block; margin-right:20px;"><button type="button" id="pref_fb" class="s_button connect_fb">Connect with Facebook</button></div><span id="fb_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo '<div style="display: inline-block; margin-right:20px;"><button type="button" id="pref_fb" class="s_button connect_fb" disabled="disabled">Connect with Facebook</button></div><span id="fb_done" class="later_on" style="display:none; padding-left:10px;"></span>';
       }
       /*
       echo '<div>';
