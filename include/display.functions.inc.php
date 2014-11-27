@@ -3363,10 +3363,13 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
     //----ENDMATT--- 
 
         echo '<div id="minor_subnav" class="later_on">';
-          echo '<div style="position: relative; bottom: 13px;">Support For: </div>';
+          //echo '<div style="position: relative; bottom: 8px; font-size:1.9em;">Support For: </div>';
           echo '<div class="mc mc_rising selected">Rising Sign <br/> Connection <input type="hidden" value="0" /></div>';
+          echo '<div style="width:1px; background:black; height: 36px;"></div>';
           echo '<div class="mc mc_sun">Sun Sign <br/> Connection <input type="hidden" value="1" /></div>';
+          echo '<div style="width:1px; background:black; height: 36px;"></div>';
           echo '<div class="mc mc_moon">Moon Sign <br/> Connection <input type="hidden" value="2" /></div>';
+          echo '<div style="width:1px; background:black; height: 36px;"></div>';
           echo '<div class="mc mc_venus">Venus Sign <br/> Connection <input type="hidden" value="3" /></div>';
         echo '</div>';
 
@@ -3422,7 +3425,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                 //Pillars Images
 
                 //Bridge top
-                echo '<div class="bridge_top"><div class="bridge_top_title">SUPPORT FOR YOUR ';
+                echo '<div class="bridge_top"><div class="bridge_top_title later_on">SUPPORT FOR YOUR ';
                   echo strtoupper($connection);
                 echo ' SIGN CONNECTION</div>';
 
