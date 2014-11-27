@@ -493,6 +493,12 @@
   margin-left: 2px;
 }
 
+#close_fp {
+  display: none;
+  text-align: right;
+  cursor: pointer;
+}
+
 #stay_logged_in_landing {
   color: #e7ebee;
   font-family: "ClarendonBT-Light";
