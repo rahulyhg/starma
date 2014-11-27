@@ -29,6 +29,8 @@ $(document).ready(function(){
 		//$('#create_account').hide();
 		$('#forgot_password_box').hide();
 		//$('#sign_up_box').show();
+		$('#sending').html('');
+		$('#close_fp').hide();
 		$('.pop_fp').hide();
 		$('#fp_email').val('');
 		$('#fp_email').css('border', '1px solid #1a1d2a');
@@ -105,6 +107,7 @@ $(document).ready(function(){
 
 	$('#close_fp').click(function(){
 		$('.pop_fp').slideFadeToggle(function(){
+			$('#sending').html('');
 			$('#close_fp').hide();
 			$('#forgot_password_box').hide();
 			$('#fp_email').val('');
