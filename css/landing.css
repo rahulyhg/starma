@@ -1864,13 +1864,19 @@
 }
 
 #planet {
-   height: 81px;
-    left: 59px;
+    height: 93px;
+    width: 226px;
     position: absolute;
-    width: 149px;
-    top: 415px;
+    top: 375px;
+    left: 59px;
+    background: url('/img/planetFree.png') no-repeat;
 }
 
+/*
+#planet:hover {
+  background: url('/img/planetFreeH.png') no-repeat;
+}
+*/
 /********************* FORGOT PASSWORD **************************/
 
 #forgot_password_box {
