@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type      : 'POST',
-            url       : '../chat/forgot_password.php',
+            url       : '../forgot_password.php',
             data      :  data,
             dataType  : 'json',	
 		})

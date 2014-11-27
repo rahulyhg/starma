@@ -7786,7 +7786,7 @@ function show_fb_or_email_login_box_guest () {
 
 function show_forgot_password_box_guest() {
   echo '<div id="forgot_password_box">';
-   echo '<form action="../chat/forgot_password.php" method="POST" id="forgot_password_form"> 
+   echo '<form action="../forgot_password.php" method="POST" id="forgot_password_form"> 
           <div class="heading">Reset Password</div>
             <input type="text" name="email" id="fp_email" maxlength="55" placeholder="Your Email" />
             <button type="submit" class="sign_up" name="fp_submit" id="fp_submit">Reset Password</button>
