@@ -1341,8 +1341,8 @@ div.poi_title {
 #minor_subnav {
   font-size: 1.2em;
   line-height: 1.2;
-  width: 425px;
-  margin: auto auto 10px;
+  width: 450px;
+  margin: 0 0 10px 195px;
 }
 
 #minor_subnav div {
@@ -1354,6 +1354,7 @@ div.poi_title {
   /*border: 2px solid black;*/
   /*background-color: #8393ca;*/
   cursor: pointer;
+  text-align: center;
 }
 
 #minor_subnav div.mc:hover {

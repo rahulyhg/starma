@@ -10,7 +10,7 @@ require_once('ajax_header.php');
 	$fp_email = lostPassword($fp_email);
 	if ($fp_email) {
 		if ($fp_email == 'success'){
-			$data['message'] = 'A temporary password has been sent to your email';
+			$data['message'] = 'A temporary password has been sent to your email.  If you don\'t see the email within a couple minutes check your spam folder and add "contact@starma.com" to your contacts';
 		}
 		elseif ($fp_email == 'wrong_email') {
 			$errors['message'] = 'Sorry! We were unable to find your email';

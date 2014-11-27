@@ -26,9 +26,9 @@ $(document).ready(function(){
 
 */
 	$('.pop_fp_click').click(function(){
-		$('#create_account').hide();
+		//$('#create_account').hide();
 		$('#forgot_password_box').hide();
-		$('#sign_up_box').show();
+		//$('#sign_up_box').show();
 		$('.pop_fp').hide();
 		$('#fp_email').val('');
 		$('#fp_email').css('border', '1px solid #1a1d2a');
@@ -97,10 +97,20 @@ $(document).ready(function(){
 		$('.pop_fp').show();
 		$('.pop_fp_click').show();
 		$('#forgot_password_box').show();
-		$('.pop_login_landing').hide();
-		$('#login_box').hide();
+		//$('.pop_login_landing').hide();
+		//$('#login_box').hide();
 		$('#login_email').val('');
 		$('#login_password').val('');
+	});
+
+	$('#close_fp').click(function(){
+		$('.pop_fp').slideFadeToggle(function(){
+			$('#close_fp').hide();
+			$('#forgot_password_box').hide();
+			$('.pop_fp').hide();
+			$('#fp_email').val('');
+			$('#fp_email').css('border', '1px solid #1a1d2a');
+		});
 	});
 
 });

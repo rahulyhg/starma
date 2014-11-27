@@ -24,9 +24,10 @@ $(document).ready(function(){
 		.done(function(data){
 			console.log(data);
 			//alert(data);
+			$('#close_fp').show();
 			if (data.success) {
 				$('#sending').html(data.message);
-				$('.pop_landing').fadeOut(2100);
+				//$('.pop_landing').fadeOut(2100);
 			}
 			if (data.errors) {
 				$('#sending').html(data.errors.message);

@@ -7252,11 +7252,12 @@ echo '</div>';  //close #create_account
 function show_forgot_password_box() {
   echo '<div id="forgot_password_box">';
    echo '<form action="/chat/forgot_password.php" method="POST" id="forgot_password_form"> 
-          <div class="title">Reset Password</div>
+          <div class="heading">Reset Password</div>
             <input type="text" name="email" id="fp_email" maxlength="55" placeholder="Your Email" />
             <button type="submit" class="sign_up" name="fp_submit" id="fp_submit">Reset Password</button>
         </form>';
     echo '<div id="sending"></div>';
+    echo '<div id="close_fp">Close</div>';
   echo '</div>';
 }
 
