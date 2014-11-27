@@ -281,7 +281,7 @@ function sendIDGuest() {
           <?php          
             //show_fb_or_email_login_box_guest();     
             show_login_box_guest();
-            show_forgot_password_box();
+            show_forgot_password_box_guest();
           ?>  
         </div> <!--close msg_sheen_content_guest-->
     </div> <!--close msg_sheen-->

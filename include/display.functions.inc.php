@@ -7784,6 +7784,18 @@ function show_fb_or_email_login_box_guest () {
   echo '</div>'; //Close sign_up_box
 }
 
+function show_forgot_password_box_guest() {
+  echo '<div id="forgot_password_box">';
+   echo '<form action="../chat/forgot_password.php" method="POST" id="forgot_password_form"> 
+          <div class="heading">Reset Password</div>
+            <input type="text" name="email" id="fp_email" maxlength="55" placeholder="Your Email" />
+            <button type="submit" class="sign_up" name="fp_submit" id="fp_submit">Reset Password</button>
+        </form>';
+    echo '<div id="sending"></div>';
+    echo '<div id="close_fp" class="later_on">Close</div>';
+  echo '</div>';
+}
+
 function show_registration_box_guest() {
 
   
