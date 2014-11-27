@@ -90,6 +90,16 @@ $(document).ready(function(){
 		$('#login_box').hide();
 	});
 
+	$('#close_fp').click(function(){
+		$('.pop_fp').slideFadeToggle(function(){
+			$('#sending').html('');
+			$('#close_fp').hide();
+			$('#forgot_password_box').hide();
+			$('#fp_email').val('');
+			$('#fp_email').css('border', '1px solid #1a1d2a');
+		});
+	});
+
 //LOGIN POPUP BOX----------------------
 
 	$('.pop_guest_login').click(function(){
@@ -106,7 +116,11 @@ $(document).ready(function(){
 		$('.pop_login').slideFadeToggle(function() {
 			//$('#fb_or_email_login_guest').show();
 			$('#login_box').show();
+			$('#sending').html('');
+			$('#close_fp').hide();
 			$('#forgot_password_box').hide();
+			$('#fp_email').val('');
+			$('#fp_email').css('border', '1px solid #1a1d2a');
 		});
 	});
 
