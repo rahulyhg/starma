@@ -91,7 +91,8 @@ $(document).ready(function(){
 	});
 
 	$('#close_fp').click(function(){
-		$('.pop_fp').slideFadeToggle(function(){
+		$('.pop_login').slideFadeToggle(function(){
+			$('#login_box').show();
 			$('#sending').html('');
 			$('#close_fp').hide();
 			$('#forgot_password_box').hide();
