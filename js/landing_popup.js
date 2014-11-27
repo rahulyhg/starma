@@ -107,7 +107,6 @@ $(document).ready(function(){
 		$('.pop_fp').slideFadeToggle(function(){
 			$('#close_fp').hide();
 			$('#forgot_password_box').hide();
-			$('.pop_fp').hide();
 			$('#fp_email').val('');
 			$('#fp_email').css('border', '1px solid #1a1d2a');
 		});

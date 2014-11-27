@@ -7257,7 +7257,7 @@ function show_forgot_password_box() {
             <button type="submit" class="sign_up" name="fp_submit" id="fp_submit">Reset Password</button>
         </form>';
     echo '<div id="sending"></div>';
-    echo '<div id="close_fp">Close</div>';
+    echo '<div id="close_fp" class="later_on">Close</div>';
   echo '</div>';
 }
 

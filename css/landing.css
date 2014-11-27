@@ -497,6 +497,8 @@
   display: none;
   text-align: right;
   cursor: pointer;
+  font-size: 1.4em;
+  margin-top: 5px;
 }
 
 #stay_logged_in_landing {
