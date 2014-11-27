@@ -7196,7 +7196,7 @@ echo '<div id="create_account">';
       echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /><span class="reg_err check" id="reg_username_check"></span><span class="reg_err" id="reg_username_error"></span><div class="reg_err_exp" id="reg_err_username_exp"></div></div>'; 
       //echo '<div class="register_error_area" id="reg_username_error"></div>';
       echo '<div id="birthday">';
-        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<div class="small_title">Date of Birth (this stays private):</div>';
         echo '<span>';
           date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
         echo '</span>';
@@ -7578,10 +7578,11 @@ function show_time_and_place_box() {
   echo '<div id="time_and_place">';
   echo '<div id="step">3 / 3</div>';
   //echo '<div class="title">Your Birth Info</div>';
+  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.19em;">This last step allows us to calculate your birth chart. Your time and place of birth will remain private.</div>';
     echo '<form id="birth_info_form" method="post" action="cast_chart_time_and_place.php">';
       
        $help_text_offset = 'offset';
-    echo '<div class="small_title">Place of birth</div>';
+    echo '<div class="small_title">Place of Birth (this stays private)</div>';
     //echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
  
           echo '<div id="country">';    
@@ -7607,7 +7608,7 @@ function show_time_and_place_box() {
           //echo '</div>';
 
   echo '<div style="display:inline-block; float:left; width:147px;">'; //Time of birth box
-    echo '<div class="small_title">Time of birth</div>';
+    echo '<div class="small_title">Time of birth (this stays private)</div>';
     echo '<div id="time">';
       time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
     echo '</div>';
@@ -7765,10 +7766,10 @@ function show_sign_up_box_guest () {
 function show_fb_or_email_box_guest () {
   echo '<div id="fb_or_email_guest">';
     echo  '<div class="heading">Create an Account</div>';
-      echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';
+      echo '<button type="button" name="sign_up_fb" class="sign_up" onClick="fbSignUpGuest();">Facebook</button>';
       echo '<div id="or">~ or ~</div>';
       //echo '<button type="button" onClick="revokeFB();">revoke fb</button>';
-      echo '<button type="button" name="sign_up_fb" class="sign_up" onClick="fbSignUpGuest();">Facebook</button>';
+      echo '<button type="button" name="sign_up_email" class="sign_up">Email</button>';    
   echo '</div>'; //Close sign_up_box
 }
 
@@ -7794,7 +7795,7 @@ echo '<div id="create_account">';
       echo '<div id="username"><input type="text" id="register_username" placeholder="Choose a Username" /><span class="reg_err_guest check" id="reg_username_check"></span><span class="reg_err_guest" id="reg_username_error"></span><div class="reg_err_exp_guest" id="reg_err_username_exp_g"></div></div>'; 
       //echo '<div class="register_error_area" id="reg_username_error"></div>';
       echo '<div id="birthday">';
-        echo '<div class="small_title">When is your birthday?</div>';
+        echo '<div class="small_title">Date of Birth (this stays private):</div>';
         echo '<span>';
           date_select($the_date=get_inputed_date ($type="default"), $the_name="birthday");
         echo '</span>';
