@@ -1339,29 +1339,31 @@ div.poi_title {
 /*////////////////////// Minor ///////////////////*/
 
 #minor_subnav {
-  font-size: 1.3em;
-  width: 650px;
-  margin: auto;
+  font-size: 1.2em;
+  line-height: 1.2;
+  width: 425px;
+  margin: auto auto 10px;
 }
 
 #minor_subnav div {
   display: inline-block;
-  padding: 10px;
   margin-right: 10px;
 }
 
 #minor_subnav div.mc {
-  border: 2px solid black;
-  background-color: #8393ca;
+  /*border: 2px solid black;*/
+  /*background-color: #8393ca;*/
   cursor: pointer;
 }
 
 #minor_subnav div.mc:hover {
-  background-color: #fbf0a4;
+  text-decoration: underline;
+  /*background-color: #fbf0a4;*/
 }
 
 #minor_subnav div.selected {
-  background-color: #fbf0a4;
+  /*background-color: #fbf0a4;*/
+  text-decoration: underline;
 }
 
 #minor_connections .poi_column {
@@ -1392,11 +1394,8 @@ div.poi_title {
 .bridge_top_title {
   position: relative;
   font-family: "ClarendonBT-Light";
-  font-size: .85em;
-  letter-spacing: .1em;
-  font-weight: bold;
-  line-height: 1.5;
-  top: 44px;
+  font-size: 1.25em;
+  top: 45px;
   width: 100%;
   float: left;
   text-align: center;
