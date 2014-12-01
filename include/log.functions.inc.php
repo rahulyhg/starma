@@ -170,7 +170,9 @@ function get_logs ($start_date, $end_date, $user_id=0) { // MORE FILTERS EVENTUA
     }
     //echo $log_query;
     //die(); 
-    $log_query = $log_query . ' ORDER BY user_action_log.date desc, user_action_log.time desc';
+
+    $log_query = $log_query . ' ORDER BY user_action_log.date ASC, user_action_log.time ASC';
+
     $do_q = mysql_query($log_query) or die(mysql_error());
     return $do_q;
   }
