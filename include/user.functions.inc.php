@@ -1400,6 +1400,23 @@ function get_user_list_search ($gender, $low_bound, $high_bound, $begin, $limit)
   }
 }
 
+function get_just_user_from_id ($u) {
+  $q = 'SELECT * from user WHERE user_id = ' . $u;
+  if ($result = mysql_query($q)) {
+    if ($row = mysql_fetch_array($result)) {
+      return $row;
+    }
+    else {
+      return false;
+    }
+    
+  }
+  else {
+    return false;
+  }
+
+}
+
 function get_user_from_username ($u) {
   $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 

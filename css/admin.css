@@ -79,3 +79,14 @@
   background:url('../img/account_info/Starma-Astrology-Space-BugHover.png') no-repeat;
   
 }
+
+#log_table {
+  width:80%;
+  padding:20px;
+  margin:auto;
+}
+
+#log_table tr td {
+  border:1px solid black;
+  padding:10px;
+}
