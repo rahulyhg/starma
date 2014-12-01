@@ -155,4 +155,27 @@ function error_basic_action() {
 function invited_basic_action () {
   return 12;
 }
+
+
+// LOG REPORT QUERIES
+
+function get_logs ($start_date, $end_date, $user_id=0) { // MORE FILTERS EVENTUALLY NEEDED
+  if (isAdmin()) {
+    $log_query = 'SELECT user_action_log.*, log_basic_action.log_basic_action, log_action.log_action, log_action.log_sub_action FROM user_action_log INNER JOIN
+                         log_action on log_action.log_action_id = user_action_log.log_action_id INNER JOIN
+                         log_basic_action on log_basic_action.log_basic_action_id = user_action_log.log_basic_action_id
+                         WHERE date >= ' . $start_date . ' AND date <= ' . $end_date;
+    if ($user_id <> 0) {
+      $log_query = $log_query . ' AND user_id=' . $user_id;
+    }
+    //echo $log_query;
+    //die(); 
+    $log_query = $log_query . ' ORDER BY user_action_log.date desc, user_action_log.time desc';
+    $do_q = mysql_query($log_query) or die(mysql_error());
+    return $do_q;
+  }
+  else { 
+    return false;
+  }
+} 
 ?>

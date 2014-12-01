@@ -558,6 +558,20 @@ function get_state_id_from_code ($state_code) {
   }
 }
 
+function get_date_from_int($date_int) {
+  //date_int is in the format YYYYMMDD
+  $year = substr($date_int, 0, 4);
+  $month = substr($date_int, 4, 2);
+  $day = substr($date_int, 6, 2);
+  return $month . '/' . $day . '/' . $year;
+}
+
+function get_time_from_int($time_int) {
+  //time_int is in the format HHMMSS
+  return get_hours($time_int) . ':' . get_minutes($time_int) . ':' . get_seconds($time_int);
+  //return $time_int;
+}
+
 
 function remove_letters ($target) {
   $target = str_replace ("h", "", $target);

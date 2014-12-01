@@ -16,6 +16,7 @@
     echo '<a href="admin/send_test_activation_email.php">Send a Test Activation Email</a><br />';
     echo '<a href="admin/edit_profile.php">Add / Edit Celebrities</a><br />';
     echo '<a href="admin/house_lords.php">House Lords</a><br />';
+    echo '<a href="admin/logs.php">Log Report</a><br />';
 
     echo '<table border="1" cellpadding=10><th colspan=2>Test Form';
     if (isLoggedIn()) {
