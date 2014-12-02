@@ -27,6 +27,8 @@ function quicksort_users($user_array, $asc=0){
 
 function get_minor_compare_support_level($r_ids) {
   $support = array_sum($r_ids);
+  return $support;
+  /*
   if ($support <= 24) { //6 pillars
     return "Excellent";
   }
@@ -42,6 +44,7 @@ function get_minor_compare_support_level($r_ids) {
   elseif ($support > 33) { //3 pillars
     return "Poor";
   }
+  */
 }
  
 

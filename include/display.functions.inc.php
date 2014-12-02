@@ -3503,7 +3503,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                     
                   } //close your X to their Y
 
-                echo '<div class="support_level later_on">' . get_minor_compare_support_level($relationship_ids) . '</div>';
+                echo '<div class="support_level later_on">ids: ' . print_r($relationship_ids) . ' total: ' . get_minor_compare_support_level($relationship_ids) . '</div>';
 
                 echo '<div class="bridge_base"><img src="/img/Starma-Astrology-Pillars-Base.png" /></div>'; //Base
 
