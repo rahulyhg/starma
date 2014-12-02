@@ -24,6 +24,25 @@ function quicksort_users($user_array, $asc=0){
 	}
 	return array_merge(quicksort_users($loe, $asc),array($pivot_key=>$pivot),quicksort_users($gt, $asc));
 }
+
+function get_minor_compare_support_level($r_ids) {
+  $support = array_sum($r_ids);
+  if ($support <= 24) { //6 pillars
+    return "Excellent";
+  }
+  elseif ($support > 24 || $support < 28) { //5 pillars
+    return "Great";
+  }
+  elseif ($support > 27 || $support < 31) { //4 pillars
+    return "Good";
+  }
+  elseif ($support > 30 || $support < 34) { //3 pillars
+    return "Ok";
+  }
+  elseif ($support > 33) { //3 pillars
+    return "Poor";
+  }
+}
  
 
 function add_scores($user_list) {

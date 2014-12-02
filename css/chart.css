@@ -1394,11 +1394,17 @@ div.poi_title {
 
 .bridge_top_title {
   position: relative;
-  font-family: "ClarendonBT-Light";
   font-size: 1.25em;
   top: 45px;
   width: 100%;
   float: left;
+  text-align: center;
+  display: inline;
+}
+
+.support_level {
+  font-size: 1.25em;
+  position: relative;
   text-align: center;
   display: inline;
 }

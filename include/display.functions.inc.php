@@ -3388,6 +3388,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       //$connection = get_cornerstones();
       //$connection = $connection[0];
 
+      $relationship_ids = array(); //keep track of amount of support for each connection
       $x = 0;
       foreach (get_cornerstones() as $connection) {
 
@@ -3463,6 +3464,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         echo '"><span class="icon pointer main to_leg' . $z . '"><span class="minor_poi_title">YOUR</span><span class="poi_title_tall">' . strtoupper($con_y) . '</span></span></div>';                     
                       echo '</div>'; //close pillar/pillar_broken
                           $z++; 
+                          array_push($relationship_ids, $relationship_id2);
                     }
                     
                   } //close your Y to their X
@@ -3496,10 +3498,12 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                     //echo $connection2 . '<br>';
                         echo '</div>'; //close pillar/pillar_broken
                           $zz++; 
+                          array_push($relationship_ids, $relationship_id2);
                     }
                     
                   } //close your X to their Y
 
+                echo '<div class="support_level later_on">' . get_minor_compare_support_level($relationship_ids) . '</div>';
 
                 echo '<div class="bridge_base"><img src="/img/Starma-Astrology-Pillars-Base.png" /></div>'; //Base
 
@@ -3513,8 +3517,12 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                           $connection_poi_id_A = get_poi_id (strtoupper($con_y));
                           $connection_poi_id_B = get_poi_id (strtoupper($con_x));
                             //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
-                              //Blurb box
+                                                          
+                              //BLURB BOX
                               echo "<div class='blurb_supporting text_block leg" . $zzz . "'>";
+                                //DYNAMIC ICON
+                                echo '<div class="dynamic_icon dynamic_column ' . get_rela_selector_name($relationship_id2);
+                                echo '"></div>'; 
                                 if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
                                   echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
                                 }
@@ -3540,7 +3548,12 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         $connection_poi_id_A = get_poi_id (strtoupper($con_x));
                         $connection_poi_id_B = get_poi_id (strtoupper($con_y));
                         //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
+                              
+                        //BLURB BOX
                           echo "<div class='blurb_supporting text_block leg" . $zzzz . "'>";
+                            //DYNAMIC ICON
+                            echo '<div class="dynamic_icon dynamic_column ' . get_rela_selector_name($relationship_id2);
+                            echo '"></div>'; 
                             if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
                               echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
                             }
