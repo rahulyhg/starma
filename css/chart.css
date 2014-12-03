@@ -1404,9 +1404,13 @@ div.poi_title {
 
 .support_level {
   font-size: 1.25em;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  top: 16px;
+  left: -1px;
   text-align: center;
   display: inline;
+  z-index: 2;
 }
 
 .pillar{
