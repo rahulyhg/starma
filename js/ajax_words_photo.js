@@ -193,10 +193,10 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 			}
 			if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
 					$('#upload_photo').prop('disabled', true);
-				}
-			if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#word_3').hasClass('error')) {
-				$('#upload_photo').prop('disabled', false);
 			}
+		}
+		if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#word_3').hasClass('error')) {
+			$('#upload_photo').show().prop('disabled', false);
 		}
 	});
 
