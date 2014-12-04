@@ -3520,7 +3520,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
 
                 echo '<div class="support_level later_on">' . get_minor_compare_support_level($relationship_ids) . '</div>';
 
-                echo '<div class="bridge_base"><img src="/img/Starma-Astrology-Pillars-Base.png" /></div>'; //Base
+                echo '<div class="bridge_base"><img src="/img/Starma-Astrology-Stairs.png" /></div>'; //Base
 
                   //Blurb Boxes for 1-3 (yours to theirs)
                 $zzz = 1;    
