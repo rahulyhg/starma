@@ -7490,13 +7490,13 @@ function show_3_words_photo_box () {
                   }
                 echo '/>';
 
-                echo '<input type="text" maxlength="15" id="word_2" placeholder="i.e. driven"';
+                echo '<input type="text" maxlength="15" id="word_2" placeholder="i.e. cat-loving"';
                   if(isset($_SESSION['word_2'])) {
                     echo 'value="' . $_SESSION['word_2'] . '"';
                   }
                 echo '/>';
 
-                echo '<input type="text" maxlength="15" id="word_3" placeholder="i.e. violinist"';
+                echo '<input type="text" maxlength="15" id="word_3" placeholder="i.e. astronaut"';
                   if(isset($_SESSION['word_3'])) {
                     echo 'value="' . $_SESSION['word_3'] . '"';
                   }

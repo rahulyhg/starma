@@ -13,7 +13,7 @@
 			if(contains_illegal_words($word1_q)) {
 				$errors = 'No naughty words please';
 			}
-			if (!preg_match('/^[a-zA-Z]+$/', $word1_q)) {
+			if (!preg_match('/^[a-zA-Z-]+$/', $word1_q)) {
 				$errors = 'Letters only please';
 				//$word1_quick['fixed1'] = false;
 			}
@@ -32,7 +32,7 @@
 			if(contains_illegal_words($word2_q)) {
 				$errors = 'No naughty words please';
 			}
-			if (!preg_match('/^[a-zA-Z]+$/', $word2_q)) {
+			if (!preg_match('/^[a-zA-Z-]+$/', $word2_q)) {
 				$errors = 'Letters only please';
 				//$word1_quick['fixed1'] = false;
 			}
@@ -60,7 +60,7 @@
 			if(contains_illegal_words($word3_q)) {
 				$errors = 'No naughty words please';
 			}
-			if (!preg_match('/^[a-zA-Z]+$/', $word3_q)) {
+			if (!preg_match('/^[a-zA-Z-]+$/', $word3_q)) {
 				$errors = 'Letters only please';
 				//$word1_quick['fixed1'] = false;
 			}
@@ -95,7 +95,7 @@
 
 			if($_POST['word_1'] == '') {
 				$word_1 = '';
-				$word1_error = 'Go on, choose something fun';
+				$word1_error = 'Please choose a word';
 			}
 			else {
 				$word_1 = trim($_POST['word_1']);
@@ -104,7 +104,7 @@
 					$word1_error = 'No naughty words please';
 				}
 
-				if (!preg_match('/^[a-zA-Z]+$/', $word_1)) {
+				if (!preg_match('/^[a-zA-Z-]+$/', $word_1)) {
 					$word1_error = 'Letters only please';
 				}
 			}
@@ -128,15 +128,15 @@
 
 			if($_POST['word_2'] == '') {
 				$word_2 = '';
-				$word2_error = 'Go on, choose something fun';
+				$word2_error = 'Please choose a word';
 			}
 			else {
 				$word_2 = trim($_POST['word_2']);
 
 				if(contains_illegal_words($word_2)) {
-					$word2_error = 'No naughty words please...';
+					$word2_error = 'No naughty words please';
 				}
-				if (!preg_match('/^[a-zA-Z]+$/', $word_2)) {
+				if (!preg_match('/^[a-zA-Z-]+$/', $word_2)) {
 					$word2_error = 'Letters only please';
 				}
 			}
@@ -161,15 +161,15 @@
 
 			if($_POST['word_3'] == '') {
 				$word_3 = '';
-				$word3_error = 'Go on, choose something fun';
+				$word3_error = 'Please choose a word';
 			}
 			else {
 				$word_3 = trim($_POST['word_3']);
 
 				if(contains_illegal_words($word_3)) {
-					$word3_error = 'No naughty words please...';
+					$word3_error = 'No naughty words please';
 				}
-				if (!preg_match('/^[a-zA-Z]+$/', $word_3)) {
+				if (!preg_match('/^[a-zA-Z-]+$/', $word_3)) {
 					$word3_error = 'Letters only please';
 				}
 			}
