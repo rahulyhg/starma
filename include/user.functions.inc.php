@@ -555,7 +555,7 @@ function descriptors_loaded ($user_id) {
 function get_my_descriptors () {
   
   //if (isLoggedIn()) {
-    $q = "SELECT * from user_descriptor where user_id = " . $_SESSION["user_id"];
+    $q = "SELECT * from user_descriptor where user_id = " . $_SESSION["user_id"] . " ORDER BY user_descriptor.order";
     $result = mysql_query($q) or die(mysql_error());
     return $result;
      
@@ -568,7 +568,7 @@ function get_my_descriptors () {
 function get_descriptors ($user_id) {
   
   //if (isLoggedIn()) {
-    $q = "SELECT * from user_descriptor where user_id = " . $user_id;
+    $q = "SELECT * from user_descriptor where user_id = " . $user_id . " ORDER BY user_descriptor.order";
     if($result = mysql_query($q) or die(mysql_error())) {
       return $result;
     }
@@ -583,14 +583,14 @@ function update_descriptors ($descriptors) {
     $words = get_my_descriptors ();
     $counter = 0;
     while ($word = mysql_fetch_array($words)) {
-      $q = sprintf("UPDATE user_descriptor set descriptor = '%s' WHERE user_des_id = %d",
-          mysql_real_escape_string($descriptors[$counter]), $word["user_des_id"]);
+      $q = sprintf("UPDATE user_descriptor set descriptor = '%s', user_descriptor.order = %d WHERE user_des_id = %d",
+          mysql_real_escape_string($descriptors[$counter]), $counter+1, $word["user_des_id"]);
       $result = mysql_query($q) or die(mysql_error());
       $counter = $counter+1;
     }
     while ($counter < max_descriptors()) {
-      $q = sprintf("INSERT into user_descriptor (user_id, descriptor) VALUES (%d,'%s')", 
-          get_my_user_id(), mysql_real_escape_string($descriptors[$counter]));
+      $q = sprintf("INSERT into user_descriptor (user_id, descriptor, user_descriptor.order) VALUES (%d,'%s',%d)", 
+          get_my_user_id(), mysql_real_escape_string($descriptors[$counter]), $counter+1);
       $result = mysql_query($q) or die(mysql_error());
       $counter = $counter+1; 
     }
