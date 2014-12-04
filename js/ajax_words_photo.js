@@ -6,8 +6,23 @@ $(document).ready(function() {
 	//var timer_word_2;
 	//var timer_word_3;
 
-$('#continue').prop('disabled', true);
+//$('#continue').prop('disabled', true);
 
+$('.div_no_photo').click(function(){
+	if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
+		$('#action_step').text('Please fix your 3 words first');
+	}
+	else {
+		$('#words_photo').hide();
+		$('#upload_photo_form_sign_up').show();
+	}
+});
+
+$('.incomplete').click(function(){
+	$('#action_step').text('Please upload a photo first');
+});
+
+/*
 if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
 	$('#upload_photo').prop('disabled', true);
 }
@@ -15,6 +30,7 @@ if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word
 if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#word_3').hasClass('error')) {
 	$('#upload_photo').prop('disabled', false);
 }
+*/
 
 //ERRORS EXP--------------
 
@@ -56,6 +72,30 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 	});
 
 
+	$('#word_1').on('keyup', function(e){
+		if (e.which != 9 && e.which !== 13 && e.which !== 16 && e.which !== 17	&& e.which !== 18) {
+			$('#word_1').css('border', '2px solid black').removeClass('error');
+			$('#w_1_error').hide().text('');
+			$('#w_1_err_exp').hide().text('');
+		}	
+	});
+
+	$('#word_2').on('keyup', function(e){
+		if (e.which != 9 && e.which !== 13 && e.which !== 16 && e.which !== 17	&& e.which !== 18) {
+			$('#word_2').css('border', '2px solid black').removeClass('error');
+			$('#w_2_error').hide().text('');
+			$('#w_2_err_exp').hide().text('');
+		}
+	});
+
+	$('#word_3').on('keyup', function(e){
+		if (e.which != 9 && e.which !== 13 && e.which !== 16 && e.which !== 17	&& e.which !== 18) {
+			$('#word_3').css('border', '2px solid black').removeClass('error');
+			$('#w_3_error').hide().text('');
+			$('#w_3_err_exp').hide().text('');
+		}
+	});
+
 
 //WORDS POST
 
@@ -65,6 +105,9 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 		//clearInterval(timer_word_1);
 		//timer_word_1 = setTimeout(function() {
 			var word1_q = { 'word1_q' : $('#word_1').val()};
+			//var word1_q = { 'word1'   : $('#word_1').val(),
+			//				'word1_q' : 'word1_q'
+			//				};
 
 			$.post('/chat/ajax_words_photo.php', word1_q, function(data){
 				//if (data.errors) {
@@ -72,10 +115,16 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				//	$('#w_1_error').show().text('?');
 				//	$('#w_1_err_exp').text(data.errors);
 				//}
-				if(data.fixed1) {
-					$('#word_1').css('border', '2px solid black').removeClass('error');
-					$('#w_1_error').hide().text('');
-					$('#w_1_err_exp').text('');
+				/*
+				if (data.fixed1) {
+					if (data.fixed1 == true) {
+						$('#word_1').css('border', '2px solid black').removeClass('error');
+						$('#w_1_error').hide().text('');
+						$('#w_1_err_exp').text('');
+					}
+					if (data.fixed1 == false) {
+						$('#word_1').css('border', '2px solid #C82923').addClass('error');
+					}
 					if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
 						$('#upload_photo').prop('disabled', true);
 					}
@@ -84,7 +133,17 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 						$('#upload_photo').prop('disabled', false);
 					}
 				}
+				*/
+				if (data.errors) {
+					$('#word_1').css('border', '2px solid #C82923').addClass('error');
+					$('#w_1_error').show().text('?');
+					$('#w_1_err_exp').text(data.errors);
+				}
 				else {
+					$('#word_1').css('border', '2px solid black').addClass('error');
+					$('#w_1_error').hide().text('');
+					$('#w_1_err_exp').hide().text('');
+					/*
 					if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
 						$('#upload_photo').prop('disabled', true);
 					}
@@ -92,6 +151,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 					if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#word_3').hasClass('error')) {
 						$('#upload_photo').prop('disabled', false);
 					}
+					*/
 				}
 			}, 'json');
 
@@ -104,6 +164,9 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 		//clearInterval(timer_word_2);
 		//timer_word_2 = setTimeout(function() {
 			var word2_q = { 'word2_q' : $('#word_2').val()};
+			//var word2_q = { 'word2'   : $('#word_2').val(),
+			//				'word2_q' : 'word2_q'
+			//				};
 
 			$.post('/chat/ajax_words_photo.php', word2_q, function(data){
 				//if (data.errors) {
@@ -111,6 +174,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				//	$('#w_2_error').show().text('?');
 				//	$('#w_2_err_exp').text(data.errors);
 				//}
+				/*
 				if(data.fixed2) {
 					$('#word_2').css('border', '2px solid black').removeClass('error');
 					$('#w_2_error').hide().text('');
@@ -123,7 +187,17 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 						$('#upload_photo').prop('disabled', false);
 					}
 				}
+				*/
+				if (data.errors) {
+					$('#word_2').css('border', '2px solid #C82923').addClass('error');
+					$('#w_2_error').show().text('?');
+					$('#w_2_err_exp').text(data.errors);
+				}
 				else {
+					$('#word_2').css('border', '2px solid black').removeClass('error');
+					$('#w_2_error').hide().text('');
+					$('#w_2_err_exp').hide().text('');
+					/*
 					if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
 						$('#upload_photo').prop('disabled', true);
 					}
@@ -131,6 +205,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 					if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#word_3').hasClass('error')) {
 						$('#upload_photo').prop('disabled', false);
 					}
+					*/
 				}
 			}, 'json');
 
@@ -142,6 +217,9 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 		//clearInterval(timer_word_3);
 		//timer_word_3 = setTimeout(function() {
 			var word3_q = { 'word3_q' : $('#word_3').val()};
+			//var word3_q = { 'word3'   : $('#word_3').val(),
+			//				'word3_q' : 'word3_q'
+			//				};
 
 			$.post('/chat/ajax_words_photo.php', word3_q, function(data){
 				//if (data.errors) {
@@ -149,6 +227,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 				//	$('#w_3_error').show().text('?');
 				//	$('#w_3_err_exp').text(data.errors);
 				//}
+				/*
 				if(data.fixed3) {
 					$('#word_3').css('border', '2px solid black').removeClass('error');
 					$('#w_3_error').hide().text('');
@@ -161,7 +240,17 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 						$('#upload_photo').prop('disabled', false);
 					}
 				}
+				*/
+				if (data.errors) {
+					$('#word_3').css('border', '2px solid #C82923').addClass('error');
+					$('#w_3_error').show().text('?');
+					$('#w_3_err_exp').text(data.errors);
+				}
 				else {
+					$('#word_3').css('border', '2px solid black').addClass('error');
+					$('#w_3_error').hide().text('');
+					$('#w_3_err_exp').hide().text('');
+					/*
 					if ($('#word_1').hasClass('error') || $('#word_2').hasClass('error') || $('#word_3').hasClass('error')) {
 						$('#upload_photo').prop('disabled', true);
 					}
@@ -169,6 +258,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 					if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#word_3').hasClass('error')) {
 						$('#upload_photo').prop('disabled', false);
 					}
+					*/
 				}
 			}, 'json');
 
@@ -178,7 +268,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 
 
 //BROWSE------------------
-
+	/*
 	$('#image').click(function(event) {
 		if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
 			event.preventDefault();
@@ -199,7 +289,7 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 			$('#upload_photo').show().prop('disabled', false);
 		}
 	});
-
+	*/
 
 //UPLOAD PHOTO--------------
 	/*

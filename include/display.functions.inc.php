@@ -7392,33 +7392,90 @@ function show_gender_location_box() {
 
 }
 
+function show_upload_photo_sign_up_box () {
+        echo '<div id="upload_photo_form_sign_up" ';
+          if (isset($_GET['error'])) {
+            echo 'style="display:block;"';
+          }
+        echo '>';      
+          echo '<div class="heading">Upload Your Photo</div>';
+
+        //ERRORS----------
+
+          if (isset($_GET['error'])) {
+            if ($_GET['error'] == 1) {
+              echo '<div class="p_err">There was an error.  Please try again.</div>';
+            }
+            if ($_GET['error'] == 2) {
+              echo '<div class="p_err">You have too many photos.  Please delete one to upload a new photo.</div>';
+            }
+            if ($_GET['error'] == 3) {
+              echo '<div class="p_err">Please select a photo with the Browse button.</div>';
+            }
+            if ($_GET['error'] == 4) {
+              echo '<div class="p_err">Pease select a valid file.</div>';
+            }
+          }
+
+        //END ERRORS------------
+
+            echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';          
+              echo '<div><input id="image" type="file" name="image"/></div>';
+              echo '<input type="submit" value="Next >" name="action" id="upload_photo" />';
+
+              echo '<input type="hidden" name="desc1" id="desc1" value=""/>';
+              echo '<input type="hidden" name="desc2" id="desc2" value=""/>';
+              echo '<input type="hidden" name="desc3" id="desc3" value=""/>';
+              echo '<input type="hidden" name="firsttime" value="1"/>';
+              //echo '<div id="cancel_photo" class="later_on">Cancel</div>';
+           echo '</form>';
+        echo '</div>';
+      echo '</div>';
+}
+
 
 function show_3_words_photo_box () {
-  //$user_id = get_my_user_id();
-  $descriptors = get_descriptors(get_my_user_id());
+
+  $user_id = get_my_user_id();
+  $descriptors = get_descriptors($user_id);
   //print_r($descriptors);
   //echo '<br>descriptor1: ' . $descriptors[0]['descriptor'];
-  echo '<div id="words_photo">';
+  echo '<div id="words_photo" ';
+    if (isset($_GET['error'])) {
+      echo 'style="display:none;"';
+    }
+  echo '>';
   echo '<div id="step">2 / 3</div>';
-    echo '<div class="small_title">In three words, you are...</div>';
+    echo '<div style="text-align:center;" class="small_title">Upload a photo and choose 3 words to describe yourself</div>';
 
-    //echo '<div id="edit_words>';
-    
+    echo '<div id="action_step" class="later_on"></div>';
+    //PROFILE PIC ---
+
+    echo '<div id="profile_photo">';
+
+      echo '<div class="photo_border_wrapper_compare">';
+        echo '<div class="compare_photo">';
+          if ($main_photo = get_main_photo($user_id)) {
+            echo '<div class="user_button">' . format_image($picture=get_main_photo($user_id), $type="compare", $user_id) . '</div>';
+          }
+          else {
+            echo '<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>';
+          }
+        echo '</div>';
+      echo '</div>';
+
+    echo '</div>';
+
+    echo '<div id="edit_words">';
+      
       echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
-        echo '<div id="edit_words">';
+        
         //if ($desc = mysql_fetch_array($descriptors)) {
         if (isset($descriptors)) {
           //echo $descriptors;
           $x = 0;
           while ($desc = mysql_fetch_array($descriptors)) {
-            //echo '<div id="' . $x . '">';
-              //echo '<div class="value">';
-                echo '<input type="text" id="word_' . ($x + 1) . '" placeholder="' . ($x + 1) . '. " value="' . $desc["descriptor"] . '"/>';
-              //echo '</div>';
-                //echo '<span class="w_err" id="w_' . $x . '_error"></span>';
-                //echo '<div class="w_err_exp" id="w_' . $x . '_err_exp"></div>';
-
-            //echo '</div>';
+            echo '<input type="text" maxlength="15" id="word_' . ($x + 1) . '" placeholder="' . ($x + 1) . '. " value="' . $desc["descriptor"] . '"/>';
             $x = $x + 1;
           }
         }        
@@ -7427,19 +7484,19 @@ function show_3_words_photo_box () {
            //for ($x = 1; $x<4; $x++) {
             //$x = 4;
               //echo '<div class="value">';
-               echo '<input type="text" id="word_1" placeholder="1. "';
+               echo '<input type="text" maxlength="15" id="word_1" placeholder="i.e. quirky "';
                   if(isset($_SESSION['word_1'])) {
                     echo 'value="' . $_SESSION['word_1'] . '"';
                   }
                 echo '/>';
 
-                echo '<input type="text" id="word_2" placeholder="2. "';
+                echo '<input type="text" maxlength="15" id="word_2" placeholder="i.e. driven"';
                   if(isset($_SESSION['word_2'])) {
                     echo 'value="' . $_SESSION['word_2'] . '"';
                   }
                 echo '/>';
 
-                echo '<input type="text" id="word_3" placeholder="3. "';
+                echo '<input type="text" maxlength="15" id="word_3" placeholder="i.e. violinist"';
                   if(isset($_SESSION['word_3'])) {
                     echo 'value="' . $_SESSION['word_3'] . '"';
                   }
@@ -7459,7 +7516,6 @@ function show_3_words_photo_box () {
         unset($x);
         
         echo '<input type="hidden" value="words" id="words" />';
-        echo '</div>'; //close edit_words
 
       //ERRORS---------------------------
         echo '<div class="w_err" id="w_1_error"></div>';
@@ -7471,16 +7527,25 @@ function show_3_words_photo_box () {
         echo '<div class="w_err" id="w_3_error"></div>';
         echo '<div class="w_err_exp" id="w_3_err_exp"></div>';
 
-   
 
-      echo '<div id="submit_words_photo">';
-        //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
-        echo '<button type="submit" id="next">Next ></button>';
-      echo '</div>';
+        if ($main_photo = get_main_photo($user_id)) {
+          echo '<div id="submit_words_photo">';
+            //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+            echo '<button type="submit" id="next">Next ></button>';
+          echo '</div>';
+        }
+        else {
+          echo '<div id="submit_words_photo">';
+            //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+            echo '<div id="next" class="incomplete">Next ></div>';
+          echo '</div>';
+        }
 
       echo '</form>';
+    echo '</div>'; //close edit_words
 
-    
+
+    /*
     echo '<div id="photo_form_div">';
       
         //echo '<h1>';       
@@ -7511,12 +7576,14 @@ function show_3_words_photo_box () {
           echo '</div>';
         
       echo '</form>';
+  */
+
 
   echo '</div>';  //close 3_words_photo
 
 
 //PHOTO ERRORS---------------------------------
-
+  /*
   echo '<div class="p_err" id="p_error">';
     if($_GET['error'] !== 0) {
       echo '?';
@@ -7536,8 +7603,7 @@ function show_3_words_photo_box () {
       echo 'Not a valid file';
     }
   echo '</div>';
-  
-
+  */
   echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
 
 }
@@ -7626,7 +7692,7 @@ function show_time_and_place_box() {
     echo '<form id="birth_info_form" method="post" action="cast_chart_time_and_place.php">';
       
        $help_text_offset = 'offset';
-    echo '<div class="small_title">Place of Birth (this stays private)</div>';
+    echo '<div class="small_title">Place of Birth</div>';
     //echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
  
           echo '<div id="country">';    
@@ -7652,7 +7718,7 @@ function show_time_and_place_box() {
           //echo '</div>';
 
   echo '<div style="display:inline-block; float:left; width:147px;">'; //Time of birth box
-    echo '<div class="small_title">Time of birth (this stays private)</div>';
+    echo '<div class="small_title">Time of birth</div>';
     echo '<div id="time">';
       time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
     echo '</div>';
