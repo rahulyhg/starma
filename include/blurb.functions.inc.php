@@ -203,7 +203,7 @@ function get_minor_dynamic_blurb($connection, $poi_id1, $poi_id2, $r_id, $sectio
       $support_level = "provides good";
     }
     else {
-      $support_level = "does not";
+      $support_level = "does not provide";
     }
     $poi_name1 = ucfirst(strtolower(get_poi_name($poi_id1)));
     $poi_name2 = ucfirst(strtolower(get_poi_name($poi_id2)));
