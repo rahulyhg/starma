@@ -364,6 +364,23 @@ function statusChangeCallbackNTS(response) {
       }
     }
 
+    function statusChangeCallbackInvite(response) {
+      if (response.status === 'connected') {
+        sendDialogue();
+      } 
+      else if (response.status === 'not_authorized') {
+        //FOR SETTINGS
+        fbLoginMain();
+        $('#pref_fb').prop('disabled', false);
+        $('#fb_done').fadeOut(1000);
+      } 
+      else {
+        //FOR SETTINGS
+        $('#pref_fb').prop('disabled', false);
+        $('#fb_done').fadeOut(1000);
+      }
+    }
+
 
     function checkLoginState() {
       FB.getLoginStatus(function(response) {
@@ -378,6 +395,14 @@ function statusChangeCallbackNTS(response) {
         //console.log('accessToken');
         //console.log(response.authResponse.accessToken);
         statusChangeCallbackNTS(response);
+      });
+    }
+
+    function checkLoginStateInvite() {
+      FB.getLoginStatus(function(response) {
+        //console.log('accessToken');
+        //console.log(response.authResponse.accessToken);
+        statusChangeCallbackInvite(response);
       });
     }
 
@@ -415,6 +440,7 @@ function statusChangeCallbackNTS(response) {
   echo '<div id="msg_sheen" class="pop_invite">';
     echo '<div id="msg_sheen_screen" class="pop_invite pop_close"></div>';
               show_user_invite();
+              show_user_invite_email();
   echo '</div>';
   ?>
 

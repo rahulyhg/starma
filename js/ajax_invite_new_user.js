@@ -76,6 +76,8 @@ $(document).ready(function(){
                       $('#invite_sent').hide();
                       $('#invite_sent').html('');
                       $('.invite_error').text('');
+                      $('#msg_sheen_content_invite').show();
+                      $('#msg_sheen_content_invite_email').hide();
                   });
             } 
           

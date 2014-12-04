@@ -113,7 +113,21 @@ function show_sheen ($flag=0, $form_function) {
 }
 
 function show_user_invite () {
-  echo '<div id="msg_sheen_content_invite" class="pop_invite">';
+  echo '<div id="msg_sheen_content_invite">';
+    echo '<div id="sign_up_box">';
+      echo  '<div class="heading">Send Invite With...</div>';
+        echo '<div style="margin-top: 15px;">';
+          echo '<div style="margin-bottom: 4px;"><button type="button" id="invite_w_fb" class="sign_up" onClick="checkLoginStateInvite();">Facebook</button></div>';
+          echo '<div id="or">~ or ~</div>';
+          //echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; 
+          echo '<div style="margin-top: 11px;"><button type="button" id="invite_w_email" class="sign_up">Email</button></div>';
+        echo '</div>';
+      echo '</div>'; //Close sign_up_box
+    echo '</div>'; //Close msg_sheen_content_invite
+}
+
+function show_user_invite_email () {
+  echo '<div id="msg_sheen_content_invite_email">';
                 echo '<div id="invite_type_area">';
                   echo '<div style="width:100%; text-align:center; font-size:2em; margin-bottom:10px;"><strong>Invite A Friend</strong></div>';
                   //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
@@ -7481,7 +7495,7 @@ function show_3_words_photo_box () {
           //echo '</div>';
           
           echo '<input id="image" type="file" name="image"/>';
-          echo '<input type="submit" value="Upload" name="action" id="upload_photo" />';
+          echo '<input type="submit" value="Click to upload your photo" name="action" id="upload_photo" />';
             
             if (isset($_GET['error'])) {
               echo '<input type="hidden" id="crop_error" />';
