@@ -93,10 +93,53 @@ $(document).ready(function(){
 				}
 				if (data.errors.set) {
 					$('#hl_done').show().html(data.errors.set);
+                           
 				}
+                     $('#hlcb').prop('checked', false);
 			}
 			if (data.msg) {
 				$('#hl_done').show().html(data.msg).fadeOut(1200);
+			}
+		});
+
+	});
+
+     $('#chartcb').click(function(){
+		$('#chart_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
+		if($('#chartcb').prop('checked')) {
+			var data = { 'chartcb' : 1 };
+                $('#hlcb').prop('checked', true);                      
+                $('#hlcb').prop('disabled', true);
+                $('#hl_text').css({'color':'gray'});         
+                                            
+           }
+		if(!$('#chartcb').prop('checked')) {
+			var data = { 'chartcb' : 0 };
+                $('#hlcb').prop('disabled', false);
+                $('#hl_text').css({'color':'black'});
+		}
+		//alert(data);
+		$.ajax({
+				type: 'POST',
+				url: 'chat/ajax_privacy.php',
+				data: data,
+				dataType: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				if (data.errors.invalid) {
+					$('#chart_done').show().html(data.errors.invalid);
+				}
+				if (data.errors.set) {
+					$('#chart_done').show().html(data.errors.set);
+                           
+				}
+                      $('#chartcb').prop('checked', false);
+                      $('#hlcb').prop('disabled', false);
+                      $('#hl_text').css({'color':'black'});
+			}
+               	if (data.msg) {
+				$('#chart_done').show().html(data.msg).fadeOut(1200);
 			}
 		});
 

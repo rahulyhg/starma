@@ -6870,12 +6870,28 @@ function show_privacy_form () {
   echo '<div class="heading">Privacy Settings</div>';
    //echo '<form name="privacy_form" method="POST" action="privacy_settings.php">';
       echo '<div style="margin-bottom:10px;">';
-        echo '<input type="checkbox" ';
-          if (get_my_preferences('hl_private', 0) == 1) {
-            echo 'checked';
+        echo '<input type="checkbox"';
+          if (get_my_preferences('chart_private', 0) == 1) {
+            echo ' checked';
+          }
+        echo ' name="chart" id="chartcb" style="display:inline-block; margin-right:8px;"/>';
+        echo '<div class="later_on" id="chart_text" style="display:inline-block;">Keep my chart info private<span id="chart_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo '</div>';
+      echo '</div>';
+      echo '<div style="margin-bottom:10px; margin-left:20px">';
+        echo '<input type="checkbox"';
+          if (get_my_preferences('hl_private', 0) == 1 || get_my_preferences('chart_private', 0) == 1) {
+            echo ' checked';
+          }
+          if (get_my_preferences('chart_private', 0) == 1) {
+            echo ' disabled';
           }
         echo ' name="house_lords" id="hlcb" style="display:inline-block; margin-right:8px;"/>';
-        echo '<div class="later_on" style="display:inline-block;">Keep my house lords private<span id="hl_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo '<div class="later_on" id="hl_text" style="display:inline-block';
+        if (get_my_preferences('chart_private', 0) == 1) {
+          echo ';color:gray';
+        }
+        echo '">Keep my house lords private<span id="hl_done" class="later_on" style="display:none; padding-left:10px;"></span>';
         echo '</div>';
       echo '</div>';
 
