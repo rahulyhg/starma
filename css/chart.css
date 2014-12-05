@@ -1458,8 +1458,8 @@ div.poi_title {
   /*background: url('/img/Starma-Astrology-Pillars-Base.png') no-repeat;*/
   position: relative;
   bottom: 19px;
-  left: 49px;
-  width: 557px;
+  /*left: 49px;*/
+  /*width: 557px;*/
   z-index: 2;
 }
 
@@ -1585,12 +1585,13 @@ span.minor_poi_title {
 }
 
 #minor_connections .blurb_supporting {
-    width:517px;
-    /*margin-left:31px;
-    margin-right:auto;*/
+    /*width:517px;
     left: 77px;
     bottom: 56px;
-    float: left;
+    float: left;*/
+    width: 615px;
+    left: 29px;
+    bottom: 115px;
     height: auto;
     position: relative;
     text-align:left;
@@ -1619,9 +1620,9 @@ span.minor_poi_title {
   letter-spacing: .05px;
 }
 
-#minor_connections .dynamic_icon{
+#minor_connections .dynamic_icon {
   width:478px;
-  background-color:#D3DBF6;
+  /*background-color:#D3DBF6;*/
   border: none;
   color:black;
   display:block;
@@ -1631,7 +1632,7 @@ span.minor_poi_title {
   height:88px;
   text-transform:uppercase;
   font-weight:bold;
-  margin: auto;
+  margin: auto auto 7px;
 }
 
 #minor_connections .poi_button {
