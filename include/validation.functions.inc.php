@@ -645,5 +645,25 @@ function permissions_check ($req) {
     return false;
   }
 }
+
+function can_view_section ($chart_id) {
+      $can_view = true;
+      $msg = '';
+      $user_id = get_user_id_from_chart_id($chart_id);
+      if (!is_freebie_chart($chart_id) && !isCeleb($user_id) && !($user_id == get_my_user_id())) {
+        $pref = get_preferences($user_id, 'chart_private', 0);
+        $my_pref = get_my_preferences('chart_private', 0);
+        $username = get_nickname($user_id);
+        if ($pref == 1) {
+          $can_view = false;
+          $msg = '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">' . $username . ' has chosen to keep this section private.</div>';
+        }
+        if ($my_pref == 1) {
+          $can_view = false;
+          $msg = '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">You cannot view this section of another person\'s profile while your chart info is set as private.  <a href="/main.php?the_page=ssel&the_left=nav1&the_tier=1">View My Privacy Settings</a></div>';
+        }
+      }
+      return array($can_view,$msg); 
+}
  
 ?>

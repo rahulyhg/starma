@@ -80,6 +80,12 @@ function compare_tier_2 ($gotothe, $results_type, $text_type) {
       }
       //echo $total_score;
       show_compare_results ($score = $total_score, $goto=$gotothe, $results_type=$results_type, $text_type=$text_type, $stage = $_GET["stage"]);
+      $can_view = can_view_section($_SESSION['compare_chart_ids'][1]);
+      if (!$can_view[0]) {
+      
+        echo '<div style="padding-top:200px">' . $can_view[1] . '</div>';
+      }     
+      else {
       //switch ($results_type) {
         //case "major":
         echo '<div id="section>">';
@@ -99,6 +105,7 @@ function compare_tier_2 ($gotothe, $results_type, $text_type) {
         echo '</div>'; //close #section
       //}
       //compare_charts_old($chart_id1 = $_GET["chart_id1"], $chart_id2 = $_GET["chart_id2"]);
+      }
 }
 
 

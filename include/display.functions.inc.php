@@ -3118,87 +3118,91 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         //echo '<div id="major_medium_bubble"><img src="/img/Starma-Astrology-Major-Small-Bubble.png" height="15px" width="15px" /></div>';
       //}
 
-    
-  
+      
+    $can_view = can_view_section($_SESSION['compare_chart_ids'][1]);
+    if ($can_view[0]) {
+      
+      
        
-      echo '<div id="compare_results_selector">';
-      echo '<ul>';
-      //Major
-      echo '<li class="selector selected';    //took out class="major"
-      //if ($results_type == "major") {
-        //echo 'selected';
-      //}
-      echo '" id="major_select">';
-      echo '<span';
-      //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
-      echo '/>Major Connections</span></li>';
+        echo '<div id="compare_results_selector">';
+        echo '<ul>';
+        //Major
+        echo '<li class="selector selected';    //took out class="major"
+        //if ($results_type == "major") {
+          //echo 'selected';
+        //}
+        echo '" id="major_select">';
+        echo '<span';
+        //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
+        echo '/>Major Connections</span></li>';
 
-      //Minor
-      echo '<li class="selector ';   //took out class="minor"
-      //if ($results_type == "minor") {
-        //echo 'selected';
-      //}
-      echo '" id="minor_select">';
-      echo '<span ';
-      //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
-      echo '/>Supporting Connections</span></li>';
-      //Bonus
-      echo '<li class="selector ';   //took out class="bonus"
-      //if ($results_type == "ruler") {
-        //echo 'selected';
-      //}
-      echo '" id="ruler_select">';
-        echo '<span>';
-          //' . $goto . '&stage=2' . '&results_type=ruler">Ruling Planets</a></li>';   //NEED TO MAKE IT'S OWN AND NOT BONUS
-        echo '1st House Lords</span></li>';
+        //Minor
+        echo '<li class="selector ';   //took out class="minor"
+        //if ($results_type == "minor") {
+          //echo 'selected';
+        //}
+        echo '" id="minor_select">';
+        echo '<span ';
+        //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
+        echo '/>Supporting Connections</span></li>';
+        //Bonus
+        echo '<li class="selector ';   //took out class="bonus"
+        //if ($results_type == "ruler") {
+          //echo 'selected';
+        //}
+        echo '" id="ruler_select">';
+          echo '<span>';
+            //' . $goto . '&stage=2' . '&results_type=ruler">Ruling Planets</a></li>';   //NEED TO MAKE IT'S OWN AND NOT BONUS
+          echo '1st House Lords</span></li>';
 
-      echo '<li class="end selector ';   //took out class="bonus"
-      //if ($results_type == "bonus") {
-        //echo 'selected';
-      //} 
-      echo '" id="bonus_select"><span>';
-        //echo . $goto . '&stage=2' . '&results_type=bonus">';
-      echo 'Bonus Connections</span></li>';  //NEED TO MAKE INTO BONUS
+        echo '<li class="end selector ';   //took out class="bonus"
+        //if ($results_type == "bonus") {
+          //echo 'selected';
+        //} 
+        echo '" id="bonus_select"><span>';
+          //echo . $goto . '&stage=2' . '&results_type=bonus">';
+        echo 'Bonus Connections</span></li>';  //NEED TO MAKE INTO BONUS
    
-      echo '</ul>';
-      echo '</div>';
+        echo '</ul>';
+        echo '</div>';
 
-      /*//REDESIGN
+        /*//REDESIGN
+        
+        echo '<div id="detail_selector">';
+          echo '<a href="#" ';
+          echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&stage=2", $hidden="connection_type", $value="'" . $connection_type . "'", $hidden2="", $value2="") . '"';        
+          if ($stage == 2) {
+            echo ' style="font-weight:bold"';
+          }
+          echo '/>At a Glance</a>/';
+     
+          echo '<a href="#" ';
+          echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&stage=3", $hidden="connection_type", $value="'" . $connection_type . "'", $hidden2="", $value2="") . '"';        
+          if ($stage == 3) {
+            echo ' style="font-weight:bold"';
+          }
+          echo '/>More Info</a>';
+        echo '</div>';
+
+        */
+
+        /***************---Matt REDESIGN------
+        $chart_id1 = $_GET["chart_id1"];
+        $chart_id2 = $_GET["chart_id2"];
+        echo '<div id="compare_results_selector">
+          <ul>
+            <li><input type="submit" id="major" value="Major" /></li>     
+            <li><input type="submit" id="minor" value="Minor" /></li>
+            <li class="end"><input type="submit" id="bonus" value="Bonus" /></li>
+          </ul>
+          <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
+          <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>  
+        </div>';
+
       
-      echo '<div id="detail_selector">';
-        echo '<a href="#" ';
-        echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&stage=2", $hidden="connection_type", $value="'" . $connection_type . "'", $hidden2="", $value2="") . '"';        
-        if ($stage == 2) {
-          echo ' style="font-weight:bold"';
-        }
-        echo '/>At a Glance</a>/';
-    
-        echo '<a href="#" ';
-        echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&stage=3", $hidden="connection_type", $value="'" . $connection_type . "'", $hidden2="", $value2="") . '"';        
-        if ($stage == 3) {
-          echo ' style="font-weight:bold"';
-        }
-        echo '/>More Info</a>';
-      echo '</div>';
-
-      */
-
-      /***************---Matt REDESIGN------
-      $chart_id1 = $_GET["chart_id1"];
-      $chart_id2 = $_GET["chart_id2"];
-      echo '<div id="compare_results_selector">
-        <ul>
-          <li><input type="submit" id="major" value="Major" /></li>     
-          <li><input type="submit" id="minor" value="Minor" /></li>
-          <li class="end"><input type="submit" id="bonus" value="Bonus" /></li>
-        </ul>
-        <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
-        <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>  
-      </div>';
-
-      
-      echo '<script type="text/javascript" src="/js/ajax_compare_submit.js"></script>';
-      */
+        echo '<script type="text/javascript" src="/js/ajax_compare_submit.js"></script>';
+        */
+      }
       echo '</form>';
       echo '</div>';
 }
@@ -5584,7 +5588,13 @@ function show_house_lords () {
   }
   //echo $pref;
   //if($pref) {
-    if ($pref == 0) {
+    $can_view = can_view_section($chart_id);
+    if (!$can_view[0]) {
+      
+      echo $can_view[1];
+    }     
+    else {
+     if ($pref == 0) {
       //echo $chart_id;
       $rising_sign_id = get_sign_from_poi ($chart_id, 1);
       //echo $rising_sign_id;
@@ -5712,6 +5722,7 @@ function show_house_lords () {
   }
   else {
     echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">' . $username . ' has chosen to keep this section private.</div>';
+  }
   }
   //}
 }

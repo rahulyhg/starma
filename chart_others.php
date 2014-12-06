@@ -7,15 +7,12 @@ if (login_check_point($type="full", $domain=$domain)) {
   if (isset($_GET["chart_id2"])) {
     $chart_id2 = $_GET["chart_id2"];
     //Log the Action
-    $pref = get_preferences(get_user_id_from_chart_id($chart_id2), 'chart_private', 0);
-    $my_pref = get_my_preferences('chart_private', 0);
-    if ($pref == 1 && !isCeleb(get_user_id_from_chart_id($chart_id2))) {
-      $username = get_nickname(get_user_id_from_chart_id($chart_id2));
-      echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">' . $username . ' has chosen to keep this section private.</div>';
-    }
-    elseif ($my_pref == 1 && !isCeleb(get_user_id_from_chart_id($chart_id2))) {
-      echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">You cannot view this section of another person\'s profile while your chart info is set as private.  <a href="/main.php?the_page=ssel&the_left=nav1&the_tier=1">View My Privacy Settings</a></div>';
-    }
+
+    $can_view = can_view_section($chart_id2);
+    if (!$can_view[0]) {
+      
+      echo $can_view[1];
+    }     
     else {
       
       if (!isset($_POST["poi_id"])) {

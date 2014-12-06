@@ -1,7 +1,7 @@
 <?php
 	require ('header.php');
 if (isLoggedIn()) {
-
+      
 		$western = $_GET['western'];
 
 		if (isset($_GET['chart_id2'])) {  //ANOTHER PROFILE
@@ -19,8 +19,7 @@ if (isLoggedIn()) {
 		else {  //MY PROFILE
 			$chart_id = get_my_chart_id();
 		}
-
-		
+        $can_view = can_view_section($chart_id);
     	if ($_GET['the_page'] == 'psel') { //MY PROFILE
     		//if ($western == 0) {
             	echo '<div id="av_type" class="later_on">';
@@ -41,16 +40,13 @@ if (isLoggedIn()) {
 
     	}
     	else { //ANOTHER PROFILE
-           $pref = get_preferences(get_user_id_from_chart_id($chart_id), 'chart_private', 0);
-           $my_pref = get_my_preferences('chart_private', 0);
-           if ($pref == 1 && !isCeleb(get_user_id_from_chart_id($chart_id))) {
-             $username = get_nickname(get_user_id_from_chart_id($chart_id));
-             echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">' . $username . ' has chosen to keep this section private.</div>';
-           }
-           elseif ($my_pref == 1 && !isCeleb(get_user_id_from_chart_id($chart_id))) {
-              echo '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">You cannot view this section of another person\'s profile while your chart info is set as private.  <a href="/main.php?the_page=ssel&the_left=nav1&the_tier=1">View My Privacy Settings</a></div>';
-           }
-           else {
+           
+    
+    if (!$can_view[0]) {
+      
+      echo $can_view[1];
+    }     
+    else {
               echo '<div id="av_type" class="later_on">';
     		if (!$western_there) {
     			if ($isCeleb) {
@@ -82,7 +78,7 @@ if (isLoggedIn()) {
         echo '</div>';
     	}
     	
-	if ($pref == 0 && $my_pref == 0 && !isCeleb(get_user_id_from_chart_id($chart_id))) {		
+	if ($can_view[0]) {		
 		show_astrologers_view();
         }
 		
