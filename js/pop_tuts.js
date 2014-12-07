@@ -1,5 +1,27 @@
 $(document).ready(function(){
 
+//CHART TUTORIAL ---
+
+	$('#view_chart_tutorial').click(function(){
+		$('#view_chart_tutorial>div').html('<img src="/js/ajax_loader_sign_up.gif" />');
+		var view_compare_tutorial = {'view_chart_tutorial' : 'view_chart_tutorial'};
+
+		$.ajax({
+			type 		:  'POST',
+			url 		:  '/chat/pop_tuts.php',
+			data 		:  view_chart_tutorial,
+			dataType 	: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				console.log(data.errors);
+			}
+			if (data.success) {
+				window.location.reload(true);
+			}
+		});
+	});
+
 	if ($('.chart_pop').length) {
 		$('.chart_pop').show();
 	}
@@ -91,6 +113,26 @@ $(document).ready(function(){
 
 
 //COMPARE POPTUTS -------------------------------------------
+
+	$('#view_compare_tutorial').click(function(){
+		$('#view_compare_tutorial>div').html('<img src="/js/ajax_loader_sign_up.gif" />');
+		var view_compare_tutorial = {'view_compare_tutorial' : 'view_compare_tutorial'};
+
+		$.ajax({
+			type 		:  'POST',
+			url 		:  '/chat/pop_tuts.php',
+			data 		:  view_compare_tutorial,
+			dataType 	: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				console.log(data.errors);
+			}
+			if (data.success) {
+				window.location.reload(true);
+			}
+		});
+	});
 
 //MAJOR ----
 

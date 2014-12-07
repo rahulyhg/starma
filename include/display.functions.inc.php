@@ -3127,6 +3127,9 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         //echo '<br>';
         //echo '*' . $score . '*';
       echo '</div>'; //close star_rating
+
+
+      echo '<div id="view_compare_tutorial"><div class="sign_up">View Tutorial</div></div>';
       
 
       /*

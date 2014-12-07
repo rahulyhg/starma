@@ -131,6 +131,13 @@
 
 /*/////////////////////////// COMPARE POP TUTS //////////////////////////////*/
 
+#view_compare_tutorial {
+    width: 200px;
+    position: relative;
+    margin: auto;
+    top: 60px;
+}
+
 /*-- MAJOR --*/
 #major_text_circle {
     display: none;
