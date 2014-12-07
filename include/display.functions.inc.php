@@ -6952,6 +6952,7 @@ function show_changepassword_form(){
     //CHANGED ALL ID's TO js_search_bar MAKE SURE THIS ISN'T A PROBLEM
 
     echo '<br>';  
+    echo '<div id="create_pass_first" class="later_on"></div>';
     //if ($_GET["error"] == 1) {
     echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px;">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
     echo '<div id="pass_validation"></div>';

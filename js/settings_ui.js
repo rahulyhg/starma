@@ -1,8 +1,13 @@
 $(document).ready(function(){
 
-	$('input[name=change_pass]').prop('disabled', true);
+	
 
-	$('input[name=password2]').on('keyup', function() {
+	//CHANGING PASSWORD----
+	if ($('#change_pass').length) {
+
+		$('input[name=change_pass]').prop('disabled', true);
+
+		$('input[name=password2]').on('keyup', function() {
 			var new_pass = $('input[name=password]').val();
 			var new_pass2 = $('input[name=password2]').val();
 			if(new_pass != "") {
@@ -16,11 +21,6 @@ $(document).ready(function(){
 				}
 			}
 		});
-
-	
-	//if ($('input[name=change_pass]').prop('disabled', false)) {
-
-	//CHANGING PASSWORD----
 
 		$('#change_pass').click(function(){
 			$('#ajax_loader').html('<img src="/js/ajax_loader_sign_up.gif" />');
@@ -68,13 +68,34 @@ $(document).ready(function(){
 
 				//event.preventDefault();
 		});
-	//}
+	}
+
 
 
 	
 	//CREATING PASSWORD----
 
 	if ($('#create_pass').length) {
+
+		$('#pref_fb').prop('disabled', true);
+
+		$('#create_pass').prop('disabled', true);
+
+		$('input[name=password2]').on('keyup', function() {
+			var new_pass = $('input[name=password]').val();
+			var new_pass2 = $('input[name=password2]').val();
+			if(new_pass != "") {
+				if(new_pass == new_pass2) {
+					$('.pass_correct').show().fadeOut(1200);
+					$('#create_pass').prop('disabled', false);
+					//alert('correct!');
+				}
+				else {
+					$('#create_pass').prop('disabled', true);
+				}
+			}
+		});
+
 
 		$('#create_pass').click(function(){
 			$('#ajax_loader').html('<img src="/js/ajax_loader_sign_up.gif" />');
@@ -200,13 +221,18 @@ $(document).ready(function(){
 	});
 	*/
 	$('#pref_fb').click(function(){
-		$('#pref_fb').prop('disabled', true);
-		$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
-		if ($('#pref_fb').hasClass('connect_fb')) {
-			fbLoginMain();
+		if ($('#pref_fb').prop('disabled', true)) {
+			$('#create_pass_first').show().text('Before you disconnect from Facebook you must create a password so you can login to Starma without using your Facebook account');
 		}
-		if($('#pref_fb').hasClass('disconnect_fb')) {
-			revokeFBSettings();
+		else {
+			$('#pref_fb').prop('disabled', true);
+			$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
+			if ($('#pref_fb').hasClass('connect_fb')) {
+				fbLoginMain();
+			}
+			if($('#pref_fb').hasClass('disconnect_fb')) {
+				revokeFBSettings();
+			}
 		}
 	});
 

@@ -2385,8 +2385,8 @@ function createPassword ($email, $newpassword, $newpassword2) {
       }
  
       // now we update the password in the database
-      $query = sprintf("UPDATE user set password = '%s' where email = '%s'",
-        mysql_real_escape_string(sha1($newpassword.$seed)), mysql_real_escape_string($email));
+      $query = sprintf("UPDATE user set password = '%s' where email = '%s' and user_id = '%d'",
+        mysql_real_escape_string(sha1($newpassword.$seed)), mysql_real_escape_string($email), $_SESSION['user_id']);
  
       if (mysql_query($query)) {
         return true;
