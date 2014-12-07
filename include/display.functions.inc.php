@@ -2903,60 +2903,101 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         } 
       }
 
-      //COMPARE FLAG----------------------------------------
-      /*
-      if(my_compare_flag() == 1) {
-
-        //MAJOR ------------------
+//COMPARE TUTORIALS ----------------------------------------
+      
+    //MAJOR COMPARE TUTORIAL
+      if(my_compare_major_flag() == 1) {
         
-          echo '<div id="msg_sheen" class="compare_pop">';    
-            echo '<div id="msg_sheen_screen_cot" class="compare_pop"></div>';
+          echo '<div id="msg_sheen" class="major_compare_pop">';    
+            echo '<div id="msg_sheen_screen_mact" class="major_compare_pop"></div>';
               
-              echo '<div id="msg_sheen_cot1" class="compare_pop msg_sheen_cot">';
-                echo '<div id="compare_pop1">';
-                echo '<div class="ct_step later_on">1 / 5</div>';
+              echo '<div id="msg_sheen_mact1" class="major_compare_pop msg_sheen_mact">';
+                echo '<div id="major_compare_pop1">';
+                echo '<div class="ct_step later_on">1 / 4</div>';
                   echo '<div class="heading">Compatibility Tutorial</div>';
-                  echo '<div class="later_on ct_text">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs - we call these the “Major Connections.”  You’re likely to see both positive and negative dynamics, so keep in mind that a relationship can work with even one good dynamic!  It’s also normal to encounter contradictory information, so be sure to remember the Cake Analogy!</div>';
-                  echo '<div class="later_on cot_next" id="cot1_done"><a href="#" class="later_on">Next></a></div>';
-              echo '</div>'; //close #compare_pop1
+                  echo '<div class="later_on ct_text">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs - we call these the "Major Connections."  You\'re likely to see both positive and negative dynamics, so keep in mind that a relationship can work with even one positive dynamic!</div>';
+                  echo '<div class="later_on mact_next" id="mact1_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #major_compare_pop1
             echo '</div>'; //close msg_sheen_cot1
 
-            echo '<div id="msg_sheen_cot2" class="msg_sheen_cot">';
-                echo '<div id="compare_pop2">';
-                echo '<div class="ct_step later_on">2 / 5</div>';
-                  echo '<div class="later_on ct_text">Your Major connections show...</div>';
-                  echo '<div class="later_on cot_next" id="cot2_done"><a href="#" class="later_on">Next></a></div>';
-              echo '</div>'; //close #compare_pop1
+            echo '<div id="msg_sheen_mact2" class="msg_sheen_mact">';
+                echo '<div id="major_compare_pop2">';
+                echo '<div class="ct_step later_on">2 / 4</div>';
+                  echo '<div class="later_on ct_text">Important! As you read about your compatibility, keep this analogy in mind: If you had never eaten cake before, and you separately tasted eggs, sugar, flour and milk, it might be hard to imagine the result of having them all baked together. Similarly, if you separately read the dynamics between your Rising, Sun, Moon and Venus Signs, they might all have their own contradictory meaning. Understanding how the ingredients of your compatibility all "bake" together is the job of an astrologer. What you\'re about to read, we affectionately refer to as "Cook Book Astrology." For a more in depth understanding of your compatibility, please consult an astrologer.</div>';
+                  echo '<div class="later_on mact_next" id="mact2_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #major_compare_pop2
             echo '</div>'; //close msg_sheen_cot1
 
-            echo '<div id="msg_sheen_cot3" class="msg_sheen_cot">';
-                echo '<div id="compare_pop3">';
-                echo '<div class="ct_step later_on">3 / 5</div>';
-                  echo '<div class="later_on ct_text">Your Minor connections show...</div>';
-                  echo '<div class="later_on cot_next" id="cot3_done"><a href="#" class="later_on">Next></a></div>';
-              echo '</div>'; //close #compare_pop1
+            echo '<div id="msg_sheen_mact3" class="msg_sheen_mact">';
+                echo '<div id="major_compare_pop3">';
+                echo '<div class="ct_step later_on">3 / 4</div>';
+                  echo '<div class="later_on ct_text">The images between your Rising, Sun, Moon and Venus Signs represent the dynamic between them.  To read about the dynamics, click on any of the images or click "show text."</div>';
+                  echo '<div class="later_on mact_next" id="mact3_done"><a href="#" class="later_on">Next ></a></div>';
+              echo '</div>'; //close #major_compare_pop3
             echo '</div>'; //close msg_sheen_cot1
 
-            echo '<div id="msg_sheen_cot4" class="msg_sheen_cot">';
-                echo '<div id="compare_pop4">';
-                echo '<div class="ct_step later_on">4 / 5</div>';
-                  echo '<div class="later_on ct_text">Bonus and Jupiter connections are taken into account in our compatibility equation, but the content is still on it\'s way...</div>';
-                  echo '<div class="later_on cot_next" id="cot4_done"><a href="#ct5" class="later_on">Next></a></div>';
-              echo '</div>'; //close #compare_pop1
-            echo '</div>'; //close msg_sheen_cot1
-
-            echo '<div id="msg_sheen_cot5" class="msg_sheen_cot">';
-                echo '<div id="compare_pop5">';
-                echo '<div class="ct_step later_on">5 / 5</div>';
-                  echo '<div class="later_on ct_text">When you are ready, click Minor Connections to see a very brief tutorial on how they work...</div>';
-                  echo '<div class="later_on cot_next" id="cot5_done"><a href="#" class="later_on">Done</a></div>';
+            echo '<div id="msg_sheen_mact4" class="msg_sheen_mact">';
+                echo '<div id="major_compare_pop4">';
+                echo '<div class="ct_step later_on">4 / 4</div>';
+                  echo '<div class="later_on ct_text">To see more details about your compatability click through these tabs.</div>';
+                  echo '<div class="later_on mact_next" id="mact4_done"><a href="#" class="later_on">Done</a></div>';
               echo '</div>'; //close #compare_pop1
             echo '</div>'; //close msg_sheen_cot1
 
         echo '</div>'; //close msg_sheen
+
+      //MAJOR TEXT CIRCLE
+        echo '<div id="major_text_circle"></div>';
+        echo '<div id="compare_subnav_circle"></div>';
         }
-    */
-        //END COMPARE FLAG------------------------------------
+
+    //MINOR COMPARE TUTORIAL
+        if (my_compare_minor_flag() == 1) {
+          echo '<div id="msg_sheen" class="minor_compare_pop">';    
+            echo '<div id="msg_sheen_screen_mict" class="minor_compare_pop"></div>';
+              
+              echo '<div id="msg_sheen_mict1" class="minor_compare_pop msg_sheen_mict">';
+                echo '<div id="minor_compare_pop1">';
+                echo '<div class="ct_step later_on">1 / 4</div>';
+                  //echo '<div class="heading">Compatibility Tutorial</div>';
+                  echo '<div class="later_on ct_text">The Supporting Connections do just what their name suggests.  They support the dynamics between your Major Connections.  Whether a Major Connection is strong or weak, the strength of the Supporting Connections can effect it.  For example, even if your Moon Signs are in the dynamic of Challenges (indicating there are challenges in emotional compatibility), good Supporting Connections can strengthen your emotional compatibility.</div>';
+                  echo '<div class="later_on mict_next" id="mict1_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+            echo '<div id="msg_sheen_mict2" class="msg_sheen_mict">';
+                echo '<div id="minor_compare_pop2">';
+                echo '<div class="ct_step later_on">2 / 4</div>';
+                  echo '<div class="later_on ct_text">To read about the level of support each Major Connection receives, click through these tabs.</div>';
+                  echo '<div class="later_on mict_next" id="mict2_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+            echo '<div id="msg_sheen_mict3" class="msg_sheen_mict">';
+                echo '<div id="minor_compare_pop3">';
+                echo '<div class="ct_step later_on">3 / 4</div>';
+                  echo '<div class="later_on ct_text">The pillars in the acropolis represent how much support is provided for each of your Major Connections.  The more pillars you have, the more support your Major Connection receives.  We sum up the support here.</div>';
+                  echo '<div class="later_on mict_next" id="mict3_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+            echo '<div id="msg_sheen_mict4" class="msg_sheen_mict">';
+                echo '<div id="minor_compare_pop4">';
+                echo '<div class="ct_step later_on">4 / 4</div>';
+                  echo '<div class="later_on ct_text">Click on all the pillars to see the dynamics between each of your supporting connections.</div>';
+                  echo '<div class="later_on mict_next" id="mict4_done"><a href="#" class="later_on">Done</a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+          echo '</div>'; //close msg_sheen
+
+          echo '<div id="pillar_icons_circle"></div>';
+          echo '<div id="supporting_tabs_circle"></div>';
+          echo '<div id="supporting_sum_up_circle"></div>';
+
+        }
+    
+  //END COMPARE TUTORIALS ------------------------------------
 
 
        
@@ -6960,7 +7001,7 @@ function show_tutorials_form () {
       echo '</div>';
 
       echo '<div><input type="checkbox" ';
-        if (my_compare_flag() == 1) {
+        if (my_compare_major_flag() == 1 && my_compare_minor_flag() == 1) {
           echo 'checked';
         }
       echo ' name="compare_flag" id="cofcb" style="display:inline-block; margin-right:8px;"/>';

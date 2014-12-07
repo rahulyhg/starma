@@ -4,6 +4,8 @@
 	if (isLoggedIn()) {
 		$data = array();
 		$errors = array();
+
+	//CHART FLAG CHECKBOX
 		if (isset($_POST['cfcb'])) {
 			if (!preg_match('%^[\d]{1}$%', $_POST['cfcb'])) {
 				$errors['invald'] = 'There was an error. Please refresh and try again.';
@@ -27,6 +29,7 @@
 			
 		}
 
+	//COMPARE FLAGS CHECKBOX
 		if (isset($_POST['cofcb'])) {
 			if (!preg_match('%^[\d]{1}$%', $_POST['cofcb'])) {
 				$errors['invald'] = 'There was an error. Please refresh and try again.';
@@ -36,8 +39,12 @@
 				//$data['hlcb'] = $hlcb;
 				//$data['msg'] = $hlcb;
 			}
-			if (!set_my_compare_flag($cofcb)) {
-				$errors['set'] = 'Unable to set preference.  Please refresh and try again';
+			if (!set_my_compare_major_flag($cofcb)) {
+				$errors['major_set'] = 'Unable to set preference (major compare).  Please refresh and try again';
+			}
+
+			if (!set_my_compare_minor_flag($cofcb)) {
+				$errors['minor_set'] = 'Unable to set preference (minor compare).  Please refresh and try again';
 			}
 			
 			if (!empty($errors)) {

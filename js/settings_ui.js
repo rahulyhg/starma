@@ -213,8 +213,11 @@ $(document).ready(function(){
 				if(data.errors.invalid) {
 					$('#cof_done').show().html(data.errors.invalid);
 				}
-				if (data.errors.set) {
-					$('#cof_done').show().html(data.errors.set);
+				if (data.errors.major_set) {
+					$('#cof_done').show().html(data.errors.major_set);
+				}
+				if (data.errors.minor_set) {
+					$('#cof_done').show().html(data.errors.minor_set);
 				}
 			}
 			if (data.msg) {

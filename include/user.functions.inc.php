@@ -246,8 +246,12 @@ function my_chart_flag() {
   return chart_flag($_SESSION["user_id"]);
 }
 
-function my_compare_flag() {
-  return compare_flag($_SESSION["user_id"]);
+function my_compare_major_flag() {
+  return compare_major_flag($_SESSION["user_id"]);
+}
+
+function my_compare_minor_flag() {
+  return compare_minor_flag($_SESSION["user_id"]);
 }
 
 function welcome_flag ($user_id) {
@@ -276,12 +280,25 @@ function chart_flag ($user_id) {
   }
 }
 
-function compare_flag($user_id) {
+function compare_major_flag($user_id) {
   if (isLoggedIn()) {
-    $q = "SELECT compare_flag from user where user_id = " . $user_id;
+    $q = "SELECT compare_major_flag from user where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     $row = mysql_fetch_array($result);
-    return $row["compare_flag"];
+    return $row["compare_major_flag"];
+     
+  }
+  else {
+    return false;
+  }
+}
+
+function compare_minor_flag($user_id) {
+  if (isLoggedIn()) {
+    $q = "SELECT compare_minor_flag from user where user_id = " . $user_id;
+    $result = mysql_query($q) or die(mysql_error());
+    $row = mysql_fetch_array($result);
+    return $row["compare_minor_flag"];
      
   }
   else {
@@ -308,8 +325,12 @@ function set_welcome_flag ($flag=1, $user_id) {
   }
 }
 
-function set_my_compare_flag ($flag=1) {
-  return set_compare_flag($flag,$_SESSION["user_id"]);
+function set_my_compare_major_flag ($flag=1) {
+  return set_compare_major_flag($flag,$_SESSION["user_id"]);
+}
+
+function set_my_compare_minor_flag ($flag=1) {
+  return set_compare_minor_flag($flag,$_SESSION["user_id"]);
 }
 
 function set_chart_flag ($flag=1, $user_id) {
@@ -323,9 +344,20 @@ function set_chart_flag ($flag=1, $user_id) {
   }
 }
 
-function set_compare_flag ($flag=1, $user_id) {
+function set_compare_major_flag ($flag=1, $user_id) {
   if (isLoggedIn()) {
-    $q = "UPDATE user set compare_flag = " . $flag . " where user_id = " . $user_id;
+    $q = "UPDATE user set compare_major_flag = " . $flag . " where user_id = " . $user_id;
+    $result = mysql_query($q) or die(mysql_error());
+    return true; 
+  }
+  else {
+    return false;
+  }
+}
+
+function set_compare_minor_flag ($flag=1, $user_id) {
+  if (isLoggedIn()) {
+    $q = "UPDATE user set compare_minor_flag = " . $flag . " where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     return true; 
   }
