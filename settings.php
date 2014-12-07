@@ -37,7 +37,7 @@ if (isLoggedIn() == true)
         echo '</div>';
     echo '</div>';
     //}
- echo '<script typt="text/javascript" src="/js/settings_ui.js"></script>';
+ echo '<script type="text/javascript" src="/js/settings_ui.js"></script>';
 } 
 else {
 	// user is not loggedin
