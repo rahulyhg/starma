@@ -19,7 +19,9 @@ $(document).ready(function(){
 
 	
 	//if ($('input[name=change_pass]').prop('disabled', false)) {
-		
+
+	//CHANGING PASSWORD----
+
 		$('#change_pass').click(function(){
 			$('#ajax_loader').html('<img src="/js/ajax_loader_sign_up.gif" />');
 			var data_pass = {
@@ -67,6 +69,59 @@ $(document).ready(function(){
 				//event.preventDefault();
 		});
 	//}
+
+
+	
+	//CREATING PASSWORD----
+
+	if ($('#create_pass').length) {
+
+		$('#create_pass').click(function(){
+			$('#ajax_loader').html('<img src="/js/ajax_loader_sign_up.gif" />');
+			var data_pass = {
+				'create_pass'  : 'create_pass',
+				'password'     : $('input[name=password]').val(),
+				'password2'    : $('input[name=password2]').val()
+				};
+
+			$.ajax({
+				type: 'POST',
+				url: 'chat/ajax_change_password.php',
+				data: data_pass,
+				dataType: 'json',
+
+			})
+
+			.done(function(data) {
+					//alert(data);
+				if (data.success) {
+					$('#ajax_loader').html('');
+					$('#pass_validation').show().html('Your password has been updated!').css('color', 'green');
+						//alert(data.pass);
+				}
+				if (data.errors) {
+					$('#ajax_loader').html('');
+					$('#pass_validation').css('color', 'red');
+					if(data.errors.pass_length){	
+						$('#pass_validation').show().text('*' + data.errors.pass_length);
+					}
+					if(data.errors.oldpass) {
+						$('#pass_validation').show().text('*' + data.errors.oldpass);
+					}
+					if(data.errors.mismatch) {
+						$('#pass_validation').show().text('*' + data.errors.mismatch);
+					}
+					if(data.errors.characters) {
+						$('#pass_validation').show().text('*' + data.errors.characters);
+					}
+				}
+				$('input[name=password]').val('');
+				$('input[name=password2]').val('');
+			});
+
+				//event.preventDefault();
+		});
+	}
 	
 
 //PRIVACY --------------------------------------

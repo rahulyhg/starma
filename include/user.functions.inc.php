@@ -2330,7 +2330,7 @@ function changePassword($email,$currentpassword,$newpassword,$newpassword2){
         //die();
         return false;
   }
-  if (! valid_password($newpassword) || ($newpassword != $newpassword2)){
+  if (!valid_password($newpassword) || ($newpassword != $newpassword2)){
                 //echo "invaid password or passwords dont match";
                 //die();
       //echo 'invalid password or new passwords are not the same';
@@ -2366,6 +2366,37 @@ function changePassword($email,$currentpassword,$newpassword,$newpassword2){
   } 
   //echo 'updated';
 	return false;
+}
+
+function createPassword ($email, $newpassword, $newpassword2) {
+  if (isLoggedIn()) {
+    global $seed; 
+
+      if (!valid_email($email) || !user_exists($email,get_user_nickname_from_email ($email))) {   
+        //echo 'invalid email';
+        //echo "invalid email or user doesnt exist: *" . get_user_nickname_from_email ($email) . "*";
+        //die();
+        return false;
+      }
+      if (!valid_password($newpassword) || ($newpassword != $newpassword2)){
+                //echo "invaid password or passwords dont match";
+                //die();
+        return false;
+      }
+ 
+      // now we update the password in the database
+      $query = sprintf("UPDATE user set password = '%s' where email = '%s'",
+        mysql_real_escape_string(sha1($newpassword.$seed)), mysql_real_escape_string($email));
+ 
+      if (mysql_query($query)) {
+        return true;
+      }
+      else {
+        return false;
+      } 
+    }
+
+  return false;
 }
  
  

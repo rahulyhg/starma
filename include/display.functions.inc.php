@@ -6899,55 +6899,94 @@ function show_userbox()
 }
  
 function show_changepassword_form(){
+  echo '<div id="change_password_form">';
 
+  if (is_pass_there()) {  //HAS ACCOUNT WITH PASSWORD
+    echo '<div class="heading">Change Password</div>';
 
-  //flare_title("Change My Password");
-echo '<div id="change_password_form">';
+    //CHANGED ALL ID's TO js_search_bar MAKE SURE THIS ISN'T A PROBLEM
 
-echo '<div class="heading">Change Password</div>';
+    echo '<br>';  
+    //if ($_GET["error"] == 1) {
+    echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px;">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
+    echo '<div id="pass_validation"></div>';
+    //echo '<br><br>';
+    //global $seed;
+    //echo mysql_real_escape_string(sha1('1crowon1toad'.$seed)) . '<br>';
+    //echo '*'.$seed.'*';
+    //}
+    echo '<form action="." method="POST">  
+            <table id="reset_pass">
+              <tbody>
+                <tr>
+                  <td><label class="later_on" for="oldpassword">Current Password:</label></td> 
+                </tr>
+                <tr>    
+                  <td><input name="oldpassword" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"></td>
+                </tr>
 
- //CHANGED ALL ID's TO js_search_bar MAKE SURE THIS ISN'T A PROBLEM
+                <tr>
+                  <td><label class="later_on" for="password">New Password:</label> </td>
+                </tr>
+                <tr>
+                  <td><input name="password" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+                </tr>
 
-echo '<br>';  
-//if ($_GET["error"] == 1) {
-  echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px;">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
-  echo '<div id="pass_validation"></div>';
-  //echo '<br><br>';
-  //global $seed;
-  //echo mysql_real_escape_string(sha1('1crowon1toad'.$seed)) . '<br>';
-  //echo '*'.$seed.'*';
-//}
-  echo '<form action="." method="POST">  
-    <table id="reset_pass">
-      <tbody>
-      <tr>
-        <td><label class="later_on" for="oldpassword">Current Password:</label></td> 
-      </tr>
-      <tr>    
-        <td><input name="oldpassword" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"></td>
-      </tr>
+                <tr>
+                  <td><label class="later_on" for="password2">Re-type new password:</label> </td>
+                </tr>
+                <tr>
+                  <td><input name="password2" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+                  <td><span class="pass_correct">Correct!</span>
+                </tr>
+                <tr> 
+                  <td><input name="change_pass" id="change_pass" type="button" value="Reset Password"><span id="ajax_loader"></span> </td>
+                </tr> 
+              </tbody>
+            </table>
+          </form>';
+  }
+  else {  //ONLY HAS FB ACCOUNT AND NO PASS YET
+    echo '<div class="heading">Create Password</div>';
 
-      <tr>
-        <td><label class="later_on" for="password">New Password:</label> </td>
-      </tr>
-      <tr>
-        <td><input name="password" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
-      </tr>
+    //CHANGED ALL ID's TO js_search_bar MAKE SURE THIS ISN'T A PROBLEM
 
-      <tr>
-        <td><label class="later_on" for="password2">Re-type new password:</label> </td>
-      </tr>
-      <tr>
-        <td><input name="password2" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
-        <td><span class="pass_correct">Correct!</span>
-      </tr>
-  <tr> 
-    <td><input name="change_pass" id="change_pass" type="button" value="Reset Password"><span id="ajax_loader"></span> </td>
-  </tr> 
-  </tbody>
-  </table>
-</form>
-</div>';
+    echo '<br>';  
+    //if ($_GET["error"] == 1) {
+    echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px;">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
+    echo '<div id="pass_validation"></div>';
+    //echo '<br><br>';
+    //global $seed;
+    //echo mysql_real_escape_string(sha1('1crowon1toad'.$seed)) . '<br>';
+    //echo '*'.$seed.'*';
+    //}
+    echo '<form action="." method="POST">  
+            <table id="reset_pass">
+              <tbody>
+                <tr>
+                  <td><label class="later_on" for="password">New Password:</label> </td>
+                </tr>
+                <tr>
+                  <td><input name="password" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+                </tr>
+
+                <tr>
+                  <td><label class="later_on" for="password2">Re-type new password:</label> </td>
+                </tr>
+                <tr>
+                  <td><input name="password2" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+                  <td><span class="pass_correct">Correct!</span>
+                </tr>
+                <tr> 
+                  <td><input name="create_pass" id="create_pass" type="button" value="Create Password"><span id="ajax_loader"></span> </td>
+                </tr> 
+              </tbody>
+            </table>
+          </form>';
+  }
+  
+
+  echo '</div>';
 }
 
 

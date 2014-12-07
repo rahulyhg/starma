@@ -630,6 +630,22 @@ function valid_password($pass, $minlength = 6, $maxlength = 15)
  
 }
 
+function is_pass_there () {
+  if (isLoggedIn()) {
+    $q = 'SELECT password from user where user_id = ' . $_SESSION['user_id'];
+    $result = mysql_query($q);
+    if ($result == '' || $result == null) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  } 
+  else {
+    return false;
+  }
+}
+
 
 function permissions_check ($req) {
   if (isLoggedIn() and isset($_SESSION["permissions_id"])) {
