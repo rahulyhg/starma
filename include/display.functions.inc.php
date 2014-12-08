@@ -6912,7 +6912,7 @@ function show_userbox()
 function show_changepassword_form(){
   echo '<div id="change_password_form">';
   $pass = is_pass_there();
-  echo $pass;
+  echo 'pass: ' . $pass;
   if (is_pass_there()) {  //HAS ACCOUNT WITH PASSWORD
     echo '<div class="heading">Change Password</div>';
 
