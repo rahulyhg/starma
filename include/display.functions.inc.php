@@ -3181,7 +3181,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       
     
     if ($can_view[0]) {
-      
+        /*
         echo '<div id="compare_results_selector"><a name="acropolis"></a>'; //ACROPOLIS FOR MINOR COMPARE
         echo '<ul>';
         //Major
@@ -3220,6 +3220,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         echo '" id="bonus_select"><span>';
           //echo . $goto . '&stage=2' . '&results_type=bonus">';
         echo 'Bonus Connections</span></li>';  //NEED TO MAKE INTO BONUS
+        */
 
       echo '<div id="compare_results_selector"><a name="acropolis"></a>'; //name acropolis there for minor compare tutorial
       echo '<ul>';
