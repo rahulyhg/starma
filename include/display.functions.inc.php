@@ -2969,15 +2969,15 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
                 echo '<div id="minor_compare_pop2">';
                 echo '<div class="ct_step later_on">2 / 4</div>';
                   echo '<div class="later_on ct_text">To read about the level of support each Major Connection receives, click through these tabs.</div>';
-                  echo '<div class="later_on mict_next" id="mict2_done"><a href="#" class="later_on">Next></a></div>';
+                  echo '<div class="later_on mict_next" id="mict2_done"><a href="#acropolis" class="later_on">Next></a></div>';
               echo '</div>'; //close #compare_pop1
             echo '</div>'; //close msg_sheen_cot1
 
             echo '<div id="msg_sheen_mict3" class="msg_sheen_mict">';
                 echo '<div id="minor_compare_pop3">';
                 echo '<div class="ct_step later_on">3 / 4</div>';
-                  echo '<div class="later_on ct_text">The pillars in the acropolis represent how much support is provided for each of your Major Connections.  The more pillars you have, the more support your Major Connection receives.  We sum up the support here.</div>';
-                  echo '<div class="later_on mict_next" id="mict3_done"><a href="#" class="later_on">Next></a></div>';
+                  echo '<div class="later_on ct_text">The pillars in the acropolis represent how much support is provided for each of your Major Connections.  The more intact pillars you have, the more support your Major Connection receives.  We sum up the support here.</div>';
+                  echo '<div class="later_on mict_next" id="mict3_done"><a href="#acropolis" class="later_on">Next></a></div>';
               echo '</div>'; //close #compare_pop1
             echo '</div>'; //close msg_sheen_cot1
 
@@ -2985,7 +2985,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
                 echo '<div id="minor_compare_pop4">';
                 echo '<div class="ct_step later_on">4 / 4</div>';
                   echo '<div class="later_on ct_text">Click on all the pillars to see the dynamics between each of your supporting connections.</div>';
-                  echo '<div class="later_on mict_next" id="mict4_done"><a href="#" class="later_on">Done</a></div>';
+                  echo '<div class="later_on mict_next" id="mict4_done"><a href="#acropolis" class="later_on">Done</a></div>';
               echo '</div>'; //close #compare_pop1
             echo '</div>'; //close msg_sheen_cot1
 
@@ -3179,7 +3179,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
     
   
        
-      echo '<div id="compare_results_selector">';
+      echo '<div id="compare_results_selector"><a name="acropolis"></a>'; //name acropolis there for minor compare tutorial
       echo '<ul>';
       //Major
       echo '<li class="selector selected';    //took out class="major"
