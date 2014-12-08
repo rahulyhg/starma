@@ -2927,6 +2927,21 @@ li.my_unknown_button a {
             box-shadow: 1px 1px 40px black;
 }
 
+#msg_sheen #msg_sheen_content_chartcb {
+    background: #e7ebee;
+    border: 2px solid black;
+    margin-left: -240px;
+    padding: 10px 20px;
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    /*width: 500px;*/
+    /*height: 150px;*/
+    display: none;
+    box-shadow: 1px 1px 40px black;
+}
+
+
 #msg_sendie {
   background: white;
   border: 2px solid black;
@@ -3844,6 +3859,21 @@ END OLD WAY*/
 
 
 /*//////////////// SETTINGS ///////////////////////////////////////*/
+
+#chartcb_confirm_box {
+  width:400px; 
+  font-size:1.19em; 
+  line-height: 1.2;
+}
+
+#chartcb_confirm {
+  float: right;
+}
+
+#chartcb_cancel {
+  float: left;
+}
+
 #settings_form {
   padding:10px;
 }

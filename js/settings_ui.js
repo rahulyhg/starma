@@ -165,10 +165,10 @@ $(document).ready(function(){
 		})
 		.done(function(data){
 			if (data.errors) {
-				if (data.errors.invalid) {
+				if (data.errors.invalid_hlcb) {
 					$('#hl_done').show().html(data.errors.invalid);
 				}
-				if (data.errors.set) {
+				if (data.errors.set_hlcb) {
 					$('#hl_done').show().html(data.errors.set);
                            
 				}
@@ -181,7 +181,19 @@ $(document).ready(function(){
 
 	});
 
-     $('#chartcb').click(function(){
+    $('#chartcb').click(function(){
+    	if($('#chartcb').prop('checked')) {
+    		$('.chartcb_confirm_box').show();
+    		$('#chartcb_confirm_text').text('By choosing to keep your birth chart private you will still appear under the "New to Starma" page, and your personal Birth Chart, House Lords, and Astrologers View will be invisible to other users.  However, other users\' Birth Charts, House Lords and Astrologers View will be invisible to you.  Because of this you won\'t be able to test your compatibility with other users and they won\'t be able to test their compatibility with you.  Ar you sure you want to choose this option?');
+    	}
+    	else {
+    		$('.chartcb_confirm_box').show();
+    		$('#chartcb_confirm_text').text('Make my Birth Chart public so I can see other people\'s Birth Charts and test our compatibility!');
+    	}
+    });
+
+    $('#chartcb_confirm').click(function(){ 
+    	$('.chartcb_confirm_box').fadeOut(300);
 		$('#chart_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
 		if($('#chartcb').prop('checked')) {
 			var data = { 'chartcb' : 1 };
@@ -193,6 +205,7 @@ $(document).ready(function(){
 		if(!$('#chartcb').prop('checked')) {
 			var data = { 'chartcb' : 0 };
                 $('#hlcb').prop('disabled', false);
+                //$('#hlcb').prop('checked', false);
                 $('#hl_text').css({'color':'black'});
 		}
 		//alert(data);
@@ -204,11 +217,18 @@ $(document).ready(function(){
 		})
 		.done(function(data){
 			if (data.errors) {
-				if (data.errors.invalid) {
+				if (data.errors.invalid_chartcb) {
 					$('#chart_done').show().html(data.errors.invalid);
 				}
-				if (data.errors.set) {
+				if (data.errors.set_chartcb) {
 					$('#chart_done').show().html(data.errors.set);
+                           
+				}
+				if (data.errors.invalid_hlcb) {
+					$('#hl_done').show().html(data.errors.invalid);
+				}
+				if (data.errors.set_hlcb) {
+					$('#hl_done').show().html(data.errors.set);
                            
 				}
                       $('#chartcb').prop('checked', false);
@@ -220,6 +240,11 @@ $(document).ready(function(){
 			}
 		});
 
+	});
+	
+	$('#chartcb_cancel').click(function(){
+		$('#chartcb').prop('checked', false);
+		$('.chartcb_confirm_box').fadeOut(300);
 	});
 
 //FB CONNECTED --------------------------------------

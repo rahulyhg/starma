@@ -21,6 +21,19 @@ if (isLoggedIn() == true)
     }*/ 
     //else {
 
+    echo '<div id="msg_sheen" class="chartcb_confirm_box">';
+        echo '<div id="msg_sheen_screen" class="chartcb_confirm_box"></div>';
+            echo '<div id="msg_sheen_content_chartcb" class="chartcb_confirm_box">';
+                echo '<div id="chartcb_confirm_box">';
+                    echo '<div id="chartcb_confirm_text" class="later_on">By choosing to keep your birth chart private your personal Birth Chart, House Lords, and Astrologers View will be invisible to other users.  However, other users\' Birth Charts, House Lords and Astrologers View will be invisible to you.  Because of this you won\'t be able to test your compatibility with other users and they won\'t be able to test their compatibility with you.  Ar you sure you want to choose this option?</div>';
+                    echo '<div style="margin-top:10px;">';
+                        echo '<div class="later_on pointer" id="chartcb_cancel">Cancel</div>';
+                        echo '<div class="later_on pointer" id="chartcb_confirm">Confirm</div>';
+                    echo '</div>';
+                echo '</div>';
+            echo '</div>';
+    echo '</div>';
+
     echo '<div id="settings">';
         echo '<div id="settings_forms">';
             echo '<div id="password">';
