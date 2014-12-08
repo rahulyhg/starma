@@ -2903,10 +2903,12 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         } 
       }
 
+  $can_view = can_view_section($_SESSION['compare_chart_ids'][1]);
+
 //COMPARE TUTORIALS ----------------------------------------
       
     //MAJOR COMPARE TUTORIAL
-      if(my_compare_major_flag() == 1) {
+      if(my_compare_major_flag() == 1 && $can_view[0]) {
         
           echo '<div id="msg_sheen" class="major_compare_pop">';    
             echo '<div id="msg_sheen_screen_mact" class="major_compare_pop"></div>';
@@ -2952,7 +2954,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         }
 
     //MINOR COMPARE TUTORIAL
-        if (my_compare_minor_flag() == 1) {
+        if (my_compare_minor_flag() == 1 && $can_view[0]) {
           echo '<div id="msg_sheen" class="minor_compare_pop">';    
             echo '<div id="msg_sheen_screen_mict" class="minor_compare_pop"></div>';
               
@@ -3177,13 +3179,10 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       //}
 
       
-    $can_view = can_view_section($_SESSION['compare_chart_ids'][1]);
+    
     if ($can_view[0]) {
       
-      
-       
-<<<<<<< HEAD
-        echo '<div id="compare_results_selector">';
+        echo '<div id="compare_results_selector"><a name="acropolis"></a>'; //ACROPOLIS FOR MINOR COMPARE
         echo '<ul>';
         //Major
         echo '<li class="selector selected';    //took out class="major"
@@ -3221,7 +3220,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         echo '" id="bonus_select"><span>';
           //echo . $goto . '&stage=2' . '&results_type=bonus">';
         echo 'Bonus Connections</span></li>';  //NEED TO MAKE INTO BONUS
-=======
+
       echo '<div id="compare_results_selector"><a name="acropolis"></a>'; //name acropolis there for minor compare tutorial
       echo '<ul>';
       //Major
@@ -3260,7 +3259,6 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '" id="bonus_select"><span>';
         //echo . $goto . '&stage=2' . '&results_type=bonus">';
       echo 'Bonus Connections</span></li>';  //NEED TO MAKE INTO BONUS
->>>>>>> Compare-Tuts-and-such
    
         echo '</ul>';
         echo '</div>';
