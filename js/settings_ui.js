@@ -77,7 +77,7 @@ $(document).ready(function(){
 
 	if ($('#create_pass').length) {
 
-		$('#pref_fb').prop('disabled', true);
+		//$('#pref_fb').prop('disabled', true);
 
 		$('#create_pass').prop('disabled', true);
 
@@ -118,6 +118,7 @@ $(document).ready(function(){
 				if (data.success) {
 					$('#ajax_loader').html('');
 					$('#pass_validation').show().html('Your password has been updated!').css('color', 'green');
+					window.location.reload(true);
 						//alert(data.pass);
 				}
 				if (data.errors) {
@@ -264,8 +265,10 @@ $(document).ready(function(){
 	});
 	*/
 	$('#pref_fb').click(function(){
-		if ($('#pref_fb').prop('disabled', true)) {
+		if ($('#create_pass').length) {
+			//if ($('#pref_fb').prop('disabled', true)) {
 			$('#create_pass_first').show().text('Before you disconnect from Facebook you must create a password so you can login to Starma without using your Facebook account');
+			//}
 		}
 		else {
 			$('#pref_fb').prop('disabled', true);
