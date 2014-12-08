@@ -3090,8 +3090,8 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       }
 
       echo '<div id="compare_results">';
-      echo '<form name="connection_browser" action="." method="post">';
-      echo '<input type="hidden" name="connection_type"/>';
+      //echo '<form name="connection_browser" action="." method="post">';
+      //echo '<input type="hidden" name="connection_type"/>';
       //echo '<div id="header" class="compare">';
         //echo 'Compare Chart';
         //flare_title("Compare Charts");
@@ -3131,7 +3131,12 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '</div>'; //close star_rating
 
 
-      echo '<div id="view_compare_tutorial"><div class="sign_up">View Tutorial</div></div>';
+      echo '<div id="view_compare_tutorial"><div class="sign_up">View Tutorial</div>';
+          echo '<input type="hidden" id="c_id1" value="' . $_SESSION['compare_chart_ids'][0] .'" />';
+          echo '<input type="hidden" id="c_id2" value="' . $_SESSION['compare_chart_ids'][1] .'" />';
+          echo '<input type="hidden" id="the_left" value="' . $_GET['the_left'] . '" />';
+          echo '<input type="hidden" id="the_page" value="' . $_GET['the_page'] . '" />';
+      echo '</div>';
       
 
       /*
@@ -3185,10 +3190,10 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '<div id="compare_results_selector"><a name="acropolis"></a>'; //name acropolis there for minor compare tutorial
       echo '<ul>';
       //Major
-      echo '<li class="selector selected';    //took out class="major"
-      //if ($results_type == "major") {
-        //echo 'selected';
-      //}
+      echo '<li class="selector ';    //took out class="major"
+      if ($results_type == "major") {
+        echo 'selected';
+      }
       echo '" id="major_select">';
       echo '<span';
       //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
@@ -3196,9 +3201,9 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
 
       //Minor
       echo '<li class="selector ';   //took out class="minor"
-      //if ($results_type == "minor") {
-        //echo 'selected';
-      //}
+      if ($results_type == "minor") {
+        echo 'selected';
+      }
       echo '" id="minor_select">';
       echo '<span ';
       //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
@@ -3261,7 +3266,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         echo '<script type="text/javascript" src="/js/ajax_compare_submit.js"></script>';
         */
       }
-      echo '</form>';
+      //echo '</form>';
       echo '</div>';
 }
 

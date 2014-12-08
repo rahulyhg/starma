@@ -90,12 +90,38 @@
 		}
 	}
 
-	if (isset($_POST['view_compare_tutorial'])) {
+	if (isset($_POST['view_major_compare_tutorial'])) {
+		
+		if (!set_my_compare_major_flag(1)) {
+			$errors['major_set'] = 'There was an error turning off the tutorial (major).  Please refresh the page and try again.';
+		}
+		if (!empty($errors)) {
+			$data['errors'] = $errors;
+		}
+		else {
+			$data['major'] = true;
+		}
+	}
+
+	if (isset($_POST['view_minor_compare_tutorial'])) {
+		
 		if (!set_my_compare_minor_flag(1)) {
 			$errors['minor_set'] = 'There was an error turning off the tutorial (minor).  Please refresh the page and try again.';
 		}
+		if (!empty($errors)) {
+			$data['errors'] = $errors;
+		}
+		else {
+			$data['minor'] = true;
+		}
+	}
+
+	if (isset($_POST['view_compare_tutorial'])) {
 		if (!set_my_compare_major_flag(1)) {
 			$errors['major_set'] = 'There was an error turning off the tutorial (major).  Please refresh the page and try again.';
+		}
+		if (!set_my_compare_minor_flag(1)) {
+			$errors['minor_set'] = 'There was an error turning off the tutorial (minor).  Please refresh the page and try again.';
 		}
 		if (!empty($errors)) {
 			$data['errors'] = $errors;
@@ -104,7 +130,7 @@
 			$data['success'] = true;
 		}
 	}
-
+		
 
 
 	echo json_encode($data);
