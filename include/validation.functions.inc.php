@@ -634,11 +634,11 @@ function is_pass_there () {
   if (isLoggedIn()) {
     $q = 'SELECT password from user where user_id = ' . $_SESSION['user_id'];
     $result = mysql_query($q);
-    if ($result == '' || $result == null) {
-      return $result;
+    if ($result['password'] == '' || $result['password'] == null) {
+      return $result['password'];
     }
     else {
-      return $result;
+      return $result['password'];
     }
   } 
   else {
