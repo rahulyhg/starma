@@ -635,10 +635,10 @@ function is_pass_there () {
     $q = 'SELECT password from user where user_id = ' . $_SESSION['user_id'];
     $result = mysql_query($q);
     if ($result == '' || $result == null) {
-      return false;
+      return $result;
     }
     else {
-      return true;
+      return $result;
     }
   } 
   else {
