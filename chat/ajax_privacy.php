@@ -27,7 +27,7 @@
 				//$data['msg'] = is_preference_there($pref_name, get_my_user_id());
 			
 		}
-                elseif (isset($_POST['chartcb'])) {
+        elseif (isset($_POST['chartcb'])) {
 			$pref_name = 'chart_private';
 			if (!preg_match('%^[\d]{1}$%', $_POST['chartcb'])) {
 				$errors['invald'] = 'There was an error. Please refresh and try again.';
