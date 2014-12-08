@@ -181,14 +181,18 @@ $(document).ready(function(){
 
 	});
 
+
+
+//CHART PRIVACY -----
+
     $('#chartcb').click(function(){
     	if($('#chartcb').prop('checked')) {
     		$('.chartcb_confirm_box').show();
-    		$('#chartcb_confirm_text').text('By choosing to keep your birth chart private you will still appear under the "New to Starma" page, and your personal Birth Chart, House Lords, and Astrologers View will be invisible to other users.  However, other users\' Birth Charts, House Lords and Astrologers View will be invisible to you.  Because of this you won\'t be able to test your compatibility with other users and they won\'t be able to test their compatibility with you.  Ar you sure you want to choose this option?');
+    		$('#chartcb_confirm_text').addClass('private').removeClass('public').text('By choosing to keep your birth chart private you will still appear under the "New to Starma" page, and your personal Birth Chart, House Lords, and Astrologers View will be invisible to other users.  However, other users\' Birth Charts, House Lords and Astrologers View will be invisible to you.  Because of this you won\'t be able to test your compatibility with other users and they won\'t be able to test their compatibility with you.  Ar you sure you want to choose this option?');
     	}
     	else {
     		$('.chartcb_confirm_box').show();
-    		$('#chartcb_confirm_text').text('Make my Birth Chart public so I can see other people\'s Birth Charts and test our compatibility!');
+    		$('#chartcb_confirm_text').addClass('public').removeClass('private').text('Make my Birth Chart public so I can see other people\'s Birth Charts and test our compatibility!');
     	}
     });
 
@@ -243,7 +247,12 @@ $(document).ready(function(){
 	});
 	
 	$('#chartcb_cancel').click(function(){
-		$('#chartcb').prop('checked', false);
+		if ($('#chartcb_confirm_text').hasClass('private')) {
+			$('#chartcb').prop('checked', false);
+		}	
+		if ($('#chartcb_confirm_text').hasClass('public')) {
+			$('#chartcb').prop('checked', true);
+		}
 		$('.chartcb_confirm_box').fadeOut(300);
 	});
 
