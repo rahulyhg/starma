@@ -40,8 +40,15 @@ $(document).ready(function(){
 	var $invite = $('#msg_sendie_invite').val();
 
 	$('#pop_invite, #pop_invite_top').click(function(){
-		$('.pop_invite').slideFadeToggle();
+		$('.pop_invite').slideFadeToggle(function(){
+			$('#msg_sheen_content_invite').show();
+		});
 		return false;
+	});
+
+	$('#invite_w_email').click(function(){
+		$('#msg_sheen_content_invite').hide();
+		$('#msg_sheen_content_invite_email').show();
 	});
 
 	$('#cancel').click(function(){
@@ -50,6 +57,8 @@ $(document).ready(function(){
         	$('#send-message-area').show();
         	$('#invite_sent').hide();
         	$('#invite_sent').html('');
+        	$('#msg_sheen_content_invite').show();
+			$('#msg_sheen_content_invite_email').hide();
         	/*
         	$('#first_name_invite').val('first name');
         	$('#last_name_invite').val('last name');
@@ -65,6 +74,8 @@ $(document).ready(function(){
         	$('#send-message-area').show();
         	$('#invite_sent').hide();
         	$('#invite_sent').html('');
+        	$('#msg_sheen_content_invite').show();
+			$('#msg_sheen_content_invite_email').hide();
         	/*
         	$('#first_name_invite').val('first name');
         	$('#last_name_invite').val('last name');
@@ -76,10 +87,10 @@ $(document).ready(function(){
 
 
 	$('#send_invite').click(function(){
-							$('#send-message-area').hide();
-             				$('#invite_sent').show();
-							$('#invite_sent').html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /><p>Sending...</p></div>');
-					});
+		$('#send-message-area').hide();
+        $('#invite_sent').show();
+		$('#invite_sent').html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /><p>Sending...</p></div>');
+	});
 
 
 

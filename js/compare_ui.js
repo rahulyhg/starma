@@ -142,9 +142,14 @@ $(document).ready(function(){
 
 
 		$('.pillar_icon_minor').click(function() {
+			if ($(this).hasClass('selected')) {
+				$(this).parent().siblings('.bridge_base').html('<img src="/img/Starma-Astrology-Stairs.png">');
+			}
+			else {
+				$(this).parent().siblings('.bridge_base').html('<img src="img/Starma-Astrology-StairsON.png">');
+			}
 			$(this).parent().siblings().children('.pillar_icon_minor').not(this).removeClass('selected');
 			$(this).toggleClass('selected');
-			
 			if ($(this).parent().hasClass('pillar')) {
 				$(this).parent().toggleClass('pillar_arrow');
 				$(this).parent().siblings().removeClass('pillar_arrow pillar_broken_arrow');
@@ -348,6 +353,7 @@ $(document).ready(function(){
 		$('.pillar_broken').removeClass('pillar_broken_arrow');
 		$('.blurb_supporting').hide();
 		$('.add_arrow_top').hide();
+		$('.bridge_base').html('<img src="/img/Starma-Astrology-Stairs.png">');
 		var mc = $(this).children('input').val();
 		if (mc == 0) {
 			$('#mc_sun').hide();

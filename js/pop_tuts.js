@@ -1,5 +1,27 @@
 $(document).ready(function(){
 
+//CHART TUTORIAL ---
+
+	$('#view_chart_tutorial').click(function(){
+		$('#view_chart_tutorial>div').html('<img src="/js/ajax_loader_sign_up.gif" />');
+		var view_compare_tutorial = {'view_chart_tutorial' : 'view_chart_tutorial'};
+
+		$.ajax({
+			type 		:  'POST',
+			url 		:  '/chat/pop_tuts.php',
+			data 		:  view_chart_tutorial,
+			dataType 	: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				console.log(data.errors);
+			}
+			if (data.success) {
+				window.location.reload(true);
+			}
+		});
+	});
+
 	if ($('.chart_pop').length) {
 		$('.chart_pop').show();
 	}
@@ -50,7 +72,7 @@ $(document).ready(function(){
 	$('#ct2_done').click(function(){
 		$('#msg_sheen_ct2').fadeOut(300);
 		$('#western_circle').fadeOut(300);
-		$('#msg_sheen_ct3'). fadeIn(300);
+		$('#msg_sheen_ct3').fadeIn(300);
 		$('#why_vedic_circle').fadeIn(300);
 	});
 
@@ -58,7 +80,7 @@ $(document).ready(function(){
 		//$('#msg_sheen_screen_ct').fadeTo('slow', 0.71);
 		$('#msg_sheen_ct3').fadeOut(300);
 		$('#why_vedic_circle').fadeOut(300);
-		$('#msg_sheen_ct4'). fadeIn(300);
+		$('#msg_sheen_ct4').fadeIn(300);
 	});
 
 	$('#ct4_done').click(function(){
@@ -92,43 +114,62 @@ $(document).ready(function(){
 
 //COMPARE POPTUTS -------------------------------------------
 
-if ($('.compare_pop').length) {
-		$('.compare_pop').show();
+	$('#view_compare_tutorial').click(function(){
+		$('#view_compare_tutorial>div').html('<img src="/js/ajax_loader_sign_up.gif" />');
+		var view_compare_tutorial = {'view_compare_tutorial' : 'view_compare_tutorial'};
+
+		$.ajax({
+			type 		:  'POST',
+			url 		:  '/chat/pop_tuts.php',
+			data 		:  view_compare_tutorial,
+			dataType 	: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				console.log(data.errors);
+			}
+			if (data.success) {
+				window.location.reload(true);
+			}
+		});
+	});
+
+//MAJOR ----
+
+if ($('.major_compare_pop').length) {
+		$('.major_compare_pop').show();
 	}
 	
-	$('#cot1_done').click(function(){
-		$('#msg_sheen_cot1').fadeOut(300);
-		$('#msg_sheen_cot2').fadeIn(300);
-		$('#western_circle').fadeIn(300);
+	$('#mact1_done').click(function(){
+		$('#msg_sheen_mact1').fadeOut(300);
+		$('#msg_sheen_mact2').fadeIn(300);
+		
 		//$('#msg_sheen_screen_ct').fadeTo('slow', 0.45);
 	});
 
-	$('#cot2_done').click(function(){
-		$('#msg_sheen_cot2').fadeOut(300);
+	$('#mact2_done').click(function(){
+		$('#msg_sheen_mact2').fadeOut(300);
 		//$('#western_circle').fadeOut(300);
-		$('#msg_sheen_cot3'). fadeIn(300);
+		$('#major_text_circle').fadeIn(300);
+		$('#msg_sheen_mact3').fadeIn(300);
 		//$('#why_vedic_circle').fadeIn(300);
 	});
 
-	$('#cot3_done').click(function(){
+	$('#mact3_done').click(function(){
+		$('#msg_sheen_mact3').fadeOut(300);
+		//$('#western_circle').fadeOut(300);
+		$('#major_text_circle').fadeOut(300);
+		$('#msg_sheen_mact4').fadeIn(300);
+		$('#compare_subnav_circle').fadeIn(300);
+	});
+
+	$('#mact4_done').click(function(){
 		//$('#msg_sheen_screen_ct').fadeTo('slow', 0.71);
-		$('#msg_sheen_cot3').fadeOut(300);
-		//$('#why_vedic_circle').fadeOut(300);
-		$('#msg_sheen_cot4'). fadeIn(300);
-	});
+		$('#msg_sheen_mact4').fadeOut(300);
+		$('#compare_subnav_circle').fadeOut(300);
+		$('.major_compare_pop').fadeOut(300);
 
-	$('#cot4_done').click(function(){
-		$('#msg_sheen_cot4').fadeOut(300);
-		$('#msg_sheen_cot5').fadeIn(300);
-		//$('#poi_circle_left, #poi_circle_right').fadeIn(300);
-	});
-
-	$('#cot5_done').click(function(){
-		$('#msg_sheen_cot5').fadeOut(300);
-		//$('#poi_circle_left, #poi_circle_right').fadeOut(300);
-		$('.compare_pop').fadeOut(300);
-
-		var data = {'compare_flag' : 0};
+		var data = {'major_compare_flag' : 0};
 		$.ajax({
 			type 		:  'POST',
 			url 		:  '/chat/pop_tuts.php',
@@ -137,13 +178,65 @@ if ($('.compare_pop').length) {
 		})
 		.done(function(data){
 			if (data.errors) {
-				console.log(data.errors.compare_flag);
+				console.log(data.errors);
 			}
 			if (data.compare_flag) {
-				console.log(data.compare_flag);
+				console.log(data.major_compare_flag);
+			}
+		});
+		
+	});
+
+
+//MINOR ----
+
+	$('#minor_select').click(function(){
+		if ($('.minor_compare_pop').length) {
+			$('.minor_compare_pop').show();
+		}
+	});
+
+	$('#mict1_done').click(function(){
+		$('#msg_sheen_mict1').fadeOut(300);
+		$('#msg_sheen_mict2').fadeIn(300);
+		$('#supporting_tabs_circle').fadeIn(300);
+	});
+
+	$('#mict2_done').click(function(){
+		$('#msg_sheen_mict2').fadeOut(300);
+		$('#supporting_tabs_circle').fadeOut(300);
+		$('#msg_sheen_mict3').fadeIn(300);
+		$('#supporting_sum_up_circle').fadeIn(300);
+	});
+
+	$('#mict3_done').click(function(){
+		$('#msg_sheen_mict3').fadeOut(300);
+		$('#supporting_sum_up_circle').fadeOut(300);
+		$('#pillar_icons_circle').fadeIn(300);
+		$('#msg_sheen_mict4').fadeIn(300);
+		//$('#why_vedic_circle').fadeIn(300);
+	});
+
+	$('#mict4_done').click(function(){
+		$('#msg_sheen_mict4').fadeOut(300);
+		$('#pillar_icons_circle').fadeOut(300);	
+		$('.minor_compare_pop').fadeOut(300);	
+
+		var data = {'minor_compare_flag' : 0};
+		$.ajax({
+			type 		:  'POST',
+			url 		:  '/chat/pop_tuts.php',
+			data 		:  data,
+			dataType 	: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				console.log(data.errors);
+			}
+			if (data.compare_flag) {
+				console.log(data.minor_compare_flag);
 			}
 		});
 	});
-
 
 });

@@ -1,10 +1,8 @@
 
 #sign_up_container {
   width:320px; 
-  /*height: 300px;*/
   margin: 38px auto;
   background:#e7ebee; 
-  /*border-radius:3px; */
   font-size:.9em; 
   padding: 10px 0 25px 0;
   -webkit-box-shadow: 1px 1px 40px black;
@@ -104,10 +102,8 @@
 #sign_up_container input[type=file] {
   cursor: pointer;
   letter-spacing: 1px;
-  display: inline-block;
-  float: left;
   width: 180px;
-  margin: 12px 0 7px 5px;
+  margin: 12px 0 7px 21px;
 }
 
 #fake_invite {
@@ -279,10 +275,41 @@
 /*------- WORDS PHOTO FORMS ----------*/
 
 #words_photo {
-  width: 278px;
-  margin: auto;
+  margin: auto auto -30px;
+  padding: 0 15px;
 }
 
+#words_photo #profile_photo {
+  display: inline-block;
+  padding-right: 10px;
+  position: relative;
+}
+
+#words_photo #edit_words {
+  position: relative;
+  bottom: 23px;
+  display: inline-block;
+  width: 134px;
+}
+
+#words_photo #action_step {
+  text-align: center;
+  font-size: 1.19em;
+  color: #C82923;
+  margin-bottom: 6px;
+}
+
+#words_photo .div_no_photo {
+  background: #e7ebee;
+  border: 2px solid black;
+  padding: 2px 5px;
+  text-align: center;
+  margin: auto auto;
+  width: 74px;
+  z-index: 1;
+  cursor: pointer;
+}
+/*
 #words_photo #my_tiny_photo {
   display: inline-block;
 }
@@ -293,22 +320,38 @@
 
 #photo_form_div {
   height: 98px;
-  /*margin-bottom: 40px;*/
+}
+*/
+
+#upload_photo_form_sign_up {
+  display: none;
 }
 
 #upload_photo {
-  letter-spacing: .5px;
-  width: 76px;
-  margin: 0 0 0 5px;
-  cursor: pointer;
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: right;
+    border: none;
+    background: #e7ebee;
+    float: right;
+    padding: 1px;
 }
 
-#submit_words_photo {
-    position: absolute;
-    bottom: 54px;
-    left: 20px;
-    width: 278px;
+#upload_photo:active {
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: right;
+    border: none;
+    background: #e7ebee;
+    float: right;
 }
+
 
 /*------------- ERRORS ------------------*/
 
@@ -331,43 +374,45 @@
   z-index: 1000;
   padding: 6px;
   border-radius: 3px;
-  left: 318px;
+  left: 148px;
   width: 144px;
 }
 
 #w_1_error {
-  top: 108px;
+  top: 5px;
 }
 
 #w_1_err_exp {
-  top: 108px;
+  top: 5px;
 }
 
 #w_2_error {
-  top: 150px;
+  top: 48px;
 }
 
 
 #w_2_err_exp {
-  top: 150px;
+  top: 48px;
 }
 
 #w_3_error {
-  top: 194px;
+  top: 91px;
 }
 
 #w_3_err_exp {
-  top: 194px;
+  top: 91px;
 }
 
 
 .p_err {
   color: #C82923;
-  cursor: pointer;
+  text-align: center;
+  font-size: .93em;
+  /*cursor: pointer;
   display: none;
   line-height: 27px;
   position: absolute;
-  right: 8px;
+  left: 137px;*/
 }
 
 #p_error {

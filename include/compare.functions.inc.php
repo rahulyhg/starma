@@ -24,7 +24,51 @@ function quicksort_users($user_array, $asc=0){
 	}
 	return array_merge(quicksort_users($loe, $asc),array($pivot_key=>$pivot),quicksort_users($gt, $asc));
 }
+
+//FOR BRIDGE TOP HEADER
+function get_minor_compare_support_level($r_ids) {
+  //$support = array_sum($r_ids);
+  //return $support;
+  
+  if (count($r_ids) == 6) {
+    $broken = 0;
+    foreach ($r_ids as $r_id) {
+      if ($r_id > 4) {
+        $broken++;
+      }
+    }
+    if ($broken == 0) { //6 pillars
+      return "Excellent";
+    }
+    elseif ($broken == 1) { //5 pillars
+      return "Great";
+    }
+    elseif ($broken == 2) { //4 pillars
+      return "Good";
+    }
+    elseif ($broken == 3) { //3 pillars
+      return "Ok";
+    }
+    elseif ($broken > 3) { //3 pillars
+      return "Poor";
+    }
+  }
+  else {
+    return "unknown";
+  }
+}
  
+function get_dynamic_name($r_id) {
+  $q = 'SELECT relationship_title from relationship where relationship_id = ' . $r_id;
+  $result = mysql_query($q);
+  if ($row = mysql_fetch_array($result)) {
+    return $row['relationship_title'];
+    //return 'hello'; 
+  }
+  else {
+    return false;
+  }
+}
 
 function add_scores($user_list) {
   $user_array = query_to_array($user_list);

@@ -54,16 +54,56 @@
 		
 	}
 
-	if (isset($_POST['compare_flag'])) {
-		$compare_flag = $_POST['compare_flag'];
-		if (!set_my_compare_flag($compare_flag)) {
-			$errors['compare_flag'] = 'There was an error turning off the tutorial.  Please refresh the page and try again.';
+	if (isset($_POST['major_compare_flag'])) {
+		if (!preg_match('%[0-9]{1}%', $_POST['major_compare_flag'])) {
+			$errors['invalid'] = 'Something funny going on here...';
 		}
 		else {
-			$data['compare_flag'] = 'Success!';
+			$compare_flag = $_POST['major_compare_flag'];
+		}
+		if (!set_my_compare_major_flag($compare_flag)) {
+			$errors['major_set'] = 'There was an error turning off the tutorial (major).  Please refresh the page and try again.';
+		}
+		if (!empty($errors)) {
+			$data['errors'] = $errors;
+		}
+		else {
+			$data['major_compare_flag'] = 'Success!';
 		}
 	}
 
+	if (isset($_POST['minor_compare_flag'])) {
+		if (!preg_match('%[0-9]{1}%', $_POST['minor_compare_flag'])) {
+			$errors['invalid'] = 'Something funny going on here...';
+		}
+		else {
+			$compare_flag = $_POST['minor_compare_flag'];
+		}
+		if (!set_my_compare_minor_flag($compare_flag)) {
+			$errors['minor_set'] = 'There was an error turning off the tutorial (minor).  Please refresh the page and try again.';
+		}
+		if (!empty($errors)) {
+			$data['errors'] = $errors;
+		}
+		else {
+			$data['minor_compare_flag'] = 'Success!';
+		}
+	}
+
+	if (isset($_POST['view_compare_tutorial'])) {
+		if (!set_my_compare_minor_flag(1)) {
+			$errors['minor_set'] = 'There was an error turning off the tutorial (minor).  Please refresh the page and try again.';
+		}
+		if (!set_my_compare_major_flag(1)) {
+			$errors['major_set'] = 'There was an error turning off the tutorial (major).  Please refresh the page and try again.';
+		}
+		if (!empty($errors)) {
+			$data['errors'] = $errors;
+		}
+		else {
+			$data['success'] = true;
+		}
+	}
 
 
 

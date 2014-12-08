@@ -113,7 +113,21 @@ function show_sheen ($flag=0, $form_function) {
 }
 
 function show_user_invite () {
-  echo '<div id="msg_sheen_content_invite" class="pop_invite">';
+  echo '<div id="msg_sheen_content_invite">';
+    echo '<div id="sign_up_box">';
+      echo  '<div class="heading">Send Invite With...</div>';
+        echo '<div style="margin-top: 15px;">';
+          echo '<div style="margin-bottom: 4px;"><button type="button" id="invite_w_fb" class="sign_up" onClick="checkLoginStateInvite();">Facebook</button></div>';
+          echo '<div id="or">~ or ~</div>';
+          //echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; 
+          echo '<div style="margin-top: 11px;"><button type="button" id="invite_w_email" class="sign_up">Email</button></div>';
+        echo '</div>';
+      echo '</div>'; //Close sign_up_box
+    echo '</div>'; //Close msg_sheen_content_invite
+}
+
+function show_user_invite_email () {
+  echo '<div id="msg_sheen_content_invite_email">';
                 echo '<div id="invite_type_area">';
                   echo '<div style="width:100%; text-align:center; font-size:2em; margin-bottom:10px;"><strong>Invite A Friend</strong></div>';
                   //echo '<form id="send-message-area" action="chat/invite_new_user.php" method="POST">
@@ -2889,60 +2903,101 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         } 
       }
 
-      //COMPARE FLAG----------------------------------------
-      /*
-      if(my_compare_flag() == 1) {
-
-        //MAJOR ------------------
+//COMPARE TUTORIALS ----------------------------------------
+      
+    //MAJOR COMPARE TUTORIAL
+      if(my_compare_major_flag() == 1) {
         
-          echo '<div id="msg_sheen" class="compare_pop">';    
-            echo '<div id="msg_sheen_screen_cot" class="compare_pop"></div>';
+          echo '<div id="msg_sheen" class="major_compare_pop">';    
+            echo '<div id="msg_sheen_screen_mact" class="major_compare_pop"></div>';
               
-              echo '<div id="msg_sheen_cot1" class="compare_pop msg_sheen_cot">';
-                echo '<div id="compare_pop1">';
-                echo '<div class="ct_step later_on">1 / 5</div>';
+              echo '<div id="msg_sheen_mact1" class="major_compare_pop msg_sheen_mact">';
+                echo '<div id="major_compare_pop1">';
+                echo '<div class="ct_step later_on">1 / 4</div>';
                   echo '<div class="heading">Compatibility Tutorial</div>';
-                  echo '<div class="later_on ct_text">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs - we call these the “Major Connections.”  You’re likely to see both positive and negative dynamics, so keep in mind that a relationship can work with even one good dynamic!  It’s also normal to encounter contradictory information, so be sure to remember the Cake Analogy!</div>';
-                  echo '<div class="later_on cot_next" id="cot1_done"><a href="#" class="later_on">Next></a></div>';
-              echo '</div>'; //close #compare_pop1
+                  echo '<div class="later_on ct_text">Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs - we call these the "Major Connections."  You\'re likely to see both positive and negative dynamics, so keep in mind that a relationship can work with even one positive dynamic!</div>';
+                  echo '<div class="later_on mact_next" id="mact1_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #major_compare_pop1
             echo '</div>'; //close msg_sheen_cot1
 
-            echo '<div id="msg_sheen_cot2" class="msg_sheen_cot">';
-                echo '<div id="compare_pop2">';
-                echo '<div class="ct_step later_on">2 / 5</div>';
-                  echo '<div class="later_on ct_text">Your Major connections show...</div>';
-                  echo '<div class="later_on cot_next" id="cot2_done"><a href="#" class="later_on">Next></a></div>';
-              echo '</div>'; //close #compare_pop1
+            echo '<div id="msg_sheen_mact2" class="msg_sheen_mact">';
+                echo '<div id="major_compare_pop2">';
+                echo '<div class="ct_step later_on">2 / 4</div>';
+                  echo '<div class="later_on ct_text">Important! As you read about your compatibility, keep this analogy in mind: If you had never eaten cake before, and you separately tasted eggs, sugar, flour and milk, it might be hard to imagine the result of having them all baked together. Similarly, if you separately read the dynamics between your Rising, Sun, Moon and Venus Signs, they might all have their own contradictory meaning. Understanding how the ingredients of your compatibility all "bake" together is the job of an astrologer. What you\'re about to read, we affectionately refer to as "Cook Book Astrology." For a more in depth understanding of your compatibility, please consult an astrologer.</div>';
+                  echo '<div class="later_on mact_next" id="mact2_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #major_compare_pop2
             echo '</div>'; //close msg_sheen_cot1
 
-            echo '<div id="msg_sheen_cot3" class="msg_sheen_cot">';
-                echo '<div id="compare_pop3">';
-                echo '<div class="ct_step later_on">3 / 5</div>';
-                  echo '<div class="later_on ct_text">Your Minor connections show...</div>';
-                  echo '<div class="later_on cot_next" id="cot3_done"><a href="#" class="later_on">Next></a></div>';
-              echo '</div>'; //close #compare_pop1
+            echo '<div id="msg_sheen_mact3" class="msg_sheen_mact">';
+                echo '<div id="major_compare_pop3">';
+                echo '<div class="ct_step later_on">3 / 4</div>';
+                  echo '<div class="later_on ct_text">The images between your Rising, Sun, Moon and Venus Signs represent the dynamic between them.  To read about the dynamics, click on any of the images or click "show text."</div>';
+                  echo '<div class="later_on mact_next" id="mact3_done"><a href="#" class="later_on">Next ></a></div>';
+              echo '</div>'; //close #major_compare_pop3
             echo '</div>'; //close msg_sheen_cot1
 
-            echo '<div id="msg_sheen_cot4" class="msg_sheen_cot">';
-                echo '<div id="compare_pop4">';
-                echo '<div class="ct_step later_on">4 / 5</div>';
-                  echo '<div class="later_on ct_text">Bonus and Jupiter connections are taken into account in our compatibility equation, but the content is still on it\'s way...</div>';
-                  echo '<div class="later_on cot_next" id="cot4_done"><a href="#ct5" class="later_on">Next></a></div>';
-              echo '</div>'; //close #compare_pop1
-            echo '</div>'; //close msg_sheen_cot1
-
-            echo '<div id="msg_sheen_cot5" class="msg_sheen_cot">';
-                echo '<div id="compare_pop5">';
-                echo '<div class="ct_step later_on">5 / 5</div>';
-                  echo '<div class="later_on ct_text">When you are ready, click Minor Connections to see a very brief tutorial on how they work...</div>';
-                  echo '<div class="later_on cot_next" id="cot5_done"><a href="#" class="later_on">Done</a></div>';
+            echo '<div id="msg_sheen_mact4" class="msg_sheen_mact">';
+                echo '<div id="major_compare_pop4">';
+                echo '<div class="ct_step later_on">4 / 4</div>';
+                  echo '<div class="later_on ct_text">To see more details about your compatability click through these tabs.</div>';
+                  echo '<div class="later_on mact_next" id="mact4_done"><a href="#" class="later_on">Done</a></div>';
               echo '</div>'; //close #compare_pop1
             echo '</div>'; //close msg_sheen_cot1
 
         echo '</div>'; //close msg_sheen
+
+      //MAJOR TEXT CIRCLE
+        echo '<div id="major_text_circle"></div>';
+        echo '<div id="compare_subnav_circle"></div>';
         }
-    */
-        //END COMPARE FLAG------------------------------------
+
+    //MINOR COMPARE TUTORIAL
+        if (my_compare_minor_flag() == 1) {
+          echo '<div id="msg_sheen" class="minor_compare_pop">';    
+            echo '<div id="msg_sheen_screen_mict" class="minor_compare_pop"></div>';
+              
+              echo '<div id="msg_sheen_mict1" class="minor_compare_pop msg_sheen_mict">';
+                echo '<div id="minor_compare_pop1">';
+                echo '<div class="ct_step later_on">1 / 4</div>';
+                  //echo '<div class="heading">Compatibility Tutorial</div>';
+                  echo '<div class="later_on ct_text">The Supporting Connections do just what their name suggests.  They support the dynamics between your Major Connections.  Whether a Major Connection is strong or weak, the strength of the Supporting Connections can effect it.  For example, even if your Moon Signs are in the dynamic of Challenges (indicating there are challenges in emotional compatibility), good Supporting Connections can strengthen your emotional compatibility.</div>';
+                  echo '<div class="later_on mict_next" id="mict1_done"><a href="#" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+            echo '<div id="msg_sheen_mict2" class="msg_sheen_mict">';
+                echo '<div id="minor_compare_pop2">';
+                echo '<div class="ct_step later_on">2 / 4</div>';
+                  echo '<div class="later_on ct_text">To read about the level of support each Major Connection receives, click through these tabs.</div>';
+                  echo '<div class="later_on mict_next" id="mict2_done"><a href="#acropolis" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+            echo '<div id="msg_sheen_mict3" class="msg_sheen_mict">';
+                echo '<div id="minor_compare_pop3">';
+                echo '<div class="ct_step later_on">3 / 4</div>';
+                  echo '<div class="later_on ct_text">The pillars in the acropolis represent how much support is provided for each of your Major Connections.  The more intact pillars you have, the more support your Major Connection receives.  We sum up the support here.</div>';
+                  echo '<div class="later_on mict_next" id="mict3_done"><a href="#acropolis" class="later_on">Next></a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+            echo '<div id="msg_sheen_mict4" class="msg_sheen_mict">';
+                echo '<div id="minor_compare_pop4">';
+                echo '<div class="ct_step later_on">4 / 4</div>';
+                  echo '<div class="later_on ct_text">Click on all the pillars to see the dynamics between each of your supporting connections.</div>';
+                  echo '<div class="later_on mict_next" id="mict4_done"><a href="#acropolis" class="later_on">Done</a></div>';
+              echo '</div>'; //close #compare_pop1
+            echo '</div>'; //close msg_sheen_cot1
+
+          echo '</div>'; //close msg_sheen
+
+          echo '<div id="pillar_icons_circle"></div>';
+          echo '<div id="supporting_tabs_circle"></div>';
+          echo '<div id="supporting_sum_up_circle"></div>';
+
+        }
+    
+  //END COMPARE TUTORIALS ------------------------------------
 
 
        
@@ -3072,6 +3127,9 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         //echo '<br>';
         //echo '*' . $score . '*';
       echo '</div>'; //close star_rating
+
+
+      echo '<div id="view_compare_tutorial"><div class="sign_up">View Tutorial</div></div>';
       
 
       /*
@@ -3124,6 +3182,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       
       
        
+<<<<<<< HEAD
         echo '<div id="compare_results_selector">';
         echo '<ul>';
         //Major
@@ -3162,6 +3221,46 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         echo '" id="bonus_select"><span>';
           //echo . $goto . '&stage=2' . '&results_type=bonus">';
         echo 'Bonus Connections</span></li>';  //NEED TO MAKE INTO BONUS
+=======
+      echo '<div id="compare_results_selector"><a name="acropolis"></a>'; //name acropolis there for minor compare tutorial
+      echo '<ul>';
+      //Major
+      echo '<li class="selector selected';    //took out class="major"
+      //if ($results_type == "major") {
+        //echo 'selected';
+      //}
+      echo '" id="major_select">';
+      echo '<span';
+      //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
+      echo '/>Major Connections</span></li>';
+
+      //Minor
+      echo '<li class="selector ';   //took out class="minor"
+      //if ($results_type == "minor") {
+        //echo 'selected';
+      //}
+      echo '" id="minor_select">';
+      echo '<span ';
+      //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
+      echo '/>Supporting Connections</span></li>';
+      //Bonus
+      echo '<li class="selector ';   //took out class="bonus"
+      //if ($results_type == "ruler") {
+        //echo 'selected';
+      //}
+      echo '" id="ruler_select">';
+        echo '<span>';
+          //' . $goto . '&stage=2' . '&results_type=ruler">Ruling Planets</a></li>';   //NEED TO MAKE IT'S OWN AND NOT BONUS
+        echo '1st House Lords</span></li>';
+
+      echo '<li class="end selector ';   //took out class="bonus"
+      //if ($results_type == "bonus") {
+        //echo 'selected';
+      //} 
+      echo '" id="bonus_select"><span>';
+        //echo . $goto . '&stage=2' . '&results_type=bonus">';
+      echo 'Bonus Connections</span></li>';  //NEED TO MAKE INTO BONUS
+>>>>>>> Compare-Tuts-and-such
    
         echo '</ul>';
         echo '</div>';
@@ -3392,9 +3491,11 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
       //$connection = get_cornerstones();
       //$connection = $connection[0];
 
+      
       $x = 0;
       foreach (get_cornerstones() as $connection) {
 
+        $relationship_ids = array(); //keep track of amount of support for each connection
       //for ($x = 0; $x < 5; $x++) {
 
         //$connection_type = $support_con[$x];
@@ -3467,6 +3568,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         echo '"><span class="icon pointer main to_leg' . $z . '"><span class="minor_poi_title">YOUR</span><span class="poi_title_tall">' . strtoupper($con_y) . '</span></span></div>';                     
                       echo '</div>'; //close pillar/pillar_broken
                           $z++; 
+                          array_push($relationship_ids, $relationship_id2);
                     }
                     
                   } //close your Y to their X
@@ -3500,12 +3602,14 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                     //echo $connection2 . '<br>';
                         echo '</div>'; //close pillar/pillar_broken
                           $zz++; 
+                          array_push($relationship_ids, $relationship_id2);
                     }
                     
                   } //close your X to their Y
 
+                echo '<div class="support_level later_on">' . get_minor_compare_support_level($relationship_ids) . '</div>';
 
-                echo '<div class="bridge_base"><img src="/img/Starma-Astrology-Pillars-Base.png" /></div>'; //Base
+                echo '<div class="bridge_base"><img src="/img/Starma-Astrology-Stairs.png" /></div>'; //Base
 
                   //Blurb Boxes for 1-3 (yours to theirs)
                 $zzz = 1;    
@@ -3517,16 +3621,23 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                           $connection_poi_id_A = get_poi_id (strtoupper($con_y));
                           $connection_poi_id_B = get_poi_id (strtoupper($con_x));
                             //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
-                              //Blurb box
+                                                          
+                              //BLURB BOX
                               echo "<div class='blurb_supporting text_block leg" . $zzz . "'>";
+                                //DYNAMIC ICON
+                                echo '<div class="dynamic_icon ' . get_rela_selector_name($relationship_id2); //REMOVED .dynamic_column class
+                                echo '"></div>'; 
                                 if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
-                                  echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
+                                  //echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
+                                  echo '<span>' . gender_converter_wrapper (get_gender($temp_id), get_minor_dynamic_blurb($connection, $connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . '</span>';
                                 }
                                 elseif ($alt_gender) {
-                                  echo "<span>" . gender_converter_wrapper ($alt_gender, get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
+                                  echo '<span>' . gender_converter_wrapper ($alt_gender, get_minor_dynamic_blurb($connection, $connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . '</span>';
+                                  //echo "<span>" . gender_converter_wrapper ($alt_gender, get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
                                 }
                                 else {
-                                  echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, $text_type, $chart_id1, $chart_id2) . "</span>";
+                                  echo '<span>' . get_minor_dynamic_blurb($connection, $connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2) . '</span>';
+                                  //echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, $text_type, $chart_id1, $chart_id2) . "</span>";
                                 }
                               echo '</div>'; //close Blurb Box
                              $zzz++;
@@ -3544,7 +3655,23 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                         $connection_poi_id_A = get_poi_id (strtoupper($con_x));
                         $connection_poi_id_B = get_poi_id (strtoupper($con_y));
                         //echo 'cA: ' . $connection_poi_id_A . 'cB: ' . $connection_poi_id_B . '<br> rID: ' . $relationship_id2;
+                              
+                        //BLURB BOX
                           echo "<div class='blurb_supporting text_block leg" . $zzzz . "'>";
+                            //DYNAMIC ICON
+                            echo '<div class="dynamic_icon ' . get_rela_selector_name($relationship_id2); //REMOVED .dynamic_column class
+                            echo '"></div>'; 
+                            //echo 'r_id: ' . $relationship_id2;
+                            if ($temp_id = get_user_id_from_chart_id($chart_id2)) {                                  
+                              echo '<span>' . gender_converter_wrapper (get_gender($temp_id), get_minor_dynamic_blurb($connection, $connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . '</span>';
+                            }
+                            elseif ($alt_gender) {
+                              echo '<span>' . gender_converter_wrapper ($alt_gender, get_minor_dynamic_blurb($connection, $connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . '</span>';
+                            }
+                            else {
+                              echo '<span>' . get_minor_dynamic_blurb($connection, $connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2) . '</span>';
+                            }
+                            /*
                             if ($temp_id = get_user_id_from_chart_id($chart_id2)) {
                               echo "<span>" . gender_converter_wrapper (get_gender($temp_id), get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, 1, $chart_id1, $chart_id2)) . "</span>";
                             }
@@ -3554,6 +3681,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
                             else {
                               echo "<span>" . get_poi_dynamic_blurb ($connection_poi_id_A, $connection_poi_id_B, $relationship_id2, $text_type, $chart_id1, $chart_id2) . "</span>";
                             }
+                            */
                           echo '</div>'; //close Blurb Box 
                           $zzzz++;
                       }
@@ -6823,55 +6951,95 @@ function show_userbox()
 }
  
 function show_changepassword_form(){
+  echo '<div id="change_password_form">';
 
+  if (is_pass_there()) {  //HAS ACCOUNT WITH PASSWORD
+    echo '<div class="heading">Change Password</div>';
 
-  //flare_title("Change My Password");
-echo '<div id="change_password_form">';
+    //CHANGED ALL ID's TO js_search_bar MAKE SURE THIS ISN'T A PROBLEM
 
-echo '<div class="heading">Change Password</div>';
+    echo '<br>';  
+    //if ($_GET["error"] == 1) {
+    echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px;">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
+    echo '<div id="pass_validation"></div>';
+    //echo '<br><br>';
+    //global $seed;
+    //echo mysql_real_escape_string(sha1('1crowon1toad'.$seed)) . '<br>';
+    //echo '*'.$seed.'*';
+    //}
+    echo '<form action="." method="POST">  
+            <table id="reset_pass">
+              <tbody>
+                <tr>
+                  <td><label class="later_on" for="oldpassword">Current Password:</label></td> 
+                </tr>
+                <tr>    
+                  <td><input name="oldpassword" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"></td>
+                </tr>
 
- //CHANGED ALL ID's TO js_search_bar MAKE SURE THIS ISN'T A PROBLEM
+                <tr>
+                  <td><label class="later_on" for="password">New Password:</label> </td>
+                </tr>
+                <tr>
+                  <td><input name="password" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+                </tr>
 
-echo '<br>';  
-//if ($_GET["error"] == 1) {
-  echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px;">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
-  echo '<div id="pass_validation"></div>';
-  //echo '<br><br>';
-  //global $seed;
-  //echo mysql_real_escape_string(sha1('1crowon1toad'.$seed)) . '<br>';
-  //echo '*'.$seed.'*';
-//}
-  echo '<form action="." method="POST">  
-    <table id="reset_pass">
-      <tbody>
-      <tr>
-        <td><label class="later_on" for="oldpassword">Current Password:</label></td> 
-      </tr>
-      <tr>    
-        <td><input name="oldpassword" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"></td>
-      </tr>
+                <tr>
+                  <td><label class="later_on" for="password2">Re-type new password:</label> </td>
+                </tr>
+                <tr>
+                  <td><input name="password2" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+                  <td><span class="pass_correct">Correct!</span>
+                </tr>
+                <tr> 
+                  <td><input name="change_pass" id="change_pass" type="button" value="Reset Password"><span id="ajax_loader"></span> </td>
+                </tr> 
+              </tbody>
+            </table>
+          </form>';
+  }
+  else {  //ONLY HAS FB ACCOUNT AND NO PASS YET
+    echo '<div class="heading">Create Password</div>';
 
-      <tr>
-        <td><label class="later_on" for="password">New Password:</label> </td>
-      </tr>
-      <tr>
-        <td><input name="password" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
-      </tr>
+    //CHANGED ALL ID's TO js_search_bar MAKE SURE THIS ISN'T A PROBLEM
 
-      <tr>
-        <td><label class="later_on" for="password2">Re-type new password:</label> </td>
-      </tr>
-      <tr>
-        <td><input name="password2" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
-        <td><span class="pass_correct">Correct!</span>
-      </tr>
-  <tr> 
-    <td><input name="change_pass" id="change_pass" type="button" value="Reset Password"><span id="ajax_loader"></span> </td>
-  </tr> 
-  </tbody>
-  </table>
-</form>
-</div>';
+    echo '<br>';  
+    echo '<div id="create_pass_first" class="later_on"></div>';
+    //if ($_GET["error"] == 1) {
+    echo '<div class="later_on" style="font-size:1.4em; margin-bottom:10px;">Your new password must be between 6 and 15 characters and include only letters and numbers</div>';
+    echo '<div id="pass_validation"></div>';
+    //echo '<br><br>';
+    //global $seed;
+    //echo mysql_real_escape_string(sha1('1crowon1toad'.$seed)) . '<br>';
+    //echo '*'.$seed.'*';
+    //}
+    echo '<form action="." method="POST">  
+            <table id="reset_pass">
+              <tbody>
+                <tr>
+                  <td><label class="later_on" for="password">New Password:</label> </td>
+                </tr>
+                <tr>
+                  <td><input name="password" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+                </tr>
+
+                <tr>
+                  <td><label class="later_on" for="password2">Re-type new password:</label> </td>
+                </tr>
+                <tr>
+                  <td><input name="password2" type="password" class="input_style" id="js_search_bar" maxlength="15" class="settings_pass"> </td>
+                  <td><span class="pass_correct">Correct!</span>
+                </tr>
+                <tr> 
+                  <td><input name="create_pass" id="create_pass" type="button" value="Create Password"><span id="ajax_loader"></span> </td>
+                </tr> 
+              </tbody>
+            </table>
+          </form>';
+  }
+  
+
+  echo '</div>';
 }
 
 
@@ -6944,7 +7112,7 @@ function show_tutorials_form () {
       echo '</div>';
 
       echo '<div><input type="checkbox" ';
-        if (my_compare_flag() == 1) {
+        if (my_compare_major_flag() == 1 && my_compare_minor_flag() == 1) {
           echo 'checked';
         }
       echo ' name="compare_flag" id="cofcb" style="display:inline-block; margin-right:8px;"/>';
@@ -7376,33 +7544,90 @@ function show_gender_location_box() {
 
 }
 
+function show_upload_photo_sign_up_box () {
+        echo '<div id="upload_photo_form_sign_up" ';
+          if (isset($_GET['error'])) {
+            echo 'style="display:block;"';
+          }
+        echo '>';      
+          echo '<div class="heading">Upload Your Photo</div>';
+
+        //ERRORS----------
+
+          if (isset($_GET['error'])) {
+            if ($_GET['error'] == 1) {
+              echo '<div class="p_err">There was an error.  Please try again.</div>';
+            }
+            if ($_GET['error'] == 2) {
+              echo '<div class="p_err">You have too many photos.  Please delete one to upload a new photo.</div>';
+            }
+            if ($_GET['error'] == 3) {
+              echo '<div class="p_err">Please select a photo with the Browse button.</div>';
+            }
+            if ($_GET['error'] == 4) {
+              echo '<div class="p_err">Pease select a valid file.</div>';
+            }
+          }
+
+        //END ERRORS------------
+
+            echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';          
+              echo '<div><input id="image" type="file" name="image"/></div>';
+              echo '<input type="submit" value="Next >" name="action" id="upload_photo" />';
+
+              echo '<input type="hidden" name="desc1" id="desc1" value=""/>';
+              echo '<input type="hidden" name="desc2" id="desc2" value=""/>';
+              echo '<input type="hidden" name="desc3" id="desc3" value=""/>';
+              echo '<input type="hidden" name="firsttime" value="1"/>';
+              //echo '<div id="cancel_photo" class="later_on">Cancel</div>';
+           echo '</form>';
+        echo '</div>';
+      echo '</div>';
+}
+
 
 function show_3_words_photo_box () {
-  //$user_id = get_my_user_id();
-  $descriptors = get_descriptors(get_my_user_id());
+
+  $user_id = get_my_user_id();
+  $descriptors = get_descriptors($user_id);
   //print_r($descriptors);
   //echo '<br>descriptor1: ' . $descriptors[0]['descriptor'];
-  echo '<div id="words_photo">';
+  echo '<div id="words_photo" ';
+    if (isset($_GET['error'])) {
+      echo 'style="display:none;"';
+    }
+  echo '>';
   echo '<div id="step">2 / 3</div>';
-    echo '<div class="small_title">In three words, you are...</div>';
+    echo '<div style="text-align:center;" class="small_title">Upload a photo and choose 3 words to describe yourself</div>';
 
-    //echo '<div id="edit_words>';
-    
+    echo '<div id="action_step" class="later_on"></div>';
+    //PROFILE PIC ---
+
+    echo '<div id="profile_photo">';
+
+      echo '<div class="photo_border_wrapper_compare">';
+        echo '<div class="compare_photo">';
+          if ($main_photo = get_main_photo($user_id)) {
+            echo '<div class="user_button">' . format_image($picture=get_main_photo($user_id), $type="compare", $user_id) . '</div>';
+          }
+          else {
+            echo '<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>';
+          }
+        echo '</div>';
+      echo '</div>';
+
+    echo '</div>';
+
+    echo '<div id="edit_words">';
+      
       echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
-        echo '<div id="edit_words">';
+        
         //if ($desc = mysql_fetch_array($descriptors)) {
         if (isset($descriptors)) {
           //echo $descriptors;
           $x = 0;
           while ($desc = mysql_fetch_array($descriptors)) {
-            //echo '<div id="' . $x . '">';
-              //echo '<div class="value">';
-                echo '<input type="text" id="word_' . ($x + 1) . '" placeholder="' . ($x + 1) . '. " value="' . $desc["descriptor"] . '"/>';
-              //echo '</div>';
-                //echo '<span class="w_err" id="w_' . $x . '_error"></span>';
-                //echo '<div class="w_err_exp" id="w_' . $x . '_err_exp"></div>';
-
-            //echo '</div>';
+            echo '<input type="text" maxlength="15" id="word_' . ($x + 1) . '" placeholder="' . ($x + 1) . '. " value="' . $desc["descriptor"] . '"/>';
             $x = $x + 1;
           }
         }        
@@ -7411,19 +7636,19 @@ function show_3_words_photo_box () {
            //for ($x = 1; $x<4; $x++) {
             //$x = 4;
               //echo '<div class="value">';
-               echo '<input type="text" id="word_1" placeholder="1. "';
+               echo '<input type="text" maxlength="15" id="word_1" placeholder="i.e. quirky "';
                   if(isset($_SESSION['word_1'])) {
                     echo 'value="' . $_SESSION['word_1'] . '"';
                   }
                 echo '/>';
 
-                echo '<input type="text" id="word_2" placeholder="2. "';
+                echo '<input type="text" maxlength="15" id="word_2" placeholder="i.e. cat-loving"';
                   if(isset($_SESSION['word_2'])) {
                     echo 'value="' . $_SESSION['word_2'] . '"';
                   }
                 echo '/>';
 
-                echo '<input type="text" id="word_3" placeholder="3. "';
+                echo '<input type="text" maxlength="15" id="word_3" placeholder="i.e. astronaut"';
                   if(isset($_SESSION['word_3'])) {
                     echo 'value="' . $_SESSION['word_3'] . '"';
                   }
@@ -7443,7 +7668,6 @@ function show_3_words_photo_box () {
         unset($x);
         
         echo '<input type="hidden" value="words" id="words" />';
-        echo '</div>'; //close edit_words
 
       //ERRORS---------------------------
         echo '<div class="w_err" id="w_1_error"></div>';
@@ -7455,16 +7679,25 @@ function show_3_words_photo_box () {
         echo '<div class="w_err" id="w_3_error"></div>';
         echo '<div class="w_err_exp" id="w_3_err_exp"></div>';
 
-   
 
-      echo '<div id="submit_words_photo">';
-        //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
-        echo '<button type="submit" id="next">Next ></button>';
-      echo '</div>';
+        if ($main_photo = get_main_photo($user_id)) {
+          echo '<div id="submit_words_photo">';
+            //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+            echo '<button type="submit" id="next">Next ></button>';
+          echo '</div>';
+        }
+        else {
+          echo '<div id="submit_words_photo">';
+            //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+            echo '<div id="next" class="incomplete">Next ></div>';
+          echo '</div>';
+        }
 
       echo '</form>';
+    echo '</div>'; //close edit_words
 
-    
+
+    /*
     echo '<div id="photo_form_div">';
       
         //echo '<h1>';       
@@ -7479,7 +7712,7 @@ function show_3_words_photo_box () {
           //echo '</div>';
           
           echo '<input id="image" type="file" name="image"/>';
-          echo '<input type="submit" value="Upload" name="action" id="upload_photo" />';
+          echo '<input type="submit" value="Click to upload your photo" name="action" id="upload_photo" />';
             
             if (isset($_GET['error'])) {
               echo '<input type="hidden" id="crop_error" />';
@@ -7495,12 +7728,14 @@ function show_3_words_photo_box () {
           echo '</div>';
         
       echo '</form>';
+  */
+
 
   echo '</div>';  //close 3_words_photo
 
 
 //PHOTO ERRORS---------------------------------
-
+  /*
   echo '<div class="p_err" id="p_error">';
     if($_GET['error'] !== 0) {
       echo '?';
@@ -7520,8 +7755,7 @@ function show_3_words_photo_box () {
       echo 'Not a valid file';
     }
   echo '</div>';
-  
-
+  */
   echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
 
 }
@@ -7610,7 +7844,7 @@ function show_time_and_place_box() {
     echo '<form id="birth_info_form" method="post" action="cast_chart_time_and_place.php">';
       
        $help_text_offset = 'offset';
-    echo '<div class="small_title">Place of Birth (this stays private)</div>';
+    echo '<div class="small_title">Place of Birth</div>';
     //echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
  
           echo '<div id="country">';    
@@ -7636,7 +7870,7 @@ function show_time_and_place_box() {
           //echo '</div>';
 
   echo '<div style="display:inline-block; float:left; width:147px;">'; //Time of birth box
-    echo '<div class="small_title">Time of birth (this stays private)</div>';
+    echo '<div class="small_title">Time of birth</div>';
     echo '<div id="time">';
       time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
     echo '</div>';

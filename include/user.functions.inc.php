@@ -246,8 +246,12 @@ function my_chart_flag() {
   return chart_flag($_SESSION["user_id"]);
 }
 
-function my_compare_flag() {
-  return compare_flag($_SESSION["user_id"]);
+function my_compare_major_flag() {
+  return compare_major_flag($_SESSION["user_id"]);
+}
+
+function my_compare_minor_flag() {
+  return compare_minor_flag($_SESSION["user_id"]);
 }
 
 function welcome_flag ($user_id) {
@@ -276,12 +280,25 @@ function chart_flag ($user_id) {
   }
 }
 
-function compare_flag($user_id) {
+function compare_major_flag($user_id) {
   if (isLoggedIn()) {
-    $q = "SELECT compare_flag from user where user_id = " . $user_id;
+    $q = "SELECT compare_major_flag from user where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     $row = mysql_fetch_array($result);
-    return $row["compare_flag"];
+    return $row["compare_major_flag"];
+     
+  }
+  else {
+    return false;
+  }
+}
+
+function compare_minor_flag($user_id) {
+  if (isLoggedIn()) {
+    $q = "SELECT compare_minor_flag from user where user_id = " . $user_id;
+    $result = mysql_query($q) or die(mysql_error());
+    $row = mysql_fetch_array($result);
+    return $row["compare_minor_flag"];
      
   }
   else {
@@ -308,8 +325,12 @@ function set_welcome_flag ($flag=1, $user_id) {
   }
 }
 
-function set_my_compare_flag ($flag=1) {
-  return set_compare_flag($flag,$_SESSION["user_id"]);
+function set_my_compare_major_flag ($flag=1) {
+  return set_compare_major_flag($flag,$_SESSION["user_id"]);
+}
+
+function set_my_compare_minor_flag ($flag=1) {
+  return set_compare_minor_flag($flag,$_SESSION["user_id"]);
 }
 
 function set_chart_flag ($flag=1, $user_id) {
@@ -323,9 +344,20 @@ function set_chart_flag ($flag=1, $user_id) {
   }
 }
 
-function set_compare_flag ($flag=1, $user_id) {
+function set_compare_major_flag ($flag=1, $user_id) {
   if (isLoggedIn()) {
-    $q = "UPDATE user set compare_flag = " . $flag . " where user_id = " . $user_id;
+    $q = "UPDATE user set compare_major_flag = " . $flag . " where user_id = " . $user_id;
+    $result = mysql_query($q) or die(mysql_error());
+    return true; 
+  }
+  else {
+    return false;
+  }
+}
+
+function set_compare_minor_flag ($flag=1, $user_id) {
+  if (isLoggedIn()) {
+    $q = "UPDATE user set compare_minor_flag = " . $flag . " where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     return true; 
   }
@@ -2315,7 +2347,7 @@ function changePassword($email,$currentpassword,$newpassword,$newpassword2){
         //die();
         return false;
   }
-  if (! valid_password($newpassword) || ($newpassword != $newpassword2)){
+  if (!valid_password($newpassword) || ($newpassword != $newpassword2)){
                 //echo "invaid password or passwords dont match";
                 //die();
       //echo 'invalid password or new passwords are not the same';
@@ -2351,6 +2383,37 @@ function changePassword($email,$currentpassword,$newpassword,$newpassword2){
   } 
   //echo 'updated';
 	return false;
+}
+
+function createPassword ($email, $newpassword, $newpassword2) {
+  if (isLoggedIn()) {
+    global $seed; 
+
+      if (!valid_email($email) || !user_exists($email,get_user_nickname_from_email ($email))) {   
+        //echo 'invalid email';
+        //echo "invalid email or user doesnt exist: *" . get_user_nickname_from_email ($email) . "*";
+        //die();
+        return false;
+      }
+      if (!valid_password($newpassword) || ($newpassword != $newpassword2)){
+                //echo "invaid password or passwords dont match";
+                //die();
+        return false;
+      }
+ 
+      // now we update the password in the database
+      $query = sprintf("UPDATE user set password = '%s' where email = '%s' and user_id = '%d'",
+        mysql_real_escape_string(sha1($newpassword.$seed)), mysql_real_escape_string($email), $_SESSION['user_id']);
+ 
+      if (mysql_query($query)) {
+        return true;
+      }
+      else {
+        return false;
+      } 
+    }
+
+  return false;
 }
  
  

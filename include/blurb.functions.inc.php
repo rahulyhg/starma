@@ -188,4 +188,38 @@ function get_dynamic_blurb ($poi_id1, $poi_id2) {
   }  
 }
 
+
+//NEW MINOR BLURB
+function get_minor_dynamic_blurb($connection, $poi_id1, $poi_id2, $r_id, $section_id=1, $chart_id1=-2, $chart_id2=-2) {
+  if ($r_id != -1) {
+    $dynamic = get_dynamic_name($r_id);
+    if ($r_id < 3) {
+      $support_level = "provides excellent";
+    }
+    elseif ($r_id == 3) {
+      $support_level = "provides great";
+    }
+    elseif ($r_id == 4) {
+      $support_level = "provides good";
+    }
+    else {
+      $support_level = "does not provide";
+    }
+    $poi_name1 = ucfirst(strtolower(get_poi_name($poi_id1)));
+    $poi_name2 = ucfirst(strtolower(get_poi_name($poi_id2)));
+    return "When the dynamic between your " . $poi_name1 . " Sign and his/her  " . $poi_name2 . " Sign is in " . $dynamic . ", this " . $support_level . " support for the connection between your " . ucfirst(strtolower($connection)) . " Signs.";
+  }
+  else {  //unknown poi
+    if ($user_id2 = get_user_id_from_chart_id ($chart_id2)) {
+      $username2 = get_nickname ($user_id2);
+      //non-custom compare minor
+      return "On no!  We can't tell you about this dynamic.  Please enter a more precise <a href='main.php?the_left=nav5&the_page=psel'>time of birth.</a>  If your birth information is already exact, please encourage " . $username2 . " to enter a more precise time of birth.";
+    }
+    else {
+      //custom compare minor
+      return "On no!  We can't tell you about this dynamic because either <a href='main.php?the_left=nav5&the_page=psel'>your birth info</a> or the <a href='" . custom_chart_url() . "'>custom birth info</a> is not accurate enough.";
+    }
+  }
+}
+
 ?>

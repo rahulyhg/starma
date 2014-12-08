@@ -201,8 +201,8 @@ function get_left_menu_guest ($the_page) {
   elseif ($the_page == 'psel') {
     $menu['nav1'] = array('Profile&nbsp;&nbsp;','non_chart_profile.php','');
     //$menu['nav2'] = array('houses&nbsp;&nbsp;','#','');
-    $menu['nav2'] = array('Why Vedic Astrology?&nbsp;&nbsp;','', 'pop_guest_click');
-    $menu['nav3'] = array('My Birth Info&nbsp;&nbsp;','','pop_guest_click');
+    //$menu['nav2'] = array('Why Vedic Astrology?&nbsp;&nbsp;','', 'pop_guest_click');
+    $menu['nav2'] = array('My Birth Info&nbsp;&nbsp;','','pop_guest_click');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#','');
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php','');
   }

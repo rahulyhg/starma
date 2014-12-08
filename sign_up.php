@@ -41,6 +41,7 @@ if (sign_up_process_done()) {
                 }
                 else {
                   show_3_words_photo_box();
+                  show_upload_photo_sign_up_box();
                 }
             	}
             	elseif (isset($_GET['2_5'])) {

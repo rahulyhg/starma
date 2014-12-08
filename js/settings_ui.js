@@ -1,8 +1,13 @@
 $(document).ready(function(){
 
-	$('input[name=change_pass]').prop('disabled', true);
+	
 
-	$('input[name=password2]').on('keyup', function() {
+	//CHANGING PASSWORD----
+	if ($('#change_pass').length) {
+
+		$('input[name=change_pass]').prop('disabled', true);
+
+		$('input[name=password2]').on('keyup', function() {
 			var new_pass = $('input[name=password]').val();
 			var new_pass2 = $('input[name=password2]').val();
 			if(new_pass != "") {
@@ -17,9 +22,6 @@ $(document).ready(function(){
 			}
 		});
 
-	
-	//if ($('input[name=change_pass]').prop('disabled', false)) {
-		
 		$('#change_pass').click(function(){
 			$('#ajax_loader').html('<img src="/js/ajax_loader_sign_up.gif" />');
 			var data_pass = {
@@ -66,7 +68,81 @@ $(document).ready(function(){
 
 				//event.preventDefault();
 		});
-	//}
+	}
+
+
+
+	
+	//CREATING PASSWORD----
+
+	if ($('#create_pass').length) {
+
+		$('#pref_fb').prop('disabled', true);
+
+		$('#create_pass').prop('disabled', true);
+
+		$('input[name=password2]').on('keyup', function() {
+			var new_pass = $('input[name=password]').val();
+			var new_pass2 = $('input[name=password2]').val();
+			if(new_pass != "") {
+				if(new_pass == new_pass2) {
+					$('.pass_correct').show().fadeOut(1200);
+					$('#create_pass').prop('disabled', false);
+					//alert('correct!');
+				}
+				else {
+					$('#create_pass').prop('disabled', true);
+				}
+			}
+		});
+
+
+		$('#create_pass').click(function(){
+			$('#ajax_loader').html('<img src="/js/ajax_loader_sign_up.gif" />');
+			var data_pass = {
+				'create_pass'  : 'create_pass',
+				'password'     : $('input[name=password]').val(),
+				'password2'    : $('input[name=password2]').val()
+				};
+
+			$.ajax({
+				type: 'POST',
+				url: 'chat/ajax_change_password.php',
+				data: data_pass,
+				dataType: 'json',
+
+			})
+
+			.done(function(data) {
+					//alert(data);
+				if (data.success) {
+					$('#ajax_loader').html('');
+					$('#pass_validation').show().html('Your password has been updated!').css('color', 'green');
+						//alert(data.pass);
+				}
+				if (data.errors) {
+					$('#ajax_loader').html('');
+					$('#pass_validation').css('color', 'red');
+					if(data.errors.pass_length){	
+						$('#pass_validation').show().text('*' + data.errors.pass_length);
+					}
+					if(data.errors.oldpass) {
+						$('#pass_validation').show().text('*' + data.errors.oldpass);
+					}
+					if(data.errors.mismatch) {
+						$('#pass_validation').show().text('*' + data.errors.mismatch);
+					}
+					if(data.errors.characters) {
+						$('#pass_validation').show().text('*' + data.errors.characters);
+					}
+				}
+				$('input[name=password]').val('');
+				$('input[name=password2]').val('');
+			});
+
+				//event.preventDefault();
+		});
+	}
 	
 
 //PRIVACY --------------------------------------
@@ -188,13 +264,18 @@ $(document).ready(function(){
 	});
 	*/
 	$('#pref_fb').click(function(){
-		$('#pref_fb').prop('disabled', true);
-		$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
-		if ($('#pref_fb').hasClass('connect_fb')) {
-			fbLoginMain();
+		if ($('#pref_fb').prop('disabled', true)) {
+			$('#create_pass_first').show().text('Before you disconnect from Facebook you must create a password so you can login to Starma without using your Facebook account');
 		}
-		if($('#pref_fb').hasClass('disconnect_fb')) {
-			revokeFBSettings();
+		else {
+			$('#pref_fb').prop('disabled', true);
+			$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
+			if ($('#pref_fb').hasClass('connect_fb')) {
+				fbLoginMain();
+			}
+			if($('#pref_fb').hasClass('disconnect_fb')) {
+				revokeFBSettings();
+			}
 		}
 	});
 
@@ -256,8 +337,11 @@ $(document).ready(function(){
 				if(data.errors.invalid) {
 					$('#cof_done').show().html(data.errors.invalid);
 				}
-				if (data.errors.set) {
-					$('#cof_done').show().html(data.errors.set);
+				if (data.errors.major_set) {
+					$('#cof_done').show().html(data.errors.major_set);
+				}
+				if (data.errors.minor_set) {
+					$('#cof_done').show().html(data.errors.minor_set);
 				}
 			}
 			if (data.msg) {

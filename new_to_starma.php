@@ -84,7 +84,8 @@ if (login_check_point($type="full")) {
     <img src="/img/Starma-Astrology-Pillar-Broken.png"/> 
     <img src="/img/Starma-Astrology-Pillar-Broken-Arrow.png"/> 
     <img src="/img/Starma-Astrology-Pillars-Top.png"/> 
-    <img src="/img/Starma-Astrology-Pillars-Base.png"/> 
+    <img src="/img/Starma-Astrology-Stairs.png"/> 
+    <img src="/img/Starma-Astrology-StairsON.png"/> 
     </div>';
    		//if(isset($_GET['from_profile'])) {    // in compare_tier_2 now
       	//clear_compare_data();
