@@ -3181,46 +3181,6 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       
     
     if ($can_view[0]) {
-        /*
-        echo '<div id="compare_results_selector"><a name="acropolis"></a>'; //ACROPOLIS FOR MINOR COMPARE
-        echo '<ul>';
-        //Major
-        echo '<li class="selector selected';    //took out class="major"
-        //if ($results_type == "major") {
-          //echo 'selected';
-        //}
-        echo '" id="major_select">';
-        echo '<span';
-        //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
-        echo '/>Major Connections</span></li>';
-
-        //Minor
-        echo '<li class="selector ';   //took out class="minor"
-        //if ($results_type == "minor") {
-          //echo 'selected';
-        //}
-        echo '" id="minor_select">';
-        echo '<span ';
-        //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
-        echo '/>Supporting Connections</span></li>';
-        //Bonus
-        echo '<li class="selector ';   //took out class="bonus"
-        //if ($results_type == "ruler") {
-          //echo 'selected';
-        //}
-        echo '" id="ruler_select">';
-          echo '<span>';
-            //' . $goto . '&stage=2' . '&results_type=ruler">Ruling Planets</a></li>';   //NEED TO MAKE IT'S OWN AND NOT BONUS
-          echo '1st House Lords</span></li>';
-
-        echo '<li class="end selector ';   //took out class="bonus"
-        //if ($results_type == "bonus") {
-          //echo 'selected';
-        //} 
-        echo '" id="bonus_select"><span>';
-          //echo . $goto . '&stage=2' . '&results_type=bonus">';
-        echo 'Bonus Connections</span></li>';  //NEED TO MAKE INTO BONUS
-        */
 
       echo '<div id="compare_results_selector"><a name="acropolis"></a>'; //name acropolis there for minor compare tutorial
       echo '<ul>';

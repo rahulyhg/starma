@@ -46,6 +46,23 @@ $(document).ready(function(){
 		return false;
 	});
 
+	$('#invite_w_fb').click(function(){
+		$('.pop_invite').slideFadeToggle(function(){
+			$('#msg_sendie_invite').val('');
+        	$('#send-message-area').show();
+        	$('#invite_sent').hide();
+        	$('#invite_sent').html('');
+        	$('#msg_sheen_content_invite').show();
+			$('#msg_sheen_content_invite_email').hide();
+        	/*
+        	$('#first_name_invite').val('first name');
+        	$('#last_name_invite').val('last name');
+        	$('#their_name_invite').val('name');
+        	$('#their_email_invite').val('email');
+        	*/
+        });
+	});
+
 	$('#invite_w_email').click(function(){
 		$('#msg_sheen_content_invite').hide();
 		$('#msg_sheen_content_invite_email').show();
