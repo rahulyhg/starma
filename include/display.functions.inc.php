@@ -3440,7 +3440,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
           echo '<div class="mc mc_venus">Venus Sign <br/> Connection <input type="hidden" value="3" /></div>';
         echo '</div>';
 
-      echo '<form name="minor_connection_browser" action="." method="post">';
+      //echo '<form name="minor_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
       echo '<div id="minor_connections">'; 
       
@@ -3666,7 +3666,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
           //echo '</ul>';
         echo '</div>'; //close poi_column
        echo '</div>'; //close minor_connections
-      echo '</form>';
+      //echo '</form>';
     echo '</div>'; //close #minor
       //echo '</div>';   //closing #section
       //echo '</div>';  //closing #compare
@@ -7013,6 +7013,16 @@ function show_privacy_form () {
   echo '<div id="privacy_form">';
   echo '<div class="heading">Privacy Settings</div>';
    //echo '<form name="privacy_form" method="POST" action="privacy_settings.php">';
+      echo '<div style="margin-bottom:10px;">';
+        echo '<input type="checkbox"';
+          if (get_my_preferences('email_search_private', 0) == 1) {
+            echo ' checked';
+          }
+        echo ' name="chart" id="escb" style="display:inline-block; margin-right:8px;"/>';
+        echo '<div class="later_on" id="email_search_text" style="display:inline-block;">Don\'t let users find me with my email<span id="es_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo '</div>';
+      echo '</div>';
+
       echo '<div style="margin-bottom:10px;">';
         echo '<input type="checkbox"';
           if (get_my_preferences('chart_private', 0) == 1) {

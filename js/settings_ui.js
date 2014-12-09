@@ -148,6 +148,44 @@ $(document).ready(function(){
 
 //PRIVACY --------------------------------------
 
+//EMAIL SEARCH PRIVACY-----
+
+	$('#escb').click(function(){
+		$('#es_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
+		if($('#escb').prop('checked')) {
+			var data = { 'escb' : 1 };
+		}
+		if(!$('#escb').prop('checked')) {
+			var data = { 'escb' : 0 };
+		}
+		//alert(data);
+		$.ajax({
+				type: 'POST',
+				url: 'chat/ajax_privacy.php',
+				data: data,
+				dataType: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				if (data.errors.invalid_hlcb) {
+					$('#es_done').show().html(data.errors.invalid);
+				}
+				if (data.errors.set_hlcb) {
+					$('#es_done').show().html(data.errors.set);
+                           
+				}
+                     $('#escb').prop('checked', false);
+			}
+			if (data.msg) {
+				$('#es_done').show().html(data.msg).fadeOut(1200);
+			}
+		});
+
+	});
+
+
+//HOUSE LORDS-----
+
 	$('#hlcb').click(function(){
 		$('#hl_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
 		if($('#hlcb').prop('checked')) {

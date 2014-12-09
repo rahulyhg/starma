@@ -4,6 +4,33 @@
 	if (isLoggedIn()) {
 		$data = array();
 		$errors = array();
+
+	//EMAIL SEARCH PRIVACY
+
+		if(isset($_POST['escb'])) {
+			$pref_name = 'email_search_private';
+			if (!preg_match('%^[\d]{1}$%', $_POST['escb'])) {
+				$errors['invald_escb'] = 'There was an error. Please refresh and try again.';
+			}
+			else {
+				$escb = $_POST['escb'];
+				//$data['hlcb'] = $hlcb;
+				//$data['msg'] = $hlcb;
+			}
+			if (!set_my_preference($pref_name, $escb)) {
+				$errors['set_escb'] = 'Unable to set preference.  Please refresh and try again';
+			}
+			
+			if (!empty($errors)) {
+				$data['errors'] = $errors;
+			}				
+			else {
+				$data['msg'] = 'Success!';
+			}
+		}
+
+
+	//HL AND CHART PRIVACY
 		if (isset($_POST['hlcb'])) {
 			$pref_name = 'hl_private';
 			if (!preg_match('%^[\d]{1}$%', $_POST['hlcb'])) {
