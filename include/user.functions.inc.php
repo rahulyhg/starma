@@ -2188,7 +2188,7 @@ function get_chart_by_name ($nickname="Main", $user_id=-1) {
 function get_user_id_from_email ($email) {
   $user_q = 'SELECT * from user where email = ' . $email;
   
-  if ($do_q = mysql_query (user_q)) {
+  if ($do_q = mysql_query ($user_q)) {
     if ($user = mysql_fetch_array ($do_q)) {
       return $user["user_id"];
     }
