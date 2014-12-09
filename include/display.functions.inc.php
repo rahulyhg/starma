@@ -117,7 +117,14 @@ function show_user_invite () {
     echo '<div id="sign_up_box">';
       echo  '<div class="heading">Send Invite With...</div>';
         echo '<div style="margin-top: 15px;">';
-          echo '<div style="margin-bottom: 4px;"><button type="button" id="invite_w_fb" class="sign_up" onClick="checkLoginStateInvite();">Facebook</button></div>';
+          echo '<div style="margin-bottom: 4px;"><button type="button" id="invite_w_fb" class="sign_up"';
+          if (get_my_fb_id()) {
+            echo ' onClick="checkLoginStateInvite();"'; 
+          }
+          else {
+            echo ' onClick="fbLoginMain();"';
+          }
+          echo '>Facebook</button></div>';
           echo '<div id="or">~ or ~</div>';
           //echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; 
           echo '<div style="margin-top: 11px;"><button type="button" id="invite_w_email" class="sign_up">Email</button></div>';
@@ -407,7 +414,11 @@ function show_account_menu () {
   echo '<div class="dropdown">';
     echo '<ul>';
       echo '<li><a class="later_on" href="main.php?the_page=ssel&the_left=nav1&the_tier=1">Settings</a></li>';
-      echo '<li><a class="later_on" style="border-bottom:2px solid black" onClick="fbLogout();" href="logout.php">Logout</a></li>';
+      echo '<li><a class="later_on" style="border-bottom:2px solid black"';
+        if (get_my_fb_id()) {
+          echo ' onClick="fbLogout();" ';
+        }
+      echo ' href="logout.php">Logout</a></li>';
     echo '</ul>';
   echo '</div>';
   echo '</div>';
