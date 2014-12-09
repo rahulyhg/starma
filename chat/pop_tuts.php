@@ -90,6 +90,15 @@
 		}
 	}
 
+	if (isset($_POST['view_chart_tutorial'])) {
+		if (!set_my_chart_flag(1)) {
+			$errors['chart_flag'] = 'There was an error turning off the tutorial.  Please refresh the page and try again.';
+		}
+		else {
+			$data['success'] = true;
+		}
+	}
+
 	if (isset($_POST['view_major_compare_tutorial'])) {
 		
 		if (!set_my_compare_major_flag(1)) {

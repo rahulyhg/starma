@@ -3,8 +3,8 @@ $(document).ready(function(){
 //CHART TUTORIAL ---
 
 	$('#view_chart_tutorial').click(function(){
-		$('#view_chart_tutorial>div').html('<img src="/js/ajax_loader_sign_up.gif" />');
-		var view_compare_tutorial = {'view_chart_tutorial' : 'view_chart_tutorial'};
+		//$('#view_chart_tutorial').html('<img src="/js/ajax_loader_sign_up.gif" />');
+		var view_chart_tutorial = {'view_chart_tutorial' : 'view_chart_tutorial'};
 
 		$.ajax({
 			type 		:  'POST',
@@ -22,15 +22,12 @@ $(document).ready(function(){
 		});
 	});
 
+
 	if ($('.chart_pop').length) {
 		$('.chart_pop').show();
 	}
-	/*
-	$('#ct1_done').click(function(){
-		$('.chart_pop').slideFadeToggle();
-	});
-	*/
 
+/*//TESTING
 	$('#clickMe').click(function(event){
 		if($('#cfc').prop('checked')) {
 			var data = {'cfc' : 1};
@@ -58,7 +55,7 @@ $(document).ready(function(){
 			}); 
 	});
 
-
+*/
 
 //CHART POP TUTS------------------------------
 

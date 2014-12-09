@@ -2479,6 +2479,21 @@ li.my_unknown_button a {
     position: relative
 }
 
+#view_chart_tutorial {
+  background: url('/img/popTuts-view-chart-tut.png') no-repeat;
+  position: relative;
+  bottom: 120px;
+  float: right;
+  width: 270px;
+  height: 37px;
+  text-align: center;
+  line-height: 2.3;
+}
+
+#view_chart_tutorial:hover {
+  background: url('/img/popTuts-view-chart-tutON.png') no-repeat;
+}
+
 #interests {
   display:block;
   width:670px;
