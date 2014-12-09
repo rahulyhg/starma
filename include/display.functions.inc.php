@@ -7013,13 +7013,13 @@ function show_privacy_form () {
   echo '<div id="privacy_form">';
   echo '<div class="heading">Privacy Settings</div>';
    //echo '<form name="privacy_form" method="POST" action="privacy_settings.php">';
-      echo '<div style="margin-bottom:10px;">';
+      echo '<div style="margin-bottom:20px; line-height: 1.5;">';
         echo '<input type="checkbox"';
           if (get_my_preferences('email_search_private', 0) == 1) {
             echo ' checked';
           }
-        echo ' name="chart" id="escb" style="display:inline-block; margin-right:8px;"/>';
-        echo '<div class="later_on" id="email_search_text" style="display:inline-block;">Don\'t let users find me with my email<span id="es_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo ' name="chart" id="escb" style="display:inline; margin-right:8px;"/>';
+        echo '<div class="later_on" id="email_search_text" style="display:inline;">Don\'t let other users search for me by entering my email<span id="es_done" class="later_on" style="display:none; padding-left:10px;"></span>';
         echo '</div>';
       echo '</div>';
 
@@ -7029,10 +7029,10 @@ function show_privacy_form () {
             echo ' checked';
           }
         echo ' name="chart" id="chartcb" style="display:inline-block; margin-right:8px;"/>';
-        echo '<div class="later_on" id="chart_text" style="display:inline-block;">Keep my chart info private<span id="chart_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo '<div class="later_on" id="chart_text" style="display:inline-block;">Keep my whole Birth Chart private<span id="chart_done" class="later_on" style="display:none; padding-left:10px;"></span>';
         echo '</div>';
       echo '</div>';
-      echo '<div style="margin-bottom:10px; margin-left:20px">';
+      echo '<div style="margin-bottom:20px; margin-left:20px">';
         echo '<input type="checkbox"';
           if (get_my_preferences('hl_private', 0) == 1 || get_my_preferences('chart_private', 0) == 1) {
             echo ' checked';
