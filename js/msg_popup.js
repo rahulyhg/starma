@@ -158,4 +158,12 @@ $(document).ready(function(){
 		$('.pop_photo').slideFadeToggle();
 	});
 
+
+//WESTERN COMING SOON----------------
+	
+	$('#w_astro_view').click(function(){
+		$('#w_coming_soon').css('color', '#c82923').text('(Coming Soon)');
+	});
+
+
 });
