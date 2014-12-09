@@ -672,11 +672,11 @@ function can_view_section ($chart_id) {
         $username = get_nickname($user_id);
         if ($pref == 1) {
           $can_view = false;
-          $msg = '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">' . $username . ' has chosen to keep this section private.</div>';
+          $msg = '<div class="later_on" style="font-size:1.4em; text-align:center; margin-bottom:260px; padding: 0 35px;">' . $username . ' has chosen to keep this section private.</div>';
         }
         if ($my_pref == 1) {
           $can_view = false;
-          $msg = '<div class="later_on" style="font-size:1.5em; text-align:center; margin-bottom:260px;">You cannot view this section of another person\'s profile while your chart info is set as private.  <a href="/main.php?the_page=ssel&the_left=nav1&the_tier=1">View My Privacy Settings</a></div>';
+          $msg = '<div class="later_on" style="font-size:1.4em; text-align:center; margin-bottom:260px; padding: 0 35px;">You cannot view this section of another person\'s profile while your chart info is set as private.  <a class="later_on" style="text-decoration:underline;" href="/main.php?the_page=ssel&the_left=nav1&the_tier=1">View My Privacy Settings</a></div>';
         }
       }
       return array($can_view,$msg); 
