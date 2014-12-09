@@ -34,6 +34,21 @@ if (isLoggedIn() == true)
             echo '</div>';
     echo '</div>';
 
+    echo '<div id="msg_sheen" class="change_username_box">';
+        echo '<div id="msg_sheen_screen" class="change_username_box"></div>';
+            echo '<div id="msg_sheen_content_chartcb" class="change_username_box">';
+                echo '<div id="change_username_box">';
+                    echo '<div id="change_username_text" class="later_on">You may choose any username that is not currently in use.  If you want more anonymity on Starma, choose a username that none of your friends or family will recognize.</div>';
+                    echo '<div id="u_err_exp"></div>';
+                    echo '<input id="username" maxlength="14" class="input_style" type="text" placeholder="New Username" />';
+                    echo '<div style="margin-top:10px;">';
+                        echo '<div class="later_on pointer" id="username_cancel">Cancel</div>';
+                        echo '<div class="later_on pointer" id="username_confirm">Confirm</div>';
+                    echo '</div>';
+                echo '</div>';
+            echo '</div>';
+    echo '</div>';
+
     echo '<div id="settings">';
         echo '<div id="settings_forms">';
             echo '<div id="password">';

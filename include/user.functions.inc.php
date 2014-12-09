@@ -2415,6 +2415,23 @@ function createPassword ($email, $newpassword, $newpassword2) {
 
   return false;
 }
+
+function update_my_username ($username) {
+  if (isLoggedIn()) {
+    $user_id = get_my_user_id();
+    $q = sprintf('UPDATE user set nickname = "%s" where user_id = "%d"',
+      mysql_real_escape_string($username), $user_id);
+    if (mysql_query($q)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
+}
  
  
 function user_exists($email,$nickname)

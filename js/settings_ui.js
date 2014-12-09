@@ -256,48 +256,88 @@ $(document).ready(function(){
 		$('.chartcb_confirm_box').fadeOut(300);
 	});
 
-//FB CONNECTED --------------------------------------
+
+//CHANGE USERNAME ----------------
 	
 	/*
-	$('#fbcb').click(function(){
-		$('#fb_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
-		if($('#fbcb').prop('checked')) {
-			//fbLoginSettings();
-			var data = { 'fbcb' : 1 };
-		}
-		if(!$('#fbcb').prop('checked')) {
-			//revokeFB();
-			var data = { 'fbcb' : 0 };
-		}
-		//alert(data);
-		$.ajax({
+	$('#u_err').mouseenter(function(){
+		$('#u_err_exp').show();
+	});
+	$('#u_err').mouseleave(function(){
+		$('#u_err_exp').hide();
+	});
+	*/
+
+	$('#change_username').click(function(){
+		$('.change_username_box').show();
+	});
+
+	$('#username').on('keyup', function(){
+		$(this).css('border', '2px solid black');
+	});
+
+	$('#username_cancel').click(function(){
+		$('.change_username_box').fadeOut(300);
+		$('#username').val('');
+	});
+
+	$('#username').on('keypress', function(e){
+		if (e.which == 13) {
+			$('#u_err').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
+			var username = {'username' : $('#username').val()};
+
+			$.ajax({
 				type: 'POST',
 				url: 'chat/ajax_privacy.php',
-				data: data,
+				data: username,
 				dataType: 'json',
+			})
+			.done(function(data){
+				if (data.errors) {
+					$('#u_err_exp').text(data.message);
+					$('#username').css('border', '2px solid #C82923');
+					//$('#u_err').show().text('?');
+				}
+				if (data.success) {
+					$('.change_username_box').fadeOut(300);
+					$('#username').val('');
+					//$('#u_err').hide().html('');
+					$('#u_err_exp').hide().html('');
+					//window.location.reload(true);
+				}
+			});
+		}
+	});
+
+	$('#username_confirm').click(function(){
+		$('#u_err').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
+		var username = {'username' : $('#username').val()};
+
+		$.ajax({
+			type: 'POST',
+			url: 'chat/ajax_privacy.php',
+			data: username,
+			dataType: 'json',
 		})
 		.done(function(data){
 			if (data.errors) {
-				if (data.errors.invalid) {
-					$('#fb_done').show().html(data.errors.invalid);
-				}
-				if (data.errors.set) {
-					$('#fb_done').show().html(data.errors.set);
-				}
+				$('#u_err_exp').text(data.message);
+				$('#username').css('border', '2px solid #C82923');
+				//$('#u_err').show().text('?');
 			}
 			if (data.success) {
-				$('#fb_done').show().html(data.msg).fadeOut(1200);
-				if (data.unset) {
-					revokeFBSettings();
-				}
-				if (data.set) {
-					fbLoginMain();
-				}
+				$('.change_username_box').fadeOut(300);
+				$('#username').val('');
+				//$('#u_err').hide().html('');
+				$('#u_err_exp').hide().html('');
+				//window.location.reload(true);
 			}
 		});
-
 	});
-	*/
+
+
+//FB CONNECTED --------------------------------------
+	
 	$('#pref_fb').click(function(){
 		if ($('#create_pass').length) {
 			//if ($('#pref_fb').prop('disabled', true)) {

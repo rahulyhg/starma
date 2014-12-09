@@ -56,6 +56,47 @@
 			
 		}
 
+
+	//CHANGE USERNAME
+
+		if (isset($_POST['username'])) {
+			$username = trim($_POST['username']);
+
+			$valid_username = valid_username($username);
+
+			if($valid_username) {
+				if($valid_username == 'long') {
+					$data['errors'] = true;
+					$data['message'] = 'Too long';
+				}
+				elseif($valid_username == 'short') {
+					$data['errors'] = true;
+					$data['message'] = 'Too short';
+				}
+				elseif($valid_username == 'naughty') {
+					$data['errors'] = true;
+					$data['message'] = 'No naughty words please';
+				}
+				elseif($valid_username == 'characters') {
+					$data['errors'] = true;
+					$data['message'] = 'Letters, numbers, underscores, and hyphens only';
+				}
+				elseif($valid_username == 'taken') {
+					$data['errors'] = true;
+					$data['message'] = 'Username is already taken';
+				}
+				elseif($valid_username == 'good') {
+					//update_my_username($valid_username);
+					$data['success'] = true;
+					$data['message'] = ':)';
+				}
+			}
+			else {
+				$data['errors'] = true;
+				$data['message'] = 'Please choose a username';
+			}
+		}
+
 		echo json_encode($data);
 	}
 	else {

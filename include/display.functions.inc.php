@@ -7047,6 +7047,8 @@ function show_privacy_form () {
       if (get_my_preferences('fb_connected', 0) == 0) {
         echo '<div style="display: inline-block; margin-right:20px;"><button type="button" id="pref_fb" class="s_button connect_fb" disabled="disabled">Connect with Facebook</button></div><span id="fb_done" class="later_on" style="display:none; padding-left:10px;"></span>';
       }
+
+      echo '<div id="change_username" style="width:200px;"><div class="s_button">Change Username</div></div>';
       /*
       echo '<div>';
         echo '<input type="checkbox" ';
