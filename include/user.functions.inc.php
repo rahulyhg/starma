@@ -1061,9 +1061,9 @@ function my_profile_info() {
   }
 }
 
-function get_my_actcode() {
+function get_actcode_from_email($email) {
   if (isLoggedIn()) {
-    $q = 'SELECT actcode from user where user_id = ' . $_SESSION["user_id"];
+    $q = 'SELECT actcode from user where email = "' . $email . '"';
     $result = mysql_query($q) or die(mysql_error());
     $user = mysql_fetch_array($result);
     return $user["actcode"]; 
