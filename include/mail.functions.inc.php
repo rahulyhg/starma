@@ -651,7 +651,7 @@ function sendTemplateReport ($to, $subject, $content, $from) {
 
 //PERSONAL MESSAGE
 function sendTemplateMessage ($to, $subject, $content, $from) {
-  echo 'WE ARE IN THE MAILING FUNCTION MOTHER FUCKER";
+  echo 'WE ARE IN THE MAILING FUNCTION MOTHER FUCKER';
   die();
   try {
     $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
