@@ -235,6 +235,7 @@ function statusChangeCallbackNTS(response) {
         //document.getElementById('status').innerHTML = 'Please log ' +
         //  'into this app.';
         //fbLoginMain();
+        $('#fb_connected').html('<button class="s_button" onClick="fbLoginMain();">Connect to Facebook</button>');
       } 
       else {
         // The person is not logged into Facebook, so we're not sure if
