@@ -1,9 +1,5 @@
 <?php
-    session_start();
-    require_once ('../include/db_connect.inc.php'); 
-    require_once ("../include/functions.inc.php"); 
-    require_once ("../PHPMailer_5.2.1/class.phpmailer.php");
-    date_default_timezone_set('America/Chicago');
+    require_once('ajax_header.php');
     //fwrite(fopen('debug.txt', 'a'), 'Begin Process..\r\n');
     //echo '*'. get_my_nickname() . '*';
     //print_r ($_SESSION);
@@ -199,9 +195,9 @@
 			} 
 			if (is_offline($receiver_id)) {
                           $is_message = 1;
-                          //if (get_preferences ($receiver_id, "chat_emails_flag", 1) == 1) {
-                          //  sendNewMessageEmail($sender_id, $receiver_id, $message);
-                          //}
+                          if (get_preferences ($receiver_id, "chat_emails_flag", 1) == 1) {
+                            sendNewMessageEmail($sender_id, $receiver_id, $message);
+                          }
                         }
                         else {
                           $is_message = 0;
