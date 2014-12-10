@@ -7033,6 +7033,16 @@ function show_privacy_form () {
         echo '</div>';
       echo '</div>';
 
+      echo '<div style="margin-bottom:20px; line-height: 1.5;">';
+        echo '<input type="checkbox"';
+          if (get_my_preferences('chat_emails_flag', 1) == 1) {
+            echo ' checked';
+          }
+        echo ' name="chart" id="cecb" style="display:inline; margin-right:8px;"/>';
+        echo '<div class="later_on" id="chat_emails_text" style="display:inline;">Email me when I get messages from other Starma users<span id="ce_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo '</div>';
+      echo '</div>';
+
       echo '<div style="margin-bottom:10px;">';
         echo '<input type="checkbox"';
           if (get_my_preferences('chart_private', 0) == 1) {

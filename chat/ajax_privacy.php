@@ -5,6 +5,29 @@
 		$data = array();
 		$errors = array();
 
+        //EMAIL CHAT PRIVACY
+
+		if(isset($_POST['cecb'])) {
+			$pref_name = 'chat_emails_flag';
+			if (!preg_match('%^[\d]{1}$%', $_POST['cecb'])) {
+				$errors['invald_cecb'] = 'There was an error. Please refresh and try again.';
+			}
+			else {
+				$escb = $_POST['cecb'];
+				
+			}
+			if (!set_my_preference($pref_name, $cecb)) {
+				$errors['set_cecb'] = 'Unable to set preference.  Please refresh and try again';
+			}
+			
+			if (!empty($errors)) {
+				$data['errors'] = $errors;
+			}				
+			else {
+				$data['msg'] = 'Success!';
+			}
+		}
+
 	//EMAIL SEARCH PRIVACY
 
 		if(isset($_POST['escb'])) {

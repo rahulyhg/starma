@@ -294,6 +294,41 @@ $(document).ready(function(){
 		$('.chartcb_confirm_box').fadeOut(300);
 	});
 
+//CHAT EMAILS-----
+
+	$('#cecb').click(function(){
+		$('#ce_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
+		if($('#cecb').prop('checked')) {
+			var data = { 'cecb' : 1 };
+		}
+		if(!$('#cecb').prop('checked')) {
+			var data = { 'cecb' : 0 };
+		}
+		//alert(data);
+		$.ajax({
+				type: 'POST',
+				url: 'chat/ajax_privacy.php',
+				data: data,
+				dataType: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				if (data.errors.invalid_cecb) {
+					$('#ce_done').show().html(data.errors.invalid);
+				}
+				if (data.errors.set_hlcb) {
+					$('#ce_done').show().html(data.errors.set);
+                           
+				}
+                     $('#cecb').prop('checked', false);
+			}
+			if (data.msg) {
+				$('#ce_done').show().html(data.msg).fadeOut(1200);
+			}
+		});
+
+	});
+
 
 //CHANGE USERNAME ----------------
 	
