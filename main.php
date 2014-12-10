@@ -176,18 +176,18 @@ function statusChangeCallbackNTS(response) {
           for (i = 0; i < data.fb_ids.length; i++) {
             //console.log('data.fb_friends' + i + ': ');
             //console.log(data.fb_friends[i]);
-            if (x == (data.fb_ids.length - 1)) {
-              done = 1;
-            }
-            else {
-              x++;
-            }   
         
             FB.api(
               '/me/friends/' + data.fb_ids[i].fb_id,
               function (response) {
                 //console.log('full response: ');
                 //console.log(response);
+                  if (x == (data.fb_ids.length - 1)) {
+                    done = 1;
+                  }
+                  else {
+                    x++;
+                  }   
                   if (response != '' && !response.error) {
                     //console.log('response: ');
                     //console.log(response);
