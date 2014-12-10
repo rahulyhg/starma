@@ -1477,8 +1477,9 @@ function get_user_from_username ($u) {
 function get_user_from_email ($e) {
   $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
   inner join chart on user.user_id = chart.user_id
+  left outer join user_preferences on user.user_id = user_preferences.user_id
   left outer join user_picture on user.user_id = user_picture.user_id 
-  where chart.nickname="main" and permissions_id = 0 and (main = 1 or main is null) and private = 0 and email = "' . $e . '"';
+  where chart.nickname="main" and permissions_id = 0 and (main = 1 or main is null) and private = 0 and email_search_private = 0 and email = "' . $e . '"';
 
   if ($result = mysql_query($q)) {
     if ($row = mysql_fetch_array($result)) {
@@ -2187,7 +2188,7 @@ function get_chart_by_name ($nickname="Main", $user_id=-1) {
 function get_user_id_from_email ($email) {
   $user_q = 'SELECT * from user where email = ' . $email;
   
-  if ($do_q = mysql_query (user_q)) {
+  if ($do_q = mysql_query ($user_q)) {
     if ($user = mysql_fetch_array ($do_q)) {
       return $user["user_id"];
     }
@@ -2414,6 +2415,23 @@ function createPassword ($email, $newpassword, $newpassword2) {
     }
 
   return false;
+}
+
+function update_my_username ($username) {
+  if (isLoggedIn()) {
+    $user_id = get_my_user_id();
+    $q = sprintf('UPDATE user set nickname = "%s" where user_id = "%d"',
+      mysql_real_escape_string($username), $user_id);
+    if (mysql_query($q)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
 }
  
  

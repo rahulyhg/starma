@@ -117,7 +117,14 @@ function show_user_invite () {
     echo '<div id="sign_up_box">';
       echo  '<div class="heading">Send Invite With...</div>';
         echo '<div style="margin-top: 15px;">';
-          echo '<div style="margin-bottom: 4px;"><button type="button" id="invite_w_fb" class="sign_up" onClick="checkLoginStateInvite();">Facebook</button></div>';
+          echo '<div style="margin-bottom: 4px;"><button type="button" id="invite_w_fb" class="sign_up"';
+          if (get_my_fb_id()) {
+            echo ' onClick="checkLoginStateInvite();"'; 
+          }
+          else {
+            echo ' onClick="fbLoginMain();"';
+          }
+          echo '>Facebook</button></div>';
           echo '<div id="or">~ or ~</div>';
           //echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; 
           echo '<div style="margin-top: 11px;"><button type="button" id="invite_w_email" class="sign_up">Email</button></div>';
@@ -407,7 +414,11 @@ function show_account_menu () {
   echo '<div class="dropdown">';
     echo '<ul>';
       echo '<li><a class="later_on" href="main.php?the_page=ssel&the_left=nav1&the_tier=1">Settings</a></li>';
-      echo '<li><a class="later_on" style="border-bottom:2px solid black" onClick="fbLogout();" href="logout.php">Logout</a></li>';
+      echo '<li><a class="later_on" style="border-bottom:2px solid black"';
+        if (get_my_fb_id()) {
+          echo ' onClick="fbLogout();" ';
+        }
+      echo ' href="logout.php">Logout</a></li>';
     echo '</ul>';
   echo '</div>';
   echo '</div>';
@@ -3090,8 +3101,8 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       }
 
       echo '<div id="compare_results">';
-      echo '<form name="connection_browser" action="." method="post">';
-      echo '<input type="hidden" name="connection_type"/>';
+      //echo '<form name="connection_browser" action="." method="post">';
+      //echo '<input type="hidden" name="connection_type"/>';
       //echo '<div id="header" class="compare">';
         //echo 'Compare Chart';
         //flare_title("Compare Charts");
@@ -3131,7 +3142,12 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '</div>'; //close star_rating
 
 
-      echo '<div id="view_compare_tutorial"><div class="sign_up">View Tutorial</div></div>';
+      echo '<div id="view_compare_tutorial"><div class="sign_up">View Tutorial</div>';
+          echo '<input type="hidden" id="c_id1" value="' . $_SESSION['compare_chart_ids'][0] .'" />';
+          echo '<input type="hidden" id="c_id2" value="' . $_SESSION['compare_chart_ids'][1] .'" />';
+          echo '<input type="hidden" id="the_left" value="' . $_GET['the_left'] . '" />';
+          echo '<input type="hidden" id="the_page" value="' . $_GET['the_page'] . '" />';
+      echo '</div>';
       
 
       /*
@@ -3185,10 +3201,10 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       echo '<div id="compare_results_selector"><a name="acropolis"></a>'; //name acropolis there for minor compare tutorial
       echo '<ul>';
       //Major
-      echo '<li class="selector selected';    //took out class="major"
-      //if ($results_type == "major") {
-        //echo 'selected';
-      //}
+      echo '<li class="selector ';    //took out class="major"
+      if ($results_type == "major") {
+        echo 'selected';
+      }
       echo '" id="major_select">';
       echo '<span';
       //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=major" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
@@ -3196,9 +3212,9 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
 
       //Minor
       echo '<li class="selector ';   //took out class="minor"
-      //if ($results_type == "minor") {
-        //echo 'selected';
-      //}
+      if ($results_type == "minor") {
+        echo 'selected';
+      }
       echo '" id="minor_select">';
       echo '<span ';
       //echo 'onclick="' . javascript_submit ($form_name="connection_browser", $action=$goto . "&results_type=minor" . "&stage=2", $hidden="connection_type", $value="'rising'", $hidden2="", $value2="") . '"';        
@@ -3261,7 +3277,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         echo '<script type="text/javascript" src="/js/ajax_compare_submit.js"></script>';
         */
       }
-      echo '</form>';
+      //echo '</form>';
       echo '</div>';
 }
 
@@ -3435,7 +3451,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
           echo '<div class="mc mc_venus">Venus Sign <br/> Connection <input type="hidden" value="3" /></div>';
         echo '</div>';
 
-      echo '<form name="minor_connection_browser" action="." method="post">';
+      //echo '<form name="minor_connection_browser" action="." method="post">';
       echo '<input type="hidden" name="connection_type"/>';
       echo '<div id="minor_connections">'; 
       
@@ -3661,7 +3677,7 @@ function show_minor_connections ($compare_data, $text_type, $goTo = ".", $stage=
           //echo '</ul>';
         echo '</div>'; //close poi_column
        echo '</div>'; //close minor_connections
-      echo '</form>';
+      //echo '</form>';
     echo '</div>'; //close #minor
       //echo '</div>';   //closing #section
       //echo '</div>';  //closing #compare
@@ -6912,7 +6928,7 @@ function show_userbox()
 function show_changepassword_form(){
   echo '<div id="change_password_form">';
 
-  //if (is_pass_there()) {  //HAS ACCOUNT WITH PASSWORD
+  if (is_pass_there()) {  //HAS ACCOUNT WITH PASSWORD
     echo '<div class="heading">Change Password</div>';
 
     //CHANGED ALL ID's TO js_search_bar MAKE SURE THIS ISN'T A PROBLEM
@@ -6956,8 +6972,7 @@ function show_changepassword_form(){
               </tbody>
             </table>
           </form>';
-  //}
-          /*
+  }         
   else {  //ONLY HAS FB ACCOUNT AND NO PASS YET
     echo '<div class="heading">Create Password</div>';
 
@@ -6997,7 +7012,7 @@ function show_changepassword_form(){
             </table>
           </form>';
   }
-  */
+  
 
   echo '</div>';
 }
@@ -7008,16 +7023,26 @@ function show_privacy_form () {
   echo '<div id="privacy_form">';
   echo '<div class="heading">Privacy Settings</div>';
    //echo '<form name="privacy_form" method="POST" action="privacy_settings.php">';
+      echo '<div style="margin-bottom:20px; line-height: 1.5;">';
+        echo '<input type="checkbox"';
+          if (get_my_preferences('email_search_private', 0) == 1) {
+            echo ' checked';
+          }
+        echo ' name="chart" id="escb" style="display:inline; margin-right:8px;"/>';
+        echo '<div class="later_on" id="email_search_text" style="display:inline;">Don\'t let other users search for me by entering my email<span id="es_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo '</div>';
+      echo '</div>';
+
       echo '<div style="margin-bottom:10px;">';
         echo '<input type="checkbox"';
           if (get_my_preferences('chart_private', 0) == 1) {
             echo ' checked';
           }
         echo ' name="chart" id="chartcb" style="display:inline-block; margin-right:8px;"/>';
-        echo '<div class="later_on" id="chart_text" style="display:inline-block;">Keep my chart info private<span id="chart_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo '<div class="later_on" id="chart_text" style="display:inline-block;">Keep my whole Birth Chart private<span id="chart_done" class="later_on" style="display:none; padding-left:10px;"></span>';
         echo '</div>';
       echo '</div>';
-      echo '<div style="margin-bottom:10px; margin-left:20px">';
+      echo '<div style="margin-bottom:20px; margin-left:20px">';
         echo '<input type="checkbox"';
           if (get_my_preferences('hl_private', 0) == 1 || get_my_preferences('chart_private', 0) == 1) {
             echo ' checked';
@@ -7042,6 +7067,8 @@ function show_privacy_form () {
       if (get_my_preferences('fb_connected', 0) == 0) {
         echo '<div style="display: inline-block; margin-right:20px;"><button type="button" id="pref_fb" class="s_button connect_fb" disabled="disabled">Connect with Facebook</button></div><span id="fb_done" class="later_on" style="display:none; padding-left:10px;"></span>';
       }
+
+      echo '<div id="change_username" style="width:200px;"><div class="s_button">Change Username</div></div>';
       /*
       echo '<div>';
         echo '<input type="checkbox" ';

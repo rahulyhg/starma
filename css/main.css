@@ -2479,6 +2479,21 @@ li.my_unknown_button a {
     position: relative
 }
 
+#view_chart_tutorial {
+  background: url('/img/popTuts-view-chart-tut.png') no-repeat;
+  position: relative;
+  bottom: 120px;
+  float: right;
+  width: 270px;
+  height: 37px;
+  text-align: center;
+  line-height: 2.3;
+}
+
+#view_chart_tutorial:hover {
+  background: url('/img/popTuts-view-chart-tutON.png') no-repeat;
+}
+
 #interests {
   display:block;
   width:670px;
@@ -2926,6 +2941,21 @@ li.my_unknown_button a {
     -webkit-box-shadow: 1px 1px 40px black;
             box-shadow: 1px 1px 40px black;
 }
+
+#msg_sheen #msg_sheen_content_chartcb {
+    background: #e7ebee;
+    border: 2px solid black;
+    margin-left: -240px;
+    padding: 10px 20px;
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    /*width: 500px;*/
+    /*height: 150px;*/
+    display: none;
+    box-shadow: 1px 1px 40px black;
+}
+
 
 #msg_sendie {
   background: white;
@@ -3844,6 +3874,71 @@ END OLD WAY*/
 
 
 /*//////////////// SETTINGS ///////////////////////////////////////*/
+
+#chartcb_confirm_box {
+  width:400px; 
+  font-size:1.19em; 
+  line-height: 1.2;
+}
+
+#chartcb_confirm {
+  float: right;
+}
+
+#chartcb_cancel {
+  float: left;
+}
+
+#change_username_box {
+  width: 275px;
+  font-size: 1.19em;
+  line-height: 1.2;
+}
+
+#change_username_text {
+  margin-bottom: 10px;
+}
+
+#username_confirm {
+  float: right;
+}
+
+#username_cancel {
+  float: left;
+}
+
+#u_err {
+  display: none;
+  position: absolute;
+  color: #C82923;
+  cursor: pointer;
+  bottom: 58px;
+  left: 220px;
+  font-size: .8em;
+}
+
+#u_err_exp {
+  color: #C82923;
+  font-size: .7em;
+  margin-bottom: 10px;
+}
+
+/*
+#u_err_exp {
+  display: none;
+  position: absolute;
+  bottom: 53px;
+  left: 233px;
+  font-size: .7em;
+  color: #C82923;
+  background-color: #e7ebee;
+  z-index: 1000;
+  padding: 6px;
+  border-radius: 3px;
+  width: 307px;
+}
+*/
+
 #settings_form {
   padding:10px;
 }

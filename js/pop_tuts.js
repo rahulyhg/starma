@@ -3,8 +3,8 @@ $(document).ready(function(){
 //CHART TUTORIAL ---
 
 	$('#view_chart_tutorial').click(function(){
-		$('#view_chart_tutorial>div').html('<img src="/js/ajax_loader_sign_up.gif" />');
-		var view_compare_tutorial = {'view_chart_tutorial' : 'view_chart_tutorial'};
+		//$('#view_chart_tutorial').html('<img src="/js/ajax_loader_sign_up.gif" />');
+		var view_chart_tutorial = {'view_chart_tutorial' : 'view_chart_tutorial'};
 
 		$.ajax({
 			type 		:  'POST',
@@ -22,15 +22,12 @@ $(document).ready(function(){
 		});
 	});
 
+
 	if ($('.chart_pop').length) {
 		$('.chart_pop').show();
 	}
-	/*
-	$('#ct1_done').click(function(){
-		$('.chart_pop').slideFadeToggle();
-	});
-	*/
 
+/*//TESTING
 	$('#clickMe').click(function(event){
 		if($('#cfc').prop('checked')) {
 			var data = {'cfc' : 1};
@@ -58,7 +55,7 @@ $(document).ready(function(){
 			}); 
 	});
 
-
+*/
 
 //CHART POP TUTS------------------------------
 
@@ -116,7 +113,15 @@ $(document).ready(function(){
 
 	$('#view_compare_tutorial').click(function(){
 		$('#view_compare_tutorial>div').html('<img src="/js/ajax_loader_sign_up.gif" />');
-		var view_compare_tutorial = {'view_compare_tutorial' : 'view_compare_tutorial'};
+		if ($('#major_select').hasClass('selected')) {
+			var view_compare_tutorial = {'view_major_compare_tutorial' : 'view_major_compare_tutorial'};
+		}
+		else if ($('#minor_select').hasClass('selected')) {
+			var view_compare_tutorial = {'view_minor_compare_tutorial' : 'view_minor_compare_tutorial'};
+		}
+		else {
+			var view_compare_tutorial = {'view_compare_tutorial' : 'view_compare_tutorial'};
+		}
 
 		$.ajax({
 			type 		:  'POST',
@@ -125,11 +130,24 @@ $(document).ready(function(){
 			dataType 	: 'json',
 		})
 		.done(function(data){
+			var the_page = $('#the_page').val();
+			var the_left = $('#the_left').val();
+			var c_id1 = $('#c_id1').val();
+			var c_id2 = $('#c_id2').val();
 			if (data.errors) {
 				console.log(data.errors);
 			}
 			if (data.success) {
+				//console.log(data.success)
 				window.location.reload(true);
+			}
+			if (data.major) {
+				//console.log('/main.php?the_page=' + the_page + '&the_left=' + the_left + '&results_type=major&text_type=1&tier=2&stage=2&chart_id1='+ c_id1 + '&chart_id2=' + c_id2 + '&from_profile=true');
+				window.location.assign('/main.php?the_page=' + the_page + '&the_left=' + the_left + '&results_type=major&text_type=1&tier=2&stage=2&chart_id1='+ c_id1 + '&chart_id2=' + c_id2 + '&from_profile=true');
+			}
+			if (data.minor) {
+				//console.log('/main.php?the_page=' + the_page + '&the_left=' + the_left + '&results_type=minor&text_type=1&tier=2&stage=2&chart_id1='+ c_id1 + '&chart_id2=' + c_id2 + '&from_profile=true')
+				window.location.assign('/main.php?the_page=' + the_page + '&the_left=' + the_left + '&results_type=minor&text_type=1&tier=2&stage=2&chart_id1='+ c_id1 + '&chart_id2=' + c_id2 + '&from_profile=true');
 			}
 		});
 	});
@@ -180,7 +198,8 @@ if ($('.major_compare_pop').length) {
 			if (data.errors) {
 				console.log(data.errors);
 			}
-			if (data.compare_flag) {
+			if (data.major_compare_flag) {
+				$('#msg_sheen_screen_mact').addClass('tut_viewed');
 				console.log(data.major_compare_flag);
 			}
 		});
@@ -190,8 +209,14 @@ if ($('.major_compare_pop').length) {
 
 //MINOR ----
 
-	$('#minor_select').click(function(){
+	if($('#minor_select').hasClass('selected')) {	//FOR VIEW TUTORIAL RELOAD
 		if ($('.minor_compare_pop').length) {
+			$('.minor_compare_pop').show();
+		}
+	}
+
+	$('#minor_select').click(function(){
+		if ($('.minor_compare_pop').length && !$('#msg_sheen_screen_mict').hasClass('tut_viewed')) {
 			$('.minor_compare_pop').show();
 		}
 	});
@@ -233,7 +258,8 @@ if ($('.major_compare_pop').length) {
 			if (data.errors) {
 				console.log(data.errors);
 			}
-			if (data.compare_flag) {
+			if (data.minor_compare_flag) {
+				$('#msg_sheen_screen_mict').addClass('tut_viewed');
 				console.log(data.minor_compare_flag);
 			}
 		});

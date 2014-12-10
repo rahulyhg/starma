@@ -37,16 +37,19 @@ function isLoggedIn()
     return false;
  
 }
+
+
+//checkLogin is DEPRECATED---
  
 function checkLogin($u, $p)
 {
 global $seed; // global because $seed is declared in the header.php file
  
 
-    if (!email_there($u) || !valid_password($p))
-    {
-        return false; // the name was not valid, or the password, or the username did not exist
-    }
+    //if (!email_there($u) || !valid_password($p))
+    //{
+    //    return false; // the name was not valid, or the password, or the username did not exist
+    //}
     
 
     //Now let us look for the user in the database.
@@ -76,7 +79,9 @@ global $seed; // global because $seed is declared in the header.php file
     return false;
 }
 
-function loginUser($user_id, $email, $nickname, $permissions_id, $fb_id) {
+
+
+function loginUser($user_id, $email, $nickname, $permissions_id) {
         // Save the user ID for use later
         $_SESSION['user_id'] = $user_id;
         // Save the email for use later
@@ -86,7 +91,9 @@ function loginUser($user_id, $email, $nickname, $permissions_id, $fb_id) {
         //save the permissions id
         $_SESSION['permissions_id'] = $permissions_id;
         //save Facebook ID
-        $_SESSION['fb_id'] = $fb_id;
+        if ($fb_id = get_fb_id($user_id)) {
+            $_SESSION['fb_id'] = $fb_id;
+        }
         //Log the Login
         log_this_action (login_action(), login_basic_action());
 }

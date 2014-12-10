@@ -27,7 +27,7 @@ if (isLoggedIn()) {
                   if ($western == 0) {
                     echo 'style="text-decoration:underline;"';
                   }
-                echo ' href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=astrologers_view_selected">Vedic</a>  |  <span>Western (Coming Soon)</span>';
+                echo ' href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=astrologers_view_selected">Vedic</a>  |  <span id="w_astro_view">Western</span><span style="position:absolute; padding-left:10px;" id="w_coming_soon"></span>';
                 
                 /*//IMPLEMENT AFTER WESTERN VIEW EXISTS
                 echo '<a class="later_on" ';

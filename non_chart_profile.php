@@ -74,6 +74,7 @@ if (login_check_point($type="full")) {
   <img src="/img/palanquin_10.png" />
   <img src="/img/palanquin_11.png" />
   <img src="/img/palanquin_12.png" />
+  <img src="/img/popTuts-view-chart-tutON.png" />
   </div>';
 
 
@@ -124,6 +125,8 @@ if (login_check_point($type="full")) {
               echo '</div>';
 
       //End edit current location
+
+    echo '<div id="view_chart_tutorial" class="later_on pointer">View Birth Chart Tutorial</div>';
 
 
 // CHART POP TUT --------------------------------------

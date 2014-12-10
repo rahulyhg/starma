@@ -54,10 +54,15 @@ if (isLoggedIn() == true) {
         $data['success'] = false;
       }
       else {
-        $data['success'] = true;
         $newpassword = trim(strip_tags($_POST['password']));
         $newpassword2 = trim(strip_tags($_POST['password2']));
-        //createPassword(get_my_email(), $newpassword, $newpassword2);
+        if(!createPassword(get_my_email(), $newpassword, $newpassword2)) {
+          $data['errors'] = 'Unable to update password, please try again';
+          $data['success'] = false;
+        }
+        else {
+          $data['success'] = true;
+        }
       }
     }
     

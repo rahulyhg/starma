@@ -25,70 +25,73 @@ if (!isLoggedIn()) {
 		if(!valid_password($p)) {
 			$errors['password'] = 'Invalid password';
 		}
+    if (!isset($errors['email'])) {
+      if (!validate_current_password($e, $p)) {
+        $errors['password'] = 'Could not validate password';
+      }
+    }  
 	}
 	else {
 		$errors['password'] = 'Please enter your password';
 	}
-	//if(!empty($errors)) {
-	//	$data['errors'] = $errors;
-		//$data['success'] = false;
-		//echo json_encode($data);
-	//}
-	//else {
+	if(!empty($errors)) {
+		$data['errors'] = $errors;
+		$data['success'] = false;
+    //echo json_encode($data);
+	}
+	else {
+    //$user_id = get_user_id_from_email($e);
+    //$user = basic_user_data($user_id);
+    //loginUser($user['user_id'], $e, $user['nickname'], $user['permissions_id']);
 		if(checkLogin($e, $p)) {
-			    if (isset($_POST["stay_logged_in"]) &&  $_POST["stay_logged_in"] == "on") {
-              	setcookie("email", $_POST['email'], time()+60*60*24*30, '/', get_domain(), true, true);
-              	setcookie("password", $_POST['password'], time()+60*60*24*30, '/', get_domain(), true, true);
-        	}
-        	if (isAdmin()) {
-              //header( 'Location: http://www.' . $domain . '/index.php');
-              //do_redirect( $url = get_domain() . '/index.php');
-              $data['url'] = 'index.php';
-          }
-          elseif (!sign_up_process_done()) {
-              if (get_my_location() == "") {
-                
-                //require ("gender_location_first_time.php");
-                //$data['url'] = 'gender_location_first_time.php';
-                $data['url'] = 'sign_up.php?1';
-                //do_redirect( $url = get_domain() . '/sign_up.php?1');
-
-              }
-              elseif (!my_descriptors_loaded() or !get_my_main_photo()) {
-                
-                //require ("desc_photo_first_time.php");
-                //$data['url'] = 'desc_photo_first_time.php';
-                $data['url'] = 'sign_up.php?2';
-                //do_redirect( $url = get_domain() . '/sign_up.php?2');
-
-              }
-              elseif (!get_my_chart()) {
-                
-                //require ("birth_info_first_time.php");
-                //$data['url'] = 'birth_info_first_time.php';
-                $data['url'] = 'sign_up.php?3';
-                //do_redirect( $url = get_domain() . '/sign_up.php?3');
-
-              }
-          }
-          else {
-              //do_redirect( $url = get_domain() . '/' . get_landing());
-              $data['url'] = get_landing();
-              //do_redirect( $url = get_domain() . '/' . get_landing());
-          }
+		if (isset($_POST["stay_logged_in"]) &&  $_POST["stay_logged_in"] == "on") {
+        setcookie("email", $_POST['email'], time()+60*60*24*30, '/', get_domain(), true, true);
+        setcookie("password", $_POST['password'], time()+60*60*24*30, '/', get_domain(), true, true);
+    }
+    if (isAdmin()) {
+      //header( 'Location: http://www.' . $domain . '/index.php');
+      //do_redirect( $url = get_domain() . '/index.php');
+      $data['url'] = 'index.php';
+    }
+    elseif (!sign_up_process_done()) {
+      if (get_my_location() == "") {
+        //require ("gender_location_first_time.php");
+        //$data['url'] = 'gender_location_first_time.php';
+        $data['url'] = 'sign_up.php?1';
+        //do_redirect( $url = get_domain() . '/sign_up.php?1');
         }
-        else {
-        	$errors['login'] = 'There was an error logging you in.  Please try again later.';
-        	//$data['errors'] = $errors;
+        elseif (!my_descriptors_loaded() or !get_my_main_photo()) {               
+          //require ("desc_photo_first_time.php");
+          //$data['url'] = 'desc_photo_first_time.php';
+          $data['url'] = 'sign_up.php?2';
+          //do_redirect( $url = get_domain() . '/sign_up.php?2');
+        }
+        elseif (!get_my_chart()) {                
+          //require ("birth_info_first_time.php");
+          //$data['url'] = 'birth_info_first_time.php';
+          $data['url'] = 'sign_up.php?3';
+          //do_redirect( $url = get_domain() . '/sign_up.php?3');
+        }
+    }
+    else {
+      //do_redirect( $url = get_domain() . '/' . get_landing());
+      $data['url'] = get_landing();
+      //do_redirect( $url = get_domain() . '/' . get_landing());
+    }
+    }
+    else {
+        	//$errors['login'] = 'There was an error logging you in.  Please try again later.';
+        	$data['errors']['login'] = 'There was an error logging you in.  Please try again later.';
         	//echo json_encode($data);
-        }
-        if(!empty($errors)) {
-          $data['errors'] = $errors;
+        //}
+        //if(!empty($errors)) {
+          //$data['errors'] = $errors;
           //$data['success'] = false;
           //echo json_encode($data);
-        }
+        //}
 
-	//}
+	}
+}
   echo json_encode($data);
 }
 else {

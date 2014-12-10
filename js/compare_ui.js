@@ -1,5 +1,18 @@
 $(document).ready(function(){
 
+//FOR VIEW TUTORIAL RELOAD ON RELOAD
+	if ($('#minor_select').hasClass('selected')) {
+		$('.selector').removeClass('selected');
+		$('#minor_select').addClass('selected');
+		$('.exp_less').text('Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs...');
+		$('.exp_more').text('Many factors go into astrological compatibility, but a good place to start is with the dynamics between your Rising, Sun, Moon and Venus Signs - we call these the “Major Connections.”  You’re likely to see both positive and negative dynamics, so keep in mind that a relationship can work with even one good dynamic!  It’s also normal to encounter contradictory information, so be sure to remember the Cake Analogy!  Enjoy!');
+		$('#explain_more').show();
+		$('#minor').show();
+		$('#major').hide();
+		$('#ruler').hide();
+		$('#bonus').hide();
+	}
+
 	//Explanation
 		$('#explain_more').click(function(){
 			var text = $(this).text();
