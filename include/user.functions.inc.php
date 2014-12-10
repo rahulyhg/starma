@@ -1074,7 +1074,7 @@ function get_my_actcode() {
 }
 
 function user_id_from_actcode_and_email ($email, $actcode) {
-  $q = 'SELECT user_id from user where actcode = "' . $actcode . '" and email="' . $email . "';
+  $q = 'SELECT user_id from user where actcode = "' . $actcode . '" and email="' . $email . '"';
   //echo $q . '<br>';
   if ($result = mysql_query($q)) {
     $user = mysql_fetch_array($result);
