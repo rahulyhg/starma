@@ -193,7 +193,7 @@
 			if(preg_match($reg_exUrl, $message, $url)) {
        		        	 $message = preg_replace($reg_exUrl, '<a href="'.$url[0].'" target="_blank">'.$url[0].'</a>', $message);
 			} 
-                        $current_new_messages_from_me = get_new_msgs_from ($receiver_id, get_my_user_id());
+                        $current_new_messages_from_me = get_new_msgs_for_from ($receiver_id, get_my_user_id());
 			if (is_offline($receiver_id) && mysql_num_rows($current_new_messages_from_me) == 0) {
                           $is_message = 1;
                           if (get_preferences ($receiver_id, "chat_emails_flag", 1) == 1) {
