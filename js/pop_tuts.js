@@ -17,7 +17,7 @@ $(document).ready(function(){
 				console.log(data.errors);
 			}
 			if (data.success) {
-				window.location.reload(true);
+				window.location.assign('/main.php?the_page=psel&the_left=nav1');
 			}
 		});
 	});
