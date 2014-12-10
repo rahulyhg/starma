@@ -242,7 +242,7 @@ function statusChangeCallbackNTS(response) {
         // they are logged into this app or not.
         //document.getElementById('status').innerHTML = 'Please log ' +
         // 'into Facebook.';
-        $('#fb_connected').html('<button class="s_button" onClick="fbLoginMain();">Login to Facebook</button>');
+        $('#fb_connected').html('<button class="s_button" onClick="fbLoginMain();">Please Log into Facebook</button>');
       }
     }
 
@@ -377,12 +377,14 @@ function statusChangeCallbackNTS(response) {
       } 
       else if (response.status === 'not_authorized') {
         //FOR SETTINGS
-        fbLoginMain();
+        //fbLoginMain();
+        $('#fb_invite').html('<button type="button" id="invite_w_fb" class="sign_up" onClick="fbLoginMain();">Login to FB to Send an FB Invite</button>');
         $('#pref_fb').prop('disabled', false);
         $('#fb_done').fadeOut(1000);
       } 
       else {
         //FOR SETTINGS
+        $('#fb_invite').html('<button type="button" id="invite_w_fb" class="sign_up" onClick="fbLoginMain();">Login to FB to Send an FB Invite</button>');
         $('#pref_fb').prop('disabled', false);
         $('#fb_done').fadeOut(1000);
       }

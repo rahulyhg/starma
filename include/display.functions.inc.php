@@ -117,7 +117,7 @@ function show_user_invite () {
     echo '<div id="sign_up_box">';
       echo  '<div class="heading">Send Invite With...</div>';
         echo '<div style="margin-top: 15px;">';
-          echo '<div style="margin-bottom: 4px;"><button type="button" id="invite_w_fb" class="sign_up"';
+          echo '<div style="margin-bottom: 4px;" id="fb_invite"><button type="button" id="invite_w_fb" class="sign_up"';
           if (get_my_fb_id()) {
             echo ' onClick="checkLoginStateInvite();"'; 
           }
