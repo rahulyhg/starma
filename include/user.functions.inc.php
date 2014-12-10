@@ -1477,7 +1477,7 @@ function get_user_from_username ($u) {
 function get_user_from_email ($e) {
   $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
   inner join chart on user.user_id = chart.user_id
-  inner join user_preferences on user.user_id = user_preferences.user_id
+  left outer join user_preferences on user.user_id = user_preferences.user_id
   left outer join user_picture on user.user_id = user_picture.user_id 
   where chart.nickname="main" and permissions_id = 0 and (main = 1 or main is null) and private = 0 and email_search_private = 0 and email = "' . $e . '"';
 

@@ -113,9 +113,15 @@
 					$data['message'] = 'Username is already taken';
 				}
 				elseif($valid_username == 'good') {
-					//update_my_username($valid_username);
-					$data['success'] = true;
-					$data['message'] = ':)';
+					if (!update_my_username($username)) {
+						$data['errors'] = true;
+						$data['message'] = 'Could not update username, please try again';
+					}
+					else {
+						$data['success'] = true;
+						//$data['message'] = ':)';
+						$_SESSION['nickname'] = $username;
+					}
 				}
 			}
 			else {

@@ -337,11 +337,7 @@ $(document).ready(function(){
 					//$('#u_err').show().text('?');
 				}
 				if (data.success) {
-					$('.change_username_box').fadeOut(300);
-					$('#username').val('');
-					//$('#u_err').hide().html('');
-					$('#u_err_exp').hide().html('');
-					//window.location.reload(true);
+					window.location.reload(true);
 				}
 			});
 		}
@@ -364,11 +360,7 @@ $(document).ready(function(){
 				//$('#u_err').show().text('?');
 			}
 			if (data.success) {
-				$('.change_username_box').fadeOut(300);
-				$('#username').val('');
-				//$('#u_err').hide().html('');
-				$('#u_err_exp').hide().html('');
-				//window.location.reload(true);
+				window.location.reload(true);
 			}
 		});
 	});
