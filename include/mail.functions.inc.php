@@ -674,11 +674,11 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
         array (
             'name' => 'contact_us',
             'content' => CONTACT_US()
-        )/*,
+        ),
         array (
             'name' => 'unsubscribe',
             'content' => '<a href="' . get_full_domain() . '/unsub?email=' . get_my_email() . '">Unsubscribe</a>'
-        )*/                   
+        )                   
     );
     $message = array(
         'html' => '',
