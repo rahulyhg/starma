@@ -2,6 +2,8 @@
   require_once "header.php"; 
  $actcode = $_GET["actcode"];
  $email = $_GET["email"];
+ //echo $email . '<br>';
+ //echo $actcode . '<br>';
  $user_id = user_id_from_actcode_and_email ($email, $actcode);
  unsubscribe ($user_id);
  echo '<div id="welcome">
