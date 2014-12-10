@@ -229,13 +229,14 @@ function statusChangeCallbackNTS(response) {
         // The person is logged into Facebook, but not your app.
         //document.getElementById('status').innerHTML = 'Please log ' +
         //  'into this app.';
-        fbLoginMain();
+        //fbLoginMain();
       } 
       else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
         //document.getElementById('status').innerHTML = 'Please log ' +
         // 'into Facebook.';
+        $('#fb_connected').html('<button class="s_button" onClick="fbLoginMain();">Connect to Facebook</button>');
       }
     }
 

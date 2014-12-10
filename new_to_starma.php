@@ -29,7 +29,7 @@ if (login_check_point($type="full")) {
     		//js_more_link ("js_user_frame", $num_pages, $current_page, $height_inc, $num_users);
   			echo '<div id="s_top_bar">';
         if (get_my_fb_id()) {
-          echo '<div style="display:inline-block; margin-right: 20px;"><button id="sfb_friends" class="s_button" disabled="disabled">Find Facebook Friends</button></div>';
+          echo '<div id="fb_connected" style="display:inline-block; margin-right: 20px;"><button id="sfb_friends" class="s_button" disabled="disabled">Find Facebook Friends</button></div>';
         }
         else {
           echo '<div style="display:inline-block; margin-right: 20px;"><button class="s_button" onClick="fbLoginMain();">Find Facebook Friends</button></div>';
