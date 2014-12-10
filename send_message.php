@@ -24,7 +24,7 @@ login_check_point($type="full", $domain=$domain);
           $is_message = 1;
           echo 'THAT GUY IS OFFLINE' . '<br>';
           if (get_preferences ($other_user_id, "chat_emails_flag", 1) == 1) {
-            echo 'THAT GUY's PREFERENCES ARE ' . get_preferences ($other_user_id, "chat_emails_flag", 1);
+            echo 'THAT GUYs PREFERENCES ARE ' . get_preferences ($other_user_id, "chat_emails_flag", 1);
             sendNewMessageEmail(get_my_user_id(), $other_user_id, $message);
           }
           die();
