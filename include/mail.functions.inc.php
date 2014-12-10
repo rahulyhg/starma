@@ -282,7 +282,7 @@ function send_invite_user ($first_name, $last_name, $their_name, $email, $person
 
 function sendWelcomeEmail($username, $email) {
   $message = 'Hi ' . $username . ', <br>
-    Welcome to Starma!  We\'re so glad you joined our community.  Starma is still in development so please <a href="mailto:'. CONTACT_US() . '">contact us</a> if you encounter any prolems.  Below are some of the ways to get started.  Enjoy!';
+    Welcome to Starma!  We\'re so glad you joined our community.  Starma is still in development so please <a href="mailto:'. CONTACT_US() . '">contact us</a> if you encounter any problems. Enjoy!';
     if (sendTemplateWelcome($email, 'Welcome to Starma', $message, "no-reply@" . get_email_domain())) {
       return true;
     }
