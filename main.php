@@ -151,6 +151,11 @@ function statusChangeCallbackNTS(response) {
       // for FB.getLoginStatus().
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
+
+        $('#s_results').hide();
+        $('#hide_s').show();
+        $('#users_found').show().html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /></div>');
+        
         var data = {'fb_friends' : true};
 
         $.ajax({
@@ -236,7 +241,7 @@ function statusChangeCallbackNTS(response) {
         // they are logged into this app or not.
         //document.getElementById('status').innerHTML = 'Please log ' +
         // 'into Facebook.';
-        $('#fb_connected').html('<button class="s_button" onClick="fbLoginMain();">Connect to Facebook</button>');
+        $('#fb_connected').html('<button class="s_button" onClick="fbLoginMain();">Login to Facebook</button>');
       }
     }
 
