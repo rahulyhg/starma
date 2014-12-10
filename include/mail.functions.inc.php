@@ -651,6 +651,8 @@ function sendTemplateReport ($to, $subject, $content, $from) {
 
 //PERSONAL MESSAGE
 function sendTemplateMessage ($to, $subject, $content, $from) {
+  echo 'WE ARE IN THE MAILING FUNCTION MOTHER FUCKER";
+  die();
   try {
     $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
     $template_name = 'personal msg';
@@ -674,11 +676,11 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
         array (
             'name' => 'contact_us',
             'content' => CONTACT_US()
-        )/*,
+        ),
         array (
             'name' => 'unsubscribe',
             'content' => '<a href="' . get_full_domain() . '/unsub.php?email=' . $to . '&actcode=' . get_actcode_from_email ($to) . '">Unsubscribe</a>'
-        )*/                   
+        )                   
     );
     $message = array(
         'html' => '',
