@@ -455,6 +455,20 @@ function is_preference_there ($pref_name, $user_id) {
   }
 }
 
+function unsubscribe ($user_id) {
+  
+  
+   
+    
+    $q = "UPDATE user_preferences set chat_emails_flag = 0 where user_id = " . $user_id;
+    $result = mysql_query($q) or die(mysql_error());
+    
+    
+    return $result;
+     
+  
+}
+
 function set_my_preference ($pref_name, $value) {
   
   if (isLoggedIn()) {
@@ -1048,6 +1062,31 @@ function my_profile_info() {
     return false;
   }
 }
+
+function get_my_actcode() {
+  if (isLoggedIn()) {
+    $q = 'SELECT actcode from user where user_id = ' . $_SESSION["user_id"];
+    $result = mysql_query($q) or die(mysql_error());
+    $user = mysql_fetch_array($result);
+    return $user["actcode"]; 
+  }
+  else {
+    return false;
+  }
+}
+
+function user_id_from_actcode_and_email ($email, $actcode) {
+  $q = 'SELECT user_id from user where actcode = ' . $actcode . ' and email=' . $email;
+  //echo $q . '<br>';
+  if ($result = mysql_query($q)) {
+    $user = mysql_fetch_array($result);
+    return $user["user_id"]; 
+  }
+  else {
+    return false;
+  }
+}
+
 
 function basic_user_data($user_id) {
   

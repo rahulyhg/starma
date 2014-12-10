@@ -677,7 +677,7 @@ function sendTemplateMessage ($to, $subject, $content, $from) {
         ),
         array (
             'name' => 'unsubscribe',
-            'content' => '<a href="' . get_full_domain() . '/unsub?email=' . get_my_email() . '">Unsubscribe</a>'
+            'content' => '<a href="' . get_full_domain() . '/unsub.php?email=' . get_my_email() . "&token=" . get_my_actcode() . ">Unsubscribe</a>'
         )                   
     );
     $message = array(
