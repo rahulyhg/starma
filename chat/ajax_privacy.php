@@ -13,7 +13,7 @@
 				$errors['invald_cecb'] = 'There was an error. Please refresh and try again.';
 			}
 			else {
-				$escb = $_POST['cecb'];
+				$cecb = $_POST['cecb'];
 				
 			}
 			if (!set_my_preference($pref_name, $cecb)) {
