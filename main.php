@@ -206,7 +206,7 @@ function statusChangeCallbackNTS(response) {
                         $('#users_found').append(r.fb_friend);
                         if (done == 1) {
                           $('#ajax_loader').remove();
-                          $('#sfb_friends').prop('disabled', false);
+                          //$('#sfb_friends').prop('disabled', false);
                           $('#fb_f_invite').show().html('To invite more Facebook friends to join Starma, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
                         }
                         //$('#fb_f_empty').hide();
@@ -220,7 +220,7 @@ function statusChangeCallbackNTS(response) {
                     else {
                       if (done == 1) {
                         $('#ajax_loader').remove();
-                        $('#sfb_friends').prop('disabled', false);
+                        //$('#sfb_friends').prop('disabled', false);
                         if (fb_f == 0) {
                           $('#fb_f_invite').show().html('You currently have no Facebook friends on Starma.  To invite your Facebook friends, <span class="pointer" style="text-decoration: underline;" onClick="sendDialogue();">click here.</span>');
                         }
