@@ -6928,7 +6928,7 @@ function show_userbox()
 function show_changepassword_form(){
   echo '<div id="change_password_form">';
 
-  //if (is_pass_there()) {  //HAS ACCOUNT WITH PASSWORD
+  if (is_pass_there()) {  //HAS ACCOUNT WITH PASSWORD
     echo '<div class="heading">Change Password</div>';
 
     //CHANGED ALL ID's TO js_search_bar MAKE SURE THIS ISN'T A PROBLEM
@@ -6972,8 +6972,7 @@ function show_changepassword_form(){
               </tbody>
             </table>
           </form>';
-  //}
-          /*
+  }         
   else {  //ONLY HAS FB ACCOUNT AND NO PASS YET
     echo '<div class="heading">Create Password</div>';
 
@@ -7013,7 +7012,7 @@ function show_changepassword_form(){
             </table>
           </form>';
   }
-  */
+  
 
   echo '</div>';
 }
