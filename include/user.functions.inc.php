@@ -213,6 +213,22 @@ function get_my_msgs () {
   
 }
 
+function get_new_msgs_for_from ($receiver_id, $sender_id) {
+  if (isLoggedIn()) {
+    $q = "SELECT * from msg_line where sender_id = " . $sender_id . " and receiver_id = " . $receiver_id . " and receiver_has_seen = 0 ORDER BY date_time, msg_line_id";
+    //echo $q;
+    //die();
+    $result = mysql_query($q) or die(mysql_error());
+    return $result;
+     
+  }
+  else {
+    return false;
+  }
+  
+}
+
+
 
 function flag_as_read_my_msg ($msg_line_id, $which_partner) {
   if (isLoggedIn()) {
