@@ -20,6 +20,7 @@ login_check_point($type="full", $domain=$domain);
   
       foreach ($user_ids as $other_user_id) {
         //echo $other_user_id . '<br>';
+        echo 'RIGHT BEFORE ONLINE TEST';
         if (is_offline($other_user_id)) {
           $is_message = 1;
           echo 'THAT GUY IS OFFLINE' . '<br>';
@@ -27,8 +28,9 @@ login_check_point($type="full", $domain=$domain);
             echo 'THAT GUYs PREFERENCES ARE ' . get_preferences ($other_user_id, "chat_emails_flag", 1);
             sendNewMessageEmail(get_my_user_id(), $other_user_id, $message);
           }
-          die();
+          
         }
+       die();
        insert_msg_line (get_my_user_id(), $other_user_id, date("Y-m-d H:i:s"), $_POST["text_body"], 1, 0, $is_message=1);
       }  
 
