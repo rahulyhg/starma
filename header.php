@@ -80,6 +80,9 @@ date_default_timezone_set('America/Chicago');
       <LINK REL="StyleSheet" HREF="../css/houses.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="../css/magnific.css" TYPE="text/css"/>
       <LINK REL="StyleSheet" HREF="../css/pop_tuts.css" TYPE="text/css"/>
+
+      <link rel="image_src" href="/img/starmaIcon.png" />
+      <link rel="icon" type="image/png" href="/img/starmaFavicon.png">
       
       <script type="text/javascript" src="/autoSuggest/jquery.autoSuggest.js"></script>
       <script type="text/javascript" src="/chat/chat_all.js"></script>
