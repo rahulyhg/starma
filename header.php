@@ -22,10 +22,17 @@ date_default_timezone_set('America/Chicago');
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
+<head prefix="og: http://ogp.me/ns#">
 <title><?php echo $pageTitle; ?></title>
 <meta name="description" content="<?php echo $pageDescription; ?>">
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">   <!-- Matt should we change to charset=utf-8 so json_encode will work?  -->
+
+<!-- FACEBOOK OPEN GRAPH TAGS -->
+
+<meta property="og:image" content="/img/starmaIcon.png">
+<meta property="og:image:type" content="image/PNG">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
 
 <!--HI MY NAME IS SLIM SHADY--->
 <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
