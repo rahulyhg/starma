@@ -1671,6 +1671,7 @@ function get_left_menu ($the_page) {
     //$menu['nav3'] = array('Career Advice&nbsp;&nbsp;','career_advice.php');
     $menu['nav2'] = array('Why Vedic Astrology?&nbsp;&nbsp;','two_zodiacs.php');
     $menu['nav3'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
+    $menu['nav4'] = array('Cookbook Astrology;&nbsp;','cookbook_astrology.php');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#');
     //$menu['nav6'] = array('about astrology&nbsp;&nbsp;','two_zodiacs.php');
   }
@@ -1687,6 +1688,7 @@ function get_left_menu ($the_page) {
     $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php');
     $menu['nav2'] = array('About Starma&nbsp;&nbsp;', 'about_starma.php');
     $menu['nav3'] = array('Why Vedic Astrology&nbsp;&nbsp;','two_zodiacs.php');
+    $menu['nav4'] = array('Cookbook Astrology;&nbsp;','cookbook_astrology.php');
     
   }
   elseif ($the_page == 'isel') {
