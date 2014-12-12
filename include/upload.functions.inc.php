@@ -71,8 +71,9 @@ function upload_no_adjust ($file_id, $folder="", $types="") {
     if(!$_FILES[$file_id]['name']) return array('','No file specified');
 
     $file_title = $_FILES[$file_id]['name'];
-    $bad_char = '%\'&"<>:;\(\)\,\?\^\*\$#!\|\{\[\}\]\\\+=`~%';
-    $file_title = preg_replace($bad_char, '', $_FILES[$file_id]['name']);
+    $bad_char = '%[&"<>:;\(\)\,\?\^\*\$#!\|\{\[\}\]\\\+=`~]%';
+    $file_title_preg = preg_replace($bad_char, '', $_FILES[$file_id]['name']);
+    $file_title = str_replace('\'', '', $file_title_preg);
     //Get file extension
     $ext_arr = split("\.",basename($file_title));
     $ext = strtolower($ext_arr[count($ext_arr)-1]); //Get the last extension
