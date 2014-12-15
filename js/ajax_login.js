@@ -5,6 +5,9 @@ $(document).ready(function(){
 		$('#login_password').toggle().focus();
 	});
 	*/
+	$('#feet_bug, #explore').click(function(){
+        mixpanel.track('Explore Starma');
+    });
 
 	$('#fb_login').click(function(){
 		mixpanel.track('FB Login Landing');

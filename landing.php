@@ -228,12 +228,7 @@ if (isLoggedIn())
     }(document, 'script', 'facebook-jssdk'));
 
     </script>
-
-    <script>
-        $('#feet_bug, #explore').click(function(){
-          mixpanel.track('Explore Starma');
-        });
-    </script>
+    
 <script type="text/javascript" src="/js/browser_detect.js"></script>
 <script type="text/javascript" src="/js/ajax_register.js"></script>
 <script type="text/javascript" src="js/ajax_login.js"></script>
