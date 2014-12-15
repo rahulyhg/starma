@@ -74,6 +74,7 @@ $(document).ready(function(){
 					}	
 				}
 				if (data.url) {
+					mixpanel.track('Email Login Landing');
 					//window.location.assign('/' + data.url);
 					window.location.reload(true);
 					//alert(data.url);
@@ -114,6 +115,7 @@ $(document).ready(function(){
 				}	
 			}
 			else {
+				mixpanel.track('Email Login Landing');
 				window.location.assign('/' + data.url);
 				//alert(data.url);
 			}
