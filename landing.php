@@ -308,12 +308,6 @@ if (isLoggedIn())
   //echo '</div>'; // Close wierd div
 
 
-
-  //echo '<div id="explore_container">
-    //      <div id="feet_bug"><a href="/guest/main.php"><span class="div_link"></span></a></div>
-      //    <div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>
-        //</div>';
-
   echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
   echo '<script type="text/javascript" src="/js/ajax_forgot_password.js"></script>';
   echo '<script>
