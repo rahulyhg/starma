@@ -316,6 +316,7 @@ var timer_username;
 				}
 			}
 			if (data.url) {
+				mixpanel.track('Email Create Landing');
 				//alert(data.url);
 				window.location.assign('../' + data.url);
 			}
@@ -545,6 +546,7 @@ var timer_username;
 				}
 			}
 			if (data.url_fb) {
+				mixpanel.track('FB Create Landing');
 				//alert(data.url);
 				window.location.assign('../' + data.url_fb);
 			}

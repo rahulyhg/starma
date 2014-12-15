@@ -316,6 +316,11 @@ if (isLoggedIn())
 
   echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
   echo '<script type="text/javascript" src="/js/ajax_forgot_password.js"></script>';
+  echo '<script>
+          $("#explore_container").click(function(){
+            mixpanel.track("Explore Starma");</script>;
+          });
+      </script>';
 
   echo '<div id="explore_container">
               <div id="feet_bug"><a href="/guest/main.php"><span class="div_link"></span></a></div>
