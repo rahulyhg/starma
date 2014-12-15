@@ -6,6 +6,10 @@ $(document).ready(function(){
 	});
 	*/
 
+	$('#fb_login').click(function(){
+		mixpanel.track('FB Login Landing');
+	});
+
 	$('input[name=stay_logged_in]').click(function() {
 		if ($('input[name=stay_logged_in]').is(':checked')) {
 			$('input[name=stay_logged_in]').val('on');

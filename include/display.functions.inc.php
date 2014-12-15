@@ -7296,7 +7296,7 @@ function show_login_options_landing () {
 function show_login_box_landing () {
     echo '<div id="login_box">';
       //echo '<div class="heading">Log In</div>';
-        echo '<button type="button" class="sign_up" onClick="fbLogin();">Facebook Login</button>';
+        echo '<button type="button" id="fb_login" class="sign_up" onClick="fbLogin();">Facebook Login</button>';
         echo '<div id="or">~ or ~</div>';
         echo '<form action="/chat/login_form_fields.php" method="POST" id="login_from_guest">';
           echo '<input type="text" id="login_email" name="email" placeholder="Your Email" value="';
