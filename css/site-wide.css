@@ -1,5 +1,5 @@
 /****************  FONTS  *******************/
-
+/*
 @font-face {
   font-family: Otto;
   src: url('/css/fonts/Otto/Otto.ttf');
@@ -9,7 +9,7 @@
   font-family: Scribble;
   src: url('/css/fonts/scribble/Scribble.ttf');
 }
-
+*/
 @font-face {
   font-family: 'later_on';
     src: url('/css/fonts/later_on-webfont.eot');
@@ -20,12 +20,12 @@
          url('/css/fonts/later_on-webfont.svg#later_onregular') format('svg');
     -webkit-font-smoothing: subpixel-antialiased;
 }
-
+/*
 @font-face {
   font-family: jellyka;
   src: url('/css/fonts/Saint-Andrews-Queen.ttf');
 }
-
+*/
 
 /****************  END FONTS  *******************/
 
