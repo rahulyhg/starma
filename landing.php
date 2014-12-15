@@ -228,6 +228,12 @@ if (isLoggedIn())
     }(document, 'script', 'facebook-jssdk'));
 
     </script>
+
+    <script>
+        $('#feet_bug, #explore').click(function(){
+          mixpanel.track('Explore Starma');
+        });
+    </script>
 <script type="text/javascript" src="/js/browser_detect.js"></script>
 <script type="text/javascript" src="/js/ajax_register.js"></script>
 <script type="text/javascript" src="js/ajax_login.js"></script>
@@ -309,11 +315,6 @@ if (isLoggedIn())
 
   echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
   echo '<script type="text/javascript" src="/js/ajax_forgot_password.js"></script>';
-  echo '<script>
-          $("#feet_bug, #explore").click(function(){
-            mixpanel.track("Explore Starma");
-          });
-      </script>';
 
   echo '<div id="explore_container">
               <div id="feet_bug"><a href="/guest/main.php"><span class="div_link"></span></a></div>
