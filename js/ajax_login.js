@@ -5,7 +5,7 @@ $(document).ready(function(){
 		$('#login_password').toggle().focus();
 	});
 	*/
-	$('#feet_bug, #explore').click(function(){
+	$('#explore_container').click(function(){
         mixpanel.track('Explore Starma');
     });
 
