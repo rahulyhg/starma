@@ -307,7 +307,6 @@ if (isLoggedIn())
 
   //echo '</div>'; // Close wierd div
 
-
   echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
   echo '<script type="text/javascript" src="/js/ajax_forgot_password.js"></script>';
   echo '<script>
