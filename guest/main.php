@@ -1,5 +1,18 @@
 <?php
 $pageTitle = 'Starma.com - Compatibility Horoscopes Community';
+if (isset($_GET['the_page'])) {
+  if ($_GET['the_page'] == 'cesel') {
+    if (isset($_GET['chart_id2'])) {
+      require_once ('../include/db_connect.inc.php'); // include the database connection
+      require_once("../include/user.functions.inc.php");
+      
+      $celeb_user_id = get_user_id_from_chart_id($_GET['chart_id2']);
+      $celeb_profile = profile_info($celeb_user_id);
+      $pageTitle = $celeb_profile['first_name'] . ' ' . $celeb_profile['last_name'] . ' Birth Chart';
+    }
+  }
+}
+
 require_once ("header.php");
  
 // IF YOU ARE ALREADY LOGGED IN, THEN GET KICKED THE FUCK OUT

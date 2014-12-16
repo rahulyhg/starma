@@ -101,6 +101,7 @@ function get_email_domain() {
   return 'starma.com';
 }
 
+
 function get_domain_sign_up ($n) {
   return 'starma.com/sign_up.php?' . $n;
 }
