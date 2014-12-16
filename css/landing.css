@@ -1875,8 +1875,8 @@
     height: 63px;
     width: 130px;
     position: absolute;
-    top: 375px;
-    left: 59px;
+    top: 431px;
+    left: 63px;
     background: url('/img/planet.png') no-repeat;
 }
 
@@ -1884,10 +1884,10 @@
     display: inline-block;
     padding: 8px;
     position: absolute;
-    top: 315px;
-    left: 70px;
+    top: 372px;
+    left: 159px;
     font-size: 1.2em;
-    color: #b0bad6;
+    /*color: #b0bad6;*/
     line-height: 1.2;
     text-align: center;
     font-family: 'later_on';
