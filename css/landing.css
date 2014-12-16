@@ -1886,7 +1886,9 @@
     box-shadow: 0 0 2px 0 #1a1d2a inset;
     display: inline-block;
     padding: 8px;
-    position: relative;
+    position: absolute;
+    top: 329px;
+    left: 70px;
     font-size: 1.4em;
     color: #1a1d2a;
 }
