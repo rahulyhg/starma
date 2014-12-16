@@ -228,7 +228,7 @@ if (isLoggedIn())
     }(document, 'script', 'facebook-jssdk'));
 
     </script>
-    
+
 <script type="text/javascript" src="/js/browser_detect.js"></script>
 <script type="text/javascript" src="/js/ajax_register.js"></script>
 <script type="text/javascript" src="js/ajax_login.js"></script>
@@ -317,7 +317,7 @@ if (isLoggedIn())
             </div>';
   
 
-  echo '<div id="planet"></div>';
+  echo '<div id="planet"></div><div id="free" class="later_on">Free Western & Vedic Astrology</div>';
 
 
   //echo '<div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>';
