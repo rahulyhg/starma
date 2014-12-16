@@ -147,10 +147,8 @@ if (login_check_point($type="full")) {
         //***********---endMatt Stuff
 
         //echo '<div class="profile_button message_button"><a href="?the_page=isel&the_left=nav1&other_user_id=' . get_user_id_from_chart_id($_GET["chart_id2"]) . '">Message</a></div>';     
-      }
-  
+      }  
       
-
       echo '<div id="add_to_favorites" class="profile_button ';
       if ($isCeleb) {
         echo 'celeb_favorites ';

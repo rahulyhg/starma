@@ -2238,6 +2238,21 @@ function get_chart_by_name ($nickname="Main", $user_id=-1) {
 }
 
 
+function get_celeb_chart_by_name ($nickname="Main", $user_id=-1) {
+    echo $user_id;
+    if (isCeleb($user_id)) {
+      $q = 'SELECT * from chart WHERE user_id = ' . $user_id . ' and nickname = "' . $nickname . '" ORDER BY chart_id desc';
+      $r = mysql_query ($q) or die (mysql_error());
+      $chart = mysql_fetch_array($r);
+      return $chart;
+    }
+    else {
+      return false; 
+    }
+  
+}
+
+
 function get_user_id_from_email ($email) {
   $user_q = 'SELECT * from user where email = ' . $email;
   

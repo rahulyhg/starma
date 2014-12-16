@@ -8,6 +8,8 @@
  }  
  else {
   
+  
+
   echo '<body>';
   //INIT VARS
   if (isset($_GET["user_id"])) {
@@ -68,6 +70,23 @@
 
     if ($user_id != -1) {
       $_SESSION["proxy_user_id"] = $user_id;
+      if ($celeb_chart = get_celeb_chart_by_name('main',$user_id)) {
+        $celeb_chart_id = $celeb_chart["chart_id"];
+        echo $celeb_chart_id;
+        if (!chart_already_there("Alternate",$user_id)) {
+          $chart_to_cast_from = get_chart($celeb_chart_id);
+          if (!single_click_cast ("Alternate", $chart_to_cast_from["birthday"], substr($chart_to_cast_from["latitude"], 0, 6), substr($chart_to_cast_from["longitude"], 0, 7), substr($chart_to_cast_from["latitude"], -1), substr($chart_to_cast_from["longitude"], -1), $chart_to_cast_from["timezone"], $chart_to_cast_from["DST"], $chart_to_cast_from["location"], $chart_to_cast_from["interval_time"], $chart_to_cast_from["time_unknown"], "W")) {
+             echo 'Error Obtaining Western Chart';
+          }
+          echo 'WESTERN WASNT THERE, SO I CAST IT';
+        }
+        else {
+          echo 'WESTERN IS THERE';
+        }
+      }
+      else { 
+         echo 'Failed to get celeb chart';
+      }
     }
     else {
       if (isset($_SESSION["proxy_user_id"])) {
