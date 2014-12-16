@@ -317,7 +317,7 @@ if (isLoggedIn())
             </div>';
   
 
-  echo '<div id="planet"></div><div id="free" class="later_on">Free Western & Vedic Astrology</div>';
+  echo '<div id="planet"></div><div id="free">Free Western & <br/>Vedic Astrology</div>';
 
 
   //echo '<div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>';
