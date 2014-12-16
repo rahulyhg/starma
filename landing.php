@@ -269,7 +269,7 @@ if (isLoggedIn())
       //echo '<!--[if gt IE 8]><img src="/img/LogoTest2.svg" style="width:300px;" /><![endif]-->';
       //echo '<!--[if !IE]> --><img src="/img/LogoTest2.svg" style="width:300px;" /><!-- <![endif]-->';
     echo '</div>';
-    echo '<div id="tagline"></div>';
+    echo '<div id="tagline"><img src="/img/Starma-Astrology-Compatibility-Birth-Charts-Community.png" title="Compatibility Birth Charts Community" height="35px" width="386px" /></div>';
     //echo '<div id="landing_login_box">';
       //show_login_options_landing();
       //echo '<div id="rocketship"></div>';

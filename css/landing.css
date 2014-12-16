@@ -421,6 +421,7 @@
   height: 132px;
 }
 
+/*
 #tagline {
     top: 68px;
     left: 2%;
@@ -429,6 +430,14 @@
     background: url('/img/Starma-Astrology-Compatibility-Horoscopes-Community.png') no-repeat;
     width: 375px;
     height: 23px;
+}
+*/
+
+#tagline {
+  top: 68px;
+  left: 2%;
+  display: inline-block;
+  position: absolute;
 }
 
 #logo_test_img {
