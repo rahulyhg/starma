@@ -374,7 +374,7 @@ function sendIDGuest() {
  
       <li class="bar_line"><img src="/img/Starma-Astrology-SideNav7.png"/></li>
     </ul>
-    <div id="register_side"><img src="/img/reg_button_guest.png" title="Create an Account" /></div>
+    <div id="register_side"><img src="/img/create-an-account.png" title="Create an Account" /></div>
     <!--<div id="login_side" class="pop_guest_login">Log In</div>-->
   </div>
  

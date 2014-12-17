@@ -218,7 +218,7 @@ function get_left_menu_guest ($the_page) {
     $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php','');
     $menu['nav2'] = array('About Starma&nbsp;&nbsp;', 'about_starma.php', '');
     $menu['nav3'] = array('Cookbook Astrology&nbsp;&nbsp;','cookbook_astrology.php');
-    $menu['nav4'] = array('Why Vedic Astrology?&nbsp;&nbsp;','two_zodiacs.php', '');
+    $menu['nav4'] = array('Why Vedic Astrology?','two_zodiacs.php', '');
     
   }
   elseif ($the_page == 'isel') {
