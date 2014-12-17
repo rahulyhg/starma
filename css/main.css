@@ -729,7 +729,7 @@ input{
   cursor: pointer;
   /*border-radius: 65px;
   border: 2px solid black;*/
-  background: url('/img/reg_button_guest.png');
+  /*background: url('/img/reg_button_guest.png');*/
 }
 /*
 #reg_button_guest {
