@@ -1669,7 +1669,7 @@ function get_left_menu ($the_page) {
     //$menu['nav2'] = array('houses&nbsp;&nbsp;','#');
     //$menu['nav2'] = array('Romantic Advice&nbsp;&nbsp;','romantic_advice.php');
     //$menu['nav3'] = array('Career Advice&nbsp;&nbsp;','career_advice.php');
-    $menu['nav2'] = array('Why Vedic Astrology?&nbsp;&nbsp;','two_zodiacs.php');
+    $menu['nav2'] = array('Why Vedic Astrology?','two_zodiacs.php');
     $menu['nav3'] = array('My Birth Info&nbsp;&nbsp;','birth_info.php');
     $menu['nav4'] = array('Cookbook Astrology&nbsp;&nbsp;','cookbook_astrology.php');
     //$menu['nav6'] = array('Career&nbsp;&nbsp;','#');
@@ -1687,7 +1687,7 @@ function get_left_menu ($the_page) {
   elseif ($the_page == 'hsel') {
     $menu['nav1'] = array('Welcome&nbsp;&nbsp;','welcome.php');
     $menu['nav2'] = array('About Starma&nbsp;&nbsp;', 'about_starma.php');
-    $menu['nav3'] = array('Why Vedic Astrology&nbsp;&nbsp;','two_zodiacs.php');
+    $menu['nav3'] = array('Why Vedic Astrology?','two_zodiacs.php');
     $menu['nav4'] = array('Cookbook Astrology&nbsp;&nbsp;','cookbook_astrology.php');
     
   }
