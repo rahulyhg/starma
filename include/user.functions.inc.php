@@ -2646,6 +2646,7 @@ function register_new_user ($nickname, $password, $password2, $email, $year, $mo
     if (mysql_query($sql)) {
         $id = mysql_insert_id();
         $errors[] = $id; 
+        sendWelcomeEmail($nickname, $email);
         /*
         if (sendWelcomeEmail($nickname, $email)) {
           return $errors;
@@ -2688,6 +2689,7 @@ function register_new_user_fb ($nickname_fb, $email_fb, $year_fb, $month_fb, $da
     if (mysql_query($sql)) {
         $id = mysql_insert_id();
         $errors[] = $id; 
+        sendWelcomeEmail($nickname, $email);
         /*
         if (sendWelcomeEmail($nickname, $email)) {
           return $errors;
