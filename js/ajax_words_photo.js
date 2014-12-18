@@ -406,8 +406,9 @@ if (!$('#word_1').hasClass('error') && !$('#word_2').hasClass('error') && !$('#w
 					}
 				}
 				if(data.success) {
-					mixpanel.track('words_photo');
-					window.location.assign('/' + data.url);			
+					mixpanel.track('words_photo', {}, window.location.assign('/' + data.url);
+					setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
+					//window.location.assign('/' + data.url);			
 				}
 			});
 		//}

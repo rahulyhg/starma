@@ -228,10 +228,11 @@ $('#zip').on('keyup blur', function(){
 					'gender'   : data.gender,
 					'location' : data.loc,
 					'state_id' : data.state_id
-				});
+				}, window.location.assign('/' + data.url));
+				setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
 				//$('#step').html('').text('1 / 3');
 				//alert(data.url + ', ' + data.loc + ', ' + data.state_id);
-				window.location.assign('/' + data.url);
+				//window.location.assign('/' + data.url);
 			}
 		});
 
