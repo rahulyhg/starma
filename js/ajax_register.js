@@ -316,9 +316,10 @@ var timer_username;
 				}
 			}
 			if (data.url) {
-				mixpanel.track('Email Create Landing');
+				mixpanel.track('Email Create Landing', {}, window.location.assign('../' + data.url));
+				setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
 				//alert(data.url);
-				window.location.assign('../' + data.url);
+				//window.location.assign('../' + data.url);
 			}
 			if (!data) {
 				alert('There was an ajax error, please try again');
@@ -546,9 +547,10 @@ var timer_username;
 				}
 			}
 			if (data.url_fb) {
-				mixpanel.track('FB Create Landing');
+				mixpanel.track('FB Create Landing', {}, window.location.assign('../' + data.url_fb));
+				setTimeout(function(){ window.location.assign('/' + data.url_fb); }, 500);
 				//alert(data.url);
-				window.location.assign('../' + data.url_fb);
+				//window.location.assign('../' + data.url_fb);
 			}
 			if (!data) {
 				alert('There was an ajax error with Facebook, please try again');
