@@ -114,6 +114,7 @@ require ('ajax_header.php');
         	$data['url'] = 'sign_up.php?2';
         	$data['loc'] = $location;
         	$data['state_id'] = $state_id;
+          $data['gender'] = $gender;
       	}
 
 

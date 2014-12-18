@@ -224,6 +224,11 @@ $('#zip').on('keyup blur', function(){
 				}
 			}
 			if (data.success) {
+				mixpanel.track('gender_location', {
+					'gender'   : data.gender,
+					'location' : data.loc,
+					'state_id' : data.state_id
+				});
 				//$('#step').html('').text('1 / 3');
 				//alert(data.url + ', ' + data.loc + ', ' + data.state_id);
 				window.location.assign('/' + data.url);
