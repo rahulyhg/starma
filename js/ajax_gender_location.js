@@ -224,7 +224,7 @@ $('#zip').on('keyup blur', function(){
 				}
 			}
 			if (data.success) {
-				mixpanel.track('gender_location', {
+				mixpanel.track('Gender and Location', {
 					'gender'   : data.gender,
 					'location' : data.loc,
 					'state_id' : data.state_id

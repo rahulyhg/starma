@@ -142,7 +142,7 @@ $('#country_id').change(function(event) {
         }
       }
       else {
-        mixpanel.track('time_and_place', {
+        mixpanel.track('Time and Place', {
           'city'         : $('#city').val(),
           'country_id'   : $('#country_id').val(),
           'hour'         : $('#hour_time').val(),
