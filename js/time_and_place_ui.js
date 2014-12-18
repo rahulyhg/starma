@@ -141,6 +141,17 @@ $('#country_id').change(function(event) {
           $('#tp_city_error_h').show();
         }
       }
+      else {
+        mixpanel.track('time_and_place', {
+          'city'         : $('#city').val(),
+          'country_id'   : $('#country_id').val(),
+          'hour'         : $('#hour_time').val(),
+          'minute'       : $('#minute_time').val(),
+          'meridiem'     : $('#meridiem_time').val(),
+          'interval'     : $('#interval').val(),
+          'time_unknown' : $('time_unknown').val()
+        });
+      }
     });
 
 });
