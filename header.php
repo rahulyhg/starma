@@ -70,7 +70,6 @@ date_default_timezone_set('America/Chicago');
     ';
     echo "<script type='text/javascript' src='js/ajax_invite_new_user.js'></script>";
     echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
-    echo "<script type='text/javascript' src='js/mixpanel.js'></script>";
 
   }
   //Removed autoSuggest.css to restyle New Message area
@@ -103,6 +102,7 @@ date_default_timezone_set('America/Chicago');
     ';
     echo "<script type='text/javascript' src='js/ajax_invite_new_user.js'></script>";
     echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
+    echo "<script type='text/javascript' src='js/mixpanel.js'></script>";
   }
 ?>
 
