@@ -45,6 +45,7 @@ $(document).ready(function(){
 			$('#minor').hide();
 			$('#ruler').hide();
 			$('#bonus').hide();
+			mixpanel.track('Major Connections Selected');
 		});
 		$('#minor_select').click(function(){
 			$('.selector').removeClass('selected');
@@ -56,6 +57,7 @@ $(document).ready(function(){
 			$('#major').hide();
 			$('#ruler').hide();
 			$('#bonus').hide();
+			mixpanel.track('Minor Connections Selected');
 		});
 		$('#ruler_select').click(function(){
 			$('.selector').removeClass('selected');
@@ -67,6 +69,7 @@ $(document).ready(function(){
 			$('#major').hide();
 			$('#minor').hide();
 			$('#bonus').hide();
+			mixpanel.track('Ruling Planet Connection Selected');
 		});
 		$('#bonus_select').click(function(){
 			$('.selector').removeClass('selected');
@@ -78,12 +81,14 @@ $(document).ready(function(){
 			$('#major').hide();
 			$('#minor').hide();
 			$('#ruler').hide();
+			mixpanel.track('Jupiter Connection Selected');
 		});
 
 		
 	//Major
 
 		$('.right, .left, .dynamic_icon').click(function(){
+			mixpanel.track('Minor Connection Dynamic Text Viewed');
 			var text = $(this).siblings('.blurb').children('.text').children().text();
 			//alert(text);
 			var intro = $(this).siblings('.blurb').children('.dynamic_info').text();

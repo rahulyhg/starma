@@ -357,7 +357,10 @@ $(document).ready(function(){
 			}
 			if (data.url) {
 				//alert(data.url);
-				window.location.assign('../' + data.url);
+				mixpanel.track('Email Create Account Guest', {}, window.location.assign('../' + data.url));
+				//window.location.assign('/' + data.url);
+				setTimeout(function(){ window.location.assign('../' + data.url); }, 500);
+				//window.location.assign('../' + data.url);
 			}
 			if (!data) {
 				alert('There was an ajax error, please try again');

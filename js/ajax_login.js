@@ -77,9 +77,10 @@ $(document).ready(function(){
 					}	
 				}
 				if (data.url) {
-					mixpanel.track('Email Login Landing');
+					mixpanel.track('Email Login Landing', {}, window.location.reload(true));
 					//window.location.assign('/' + data.url);
-					window.location.reload(true);
+					setTimeout(function(){ window.location.reload(true); }, 500);
+					//window.location.reload(true);
 					//alert(data.url);
 				}
 			});

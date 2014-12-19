@@ -55,7 +55,10 @@ $(document).ready(function(){
 				}	
 			}
 			else {
-				window.location.assign('../' + data.url);
+				mixpanel.track('Email Login Guest', {}, window.location.assign('../' + data.url));
+					//window.location.assign('/' + data.url);
+					setTimeout(function(){ window.location.assign('../' + data.url); }, 500);
+				//window.location.assign('../' + data.url);
 				//alert(data.url);
 			}
 		});
