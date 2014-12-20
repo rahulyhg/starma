@@ -184,6 +184,43 @@ $(document).ready(function(){
 	});
 
 
+//AGE PRIVACY
+
+	$('#agecb').click(function(){
+		$('#age_done').show().html('<img src="/js/ajax_loader_sign_up.gif" />');
+		if($('#agecb').prop('checked')) {
+			var data = { 'agecb' : 1 };
+		}
+		if(!$('#agecb').prop('checked')) {
+			var data = { 'agecb' : 0 };
+		}
+		//alert(data);
+		$.ajax({
+				type: 'POST',
+				url: 'chat/ajax_privacy.php',
+				data: data,
+				dataType: 'json',
+		})
+		.done(function(data){
+			if (data.errors) {
+				if (data.errors.invalid_agecb) {
+					$('#age_done').show().html(data.errors.invalid);
+				}
+				if (data.errors.set_agecb) {
+					$('#age_done').show().html(data.errors.set);
+                           
+				}
+                     $('#agecb').prop('checked', false);
+			}
+			if (data.msg) {
+				$('#age_done').show().html(data.msg).fadeOut(1200);
+			}
+		});
+
+	});
+
+
+
 //HOUSE LORDS-----
 
 	$('#hlcb').click(function(){

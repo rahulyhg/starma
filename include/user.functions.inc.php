@@ -506,9 +506,11 @@ function get_my_preferences ($pref_name, $default) {
   }
 }
 
+//REMOVED LOG IN WALL SO WE CAN HIDE AGES ON GUEST---------------
+
 function get_preferences ($user_id, $pref_name, $default) {
   
-  if (isLoggedIn()) {
+  //if (isLoggedIn()) {
     $q = "SELECT * from user_preferences where user_id = " . $user_id;
     $result = mysql_query($q) or die(mysql_error());
     if ($row = mysql_fetch_array($result)) {
@@ -518,10 +520,10 @@ function get_preferences ($user_id, $pref_name, $default) {
       return $default;
     }
      
-  }
-  else {
-    return false;
-  }
+  //}
+  //else {
+   // return false;
+  //}
 }
 
 function get_my_location() {

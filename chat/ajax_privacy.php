@@ -52,6 +52,30 @@
 			}
 		}
 
+	//AGE PRIVACY
+
+		if(isset($_POST['agecb'])) {
+			$pref_name = 'age_private';
+			if (!preg_match('%^[\d]{1}$%', $_POST['agecb'])) {
+				$errors['invald_agecb'] = 'There was an error. Please refresh and try again.';
+			}
+			else {
+				$agecb = $_POST['agecb'];
+				//$data['hlcb'] = $hlcb;
+				//$data['msg'] = $hlcb;
+			}
+			if (!set_my_preference($pref_name, $agecb)) {
+				$errors['set_agecb'] = 'Unable to set preference.  Please refresh and try again';
+			}
+			
+			if (!empty($errors)) {
+				$data['errors'] = $errors;
+			}				
+			else {
+				$data['msg'] = 'Success!';
+			}
+		}
+
 
 	//HL AND CHART PRIVACY
 		if (isset($_POST['hlcb'])) {
