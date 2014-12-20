@@ -1169,7 +1169,7 @@ function show_main_photo($chart_id) {
   echo '</div>';
 }
 
-function show_general_info($chart_id) {
+function show_general_info($chart_id, $from='default') {
   $user_id = get_user_id_from_chart_id ($chart_id);
   $user_info = profile_info($user_id);
   $is_celeb = $user_info["permissions_id"] == PERMISSIONS_CELEB();
@@ -1211,7 +1211,19 @@ function show_general_info($chart_id) {
           echo '">';
         }
         if (isLoggedIn()) {
-          echo '<span style="color:' . $online_color . '; font-family:arial;">•</span>';
+          //echo 'from:' . $from;
+          if ($from == 'nts') {
+            echo '';
+            //echo 'from nts:' . $from;
+          }
+          elseif ($from == 'default') {
+            echo '<span style="color:' . $online_color . '; font-family:arial;">•</span>';
+            //echo 'from0:' . $from;
+          } 
+          else {
+            echo '<span style="color:' . $online_color . '; font-family:arial;">•</span>';
+            //echo 'from else:' . $from;
+          }
         }
         echo $user_info["nickname"];
       }
@@ -1224,10 +1236,13 @@ function show_general_info($chart_id) {
         $birthday = $user_info["birthday"];
       }
       if (!$is_celeb) {
+        $age_private = get_preferences(get_user_id_from_chart_id($chart_id), 'age_private', 0);
         echo '<div class="name_area">';
-        echo calculate_age(substr((string)$birthday, 0, 10));
+        if ($age_private == 0) {
+          echo calculate_age(substr((string)$birthday, 0, 10)) . '/';
+        }
         if (get_gender($user_info["user_id"]) != "U") {
-          echo '/' . get_gender($user_info["user_id"]);
+          echo get_gender($user_info["user_id"]);
         }
         echo ' ' . $location;
         echo '</div>';
@@ -1270,8 +1285,15 @@ function general_info_for_scroll ($chart_id, $user_id) {
     if(!$is_celeb) { //USER
       $birthday = $user_info["birthday"];
       $age = calculate_age(substr((string)$birthday, 0, 10));
+      $age_private = get_preferences($user_id, 'age_private', 0);
       //return '<div>' . $age . '&bull;</div>';
-      return '<div class="profile_info_area"><div class="later_on nickname_area"><span style="color:' . $online_color . '; font-family:arial;">&bull;</span>' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';
+      if ($age_private == 0) {
+        return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';
+      }
+      else {
+        return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . get_gender($user_id) . ' ' . $location . '</div></div>';
+      }
+      //<span style="color:' . $online_color . '; font-family:arial;">&bull;</span>
     }
     else { //IS_CELEB
       //return 'Hello';
@@ -1282,7 +1304,13 @@ function general_info_for_scroll ($chart_id, $user_id) {
     if(!$is_celeb) { //USER
       $birthday = $user_info["birthday"];
       $age = calculate_age(substr((string)$birthday, 0, 10));
-      return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>';  
+      $age_private = get_preferences($user_id, 'age_private', 0);
+      if ($age_private == 0) {
+        return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . $age . '/' . get_gender($user_id) . ' ' . $location . '</div></div>'; 
+      }
+      else {
+        return '<div class="profile_info_area"><div class="later_on nickname_area">' . $user_info["nickname"] . '</div><div class="name_area">' . get_gender($user_id) . ' ' . $location . '</div></div>'; 
+      } 
     }
     else { //IS_CELEB
       return '<div class="profile_info_area"><div class="later_on nickname_area_celeb">' . $user_info["first_name"] . ' ' . $user_info["last_name"] . '</div></div>';
@@ -6813,7 +6841,7 @@ function show_profiles ($url="", $limit, $filter=0) {
                                 //echo '<div class="user_button"><a href="' . $url . '&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $user["chart_id"] . '">' . format_image($picture=get_main_photo($user["user_id"]), $type="compare",$user["user_id"]) . '</a></div>';   
                                 echo '</div>';
                             echo '</div>'; 
-                          show_general_info($user["chart_id"]);
+                          show_general_info($user["chart_id"], 'nts');
                           //echo '<div class="user_info">' . $user["nickname"] . '</div>';      
                           //echo '*' . $user["score"] . '*';
                         echo '</div>';       
@@ -7025,7 +7053,7 @@ function show_privacy_form () {
   echo '<div id="privacy_form">';
   echo '<div class="heading">Privacy Settings</div>';
    //echo '<form name="privacy_form" method="POST" action="privacy_settings.php">';
-      echo '<div style="margin-bottom:20px; line-height: 1.5;">';
+      echo '<div style="margin-bottom:10px; line-height: 1.5;">';
         echo '<input type="checkbox"';
           if (get_my_preferences('email_search_private', 0) == 1) {
             echo ' checked';
@@ -7035,13 +7063,23 @@ function show_privacy_form () {
         echo '</div>';
       echo '</div>';
 
-      echo '<div style="margin-bottom:20px; line-height: 1.5;">';
+      echo '<div style="margin-bottom:10px; line-height: 1.5;">';
         echo '<input type="checkbox"';
           if (get_my_preferences('chat_emails_flag', 1) == 1) {
             echo ' checked';
           }
         echo ' name="chart" id="cecb" style="display:inline; margin-right:8px;"/>';
         echo '<div class="later_on" id="chat_emails_text" style="display:inline;">Email me when I get messages from other Starma users<span id="ce_done" class="later_on" style="display:none; padding-left:10px;"></span>';
+        echo '</div>';
+      echo '</div>';
+
+      echo '<div style="margin-bottom:20px; line-height: 1.5;">';
+        echo '<input type="checkbox"';
+          if (get_my_preferences('age_private', 1) == 1) {
+            echo ' checked';
+          }
+        echo ' name="chart" id="agecb" style="display:inline; margin-right:8px;"/>';
+        echo '<div class="later_on" id="age_private_text" style="display:inline;">Hide my age<span id="age_done" class="later_on" style="display:none; padding-left:10px;"></span>';
         echo '</div>';
       echo '</div>';
 
