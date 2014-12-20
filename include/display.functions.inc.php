@@ -3143,14 +3143,14 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
         //echo '*' . $score . '*';
       echo '</div>'; //close star_rating
 
-
+    if(isLoggedIn()) {
       echo '<div id="view_compare_tutorial"><div class="sign_up">View Tutorial</div>';
           echo '<input type="hidden" id="c_id1" value="' . $_SESSION['compare_chart_ids'][0] .'" />';
           echo '<input type="hidden" id="c_id2" value="' . $_SESSION['compare_chart_ids'][1] .'" />';
           echo '<input type="hidden" id="the_left" value="' . $_GET['the_left'] . '" />';
           echo '<input type="hidden" id="the_page" value="' . $_GET['the_page'] . '" />';
       echo '</div>';
-      
+    }  
 
       /*
       echo '<div id="explanation" class="explanation_less later_on">';
