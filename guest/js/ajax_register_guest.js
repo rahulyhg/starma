@@ -377,6 +377,21 @@ $(document).ready(function(){
 
 
 
+//FB REGISTER
+	
+	$('#register_submit_fb').click(function(){
+		var name = $('#reg_username_error');
+		var age = $('#reg_birthday_error');
+		var email_error1 = $('#reg_email_error');
+		var pass = $('#reg_password_error');
+		if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
+			mixpanel.track('FB Create Account Guest');
+		}
+
+	});
+		
+
+
 
 
 	/*
