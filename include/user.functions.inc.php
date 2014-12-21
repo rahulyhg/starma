@@ -707,7 +707,7 @@ function get_my_main_photo() {
 
 function get_my_main_photo_uncropped() {
   if (isLoggedIn()) {
-    get_main_photo_uncropped(get_my_user_id());
+    return get_main_photo_uncropped(get_my_user_id());
   }
   else {
     return false;
