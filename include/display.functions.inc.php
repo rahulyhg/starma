@@ -948,18 +948,26 @@ function show_upload_photo_box () {
         //ERRORS----------
 
           if (isset($_GET['error'])) {
+            log_this_action (profile_action_photos(), error_basic_action(), $error);
             if ($_GET['error'] == 1) {
-              echo '<div class="photo_profile_err">There was an error.  Please try again.</div>';
+              echo '<div class="photo_profile_err">There was an error with your photo.  Please try again.</div>';
             }
-            if ($_GET['error'] == 2) {
+            elseif ($_GET['error'] == 2) {
               echo '<div class="photo_profile_err">You have too many photos.  Please delete one to upload a new photo.</div>';
             }
-            if ($_GET['error'] == 3) {
+            elseif ($_GET['error'] == 3) {
               echo '<div class="photo_profile_err">Please select a photo with the Browse button.</div>';
             }
-            if ($_GET['error'] == 4) {
+            elseif ($_GET['error'] == 4) {
               echo '<div class="photo_profile_err">Pease select a valid file.</div>';
             }
+            elseif ($_GET['error'] == 5) {
+              echo '<div class="photo_profile_err">We are having trouble recognizing this file. Please choose another photo.</div>';
+            }
+            else {
+              echo '<div class="photo_profile_err">There was an error.  Please try again.</div>';
+            }
+            
           }
 
         //END ERRORS------------

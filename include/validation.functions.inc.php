@@ -147,7 +147,6 @@ function do_redirect ($url) {
 /**********************END STAGING SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
 /**********************BEGIN LOCAL DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
-
 /*
 function get_domain () {
   return '127.0.0.1:8080';

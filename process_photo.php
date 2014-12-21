@@ -32,10 +32,16 @@ require_once ("header.php");
       }      
     }
        
-	 list($file,$error) = upload_no_adjust('image',ORIGINAL_IMAGE_PATH(),'jpeg,gif,png,jpg');
-	 if($error) {
-      print $error;
-      $error = 4;
+    list($file,$error) = upload_no_adjust('image',ORIGINAL_IMAGE_PATH(),'jpeg,gif,png,jpg');
+    if($error) {
+      print $error;  
+      if ($error != 'bad_picture') {
+        $error = 4;
+      }
+      else {
+        $error = 5;
+      }
+      
     }
     else {
       if (!associate_photo_with_me($file)) {

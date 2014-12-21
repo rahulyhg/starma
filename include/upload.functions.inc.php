@@ -114,8 +114,13 @@ function upload_no_adjust ($file_id, $folder="", $types="") {
       
     }
 
-    $image->save($folder . $file_name);
-    return array($file_name,$result);
+    if ($image->save($folder . $file_name)) {
+      return array($file_name,$result);
+    }
+    else {
+      $result = $_FILES[$file_id]['name'] . "bad_picture"; //Show error if any.
+      return array('',$result);
+    }
 }
 
 function rotateImage($image_name_to_be, $image, $degrees){
@@ -351,18 +356,25 @@ class SimpleImage {
       
  
       if( $image_type == IMAGETYPE_JPEG ) {
-         imagejpeg($this->image,$filename,$compression);
+         if (!imagejpeg($this->image,$filename,$compression)) {
+           return false;
+         }
       } elseif( $image_type == IMAGETYPE_GIF ) {
  
-         imagegif($this->image,$filename);
+         if (!imagegif($this->image,$filename)) {
+           return false; 
+         }
       } elseif( $image_type == IMAGETYPE_PNG ) {
- 
-         imagepng($this->image,$filename);
+         
+         if (!imagepng($this->image,$filename)) {
+           return false;
+         }
       }
       if( $permissions != null) {
  
          chmod($filename,$permissions);
       }
+      return true;
    }
    function output($image_type=IMAGETYPE_JPEG) {
  
