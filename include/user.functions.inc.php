@@ -705,9 +705,31 @@ function get_my_main_photo() {
   }
 }
 
+function get_my_main_photo_uncropped() {
+  if (isLoggedIn()) {
+    get_main_photo_uncropped(get_my_user_id());
+  }
+  else {
+    return false;
+  }
+}
+
 function get_main_photo($user_id) {
   //if (isLoggedIn()) {
     $q = "SELECT picture from user_picture where user_id = " . $user_id . " and main = 1 and uncropped = 0";
+    if ($result = mysql_query($q)) {
+      $row = mysql_fetch_array($result);
+      return $row["picture"];
+    }
+     
+  //}
+    else {
+      return false;
+    }
+}
+
+function get_main_photo_uncropped($user_id) {
+  $q = "SELECT picture from user_picture where user_id = " . $user_id . " and main = 1 and uncropped = 1";
     if ($result = mysql_query($q)) {
       $row = mysql_fetch_array($result);
       return $row["picture"];
