@@ -315,7 +315,8 @@ function activate_photo_cropper ($img_id, $img_name) {
 	    foo.init(\'.photo_cropper_content\');
 	    foo.loadImg("' . ORIGINAL_IMAGE_PATH() . $img_name . '?m=' . filemtime(ORIGINAL_IMAGE_PATH() . $img_name) . '");
  
-	    $(\'.cropButton, #next_profile\').on(\'click\', function() {
+	    $(\'.cropButton, #next_profile\').on(\'click\', function(event) {
+        event.preventDefault();
                 $(\'#next_profile\').prop(\'disabled\', true);
 		    $.ajax({
 			   type: "post",
@@ -330,7 +331,8 @@ function activate_photo_cropper ($img_id, $img_name) {
  
 	    });
 
-      $(document).on(\'click\', \'#next\', function() {
+      $(document).on(\'click\', \'#next\', function(event) {
+        event.preventDefault();
         $(\'#next\').prop(\'disabled\', true);
         $.ajax({
          type: "post",
