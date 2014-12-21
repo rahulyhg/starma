@@ -7653,11 +7653,14 @@ function show_3_words_photo_box () {
       echo '<div class="photo_border_wrapper_compare">';
         echo '<div class="compare_photo">';
           if ($main_photo = get_main_photo($user_id)) {
-            echo '<div class="user_button">' . format_image($picture=get_main_photo($user_id), $type="compare", $user_id) . '</div>';
+            if (get_my_main_photo_uncropped()) {
+              do_redirect( $url = get_domain() . '/sign_up.php?2_5');
+            }
+            else {
+              echo '<div class="user_button">' . format_image($picture=get_main_photo($user_id), $type="compare", $user_id) . '</div>';
+            }
           }
-          elseif (get_my_main_photo_uncropped()) {
-            do_redirect( $url = get_domain() . '/sign_up.php?2_5');
-          }
+          
           else {
             echo '<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>';
           }
