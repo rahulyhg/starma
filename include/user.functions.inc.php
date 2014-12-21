@@ -705,6 +705,15 @@ function get_my_main_photo() {
   }
 }
 
+function get_my_main_photo_both() {
+  if (isLoggedIn()) {
+    return get_main_photo_both(get_my_user_id());
+  }
+  else {
+    return false;
+  }
+}
+
 function get_my_main_photo_uncropped() {
   if (isLoggedIn()) {
     return get_main_photo_uncropped(get_my_user_id());
@@ -728,14 +737,23 @@ function get_main_photo($user_id) {
     }
 }
 
+function get_main_photo_both($user_id) {
+   $q = "SELECT picture from user_picture where user_id = " . $user_id . " and main = 1";
+    if ($result = mysql_query($q)) {
+      $row = mysql_fetch_array($result);
+      return $row["picture"];
+    }
+    else {
+      return false;
+    }
+}
+
 function get_main_photo_uncropped($user_id) {
   $q = "SELECT picture from user_picture where user_id = " . $user_id . " and main = 1 and uncropped = 1";
     if ($result = mysql_query($q)) {
       $row = mysql_fetch_array($result);
       return $row["picture"];
     }
-     
-  //}
     else {
       return false;
     }
@@ -888,7 +906,7 @@ function associate_photo_with_user($pic_name, $user_id) {
   if (isLoggedIn()) {
     if (num_photos($user_id) < max_photos()) {
       //if ((int)num_photos($user_id) == 0) {
-      if (!get_main_photo($user_id)) {
+      if (!get_main_photo_both($user_id)) {
         $main = 1;
       }
       else {
