@@ -396,6 +396,11 @@ function contains_illegal_words($nickname) {
   return false;
 }
 
+function sanitize_input ($input) {
+  $input = strip_tags($input);
+  return $input;
+}
+
 function token_valid ($token) {
   $q = 'SELECT * from token where token = "' . $token . '" and user_id = -1';
   $do_q = mysql_query ($q) or die(mysql_error());

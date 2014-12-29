@@ -1005,8 +1005,8 @@ function update_my_interests($about_me, $activities, $music, $books, $FandT, $Ra
   if (isLoggedIn()) {
     
     $q = sprintf("update user set about_me = '%s', activities = '%s', music = '%s', books = '%s', film_television = '%s', spiritual = '%s', political = '%s', inspirational_figures = '%s' where user_id = %d",
-        mysql_real_escape_string($about_me), mysql_real_escape_string($activities), mysql_real_escape_string($music), mysql_real_escape_string($books), mysql_real_escape_string($FandT), 
-        mysql_real_escape_string($RandS), mysql_real_escape_string($political), mysql_real_escape_string($figures), $_SESSION["user_id"]);
+        mysql_real_escape_string(sanitize_input($about_me)), mysql_real_escape_string(sanitize_input($activities)), mysql_real_escape_string(sanitize_input($music)), mysql_real_escape_string(sanitize_input($books)), mysql_real_escape_string(sanitize_input($FandT)), 
+        mysql_real_escape_string(sanitize_input($RandS)), mysql_real_escape_string(sanitize_input($political)), mysql_real_escape_string(sanitize_input($figures)), $_SESSION["user_id"]);
     $result = mysql_query($q) or die(mysql_error());
     return true;
      
@@ -1018,7 +1018,7 @@ function update_my_interests($about_me, $activities, $music, $books, $FandT, $Ra
 
 function update_my_biography($about_me) {
   if (isLoggedIn()) {
-    
+    $about_me = sanitize_input($about_me);
     $q = sprintf("update user set about_me = '%s'where user_id = %d",
         mysql_real_escape_string($about_me), $_SESSION["user_id"]);
     $result = mysql_query($q) or die(mysql_error());
@@ -1034,7 +1034,7 @@ function update_my_full_name($first_name, $last_name) {
   if(isLoggedIn()){
     $user_id = get_my_user_id();
     $q = sprintf("update user set first_name = '%s', last_name = '%s' where user_id = %d",
-          mysql_real_escape_string($first_name), mysql_real_escape_string($last_name), $user_id);
+          mysql_real_escape_string(sanitize_input($first_name)), mysql_real_escape_string(sanitize_input($last_name)), $user_id);
     $result = mysql_query($q) or die(mysql_error());
     return true;
   }
@@ -2531,7 +2531,7 @@ function update_my_username ($username) {
   if (isLoggedIn()) {
     $user_id = get_my_user_id();
     $q = sprintf('UPDATE user set nickname = "%s" where user_id = "%d"',
-      mysql_real_escape_string($username), $user_id);
+      mysql_real_escape_string(sanitize_input($username)), $user_id);
     if (mysql_query($q)) {
       return true;
     }
