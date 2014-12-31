@@ -476,7 +476,7 @@ function valid_email($email)
 
 function valid_username($username)
 {
-    $maxlength = 14;
+    $maxlength = 20;
     $minlength = 3;
     $username = trim($username);
  
@@ -565,7 +565,8 @@ function valid_pass($pass, $minlength = 6, $maxlength = 15)
 
 function valid_nickname($nickname, $minlength = 3, $maxlength = 30)
 {
- 
+    return valid_username($nickname);
+    /*
     $nickname = trim($nickname);
  
     if (empty($nickname))
@@ -598,6 +599,7 @@ function valid_nickname($nickname, $minlength = 3, $maxlength = 30)
 
     
     return false;
+   */
  
 }
 
