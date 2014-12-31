@@ -1,7 +1,7 @@
 
 #sign_up_container {
   width:320px; 
-  margin: 38px auto;
+  margin: 0 auto;
   background:#e7ebee; 
   font-size:.9em; 
   padding: 10px 0 25px 0;
@@ -40,6 +40,11 @@
   margin-bottom: 5px;
   letter-spacing: .5px;
   */
+}
+
+#sign_up_submit {
+  position: relative;
+  bottom: 39px;
 }
 
 #gender select, #country select, #accuracy select, #time select#meridiem_time {
@@ -281,7 +286,6 @@
 
 #words_photo #profile_photo {
   display: inline-block;
-  padding-right: 10px;
   position: relative;
 }
 

@@ -231,18 +231,13 @@ $('#zip').on('keyup blur', function(){
 
 
 $('.div_no_photo').click(function(){
-	$('#words_photo').hide();
+	$('#sign_up_page').hide();
 	$('#upload_photo_form_sign_up').show();
 });
 
 
 $('.incomplete').click(function(){
-	if ($('#word_1').val() == '' || $('#word_2').val() == '' || $('#word_3').val() == '') {
-		$('#action_step').text('Please upload a photo and choose your 3 words');
-	}
-	else {
-		$('#action_step').text('Please upload a photo');
-	}
+	$('#action_step').text('Please upload a photo');
 });
 
 

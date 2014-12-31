@@ -98,9 +98,9 @@ function sendID() {
     });
 
     
-    //FB.getLoginStatus(function(response) {
-      //statusChangeCallback(response);
-    //});
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
     
   };
 
@@ -140,11 +140,18 @@ function sendID() {
 	 <!--register_teaser_test-->
     <div id="msg_sheen" class="pop_test">
       <div id="msg_sheen_screen" class="pop_test"></div>
-        <div style="position:absolute; z-index:100; top:2%; left:33%;">
+        <div style="position:absolute; z-index:100; top:6%; left:33%;">
           <?php               
             echo '<div id="sign_up_container" class="pop_test">';
 
-            show_sign_up_page();
+            if (isset($_GET['crop'])) {
+              show_crop_box();
+            }
+            else {
+              show_sign_up_page();
+              show_upload_photo_sign_up_box();
+            }
+            
 
               //show_sign_up_box_landing();
               //show_registration_box_landing();

@@ -7527,6 +7527,7 @@ function show_bugaboos() {
 //SINGLE PAGE SIGN UP
 
 function show_sign_up_page() {
+  echo '<div id="sign_up_page">';
   echo '<div id="gender_location">';
     echo '<div class="title">Congratulations!</div>';
     echo '<div class="congrats">You\'ve created an account.  We just need a tiny bit of info and you\'ll be ready to start!</div>';
@@ -7616,9 +7617,9 @@ function show_sign_up_page() {
           elseif (get_my_main_photo_uncropped()) {
             do_redirect( $url = get_domain() . '/sign_up.php?2_5');
           }
-          //else {
-            //echo '<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>';
-          //}
+          else {
+            echo '<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>';
+          }
         echo '</div>';
       echo '</div>';
 
@@ -7694,24 +7695,26 @@ function show_sign_up_page() {
         echo '<div class="w_err_exp" id="w_3_err_exp"></div>';
 
 
-        if ($main_photo = get_main_photo($user_id)) {
-          echo '<div id="submit_words_photo">';
-            //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
-            echo '<button type="submit" id="next">Next ></button>';
-          echo '</div>';
-        }
-        else {
-          echo '<div id="submit_words_photo">';
-            //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
-            echo '<div id="next" class="incomplete">Done ></div>';
-          echo '</div>';
-        }
-
-      echo '</form>';
+      
     echo '</div>'; //close edit_words
 
-  echo '</div>';  //close 3_words_photo
+  
 
+    if ($main_photo = get_main_photo($user_id)) {
+      echo '<div id="sign_up_submit">';
+        //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+        echo '<button type="submit" id="next">Done ></button>';
+      echo '</div>';
+    }
+    else {
+      echo '<div id="sign_up_submit">';
+        //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+        echo '<div id="next" class="incomplete">Done ></div>';
+      echo '</div>';
+    }
+    echo '</div>';  //close 3_words_photo
+  echo '</form>';
+  echo '</div>'; //close sign_up_page
 
 //PHOTO ERRORS---------------------------------
   /*
@@ -7737,6 +7740,47 @@ function show_sign_up_page() {
   */
   //echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
 
+}
+
+function show_upload_photo_sign_up_box () {
+        echo '<div id="upload_photo_form_sign_up" ';
+          if (isset($_GET['error'])) {
+            echo 'style="display:block;"';
+          }
+        echo '>';      
+          echo '<div class="heading">Upload Your Photo</div>';
+
+        //ERRORS----------
+
+          if (isset($_GET['error'])) {
+            if ($_GET['error'] == 1) {
+              echo '<div class="p_err">There was an error.  Please try again.</div>';
+            }
+            if ($_GET['error'] == 2) {
+              echo '<div class="p_err">You have too many photos.  Please delete one to upload a new photo.</div>';
+            }
+            if ($_GET['error'] == 3) {
+              echo '<div class="p_err">Please select a photo with the Browse button.</div>';
+            }
+            if ($_GET['error'] == 4) {
+              echo '<div class="p_err">Pease select a valid file.</div>';
+            }
+          }
+
+        //END ERRORS------------
+
+            echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';          
+              echo '<div><input id="image" type="file" name="image"/></div>';
+              echo '<input type="submit" value="Next >" name="action" id="upload_photo" />';
+
+              echo '<input type="hidden" name="desc1" id="desc1" value=""/>';
+              echo '<input type="hidden" name="desc2" id="desc2" value=""/>';
+              echo '<input type="hidden" name="desc3" id="desc3" value=""/>';
+              echo '<input type="hidden" name="firsttime" value="1"/>';
+              //echo '<div id="cancel_photo" class="later_on">Cancel</div>';
+           echo '</form>';
+        echo '</div>';
+      echo '</div>';
 }
 
 
@@ -7804,47 +7848,6 @@ function show_gender_location_box() {
 
     echo '<script type="text/javascript" src="/js/ajax_gender_location.js"></script>';
 
-}
-
-function show_upload_photo_sign_up_box () {
-        echo '<div id="upload_photo_form_sign_up" ';
-          if (isset($_GET['error'])) {
-            echo 'style="display:block;"';
-          }
-        echo '>';      
-          echo '<div class="heading">Upload Your Photo</div>';
-
-        //ERRORS----------
-
-          if (isset($_GET['error'])) {
-            if ($_GET['error'] == 1) {
-              echo '<div class="p_err">There was an error.  Please try again.</div>';
-            }
-            if ($_GET['error'] == 2) {
-              echo '<div class="p_err">You have too many photos.  Please delete one to upload a new photo.</div>';
-            }
-            if ($_GET['error'] == 3) {
-              echo '<div class="p_err">Please select a photo with the Browse button.</div>';
-            }
-            if ($_GET['error'] == 4) {
-              echo '<div class="p_err">Pease select a valid file.</div>';
-            }
-          }
-
-        //END ERRORS------------
-
-            echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';          
-              echo '<div><input id="image" type="file" name="image"/></div>';
-              echo '<input type="submit" value="Next >" name="action" id="upload_photo" />';
-
-              echo '<input type="hidden" name="desc1" id="desc1" value=""/>';
-              echo '<input type="hidden" name="desc2" id="desc2" value=""/>';
-              echo '<input type="hidden" name="desc3" id="desc3" value=""/>';
-              echo '<input type="hidden" name="firsttime" value="1"/>';
-              //echo '<div id="cancel_photo" class="later_on">Cancel</div>';
-           echo '</form>';
-        echo '</div>';
-      echo '</div>';
 }
 
 
