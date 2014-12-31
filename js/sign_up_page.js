@@ -1,6 +1,10 @@
 $(document).ready(function(){
 
 
+	//SHOW UPLOAD PHOTO FORM ON ERROR
+	if ($('.p_err').length) {
+		$('#upload_photo_form_sign_up').show();
+	}
 
 	//------------CITY VS ZIP
 	if ($('#country_id').val() != 236) {

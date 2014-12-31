@@ -147,6 +147,9 @@ function sendID() {
             if (isset($_GET['crop'])) {
               show_crop_box();
             }
+            elseif (isset($_GET['error'])) {
+              show_upload_photo_sign_up_box();
+            }
             else {
               show_sign_up_page();
               show_upload_photo_sign_up_box();
@@ -221,19 +224,7 @@ function sendID() {
         <script type="text/javascript">
       
       $(document).ready(function(){
-       
           $('.pop_test').show();
-        
-        $('button[name=sign_up_email]').click(function(){
-          $('#sign_up_box').hide();
-          $('#create_account').show();
-          $('#username>input').focus();
-        });
-  
-        $('#cancel_email_sign_up').click(function(){
-          $('#sign_up_box').show();
-          $('#create_account').hide();
-        });
       });
 
     </script>
