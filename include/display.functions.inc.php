@@ -7524,6 +7524,223 @@ function show_bugaboos() {
 
 //******************************* SIGN UP BOXES **********************************/
 
+//SINGLE PAGE SIGN UP
+
+function show_sign_up_page() {
+  echo '<div id="gender_location">';
+    echo '<div class="title">Congratulations!</div>';
+    echo '<div class="congrats">You\'ve created an account.  We just need a tiny bit of info and you\'ll be ready to start!</div>';
+    //echo '<div id="step">1 / 3</div>';
+      echo '<form id="sign_up_page_form" name="sign_up" method="post" action="/chat/sign_up_page.php">';
+        
+        echo '<div class="small_title">Gender</div>';
+          echo '<div id="gender">';
+            gender_select ($the_gender=$gender, $the_name="gender");
+            
+          echo '</div>';
+
+          echo '<div class="small_title">Current Location</div>';
+              
+          echo '<div id="country">';    
+            country_select ($country_id, "js_country_id");
+            
+          echo '</div>';
+
+          echo '<div id="js_city_div">';
+            echo '<input type="text" id="city" name="title" placeholder="City"/>';
+            
+          echo '</div>';
+
+          echo '<div id="js_zip_div">';
+            //zipcode_input ("zip", "location_verification .location_text");
+          echo '<input maxlength="5" type="text" id="zip"';
+            if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6 ) {
+              echo ' style="border-color:#C82923;"';
+            } 
+
+          echo ' name="zip" value="' . $_SESSION['zip'] . '" placeholder="Zip Code">';
+           
+          echo '</div>'; 
+          
+          echo '<div id="location_verification">';
+            
+          echo '</div>';
+
+          //echo '<button type="submit" id="next">Next ></button>';
+
+      //echo '</form>';
+    echo '</div>';
+
+    //ERRORS---------------
+
+    echo '<div class="gl_err" id="gl_gender_error"></div>
+          <div class="gl_err_exp" id="gl_err_gender_exp"></div>';
+
+    echo '<div class="gl_err" id="gl_cid_error"></div>
+          <div class="gl_err_exp" id="gl_err_cid_exp"></div>';
+
+    echo '<div class="gl_err" id="gl_city_error"></div>
+          <div class="gl_err_exp" id="gl_err_city_exp"></div>';
+
+     echo '<div class="gl_err" id="gl_zip_error"></div>
+           <div class="gl_err_exp" id="gl_err_zip_exp"></div>';
+
+    //echo '<script type="text/javascript" src="/js/ajax_gender_location.js"></script>';
+
+
+
+//3 WORDS & PHOTO
+
+  $user_id = get_my_user_id();
+  $descriptors = get_descriptors($user_id);
+  //print_r($descriptors);
+  //echo '<br>descriptor1: ' . $descriptors[0]['descriptor'];
+  echo '<div id="words_photo" ';
+    if (isset($_GET['error'])) {
+      echo 'style="display:none;"';
+    }
+  echo '>';
+  //echo '<div id="step">2 / 3</div>';
+    echo '<div style="text-align:center;" class="small_title">Upload a photo and choose 3 words to describe yourself</div>';
+
+    echo '<div id="action_step" class="later_on"></div>';
+    //PROFILE PIC ---
+
+    echo '<div id="profile_photo">';
+
+      echo '<div class="photo_border_wrapper_compare">';
+        echo '<div class="compare_photo">';
+          if ($main_photo = get_main_photo($user_id)) {           
+            echo '<div class="user_button">' . format_image($picture=get_main_photo($user_id), $type="compare", $user_id) . '</div>';            
+          }
+          elseif (get_my_main_photo_uncropped()) {
+            do_redirect( $url = get_domain() . '/sign_up.php?2_5');
+          }
+          //else {
+            //echo '<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>';
+          //}
+        echo '</div>';
+      echo '</div>';
+
+      if (!get_my_fb_id()) {
+        echo '<div id="use_fb_photo" class="later_on" onclick="fbSignUp();">Use Facebook My Pic</div>';
+      }
+      else {
+        echo '<div id="use_fb_photo" class="later_on div_no_photo">Upload a Photo</div>';
+      }
+      
+
+    echo '</div>';
+
+    echo '<div id="edit_words">';
+      
+      //echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
+        
+        //if ($desc = mysql_fetch_array($descriptors)) {
+        if (isset($descriptors)) {
+          //echo $descriptors;
+          $x = 0;
+          while ($desc = mysql_fetch_array($descriptors)) {
+            echo '<input type="text" maxlength="15" id="word_' . ($x + 1) . '" placeholder="' . ($x + 1) . '. " value="' . $desc["descriptor"] . '"/>';
+            $x = $x + 1;
+          }
+        }        
+        if (isset($x) && $x == 0) {
+          //echo $x;
+           //for ($x = 1; $x<4; $x++) {
+            //$x = 4;
+              //echo '<div class="value">';
+               echo '<input type="text" maxlength="15" id="word_1" placeholder="i.e. quirky "';
+                  if(isset($_SESSION['word_1'])) {
+                    echo 'value="' . $_SESSION['word_1'] . '"';
+                  }
+                echo '/>';
+
+                echo '<input type="text" maxlength="15" id="word_2" placeholder="i.e. cat-loving"';
+                  if(isset($_SESSION['word_2'])) {
+                    echo 'value="' . $_SESSION['word_2'] . '"';
+                  }
+                echo '/>';
+
+                echo '<input type="text" maxlength="15" id="word_3" placeholder="i.e. astronaut"';
+                  if(isset($_SESSION['word_3'])) {
+                    echo 'value="' . $_SESSION['word_3'] . '"';
+                  }
+                echo '/>';  
+          //}
+        }
+
+        //echo 'X = ' . $x;
+        //echo $_SESSION['word_1'];
+        //echo $_SESSION['word_2'];
+        //echo $_SESSION['word_3'];
+        elseif (isset($x) && $x > 0 && $x < 3) {
+          for ($i = ($x + 1); $i < 4; $i++) {
+            echo '<input type="text" id="word_' . $i . '" placeholder="' . $i . '. " value=""/>';
+          }
+        }
+        unset($x);
+        
+        echo '<input type="hidden" value="words" id="words" />';
+
+      //ERRORS---------------------------
+        echo '<div class="w_err" id="w_1_error"></div>';
+        echo '<div class="w_err_exp" id="w_1_err_exp"></div>';
+
+        echo '<div class="w_err" id="w_2_error"></div>';
+        echo '<div class="w_err_exp" id="w_2_err_exp"></div>';
+
+        echo '<div class="w_err" id="w_3_error"></div>';
+        echo '<div class="w_err_exp" id="w_3_err_exp"></div>';
+
+
+        if ($main_photo = get_main_photo($user_id)) {
+          echo '<div id="submit_words_photo">';
+            //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+            echo '<button type="submit" id="next">Next ></button>';
+          echo '</div>';
+        }
+        else {
+          echo '<div id="submit_words_photo">';
+            //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+            echo '<div id="next" class="incomplete">Done ></div>';
+          echo '</div>';
+        }
+
+      echo '</form>';
+    echo '</div>'; //close edit_words
+
+  echo '</div>';  //close 3_words_photo
+
+
+//PHOTO ERRORS---------------------------------
+  /*
+  echo '<div class="p_err" id="p_error">';
+    if($_GET['error'] !== 0) {
+      echo '?';
+    }
+  echo '</div>';
+  echo '<div class="w_err_exp" id="p_err_exp">';
+    if($_GET['error'] == 1) {
+      echo 'There was an error, please try again';
+    }
+    elseif($_GET['error'] == 2) {
+      echo 'You have reached the limit of 5 photos';
+    }
+    elseif($_GET['error'] == 3) {
+      echo 'No file selected';
+    }
+    elseif($_GET['error'] == 4) {
+      echo 'Not a valid file';
+    }
+  echo '</div>';
+  */
+  //echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
+
+}
+
+
+/*//OLD WAY 
 function show_gender_location_box() {
   echo '<div id="gender_location">';
     echo '<div class="title">Congratulations!</div>';
@@ -7779,7 +7996,7 @@ function show_3_words_photo_box () {
   */
 
 
-  echo '</div>';  //close 3_words_photo
+  /*echo '</div>';  //close 3_words_photo*/
 
 
 //PHOTO ERRORS---------------------------------
@@ -7804,9 +8021,11 @@ function show_3_words_photo_box () {
     }
   echo '</div>';
   */
-  echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
+  //echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
 
-}
+//}
+
+
 
 function show_photo_cropper_sign_up($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];

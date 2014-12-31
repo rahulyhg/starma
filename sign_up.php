@@ -10,14 +10,147 @@ if (sign_up_process_done()) {
 
   
 <body id="bg_stars" style="position:relative;">
+<script>
+
+function getPicFB() {
+  FB.api('/me/picture', 
+  {
+    'redirect' : false,
+    'height'   : '123',
+    'type'     : 'normal',
+    'width'    : '123'
+  },
+
+  function (respose) {
+    if (response && !response.error) {
+        $('.compare_photo').html('<div class="user_button"><img src="' + response.url + '"></div>');
+      }
+    }
+  );
+}
+
+function sendID() {
+    FB.api('/me', function(response) {
+        //console.log('Successful login for: ' + response.name);
+        //document.getElementById('status').innerHTML =
+        //  'Thanks for logging in, ' + response.name + '!';
+        var data = {'fb_id' : response.id};
+
+            $.ajax({
+              type      : 'POST',
+              url       : '/chat/fb_data.php',
+              data      : data,
+              dataType  : 'json'
+            })
+            .done(function(data){
+              //alert(data.check);
+              //console.log(data.fb_id);
+              getPicFB();
+            });
+      });
+  }
+
+ function statusChangeCallback(response) {
+    //console.log('statusChangeCallback');
+    //console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      getPicFB();
+      //testAPI();
+      //sendID();
+    } 
+    else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      //document.getElementById('status').innerHTML = 'Please log ' +
+      //  'into this app.';
+      //setTimeout('checkLoginState()', 1000);
+      $('.compare_photo').html('<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>');
+    } 
+    else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      //document.getElementById('status').innerHTML = 'Please log ' +
+      // 'into Facebook.';
+      //setTimeout('checkLoginState()', 1000);
+      $('.compare_photo').html('<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>');
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '349967198448431',
+      xfbml      : true,
+      version    : 'v2.1',
+      status     : true
+    });
+
+    
+    //FB.getLoginStatus(function(response) {
+      //statusChangeCallback(response);
+    //});
+    
+  };
+
+
+  function fbSignUp () {
+    FB.login(function(response) {
+    checkLoginState();
+      // handle the response'
+      if (response.status === 'connected') {
+        // Logged into your app and Facebook.
+        sendID();
+      } 
+      else if (response.status === 'not_authorized') {
+        // The person is logged into Facebook, but not your app.
+        setTimeout(checkLoginState(), 1000);
+      } 
+      else {
+        // The person is not logged into Facebook, so we're not sure if
+        // they are logged into this app or not.
+        setTimeout(checkLoginState(), 1000);
+      }
+    }, {scope: 'public_profile,email,user_friends'});
+  }
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+  </script>
+
+<script type="text/javascript" src="/js/sign_up_page.js"></script>
+
 	 <!--register_teaser_test-->
     <div id="msg_sheen" class="pop_test">
       <div id="msg_sheen_screen" class="pop_test"></div>
-        <div style="position:absolute; z-index:100; top:10%; left:33%;">
+        <div style="position:absolute; z-index:100; top:2%; left:33%;">
           <?php               
             echo '<div id="sign_up_container" class="pop_test">';
+
+            show_sign_up_page();
+
               //show_sign_up_box_landing();
               //show_registration_box_landing();
+
+        //OLD WAY
+            /*
             	if(isset($_GET['1'])) {
                 if (!isLoggedIn()) {
                   do_redirect(get_domain() . '/' . get_landing()); 
@@ -72,6 +205,7 @@ if (sign_up_process_done()) {
                   show_time_and_place_box();
             	  }
               }
+              */
             echo '</div>';
           ?>  
       </div>
@@ -212,7 +346,7 @@ if (sign_up_process_done()) {
         <?php
           display_thumbnails_sign_up(0,1);
         ?>
-      <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
+      <div id="co_box_blurb_sign_up"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
       </div>
     </div>
     <div id="horoscope_box_link" class="homepage_div">
@@ -250,7 +384,7 @@ if (sign_up_process_done()) {
         <?php
           display_welcome_page_thumbnails(1,0);
         ?>
-        <div id="ce_box_blurb"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
+        <div id="ce_box_blurb_sign_up"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
       </div>
     </div>
  </div> 

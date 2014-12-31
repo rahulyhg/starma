@@ -3522,6 +3522,13 @@ ul.as-list li.as-result-item em {
   width: 330px;
 }
 
+#co_box_blurb_sign_up {
+  display: inline-block;
+  position: relative;
+  right: -4px;
+  width: 330px;
+}
+
 #co_box_blurb_guest {
   display: inline-block;
   position: relative;
@@ -3534,6 +3541,13 @@ ul.as-list li.as-result-item em {
   position: relative;
   bottom: 41px;
   right: -6px;
+  width: 325px;
+}
+
+#ce_box_blurb_sign_up {
+  display: inline-block;
+  position: relative;
+  right: 6px;
   width: 325px;
 }
 

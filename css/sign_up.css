@@ -287,7 +287,7 @@
 
 #words_photo #edit_words {
   position: relative;
-  bottom: 23px;
+  bottom: 51px;
   display: inline-block;
   width: 134px;
 }
@@ -352,6 +352,11 @@
     float: right;
 }
 
+#use_fb_photo {
+  font-size: 1.19em;
+  cursor: pointer;
+  margin-top: 5px;
+}
 
 /*------------- ERRORS ------------------*/
 
