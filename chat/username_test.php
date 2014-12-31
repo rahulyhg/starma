@@ -10,7 +10,7 @@ require_once("ajax_header.php");
 	if($valid_username) {
 		if($valid_username == 'long') {
 			$data['errors'] = true;
-			$data['message'] = 'Username must contain fewer than 15 characters';
+			$data['message'] = 'Username must contain fewer than 21 characters';
 		}
 		elseif($valid_username == 'short') {
 			$data['errors'] = true;
