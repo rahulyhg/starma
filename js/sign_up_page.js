@@ -392,26 +392,24 @@ $('.incomplete').click(function(){
 			
 			if ($('#city').is(':visible')) {
 				var data = {
-					'gender'      :  $('#gender_select').val(),
-					'country_id'  :  $('#country_id').val(),
-					'city'        :  $('#city').val(),
+					'gender'       :  $('#gender_select').val(),
+					'country_id'   :  $('#country_id').val(),
+					'city'         :  $('#city').val(),
 					'word_1'       :  $('#word_1').val(),
 					'word_2'       :  $('#word_2').val(),
 					'word_3'       :  $('#word_3').val(),
 					'words'        :  $('#words').val(),
-					'crop_error'   :  $('#crop_error').val(),
 				};
 			}
 			if ($('#zip').is(':visible')) {
 				var data = {
-					'gender'      :  $('#gender_select').val(),
-					'country_id'  :  $('#country_id').val(),
-					'zip'         :  $('#zip').val(),
+					'gender'       :  $('#gender_select').val(),
+					'country_id'   :  $('#country_id').val(),
+					'zip'          :  $('#zip').val(),
 					'word_1'       :  $('#word_1').val(),
 					'word_2'       :  $('#word_2').val(),
 					'word_3'       :  $('#word_3').val(),
 					'words'        :  $('#words').val(),
-					'crop_error'   :  $('#crop_error').val(),
 				};
 			}
 

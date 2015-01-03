@@ -86,6 +86,7 @@ function upload_no_adjust ($file_id, $folder="", $types="") {
     if($types) {
         if(in_array($ext,$all_types));
         else {
+          //echo $ext; die();
             $result = "'".$_FILES[$file_id]['name']."' is not a valid file."; //Show error if any.
             return array('',$result);
         }

@@ -341,7 +341,7 @@ function activate_photo_cropper ($img_id, $img_name) {
          data: $.param(coordinates(foo)) + \'&imgName=' . $img_name . '&imgID=' . $img_id . '\'
         })
         .done(function(data) {';
-          echo 'window.location.replace("' . get_full_domain () . '/sign_up.php");';
+          echo 'window.location.assign("' . get_full_domain () . '/sign_up.php");';
  
   echo '});  return false;
  

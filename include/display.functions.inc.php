@@ -8100,7 +8100,8 @@ function show_crop_box() {
     }
     else {
       //echo '<div><a href="/sign_up.php?2">Please upload a photo</a></div>';
-      do_redirect(get_domain() . '/sign_up.php?2');
+      //do_redirect(get_domain() . '/sign_up.php?2');
+      do_redirect(get_domain() . '/sign_up.php');
     }
   echo '</div>'; //close crop_box
 }
