@@ -380,6 +380,21 @@ function parse_location_string ($country_id, $zip, $city) {
   //} 
 }
 
+function valid_word($word) {
+  if ($word == '') {
+    return 'Please choose a word';
+  }
+  elseif (contains_illegal_words($word)) {
+    return 'No naughty words please';
+  }
+  elseif (!preg_match('/^[a-zA-Z-]+$/', $word)) {
+    return 'Letters only please';
+  }
+  else {
+    return 'good';
+  }
+}
+
 function contains_illegal_words($nickname) {
   $q = 'SELECT * from banned_words WHERE disabled = 0';
   $do_q = mysql_query ($q) or die(mysql_error());

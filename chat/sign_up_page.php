@@ -37,7 +37,12 @@ require ('ajax_header.php');
     	else {
     		$word_3 = '';
     	}
-    	
+
+    	$word1 = valid_word($word_1);
+    	$word2 = valid_word($word_2);
+    	$word3 = valid_word($word_3);
+    	echo 'word1: ' . $word1;
+    	echo 'gender: ' . $gender;
 
 	 //-------------GENDER
      	if (!valid_gender($gender)) {
@@ -62,8 +67,18 @@ require ('ajax_header.php');
       	  $errors['geocode_city'] = 'Please double check your city';
       	}
 
-      //3 WORDS CHECK------------------------------------------
+      	elseif ($word1 != 'good') {
+      		$errors['word1'] = $word1;
+      		echo $errors['word1'];
+      	}
+      	elseif ($word2 != 'good') {
+      		$errors['word2'] = $word2;
+      	}
+      	elseif ($word3 != 'good') {
+      		$errors['word3'] = $word3;
+      	}
 
+      	/*
 		elseif($word_1 == '') {
 			$errors['word1'] = 'Please choose a word';
 		}
@@ -95,7 +110,7 @@ require ('ajax_header.php');
 		elseif (!preg_match('/^[a-zA-Z-]+$/', $word_3)) {
 			$errors['word3'] = 'Letters only please';
 		}
-
+		*/
 
 		elseif (!get_my_main_photo()) {
 			$errors['photo'] = 'Please upload a photo';

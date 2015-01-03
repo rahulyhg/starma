@@ -386,7 +386,7 @@ $('.incomplete').click(function(){
 //SUBMIT---------------
 //$('#next').click(function(event) {
 	$('#sign_up_page_form').submit(function(event) {
-		event.preventDefault();
+		//event.preventDefault();
 
 		$('#next').html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /></div>');
 			
