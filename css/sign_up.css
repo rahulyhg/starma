@@ -44,7 +44,7 @@
 
 #sign_up_submit {
   position: relative;
-  bottom: 39px;
+  margin-top: -18px;
 }
 
 #gender select, #country select, #accuracy select, #time select#meridiem_time {
@@ -166,6 +166,18 @@
     margin-bottom: 13px;
     text-align: center;
     font-weight: bold;
+}
+
+#profile_photo {
+  display: inline-block;
+}
+
+#edit_words {
+  display: inline-block;
+  position: relative;
+  float: right;
+  margin-top: 10px;
+  width: 124px;
 }
 
 /*-------SIGN UP SECTION 2----------*/

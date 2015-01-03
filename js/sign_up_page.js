@@ -416,8 +416,8 @@ $('.incomplete').click(function(){
 
 		$.ajax({
 			type     : 'POST',
-			url      : '/chat/ajax_words_photo.php', 
-			data     : words, 
+			url      : '/chat/sign_up_page.php', 
+			data     : data, 
 			dataType : 'json',
 		})
 		.done(function(data){
@@ -481,16 +481,17 @@ $('.incomplete').click(function(){
 					}
 				}
 				if(data.success) {
+					/*
 					mixpanel.track('Gender and Location', {
 						'gender'   : data.gender,
 						'location' : data.loc,
 						'state'    : data.state
 					}, window.location.assign('/' + data.url));
 					setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
-					
+					*/
 					//mixpanel.track('Words Photo', {}, window.location.assign('/' + data.url));
 					//setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
-					//window.location.assign('/' + data.url);			
+					window.location.assign('/' + data.url);			
 				}
 			});
 

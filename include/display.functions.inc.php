@@ -7567,10 +7567,7 @@ function show_sign_up_page() {
             
           echo '</div>';
 
-          //echo '<button type="submit" id="next">Next ></button>';
-
-      //echo '</form>';
-    echo '</div>';
+    //echo '</div>'; //close gender_location
 
     //ERRORS---------------
 
@@ -7596,11 +7593,11 @@ function show_sign_up_page() {
   $descriptors = get_descriptors($user_id);
   //print_r($descriptors);
   //echo '<br>descriptor1: ' . $descriptors[0]['descriptor'];
-  echo '<div id="words_photo" ';
-    if (isset($_GET['error'])) {
-      echo 'style="display:none;"';
-    }
-  echo '>';
+  //echo '<div id="words_photo" ';
+    //if (isset($_GET['error'])) {
+      //echo 'style="display:none;"';
+    //}
+  //echo '>';
   //echo '<div id="step">2 / 3</div>';
     echo '<div style="text-align:center;" class="small_title">Upload a photo and choose 3 words to describe yourself</div>';
 
@@ -7712,8 +7709,10 @@ function show_sign_up_page() {
         echo '<div id="next" class="incomplete">Done ></div>';
       echo '</div>';
     }
-    echo '</div>';  //close 3_words_photo
+    //echo '</div>';  //close 3_words_photo
   echo '</form>';
+
+  echo '</div>'; //close gender_location
   echo '</div>'; //close sign_up_page
 
 //PHOTO ERRORS---------------------------------
