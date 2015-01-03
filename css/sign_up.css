@@ -242,42 +242,42 @@
 
 #gl_gender_error {
   left: 150px;
-  bottom: 200px;
+  top: 133px;
 }
 
 #gl_err_gender_exp {
   width: 140px;
-  bottom: 200px;
+  top: 133px;
 }
 
 #gl_cid_error {
-  bottom: 130px;
+  top: 199px;
   right: 8px;
 }
 
 #gl_err_cid_exp {
   width: 140px;
-  bottom: 130px;
+  top: 199px;
 }
 
 #gl_city_error {
-  bottom: 87px;
+  top: 241px;
   right: 8px;
 }
 
 #gl_err_city_exp {
   width: 140px;
-  bottom: 87px;
+  top: 241px;
 }
 
 #gl_zip_error {
   right: 8px;
-  bottom: 87px;
+  top: 241px;
 }
 
 #gl_err_zip_exp {
   width: 140px;
-  bottom: 87px;
+  top: 241px;
 }
 
 #gender_error {

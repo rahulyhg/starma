@@ -7679,7 +7679,7 @@ function show_sign_up_page() {
         }
         unset($x);
         
-        echo '<input type="hidden" value="words" id="words" />';
+        //echo '<input type="hidden" value="words" id="words" />';
 
       //ERRORS---------------------------
         echo '<div class="w_err" id="w_1_error"></div>';

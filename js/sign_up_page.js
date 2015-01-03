@@ -392,24 +392,24 @@ $('.incomplete').click(function(){
 			
 			if ($('#city').is(':visible')) {
 				var data = {
+					'sign_up'      :  'sign_up',
 					'gender'       :  $('#gender_select').val(),
 					'country_id'   :  $('#country_id').val(),
 					'city'         :  $('#city').val(),
 					'word_1'       :  $('#word_1').val(),
 					'word_2'       :  $('#word_2').val(),
 					'word_3'       :  $('#word_3').val(),
-					'words'        :  $('#words').val(),
 				};
 			}
 			if ($('#zip').is(':visible')) {
 				var data = {
+					'sign_up'      :  'sign_up',
 					'gender'       :  $('#gender_select').val(),
 					'country_id'   :  $('#country_id').val(),
 					'zip'          :  $('#zip').val(),
 					'word_1'       :  $('#word_1').val(),
 					'word_2'       :  $('#word_2').val(),
 					'word_3'       :  $('#word_3').val(),
-					'words'        :  $('#words').val(),
 				};
 			}
 

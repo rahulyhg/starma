@@ -19,10 +19,25 @@ require ('ajax_header.php');
     	else {
       		$zip = '';
     	}
-    	$word_1 = trim($_POST['word_1']);
-    	$word_2 = trim($_POST['word_2']);
-    	$word_3 = trim($_POST['word_3']);
-
+    	if (isset($_POST['word_1'])) {
+    		$word_1 = trim($_POST['word_1']);
+    	}
+    	else {
+    		$word_1 = '';
+    	}
+    	if (isset($_POST['word_2'])) {
+    		$word_2 = trim($_POST['word_2']);
+    	}
+    	else {
+    		$word_2 = '';
+    	}
+    	if (isset($_POST['word_3'])) {
+    		$word_3 = trim($_POST['word_3']);
+    	}
+    	else {
+    		$word_3 = '';
+    	}
+    	
 
 	 //-------------GENDER
      	if (!valid_gender($gender)) {
@@ -49,7 +64,7 @@ require ('ajax_header.php');
 
       //3 WORDS CHECK------------------------------------------
 
-		elseif($_POST['word_1'] == '') {
+		elseif($word_1 == '') {
 			$errors['word1'] = 'Please choose a word';
 		}
 		elseif (contains_illegal_words($word_1)) {
@@ -60,7 +75,7 @@ require ('ajax_header.php');
 		}
 		
 
-		elseif($_POST['word_2'] == '') {
+		elseif($word_2 == '') {
 			$errors['word2'] = 'Please choose a word';
 		}
 		elseif(contains_illegal_words($word_2)) {
@@ -71,7 +86,7 @@ require ('ajax_header.php');
 		}
 
 
-		elseif($_POST['word_3'] == '') {
+		elseif($word_3 == '') {
 			$errors['word3'] = 'Please choose a word';
 		}
 		elseif(contains_illegal_words($word_3)) {
