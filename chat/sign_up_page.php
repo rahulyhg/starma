@@ -1,7 +1,10 @@
 <?php
 require ('ajax_header.php');
+	
+	//echo 'Test';
 
  	if (isset($_POST['sign_up'])) {
+ 		//echo 'Test';
  		$data = array();
 		$errors = array();
 
@@ -41,8 +44,6 @@ require ('ajax_header.php');
     	$word1 = valid_word($word_1);
     	$word2 = valid_word($word_2);
     	$word3 = valid_word($word_3);
-    	echo 'word1: ' . $word1;
-    	echo 'gender: ' . $gender;
 
 	 //-------------GENDER
      	if (!valid_gender($gender)) {
@@ -67,14 +68,14 @@ require ('ajax_header.php');
       	  $errors['geocode_city'] = 'Please double check your city';
       	}
 
-      	elseif ($word1 != 'good') {
+      	if ($word1 != 'good') {
       		$errors['word1'] = $word1;
-      		echo $errors['word1'];
+      		//echo $errors['word1'];
       	}
-      	elseif ($word2 != 'good') {
+      	if ($word2 != 'good') {
       		$errors['word2'] = $word2;
       	}
-      	elseif ($word3 != 'good') {
+      	if ($word3 != 'good') {
       		$errors['word3'] = $word3;
       	}
 
