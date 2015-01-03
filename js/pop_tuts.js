@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 //CHART TUTORIAL ---
 
-	$('#view_chart_tutorial').click(function(){
+	$('.view_chart_tutorial').click(function(){
 		//$('#view_chart_tutorial').html('<img src="/js/ajax_loader_sign_up.gif" />');
 		var view_chart_tutorial = {'view_chart_tutorial' : 'view_chart_tutorial'};
 

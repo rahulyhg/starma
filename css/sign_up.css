@@ -577,49 +577,49 @@
     z-index: 1000;
     padding: 6px;
     border-radius: 3px;
-    left: 318px;
+    left: 313px;
 }
 
 #tp_cid_error {
-  top: 109px;
+  top: 156px;
   right: 8px;
 }
 
 #tp_cid_error_h {
-  top: 109px;
+  top: 156px;
   right: 8px;
   display: none;
 }
 
 #tp_err_cid_exp {
   width: 140px;
-  top: 109px;
+  top: 156px;
 }
 
 #tp_city_error {
-  top: 153px;
+  top: 199px;
   right: 8px;
 }
 
 #tp_city_error_h {
-  top: 153px;
+  top: 199px;
   right: 8px;
   display: none;
 }
 
 #tp_err_city_exp {
   width: 140px;
-  top: 153px;
+  top: 199px;
 }
 
 #tp_zip_error {
   right: 8px;
-  top: 153px;
+  top: 199px;
 }
 
 #tp_err_zip_exp {
   width: 140px;
-  top: 153px;
+  top: 199px;
 }
 
 

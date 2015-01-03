@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $('#step').html('').text('3 / 3');
+  $('#step').html('').text('');
 
 //------------CITY VS ZIP
 	if ($('#country_id').val() !== 236) {

@@ -21,7 +21,7 @@ if (login_check_point($type="full")) {
 
     //*************---Matt adding msg popup from Message button
     
-    if (isset($chart_id1)) {
+    if (isset($_GET['chart_id1'])) {
       $chart_id1 = $_GET["chart_id1"];
     }
 
@@ -147,9 +147,9 @@ if (login_check_point($type="full")) {
                           <textarea id="msg_sendie" name="text_body" maxlength = "500" ></textarea>
                           <div id="send_msg">Send</div>
                           <div id="cancel_msg">Cancel</div>
-                          <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
-                          <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
-                          <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>';                         
+                          <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>';
+                          //<input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
+                          //<input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>';                         
                       //echo '</form>';
                       echo '</div>';
                       echo '<div id="msg_sent"></div>';
