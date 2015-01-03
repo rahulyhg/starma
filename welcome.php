@@ -88,9 +88,12 @@ require_once "header.php";
       <span class="header">Read Your Birth Chart</span>
       
         <?php
-        echo '<a class="box_link" href="main.php?the_page=psel&the_left=nav1" ';
+        echo '<a class="box_link ';
           if (!get_my_chart()) {
-            echo 'class="no_chart"';
+            echo 'no_chart" href="#"';
+          }
+          else {
+            echo '" href="main.php?the_page=psel&the_left=nav1"';
           }
         echo '></a>
                 <div id="homepage_chart_button_info">';

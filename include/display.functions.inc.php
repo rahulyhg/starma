@@ -8107,10 +8107,10 @@ function show_crop_box() {
 
 function show_time_and_place_box() {
   //echo $_SESSION['user_id'];
-  echo '<div id="time_and_place">';
-  echo '<div id="step">3 / 3</div>';
+  echo '<div id="time_and_place" class="time_and_place">';
+  //echo '<div id="step">3 / 3</div>';
   //echo '<div class="title">Your Birth Info</div>';
-  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.19em;">This last step allows us to calculate your birth chart. Your time and place of birth will remain private.</div>';
+  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.19em;">To view this part of Starma you will need a Birth Chart.  To calculate your Birth Chart we will need your birth info</div>';
     echo '<form id="birth_info_form" method="post" action="cast_chart_time_and_place.php">';
       
        $help_text_offset = 'offset';
@@ -8123,7 +8123,7 @@ function show_time_and_place_box() {
           echo '</div>';
 
           echo '<div id="js_city_div">';
-            echo '<input type="text" id="city" name="city" placeholder="i.e. San Francisco, CA" value="' . $_SESSION['city'] . '"';
+            echo '<input type="text" id="city" class="input_style" name="city" placeholder="i.e. San Francisco, CA" value="' . $_SESSION['city'] . '"';
               if ($_GET['error'] == 2 || $_GET['error'] == 3 || $_GET['error'] == 6) {
               echo ' style="border-color:#C82923;"';
             }
