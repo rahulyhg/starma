@@ -452,6 +452,9 @@ function statusChangeCallbackNTS(response) {
     echo '<div id="msg_sheen_screen" class="pop_invite pop_close"></div>';
               show_user_invite();
               show_user_invite_email();
+              if (!get_my_chart()) {
+                show_time_and_place_box();
+              }
   echo '</div>';
   ?>
 

@@ -86,16 +86,27 @@ require_once "header.php";
     </div>
     <div id="horoscope_box_link" class="homepage_div">
       <span class="header">Read Your Birth Chart</span>
-      <a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
-      <div id="homepage_chart_button_info">
+      
         <?php
-          $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
-          echo '<ul>';
-          echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
-          echo '</ul>';
-          echo '<div id="blurb">';
-            show_poi_sign_blurb_abbr (1, $button_sign_id);
-          echo '</div>';
+        echo '<a class="box_link" href="main.php?the_page=psel&the_left=nav1" ';
+          if (!get_my_chart()) {
+            echo 'class="no_chart"';
+          }
+        echo '></a>
+                <div id="homepage_chart_button_info">';
+          if (!get_my_chart()) {
+            echo 'Enter your birth time to get your birth chart';
+          }
+          else {
+            $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
+            echo '<ul>';
+            echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
+            echo '</ul>';
+            echo '<div id="blurb">';
+              show_poi_sign_blurb_abbr (1, $button_sign_id);
+            echo '</div>';
+          }
+          
         ?>
         <div id="h_box_blurb"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
       </div>
