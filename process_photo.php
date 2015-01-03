@@ -34,7 +34,7 @@ require_once ("header.php");
        
     list($file,$error) = upload_no_adjust('image',ORIGINAL_IMAGE_PATH(),'jpeg,gif,png,jpg');
     if($error) {
-      print $error; die(); 
+      //print $error; die(); 
       if ($error != 'bad_picture') {
         $error = 4;
       }
