@@ -5,7 +5,8 @@ require_once ("header.php");
 if (login_check_point($type="full", $domain=$domain)) {
   
   if (!get_my_chart()) {
-    echo 'Enter your birth info to get your birth chart';
+    //echo 'Enter your birth info to get your birth chart';
+    show_no_chart();
   }
   else {
     if (!isset($_POST["poi_id"])) {

@@ -232,6 +232,13 @@ input{
     z-index: 2;
 }
 
+#enter_birth_time_square {
+  position: relative;
+  top: 40px;
+  right: 15px;
+}
+
+
 #welcome #header {
   color: #272727;
   width:688px;

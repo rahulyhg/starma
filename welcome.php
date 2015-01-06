@@ -98,7 +98,8 @@ require_once "header.php";
         echo '></a>
                 <div id="homepage_chart_button_info">';
           if (!get_my_chart()) {
-            echo 'Enter your birth time to get your birth chart';
+            echo '<div id="enter_birth_time_square"><img src="/img/EnterBirthTimeSquare.png"/></div>';
+            //echo '<div id="enter_birth_time_square_link">Enter My Birth Time</div>';
           }
           else {
             $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);

@@ -5313,6 +5313,109 @@ function show_others_chart ($the_page, $the_left, $chart_id2, $western=0) {
   }
 }
 
+function show_no_chart() {
+  echo '<div id="chart_scroll">';
+        echo '<div id="chart_scroll_container">';
+          echo '<div id="chart_prev">< Previous</div>';
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" ';
+              if ($western == 0) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=0&section=chart_selected">Vedic</a>  |  ';
+              echo '<a class="later_on" ';
+              if ($western == 1) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=1&section=chart_selected">Western</a>';
+            echo '</div>'; //close birth_chart_type          
+          echo '<div id="chart_next">Next ></div>';
+        echo '</div>';
+      echo '</div>'; //Close chart_scroll
+
+      echo '<form name="chart_browser" action="." method="post">';
+      echo '<input type="hidden" name="chart_id" value="' . $calc_chart_id . '"/>';
+      echo '<input type="hidden" name="chart_id_e" value="' . $chart_id2 . '"/>';  //FOR CHART SUBMIT AJAX
+      echo '<input type="hidden" name="poi_id"/>';
+      echo '<div id="starma_chart">';
+
+    //$poi_list = get_poi_list();
+
+
+    //LEFT SIDE
+
+      $poi_left = poi_left_side();
+      echo '<div class="chart_tabs left_side"/>';
+      echo '<ul>';
+        for ($x=0; $x<6; $x++) {
+            //$button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
+            echo '<li class="chart_li Unknown_button';
+            if ($x == 0) { 
+              echo ' selected';
+            }
+            echo '">';
+            echo '<div class="chart_tabs_wrapper">';
+
+            //echo '<span class="icon left pointer"><span class="poi_title">' . get_poi_name($poi_left[$x]) . '</span></span>';
+            echo '<span class="arrow ';
+              if ($x == 0) {
+                echo 'arrow_left_on';
+              }
+            echo '"></span>';
+            echo '</div>'; //close wrapper
+            echo '</li>';
+          
+        }
+        echo '</ul>';
+        echo '</div>';
+      
+      //END LEFT SIDE
+
+
+      //RIGHT SIDE
+        
+
+        $poi_right = poi_right_side();
+        echo '<div class="chart_tabs left_side"/>';
+        echo '<ul>';
+        for ($x=0; $x<4; $x++) {
+            //$button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
+          if ($poi_right[$x] == 9) {
+            echo '<li class="chart_li Unknown_button rahuketu">';
+                echo '<div class="chart_tabs_rk_wrapper">';
+                  echo '<span class="arrow"></span>';
+                  echo '<span class="icon right pointer"><span class="poi_title">RAHU</span>';
+                  echo '<span class="ketu_text">Ketu</span>';
+                  echo '</span>';
+                echo '</div>';
+              echo '</li>';
+          }
+          else {
+            echo '<li class="chart_li Unknown_button';
+            if ($x == 0) { 
+              echo ' selected';
+            }
+            echo '">';
+
+            echo '<div class="chart_tabs_wrapper">';
+
+            echo '<span class="icon left pointer"><span class="poi_title">' . get_poi_name($poi_right[$x]) . '</span></span>';
+            echo '<span class="arrow ';
+              if ($x == 0) {
+                echo 'arrow_left_on';
+              }
+            echo '"></span>';
+            echo '</div>'; //close wrapper
+            echo '</li>';
+          }          
+        }
+        
+        echo '</ul>';
+        echo '</div>';
+
+        //END RIGHT SIDE
+
+}
+
 
 function show_chart ($chart_id, $goTo = ".") {
   if ($chart_info = get_chart($chart_id)) {
