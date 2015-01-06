@@ -2501,6 +2501,126 @@ echo        '<div id="submit_div">
 }
 
 
+//STUPID EXTRA BIRTH FORM FOR NO CHART
+
+function show_birth_info_form_no_chart() {
+  //echo $_SESSION['user_id'];
+  echo '<div id="birth_info_form_no_chart">';
+  if (isset($_GET['chart_error'])) {
+    echo '<span id="chart_error_exists" style="display:none;"></span>';
+  }
+  //echo '<div class="title">Your Birth Info</div>';
+  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.19em;">Enter your birth info to get your in-depth Birth Chart</div>';
+    echo '<form id="birth_info_form" method="post" action="cast_chart.php">';
+      
+       $help_text_offset = 'offset';
+    echo '<div class="small_title">Place of Birth</div>';
+    //echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
+ 
+          echo '<div id="country">';    
+            country_select ($_SESSION['country_id'], "country_id");
+            
+          echo '</div>';
+
+          echo '<div id="js_city_div">';
+            echo '<input type="text" id="city" class="input_style" name="city" placeholder="i.e. San Francisco, CA" value="' . $_SESSION['city'] . '"';
+              if ($_GET['chart_error'] == 2 || $_GET['chart_error'] == 3 || $_GET['chart_error'] == 6) {
+              echo ' style="border-color:#C82923;"';
+            }
+            echo '/>';
+            
+          echo '</div>';
+
+          //echo '<div id="js_zip_div">';
+          //  zipcode_input ("zip", "location_verification .location_text");           
+          //echo '</div>'; 
+          
+          //echo '<div id="location_verification">';
+          //  echo '<div class="location_text"></div>';
+          //echo '</div>';
+
+  echo '<div style="display:inline-block; float:left; width:147px;">'; //Time of birth box
+    echo '<div class="small_title">Time of birth</div>';
+    echo '<div id="time">';
+      time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
+    echo '</div>';
+  echo '</div>'; //Close Time of birth box
+
+  echo '<div style="display:inline-block; float:right; width:120px;">'; //Accuracy box
+      echo '<div class="small_title" class="align_right">Accuracy</div>';             
+        echo '<div id="accuracy">';
+                 time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
+         
+        echo '<div id="tp_birth_time_hover_box" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
+              </div>';
+      echo '</div>'; //Close accuracy
+  echo '</div>'; //Close Accuracy box
+
+    echo '<div id="help_link"> Help! I don\'t know my birth time'; 
+    
+   /* echo '<input class="pointer" onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
+                 if ( (string)get_inputed_var("time_unknown",0,$type) == '1' ) {
+                   echo 'CHECKED';
+                 }
+                 echo '/>';
+                 echo '<div style="position:relative"><div id="birth_interval_box_help_text" class="' . $help_text_offset . '" ';
+                 if ((string)get_inputed_var("time_unknown",0,$type) == '1') {
+                    echo 'style="display:block;"';
+                 }
+                 echo '>';
+                 echo '<a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">Help me find my birth time</a>';
+                 echo '</div></div>'; 
+    */
+    echo '</div>';
+      echo '<input type="hidden" id="time_unknown" name="time_unknown" value="0" />';
+      echo '<input type="hidden" name="time_and_place" value="1" />';
+      //echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
+      echo '<button type="submit" id="next">Next ></button>';
+    echo '</form>';           
+  echo '</div>'; //close time_and_place
+
+//ERRORS--------------------------------------------------
+
+  echo '<div class="tp_err" id="tp_cid_error_h">?</div>
+        <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';
+  echo '<div class="tp_err" id="tp_city_error_h">?</div>
+        <div class="tp_err_exp" id="tp_err_city_exp">Please enter a city</div>';
+
+  if ($_GET['chart_error'] == 1) {
+    echo '<div class="tp_err" id="tp_cid_error">?</div>
+          <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';
+  }
+  if ($_GET['chart_error'] == 2 || $_GET['chart_error'] == 3 || $_GET['chart_error'] == 6) {        
+    echo '<div class="tp_err" id="tp_city_error">?</div>
+          <div class="tp_err_exp" id="tp_err_city_exp">';
+            if ($_GET['chart_error'] == 2) {  
+              echo 'Please enter a city';
+            }
+            if ($_GET['chart_error'] == 3 || $_GET['chart_error'] == 6) {
+              echo 'Please double check your city';
+            }
+
+    echo '</div>';
+  }
+  /*
+  if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6) {
+     echo '<div class="tp_err" id="tp_zip_error">?</div>
+           <div class="tp_err_exp" id="tp_err_zip_exp">';
+            if ($_GET['error'] == 2) {
+              echo 'Please enter a zip code';
+            }
+            if ($_GET['error'] == 4 || $_GET['error'] == 6) {
+              echo 'Please double check your zip code';
+            }
+      echo '</div>';
+  }
+*/
+
+  echo '<script type="text/javascript" src="/js/time_and_place_ui.js"></script>';
+
+}
+
+
 
 
 function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir=true, $the_nickname="Freebie1", $interval, $time_unknown, $method="E") {
@@ -5331,11 +5451,6 @@ function show_no_chart() {
           echo '<div id="chart_next">Next ></div>';
         echo '</div>';
       echo '</div>'; //Close chart_scroll
-
-      echo '<form name="chart_browser" action="." method="post">';
-      echo '<input type="hidden" name="chart_id" value="' . $calc_chart_id . '"/>';
-      echo '<input type="hidden" name="chart_id_e" value="' . $chart_id2 . '"/>';  //FOR CHART SUBMIT AJAX
-      echo '<input type="hidden" name="poi_id"/>';
       echo '<div id="starma_chart">';
 
     //$poi_list = get_poi_list();
@@ -5398,7 +5513,7 @@ function show_no_chart() {
 
             echo '<div class="chart_tabs_wrapper">';
 
-            echo '<span class="icon left pointer"><span class="poi_title">' . get_poi_name($poi_right[$x]) . '</span></span>';
+            echo '<span class="icon right pointer"><span class="poi_title">' . get_poi_name($poi_right[$x]) . '</span></span>';
             echo '<span class="arrow ';
               if ($x == 0) {
                 echo 'arrow_left_on';
@@ -5413,6 +5528,8 @@ function show_no_chart() {
         echo '</div>';
 
         //END RIGHT SIDE
+
+        show_birth_info_form_no_chart();
 
 }
 

@@ -225,7 +225,9 @@ if (login_check_point($type="full")) {
     
     echo '</div>';
     echo'<script type="text/javascript" src="js/ajax_descriptors_submit.js"></script>';
-    echo'<script type="text/javascript" src="js/ajax_chart_submit.js"></script>';
+    if(!$no_chart) {
+      echo'<script type="text/javascript" src="js/ajax_chart_submit.js"></script>';
+    }
     echo'<script type="text/javascript" src="js/profile_edit.js"></script>';
     echo '<script type="text/javascript" src="js/ajax_hl_submit.js"></script>';
   //}

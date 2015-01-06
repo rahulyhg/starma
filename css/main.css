@@ -3816,6 +3816,20 @@ END OLD WAY*/
 
 /*///////////// END CUSTOM BIRTH INFO //////////////////////////////////*/
 
+
+/*//////////// BIRTH INFO NO CHART /////////////////////*/
+
+#birth_info_form_no_chart {
+  width: 278px;
+  margin: auto;
+  background: #e7ebee;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+/*//////////// END BIRTH INFO NO CHART /////////////////////*/
+
+
 /*//////////// CUSTOM CHART /////////////////////*/
 
 #profile_top_bar {
