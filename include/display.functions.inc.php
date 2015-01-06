@@ -5344,9 +5344,9 @@ function show_no_chart() {
     //LEFT SIDE
 
       $poi_left = poi_left_side();
-      echo '<div class="chart_tabs left_side"/>';
+      echo '<div class="chart_tabs left_side">';
       echo '<ul>';
-        for ($x=0; $x<6; $x++) {
+        for ($x=0; $x<5; $x++) {
             //$button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
             echo '<li class="chart_li Unknown_button';
             if ($x == 0) { 
@@ -5355,7 +5355,7 @@ function show_no_chart() {
             echo '">';
             echo '<div class="chart_tabs_wrapper">';
 
-            //echo '<span class="icon left pointer"><span class="poi_title">' . get_poi_name($poi_left[$x]) . '</span></span>';
+            echo '<span class="icon left pointer"><span class="poi_title">' . get_poi_name($poi_left[$x]) . '</span></span>';
             echo '<span class="arrow ';
               if ($x == 0) {
                 echo 'arrow_left_on';
@@ -5375,7 +5375,7 @@ function show_no_chart() {
         
 
         $poi_right = poi_right_side();
-        echo '<div class="chart_tabs left_side"/>';
+        echo '<div class="chart_tabs right_side">';
         echo '<ul>';
         for ($x=0; $x<4; $x++) {
             //$button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
