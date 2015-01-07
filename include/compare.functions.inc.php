@@ -34,9 +34,11 @@ function get_single_suggested_match($user_id) {
   $charts = get_random_charts();
   $length = count($charts);
   $no_good = array();
-  for ($x = 0; $x < $length; $x++) {
+  //for ($x = 0; $x < $length; $x++) {
     $compare_results = generate_compare_data($chart_id1, $charts[$x]['chart_id'], 0);
     $total_score = compare_charts($compare_results, false);
+    return $total_score;
+    /*
     if ($total_score > 80) {
       $match = array('score' => $total_score, 'chart_id2' => $charts[$x]['chart_id']);
       return $match;
@@ -45,16 +47,17 @@ function get_single_suggested_match($user_id) {
     else {
       array_push($no_good, $charts[$x]['chart_id']);
     }
-  }
-  if (count($no_good) == $length) {
-    get_single_suggested_match($user_id);
-  }
+    */
+  //}
+  //if (count($no_good) == $length) {
+  //  get_single_suggested_match($user_id);
+  //}
 }
 
 function get_random_charts() {
   $q = 'SELECT chart_id from chart where method = "E" and nickname = "Main"
   ORDER BY RAND()
-  LIMIT 100';
+  LIMIT 1';
   $result = mysql_query($q);
   $charts_array = query_to_array($result);
   return $charts_array;

@@ -3,8 +3,11 @@ require_once('../header.php');
 
 
 //SUGGESTED MATCH TESTING
-
-    echo get_single_suggested_match(53);
+    echo 'single match chart id: ';
+    $chart_id = get_single_suggested_match(53);
+    echo $chart_id;
+    echo '<br>';
+    echo 'name: ' . get_nickname(get_user_id_from_chart_id($chart_id));
 
 
 //MANDRILL TESTING
