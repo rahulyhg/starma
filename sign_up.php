@@ -25,6 +25,7 @@ function getPicFB() {
   function (response) {
     if (response && !response.error) {
       console.log('got response');
+      console.log(response);
         $('.compare_photo').html('<div class="user_button"><img src="' + response.url + '"></div>');
       }
     }
