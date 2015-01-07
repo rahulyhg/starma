@@ -26,7 +26,7 @@ function getPicFB() {
     if (response && !response.error) {
       console.log('got response');
       console.log(response);
-      var profileImage = response.data.url.split('https://')[1], //remove https to avoid any cert issues
+      var profileImage = response.data.url.split('https://')[1]; //remove https to avoid any cert issues
         //$('.compare_photo').html('<div class="user_button"><img src="http://' + profileImage + '"/></div>');
       }
     }
