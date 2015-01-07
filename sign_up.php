@@ -13,6 +13,7 @@ if (sign_up_process_done()) {
 <script>
 
 function getPicFB() {
+  console.log('attempting pic grab');
   FB.api('/me/picture', 
   {
     'redirect' : false,
@@ -23,6 +24,7 @@ function getPicFB() {
 
   function (response) {
     if (response && !response.error) {
+      console.log('got response');
         $('.compare_photo').html('<div class="user_button"><img src="' + response.url + '"></div>');
       }
     }
@@ -44,7 +46,7 @@ function sendID() {
             })
             .done(function(data){
               //alert(data.check);
-              //console.log(data.fb_id);
+              console.log(data.fb_id);
               getPicFB();
             });
       });
@@ -60,6 +62,7 @@ function sendID() {
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       getPicFB();
+      console.log('status check');
       //testAPI();
       //sendID();
     } 
