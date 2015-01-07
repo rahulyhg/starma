@@ -7821,7 +7821,7 @@ function show_sign_up_page() {
             do_redirect( $url = get_domain() . '/sign_up.php?crop');
           }
           else {
-            echo '<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>';
+            echo '<div class="user_button"><div class="div_no_photo later_on pointer">Upload<br> a<br> Photo</div></div>';
           }
         echo '</div>';
       echo '</div>';
