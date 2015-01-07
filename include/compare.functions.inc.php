@@ -25,6 +25,44 @@ function quicksort_users($user_array, $asc=0){
 	return array_merge(quicksort_users($loe, $asc),array($pivot_key=>$pivot),quicksort_users($gt, $asc));
 }
 
+function get_my_single_suggested_match() {
+  return get_single_suggested_match(get_my_user_id());
+}
+
+function get_single_suggested_match($user_id) {
+  $chart_id1 = get_chart_id_from_user_id($user_id);
+  $charts = get_random_charts();
+  $length = count($charts);
+  $no_good = array();
+  //for ($x = 0; $x < $length; $x++) {
+    $compare_results = generate_compare_data($chart_id1, $charts[$x]['chart_id'], 0);
+    $total_score = compare_charts($compare_results, false);
+    return $total_score;
+    /*
+    if ($total_score > 80) {
+      $match = array('score' => $total_score, 'chart_id2' => $charts[$x]['chart_id']);
+      return $match;
+      break;
+    }
+    else {
+      array_push($no_good, $charts[$x]['chart_id']);
+    }
+    */
+  //}
+  //if (count($no_good) == $length) {
+  //  get_single_suggested_match($user_id);
+  //}
+}
+
+function get_random_charts() {
+  $q = 'SELECT chart_id from chart where method = "E" and nickname = "Main"
+  ORDER BY RAND()
+  LIMIT 1';
+  $result = mysql_query($q);
+  $charts_array = query_to_array($result);
+  return $charts_array;
+}
+
 //FOR BRIDGE TOP HEADER
 function get_minor_compare_support_level($r_ids) {
   //$support = array_sum($r_ids);
