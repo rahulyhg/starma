@@ -7826,12 +7826,13 @@ function show_sign_up_page() {
         echo '</div>';
       echo '</div>';
 
-      if (!get_my_fb_id()) {
-        echo '<div id="use_fb_photo" class="later_on" onclick="fbSignUp();">Use Facebook My Pic</div>';
-      }
-      else {
-        echo '<div id="use_fb_photo" class="later_on div_no_photo">Upload a Photo</div>';
-      }
+      echo '<div id="use_photo"></div>';
+      //if (!get_my_fb_id()) {
+        //echo '<div id="use_fb_photo" class="later_on" onclick="fbSignUp();">Use Facebook My Pic</div>';
+      //}
+      //else {
+        //echo '<div id="use_fb_photo" class="later_on div_no_photo">Upload a Photo</div>';
+      //}
       
 
     echo '</div>';

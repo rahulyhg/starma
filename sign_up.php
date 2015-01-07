@@ -65,6 +65,7 @@ function sendID() {
       // Logged into your app and Facebook.
       getPicFB();
       console.log('status check');
+      $('#use_photo').html('<div id="use_fb_photo" class="later_on div_no_photo">Upload a Photo</div>');
       //testAPI();
       //sendID();
     } 
@@ -74,6 +75,7 @@ function sendID() {
       //  'into this app.';
       //setTimeout('checkLoginState()', 1000);
       $('.compare_photo').html('<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>');
+      $('#use_photo').html('<div id="use_fb_photo" class="later_on" onclick="fbSignUp();">Use Facebook My Pic</div>');
     } 
     else {
       // The person is not logged into Facebook, so we're not sure if
@@ -82,6 +84,7 @@ function sendID() {
       // 'into Facebook.';
       //setTimeout('checkLoginState()', 1000);
       $('.compare_photo').html('<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>');
+      $('#use_photo').html('<div id="use_fb_photo" class="later_on" onclick="fbSignUp();">Use Facebook My Pic</div>');
     }
   }
 
