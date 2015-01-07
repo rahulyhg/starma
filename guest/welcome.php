@@ -56,12 +56,12 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
             </div>
         </div>
 
-        <div id="sample_compare_stars">
-          <img src="../img/Starma-Astrology-Compare-Star-Small.png" />
-          <img src="../img/Starma-Astrology-Compare-Star-Small.png" />
-          <img src="../img/Starma-Astrology-Compare-Star-Small.png" />
-          <img src="../img/Starma-Astrology-Compare-Star-Small.png" />
-          <img src="../img/Starma-Astrology-Compare-Star-Small.png" />
+        <div id="homepage_compare_stars">
+          <img src="../img/Starma-Astrology-Compare-Star-Small1.png" />
+          <img src="../img/Starma-Astrology-Compare-Star-Small1.png" />
+          <img src="../img/Starma-Astrology-Compare-Star-Small1.png" />
+          <img src="../img/Starma-Astrology-Compare-Star-Small1.png" />
+          <img src="../img/Starma-Astrology-Compare-Star-Small1.png" />
         </div>
 
         <div id="homepage_compare_thumb_right">
