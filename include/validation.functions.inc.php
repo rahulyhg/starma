@@ -96,7 +96,7 @@ function valid_photo($photo_id, $user_id) {
   return mysql_num_rows($result) >= 1;
 }
 
-
+/*
 function get_email_domain() {
   return 'starma.com';
 }
@@ -121,14 +121,21 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: https://www.' . $url);
 }
-
+*/
 
 /**********************BEGIN STAGING SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
-/*
+function get_email_domain() {
+  return 'starma.com';
+}
+
+
+function get_domain_sign_up ($n) {
+  return 'starma.com/sign_up.php?' . $n;
+}
+
 function get_domain () {
-  return 'starma-staging.gopagoda.com';
-  //return '192.168.1.141:8080';
+  return 'starma.com';
 }
 
 function get_landing () {
@@ -136,13 +143,12 @@ function get_landing () {
 }
 
 function get_full_domain () {
-  return 'http://' . get_domain();
+  return 'http://dev.' . get_domain();
 }
 
 function do_redirect ($url) {
-  header( 'Location: http://' . $url);
+  header( 'Location: http://dev.' . $url);
 }
-*/
 
 /**********************END STAGING SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
