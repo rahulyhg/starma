@@ -13,6 +13,7 @@ $(document).ready(function(){
 		$('.pop_guest').slideFadeToggle(function(){
 			$('#sign_up_box').show();
 			$('#create_account').hide();
+			$('#create_account_fb').hide();
 			$('#fb_or_email_guest').hide();
 		});
 		//return false;
@@ -22,6 +23,7 @@ $(document).ready(function(){
 		$('.pop_guest').slideFadeToggle(function() {
 			$('#sign_up_box').show();
 			$('#create_account').hide();
+			$('#create_account_fb').hide();
 			$('#fb_or_email_guest').hide();
 			//$('#login_box').show();
 			//$('#forgot_password_box').hide();
@@ -39,6 +41,7 @@ $(document).ready(function(){
 			$('#sign_up_box').show();
 			//$('#intro').hide();
 			$('#create_account').hide();
+			$('#create_account_fb').hide();
 			$('#fb_or_email_guest').hide();
 		});
 	});
