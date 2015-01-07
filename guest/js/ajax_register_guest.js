@@ -378,6 +378,28 @@ $(document).ready(function(){
 
 
 //FB REGISTER
+
+
+
+	$('#reg_username_error_fb').mouseenter(function(){
+		$('#reg_err_username_exp_fb').show();
+	});
+	$('#reg_username_error_fb').mouseleave(function(){
+		$('#reg_err_username_exp_fb').hide();
+	});
+	$('#reg_birthday_error_fb').mouseenter(function(){
+		$('#reg_err_birthday_exp_fb').show();
+	});
+	$('#reg_birthday_error_fb').mouseleave(function(){
+		$('#reg_err_birthday_exp_fb').hide();
+	});
+	$('#reg_email_error_fb').mouseenter(function(){
+		$('#reg_err_email_exp_fb').show();
+	});
+	$('#reg_email_error_fb').mouseleave(function(){
+		$('#reg_err_email_exp_fb').hide();
+	});
+
 	
 	$('#register_submit_fb').click(function(){
 		var name = $('#reg_username_error');
