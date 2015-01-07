@@ -476,7 +476,7 @@ $(document).ready(function(){
 					$('#reg_birthday_error_fb').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');                      
                     $('#reg_birthday_check_fb').css('display', 'none').removeClass('check').text('');
 
-					$('#year').css('border', '1px solid #C82923');
+					$('#year_fb').css('border', '1px solid #C82923');
 					$('#register_submit_fb').css({
 												'opacity' : 0.5,
 												'cursor'  : 'default'
