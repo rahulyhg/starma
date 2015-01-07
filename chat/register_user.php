@@ -61,7 +61,7 @@ require_once("ajax_header.php");
           		//echo "Thank you for registering with Starma.com!  We have sent you an email with a verification link.  Please follow this link to activate your account.";        
 
           		$data_fb['success'] = true;
-          		$data_fb['url_fb'] = 'sign_up.php?1';
+          		$data_fb['url_fb'] = 'sign_up.php';
     		}
     	
     		else {
@@ -148,7 +148,7 @@ require_once("ajax_header.php");
           		//echo "Thank you for registering with Starma.com!  We have sent you an email with a verification link.  Please follow this link to activate your account.";        
           	
           		$data['success'] = true;
-          		$data['url'] = 'sign_up.php?1';
+          		$data['url'] = 'sign_up.php';
     		}
     	
     		else {

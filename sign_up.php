@@ -21,7 +21,7 @@ function getPicFB() {
     'width'    : '123'
   },
 
-  function (respose) {
+  function (response) {
     if (response && !response.error) {
         $('.compare_photo').html('<div class="user_button"><img src="' + response.url + '"></div>');
       }
