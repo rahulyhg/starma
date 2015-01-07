@@ -453,6 +453,14 @@ function statusChangeCallbackNTS(response) {
               show_user_invite();
               show_user_invite_email();
   echo '</div>';
+  if (!get_my_chart() && $_GET['the_page'] != 'psel') {
+    echo '<div id="msg_sheen_time_and_place" class="time_and_place">';
+      echo '<div id="msg_sheen_screen" class="time_and_place_close time_and_place"></div>';
+        echo '<div id="msg_sheen_content_tp">';
+          show_time_and_place_box();
+        echo '</div>';
+    echo '</div>';
+  }
   ?>
 
 <div id="img_preloader">

@@ -3,9 +3,12 @@ require_once ("header.php");
 
   
 //if (login_check_point($type="full")) {
-
-	show_house_lords();
-
+	if (!get_my_chart()) {
+    	show_birth_info_form_no_chart();
+  	}
+	else {
+		show_house_lords();
+	}
 	/*
 
 $chart_id = get_my_chart_id();

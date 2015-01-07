@@ -2501,6 +2501,116 @@ echo        '<div id="submit_div">
 }
 
 
+//STUPID EXTRA BIRTH FORM FOR NO CHART
+
+function show_birth_info_form_no_chart() {
+  //echo $_SESSION['user_id'];
+  echo '<div class="later_on" style="margin:0 auto 13px; width: 520px; text-align: center; line-height: 1.2; font-size: 1.4em;">To view your Birth Chart, please enter your time and place of birth. This information remains private.</div>';
+  echo '<div id="birth_info_form_no_chart">';
+  if (isset($_GET['chart_error'])) {
+    echo '<span id="chart_error_exists" style="display:none;"></span>';
+  }
+    echo '<form id="birth_info_form_chart_page" method="post" action="cast_chart_time_and_place.php">';
+      
+       $help_text_offset = 'offset';
+    echo '<div class="small_title">Place of Birth</div>';
+ 
+          echo '<div id="country">';    
+            country_select ($_SESSION['country_id'], "country_id");
+            
+          echo '</div>';
+
+          echo '<div id="js_city_div">';
+            echo '<input type="text" id="city" class="input_style" name="city" placeholder="i.e. San Francisco, CA" value="' . $_SESSION['city'] . '"';
+              if ($_GET['chart_error'] == 2 || $_GET['chart_error'] == 3 || $_GET['chart_error'] == 6) {
+              echo ' style="border-color:#C82923;"';
+            }
+            echo '/>';
+            
+          echo '</div>';
+
+  echo '<div style="display:inline-block; float:left; width:147px;">'; //Time of birth box
+    echo '<div class="small_title">Time of birth</div>';
+    echo '<div id="time">';
+      time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
+    echo '</div>';
+  echo '</div>'; //Close Time of birth box
+
+  echo '<div style="display:inline-block; float:right; width:120px;">'; //Accuracy box
+      echo '<div class="small_title" class="align_right">Accuracy</div>';             
+        echo '<div id="accuracy">';
+                 time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
+         
+        echo '<div id="tp_birth_time_hover_box_no_chart" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
+              </div>';
+      echo '</div>'; //Close accuracy
+  echo '</div>'; //Close Accuracy box
+
+    echo '<div id="help_link"> Help! I don\'t know my birth time'; 
+    
+   /* echo '<input class="pointer" onclick="var box_obj = document.getElementById(\'birth_interval_box_help_text\'); var acc_obj = document.getElementById(\'interval\'); var hour_obj = document.getElementById(\'hour_time\'); var minute_obj = document.getElementById(\'minute_time\'); var meridiem_obj = document.getElementById(\'meridiem_time\');if ($(\'#birth_interval_box_help_text\').is(\':visible\')) {box_obj.style.display=\'none\'; acc_obj.disabled=false;hour_obj.disabled=false;minute_obj.disabled=false;meridiem_obj.disabled=false;} else {box_obj.style.display=\'block\'; acc_obj.value=\'-1\'; acc_obj.disabled=true;hour_obj.disabled=true;minute_obj.disabled=true;meridiem_obj.disabled=true;}" type="checkbox" name="time_unknown" value="1" ';
+                 if ( (string)get_inputed_var("time_unknown",0,$type) == '1' ) {
+                   echo 'CHECKED';
+                 }
+                 echo '/>';
+                 echo '<div style="position:relative"><div id="birth_interval_box_help_text" class="' . $help_text_offset . '" ';
+                 if ((string)get_inputed_var("time_unknown",0,$type) == '1') {
+                    echo 'style="display:block;"';
+                 }
+                 echo '>';
+                 echo '<a onclick="basicPopup(\'help_text_birth_time.php\', \'Help Text\', \'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=no, titlebar=no\')" href="#">Help me find my birth time</a>';
+                 echo '</div></div>'; 
+    */
+    echo '</div>';
+      echo '<input type="hidden" id="time_unknown" name="time_unknown" value="0" />';
+      echo '<input type="hidden" name="time_and_place" value="1" />';
+      //echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
+      echo '<button type="submit" id="next_no_chart">Next ></button>';
+    echo '</form>';           
+  echo '</div>'; //close time_and_place
+
+//ERRORS--------------------------------------------------
+
+  echo '<div class="tp_err" id="tp_cid_error_h">?</div>
+        <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';
+  echo '<div class="tp_err" id="tp_city_error_h">?</div>
+        <div class="tp_err_exp" id="tp_err_city_exp">Please enter a city</div>';
+
+  if ($_GET['chart_error'] == 1) {
+    echo '<div class="tp_err" id="tp_cid_error">?</div>
+          <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';
+  }
+  if ($_GET['chart_error'] == 2 || $_GET['chart_error'] == 3 || $_GET['chart_error'] == 6) {        
+    echo '<div class="tp_err" id="tp_city_error">?</div>
+          <div class="tp_err_exp" id="tp_err_city_exp">';
+            if ($_GET['chart_error'] == 2) {  
+              echo 'Please enter a city';
+            }
+            if ($_GET['chart_error'] == 3 || $_GET['chart_error'] == 6) {
+              echo 'Please double check your city';
+            }
+
+    echo '</div>';
+  }
+  /*
+  if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6) {
+     echo '<div class="tp_err" id="tp_zip_error">?</div>
+           <div class="tp_err_exp" id="tp_err_zip_exp">';
+            if ($_GET['error'] == 2) {
+              echo 'Please enter a zip code';
+            }
+            if ($_GET['error'] == 4 || $_GET['error'] == 6) {
+              echo 'Please double check your zip code';
+            }
+      echo '</div>';
+  }
+*/
+
+  echo '<script type="text/javascript" src="/js/time_and_place_ui.js"></script>';
+
+}
+
+
 
 
 function save_secondary_chart ($return_vars, $location, $birthtime, $url, $redir=true, $the_nickname="Freebie1", $interval, $time_unknown, $method="E") {
@@ -5313,6 +5423,102 @@ function show_others_chart ($the_page, $the_left, $chart_id2, $western=0) {
   }
 }
 
+function show_no_chart() {
+  echo '<div id="chart_scroll">';
+        echo '<div id="chart_scroll_container">';
+          echo '<div id="chart_prev">< Previous</div>';
+            echo '<div id="birth_chart_type" class="pointer"><a class="later_on" ';
+              if ($western == 0) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=0&section=chart_selected">Vedic</a>  |  ';
+              echo '<a class="later_on" ';
+              if ($western == 1) {
+                echo 'style="text-decoration:underline;"';
+              }
+              echo 'href="?the_page=' . $the_page .'&the_left=' . $the_left . '&chart_id2=' . $chart_id2 . '&tier=' . $tier . '&western=1&section=chart_selected">Western</a>';
+            echo '</div>'; //close birth_chart_type          
+          echo '<div id="chart_next">Next ></div>';
+        echo '</div>';
+      echo '</div>'; //Close chart_scroll
+      echo '<div id="starma_chart">';
+
+    //$poi_list = get_poi_list();
+
+
+    //LEFT SIDE
+
+      $poi_left = poi_left_side();
+      echo '<div class="chart_tabs left_side">';
+      echo '<ul>';
+        for ($x=0; $x<5; $x++) {
+            //$button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
+            echo '<li class="chart_li Unknown_button';
+            if ($x == 0) { 
+              echo ' selected';
+            }
+            echo '">';
+            echo '<div class="chart_tabs_wrapper">';
+
+            echo '<span class="icon left pointer"><span class="poi_title">' . get_poi_name($poi_left[$x]) . '</span></span>';
+            echo '<span class="arrow ';
+              if ($x == 0) {
+                echo 'arrow_left_on';
+              }
+            echo '"></span>';
+            echo '</div>'; //close wrapper
+            echo '</li>';
+          
+        }
+        echo '</ul>';
+        echo '</div>';
+      
+      //END LEFT SIDE
+
+
+      //RIGHT SIDE
+        
+
+        $poi_right = poi_right_side();
+        echo '<div class="chart_tabs right_side">';
+        echo '<ul>';
+        for ($x=0; $x<4; $x++) {
+            //$button_sign_id = get_sign_from_poi ($calc_chart_id, $poi["poi_id"]);
+          if ($poi_right[$x] == 9) {
+            echo '<li class="chart_li Unknown_button rahuketu">';
+                echo '<div class="chart_tabs_rk_wrapper">';
+                  echo '<span class="arrow"></span>';
+                  echo '<span class="icon right pointer"><span class="poi_title">RAHU</span>';
+                  echo '<span class="ketu_text">Ketu</span>';
+                  echo '</span>';
+                echo '</div>';
+              echo '</li>';
+          }
+          else {
+            echo '<li class="chart_li Unknown_button">';
+
+            echo '<div class="chart_tabs_wrapper">';
+
+            echo '<span class="icon right pointer"><span class="poi_title">' . get_poi_name($poi_right[$x]) . '</span></span>';
+            echo '<span class="arrow ';
+              if ($x == 0) {
+                echo 'arrow_left_on';
+              }
+            echo '"></span>';
+            echo '</div>'; //close wrapper
+            echo '</li>';
+          }          
+        }
+        
+        echo '</ul>';
+        echo '</div>';
+
+        //END RIGHT SIDE
+
+        show_birth_info_form_no_chart();
+
+}
+
 
 function show_chart ($chart_id, $goTo = ".") {
   if ($chart_info = get_chart($chart_id)) {
@@ -7524,6 +7730,266 @@ function show_bugaboos() {
 
 //******************************* SIGN UP BOXES **********************************/
 
+//SINGLE PAGE SIGN UP
+
+function show_sign_up_page() {
+  echo '<div id="sign_up_page">';
+  echo '<div id="gender_location">';
+    echo '<div class="title">Congratulations!</div>';
+    echo '<div class="congrats">You\'ve created an account.  We just need a tiny bit of info and you\'ll be ready to start!</div>';
+    //echo '<div id="step">1 / 3</div>';
+      echo '<form id="sign_up_page_form" name="sign_up" method="post" action="/chat/sign_up_page.php">';
+        
+        echo '<div class="small_title">Gender</div>';
+          echo '<div id="gender">';
+            gender_select ($the_gender=$gender, $the_name="gender");
+            
+          echo '</div>';
+
+          echo '<div class="small_title">Current Location</div>';
+              
+          echo '<div id="country">';    
+            country_select ($country_id, "js_country_id");
+            
+          echo '</div>';
+
+          echo '<div id="js_city_div">';
+            echo '<input type="text" id="city" name="title" placeholder="City"/>';
+            
+          echo '</div>';
+
+          echo '<div id="js_zip_div">';
+            //zipcode_input ("zip", "location_verification .location_text");
+          echo '<input maxlength="5" type="text" id="zip"';
+            if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6 ) {
+              echo ' style="border-color:#C82923;"';
+            } 
+
+          echo ' name="zip" value="' . $_SESSION['zip'] . '" placeholder="Zip Code">';
+           
+          echo '</div>'; 
+          
+          echo '<div id="location_verification">';
+            
+          echo '</div>';
+
+    //echo '</div>'; //close gender_location
+
+    //ERRORS---------------
+
+    echo '<div class="gl_err" id="gl_gender_error"></div>
+          <div class="gl_err_exp" id="gl_err_gender_exp"></div>';
+
+    echo '<div class="gl_err" id="gl_cid_error"></div>
+          <div class="gl_err_exp" id="gl_err_cid_exp"></div>';
+
+    echo '<div class="gl_err" id="gl_city_error"></div>
+          <div class="gl_err_exp" id="gl_err_city_exp"></div>';
+
+     echo '<div class="gl_err" id="gl_zip_error"></div>
+           <div class="gl_err_exp" id="gl_err_zip_exp"></div>';
+
+    //echo '<script type="text/javascript" src="/js/ajax_gender_location.js"></script>';
+
+
+
+//3 WORDS & PHOTO
+
+  $user_id = get_my_user_id();
+  $descriptors = get_descriptors($user_id);
+  //print_r($descriptors);
+  //echo '<br>descriptor1: ' . $descriptors[0]['descriptor'];
+  //echo '<div id="words_photo" ';
+    //if (isset($_GET['error'])) {
+      //echo 'style="display:none;"';
+    //}
+  //echo '>';
+  //echo '<div id="step">2 / 3</div>';
+    echo '<div style="text-align:center;" class="small_title">Upload a photo and choose 3 words to describe yourself</div>';
+
+    echo '<div id="action_step" class="later_on"></div>';
+    //PROFILE PIC ---
+
+    echo '<div id="profile_photo">';
+
+      echo '<div class="photo_border_wrapper_compare">';
+        echo '<div class="compare_photo">';
+          if ($main_photo = get_main_photo($user_id)) {           
+            echo '<div class="user_button">' . format_image($picture=get_main_photo($user_id), $type="compare", $user_id) . '</div>';            
+          }
+          elseif (get_my_main_photo_uncropped()) {
+            do_redirect( $url = get_domain() . '/sign_up.php?2_5');
+          }
+          else {
+            echo '<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>';
+          }
+        echo '</div>';
+      echo '</div>';
+
+      if (!get_my_fb_id()) {
+        echo '<div id="use_fb_photo" class="later_on" onclick="fbSignUp();">Use Facebook My Pic</div>';
+      }
+      else {
+        echo '<div id="use_fb_photo" class="later_on div_no_photo">Upload a Photo</div>';
+      }
+      
+
+    echo '</div>';
+
+    echo '<div id="edit_words">';
+      
+      //echo '<form id="words_photo_form" action="/chat/ajax_words_photo.php" method="post">';
+        
+        //if ($desc = mysql_fetch_array($descriptors)) {
+        if (isset($descriptors)) {
+          //echo $descriptors;
+          $x = 0;
+          while ($desc = mysql_fetch_array($descriptors)) {
+            echo '<input type="text" maxlength="15" id="word_' . ($x + 1) . '" placeholder="' . ($x + 1) . '. " value="' . $desc["descriptor"] . '"/>';
+            $x = $x + 1;
+          }
+        }        
+        if (isset($x) && $x == 0) {
+          //echo $x;
+           //for ($x = 1; $x<4; $x++) {
+            //$x = 4;
+              //echo '<div class="value">';
+               echo '<input type="text" maxlength="15" id="word_1" placeholder="i.e. quirky "';
+                  if(isset($_SESSION['word_1'])) {
+                    echo 'value="' . $_SESSION['word_1'] . '"';
+                  }
+                echo '/>';
+
+                echo '<input type="text" maxlength="15" id="word_2" placeholder="i.e. cat-loving"';
+                  if(isset($_SESSION['word_2'])) {
+                    echo 'value="' . $_SESSION['word_2'] . '"';
+                  }
+                echo '/>';
+
+                echo '<input type="text" maxlength="15" id="word_3" placeholder="i.e. astronaut"';
+                  if(isset($_SESSION['word_3'])) {
+                    echo 'value="' . $_SESSION['word_3'] . '"';
+                  }
+                echo '/>';  
+          //}
+        }
+
+        //echo 'X = ' . $x;
+        //echo $_SESSION['word_1'];
+        //echo $_SESSION['word_2'];
+        //echo $_SESSION['word_3'];
+        elseif (isset($x) && $x > 0 && $x < 3) {
+          for ($i = ($x + 1); $i < 4; $i++) {
+            echo '<input type="text" id="word_' . $i . '" placeholder="' . $i . '. " value=""/>';
+          }
+        }
+        unset($x);
+        
+        //echo '<input type="hidden" value="words" id="words" />';
+
+      //ERRORS---------------------------
+        echo '<div class="w_err" id="w_1_error"></div>';
+        echo '<div class="w_err_exp" id="w_1_err_exp"></div>';
+
+        echo '<div class="w_err" id="w_2_error"></div>';
+        echo '<div class="w_err_exp" id="w_2_err_exp"></div>';
+
+        echo '<div class="w_err" id="w_3_error"></div>';
+        echo '<div class="w_err_exp" id="w_3_err_exp"></div>';
+
+
+      
+    echo '</div>'; //close edit_words
+
+  
+
+    if ($main_photo = get_main_photo($user_id)) {
+      echo '<div id="sign_up_submit">';
+        //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+        echo '<button type="submit" id="next">Done ></button>';
+      echo '</div>';
+    }
+    else {
+      echo '<div id="sign_up_submit">';
+        //echo '<input type="submit" class="sign_me_up" id="words_photo_submit" value="Continue" />';
+        echo '<div id="next" class="incomplete">Done ></div>';
+      echo '</div>';
+    }
+    //echo '</div>';  //close 3_words_photo
+  echo '</form>';
+
+  echo '</div>'; //close gender_location
+  echo '</div>'; //close sign_up_page
+
+//PHOTO ERRORS---------------------------------
+  /*
+  echo '<div class="p_err" id="p_error">';
+    if($_GET['error'] !== 0) {
+      echo '?';
+    }
+  echo '</div>';
+  echo '<div class="w_err_exp" id="p_err_exp">';
+    if($_GET['error'] == 1) {
+      echo 'There was an error, please try again';
+    }
+    elseif($_GET['error'] == 2) {
+      echo 'You have reached the limit of 5 photos';
+    }
+    elseif($_GET['error'] == 3) {
+      echo 'No file selected';
+    }
+    elseif($_GET['error'] == 4) {
+      echo 'Not a valid file';
+    }
+  echo '</div>';
+  */
+  //echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
+
+}
+
+function show_upload_photo_sign_up_box () {
+        echo '<div id="upload_photo_form_sign_up" ';
+          if (isset($_GET['error'])) {
+            echo 'style="display:block;"';
+          }
+        echo '>';      
+          echo '<div class="heading">Upload Your Photo</div>';
+
+        //ERRORS----------
+
+          if (isset($_GET['error'])) {
+            if ($_GET['error'] == 1) {
+              echo '<div class="p_err">There was an error.  Please try again.</div>';
+            }
+            if ($_GET['error'] == 2) {
+              echo '<div class="p_err">You have too many photos.  Please delete one to upload a new photo.</div>';
+            }
+            if ($_GET['error'] == 3) {
+              echo '<div class="p_err">Please select a photo with the Browse button.</div>';
+            }
+            if ($_GET['error'] == 4) {
+              echo '<div class="p_err">Pease select a valid file.</div>';
+            }
+          }
+
+        //END ERRORS------------
+
+            echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';          
+              echo '<div><input id="image" type="file" name="image"/></div>';
+              echo '<input type="submit" value="Next >" name="action" id="upload_photo" />';
+
+              echo '<input type="hidden" name="desc1" id="desc1" value=""/>';
+              echo '<input type="hidden" name="desc2" id="desc2" value=""/>';
+              echo '<input type="hidden" name="desc3" id="desc3" value=""/>';
+              echo '<input type="hidden" name="firsttime" value="1"/>';
+              //echo '<div id="cancel_photo" class="later_on">Cancel</div>';
+           echo '</form>';
+        echo '</div>';
+      echo '</div>';
+}
+
+
+/*//OLD WAY 
 function show_gender_location_box() {
   echo '<div id="gender_location">';
     echo '<div class="title">Congratulations!</div>';
@@ -7587,47 +8053,6 @@ function show_gender_location_box() {
 
     echo '<script type="text/javascript" src="/js/ajax_gender_location.js"></script>';
 
-}
-
-function show_upload_photo_sign_up_box () {
-        echo '<div id="upload_photo_form_sign_up" ';
-          if (isset($_GET['error'])) {
-            echo 'style="display:block;"';
-          }
-        echo '>';      
-          echo '<div class="heading">Upload Your Photo</div>';
-
-        //ERRORS----------
-
-          if (isset($_GET['error'])) {
-            if ($_GET['error'] == 1) {
-              echo '<div class="p_err">There was an error.  Please try again.</div>';
-            }
-            if ($_GET['error'] == 2) {
-              echo '<div class="p_err">You have too many photos.  Please delete one to upload a new photo.</div>';
-            }
-            if ($_GET['error'] == 3) {
-              echo '<div class="p_err">Please select a photo with the Browse button.</div>';
-            }
-            if ($_GET['error'] == 4) {
-              echo '<div class="p_err">Pease select a valid file.</div>';
-            }
-          }
-
-        //END ERRORS------------
-
-            echo '<form id="form_photo" action="process_photo.php" method="post" enctype="multipart/form-data">';          
-              echo '<div><input id="image" type="file" name="image"/></div>';
-              echo '<input type="submit" value="Next >" name="action" id="upload_photo" />';
-
-              echo '<input type="hidden" name="desc1" id="desc1" value=""/>';
-              echo '<input type="hidden" name="desc2" id="desc2" value=""/>';
-              echo '<input type="hidden" name="desc3" id="desc3" value=""/>';
-              echo '<input type="hidden" name="firsttime" value="1"/>';
-              //echo '<div id="cancel_photo" class="later_on">Cancel</div>';
-           echo '</form>';
-        echo '</div>';
-      echo '</div>';
 }
 
 
@@ -7779,7 +8204,7 @@ function show_3_words_photo_box () {
   */
 
 
-  echo '</div>';  //close 3_words_photo
+  /*echo '</div>';  //close 3_words_photo*/
 
 
 //PHOTO ERRORS---------------------------------
@@ -7804,9 +8229,11 @@ function show_3_words_photo_box () {
     }
   echo '</div>';
   */
-  echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
+  //echo '<script type="text/javascript" src="/js/ajax_words_photo.js"></script>';
 
-}
+//}
+
+
 
 function show_photo_cropper_sign_up($photo_to_crop) {
   $img_id = $photo_to_crop["user_pic_id"];
@@ -7878,17 +8305,21 @@ function show_crop_box() {
     }
     else {
       //echo '<div><a href="/sign_up.php?2">Please upload a photo</a></div>';
-      do_redirect(get_domain() . '/sign_up.php?2');
+      //do_redirect(get_domain() . '/sign_up.php?2');
+      do_redirect(get_domain() . '/sign_up.php');
     }
   echo '</div>'; //close crop_box
 }
 
 function show_time_and_place_box() {
   //echo $_SESSION['user_id'];
-  echo '<div id="time_and_place">';
-  echo '<div id="step">3 / 3</div>';
+  echo '<div id="time_and_place" class="time_and_place">';
+  echo '<div id="step"></div>';
+  if (isset($_GET['chart_error'])) {
+    echo '<span id="chart_error_exists" style="display:none;"></span>';
+  }
   //echo '<div class="title">Your Birth Info</div>';
-  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.19em;">This last step allows us to calculate your birth chart. Your time and place of birth will remain private.</div>';
+  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.3em;">To view your compatibility, please enter your time and place of birth. This information remains private, and you only have to enter it once.</div>';
     echo '<form id="birth_info_form" method="post" action="cast_chart_time_and_place.php">';
       
        $help_text_offset = 'offset';
@@ -7901,8 +8332,8 @@ function show_time_and_place_box() {
           echo '</div>';
 
           echo '<div id="js_city_div">';
-            echo '<input type="text" id="city" name="city" placeholder="i.e. San Francisco, CA" value="' . $_SESSION['city'] . '"';
-              if ($_GET['error'] == 2 || $_GET['error'] == 3 || $_GET['error'] == 6) {
+            echo '<input type="text" id="city" class="input_style" name="city" placeholder="i.e. San Francisco, CA" value="' . $_SESSION['city'] . '"';
+              if ($_GET['chart_error'] == 2 || $_GET['chart_error'] == 3 || $_GET['chart_error'] == 6) {
               echo ' style="border-color:#C82923;"';
             }
             echo '/>';
@@ -7964,17 +8395,17 @@ function show_time_and_place_box() {
   echo '<div class="tp_err" id="tp_city_error_h">?</div>
         <div class="tp_err_exp" id="tp_err_city_exp">Please enter a city</div>';
 
-  if ($_GET['error'] == 1) {
+  if ($_GET['chart_error'] == 1) {
     echo '<div class="tp_err" id="tp_cid_error">?</div>
           <div class="tp_err_exp" id="tp_err_cid_exp">Please select a country</div>';
   }
-  if ($_GET['error'] == 2 || $_GET['error'] == 3 || $_GET['error'] == 6) {        
+  if ($_GET['chart_error'] == 2 || $_GET['chart_error'] == 3 || $_GET['chart_error'] == 6) {        
     echo '<div class="tp_err" id="tp_city_error">?</div>
           <div class="tp_err_exp" id="tp_err_city_exp">';
-            if ($_GET['error'] == 2) {  
+            if ($_GET['chart_error'] == 2) {  
               echo 'Please enter a city';
             }
-            if ($_GET['error'] == 3 || $_GET['error'] == 6) {
+            if ($_GET['chart_error'] == 3 || $_GET['chart_error'] == 6) {
               echo 'Please double check your city';
             }
 

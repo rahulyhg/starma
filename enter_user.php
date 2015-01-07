@@ -208,9 +208,14 @@ echo '<div id="profile_top_bar">';
 
           //REDESIGN
           echo '<div class="profile_button compare_button">';
-            echo '<div style="position:relative; top:32px; left:5px; text-align:center;">
-              <a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Compare<span class="div_link"></span></a>
-            </div>';
+            echo '<div style="position:relative; top:32px; left:5px; text-align:center;">';
+              if (!get_my_chart()) {
+                echo '<a href="#" title="Compare" class="no_chart">Compare<span class="div_link"></span></a>';
+              }
+              else {
+                echo '<a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $chart_id2 . '&from_profile=true">Compare<span class="div_link"></span></a>';
+              }
+            echo '</div>';
             /*
             echo '<div id="compare_menu"><a href="">Compare</a>';
               echo '<div class="dropdown">';

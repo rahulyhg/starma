@@ -36,7 +36,7 @@ function sign_up_process_done() {
     if (isAdmin()) {
       return true;
     }
-    else if (trim(get_my_location()) == "" or !get_my_chart() or !my_descriptors_loaded() or !get_my_main_photo()) {
+    else if (trim(get_my_location()) == "" or !my_descriptors_loaded() or !get_my_main_photo()) { //12/29/2014 REMOVED or !GET_MY_CHART() TO TEST SHORTER SIGN UP
       return false;
     } 
     else {

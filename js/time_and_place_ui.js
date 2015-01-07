@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $('#step').html('').text('3 / 3');
+  $('#step').html('').text('');
 
 //------------CITY VS ZIP
 	if ($('#country_id').val() !== 236) {
@@ -141,6 +141,36 @@ $('#country_id').change(function(event) {
     });
     
     $('#birth_info_form').submit(function(event){
+      if($('#country_id').val() == 0 || $('#city').val() == '') {
+        event.preventDefault();
+        if ($('#country_id').val() == 0) {
+          $('#country_id').css('border', '2px solid #C82923');
+          $('#tp_cid_error_h').show();
+        }
+        if ($('#city').val() == '') {
+          $('#city').css('border', '2px solid #C82923');
+          $('#tp_city_error_h').show();
+        }
+      }
+    });
+
+    $('#next_no_chart').click(function(){
+      //$('#step').html('<div id="ajax_loader"><img src="/js/ajax_loader_sign_up.gif" /></div>');
+      //$('#step').text('One Moment Please...');
+      if($('#country_id').val() != 0 && $('#city').val() != '') {
+        mixpanel.track('Time and Place', {
+          'city'         : $('#city').val(),
+          'country_id'   : $('#country_id').val(),
+          'hour'         : $('#hour_time').val(),
+          'minute'       : $('#minute_time').val(),
+          'meridiem'     : $('#meridiem_time').val(),
+          'interval'     : $('#interval').val(),
+          'time_unknown' : $('time_unknown').val()
+        });
+      }
+    });
+
+    $('#birth_info_form_chart_page').submit(function(event){
       if($('#country_id').val() == 0 || $('#city').val() == '') {
         event.preventDefault();
         if ($('#country_id').val() == 0) {

@@ -1,7 +1,7 @@
 
 #sign_up_container {
   width:320px; 
-  margin: 38px auto;
+  margin: 0 auto;
   background:#e7ebee; 
   font-size:.9em; 
   padding: 10px 0 25px 0;
@@ -40,6 +40,11 @@
   margin-bottom: 5px;
   letter-spacing: .5px;
   */
+}
+
+#sign_up_submit {
+  position: relative;
+  margin-top: -18px;
 }
 
 #gender select, #country select, #accuracy select, #time select#meridiem_time {
@@ -163,6 +168,18 @@
     font-weight: bold;
 }
 
+#profile_photo {
+  display: inline-block;
+}
+
+#edit_words {
+  display: inline-block;
+  position: relative;
+  float: right;
+  margin-top: 10px;
+  width: 124px;
+}
+
 /*-------SIGN UP SECTION 2----------*/
 
 #gender_location_form {
@@ -225,42 +242,42 @@
 
 #gl_gender_error {
   left: 150px;
-  bottom: 200px;
+  top: 133px;
 }
 
 #gl_err_gender_exp {
   width: 140px;
-  bottom: 200px;
+  top: 133px;
 }
 
 #gl_cid_error {
-  bottom: 130px;
+  top: 199px;
   right: 8px;
 }
 
 #gl_err_cid_exp {
   width: 140px;
-  bottom: 130px;
+  top: 199px;
 }
 
 #gl_city_error {
-  bottom: 87px;
+  top: 241px;
   right: 8px;
 }
 
 #gl_err_city_exp {
   width: 140px;
-  bottom: 87px;
+  top: 241px;
 }
 
 #gl_zip_error {
   right: 8px;
-  bottom: 87px;
+  top: 241px;
 }
 
 #gl_err_zip_exp {
   width: 140px;
-  bottom: 87px;
+  top: 241px;
 }
 
 #gender_error {
@@ -281,13 +298,12 @@
 
 #words_photo #profile_photo {
   display: inline-block;
-  padding-right: 10px;
   position: relative;
 }
 
 #words_photo #edit_words {
   position: relative;
-  bottom: 23px;
+  bottom: 51px;
   display: inline-block;
   width: 134px;
 }
@@ -352,6 +368,11 @@
     float: right;
 }
 
+#use_fb_photo {
+  font-size: 1.19em;
+  cursor: pointer;
+  margin-top: 5px;
+}
 
 /*------------- ERRORS ------------------*/
 
@@ -374,7 +395,7 @@
   z-index: 1000;
   padding: 6px;
   border-radius: 3px;
-  left: 148px;
+  left: 141px;
   width: 144px;
 }
 
@@ -474,6 +495,7 @@
 #time_and_place {
   width: 278px;
   margin: auto;
+  display: none;
 }
 
 #time {
@@ -555,49 +577,49 @@
     z-index: 1000;
     padding: 6px;
     border-radius: 3px;
-    left: 318px;
+    left: 313px;
 }
 
 #tp_cid_error {
-  top: 109px;
+  top: 156px;
   right: 8px;
 }
 
 #tp_cid_error_h {
-  top: 109px;
+  top: 156px;
   right: 8px;
   display: none;
 }
 
 #tp_err_cid_exp {
   width: 140px;
-  top: 109px;
+  top: 156px;
 }
 
 #tp_city_error {
-  top: 153px;
+  top: 199px;
   right: 8px;
 }
 
 #tp_city_error_h {
-  top: 153px;
+  top: 199px;
   right: 8px;
   display: none;
 }
 
 #tp_err_city_exp {
   width: 140px;
-  top: 153px;
+  top: 199px;
 }
 
 #tp_zip_error {
   right: 8px;
-  top: 153px;
+  top: 199px;
 }
 
 #tp_err_zip_exp {
   width: 140px;
-  top: 153px;
+  top: 199px;
 }
 
 

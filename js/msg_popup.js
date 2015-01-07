@@ -1,5 +1,19 @@
 $(document).ready(function(){
 
+//TIME AND PLACE----------------------
+
+	$('.no_chart').click(function(){
+		$('.time_and_place').slideFadeToggle();
+	});
+
+	$('.time_and_place_close').click(function(){
+		$('.time_and_place').slideFadeToggle();
+	});
+
+	if ($('#chart_error_exists').length) {
+		$('.time_and_place').show();
+	}
+
 
 	
 //SEND MESSAGE-----------------------

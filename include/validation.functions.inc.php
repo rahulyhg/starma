@@ -147,6 +147,7 @@ function do_redirect ($url) {
 /**********************END STAGING SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
 /**********************BEGIN LOCAL DEV SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
+
 /*
 function get_domain () {
   return '127.0.0.1:8080';
@@ -378,6 +379,21 @@ function parse_location_string ($country_id, $zip, $city) {
       }
     }
   //} 
+}
+
+function valid_word($word) {
+  if ($word == '') {
+    return 'Please choose a word';
+  }
+  elseif (contains_illegal_words($word)) {
+    return 'No naughty words please';
+  }
+  elseif (!preg_match('/^[a-zA-Z-]+$/', $word)) {
+    return 'Letters only please';
+  }
+  else {
+    return 'good';
+  }
 }
 
 function contains_illegal_words($nickname) {

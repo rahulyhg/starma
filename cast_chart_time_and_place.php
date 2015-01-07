@@ -131,7 +131,7 @@
       echo '<br><br>error: ' .  $error;
 
       if ($error !== 0) {
-        do_redirect( get_domain() . '/sign_up.php?3&error=' . $error);
+        do_redirect( get_domain() . '/main.php?&chart_error=' . $error);
       }
       
       else {
@@ -332,7 +332,7 @@
 	}
 //IF SOMEHOW THIS PAGE IS REACHED WITHOUT SUBMITTING FORM
 	else {
-		do_redirect( get_domain() . '/sign_up.php?3');
+		do_redirect(get_domain() . '/' . get_landing());
 	}
 
 ?>

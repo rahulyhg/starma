@@ -21,9 +21,16 @@ if (login_check_point($type="full")) {
 
     //*************---Matt adding msg popup from Message button
     
-    $chart_id1 = $_GET["chart_id1"];
+    if (isset($_GET['chart_id1'])) {
+      $chart_id1 = $_GET["chart_id1"];
+    }
+
     $chart_id2 = $_GET["chart_id2"];
     $other_user_id = get_user_id_from_chart_id ($chart_id2);
+
+    if (!get_my_chart()) {
+      $no_chart = true;
+    }
 
     echo '<div id="img_preloader">
     <img src="/img/Starma-Astrology-Compare-ButtonON.png"/> 
@@ -101,9 +108,14 @@ if (login_check_point($type="full")) {
 
 
     echo '<div class="profile_button compare_button">';
-      echo '<div style="position:relative; top:32px; left:5px; text-align:center;">
-              <a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare<span class="div_link"></span></a>
-            </div>';
+      echo '<div style="position:relative; top:32px; left:5px; text-align:center;">';
+        if ($no_chart) {
+          echo '<a href="#" title="Compare" class="no_chart">Compare<span class="div_link"></span></a>';
+        }
+        else {
+          echo '<a href="main.php?the_page=' . $the_page . '&the_left=' . $the_left . '&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $_GET["chart_id2"] . '&from_profile=true">Compare<span class="div_link"></span></a>';
+        }
+      echo '</div>';
       /*
       echo '<div id="compare_menu"><a href="">Compare</a>';
         echo '<div class="dropdown">';
@@ -135,9 +147,9 @@ if (login_check_point($type="full")) {
                           <textarea id="msg_sendie" name="text_body" maxlength = "500" ></textarea>
                           <div id="send_msg">Send</div>
                           <div id="cancel_msg">Cancel</div>
-                          <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>
-                          <input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
-                          <input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>';                         
+                          <input type="hidden" value=' . $other_user_id . ' name="other_user_id"/>';
+                          //<input type="hidden" value=' . $chart_id1 . ' name="chart_id1"/>
+                          //<input type="hidden" value=' . $chart_id2 . ' name="chart_id2"/>';                         
                       //echo '</form>';
                       echo '</div>';
                       echo '<div id="msg_sent"></div>';

@@ -34,7 +34,7 @@ require_once ("header.php");
        
     list($file,$error) = upload_no_adjust('image',ORIGINAL_IMAGE_PATH(),'jpeg,gif,png,jpg');
     if($error) {
-      print $error;  
+      //print $error; die(); 
       if ($error != 'bad_picture') {
         $error = 4;
       }
@@ -66,7 +66,7 @@ require_once ("header.php");
     }
     else { 
       //do_redirect ( get_domain() . '/desc_photo_first_time.php');
-      do_redirect ( get_domain() .'/sign_up.php?2_5');
+      do_redirect ( get_domain() .'/sign_up.php?crop');
     }
   }
   else {
@@ -75,7 +75,7 @@ require_once ("header.php");
       do_redirect ( get_domain() . '/main.php?the_left=nav1&the_page=psel&section=photos_selected&error=' . $error);
     }
     else { 
-      do_redirect ( get_domain() . '/sign_up.php?2&error=' . $error);
+      do_redirect ( get_domain() . '/sign_up.php?&error=' . $error);
     }
   }
 
