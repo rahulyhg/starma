@@ -8385,7 +8385,7 @@ function show_time_and_place_box() {
       echo '<input type="hidden" id="time_unknown" name="time_unknown" value="0" />';
       echo '<input type="hidden" name="time_and_place" value="1" />';
       //echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
-      echo '<button type="submit" id="next">Next ></button>';
+      echo '<button type="submit" id="next">Done ></button>';
     echo '</form>';           
   echo '</div>'; //close time_and_place
 

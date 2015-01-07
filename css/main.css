@@ -3919,8 +3919,11 @@ END OLD WAY*/
     font-weight: bold;
 }
 
-#time_and_place .close_tp {
+.close_tp {
   position: absolute;
+  font-size: 1.5em;
+  top: 3px;
+  right: 8px;
 }
 
 
