@@ -17,9 +17,9 @@ function getPicFB() {
   FB.api('/me/picture', 
   {
     'redirect' : false,
-    'height'   : '123',
+    'height'   : '120',
     'type'     : 'normal',
-    'width'    : '123'
+    'width'    : '120'
   },
 
   function (response) {
@@ -27,7 +27,7 @@ function getPicFB() {
       console.log('got response');
       console.log(response);
       var profileImage = response.data.url.split('https://')[1]; //remove https to avoid any cert issues
-        $('.compare_photo').html('<div class="user_button"><img src="http://' + profileImage + '"/></div>');
+        $('.compare_photo').html('<div class="user_button"><img src="https://' + profileImage + '"/></div>');
       }
     }
   );
