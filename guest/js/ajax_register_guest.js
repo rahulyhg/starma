@@ -442,13 +442,13 @@ $(document).ready(function(){
 												'opacity' : 0.5,
 												'cursor'  : 'default'
 												});
-					$('#reg_err_username_exp_fb').text(data.message);
+					$('#reg_err_username_exp_fb_g').text(data.message);
 					
 				}
 				if(data.success) {
 					$('#reg_username_error_fb').css('display', 'none').removeClass('register_error').addClass('check').text('');
 					$('#reg_username_check_fb').css('display', 'inline-block').addClass('check').text(data.message);
-					$('#reg_err_username_exp_fb').hide();
+					$('#reg_err_username_exp_fb_g').hide();
 					$('#register_username_fb').css('border', '1px solid black');
 					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check')) {
 							$('#register_submit_fb').css({
@@ -481,13 +481,13 @@ $(document).ready(function(){
 												'opacity' : 0.5,
 												'cursor'  : 'default'
 												});
-					$('#reg_err_birthday_exp_fb').text(data.message);
+					$('#reg_err_birthday_exp_fb_g').text(data.message);
 				}
 				if(data.success) {
 					$('#reg_birthday_error_fb').css('display', 'none').removeClass('register_error').addClass('check').text('');
 					$('#reg_birthday_check_fb').css('display', 'inline-block').addClass('check').text(data.message);
 
-					$('#reg_err_birthday_exp_fb').hide();
+					$('#reg_err_birthday_exp_fb_g').hide();
 					$('#year_fb').css('border', '1px solid black');
 					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check')) {
 							$('#register_submit_fb').css({
@@ -519,13 +519,13 @@ $(document).ready(function(){
 												'opacity' : 0.5,
 												'cursor'  : 'default'
 												});
-					$('#reg_err_email_exp_fb').text(data.message);
+					$('#reg_err_email_exp_fb_g').text(data.message);
 				}
 				if(data.success) {
 					$('#reg_email_error_fb').css('display', 'none').removeClass('register_error').addClass('check').text('');
 					$('#reg_email_check_fb').css('display', 'inline-block').addClass('check').text(data.message);
 
-					$('#reg_err_email_exp_fb').hide();
+					$('#reg_err_email_exp_fb_g').hide();
 					$('#register_email_fb').css('border', '1px solid black');
 					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check')) {
 							$('#register_submit_fb').css({
