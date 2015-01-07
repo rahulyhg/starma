@@ -391,23 +391,23 @@ $(document).ready(function(){
 	var timer_email_fb;
 
 
-	$('#reg_username_error_fb').mouseenter(function(){
-		$('#reg_err_username_exp_fb').show();
+	$('#reg_username_error_fb_g').mouseenter(function(){
+		$('#reg_err_username_exp_fb_g').show();
 	});
-	$('#reg_username_error_fb').mouseleave(function(){
-		$('#reg_err_username_exp_fb').hide();
+	$('#reg_username_error_fb_g').mouseleave(function(){
+		$('#reg_err_username_exp_fb_g').hide();
 	});
-	$('#reg_birthday_error_fb').mouseenter(function(){
-		$('#reg_err_birthday_exp_fb').show();
+	$('#reg_birthday_error_fb_g').mouseenter(function(){
+		$('#reg_err_birthday_exp_fb_g').show();
 	});
-	$('#reg_birthday_error_fb').mouseleave(function(){
-		$('#reg_err_birthday_exp_fb').hide();
+	$('#reg_birthday_error_fb_g').mouseleave(function(){
+		$('#reg_err_birthday_exp_fb_g').hide();
 	});
-	$('#reg_email_error_fb').mouseenter(function(){
-		$('#reg_err_email_exp_fb').show();
+	$('#reg_email_error_fb_g').mouseenter(function(){
+		$('#reg_err_email_exp_fb_g').show();
 	});
-	$('#reg_email_error_fb').mouseleave(function(){
-		$('#reg_err_email_exp_fb').hide();
+	$('#reg_email_error_fb_g').mouseleave(function(){
+		$('#reg_err_email_exp_fb_g').hide();
 	});
 
 	
