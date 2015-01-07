@@ -65,7 +65,7 @@ function sendID() {
       // Logged into your app and Facebook.
       getPicFB();
       console.log('status check');
-      $('#use_photo').html('<div id="use_fb_photo" class="later_on div_no_photo">Upload a Photo</div>');
+      $('#use_photo').html('<div id="use_fb_photo" class="later_on div_no_photo">Upload My Own Photo</div>');
       //testAPI();
       //sendID();
     } 

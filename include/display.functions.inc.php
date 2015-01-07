@@ -7826,7 +7826,7 @@ function show_sign_up_page() {
         echo '</div>';
       echo '</div>';
 
-      echo '<div id="use_photo"></div>';
+      echo '<div id="use_photo" style="height:15px;"></div>';
       //if (!get_my_fb_id()) {
         //echo '<div id="use_fb_photo" class="later_on" onclick="fbSignUp();">Use Facebook My Pic</div>';
       //}
