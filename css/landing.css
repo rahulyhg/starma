@@ -1042,7 +1042,7 @@
 }
 
 #reg_err_username_exp_g {
-  top:20px;
+  top:15px;
   width: 140px;
 }
 
@@ -1062,7 +1062,7 @@
 }
 
 #reg_err_birthday_exp_g {
-  top:76px;
+  top:71px;
   width: 140px;
 }
 
@@ -1082,7 +1082,7 @@
 }
 
 #reg_err_email_exp_g {
-  top:119px;
+  top:114px;
   width: 140px;
 }
 
@@ -1097,7 +1097,7 @@
 }
 
 #reg_err_password_exp_g {
-  top:160px;
+  top:155px;
   width: 140px;
 }
 
