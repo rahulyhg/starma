@@ -17,9 +17,9 @@ function getPicFB() {
   FB.api('/me/picture', 
   {
     'redirect' : false,
-    'height'   : '120',
+    'height'   : '125',
     'type'     : 'normal',
-    'width'    : '120'
+    'width'    : '125'
   },
 
   function (response) {
