@@ -19,7 +19,13 @@ if (login_check_point($type="full", $domain=$domain)) {
   }
 
   $my_user_id = get_my_user_id();
-  $my_chart_id = get_my_chart_id();
+  if (!get_my_chart()) {
+    $no_chart = true;
+  }
+  else {
+    $my_chart_id = get_my_chart_id();
+  }
+  
   //echo '<div style="padding-top:3px; padding-bottom:10px;">';
   //flare_title ("Inbox");
   //echo '</div>';

@@ -233,7 +233,7 @@
     // header( 'Location: http://www.' . $domain . '/' . $landing);
    }
   
-  require_once ("landing_footer.php"); 
+  //require_once ("landing_footer.php"); 
 
    }
   

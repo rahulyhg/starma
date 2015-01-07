@@ -3820,12 +3820,96 @@ END OLD WAY*/
 /*//////////// BIRTH INFO NO CHART /////////////////////*/
 
 #birth_info_form_no_chart {
-  width: 278px;
+  width: 320px;
   margin: auto;
   background: #e7ebee;
   padding: 20px;
   border: 2px solid black;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
+#birth_info_form_no_chart .small_title {
+    font-family: 'later_on';
+    font-size: 1.19em;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+}
+
+#birth_info_form_no_chart #country select {
+  width: 278px;
+}
+
+#birth_info_form_no_chart input[type=text] {
+  color: #181A1C;
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+  /*border-radius: 3px;*/
+  height: 33px;
+  padding: 0 10px;
+  /*border: 1px solid #d1d1d1;*/
+  border: 2px solid #1a1d2a;
+  /*box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15) inset;*/
+}
+
+#next_no_chart {
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: right;
+    border: none;
+    background: #e7ebee;
+    float: right;
+    padding: 1px;
+}
+
+#next_no_chart:active {
+    cursor: pointer;
+    font-family: "later_on";
+    font-size: 1.19em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: right;
+    border: none;
+    background: #e7ebee;
+    float: right;
+}
+
+#tp_birth_time_hover_box_no_chart {
+    font-size: 1.19em;
+    padding-left: 3px;
+    padding-right: 1px;
+    padding-top: 3px;
+    position: relative;
+    width: 10px;
+    display: inline-block;
+    font-family: 'later_on';
+    font-weight: bold;
+    left: 70px;
+    bottom: 28px;
+    cursor: pointer;
+}
+
+
+#tp_birth_time_hover_box_no_chart:hover {
+  color:white;
+  background-color:black;
+  cursor: pointer;
+}
+
+#tp_birth_time_hover_box_no_chart span {
+  
+  left:15px;
+  bottom:-104px;
+  
+}
+
 
 /*//////////// END BIRTH INFO NO CHART /////////////////////*/
 

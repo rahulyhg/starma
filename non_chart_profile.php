@@ -130,15 +130,21 @@ if (login_check_point($type="full")) {
 
       //End edit current location
 
-    echo '<div id="view_chart_tutorial" class="later_on pointer ';
-      if ($no_chart) {
-        echo 'no_chart';
+    echo '<div id="view_chart_tutorial" class="later_on pointer';
+      if ($no_chart && $chart_selected == '' && $astrologers_view_selected == '') {
+        echo ' no_chart';
       }
-      else {
-        echo 'view_chart_tutorial';
+      if (!$no_chart) {
+        echo ' view_chart_tutorial';
       }
-    echo '">View Birth Chart Tutorial</div>';
-
+    echo '">';
+    if ($no_chart && (isset($_GET['section']) == 'chart_selected' ||  isset($_GET['section']) == 'astrologers_view_selected') || !isset($_GET['section'])) {
+      echo '<a class="later_on" style="position:relative; top:6px; color:black;" href="#to_birth_form"><span class="div_link"></span>View Birth Chart Tutorial</a></div>';
+    }
+    else {
+      echo 'View Birth Chart Tutorial</div>';
+    }
+    
 
 // CHART POP TUT --------------------------------------
 
@@ -155,32 +161,32 @@ if (login_check_point($type="full")) {
       }
     echo '
         <ul>';
-          if ($no_chart && $chart_selected == '') {
-            echo '<li><a class="no_chart" href="#">Birth Chart</a></li>';
-          }
-          else {
+          //if ($no_chart) {
+          //  echo '<li><a class="no_chart ' . $chart_selected . '" href="#">Birth Chart</a></li>';
+          //}
+          //else {
             echo '<li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>';
-          }     
-          if ($no_chart) {
-            echo '<li><a class="no_chart" href="#">House Lords</a></li>';
-          }
-          else {
+          //}     
+          //if ($no_chart) {
+          //  echo '<li><a class="no_chart ' . $houses_selected . '" href="#">House Lords</a></li>';
+          //}
+          //else {
             echo '<li><a class="' . $houses_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=houses_selected">House Lords</a></li>';
-          }          
+          //}          
           echo '
           <li><a class="' . $photos_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=photos_selected">Photos</a></li>
           <li><a class="' . $about_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=about_selected">About</a></li>';
-          if ($no_chart) {
-            echo '<li class="end"><a class="no_chart" href="#">Astrologers View</a></li>';
-          }
-          else {
+          //if ($no_chart) {
+          //  echo '<li class="end"><a class="no_chart ' . $astrologers_view_selected . '" href="#">Astrologers View</a></li>';
+          //}
+          //else {
             echo '<li class="end"><a class="' . $astrologers_view_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=astrologers_view_selected">Astrologers View</a></li>';
-          }
+          //}
         echo '
         </ul>
       </div>';
     
-    echo '<div id="profile_sections">';
+    echo '<div id="profile_sections"><a name="to_birth_form"></a>';
      /* echo '<div id="profile_nav">
         <ul>
           <li><a class="' . $chart_selected . '" href="?the_page=' . $the_page . '&the_left=' . $the_left . '&western=0&section=chart_selected">Birth Chart</a></li>

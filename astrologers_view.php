@@ -2,7 +2,7 @@
 	require ('header.php');
 if (isLoggedIn()) {
   if (!get_my_chart()) {
-    echo 'Enter your birth info to get your birth chart';
+    show_birth_info_form_no_chart();
   }
   else {
     $western = $_GET['western'];

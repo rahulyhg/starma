@@ -2505,17 +2505,15 @@ echo        '<div id="submit_div">
 
 function show_birth_info_form_no_chart() {
   //echo $_SESSION['user_id'];
+  echo '<div class="later_on" style="margin:0 auto 13px; width: 520px; text-align: center; line-height: 1.2; font-size: 1.4em;">To view your Birth Chart, please enter your time and place of birth.</div>';
   echo '<div id="birth_info_form_no_chart">';
   if (isset($_GET['chart_error'])) {
     echo '<span id="chart_error_exists" style="display:none;"></span>';
   }
-  //echo '<div class="title">Your Birth Info</div>';
-  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.19em;">Enter your birth info to get your in-depth Birth Chart</div>';
-    echo '<form id="birth_info_form" method="post" action="cast_chart.php">';
+    echo '<form id="birth_info_form_chart_page" method="post" action="cast_chart_time_and_place.php">';
       
        $help_text_offset = 'offset';
     echo '<div class="small_title">Place of Birth</div>';
-    //echo '<input type="text" placeholder="i.e. San Francisco, CA" name="address" value="' . get_inputed_var("location", $title, $type) . '"/>';
  
           echo '<div id="country">';    
             country_select ($_SESSION['country_id'], "country_id");
@@ -2531,14 +2529,6 @@ function show_birth_info_form_no_chart() {
             
           echo '</div>';
 
-          //echo '<div id="js_zip_div">';
-          //  zipcode_input ("zip", "location_verification .location_text");           
-          //echo '</div>'; 
-          
-          //echo '<div id="location_verification">';
-          //  echo '<div class="location_text"></div>';
-          //echo '</div>';
-
   echo '<div style="display:inline-block; float:left; width:147px;">'; //Time of birth box
     echo '<div class="small_title">Time of birth</div>';
     echo '<div id="time">';
@@ -2551,7 +2541,7 @@ function show_birth_info_form_no_chart() {
         echo '<div id="accuracy">';
                  time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
          
-        echo '<div id="tp_birth_time_hover_box" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
+        echo '<div id="tp_birth_time_hover_box_no_chart" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
               </div>';
       echo '</div>'; //Close accuracy
   echo '</div>'; //Close Accuracy box
@@ -2575,7 +2565,7 @@ function show_birth_info_form_no_chart() {
       echo '<input type="hidden" id="time_unknown" name="time_unknown" value="0" />';
       echo '<input type="hidden" name="time_and_place" value="1" />';
       //echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
-      echo '<button type="submit" id="next">Next ></button>';
+      echo '<button type="submit" id="next_no_chart">Next ></button>';
     echo '</form>';           
   echo '</div>'; //close time_and_place
 
@@ -5505,11 +5495,7 @@ function show_no_chart() {
               echo '</li>';
           }
           else {
-            echo '<li class="chart_li Unknown_button';
-            if ($x == 0) { 
-              echo ' selected';
-            }
-            echo '">';
+            echo '<li class="chart_li Unknown_button">';
 
             echo '<div class="chart_tabs_wrapper">';
 
@@ -8333,7 +8319,7 @@ function show_time_and_place_box() {
     echo '<span id="chart_error_exists" style="display:none;"></span>';
   }
   //echo '<div class="title">Your Birth Info</div>';
-  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.19em;">To view this part of Starma you will need a Birth Chart.  To calculate your Birth Chart we will need your birth info</div>';
+  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.19em;">To view your compatibility, please enter your time and place of birth.</div>';
     echo '<form id="birth_info_form" method="post" action="cast_chart_time_and_place.php">';
       
        $help_text_offset = 'offset';

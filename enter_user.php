@@ -209,7 +209,7 @@ echo '<div id="profile_top_bar">';
           //REDESIGN
           echo '<div class="profile_button compare_button">';
             echo '<div style="position:relative; top:32px; left:5px; text-align:center;">';
-              if ($no_chart) {
+              if (!get_my_chart()) {
                 echo '<a href="#" title="Compare" class="no_chart">Compare<span class="div_link"></span></a>';
               }
               else {
