@@ -8412,6 +8412,8 @@ function show_time_and_place_box() {
 
     echo '</div>';
   }
+
+  echo '<div class="close_tp later_on pointer">x</div>';
   /*
   if ($_GET['error'] == 2 || $_GET['error'] == 4 || $_GET['error'] == 6) {
      echo '<div class="tp_err" id="tp_zip_error">?</div>

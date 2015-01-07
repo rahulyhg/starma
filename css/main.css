@@ -3919,6 +3919,10 @@ END OLD WAY*/
     font-weight: bold;
 }
 
+#time_and_place .close_tp {
+  position: absolute;
+}
+
 
 /*//////////// END BIRTH INFO NO CHART /////////////////////*/
 

@@ -10,6 +10,10 @@ $(document).ready(function(){
 		$('.time_and_place').slideFadeToggle();
 	});
 
+	$('.close_tp').click(function(){
+		$('.time_and_place').slideFadeToggle();
+	});
+
 	if ($('#chart_error_exists').length) {
 		$('.time_and_place').show();
 	}
