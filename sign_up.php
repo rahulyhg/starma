@@ -11,7 +11,7 @@ if (sign_up_process_done()) {
   
 <body id="bg_stars" style="position:relative;">
 <script>
-
+/*
 function getPicFB() {
   console.log('attempting pic grab');
   FB.api('/me/picture', 
@@ -140,7 +140,7 @@ function sendID() {
       js.src = "//connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-
+*/
   </script>
 
 <script type="text/javascript" src="/js/sign_up_page.js"></script>

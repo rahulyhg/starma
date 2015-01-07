@@ -7818,7 +7818,7 @@ function show_sign_up_page() {
             echo '<div class="user_button">' . format_image($picture=get_main_photo($user_id), $type="compare", $user_id) . '</div>';            
           }
           elseif (get_my_main_photo_uncropped()) {
-            do_redirect( $url = get_domain() . '/sign_up.php?2_5');
+            do_redirect( $url = get_domain() . '/sign_up.php?crop');
           }
           else {
             echo '<div class="user_button"><div class="div_no_photo later_on">Upload<br> a<br> Photo</div></div>';
