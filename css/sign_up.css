@@ -44,7 +44,9 @@
 
 #sign_up_submit {
   position: relative;
-  margin-top: -18px;
+  margin-top: -17px;
+  float: right;
+  width: 60px;
 }
 
 #gender select, #country select, #accuracy select, #time select#meridiem_time {
