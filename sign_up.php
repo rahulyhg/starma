@@ -140,7 +140,7 @@ function sendID() {
 	 <!--register_teaser_test-->
     <div id="msg_sheen" class="pop_test">
       <div id="msg_sheen_screen" class="pop_test"></div>
-        <div style="position:absolute; z-index:100; top:6%; left:33%;">
+        <div style="position:absolute; z-index:100; top:0%; left:33%;">
           <?php               
             echo '<div id="sign_up_container" class="pop_test">';
 
