@@ -386,7 +386,9 @@ $(document).ready(function(){
 
 
 //FB REGISTER
-
+	
+	var timer_username_fb;
+	var timer_email_fb;
 
 
 	$('#reg_username_error_fb').mouseenter(function(){

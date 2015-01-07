@@ -1012,7 +1012,7 @@
     border-radius: 3px;
     color: #c82923;
     font-size: 0.8em;
-    left: 279px;
+    left: 271px;
     padding: 6px;
     position: absolute;
     z-index: 1000;
@@ -1046,6 +1046,11 @@
   width: 140px;
 }
 
+#reg_err_username_exp_fb_g {
+  top:20px;
+  width: 140px;
+}
+
 #reg_err_birthday_exp {
   top:138px;
   width: 140px;
@@ -1061,6 +1066,11 @@
   width: 140px;
 }
 
+#reg_err_birthday_exp_fb_g {
+  top:76px;
+  width: 140px;
+}
+
 #reg_err_email_exp {
   top:181px;
   width: 140px;
@@ -1072,6 +1082,11 @@
 }
 
 #reg_err_email_exp_g {
+  top:119px;
+  width: 140px;
+}
+
+#reg_err_email_exp_fb_g {
   top:119px;
   width: 140px;
 }
