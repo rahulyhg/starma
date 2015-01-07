@@ -3910,6 +3910,15 @@ END OLD WAY*/
   
 }
 
+#time_and_place .small_title {
+    font-family: 'later_on';
+    font-size: 1.19em;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+}
+
 
 /*//////////// END BIRTH INFO NO CHART /////////////////////*/
 

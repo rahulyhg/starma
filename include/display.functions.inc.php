@@ -2505,7 +2505,7 @@ echo        '<div id="submit_div">
 
 function show_birth_info_form_no_chart() {
   //echo $_SESSION['user_id'];
-  echo '<div class="later_on" style="margin:0 auto 13px; width: 520px; text-align: center; line-height: 1.2; font-size: 1.4em;">To view your Birth Chart, please enter your time and place of birth.</div>';
+  echo '<div class="later_on" style="margin:0 auto 13px; width: 520px; text-align: center; line-height: 1.2; font-size: 1.4em;">To view your Birth Chart, please enter your time and place of birth. This information remains private.</div>';
   echo '<div id="birth_info_form_no_chart">';
   if (isset($_GET['chart_error'])) {
     echo '<span id="chart_error_exists" style="display:none;"></span>';
@@ -8319,7 +8319,7 @@ function show_time_and_place_box() {
     echo '<span id="chart_error_exists" style="display:none;"></span>';
   }
   //echo '<div class="title">Your Birth Info</div>';
-  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.19em;">To view your compatibility, please enter your time and place of birth.</div>';
+  echo '<div class="later_on" style="margin-bottom: 13px; margin-top: 0px; text-align: center; line-height: 1.2; font-size: 1.3em;">To view your compatibility, please enter your time and place of birth. This information remains private, and you only have to enter it once.</div>';
     echo '<form id="birth_info_form" method="post" action="cast_chart_time_and_place.php">';
       
        $help_text_offset = 'offset';
