@@ -60,8 +60,7 @@ var timer_username;
 			$.post('/chat/register_form_fields.php', username, function(data){
 				if(data.errors) {	
 					$('#reg_username_error').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');
-                          
-                          $('#reg_username_check').css('display', 'none').removeClass('check').text('');
+      				$('#reg_username_check').css('display', 'none').removeClass('check').text('');
                           
 					$('#register_username').css('border', '1px solid #C82923');
 					$('#register_submit').css({
@@ -73,8 +72,7 @@ var timer_username;
 				}
 				if(data.success) {
                            
-  					$('#reg_username_error').css('display', 'none').removeClass('register_error').addClass('check').text('');
-                           
+  					$('#reg_username_error').css('display', 'none').removeClass('register_error').addClass('check').text('');        
 					$('#reg_username_check').css('display', 'inline-block').addClass('check').text(data.message);
 					$('#reg_err_username_exp').hide();
 					$('#register_username').css('border', '1px solid black');
@@ -108,7 +106,7 @@ var timer_username;
 			$.post('/chat/register_form_fields.php', birthday, function(data){
 				if(data.errors) {	
 					$('#reg_birthday_error').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');                      
-                          $('#reg_birthday_check').css('display', 'none').removeClass('check').text('');
+                    $('#reg_birthday_check').css('display', 'none').removeClass('check').text('');
 					$('#year').css('border', '1px solid #C82923');
 					$('#register_submit').css({
 												'opacity' : 0.5,
@@ -150,7 +148,7 @@ var timer_username;
 			$.post('/chat/register_form_fields.php', email, function(data){
 				if(data.errors) {	
 					$('#reg_email_error').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');                      
-                           $('#reg_email_check').css('display', 'none').removeClass('check').text('');
+                    $('#reg_email_check').css('display', 'none').removeClass('check').text('');
 					$('#register_email').css('border', '1px solid #C82923');
 					$('#register_submit').css({
 												'opacity' : 0.5,
@@ -194,7 +192,7 @@ var timer_username;
 				//$('#password_error').show().addClass('register_error').removeClass('check').text(data);
 				if(data.errors) {	
 					$('#reg_password_error').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');                      
-                           $('#reg_password_check').css('display', 'none').removeClass('check').text('');
+                    $('#reg_password_check').css('display', 'none').removeClass('check').text('');
 
 					$('#register_password').css('border', '1px solid #C82923');
 					$('#register_submit').css({
@@ -389,7 +387,7 @@ var timer_username;
 			$.post('/chat/register_form_fields.php', username_fb, function(data){
 				if(data.errors) {	
 					$('#reg_username_error_fb').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');                      
-                           $('#reg_username_check_fb').css('display', 'none').removeClass('check').text('');
+                    $('#reg_username_check_fb').css('display', 'none').removeClass('check').text('');
 					$('#register_username_fb').css('border', '1px solid #C82923');
 					$('#register_submit_fb').css({
 												'opacity' : 0.5,
@@ -427,7 +425,7 @@ var timer_username;
 			$.post('/chat/register_form_fields.php', birthday_fb, function(data){
 				if(data.errors) {	
 					$('#reg_birthday_error_fb').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');                      
-                           $('#reg_birthday_check_fb').css('display', 'none').removeClass('check').text('');
+                    $('#reg_birthday_check_fb').css('display', 'none').removeClass('check').text('');
 
 					$('#year').css('border', '1px solid #C82923');
 					$('#register_submit_fb').css({
@@ -465,7 +463,7 @@ var timer_username;
 			$.post('/chat/register_form_fields.php', email_fb, function(data){
 				if(data.errors) {	
 					$('#reg_email_error_fb').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');                      
-                           $('#reg_email_check_fb').css('display', 'none').removeClass('check').text('');
+                    $('#reg_email_check_fb').css('display', 'none').removeClass('check').text('');
 
 					$('#register_email_fb').css('border', '1px solid #C82923');
 					$('#register_submit_fb').css({
