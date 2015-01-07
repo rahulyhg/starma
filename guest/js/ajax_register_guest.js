@@ -392,6 +392,121 @@ $(document).ready(function(){
 		
 
 
+	//Username
+	$('#register_username_fb').on('keyup blur', function(){
+		var name = $('#reg_username_error_fb');
+		var age = $('#reg_birthday_error_fb');
+		var email_error1 = $('#reg_email_error_fb');
+		clearInterval(timer_username);
+		timer_username_fb = setTimeout(function() {
+			var username_fb = { 'username' : $('#register_username_fb').val()};
+
+			$.post('../chat/register_form_fields.php', username_fb, function(data){
+				if(data.errors) {	
+					$('#reg_username_error_fb').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');                      
+                           $('#reg_username_check_fb').css('display', 'none').removeClass('check').text('');
+					$('#register_username_fb').css('border', '1px solid #C82923');
+					$('#register_submit_fb').css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
+					$('#reg_err_username_exp_fb').text(data.message);
+					
+				}
+				if(data.success) {
+					$('#reg_username_error_fb').css('display', 'none').removeClass('register_error').addClass('check').text('');
+					$('#reg_username_check_fb').css('display', 'inline-block').addClass('check').text(data.message);
+					$('#reg_err_username_exp_fb').hide();
+					$('#register_username_fb').css('border', '1px solid black');
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check')) {
+							$('#register_submit_fb').css({
+																'opacity' : 1,
+																'cursor'  : 'pointer'
+															});
+					}
+				}
+			}, 'json');
+		}, 2000);
+	});
+
+	//Birthday
+	$('#year_fb').on('change blur', function(){
+		var name = $('#reg_username_error_fb');
+		var age = $('#reg_birthday_error_fb');
+		var email_error1 = $('#reg_email_error_fb');
+			var birthday_fb = { 'year_birthday'  : $('#year_fb').val(),
+							 	'month_birthday' : $('#month_fb').val(),
+							 	'day_birthday'   : $('#day_fb').val()
+								};
+
+			$.post('../chat/register_form_fields.php', birthday_fb, function(data){
+				if(data.errors) {	
+					$('#reg_birthday_error_fb').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');                      
+                           $('#reg_birthday_check_fb').css('display', 'none').removeClass('check').text('');
+
+					$('#year').css('border', '1px solid #C82923');
+					$('#register_submit_fb').css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
+					$('#reg_err_birthday_exp_fb').text(data.message);
+				}
+				if(data.success) {
+					$('#reg_birthday_error_fb').css('display', 'none').removeClass('register_error').addClass('check').text('');
+					$('#reg_birthday_check_fb').css('display', 'inline-block').addClass('check').text(data.message);
+
+					$('#reg_err_birthday_exp_fb').hide();
+					$('#year_fb').css('border', '1px solid black');
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check')) {
+							$('#register_submit_fb').css({
+																'opacity' : 1,
+																'cursor'  : 'pointer'
+															});
+					}
+				}
+			}, 'json');
+	});
+
+	//Email1
+	$('#register_email_fb').on('keyup blur', function(){
+		var name = $('#reg_username_error_fb');
+		var age = $('#reg_birthday_error_fb');
+		var email_error1 = $('#reg_email_error_fb');
+		clearInterval(timer_email_fb);
+		var email_fb = $('#register_email_fb').val();
+		timer_email_fb = setTimeout(function() {
+			var email_fb = { 'email' : $('#register_email_fb').val()};
+
+			$.post('../chat/register_form_fields.php', email_fb, function(data){
+				if(data.errors) {	
+					$('#reg_email_error_fb').css('display', 'inline-block').addClass('register_error').removeClass('check').text('?');                      
+                           $('#reg_email_check_fb').css('display', 'none').removeClass('check').text('');
+
+					$('#register_email_fb').css('border', '1px solid #C82923');
+					$('#register_submit_fb').css({
+												'opacity' : 0.5,
+												'cursor'  : 'default'
+												});
+					$('#reg_err_email_exp_fb').text(data.message);
+				}
+				if(data.success) {
+					$('#reg_email_error_fb').css('display', 'none').removeClass('register_error').addClass('check').text('');
+					$('#reg_email_check_fb').css('display', 'inline-block').addClass('check').text(data.message);
+
+					$('#reg_err_email_exp_fb').hide();
+					$('#register_email_fb').css('border', '1px solid black');
+					if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check')) {
+							$('#register_submit_fb').css({
+																'opacity' : 1,
+																'cursor'  : 'pointer'
+															});
+					}
+				}
+			}, 'json');
+		}, 2000);
+	});
+
+
 
 
 	/*
