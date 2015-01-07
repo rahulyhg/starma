@@ -411,14 +411,86 @@ $(document).ready(function(){
 	});
 
 	
-	$('#register_submit_fb').click(function(){
-		var name = $('#reg_username_error');
-		var age = $('#reg_birthday_error');
-		var email_error1 = $('#reg_email_error');
-		var pass = $('#reg_password_error');
-		if (name.hasClass('check') && age.hasClass('check') && email_error1.hasClass('check') && pass.hasClass('check')) {
-			mixpanel.track('FB Create Account Guest');
-		}
+	$('#register_form_fb').submit(function(event){
+
+		var data_fb = {
+			'fb' 				 :  'fb',
+			'username_fb'        :  $('#register_username_fb').val(),
+			'year_birthday_fb'   :  $('#year_fb').val(),
+			'month_birthday_fb'  :  $('#month_fb').val(),
+			'day_birthday_fb'    :  $('#day_fb').val(),
+			'email_fb'           :  $('#register_email_fb').val(),
+		};
+
+		$.ajax({
+			type      : 'POST',
+			url       : '../chat/register_user.php',
+			data      : data_fb,
+			dataType  : 'json',
+		})
+		.done(function(data){
+			//alert(data);
+			
+			if (data.errors) {
+				if (data.errors.username_fb) {
+					$('#reg_err_username_exp_fb_g').text(data.errors.username_fb);
+					$('#register_username_fb').css('border', '1px solid #C82923');
+					$('#reg_username_error_fb').show().addClass('register_error').removeClass('check').text('?');
+				}
+				if (data.errors.strtotime_fb) {
+					$('#reg_err_birthday_exp_fb_g').text(data.errors.strtotime);
+					$('#year_fb').css('border', '1px solid #C82923');
+					$('#reg_birthday_error_fb').show().addClass('register_error').removeClass('check').text('?');
+				}
+				if (data.errors.underage_fb) {
+					$('#reg_err_birthday_exp_fb_g').text(data.errors.underage_fb);
+					$('#year_fb').css('border', '1px solid #C82923');
+					$('#reg_birthday_error_fb').show().addClass('register_error').removeClass('check').text('?');
+				}
+				if (data.errors.email_valid_fb) {
+					$('#reg_err_email_exp_fb_g').text(data.errors.email_valid_fb);
+					$('#register_email_fb').css('border', '1px solid #C82923');
+					$('#reg_email_error_fb').show().addClass('register_error').removeClass('check').text('?');
+				}
+				if (data.errors.email_empty_fb) {
+					$('#reg_err_email_exp_fb_g').text(data.errors.email_empty_fb);
+					$('#register_email_fb').css('border', '1px solid #C82923');
+					$('#reg_email_error_fb').show().addClass('register_error').removeClass('check').text('?');
+				}
+				if (data.errors.fb_id) {
+					alert(data.errors.fb_id);
+				}
+			}
+			if (data.failed) {
+				if (data.failed.username_fb) {
+					alert(data.failed.username_fb);
+				}
+				if (data.failed.underage_fb) {
+					alert(data.failed.underage_fb);
+				}
+				if (data.failed.strtotime_fb) {
+					alert(data.failed.strtotime_fb);
+				}
+				if (data.failed.email_fb) {
+					alert(data.failed.email_fb);
+				}
+				if(data.failed.user_exists_fb) {
+					alert(data.failed.user_exists_fb);
+				}
+			}
+			if (data.url_fb) {
+				mixpanel.track('FB Create Account Guest', {}, window.location.assign('../' + data.url_fb));
+				setTimeout(function(){ window.location.assign('/' + data.url_fb); }, 500);
+				//alert(data.url);
+				//window.location.assign('../' + data.url_fb);
+			}
+			if (!data) {
+				alert('There was an ajax error with Facebook, please try again');
+			}
+			
+		});
+
+		event.preventDefault();
 
 	});
 		
