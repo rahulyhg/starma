@@ -33,13 +33,15 @@ function get_single_suggested_match($user_id) {
   $chart_id1 = get_chart_id_from_user_id($user_id);
   $charts = get_random_charts();
   echo 'charts: ';
-  print_r($charts);
+  //print_r($charts);
+  echo $charts[0]['chart_id'];
   echo '<br>';
   $length = count($charts);
   echo 'length: ' . $length;
   $no_good = array();
   //for ($x = 0; $x < $length; $x++) {
-    $compare_results = generate_compare_data($chart_id1, $charts['chart_id'], 0);
+    $compare_results = generate_compare_data($chart_id1, $charts[0]['chart_id'], 0);
+    echo '<br> compare_results rising: ' . $compare_results['rising2rising'];
     $total_score = compare_charts($compare_results, false);
     echo '<br>total_score: ' . $total_score;
     return $total_score;
