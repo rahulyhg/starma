@@ -82,7 +82,7 @@ require_once "header.php";
         </div>--> 
         </div>
         
-        <<?php //show_descriptors_info(get_my_chart_id()); 
+        <?php //show_descriptors_info(get_my_chart_id()); 
                 show_my_descriptors_info_home();
         ?>  
       </div>  
