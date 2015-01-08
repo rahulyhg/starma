@@ -40,15 +40,15 @@ function get_single_suggested_match($user_id) {
   echo 'length: ' . $length;
   $no_good = array();
   for ($x = 0; $x < $length; $x++) {
-    $compare_results = generate_compare_data($chart_id1, $charts[$x]['chart_id'], 0);
-    echo '<br> compare_results rising: ' . print_r($compare_results['rising2rising']);
+    $compare_results = generate_compare_data($chart_id1, $charts[$x]['chart_id'], 0);    
     $total_score = compare_charts($compare_results, false);
-    echo '<br>total_score: ' . $total_score;
-    echo '<br>name: ' . get_nickname(get_user_id_from_chart_id($charts[$x]['chart_id']));
     //return $total_score;
     
     if ($total_score > .8) {
       $match = array('score' => $total_score, 'chart_id2' => $charts[$x]['chart_id']);
+      echo '<br> compare_results rising: ' . print_r($compare_results['rising2rising']);
+      echo '<br>total_score: ' . $total_score;
+      echo '<br>name: ' . get_nickname(get_user_id_from_chart_id($charts[$x]['chart_id']));
       echo 'Match array: ' . print_r($match);
       return $match;
       break;
@@ -65,7 +65,7 @@ function get_single_suggested_match($user_id) {
 }
 
 function get_random_charts() {
-  $q = 'SELECT chart_id from chart where method = "E" and nickname = "Main"
+  $q = 'SELECT chart_id from chart where method = "E" and nickname = "Main" and interval_time = 0
   ORDER BY RAND()
   LIMIT 10';
   $result = mysql_query($q);
