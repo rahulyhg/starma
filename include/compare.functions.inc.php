@@ -47,7 +47,7 @@ function get_single_suggested_match($user_id) {
     echo '<br>name: ' . get_nickname(get_user_id_from_chart_id($charts[$x]['chart_id']));
     //return $total_score;
     
-    if ($total_score > 80) {
+    if ($total_score > .8) {
       $match = array('score' => $total_score, 'chart_id2' => $charts[$x]['chart_id']);
       echo 'Match array: ' . print_r($match);
       return $match;
