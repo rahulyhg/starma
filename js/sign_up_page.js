@@ -489,9 +489,15 @@ $('.incomplete').click(function(){
 					}, window.location.assign('/' + data.url));
 					setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
 					*/
+					mixpanel.track('Sign Up Page', {
+						'gender'   : data.gender,
+						'location' : data.loc,
+						'state'    : data.state
+					}, window.location.assign('/' + data.url));
+					setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
 					//mixpanel.track('Words Photo', {}, window.location.assign('/' + data.url));
 					//setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
-					window.location.assign('/' + data.url);			
+					//window.location.assign('/' + data.url);			
 				}
 			});
 
