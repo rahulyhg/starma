@@ -41,9 +41,10 @@ function get_single_suggested_match($user_id) {
   $no_good = array();
   //for ($x = 0; $x < $length; $x++) {
     $compare_results = generate_compare_data($chart_id1, $charts[0]['chart_id'], 0);
-    echo '<br> compare_results rising: ' . $compare_results['rising2rising'];
+    echo '<br> compare_results rising: ' . print_r($compare_results['rising2rising']);
     $total_score = compare_charts($compare_results, false);
     echo '<br>total_score: ' . $total_score;
+    echo 'name: ' . get_nickname(get_user_id_from_chart_id($charts[0]['chart_id']));
     return $total_score;
     /*
     if ($total_score > 80) {
@@ -64,7 +65,7 @@ function get_single_suggested_match($user_id) {
 function get_random_charts() {
   $q = 'SELECT chart_id from chart where method = "E" and nickname = "Main"
   ORDER BY RAND()
-  LIMIT 1';
+  LIMIT 10';
   $result = mysql_query($q);
   $charts_array = query_to_array($result);
   return $charts_array;
