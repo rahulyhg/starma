@@ -32,11 +32,16 @@ function get_my_single_suggested_match() {
 function get_single_suggested_match($user_id) {
   $chart_id1 = get_chart_id_from_user_id($user_id);
   $charts = get_random_charts();
+  echo 'charts: ';
+  print_r($charts);
+  echo '<br>';
   $length = count($charts);
+  echo 'length: ' . $length;
   $no_good = array();
   //for ($x = 0; $x < $length; $x++) {
-    $compare_results = generate_compare_data($chart_id1, $charts[$x]['chart_id'], 0);
+    $compare_results = generate_compare_data($chart_id1, $charts['chart_id'], 0);
     $total_score = compare_charts($compare_results, false);
+    echo '<br>total_score: ' . $total_score;
     return $total_score;
     /*
     if ($total_score > 80) {
