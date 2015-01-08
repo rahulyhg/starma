@@ -39,27 +39,29 @@ function get_single_suggested_match($user_id) {
   $length = count($charts);
   echo 'length: ' . $length;
   $no_good = array();
-  //for ($x = 0; $x < $length; $x++) {
-    $compare_results = generate_compare_data($chart_id1, $charts[0]['chart_id'], 0);
+  for ($x = 0; $x < $length; $x++) {
+    $compare_results = generate_compare_data($chart_id1, $charts[$x]['chart_id'], 0);
     echo '<br> compare_results rising: ' . print_r($compare_results['rising2rising']);
     $total_score = compare_charts($compare_results, false);
     echo '<br>total_score: ' . $total_score;
-    echo 'name: ' . get_nickname(get_user_id_from_chart_id($charts[0]['chart_id']));
-    return $total_score;
-    /*
+    echo '<br>name: ' . get_nickname(get_user_id_from_chart_id($charts[$x]['chart_id']));
+    //return $total_score;
+    
     if ($total_score > 80) {
       $match = array('score' => $total_score, 'chart_id2' => $charts[$x]['chart_id']);
+      echo 'Match array: ' . print_r($match);
       return $match;
       break;
     }
     else {
       array_push($no_good, $charts[$x]['chart_id']);
     }
-    */
-  //}
-  //if (count($no_good) == $length) {
-  //  get_single_suggested_match($user_id);
-  //}
+    
+  }
+  if (count($no_good) == $length) {
+    //get_single_suggested_match($user_id);
+    echo '<br>NO MATCHES!';
+  }
 }
 
 function get_random_charts() {
