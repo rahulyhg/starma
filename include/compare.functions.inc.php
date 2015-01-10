@@ -66,7 +66,7 @@ function get_single_suggested_match($user_id) {
 
 function get_random_charts() {
   $q = 'SELECT chart_id from chart, user.nickname from user
-  inner join user on chart.user_id = user.user_id 
+  right join user on chart.user_id = user.user_id 
   where method = "E" and chart.nickname = "Main" and interval_time = 0 AND NOT user.nickname like "testceleb%"
   ORDER BY RAND()
   LIMIT 20';
