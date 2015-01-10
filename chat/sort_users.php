@@ -17,7 +17,7 @@
 			//$data['sign'] = $sign_id
 		}
 		*/
-		$data = 'hello';
+		$data = get_sign_name(4);
 		echo json_encode($data);
 	//}
 
