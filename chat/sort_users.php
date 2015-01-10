@@ -4,7 +4,7 @@
 	if (isset($_POST['sort_by_sign'])) {
 		$data = array();
 		$errors = array();
-		$sign_id = $_POST['sign']
+		$sign_id = $_POST['sign_id']
 		if (!preg_match('%[1-12]%', $sign_id)) {
 			$errors['valid'] = 'something is wrong with this sign...';
 		}
