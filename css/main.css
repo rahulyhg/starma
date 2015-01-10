@@ -165,10 +165,11 @@ input{
 
 #homepage_suggested_match #sample_compare_text {
   position: relative;
-  width: 245px;
+  width: 273px;
   margin: 4px auto auto;
   font-size: .93em;
   letter-spacing: .5px;
+  line-height: 1.1;
 }
 
 
