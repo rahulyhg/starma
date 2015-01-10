@@ -96,7 +96,7 @@ require_once "header.php";
           echo '';
         }
         else {
-          echo '<div id="p_box_blurb"><p class="hsel_box_blurb">See your compatibility with ' . $match_name . '...</p></div>';
+          echo '<div id="sm_box_blurb"><p class="hsel_box_blurb">Your compatibility with ' . $match_name . '...</p></div>';
         }
         
       ?>

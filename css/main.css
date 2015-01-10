@@ -3592,6 +3592,12 @@ ul.as-list li.as-result-item em {
   width: 332px;
 }
 
+#sm_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
 #h_box_blurb {
   display: inline-block;
   position: relative;
