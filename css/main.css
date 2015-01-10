@@ -196,7 +196,7 @@ input{
   font-size: .85em;
   font-weight: bold;
   text-align: center;
-  position: relative;
+  position: absolute;
   bottom: 0;
 }
 
