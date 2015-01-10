@@ -37,7 +37,7 @@ $(document).ready(function(){
 					$('#load_next').val('true');
 				}
 				*/
-				$('#users_found').append(data.new_users);
+				$('#users_found').append(data.users_found);
 				//console.log('page: ' + data.page + 'begin: ' + data.begin + 'limit: ' + data.limit);
 				$('#s_loading').hide();
 			}
