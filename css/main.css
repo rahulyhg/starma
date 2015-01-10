@@ -76,11 +76,47 @@ input{
   letter-spacing: 2px;
 }
 
-
 #welcome .flare_title .title_content {
   font-size:1.8em;
 }
 
+/*--- NEW HOMEPAGE -- */
+
+#welcome .homepage_div {
+  display: inline-block;
+  height:231px;
+  width:338px;
+  border-radius: 2px;
+  border: 2px solid black;
+  background-color: #D3DBF6;
+}
+
+#welcome .homepage_div:hover {
+  border-radius: 2px;
+  box-shadow: 0 0 2px 0 #404864;
+  background-color: #D3DBF6;
+  transition: .3s;
+}
+
+#welcome .homepage_div .header {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 3px;
+    width: 100%;
+    color: #1a1d2a;
+}
+
+#welcome #homepage_suggested_match {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+/*--- END NEW HOMEPAGE ---*/
+
+
+/*--- OLD HOMEPAGE ---*/
+/*
 #welcome .homepage_div {
   position:absolute;
   height:231px;
@@ -113,14 +149,6 @@ input{
 
 #welcome #profile_box_link {
   left:40px;
-}
-
-
-#welcome #profile_box_link a.box_link {
-  /*background:url("/img/Starma-Astrology-ProfileBox.png") no-repeat scroll center center;*/
-}
-#welcome #profile_box_link a.box_link:hover {
-  /*background:url("/img/Starma-Astrology-ProfileBoxH.png") no-repeat scroll center center;*/
 }
 
 #welcome #homepage_suggested_match_button {
@@ -188,26 +216,12 @@ input{
   top: 326px;
 }
 
-#welcome #community_box_link a.box_link {
-  /*background:url("/img/Starma-Astrology-Community.png") no-repeat scroll center center;*/
-}
-#welcome #community_box_link a.box_link:hover {
-  /*background:url("/img/Starma-Astrology-CommunityH.png") no-repeat scroll center center;*/
-}
-
 #welcome #horoscope_box_link {
-    left:399px;
+    
 }
 
 #welcome #horoscope_box_link_guest {
   left: 40px;
-}
-
-#welcome #horoscope_box_link a.box_link {
-  /*background:url("/img/Starma-Astrology-ChartBox.png") no-repeat scroll center center;*/
-}
-#welcome #horoscope_box_link a.box_link:hover {
-  /*background:url("/img/Starma-Astrology-ChartBoxH.png") no-repeat scroll center center;*/
 }
 
 #welcome #horoscope_box_link span.poi_title {
@@ -222,8 +236,7 @@ input{
 }
 
 #welcome #compatibility_sample_link {
-    left: 40px;
-    top: 326px;
+  left:399px;
 }
 
 #welcome #compatibility_sample_link #homepage_compare_sample {
@@ -269,12 +282,7 @@ input{
   left: 399px;
   top: 326px;
 }
-#welcome #celebrities_box_link a.box_link {
-  /*background:url("/img/Starma-Astrology-Celebrities.png") no-repeat scroll center center;*/
-}
-#welcome #celebrities_box_link a.box_link:hover {
-  /*background:url("/img/Starma-Astrology-CelebritiesH.png") no-repeat scroll center center;*/
-}
+
 
 #welcome .homepage_div a.box_link {
     display: block;
@@ -289,6 +297,10 @@ input{
   top: 40px;
   right: 15px;
 }
+
+*/
+
+/*--- END OLD HOMEPAGE ---*/
 
 
 #welcome #header {
@@ -310,6 +322,8 @@ input{
     top: 5px;
     z-index: 4;
 }
+
+
 
 /*//////////////TOP NAV BAR/////////////////////////////////////////////////////*/
 

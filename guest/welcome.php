@@ -11,7 +11,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
     </div>
  
     <div id="horoscope_box_link_guest" class="homepage_div">
-      <span class="header">Birth Chart Example</span>
+      <span class="header later_on">Birth Chart Example</span>
       <a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
       <div id="homepage_chart_button_info">
         <?php
@@ -26,22 +26,14 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
           ?>
 
       <div id="h_box_blurb_guest"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
-    </div>
-    </div>
-    
-    <div id="community_box_link" class="homepage_div">
-      <span class="header">Explore the Community</span>
-      <a class="box_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"></a>
-      <div id="homepage_thumbnails">
-        <?php
-          display_welcome_page_thumbnails(0, 1);
-        ?>
       </div>
-      <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
     </div>
 
-    <div id="compatibility_sample_link" class="homepage_div">
-      <span class="header">Compatibility Example</span>
+    <!--CLOSE BIRTH CHART-->
+
+    <!--COMPATIBILITY SAMPLE-->
+     <div id="compatibility_sample_link" class="homepage_div">
+      <span class="header later_on">Compatibility Example</span>
       <a class="box_link" href="<?php echo '?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true'; ?>"></a>
       <div id="homepage_compare_sample">
         <div id="sample_compare_results">
@@ -74,7 +66,20 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
           </div>
         </div>
       </div>
-      </div>  <!--Close sample_compare_results-->
+      </div> 
+      <!--CLOSE COMPATIBILTY SAMPLE--> 
+
+    <!--COMMUNITY-->
+    <div id="community_box_link" class="homepage_div">
+      <span class="header later_on">Explore the Community</span>
+      <a class="box_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"></a>
+      <div id="homepage_thumbnails">
+        <?php
+          display_welcome_page_thumbnails(0, 1);
+        ?>
+      </div>
+      <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
+    </div>
 
       <!--sample compare text-->
       <div id="sample_compare_text">The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to...</div>
@@ -82,9 +87,11 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
         <div id="co_box_blurb_guest"><p class="hsel_box_blurb">See a sample compatibility test...</p></div>
       </div>
     </div>
+    <!--CLOSE COMMUNITY-->
 
+    <!--CELEBRITIES-->
     <div id="celebrities_box_link" class="homepage_div">
-      <span class="header">Browse Celebrities</span>
+      <span class="header later_on">Browse Celebrities</span>
       <a class="box_link" href="main.php?the_page=cesel&the_left=nav1&tier=1"></a>
       <div id="homepage_thumbnails">
         <?php
@@ -94,4 +101,5 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
       <div id="ce_box_blurb"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
     </div>
  </div> 
+ <!--CLOSE CELEBRITIES-->
 
