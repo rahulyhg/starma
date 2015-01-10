@@ -1543,7 +1543,7 @@ function get_user_list_search ($gender, $low_bound, $high_bound, $begin, $limit)
 
 function get_user_list_from_sign ($poi_id, $sign_id, $begin, $limit) {
   if(isLoggedIn()) {
-      $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
+      $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main, chart_x_house.* from user 
           inner join chart on user.user_id = chart.user_id 
           inner join chart_x_house on chart.chart_id = chart_x_house.chart_id
           left outer join user_picture on user.user_id = user_picture.user_id 
