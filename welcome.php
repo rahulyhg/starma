@@ -58,9 +58,9 @@ require_once "header.php";
         else {
           $chart_id1 = get_my_chart_id();
           $match = get_my_single_suggested_match();
-          echo 'Match: <br>';
-          print_r($match);
-          //show_compare_results_homepage($chart_id1, $match['chart_id2'], $match['score']);
+          //echo 'Match: <br>';
+          //print_r($match);
+          show_compare_results_homepage($chart_id1, $match['chart_id2'], $match['score']);
         }
         
       ?>
