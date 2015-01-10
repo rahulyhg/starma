@@ -84,6 +84,7 @@ window._fbq.push(['track', '6017975319945', {'value':'0.00','currency':'USD'}]);
       <script type="text/javascript" src="/js/scroll.js"></script>  
       <script type="text/javascript" src="/js/cue_search.js"></script> 
       <script type="text/javascript" src="/js/pop_tuts.js"></script>
+      <script type="text/javascript" src="/js/sort_users.js"></script>
     ';
     echo "<script type='text/javascript' src='js/ajax_invite_new_user.js'></script>";
     echo "<script type='text/javascript' src='js/msg_popup.js'></script>";
@@ -116,6 +117,7 @@ window._fbq.push(['track', '6017975319945', {'value':'0.00','currency':'USD'}]);
       <script type="text/javascript" src="/js/scroll.js"></script>
       <script type="text/javascript" src="/js/cue_search.js"></script> 
       <script type="text/javascript" src="/js/pop_tuts.js"></script>
+      <script type="text/javascript" src="/js/sort_users.js"></script>
     ';
     echo "<script type='text/javascript' src='js/ajax_invite_new_user.js'></script>";
     echo "<script type='text/javascript' src='js/msg_popup.js'></script>";

@@ -35,7 +35,13 @@ if (login_check_point($type="full")) {
           echo '<div style="display:inline-block; margin-right: 20px;"><button class="s_button" onClick="fbLoginMain();">Find Facebook Friends</button></div>';
         }
   			  
-  				echo '<div style="display:inline-block; margin-bottom: 10px;"><input type="text" id="cue_search" placeholder="Search by Username or Email"><div class="later_on pointer" id="cue_button">Go!</div></div>';
+  				echo '<div style="display:inline-block; margin-bottom: 10px;"><input type="text" id="cue_search" placeholder="Search by Username or Email"><div class="later_on pointer" id="cue_button">Go!</div>';
+
+          echo '<div style="display:inline-block;">';
+            sign_select_sort();
+          echo '</div>';
+
+        echo '</div>';
        			echo '<div id="hide_s" class="later_on pointer"><- Back</div>';
             echo '<div id="fb_f_invite" class="later_on"></div>';
    			echo '</div>'; //close s_top_bar
