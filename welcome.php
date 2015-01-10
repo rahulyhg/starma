@@ -6,6 +6,9 @@ require_once "header.php";
 
  <div id="welcome">
  <?php
+  if (!get_my_chart()) {
+    $no_chart = true;
+  }
  //echo my_compare_flag();
   /*
     echo '<script>
@@ -38,6 +41,11 @@ require_once "header.php";
      echo '<div id="tfb">fb test</div>';
      echo $_SESSION['fb_id'];
     */
+    if (!$no_chart) {
+      $chart_id1 = get_my_chart_id();
+      $match = get_my_single_suggested_match();
+      $isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($match['chart_id2'])));
+    }
      
  ?>
     <!--<?php flare_title();?>-->
@@ -47,17 +55,30 @@ require_once "header.php";
  
     <div id="profile_box_link" class="homepage_div">
       <span class="header">Compatibility</span>
-      <a class="box_link" href="main.php?the_page=psel&the_left=nav1&western=0&section=about_selected"></a>
+      <?php
+        echo '<a class="box_link" href="';
+          if ($no_chart) {
+            echo '#" class="no_chart"';
+          }
+          else {
+            if ($isCeleb) {
+              echo 'main.php?the_page=cesel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '"';
+            }
+            else {
+              echo 'main.php?the_page=cosel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '"';
+            }
+          }
+        echo '></a>';
+      ?>
+      
       <div id="homepage_profile_button_info">
 
       <?php
       
-        if (!get_my_chart()) {
+        if ($no_chart) {
           echo 'Enter your birth info to get your matches...';
         }
         else {
-          $chart_id1 = get_my_chart_id();
-          $match = get_my_single_suggested_match();
           //echo 'Match: <br>';
           //print_r($match);
           show_compare_results_homepage($chart_id1, $match['chart_id2'], $match['score']);
