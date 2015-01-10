@@ -3448,15 +3448,15 @@ function show_compare_results_homepage($chart_id1, $chart_id2, $score) {
           $rating = get_star_rating ($score);
           for ($x=1; $x<=5; $x++) {
             if ($rating >= $x) 
-              echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-Small1.png"/></div>';
+              echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small1.png"/></div>';
             elseif ($rating >= ($x - 0.25))
-              echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-Small.75.png"/></div>';
+              echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small.75.png"/></div>';
             elseif ($rating >= ($x - 0.50))
-              echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-Small.5.png"/></div>';
+              echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small.5.png"/></div>';
             elseif ($rating >= ($x - 0.75))
-              echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-Small.25.png"/></div>';
+              echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small.25.png"/></div>';
             else 
-              echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-Small0.png"/></div>';
+              echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small0.png"/></div>';
           }
         echo '</div>'; //close star_rating
 
