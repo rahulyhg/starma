@@ -17,16 +17,17 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
         <?php
          
           $button_sign_id = get_sign_from_poi ($guest_chart_id, 1);
-          echo '<ul style="margin:0;">';
-          echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
-          echo '<div id="blurb">';
+          echo '<div id="homepage_sign">';
+            echo '<ul style="margin:0;">';
+              echo '<li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
+            echo '<div id="blurb">';
+          echo '</div>';
             show_poi_sign_blurb_abbr (1, $button_sign_id);
           echo '</div>';
           
           ?>
-
-      <div class="homepage_blurb"><p>Learn details about your Sun Sign and more...</p></div>
       </div>
+      <div class="homepage_blurb"><p>Learn details about your Sun Sign and more...</p></div>
     </div>
 
     <!--CLOSE BIRTH CHART-->
