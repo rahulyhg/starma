@@ -150,6 +150,10 @@ input{
     margin: auto;
 }
 
+#homepage_sign {
+  display: inline-block;
+}
+
 #homepage_thumbnails {
     position: relative;
     width: 300px;
