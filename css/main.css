@@ -125,9 +125,8 @@ input{
 
 #welcome #homepage_suggested_match_button {
     bottom: 1px;
-    left: 38px;
     position: absolute;
-    width: 273px;
+    width: 338px;
 }
 
 #welcome #suggested_match_link {
@@ -138,6 +137,11 @@ input{
   float: left;
   position: relative;
   margin-left: 5px;
+}
+
+#homepage_suggested_match {
+  position: relative;
+  top: 20px;
 }
 
 #homepage_suggested_match #homepage_compare_thumb_left {
