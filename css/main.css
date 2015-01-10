@@ -112,6 +112,10 @@ input{
   width: 100%;
 }
 
+#square_link {
+  display: block;
+}
+
 /*--- END NEW HOMEPAGE ---*/
 
 
