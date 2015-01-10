@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 	$('#sort_by_sign').on('change', function(){
+		$('#users_found').html('');
 		var data = {'sign_id'		   : $('#sort_by_sign').val(),
 					'sort_by_sign' : 'sort_by_sign'
 					};
