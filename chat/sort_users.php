@@ -6,7 +6,7 @@
 		$data = array();
 		$errors = array();
 		$sign_id = $_POST['sign_id'];
-		if (!preg_match('%[1-12]%', $sign_id)) {
+		if (!preg_match('%[0-9]%', $sign_id)) {
 			$errors['valid'] = 'something is wrong with this sign...';
 		}
 		if (!empty($errors)) {
