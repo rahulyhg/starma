@@ -39,7 +39,7 @@ $(document).ready(function(){
 					$('#load_next').val('true');
 				}
 				*/
-				$('#users_found').append(data.users_found);
+				$('#users_found').show().append(data.users_found);
 				//console.log('page: ' + data.page + 'begin: ' + data.begin + 'limit: ' + data.limit);
 				$('#s_loading').hide();
 			}
