@@ -90,6 +90,8 @@ input{
   border: 2px solid black;
   background-color: #D3DBF6;
   position: relative;
+  float: left;
+  margin: 0 5px 5px 0;
 }
 
 #welcome .homepage_div:hover {
@@ -119,7 +121,7 @@ input{
 
 #homepage_suggested_match #homepage_compare_thumb_left {
   position: relative;
-  margin-top: 15%;
+  margin-top: 5px;
   display: inline-block;
 }
 
@@ -148,12 +150,99 @@ input{
     margin: auto;
 }
 
+#homepage_thumbnails {
+    position: relative;
+    width: 300px;
+    margin: auto;
+    z-index: 2;
+}
+
+#homepage_chart_button_info {
+    bottom: 39px;
+    left: 31px;
+    position: absolute;
+    width: 252px;
+}
+
+.homepage_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+
+
+/*//////////////// END MAIN PROFILE ///////////////////////////////////////*/
+
 
 /*--- END NEW HOMEPAGE ---*/
 
 
 /*--- OLD HOMEPAGE ---*/
+
+
 /*
+
+#p_box_blurb {
+  display: inline-block;
+  position: relative;
+  right: 44px;
+  width: 332px;
+}
+
+#sm_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#h_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#h_box_blurb_guest {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#co_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#co_box_blurb_sign_up {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#co_box_blurb_guest {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#ce_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#ce_box_blurb_sign_up {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+.hsel_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
 #welcome .homepage_div {
   position:absolute;
   height:231px;
@@ -182,6 +271,21 @@ input{
     letter-spacing: 2px;
     font-family: 'later_on';
     font-weight: bold;
+}
+
+#homepage_profile_button_info {
+    bottom: 1px;
+    left: 49px;
+    position: absolute;
+    width: 252px;
+}
+
+#homepage_profile_button_info .about_photo_wrapper {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  display: block;
+  width: 123px;
 }
 
 #welcome #profile_box_link {
@@ -3639,81 +3743,7 @@ ul.as-list li.as-result-item em {
   */
 }
 
-/***************---Matt Homepage box blurbs*/
 
-#p_box_blurb {
-  display: inline-block;
-  position: relative;
-  right: 44px;
-  width: 332px;
-}
-
-#sm_box_blurb {
-  display: inline-block;
-  margin: auto;
-  width: 100%;
-}
-
-#h_box_blurb {
-  display: inline-block;
-  position: relative;
-  top: 37px;
-  right: 22px;
-  width: 319px;
-}
-
-#h_box_blurb_guest {
-  display: inline-block;
-  position: relative;
-  top: 55px;
-  right: 22px;
-  width: 319px;
-}
-
-#co_box_blurb {
-  display: inline-block;
-  position: relative;
-  bottom: 41px;
-  right: -4px;
-  width: 330px;
-}
-
-#co_box_blurb_sign_up {
-  display: inline-block;
-  position: relative;
-  right: -4px;
-  width: 330px;
-}
-
-#co_box_blurb_guest {
-  display: inline-block;
-  position: relative;
-  top: 3px;
-  width: 100%;
-}
-
-#ce_box_blurb {
-  display: inline-block;
-  position: relative;
-  bottom: 41px;
-  right: -6px;
-  width: 325px;
-}
-
-#ce_box_blurb_sign_up {
-  display: inline-block;
-  position: relative;
-  right: 6px;
-  width: 325px;
-}
-
-.hsel_box_blurb {
-  font-size: 0.875em;
-  text-align: center;
-  font-weight: bold;
-}
-
-/*//////////////// END MAIN PROFILE ///////////////////////////////////////*/
 
 /*//////////////// OTHER COMPARE PAGES ///////////////////////////////////////*/
 
