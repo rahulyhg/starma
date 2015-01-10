@@ -141,7 +141,7 @@ input{
 
 #homepage_suggested_match {
   position: relative;
-  top: 20px;
+  top: 0px;
 }
 
 #homepage_suggested_match #homepage_compare_thumb_left {
