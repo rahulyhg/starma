@@ -12,7 +12,35 @@ $(document).ready(function(){
 			dataType: 'json'
 		})
 		.done(function(data){
-			console.log(data.users_found);
+			$('#s_results').hide();
+			$('#hide_s').show();
+			$('#users_found').show();
+			if (data.errors) {
+				$('#s_results').show();
+				$('#hide_s').hide();
+				$('#users_found').hide();
+				alert('Something went wrong! Please refresh and try again');
+			}
+			if (data.users_found) {
+				/*if (data.next_page) {
+					if(data.next_page == 3) {
+						$('#js_back_to_top').fadeTo(200,0); 
+						$('#js_back_to_top').show();
+					}
+					$('#next_page').val(data.next_page);
+				}
+				if (data.end) {
+					$('#next_page').remove();
+					$('#load_next').val('false');
+				}
+				if (!data.end) {
+					$('#load_next').val('true');
+				}
+				*/
+				$('#users_found').append(data.new_users);
+				//console.log('page: ' + data.page + 'begin: ' + data.begin + 'limit: ' + data.limit);
+				$('#s_loading').hide();
+			}
 		});
 	});
 
