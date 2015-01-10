@@ -65,14 +65,14 @@ require_once "header.php";
       <?php
         echo '<a href="';
           if ($no_chart) {
-            echo '#" class="no_chart"';
+            echo '#" class="no_chart square_link"';
           }
           else {
             if ($isCeleb) {
-              echo 'main.php?the_page=cesel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '"';
+              echo 'main.php?the_page=cesel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '" class="square_link"';
             }
             else {
-              echo 'main.php?the_page=cosel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '"';
+              echo 'main.php?the_page=cosel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '" class="square_link"';
             }
           }
         echo '><span class="div_link"></span></a>';
@@ -118,7 +118,7 @@ require_once "header.php";
       <span class="header later_on">Read Your Birth Chart</span>
       
         <?php
-        echo '<a href="main.php?the_page=psel&the_left=nav1"><span class="div_link"></span></a>
+        echo '<a class="square_link" href="main.php?the_page=psel&the_left=nav1"><span class="div_link"></span></a>
                 <div id="homepage_chart_button_info">';
           if (!get_my_chart()) {
             echo '<div id="enter_birth_time_square"><img src="/img/EnterBirthTimeSquare.png"/></div>';
@@ -142,7 +142,7 @@ require_once "header.php";
     <!--COMMUNITY-->
     <div id="community_box_link" class="homepage_div">
       <span class="header later_on">Explore the Community</span>
-      <a href="main.php?the_page=cosel&the_left=nav1&tier=1"><span class="div_link"></span></a>
+      <a class="square_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"><span class="div_link"></span></a>
       <div id="homepage_thumbnails">
         <?php
           display_welcome_page_thumbnails($celebs=0);
@@ -154,7 +154,7 @@ require_once "header.php";
     <!--CELEBRITIES-->
     <div id="celebrities_box_link" class="homepage_div">
       <span class="header later_on">Browse Celebrities</span>
-      <a href="main.php?the_page=cesel&the_left=nav1&tier=1"><span class="div_link"></span></a>
+      <a class="square_link" href="main.php?the_page=cesel&the_left=nav1&tier=1"><span class="div_link"></span></a>
       <div id="homepage_thumbnails">
         <?php
           display_welcome_page_thumbnails(1);

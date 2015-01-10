@@ -112,7 +112,7 @@ input{
   width: 100%;
 }
 
-#square_link {
+.square_link {
   display: block;
 }
 
