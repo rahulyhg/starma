@@ -168,6 +168,10 @@ input{
   display: inline-block;
   margin: auto;
   width: 100%;
+  font-size: .85em;
+  font-weight: bold;
+  text-align: center;
+
 }
 
 

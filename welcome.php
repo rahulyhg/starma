@@ -97,7 +97,7 @@ require_once "header.php";
           echo '';
         }
         else {
-          echo '<div class="homepage_blurb"><p class="hsel_box_blurb">Your compatibility with ' . $match_name . '...</p></div>';
+          echo '<div class="homepage_blurb"><p>Your compatibility with ' . $match_name . '...</p></div>';
         }
         
       ?>
@@ -136,7 +136,7 @@ require_once "header.php";
           }
           
         ?>
-        <div class="homepage_blurb"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
+        <div class="homepage_blurb"><p>Learn details about your Sun Sign and more...</p></div>
       </div>
     </div>
 
@@ -149,7 +149,7 @@ require_once "header.php";
           display_welcome_page_thumbnails($celebs=0);
         ?>
       </div>
-      <div class="homepage_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
+      <div class="homepage_blurb"><p>Make connections and test compatability...</p></div>
     </div>
 
     <!--CELEBRITIES-->
@@ -161,7 +161,7 @@ require_once "header.php";
           display_welcome_page_thumbnails(1);
         ?>
       </div>
-      <div class="homepage_blurb"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
+      <div class="homepage_blurb"><p>See what you have in common with the stars...</p></div>
     </div>
  </div> 
 
