@@ -228,7 +228,7 @@ input{
   display: inline-block;
 }
 
-#welcome #compare_sample_results {
+#welcome #sample_compare_results {
     position: relative;
     width: 274px;
     margin: auto;

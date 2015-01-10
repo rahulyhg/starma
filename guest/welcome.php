@@ -66,10 +66,10 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
           </div>
         </div>
       </div>
-      <!--sample compare text-->
+      
+      </div>
       <div id="sample_compare_text">The Compatibility Chart is based on a combination of many factors, and if you want a clear picture it is important to...</div>
       <div class="homepage_blurb"><p>See a sample compatibility test...</p></div>
-      </div>
     </div>
       </div> 
       <!--CLOSE COMPATIBILTY SAMPLE--> 
