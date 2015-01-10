@@ -131,6 +131,12 @@ input{
   width: 130px;
 }
 
+.star_homepage {
+  float: left;
+  position: relative;
+  margin-left: 5px;
+}
+
 #homepage_suggested_match #homepage_compare_thumb_right {
   position: relative;
   display: inline-block;
