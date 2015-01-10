@@ -1080,6 +1080,20 @@ function get_my_last_name() {
   }
 }
 
+function get_first_name($user_id) {
+  $q = 'SELECT first_name from user where user_id = ' . $user_id;
+  $result = mysql_query($q) or die(mysql_error());
+  $first_name = mysql_fetch_array($result);
+  return $first_name[0];
+}
+
+function get_last_name($user_id) {
+  $q = 'SELECT last_name from user where user_id = ' . $user_id;
+  $result = mysql_query($q) or die(mysql_error());
+  $last_name = mysql_fetch_array($result);
+  return $last_name[0];
+}
+
 function my_location() {
   if (isLoggedIn()) {
     $info = my_profile_info();

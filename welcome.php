@@ -45,7 +45,10 @@ require_once "header.php";
       $chart_id1 = get_my_chart_id();
       $match = get_my_single_suggested_match();
       $isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($match['chart_id2'])));
-      if (!$isCeleb) {
+      if ($isCeleb) {
+        $match_name = get_first_name(get_user_id_from_chart_id($match['chart_id2'])) . ' ' . get_last_name(get_user_id_from_chart_id($match['chart_id2']));
+      }
+      else {
         $match_name = get_nickname(get_user_id_from_chart_id($match['chart_id2']));
       }
     }
@@ -88,6 +91,13 @@ require_once "header.php";
 
           echo '<div id="sample_compare_text">Compatibility is not just for romance! Test your compatibility with your friends and family for all kinds of fun insights...</div>';
         }
+
+        if ($no_chart) {
+          echo '';
+        }
+        else {
+          echo '<div id="p_box_blurb"><p class="hsel_box_blurb">See your compatibility with ' . $match_name . '...</p></div>';
+        }
         
       ?>
 
@@ -104,7 +114,6 @@ require_once "header.php";
             show_my_descriptors_info_home();
         ?>  
       </div>-->  
-      <div id="p_box_blurb"><p class="hsel_box_blurb">See your compatibility...</p></div>
     </div>
     </div>
     <div id="community_box_link" class="homepage_div">
