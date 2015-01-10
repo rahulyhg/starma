@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$('#sort_by_sign').on('change', function(){
-		var data = {'sign'		   : $('#sort_by_sign').val(),
+		var data = {'sign_id'		   : $('#sort_by_sign').val(),
 					'sort_by_sign' : 'sort_by_sign'
 					};
 
