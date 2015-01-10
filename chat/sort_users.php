@@ -19,7 +19,7 @@
 		*/
 		$data = 'hello';
 		echo json_encode($data);
-	}
+	//}
 
 
 
