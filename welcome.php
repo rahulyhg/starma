@@ -46,7 +46,7 @@ require_once "header.php";
     </div>
  
     <div id="profile_box_link" class="homepage_div">
-      <span class="header">Complete Your Profile</span>
+      <span class="header">Compatibility</span>
       <a class="box_link" href="main.php?the_page=psel&the_left=nav1&western=0&section=about_selected"></a>
       <div id="homepage_profile_button_info">
 
