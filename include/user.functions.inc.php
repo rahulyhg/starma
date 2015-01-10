@@ -1541,14 +1541,14 @@ function get_user_list_search ($gender, $low_bound, $high_bound, $begin, $limit)
   }
 }
 
-function get_user_list_from_sign ($sign_id, $begin, $limit) {
+function get_user_list_from_sign ($poi_id, $sign_id, $begin, $limit) {
   if(isLoggedIn()) {
     if ($gender !== 'none') {
       $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           inner join chart_x_house on chart.chart_id = chart_x_house.chart_id
           left outer join user_picture on user.user_id = user_picture.user_id 
-          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and chart_x_house.house_id = 1 and chart_x_house.sign_id = ' . $sign_id . ' ORDER BY main desc, user_id desc LIMIT ' . $begin . ',' . $limit;
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 and chart_x_house.house_id = ' . $poi_id . ' and chart_x_house.sign_id = ' . $sign_id . ' ORDER BY main desc, user_id desc LIMIT ' . $begin . ',' . $limit;
     if ($result = mysql_query($q)) {
       return $result;
     }
