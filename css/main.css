@@ -112,6 +112,7 @@ input{
 
 .square_link {
   display: block;
+  cursor: pointer;
 }
 
 #welcome #homepage_suggested_match {
@@ -230,7 +231,7 @@ input{
 
 #welcome #sample_compare_results {
     position: relative;
-    width: 274px;
+    width: 286px;
     margin: auto;
 }
 
