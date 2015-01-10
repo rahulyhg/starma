@@ -200,6 +200,11 @@ input{
   width: 120px;
 }
 
+.star_homepage {
+  float: left;
+  position: relative;
+}
+
 #homepage_compare_sample #homepage_compare_thumb_right {
   position: relative;
   display: inline-block;

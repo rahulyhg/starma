@@ -3444,24 +3444,6 @@ function show_compare_results_homepage($chart_id1, $chart_id2, $score) {
         echo '</div>'; 
       echo '</div>';
 
-      if (!$user_id_2 = get_user_id_from_chart_id ($chart_id2)) {
-            $user_id_2 = -1;
-      }
-      else {
-        $user_id_2 = get_user_id_from_chart_id ($chart_id2);
-      }
-
-      //PICTURE OF OTHER USER
-        echo '<div id="homepage_compare_thumb_right">';
-          echo '<div class="grid_photo_border_wrapper">';
-            echo '<div class="grid_photo">';
-              show_user_inbox_picture('', $user_id_2);
-         
-            echo '</div>';
-          echo '</div>'; 
-          //show_general_info($user_id_2);
-        echo '</div>';
-
         echo '<div id="homepage_compare_stars">';
           $rating = get_star_rating ($score);
           for ($x=1; $x<=5; $x++) {
@@ -3476,8 +3458,26 @@ function show_compare_results_homepage($chart_id1, $chart_id2, $score) {
             else 
               echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-Small0.png"/></div>';
           }
-      echo '</div>'; //close star_rating
-    echo '</div>';
+        echo '</div>'; //close star_rating
+
+          //PICTURE OF OTHER USER
+        if (!$user_id_2 = get_user_id_from_chart_id ($chart_id2)) {
+          $user_id_2 = -1;
+        }
+        else {
+          $user_id_2 = get_user_id_from_chart_id ($chart_id2);
+        }
+        echo '<div id="homepage_compare_thumb_right">';
+          echo '<div class="grid_photo_border_wrapper">';
+            echo '<div class="grid_photo">';
+              show_user_inbox_picture('', $user_id_2);
+         
+            echo '</div>';
+          echo '</div>'; 
+          //show_general_info($user_id_2);
+        echo '</div>';
+
+    echo '</div>'; //close container
   echo '</div>'; //close homepage_compare_sample
 
 }
