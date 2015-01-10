@@ -89,6 +89,7 @@ input{
   border-radius: 2px;
   border: 2px solid black;
   background-color: #D3DBF6;
+  position: relative;
 }
 
 #welcome .homepage_div:hover {
@@ -106,15 +107,35 @@ input{
     color: #1a1d2a;
 }
 
+.square_link {
+  display: block;
+}
+
 #welcome #homepage_suggested_match {
   display: inline-block;
   position: relative;
   width: 100%;
 }
 
-.square_link {
-  display: block;
+#homepage_suggested_match #homepage_compare_thumb_left {
+  position: relative;
+  margin-top: 15%;
+  display: inline-block;
 }
+
+#homepage_suggested_match #homepage_compare_stars {
+  display: inline-block;
+  height: 20px;
+  bottom: 35px;
+  position: relative;
+  width: 130px;
+}
+
+#homepage_suggested_match #homepage_compare_thumb_right {
+  position: relative;
+  display: inline-block;
+}
+
 
 /*--- END NEW HOMEPAGE ---*/
 

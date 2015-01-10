@@ -61,7 +61,7 @@ require_once "header.php";
  
   <!--SUGGESTED MATCH-->
     <div id="suggested_match_link" class="homepage_div">
-      <span class="header later_on">Compatibility</span>
+      <div class="header later_on">Compatibility</div>
       <?php
         echo '<a href="';
           if ($no_chart) {
@@ -115,7 +115,7 @@ require_once "header.php";
 
     <!--BIRTH CHART-->
     <div id="horoscope_box_link" class="homepage_div">
-      <span class="header later_on">Read Your Birth Chart</span>
+      <div class="header later_on">Read Your Birth Chart</div>
       
         <?php
         echo '<a class="square_link" href="main.php?the_page=psel&the_left=nav1"><span class="div_link"></span></a>
@@ -141,7 +141,7 @@ require_once "header.php";
 
     <!--COMMUNITY-->
     <div id="community_box_link" class="homepage_div">
-      <span class="header later_on">Explore the Community</span>
+      <div class="header later_on">Explore the Community</div>
       <a class="square_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"><span class="div_link"></span></a>
       <div id="homepage_thumbnails">
         <?php
@@ -153,7 +153,7 @@ require_once "header.php";
 
     <!--CELEBRITIES-->
     <div id="celebrities_box_link" class="homepage_div">
-      <span class="header later_on">Browse Celebrities</span>
+      <div class="header later_on">Browse Celebrities</div>
       <a class="square_link" href="main.php?the_page=cesel&the_left=nav1&tier=1"><span class="div_link"></span></a>
       <div id="homepage_thumbnails">
         <?php
