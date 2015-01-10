@@ -91,6 +91,8 @@ require_once "header.php";
           show_compare_results_homepage($chart_id1, $match['chart_id2'], $match['score']);
         }
 
+        echo '</div>'; //close homepage_suggested_match_button
+
         if ($no_chart) {
           echo '';
         }
@@ -110,7 +112,6 @@ require_once "header.php";
             show_my_descriptors_info_home();
         ?>  
       </div>-->  
-      </div>
     </div>
 
     <!--BIRTH CHART-->
