@@ -11,7 +11,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
     </div>
  
     <div id="horoscope_box_link_guest" class="homepage_div">
-      <span class="header later_on">Birth Chart Example</span>
+      <div class="header later_on">Birth Chart Example</div>
       <a class="square_link" href="main.php?the_page=psel&the_left=nav1"></a>
       <div id="homepage_chart_button_info">
         <?php
@@ -33,7 +33,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
 
     <!--COMPATIBILITY SAMPLE-->
      <div id="compatibility_sample_link" class="homepage_div">
-      <span class="header later_on">Compatibility Example</span>
+      <div class="header later_on">Compatibility Example</div>
       <a class="square_link" href="<?php echo '?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true'; ?>"></a>
       <div id="homepage_compare_sample">
         <div id="sample_compare_results">
@@ -76,7 +76,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
 
     <!--COMMUNITY-->
     <div id="community_box_link" class="homepage_div">
-      <span class="header later_on">Explore the Community</span>
+      <div class="header later_on">Explore the Community</div>
       <a class="square_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"></a>
       <div id="homepage_thumbnails">
         <?php
@@ -90,7 +90,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
 
     <!--CELEBRITIES-->
     <div id="celebrities_box_link" class="homepage_div">
-      <span class="header later_on">Browse Celebrities</span>
+      <div class="header later_on">Browse Celebrities</div>
       <a class="square_link" href="main.php?the_page=cesel&the_left=nav1&tier=1"></a>
       <div id="homepage_thumbnails">
         <?php

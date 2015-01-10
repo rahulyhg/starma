@@ -201,9 +201,22 @@ input{
   bottom: 0;
 }
 
+/*---GUEST---*/
 
+#homepage_compare_sample #homepage_compare_thumb_left {
+  position: relative;
+  margin-top: 5px;
+  display: inline-block;
+}
 
-/*//////////////// END MAIN PROFILE ///////////////////////////////////////*/
+#homepage_compare_sample #homepage_compare_stars {
+  display: inline-block;
+  height: 20px;
+  bottom: 35px;
+  position: relative;
+  width: 130px;
+}
+
 
 
 /*--- END NEW HOMEPAGE ---*/
