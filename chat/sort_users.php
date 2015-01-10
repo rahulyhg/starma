@@ -13,8 +13,9 @@
 			$data['errors'] = $errors;
 		}
 		else {
-			$data['sign_id'] = get_sign_name($sign_id);
+			//$data['sign'] = get_sign_name($sign_id);
 			//$data['sign'] = $sign_id
+			$data['users'] = get_user_list_from_sign($sign_id, 0, 24);
 		}
 		
 		//$data = get_sign_name(4);
