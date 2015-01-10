@@ -68,7 +68,7 @@ require_once "header.php";
           }
           else {
             if ($isCeleb) {
-              echo 'main.php?the_page=cesel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '"';
+              echo 'main.php?the_page=cesel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '"';
             }
             else {
               echo 'main.php?the_page=cosel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '"';
