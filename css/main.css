@@ -114,12 +114,59 @@ input{
 #welcome #profile_box_link {
   left:40px;
 }
+
+
 #welcome #profile_box_link a.box_link {
   /*background:url("/img/Starma-Astrology-ProfileBox.png") no-repeat scroll center center;*/
 }
 #welcome #profile_box_link a.box_link:hover {
   /*background:url("/img/Starma-Astrology-ProfileBoxH.png") no-repeat scroll center center;*/
 }
+
+#welcome #homepage_suggested_match_button {
+    bottom: 1px;
+    left: 38px;
+    position: absolute;
+    width: 273px;
+}
+
+#welcome #suggested_match_link {
+  left:40px;
+}
+
+.star_homepage {
+  float: left;
+  position: relative;
+  margin-left: 5px;
+}
+
+#homepage_suggested_match #homepage_compare_thumb_left {
+  position: relative;
+  margin-top: 15%;
+  display: inline-block;
+}
+
+#homepage_suggested_match #homepage_compare_stars {
+  display: inline-block;
+  height: 20px;
+  bottom: 35px;
+  position: relative;
+  width: 130px;
+}
+
+#homepage_suggested_match #homepage_compare_thumb_right {
+  position: relative;
+  display: inline-block;
+}
+
+#homepage_suggested_match #sample_compare_text {
+  position: relative;
+  width: 245px;
+  margin: 4px auto auto;
+  font-size: .93em;
+  letter-spacing: .5px;
+}
+
 
 #welcome #compare_box_link {
   left:390px;
@@ -198,11 +245,6 @@ input{
   bottom: 35px;
   position: relative;
   width: 120px;
-}
-
-.star_homepage {
-  float: left;
-  position: relative;
 }
 
 #homepage_compare_sample #homepage_compare_thumb_right {

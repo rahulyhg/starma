@@ -53,7 +53,7 @@ require_once "header.php";
       Welcome to Starma!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
     </div>
  
-    <div id="profile_box_link" class="homepage_div">
+    <div id="suggested_match_link" class="homepage_div">
       <span class="header">Compatibility</span>
       <?php
         echo '<a class="box_link" href="';
@@ -71,7 +71,7 @@ require_once "header.php";
         echo '></a>';
       ?>
       
-      <div id="homepage_profile_button_info">
+      <div id="homepage_suggested_match_button">
 
       <?php
       
@@ -101,7 +101,7 @@ require_once "header.php";
             show_my_descriptors_info_home();
         ?>  
       </div>-->  
-      <div id="p_box_blurb"><p class="hsel_box_blurb">Let others get to know your interests...</p></div>
+      <div id="p_box_blurb"><p class="hsel_box_blurb">See your compatibility...</p></div>
     </div>
     </div>
     <div id="community_box_link" class="homepage_div">
