@@ -1,7 +1,7 @@
 <?php
 	require_once('ajax_header.php');
 
-	
+	/*
 	if (isset($_POST['sort_by_sign'])) {
 		$data = array();
 		$errors = array();
@@ -16,10 +16,10 @@
 			$data['sign'] = get_sign_name($sign_id);
 			//$data['sign'] = $sign_id
 		}
-		
-		//$data = 'hello';
+		*/
+		$data = 'hello';
 		echo json_encode($data);
-	}
+	//}
 
 
 
