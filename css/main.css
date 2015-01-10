@@ -152,6 +152,28 @@ input{
 
 #homepage_sign {
   display: inline-block;
+  position: relative;
+  float: left;
+  margin-right: 14px;
+}
+
+#welcome .homepage_div #homepage_chart_button_info li a span {
+  position:relative;
+  top:65px;
+  font-size:1em;
+  
+}
+
+#welcome .homepage_div #homepage_chart_button_info #blurb {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+  
+}
+
+#welcome .homepage_div #homepage_chart_button_info #blurb span {
+  font-size:1em;
+  text-align:left;
 }
 
 #homepage_thumbnails {
@@ -162,10 +184,9 @@ input{
 }
 
 #homepage_chart_button_info {
-    bottom: 39px;
-    left: 31px;
-    position: absolute;
-    width: 252px;
+    position: relative;
+    width: 300px;
+    margin: 25px auto;
 }
 
 .homepage_blurb {

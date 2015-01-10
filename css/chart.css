@@ -503,25 +503,6 @@ div.poi_title {
   letter-spacing: .1em;
 }
 
-#welcome .homepage_div #homepage_chart_button_info li a span {
-  position:relative;
-  top:65px;
-  font-size:1em;
-  
-}
-
-#welcome .homepage_div #homepage_chart_button_info #blurb {
-    left: 85px;
-    position: absolute;
-    top: 19px;
-    width: 200px;
-  
-}
-
-#welcome .homepage_div #homepage_chart_button_info #blurb span {
-  font-size:1em;
-  text-align:left;
-}
 
 #starma_chart .chart_tabs a span.ketu_text {
     display: block;

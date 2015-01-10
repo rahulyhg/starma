@@ -128,7 +128,7 @@ require_once "header.php";
           else {
             $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
             echo '<div id="homepage_sign">';
-              echo '<ul>';
+              echo '<ul style="margin:0;">';
                 echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
               echo '</ul>';
             echo '</div>';
