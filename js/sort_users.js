@@ -12,7 +12,7 @@ $(document).ready(function(){
 			dataType: 'json'
 		})
 		.done(function(data){
-			
+			console.log(data.users_found);
 		});
 	});
 
