@@ -54,11 +54,12 @@ require_once "header.php";
     }
      
  ?>
-    <!--<?php flare_title();?>-->
+
     <div class="later_on welcome_text">
       Welcome to Starma!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
     </div>
  
+  <!--SUGGESTED MATCH-->
     <div id="suggested_match_link" class="homepage_div">
       <span class="header">Compatibility</span>
       <?php
@@ -98,9 +99,6 @@ require_once "header.php";
         }
         
       ?>
-
-        
-
         <!--<div class="photo_border_wrapper_compare">
           <div class="compare_photo">   
             <?php 
@@ -112,18 +110,10 @@ require_once "header.php";
             show_my_descriptors_info_home();
         ?>  
       </div>-->  
-    </div>
-    </div>
-    <div id="community_box_link" class="homepage_div">
-      <span class="header">Explore the Community</span>
-      <a class="box_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"></a>
-      <div id="homepage_thumbnails">
-        <?php
-          display_welcome_page_thumbnails($celebs=0);
-        ?>
       </div>
-      <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
     </div>
+
+    <!--BIRTH CHART-->
     <div id="horoscope_box_link" class="homepage_div">
       <span class="header">Read Your Birth Chart</span>
       
@@ -148,6 +138,20 @@ require_once "header.php";
         <div id="h_box_blurb"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
       </div>
     </div>
+
+    <!--COMMUNITY-->
+    <div id="community_box_link" class="homepage_div">
+      <span class="header">Explore the Community</span>
+      <a class="box_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"></a>
+      <div id="homepage_thumbnails">
+        <?php
+          display_welcome_page_thumbnails($celebs=0);
+        ?>
+      </div>
+      <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
+    </div>
+
+    <!--CELEBRITIES-->
     <div id="celebrities_box_link" class="homepage_div">
       <span class="header">Browse Celebrities</span>
       <a class="box_link" href="main.php?the_page=cesel&the_left=nav1&tier=1"></a>
