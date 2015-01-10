@@ -63,7 +63,7 @@ require_once "header.php";
     <div id="suggested_match_link" class="homepage_div">
       <span class="header later_on">Compatibility</span>
       <?php
-        echo '<span class="div_link"><a href="';
+        echo '<a href="';
           if ($no_chart) {
             echo '#" class="no_chart"';
           }
@@ -75,7 +75,7 @@ require_once "header.php";
               echo 'main.php?the_page=cosel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '"';
             }
           }
-        echo '></a></span>';
+        echo '><span class="div_link"></span></a>';
       ?>
       
       <div id="homepage_suggested_match_button">
@@ -118,7 +118,7 @@ require_once "header.php";
       <span class="header later_on">Read Your Birth Chart</span>
       
         <?php
-        echo '<span class="div_link"><a href="main.php?the_page=psel&the_left=nav1"></a></span>
+        echo '<a href="main.php?the_page=psel&the_left=nav1"><span class="div_link"></span></a>
                 <div id="homepage_chart_button_info">';
           if (!get_my_chart()) {
             echo '<div id="enter_birth_time_square"><img src="/img/EnterBirthTimeSquare.png"/></div>';
@@ -142,7 +142,7 @@ require_once "header.php";
     <!--COMMUNITY-->
     <div id="community_box_link" class="homepage_div">
       <span class="header later_on">Explore the Community</span>
-      <span class="div_link"><a href="main.php?the_page=cosel&the_left=nav1&tier=1"></a></span>
+      <a href="main.php?the_page=cosel&the_left=nav1&tier=1"><span class="div_link"></span></a>
       <div id="homepage_thumbnails">
         <?php
           display_welcome_page_thumbnails($celebs=0);
@@ -154,7 +154,7 @@ require_once "header.php";
     <!--CELEBRITIES-->
     <div id="celebrities_box_link" class="homepage_div">
       <span class="header later_on">Browse Celebrities</span>
-      <span class="div_link"><a href="main.php?the_page=cesel&the_left=nav1&tier=1"></a></span>
+      <a href="main.php?the_page=cesel&the_left=nav1&tier=1"><span class="div_link"></span></a>
       <div id="homepage_thumbnails">
         <?php
           display_welcome_page_thumbnails(1);
