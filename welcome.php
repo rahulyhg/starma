@@ -45,6 +45,9 @@ require_once "header.php";
       $chart_id1 = get_my_chart_id();
       $match = get_my_single_suggested_match();
       $isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($match['chart_id2'])));
+      if (!$isCeleb) {
+        $match_name = get_nickname(get_user_id_from_chart_id($match['chart_id2']));
+      }
     }
      
  ?>
@@ -65,7 +68,7 @@ require_once "header.php";
               echo 'main.php?the_page=cesel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '"';
             }
             else {
-              echo 'main.php?the_page=cosel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '"';
+              echo 'main.php?the_page=cosel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '"';
             }
           }
         echo '></a>';
