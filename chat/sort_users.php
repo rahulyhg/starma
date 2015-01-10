@@ -12,7 +12,8 @@
 			$data['errors'] = $errors;
 		}
 		else {
-			$data['sign'] = get_sign_name($sign_id);
+			//$data['sign'] = get_sign_name($sign_id);
+			$data['sign'] = $sign_id
 		}
 		echo json_encode($data);
 	}
