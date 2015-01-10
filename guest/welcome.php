@@ -37,7 +37,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
       <a class="square_link" href="<?php echo '?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true'; ?>"></a>
       <div id="homepage_compare_sample">
         <div id="sample_compare_results">
-        <div style="margin:auto; width:273px;">
+        <div style="margin:auto auto 8px; width:100%;">
         <div id="homepage_compare_thumb_left">
           <div class="grid_photo_border_wrapper">
             <div class="grid_photo">

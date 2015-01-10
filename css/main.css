@@ -217,6 +217,23 @@ input{
   width: 130px;
 }
 
+#welcome #homepage_compare_sample {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+#homepage_compare_sample #homepage_compare_thumb_right {
+  position: relative;
+  display: inline-block;
+}
+
+#welcome #compare_sample_results {
+    position: relative;
+    width: 274px;
+    margin: auto;
+}
+
 
 
 /*--- END NEW HOMEPAGE ---*/
