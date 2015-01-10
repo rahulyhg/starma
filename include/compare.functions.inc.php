@@ -32,12 +32,12 @@ function get_my_single_suggested_match() {
 function get_single_suggested_match($user_id) {
   $chart_id1 = get_chart_id_from_user_id($user_id);
   $charts = get_random_charts();
-  //echo 'charts: ';
-  //print_r($charts);
-  //echo $charts[0]['chart_id'];
-  //echo '<br>';
+  echo 'charts: ';
+  print_r($charts);
+  echo $charts[0]['chart_id'];
+  echo '<br>';
   $length = count($charts);
-  //echo 'length: ' . $length;
+  echo 'length: ' . $length;
   $no_good = array();
   for ($x = 0; $x < $length; $x++) {
     $compare_results = generate_compare_data($chart_id1, $charts[$x]['chart_id'], 0);    
@@ -46,10 +46,10 @@ function get_single_suggested_match($user_id) {
     
     if ($total_score > .8) {
       $match = array('score' => $total_score, 'chart_id2' => $charts[$x]['chart_id']);
-      //echo '<br> compare_results rising: ' . print_r($compare_results['rising2rising']);
-      //echo '<br>total_score: ' . $total_score;
-      //echo '<br>name: ' . get_nickname(get_user_id_from_chart_id($charts[$x]['chart_id']));
-      //echo 'Match array: ' . print_r($match);
+      echo '<br> compare_results rising: ' . print_r($compare_results['rising2rising']);
+      echo '<br>total_score: ' . $total_score;
+      echo '<br>name: ' . get_nickname(get_user_id_from_chart_id($charts[$x]['chart_id']));
+      echo 'Match array: ' . print_r($match);
       return $match;
       break;
     }
