@@ -1,8 +1,10 @@
 $(document).ready(function(){
 
 	$('#sort_by_sign').on('change', function(){
+		$('#s_results').hide();
 		$('#users_found').html('');
-		var data = {'sign_id'		   : $('#sort_by_sign').val(),
+		$('#s_loading').show();
+		var data = {'sign_id'	   : $('#sort_by_sign').val(),
 					'sort_by_sign' : 'sort_by_sign'
 					};
 
@@ -13,10 +15,9 @@ $(document).ready(function(){
 			dataType: 'json'
 		})
 		.done(function(data){
-			$('#s_results').hide();
 			$('#hide_s').show();
-			$('#users_found').show();
 			if (data.errors) {
+				$('#s_loading').hide();
 				$('#s_results').show();
 				$('#hide_s').hide();
 				$('#users_found').hide();
