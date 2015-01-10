@@ -51,40 +51,32 @@ require_once "header.php";
       <div id="homepage_profile_button_info">
 
       <?php
-      /*
+      
         if (!get_my_chart()) {
           echo 'Enter your birth info to get your matches...';
         }
         else {
           $chart_id1 = get_my_chart_id();
-          //$match = get_my_single_suggested_match();
+          $match = get_my_single_suggested_match();
+          echo 'Match: <br>';
+          print_r($match);
           //show_compare_results_homepage($chart_id1, $match['chart_id2'], $match['score']);
         }
-        */
+        
       ?>
 
-        <!--<div id="user_block">
-           <div class="about_photo_wrapper"> 
-            <div class="grid_photo_wrapper">
-              <div class="grid_photo_border_wrapper profile_tiny">
-                <div class="grid_photo">-->
+        
 
-         <div class="photo_border_wrapper_compare">
-          <div class="compare_photo">
-      
-                  <?php show_user_compare_picture ('', get_my_user_id()); 
-                    //show_tiny_photo(get_my_user_id());
-                  ?>
-                <!--</div>
-              </div>
-            </div>
-          </div>
-        </div>--> 
+        <!--<div class="photo_border_wrapper_compare">
+          <div class="compare_photo">   
+            <?php 
+              show_user_compare_picture ('', get_my_user_id()); 
+            ?>
         </div>
         
         <?php //show_descriptors_info(get_my_chart_id()); 
-                show_my_descriptors_info_home();
-        ?>  
+            show_my_descriptors_info_home();
+        ?>-->  
       </div>  
       <div id="p_box_blurb"><p class="hsel_box_blurb">Let others get to know your interests...</p></div>
     </div>
