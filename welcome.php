@@ -61,6 +61,8 @@ require_once "header.php";
           //echo 'Match: <br>';
           //print_r($match);
           show_compare_results_homepage($chart_id1, $match['chart_id2'], $match['score']);
+
+          echo '<div id="sample_compare_text">Compatibility is not just for romance! Test your compatibility with your friends and family for all kinds of fun insights...</div>';
         }
         
       ?>

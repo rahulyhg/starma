@@ -3433,6 +3433,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
 function show_compare_results_homepage($chart_id1, $chart_id2, $score) {
   $user_id_1 = get_my_user_id();
   //PICTURE OF YOU
+    echo '<div id="homepage_compare_sample">';
       echo '<div id="homepage_compare_thumb_left">';
         echo '<div class="grid_photo_border_wrapper">';
           echo '<div class="grid_photo">';
@@ -3475,6 +3476,8 @@ function show_compare_results_homepage($chart_id1, $chart_id2, $score) {
               echo '<div class="star"><img src="/img/Starma-Astrology-Compare-Star-Small0.png"/></div>';
           }
       echo '</div>'; //close star_rating
+
+    echo '</div>'; //close homepage_compare_sample
 
 }
 
