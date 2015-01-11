@@ -120,13 +120,14 @@ require_once "header.php";
       <div class="header later_on">Read Your Birth Chart</div>
       
         <?php
-        echo '<a class="square_link" href="main.php?the_page=psel&the_left=nav1"><span class="div_link"></span></a>
-                <div id="homepage_chart_button_info">';
+        echo '<a class="square_link" href="main.php?the_page=psel&the_left=nav1"><span class="div_link"></span></a>';
+            
           if (!get_my_chart()) {
             echo '<div id="enter_birth_time_square"><img src="/img/EnterBirthTimeSquare.png"/></div>';
             //echo '<div id="enter_birth_time_square_link">Enter My Birth Time</div>';
           }
           else {
+            echo '<div id="homepage_chart_button_info">';
             $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
             echo '<div id="homepage_sign">';
               echo '<ul style="margin:0;">';
