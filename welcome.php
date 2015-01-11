@@ -83,7 +83,8 @@ require_once "header.php";
       <?php
       
         if ($no_chart) {
-          echo 'Enter your birth info to get your matches...';
+          show_compare_results_no_chart_homepage();
+          //echo 'Enter your birth info to get your matches...';
         }
         else {
           //echo 'Match: <br>';
@@ -94,7 +95,7 @@ require_once "header.php";
         echo '</div>'; //close homepage_suggested_match_button
 
         if ($no_chart) {
-          echo '';
+          echo '<div class="homepage_blurb"><p>See your compatibility with others...</p></div>';
         }
         else {
           echo '<div class="homepage_blurb"><p>Your compatibility with ' . $match_name . '...</p></div>';
@@ -119,26 +120,27 @@ require_once "header.php";
       <div class="header later_on">Read Your Birth Chart</div>
       
         <?php
-        echo '<a class="square_link" href="main.php?the_page=psel&the_left=nav1"><span class="div_link"></span></a>
-                <div id="homepage_chart_button_info">';
+        echo '<a class="square_link" href="main.php?the_page=psel&the_left=nav1"><span class="div_link"></span></a>';
+            
           if (!get_my_chart()) {
             echo '<div id="enter_birth_time_square"><img src="/img/EnterBirthTimeSquare.png"/></div>';
             //echo '<div id="enter_birth_time_square_link">Enter My Birth Time</div>';
           }
           else {
-            $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
-            echo '<div id="homepage_sign">';
-              echo '<ul style="margin:0;">';
-                echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
-              echo '</ul>';
-            echo '</div>';
-            echo '<div id="blurb">';
-              show_poi_sign_blurb_abbr (1, $button_sign_id);
+            echo '<div id="homepage_chart_button_info">';
+              $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
+              echo '<div id="homepage_sign">';
+                echo '<ul style="margin:0;">';
+                  echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
+                echo '</ul>';
+              echo '</div>';
+              echo '<div id="blurb">';
+                show_poi_sign_blurb_abbr (1, $button_sign_id);
+              echo '</div>';
             echo '</div>';
           }
           
         ?>
-      </div>
       <div class="homepage_blurb"><p>Learn details about your Sun Sign and more...</p></div>
     </div>
 

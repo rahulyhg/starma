@@ -3483,6 +3483,42 @@ function show_compare_results_homepage($chart_id1, $chart_id2, $score) {
 
 }
 
+function show_compare_results_no_chart_homepage() {
+  echo '<div id="homepage_suggested_match">';
+    echo '<div style="margin:auto auto 8px; width:100%;">';
+      echo '<div id="homepage_compare_thumb_left">';
+        echo '<div class="grid_photo_border_wrapper">';
+          echo '<div class="grid_photo">';
+            show_user_inbox_picture('', -1);
+         
+          echo '</div>';
+        echo '</div>'; 
+      echo '</div>';
+
+        echo '<div id="homepage_compare_stars">';
+          echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small1.png"/></div>';
+          echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small1.png"/></div>';
+          echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small1.png"/></div>';
+          echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small1.png"/></div>';
+          echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small1.png"/></div>';
+        echo '</div>'; //close star_rating
+
+        //PICTURE OF OTHER USER
+        echo '<div id="homepage_compare_thumb_right">';
+          echo '<div class="grid_photo_border_wrapper">';
+            echo '<div class="grid_photo">';
+              show_user_inbox_picture('', -1);
+         
+            echo '</div>';
+          echo '</div>'; 
+          //show_general_info($user_id_2);
+        echo '</div>';
+
+    echo '</div>'; //close container
+    echo '<div id="sample_compare_text">Enter your birth information to see compatibility scores with other members, celebrities, or custom charts!</div>';
+  echo '</div>'; //close homepage_compare_sample
+}
+
 /**************---Matt Redesign Loading everything on one page per connection type */
 
 function show_major_connections ($compare_data, $text_type, $goTo = ".", $stage="2", $chart_id1, $chart_id2) {
