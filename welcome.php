@@ -128,19 +128,19 @@ require_once "header.php";
           }
           else {
             echo '<div id="homepage_chart_button_info">';
-            $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
-            echo '<div id="homepage_sign">';
-              echo '<ul style="margin:0;">';
-                echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
-              echo '</ul>';
-            echo '</div>';
-            echo '<div id="blurb">';
-              show_poi_sign_blurb_abbr (1, $button_sign_id);
-            echo '</div>';
+              $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
+              echo '<div id="homepage_sign">';
+                echo '<ul style="margin:0;">';
+                  echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
+                echo '</ul>';
+              echo '</div>';
+              echo '<div id="blurb">';
+                show_poi_sign_blurb_abbr (1, $button_sign_id);
+              echo '</div>';
+            echo '</div>'
           }
           
         ?>
-      </div>
       <div class="homepage_blurb"><p>Learn details about your Sun Sign and more...</p></div>
     </div>
 
