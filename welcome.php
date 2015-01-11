@@ -69,10 +69,10 @@ require_once "header.php";
           }
           else {
             if ($isCeleb) {
-              echo 'main.php?the_page=cesel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '" class="square_link"';
+              echo 'main.php?the_page=cesel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '&from_profile=true" title="You and ' . $match_name . '" class="square_link"';
             }
             else {
-              echo 'main.php?the_page=cosel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '" class="square_link"';
+              echo 'main.php?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '&from_profile=true" title="You and ' . $match_name . '" class="square_link"';
             }
           }
         echo '><span class="div_link"></span></a>';
