@@ -495,6 +495,7 @@ $('.incomplete').click(function(){
 						'state'    : data.state
 					}, window.location.assign('/' + data.url));
 					setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
+
 					//window.location.assign('/' + data.url);			
 				}
 			});
