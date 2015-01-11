@@ -68,7 +68,7 @@ function get_random_charts() {
   $q = 'SELECT chart_id from chart
   inner join user on chart.user_id = user.user_id 
   left outer join user_picture on chart.user_id = user_picture.user_id
-  where method = "E" and chart.nickname = "Main" and interval_time = 0 and main = 1 AND NOT user.nickname like "testceleb%"
+  where method = "E" and chart.nickname = "Main" and interval_time = 0 and main = 1 AND NOT user.nickname like "testceleb%" AND NOT user.user_id = ' . get_my_user_id() . '
   ORDER BY RAND()
   LIMIT 20';
   $result = mysql_query($q);
