@@ -12,7 +12,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
  
     <div id="horoscope_box_link_guest" class="homepage_div">
       <div class="header later_on">Birth Chart Example</div>
-      <a class="square_link" href="main.php?the_page=psel&the_left=nav1"></a>
+      <a class="square_link" href="main.php?the_page=psel&the_left=nav1"><span class="div_link"></span></a>
       <div id="homepage_chart_button_info">
         <?php
          
@@ -20,8 +20,10 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
           echo '<div id="homepage_sign">';
             echo '<ul style="margin:0;">';
               echo '<li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
-            echo '<div id="blurb">';
+            echo '</ul>';
           echo '</div>';
+          echo '<div id="blurb">';
+          
             show_poi_sign_blurb_abbr (1, $button_sign_id);
           echo '</div>';
           
@@ -35,7 +37,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
     <!--COMPATIBILITY SAMPLE-->
      <div id="compatibility_sample_link" class="homepage_div">
       <div class="header later_on">Compatibility Example</div>
-      <a class="square_link" href="<?php echo '?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true'; ?>"></a>
+      <a class="square_link" href="<?php echo '?the_page=cosel&the_left=nav1&results_type=major&text_type=1&tier=2&stage=2&chart_id1=' . $guest_chart_id . '&chart_id2=861&from_profile=true'; ?>"><span class="div_link"></span></a>
       <div id="homepage_compare_sample">
         <div id="sample_compare_results">
         <div style="margin:auto auto 8px; width:100%;">
@@ -77,7 +79,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
     <!--COMMUNITY-->
     <div id="community_box_link" class="homepage_div">
       <div class="header later_on">Explore the Community</div>
-      <a class="square_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"></a>
+      <a class="square_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"><span class="div_link"></span></a>
       <div id="homepage_thumbnails">
         <?php
           display_welcome_page_thumbnails(0, 1);
@@ -91,7 +93,7 @@ $guest_chart_id = get_guest_chart_id($guest_user_id);
     <!--CELEBRITIES-->
     <div id="celebrities_box_link" class="homepage_div">
       <div class="header later_on">Browse Celebrities</div>
-      <a class="square_link" href="main.php?the_page=cesel&the_left=nav1&tier=1"></a>
+      <a class="square_link" href="main.php?the_page=cesel&the_left=nav1&tier=1"><span class="div_link"></span></a>
       <div id="homepage_thumbnails">
         <?php
           display_welcome_page_thumbnails(1, 1);
