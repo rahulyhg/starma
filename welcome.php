@@ -95,7 +95,7 @@ require_once "header.php";
         echo '</div>'; //close homepage_suggested_match_button
 
         if ($no_chart) {
-          echo '';
+          echo '<div class="homepage_blurb"><p>See your compatibility with others...</p></div>';
         }
         else {
           echo '<div class="homepage_blurb"><p>Your compatibility with ' . $match_name . '...</p></div>';

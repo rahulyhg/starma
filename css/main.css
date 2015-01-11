@@ -188,7 +188,7 @@ input{
 #homepage_chart_button_info {
     position: relative;
     width: 300px;
-    margin: 25px auto 0;
+    margin: auto;
 }
 
 .homepage_blurb {
