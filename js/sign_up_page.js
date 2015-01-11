@@ -495,11 +495,7 @@ $('.incomplete').click(function(){
 						'state'    : data.state
 					}, window.location.assign('/' + data.url));
 					setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
-<<<<<<< HEAD
-					//mixpanel.track('Words Photo', {}, window.location.assign('/' + data.url));
-					//setTimeout(function(){ window.location.assign('/' + data.url); }, 500);
-=======
->>>>>>> master_DEV
+
 					//window.location.assign('/' + data.url);			
 				}
 			});
