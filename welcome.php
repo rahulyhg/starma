@@ -83,7 +83,8 @@ require_once "header.php";
       <?php
       
         if ($no_chart) {
-          echo 'Enter your birth info to get your matches...';
+          show_compare_results_no_chart_homepage();
+          //echo 'Enter your birth info to get your matches...';
         }
         else {
           //echo 'Match: <br>';
