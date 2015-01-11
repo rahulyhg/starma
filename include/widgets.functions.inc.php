@@ -72,6 +72,21 @@ function sign_select ($the_name="sign_id", $the_value="", $auto_submit=false, $f
   
 }
 
+function sign_select_sort() {
+  $sign_list = get_sign_list();
+  echo '<select class="input_style" id="sort_by_sign">';
+    echo '<option>Select Users By Sign</option>';
+  while ($sign = mysql_fetch_array($sign_list)) {
+    echo '<option value=' . $sign["sign_id"];
+    if ((string)$sign["sign_id"] == $_GET['sbs']) {
+      echo ' SELECTED';
+    }
+    
+    echo '>' . $sign["sign_name"] . ' Rising</option>';
+  }
+  echo '</select>';
+}
+
 
 //------------Matt Adding HOUSES section
 

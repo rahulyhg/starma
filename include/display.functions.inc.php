@@ -3166,7 +3166,7 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
 
       echo '<script type="text/javascript" src="/js/compare_ui.js"></script>';
       
-      //Picture of You
+      //PICTURE OF YOU
       echo '<div id="chart_1_pic">';
         if (!$user_id_1 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][0]))
           $user_id_1 = -1;
@@ -3198,7 +3198,8 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       else {
         $user_id_2 = get_user_id_from_chart_id ($_SESSION['compare_chart_ids'][1]);
       }
-      //Picture of person you're comparing to
+
+      //PICTURE OF OTHER USER
       if (!$guest_user_id2 || $guest_user_id2 != $user_id_2) {
         echo '<div id="chart_2_pic">';
 
@@ -3427,6 +3428,59 @@ function show_compare_results ($score, $goto=".", $results_type, $text_type, $st
       }
       //echo '</form>';
       echo '</div>';
+}
+
+function show_compare_results_homepage($chart_id1, $chart_id2, $score) {
+  $user_id_1 = get_my_user_id();
+  //PICTURE OF YOU
+  echo '<div id="homepage_suggested_match">';
+    echo '<div style="margin:auto auto 8px; width:100%;">';
+      echo '<div id="homepage_compare_thumb_left">';
+        echo '<div class="grid_photo_border_wrapper">';
+          echo '<div class="grid_photo">';
+            show_user_inbox_picture('', $user_id_1);
+         
+          echo '</div>';
+        echo '</div>'; 
+      echo '</div>';
+
+        echo '<div id="homepage_compare_stars">';
+          $rating = get_star_rating ($score);
+          for ($x=1; $x<=5; $x++) {
+            if ($rating >= $x) 
+              echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small1.png"/></div>';
+            elseif ($rating >= ($x - 0.25))
+              echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small.75.png"/></div>';
+            elseif ($rating >= ($x - 0.50))
+              echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small.5.png"/></div>';
+            elseif ($rating >= ($x - 0.75))
+              echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small.25.png"/></div>';
+            else 
+              echo '<div class="star_homepage"><img src="/img/Starma-Astrology-Compare-Star-Small0.png"/></div>';
+          }
+        echo '</div>'; //close star_rating
+
+          //PICTURE OF OTHER USER
+        if (!$user_id_2 = get_user_id_from_chart_id ($chart_id2)) {
+          $user_id_2 = -1;
+        }
+        else {
+          $user_id_2 = get_user_id_from_chart_id ($chart_id2);
+        }
+        echo '<div id="homepage_compare_thumb_right">';
+          echo '<div class="grid_photo_border_wrapper">';
+            echo '<div class="grid_photo">';
+              show_user_inbox_picture('', $user_id_2);
+         
+            echo '</div>';
+          echo '</div>'; 
+          //show_general_info($user_id_2);
+        echo '</div>';
+
+    echo '</div>'; //close container
+    echo '<div id="sample_compare_text">Compatibility is not just for romantic connections! Test your compatibility with friends and family for insight into your relationship dynamics...</div>';
+  echo '</div>'; //close homepage_compare_sample
+
 }
 
 /**************---Matt Redesign Loading everything on one page per connection type */

@@ -61,6 +61,7 @@ input{
   padding-top:3px;
   padding-left:25px;
   padding-right:25px;
+  height: 590px;
 }
 
 .welcome_text {
@@ -76,11 +77,234 @@ input{
   letter-spacing: 2px;
 }
 
-
 #welcome .flare_title .title_content {
   font-size:1.8em;
 }
 
+/*--- NEW HOMEPAGE -- */
+
+#welcome .homepage_div {
+  display: inline-block;
+  height:231px;
+  width:338px;
+  border-radius: 2px;
+  border: 2px solid black;
+  background-color: #D3DBF6;
+  position: relative;
+  float: left;
+  margin: 0 15px 15px 0;
+}
+
+#welcome .homepage_div:hover {
+  border-radius: 2px;
+  box-shadow: 0 0 2px 0 #404864;
+  background-color: #D3DBF6;
+  transition: .3s;
+}
+
+#welcome .homepage_div .header {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 3px;
+    width: 100%;
+    color: #1a1d2a;
+}
+
+.square_link {
+  display: block;
+  cursor: pointer;
+}
+
+#welcome #homepage_suggested_match {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+#homepage_suggested_match #homepage_compare_thumb_left {
+  position: relative;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+#homepage_suggested_match #homepage_compare_stars {
+  display: inline-block;
+  height: 20px;
+  bottom: 35px;
+  position: relative;
+  width: 130px;
+}
+
+.star_homepage {
+  float: left;
+  position: relative;
+  margin-left: 5px;
+}
+
+#homepage_suggested_match #homepage_compare_thumb_right {
+  position: relative;
+  display: inline-block;
+}
+
+#welcome #homepage_suggested_match_button {
+    position: relative;
+    width: 274px;
+    margin: auto;
+}
+
+#homepage_sign {
+  display: inline-block;
+  position: relative;
+  float: left;
+  margin-right: 14px;
+}
+
+#welcome .homepage_div #homepage_chart_button_info li a span {
+  position:relative;
+  top:65px;
+  font-size:1em;
+  
+}
+
+#welcome .homepage_div #homepage_chart_button_info #blurb {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+  
+}
+
+#welcome .homepage_div #homepage_chart_button_info #blurb span {
+  font-size:1em;
+  text-align:left;
+}
+
+#homepage_thumbnails {
+    position: relative;
+    width: 300px;
+    margin: auto;
+    z-index: 2;
+}
+
+#homepage_chart_button_info {
+    position: relative;
+    width: 300px;
+    margin: 25px auto 0;
+}
+
+.homepage_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+  font-size: .85em;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}
+
+/*---GUEST---*/
+
+#homepage_compare_sample #homepage_compare_thumb_left {
+  position: relative;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+#homepage_compare_sample #homepage_compare_stars {
+  display: inline-block;
+  height: 20px;
+  bottom: 35px;
+  position: relative;
+  width: 130px;
+}
+
+#welcome #homepage_compare_sample {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+#homepage_compare_sample #homepage_compare_thumb_right {
+  position: relative;
+  display: inline-block;
+}
+
+#welcome #sample_compare_results {
+    position: relative;
+    width: 286px;
+    margin: auto;
+}
+
+
+
+/*--- END NEW HOMEPAGE ---*/
+
+
+/*--- OLD HOMEPAGE ---*/
+
+
+/*
+
+#p_box_blurb {
+  display: inline-block;
+  position: relative;
+  right: 44px;
+  width: 332px;
+}
+
+#sm_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#h_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#h_box_blurb_guest {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#co_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#co_box_blurb_sign_up {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#co_box_blurb_guest {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#ce_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+#ce_box_blurb_sign_up {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
+
+.hsel_box_blurb {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+}
 #welcome .homepage_div {
   position:absolute;
   height:231px;
@@ -111,15 +335,74 @@ input{
     font-weight: bold;
 }
 
+#homepage_profile_button_info {
+    bottom: 1px;
+    left: 49px;
+    position: absolute;
+    width: 252px;
+}
+
+#homepage_profile_button_info .about_photo_wrapper {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  display: block;
+  width: 123px;
+}
+
 #welcome #profile_box_link {
   left:40px;
 }
-#welcome #profile_box_link a.box_link {
-  /*background:url("/img/Starma-Astrology-ProfileBox.png") no-repeat scroll center center;*/
+
+#welcome #homepage_suggested_match_button {
+    bottom: 1px;
+    position: absolute;
+    width: 338px;
 }
-#welcome #profile_box_link a.box_link:hover {
-  /*background:url("/img/Starma-Astrology-ProfileBoxH.png") no-repeat scroll center center;*/
+
+#welcome #suggested_match_link {
+  left:40px;
 }
+
+.star_homepage {
+  float: left;
+  position: relative;
+  margin-left: 5px;
+}
+
+#homepage_suggested_match {
+  position: relative;
+  top: 0px;
+}
+
+#homepage_suggested_match #homepage_compare_thumb_left {
+  position: relative;
+  margin-top: 15%;
+  display: inline-block;
+}
+
+#homepage_suggested_match #homepage_compare_stars {
+  display: inline-block;
+  height: 20px;
+  bottom: 35px;
+  position: relative;
+  width: 130px;
+}
+
+#homepage_suggested_match #homepage_compare_thumb_right {
+  position: relative;
+  display: inline-block;
+}
+
+#homepage_suggested_match #sample_compare_text {
+  position: relative;
+  width: 273px;
+  margin: 4px auto auto;
+  font-size: .93em;
+  letter-spacing: .5px;
+  line-height: 1.1;
+}
+
 
 #welcome #compare_box_link {
   left:390px;
@@ -132,30 +415,16 @@ input{
 }
 
 #welcome #community_box_link {
-  left:399px;
-}
-
-#welcome #community_box_link a.box_link {
-  /*background:url("/img/Starma-Astrology-Community.png") no-repeat scroll center center;*/
-}
-#welcome #community_box_link a.box_link:hover {
-  /*background:url("/img/Starma-Astrology-CommunityH.png") no-repeat scroll center center;*/
+  left: 40px;
+  top: 326px;
 }
 
 #welcome #horoscope_box_link {
-    left: 40px;
-    top: 326px;
+    
 }
 
 #welcome #horoscope_box_link_guest {
   left: 40px;
-}
-
-#welcome #horoscope_box_link a.box_link {
-  /*background:url("/img/Starma-Astrology-ChartBox.png") no-repeat scroll center center;*/
-}
-#welcome #horoscope_box_link a.box_link:hover {
-  /*background:url("/img/Starma-Astrology-ChartBoxH.png") no-repeat scroll center center;*/
 }
 
 #welcome #horoscope_box_link span.poi_title {
@@ -170,8 +439,7 @@ input{
 }
 
 #welcome #compatibility_sample_link {
-    left: 40px;
-    top: 326px;
+  left:399px;
 }
 
 #welcome #compatibility_sample_link #homepage_compare_sample {
@@ -192,7 +460,7 @@ input{
   display: inline-block;
 }
 
-#homepage_compare_sample #sample_compare_stars {
+#homepage_compare_sample #homepage_compare_stars {
   display: inline-block;
   height: 20px;
   bottom: 35px;
@@ -217,12 +485,7 @@ input{
   left: 399px;
   top: 326px;
 }
-#welcome #celebrities_box_link a.box_link {
-  /*background:url("/img/Starma-Astrology-Celebrities.png") no-repeat scroll center center;*/
-}
-#welcome #celebrities_box_link a.box_link:hover {
-  /*background:url("/img/Starma-Astrology-CelebritiesH.png") no-repeat scroll center center;*/
-}
+
 
 #welcome .homepage_div a.box_link {
     display: block;
@@ -237,6 +500,10 @@ input{
   top: 40px;
   right: 15px;
 }
+
+*/
+
+/*--- END OLD HOMEPAGE ---*/
 
 
 #welcome #header {
@@ -258,6 +525,8 @@ input{
     top: 5px;
     z-index: 4;
 }
+
+
 
 /*//////////////TOP NAV BAR/////////////////////////////////////////////////////*/
 
@@ -3536,75 +3805,7 @@ ul.as-list li.as-result-item em {
   */
 }
 
-/***************---Matt Homepage box blurbs*/
 
-#p_box_blurb {
-  display: inline-block;
-  position: relative;
-  right: 44px;
-  width: 332px;
-}
-
-#h_box_blurb {
-  display: inline-block;
-  position: relative;
-  top: 37px;
-  right: 22px;
-  width: 319px;
-}
-
-#h_box_blurb_guest {
-  display: inline-block;
-  position: relative;
-  top: 55px;
-  right: 22px;
-  width: 319px;
-}
-
-#co_box_blurb {
-  display: inline-block;
-  position: relative;
-  bottom: 41px;
-  right: -4px;
-  width: 330px;
-}
-
-#co_box_blurb_sign_up {
-  display: inline-block;
-  position: relative;
-  right: -4px;
-  width: 330px;
-}
-
-#co_box_blurb_guest {
-  display: inline-block;
-  position: relative;
-  top: 3px;
-  width: 100%;
-}
-
-#ce_box_blurb {
-  display: inline-block;
-  position: relative;
-  bottom: 41px;
-  right: -6px;
-  width: 325px;
-}
-
-#ce_box_blurb_sign_up {
-  display: inline-block;
-  position: relative;
-  right: 6px;
-  width: 325px;
-}
-
-.hsel_box_blurb {
-  font-size: 0.875em;
-  text-align: center;
-  font-weight: bold;
-}
-
-/*//////////////// END MAIN PROFILE ///////////////////////////////////////*/
 
 /*//////////////// OTHER COMPARE PAGES ///////////////////////////////////////*/
 

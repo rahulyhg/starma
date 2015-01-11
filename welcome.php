@@ -6,6 +6,9 @@ require_once "header.php";
 
  <div id="welcome">
  <?php
+  if (!get_my_chart()) {
+    $no_chart = true;
+  }
  //echo my_compare_flag();
   /*
     echo '<script>
@@ -38,57 +41,85 @@ require_once "header.php";
      echo '<div id="tfb">fb test</div>';
      echo $_SESSION['fb_id'];
     */
+    if (!$no_chart) {
+      $chart_id1 = get_my_chart_id();
+      $match = get_my_single_suggested_match();
+      $isCeleb = grab_var('isCeleb',isCeleb(get_user_id_from_chart_id ($match['chart_id2'])));
+      if ($isCeleb) {
+        $match_name = get_first_name(get_user_id_from_chart_id($match['chart_id2'])) . ' ' . get_last_name(get_user_id_from_chart_id($match['chart_id2']));
+      }
+      else {
+        $match_name = get_nickname(get_user_id_from_chart_id($match['chart_id2']));
+      }
+    }
      
  ?>
-    <!--<?php flare_title();?>-->
+
     <div class="later_on welcome_text">
       Welcome to Starma!  Our site is still in development, so please <a href="mailto:contact@starma.com">contact us</a> if you encounter any problems.  Below are some of the ways you can get started.
     </div>
  
-    <div id="profile_box_link" class="homepage_div">
-      <span class="header">Complete Your Profile</span>
-      <a class="box_link" href="main.php?the_page=psel&the_left=nav1&western=0&section=about_selected"></a>
-      <div id="homepage_profile_button_info">
-        <!--<div id="user_block">
-           <div class="about_photo_wrapper"> 
-            <div class="grid_photo_wrapper">
-              <div class="grid_photo_border_wrapper profile_tiny">
-                <div class="grid_photo">-->
-         <div class="photo_border_wrapper_compare">
-          <div class="compare_photo">
+  <!--SUGGESTED MATCH-->
+    <div id="suggested_match_link" class="homepage_div">
+      <div class="header later_on">Compatibility</div>
+      <?php
+        echo '<a href="';
+          if ($no_chart) {
+            echo '#" class="no_chart square_link"';
+          }
+          else {
+            if ($isCeleb) {
+              echo 'main.php?the_page=cesel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '" class="square_link"';
+            }
+            else {
+              echo 'main.php?the_page=cosel&the_left=nav1&tier=3&stage=2chart_id1=' . get_my_chart_id() . '&chart_id2=' . $match["chart_id2"] . '" title="You and ' . $match_name . '" class="square_link"';
+            }
+          }
+        echo '><span class="div_link"></span></a>';
+      ?>
       
-                  <?php show_user_compare_picture ('', get_my_user_id()); 
-                    //show_tiny_photo(get_my_user_id());
-                  ?>
-                <!--</div>
-              </div>
-            </div>
-          </div>
-        </div>--> 
+      <div id="homepage_suggested_match_button">
+
+      <?php
+      
+        if ($no_chart) {
+          echo 'Enter your birth info to get your matches...';
+        }
+        else {
+          //echo 'Match: <br>';
+          //print_r($match);
+          show_compare_results_homepage($chart_id1, $match['chart_id2'], $match['score']);
+        }
+
+        echo '</div>'; //close homepage_suggested_match_button
+
+        if ($no_chart) {
+          echo '';
+        }
+        else {
+          echo '<div class="homepage_blurb"><p>Your compatibility with ' . $match_name . '...</p></div>';
+        }
+        
+      ?>
+        <!--<div class="photo_border_wrapper_compare">
+          <div class="compare_photo">   
+            <?php 
+              show_user_compare_picture ('', get_my_user_id()); 
+            ?>
         </div>
         
         <?php //show_descriptors_info(get_my_chart_id()); 
-                show_my_descriptors_info_home();
-        ?>   
-      </div>  
-      <div id="p_box_blurb"><p class="hsel_box_blurb">Let others get to know your interests...</p></div>
+            show_my_descriptors_info_home();
+        ?>  
+      </div>-->  
     </div>
-    </div>
-    <div id="community_box_link" class="homepage_div">
-      <span class="header">Explore the Community</span>
-      <a class="box_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"></a>
-      <div id="homepage_thumbnails">
-        <?php
-          display_welcome_page_thumbnails($celebs=0);
-        ?>
-      </div>
-      <div id="co_box_blurb"><p class="hsel_box_blurb">Make connections and test compatability...</p></div>
-    </div>
+
+    <!--BIRTH CHART-->
     <div id="horoscope_box_link" class="homepage_div">
-      <span class="header">Read Your Birth Chart</span>
+      <div class="header later_on">Read Your Birth Chart</div>
       
         <?php
-        echo '<a class="box_link" href="main.php?the_page=psel&the_left=nav1"></a>
+        echo '<a class="square_link" href="main.php?the_page=psel&the_left=nav1"><span class="div_link"></span></a>
                 <div id="homepage_chart_button_info">';
           if (!get_my_chart()) {
             echo '<div id="enter_birth_time_square"><img src="/img/EnterBirthTimeSquare.png"/></div>';
@@ -96,27 +127,43 @@ require_once "header.php";
           }
           else {
             $button_sign_id = get_sign_from_poi (get_my_chart_id(), 1);
-            echo '<ul>';
-            echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
-            echo '</ul>';
+            echo '<div id="homepage_sign">';
+              echo '<ul style="margin:0;">';
+                echo '  <li class="' . get_selector_name($button_sign_id) . ' selected"><span class="icon"><div class="poi_title">' . get_poi_name(1) . '</div></span></li>';
+              echo '</ul>';
+            echo '</div>';
             echo '<div id="blurb">';
               show_poi_sign_blurb_abbr (1, $button_sign_id);
             echo '</div>';
           }
           
         ?>
-        <div id="h_box_blurb"><p class="hsel_box_blurb">Learn details about your Sun Sign and more...</p></div>
       </div>
+      <div class="homepage_blurb"><p>Learn details about your Sun Sign and more...</p></div>
     </div>
+
+    <!--COMMUNITY-->
+    <div id="community_box_link" class="homepage_div">
+      <div class="header later_on">Explore the Community</div>
+      <a class="square_link" href="main.php?the_page=cosel&the_left=nav1&tier=1"><span class="div_link"></span></a>
+      <div id="homepage_thumbnails">
+        <?php
+          display_welcome_page_thumbnails($celebs=0);
+        ?>
+      </div>
+      <div class="homepage_blurb"><p>Make connections and test compatability...</p></div>
+    </div>
+
+    <!--CELEBRITIES-->
     <div id="celebrities_box_link" class="homepage_div">
-      <span class="header">Browse Celebrities</span>
-      <a class="box_link" href="main.php?the_page=cesel&the_left=nav1&tier=1"></a>
+      <div class="header later_on">Browse Celebrities</div>
+      <a class="square_link" href="main.php?the_page=cesel&the_left=nav1&tier=1"><span class="div_link"></span></a>
       <div id="homepage_thumbnails">
         <?php
           display_welcome_page_thumbnails(1);
         ?>
       </div>
-      <div id="ce_box_blurb"><p class="hsel_box_blurb">See what you have in common with the stars...</p></div>
+      <div class="homepage_blurb"><p>See what you have in common with the stars...</p></div>
     </div>
  </div> 
 

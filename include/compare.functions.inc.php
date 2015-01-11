@@ -25,6 +25,57 @@ function quicksort_users($user_array, $asc=0){
 	return array_merge(quicksort_users($loe, $asc),array($pivot_key=>$pivot),quicksort_users($gt, $asc));
 }
 
+function get_my_single_suggested_match() {
+  return get_single_suggested_match(get_my_user_id());
+}
+
+function get_single_suggested_match($user_id) {
+  $chart_id1 = get_chart_id_from_user_id($user_id);
+  $charts = get_random_charts();
+  //echo 'charts: ';
+  //print_r($charts);
+  //echo $charts[0]['chart_id'];
+  //echo '<br>';
+  $length = count($charts);
+  //echo 'length: ' . $length;
+  $no_good = array();
+  for ($x = 0; $x < $length; $x++) {
+    $compare_results = generate_compare_data($chart_id1, $charts[$x]['chart_id'], 0);    
+    $total_score = compare_charts($compare_results, false);
+    //return $total_score;
+    
+    if ($total_score > .8) {
+      $match = array('score' => $total_score, 'chart_id2' => $charts[$x]['chart_id']);
+      //echo '<br> compare_results rising: ' . print_r($compare_results['rising2rising']);
+      //echo '<br>total_score: ' . $total_score;
+      //echo '<br>name: ' . get_nickname(get_user_id_from_chart_id($charts[$x]['chart_id']));
+      //echo 'Match array: ' . print_r($match);
+      return $match;
+      break;
+    }
+    else {
+      array_push($no_good, $charts[$x]['chart_id']);
+    }
+    
+  }
+  if (count($no_good) == $length) {
+    //get_single_suggested_match($user_id);
+    return '<br>NO MATCHES!';
+  }
+}
+
+function get_random_charts() {
+  $q = 'SELECT chart_id from chart
+  inner join user on chart.user_id = user.user_id 
+  left outer join user_picture on chart.user_id = user_picture.user_id
+  where method = "E" and chart.nickname = "Main" and interval_time = 0 and main = 1 AND NOT user.nickname like "testceleb%"
+  ORDER BY RAND()
+  LIMIT 20';
+  $result = mysql_query($q);
+  $charts_array = query_to_array($result);
+  return $charts_array;
+}
+
 //FOR BRIDGE TOP HEADER
 function get_minor_compare_support_level($r_ids) {
   //$support = array_sum($r_ids);

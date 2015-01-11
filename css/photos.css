@@ -372,36 +372,6 @@
   width:50px;*/
 }
 
-#homepage_thumbnails {
-    top: 40px;
-    left: 20px;
-    position: absolute;
-    width: 300px;
-    /*height: 200px;*/
-    z-index: 2;
-}
-
-#homepage_profile_button_info {
-    bottom: 1px;
-    left: 49px;
-    position: absolute;
-    width: 252px;
-}
-
-#homepage_profile_button_info .about_photo_wrapper {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  display: block;
-  width: 123px;
-}
-
-#homepage_chart_button_info {
-    bottom: 39px;
-    left: 31px;
-    position: absolute;
-    width: 252px;
-}
 
 #upload_photo_form {
    /*bottom: 175px;*/

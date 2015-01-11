@@ -2,6 +2,15 @@
 require_once('../header.php');
 
 
+//SUGGESTED MATCH TESTING
+    $chart_id = get_single_suggested_match(53);
+    echo '<br> RETURNED VALUE: ' . $chart_id;
+    echo '<br>';
+    
+
+
+//MANDRILL TESTING
+/*
 try {
     $mandrill = new Mandrill('yz5APugrFIuJW-iZlKYrIg');
     $template_name = 'message_mandrill';
@@ -74,6 +83,8 @@ try {
     $result = $mandrill->messages->sendTemplate($template_name, $template_content, $message, $async, $ip_pool);
     echo 'Result: ';
     print_r($result);
+
+*/
     /*
     Array
     (
@@ -87,13 +98,14 @@ try {
     
     )
     */
+/*
 } catch(Mandrill_Error $e) {
     // Mandrill errors are thrown as exceptions
     echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
     // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
     throw $e;
 }
-
+*/
 //echo '<br><br>Info: ';
 //$info = $mandrill->messages->info($result['_id']);
 //print_r($info);

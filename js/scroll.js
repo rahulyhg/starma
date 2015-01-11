@@ -52,7 +52,7 @@ $(document).ready(function() {
 				})
 				.done(function(data){
 					if (data.errors) {
-						alert('error');
+						alert('Something went wrong! Please refresh and try again');
 					}
 					if (data.new_users) {
 						if (data.next_page) {
