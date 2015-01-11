@@ -137,7 +137,7 @@ require_once "header.php";
               echo '<div id="blurb">';
                 show_poi_sign_blurb_abbr (1, $button_sign_id);
               echo '</div>';
-            echo '</div>'
+            echo '</div>';
           }
           
         ?>
