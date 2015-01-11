@@ -159,6 +159,11 @@ input{
   margin-right: 14px;
 }
 
+#enter_birth_time_square {
+  position: relative;
+  margin-left: 16px;
+}
+
 #welcome .homepage_div #homepage_chart_button_info li a span {
   position:relative;
   top:65px;
