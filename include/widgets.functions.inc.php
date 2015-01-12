@@ -330,7 +330,7 @@ function minute_select ($the_minute, $the_name="", $greyed=0) {
 }
 
 function minute_select_profile ($the_minute, $the_name="", $greyed=0) {
-  echo '<select name="minute_' . $the_name . '" id="minute_' . $the_name . '" class="minute_time_p';
+  echo '<select name="minute_' . $the_name . '" id="minute_' . $the_name . '" class="minute_time_p"';
   //if ((string)$greyed == '1') {
     //echo 'DISABLED="true"';
   //}
