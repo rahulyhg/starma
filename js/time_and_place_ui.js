@@ -135,7 +135,8 @@ $('#country_id').change(function(event) {
           'minute'       : $('#minute_time').val(),
           'meridiem'     : $('#meridiem_time').val(),
           'interval'     : $('#interval').val(),
-          'time_unknown' : $('time_unknown').val()
+          'time_unknown' : $('time_unknown').val(),
+          'TP From'      : 'TP Popup'
         });
       }
     });
@@ -165,7 +166,8 @@ $('#country_id').change(function(event) {
           'minute'       : $('.minute_time_p').val(),
           'meridiem'     : $('.meridiem_time_p').val(),
           'interval'     : $('.interval_p').val(),
-          'time_unknown' : $('.time_unknown_p').val()
+          'time_unknown' : $('.time_unknown_p').val(),
+          'TP From'      : 'No Chart Profile'
         });
       }
     });
