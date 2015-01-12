@@ -33,6 +33,23 @@ function time_accuracy_select ($the_interval, $the_name="interval", $greyed=0) {
   echo '</select>';
 }
 
+function time_accuracy_select_profile ($the_interval, $the_name="interval", $greyed=0) {
+  $interval_array = array("Exact" => 0, "Within 5 Minutes" => "000500", "Within 15 Minutes" => "001500", "Within 30 Minutes" => "003000", "Within 45 Minutes" => "004500", "Within 1 hour" => "010000", "Within 2 hours" => "020000", "Within 3 hours" => "030000", "No Idea" => -1);
+  echo '<select name="' . $the_name . '" id="' . $the_name . '" class="interval_p"';
+  //if ((string)$greyed == '1') {
+    //echo 'DISABLED="true"';
+  //}
+  echo '>';
+  foreach ($interval_array as $interval_name => $interval_value) {
+    echo '<option value=' . $interval_value;
+    if ((int)$the_interval == (int)$interval_value) {
+      echo ' SELECTED';
+    }
+    echo '>' . $interval_name . '</option>';
+  }
+  echo '</select>';
+}
+
 
 function poi_select ($the_name="poi_id", $the_value="", $auto_submit=false, $form="blurb_edit_form") {
   $poi_list = get_poi_list ();
@@ -279,9 +296,41 @@ function hour_select ($the_hour, $the_name="", $greyed=0) {
   echo '</select>';
 }
 
+function hour_select_profile ($the_hour, $the_name="", $greyed=0) {
+  echo '<select name="hour_' . $the_name . '" id="hour_' . $the_name . '" class="hour_time_p"';
+  //if ((string)$greyed == '1') {
+    //echo 'DISABLED="true"';
+  //}
+  echo '>';
+  for ($x=1; $x <= 12;$x++) {
+    echo '<option value=' . format_piece($x);
+    if ((int)$the_hour == (int)$x) {
+      echo ' SELECTED';
+    }
+    echo '>' . format_piece($x) . '</option>';
+  }
+  echo '</select>';
+}
+
 
 function minute_select ($the_minute, $the_name="", $greyed=0) {
   echo '<select name="minute_' . $the_name . '" id="minute_' . $the_name . '" ';
+  //if ((string)$greyed == '1') {
+    //echo 'DISABLED="true"';
+  //}
+  echo '>';
+  for ($x=0; $x<=59;$x++) {
+    echo '<option value=' . format_piece($x);
+    if ((int)$the_minute == (int)$x) {
+      echo ' SELECTED';
+    }
+    echo '>' . format_piece($x) . '</option>';
+  }
+  echo '</select>';
+}
+
+function minute_select_profile ($the_minute, $the_name="", $greyed=0) {
+  echo '<select name="minute_' . $the_name . '" id="minute_' . $the_name . '" class="minute_time_p';
   //if ((string)$greyed == '1') {
     //echo 'DISABLED="true"';
   //}
@@ -337,6 +386,28 @@ function meridiem_select ($the_meridiem, $the_name, $greyed=0) {
   echo '</select>';
 }
 
+function meridiem_select_profile ($the_meridiem, $the_name, $greyed=0) {
+  echo '<select name="meridiem_' . $the_name . '" id="meridiem_' . $the_name . '" class="meridiem_time_p';
+  //if ((string)$greyed == '1') {
+    //echo 'DISABLED="true"';
+  //}
+  echo '>';
+  
+    echo '<option value="am"';
+    if ($the_meridiem == "am") {
+      echo ' SELECTED';
+    }
+    echo '>am</option>';
+  
+    echo '<option value="pm"';
+    if ($the_meridiem == "pm") {
+      echo ' SELECTED';
+    }
+    echo '>pm</option>';
+  
+  echo '</select>';
+}
+
 function time_select ($the_time, $the_name, $greyed) {
   //echo 'Hours:';
   $hour_object = unapply_meridiem(date("H", $the_time));
@@ -346,6 +417,18 @@ function time_select ($the_time, $the_name, $greyed) {
   //echo 'Seconds:';
   second_select ($the_second = (int)date("s", $the_time), $the_name = $the_name, $greyed);
   meridiem_select ($hour_object[1], $the_name, $greyed);
+  
+}
+
+function time_select_profile ($the_time, $the_name, $greyed) {
+  //echo 'Hours:';
+  $hour_object = unapply_meridiem(date("H", $the_time));
+  hour_select_profile ($the_hour = (int)$hour_object[0], $the_name = $the_name, $greyed);
+  //echo 'Minutes:';
+  minute_select_profile ($the_minute = (int)date("i", $the_time), $the_name = $the_name, $greyed);
+  //echo 'Seconds:';
+  second_select ($the_second = (int)date("s", $the_time), $the_name = $the_name, $greyed);
+  meridiem_select_profile ($hour_object[1], $the_name, $greyed);
   
 }
 
@@ -375,6 +458,30 @@ function country_select ($country_id, $the_name="country_id") {     //ADDED ERRO
     $country_id = 236;
   }
   echo '<select name="' . $the_name . '" id="country_id"';
+    if ($_GET['error'] == 1) {
+      echo ' style="border: 2px solid #C82923;"';
+    } 
+  echo '>';
+    echo '<option value="0">Country</option>';
+  while ($country = mysql_fetch_array($country_list)) {
+    echo '<option value=' . $country["country_id"];
+    if ((string)$country["country_id"] == (string)$country_id) {
+      echo ' SELECTED';
+    }
+    
+    //echo '>' . ucwords(strtolower($country["country_title"])) . '</option>';
+    echo '>' . format_country_name($name = $country["country_title"]) . '</option>';
+  }
+  echo '</select>';
+  
+}
+
+function country_select_profile ($country_id, $the_name="country_id") {     //ADDED ERROR=1 FOR ERROR BORDER ON SIGN UP
+  $country_list = get_country_list ();
+  if (!$country_id) {
+    $country_id = 236;
+  }
+  echo '<select name="' . $the_name . '" id="country_id" class="country_id_p"';
     if ($_GET['error'] == 1) {
       echo ' style="border: 2px solid #C82923;"';
     } 

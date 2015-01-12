@@ -2303,6 +2303,9 @@ echo '<script type="text/javascript" src="js/birth_form_ui.js"></script>';
 ///END MATT CUSTOM BIRTH FORM
 
 function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="cast_chart.php", $stage=1) {
+  //if(!get_my_chart()) {
+  //  $no_chart = true;
+  //}
   if (isset($_SESSION["change_info"])) {
     $type="mine";
   }
@@ -2351,7 +2354,12 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
                </td>';
              
   echo '       <td id="birth_time_input" colspan="2">';
+              //if ($no_chart){
+              //  time_select_profile (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
+              //}
+              //else { 
                 time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
+              //}
          echo '</td>
               </tr>
              <tr>
@@ -2359,7 +2367,13 @@ function show_birth_info_form ($errors = array(), $sao=0, $title="", $action="ca
                   echo 'accuracy of time
                </td>';             
          echo '<td id="birth_interval_input">';
-                 time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
+              //if ($no_chart) {
+              //  time_accuracy_select_profile (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
+              //}
+              //else {
+                time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
+              //}
+                 
          echo '</td>';
     echo '     <td>
                  <div id="birth_time_hover_box" class="hover_box">             
@@ -2516,12 +2530,12 @@ function show_birth_info_form_no_chart() {
     echo '<div class="small_title">Place of Birth</div>';
  
           echo '<div id="country">';    
-            country_select ($_SESSION['country_id'], "country_id");
+            country_select_profile ($_SESSION['country_id'], "country_id");
             
           echo '</div>';
 
           echo '<div id="js_city_div">';
-            echo '<input type="text" id="city" class="input_style" name="city" placeholder="i.e. San Francisco, CA" value="' . $_SESSION['city'] . '"';
+            echo '<input type="text" id="city" class="input_style city_p" name="city" placeholder="i.e. San Francisco, CA" value="' . $_SESSION['city'] . '"';
               if ($_GET['chart_error'] == 2 || $_GET['chart_error'] == 3 || $_GET['chart_error'] == 6) {
               echo ' style="border-color:#C82923;"';
             }
@@ -2532,14 +2546,14 @@ function show_birth_info_form_no_chart() {
   echo '<div style="display:inline-block; float:left; width:147px;">'; //Time of birth box
     echo '<div class="small_title">Time of birth</div>';
     echo '<div id="time">';
-      time_select (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
+      time_select_profile (get_inputed_time($type), "time", (string)get_inputed_var("time_unknown",0,$type));
     echo '</div>';
   echo '</div>'; //Close Time of birth box
 
   echo '<div style="display:inline-block; float:right; width:120px;">'; //Accuracy box
       echo '<div class="small_title" class="align_right">Accuracy</div>';             
         echo '<div id="accuracy">';
-                 time_accuracy_select (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
+                 time_accuracy_select_profile (get_inputed_var("interval",0,$type), "interval", (string)get_inputed_var("time_unknown",0,$type));
          
         echo '<div id="tp_birth_time_hover_box_no_chart" class="hover_box">?<span>This function is very important! The Accuracy of Time drop down menu lets you tell us how close or far off your time of birth might be. For example, if you put in 7:00pm for your time of birth, but you hear from your parents or a legal guardian that you were born between 6:00pm and 8:00pm, you can use the Accuracy of Time drop down menu to select “within 1 hour”. This tells us that you could be born 1 hour ahead or behind the time of birth (7:00pm) you entered.  Some things, such as your Rising sign, can change even in a couple hours! So please make sure your information is as accurate as possible!</span>
               </div>';
@@ -2562,7 +2576,7 @@ function show_birth_info_form_no_chart() {
                  echo '</div></div>'; 
     */
     echo '</div>';
-      echo '<input type="hidden" id="time_unknown" name="time_unknown" value="0" />';
+      echo '<input type="hidden" id="time_unknown" class="time_unknown_p" name="time_unknown" value="0" />';
       echo '<input type="hidden" name="time_and_place" value="1" />';
       //echo '<input class="sign_me_up" name="submit" type="submit" value="Continue" />';
       echo '<button type="submit" id="next_no_chart">Next ></button>';
