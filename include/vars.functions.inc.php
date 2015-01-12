@@ -144,7 +144,12 @@ function get_inputed_date ($type="default") {
         $my_chart = get_chart_by_name("Main",$type);
       }
       else {
-        $my_chart = get_my_chart();
+        if (!get_my_chart()) {
+          $my_chart = get_my_birthday();
+        }
+        else {
+          $my_chart = get_my_chart();
+        }
       }
       $result = strtotime($my_chart["birthday"]); 
     }
