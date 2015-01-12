@@ -139,14 +139,22 @@ function get_inputed_date ($type="default") {
     if ($type=="mine" || $type=="freebie" || is_numeric($type)) {
       if ($type=="freebie") {
         $my_chart = get_chart_by_name("Freebie1"); 
+        $result = strtotime($my_chart["birthday"]); 
       }
       elseif (is_numeric($type)) {
         $my_chart = get_chart_by_name("Main",$type);
+        $result = strtotime($my_chart["birthday"]); 
       }
       else {
-        $my_chart = get_my_chart();
+        if (!get_my_chart()) {
+          $my_chart = get_my_birthday();
+          $result = strtotime($my_chart); 
+        }
+        else {
+          $my_chart = get_my_chart();
+          $result = strtotime($my_chart["birthday"]); 
+        }
       }
-      $result = strtotime($my_chart["birthday"]); 
     }
     else {
       $result = time();
