@@ -2812,13 +2812,24 @@ echo '<div style="border:2px solid black; background: #e7ebee; width:500px; marg
       echo '<input type="hidden" name="chart_name" value="Main"/>';
       echo '<input type="hidden" name="personal" value="1"/>';
     echo '<div style="width:100px; margin:auto; margin-top:12px;">';
-      echo '<input type="submit" name="submit" value="Yes" id="confirm_form_button" style="margin-right:20px;"/>';
+      echo '<input type="submit" name="submit" value="Yes" id="confirm_form_button" class="confirm_form_yes" style="margin-right:20px;"/>';
       echo '<input type="submit" name="submit" value="No" id="confirm_form_button"/>';
     echo '</div>';  
       
    echo '</form>';
    echo '</div>';
 echo '</div>'; //Close background and border div
+
+echo '<script type="text/javascript">';
+  echo '$(document).ready(function(){
+          $(".confirm_form_yes").click(function(){
+            mixpanel.track("Time and Place", {
+                "address"      : $("input[name=address]").val(),
+                "TP From"      : "My Birth Time"
+            });
+          });
+        });';
+echo '</script>';
 }
 
 

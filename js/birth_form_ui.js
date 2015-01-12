@@ -52,6 +52,7 @@ $(document).ready(function(){
     	$('#time_unknown').val('0');
   	});
 
+  	/*
   	if($('#from_my_birth_time').length) {
   		$('#from_my_birth_time').click(function(){
   			if($('#country_id').val() != 0 && $('#city').val() != '') {
@@ -68,5 +69,6 @@ $(document).ready(function(){
       		}
   		});
   	}
+  	*/
 
 });
