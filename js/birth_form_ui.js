@@ -52,4 +52,21 @@ $(document).ready(function(){
     	$('#time_unknown').val('0');
   	});
 
+  	if($('#from_my_birth_time').length) {
+  		$('#from_my_birth_time').click(function(){
+  			if($('#country_id').val() != 0 && $('#city').val() != '') {
+        		mixpanel.track('Time and Place', {
+          			'city'         : $('#city').val(),
+         			'country_id'   : $('#country_id').val(),
+          			'hour'         : $('#hour_time').val(),
+          			'minute'       : $('#minute_time').val(),
+          			'meridiem'     : $('#meridiem_time').val(),
+          			'interval'     : $('#interval').val(),
+          			'time_unknown' : $('#time_unknown').val(),
+          			'TP From'      : 'My Birth Time'
+        		});
+      		}
+  		});
+  	}
+
 });

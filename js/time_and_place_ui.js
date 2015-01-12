@@ -135,7 +135,7 @@ $('#country_id').change(function(event) {
           'minute'       : $('#minute_time').val(),
           'meridiem'     : $('#meridiem_time').val(),
           'interval'     : $('#interval').val(),
-          'time_unknown' : $('time_unknown').val(),
+          'time_unknown' : $('#time_unknown').val(),
           'TP From'      : 'TP Popup'
         });
       }

@@ -2289,7 +2289,12 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
 /////////////////////////////////////////////////////
 echo '<div id="go_bug_path"></div>';
 echo        '<div id="submit_div_custom">
-                <input type="submit" name="submit" value=""/>
+                <input type="submit" name="submit" ';
+
+                  if ($_GET['the_page'] == 'psel' && !get_my_chart()) {
+                    echo ' id="from_my_birth_time" ';
+                  }
+                echo 'value=""/>
              </div>
              </div>
           </form>
