@@ -238,7 +238,7 @@ function geocode($address, $type)
 { 
   $address = urlencode($address); 
   $url = "http://ws.geonames.net/$type=$address&username=starma&token=mydoghasfleas&maxRows=10"; 
-  //echo $url;
+  //echo $url; die();
   $coords = array('lat' => 0, 'lng' => 0, 'title' => ''); 
   $delay = 0; 
   
@@ -588,6 +588,10 @@ function exceptionizer ($location_string) {
   elseif (strtoupper($location_string) == 'PARIS, FR' or strtoupper($location_string) == 'PARIS, FRANCE') {
     $location_string = 'Paris City, France';
   }
+  elseif (strtoupper($location_string) == 'BUDAPEST, HU' or strtoupper($location_string) == 'BUDAPEST, HUNGARY') {
+    $location_string = 'Budapest Fovaros, Hungary';
+  }
+
   return $location_string;
 }
 ?>
