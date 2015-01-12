@@ -2072,6 +2072,7 @@ function show_birth_info_form_custom ($errors = array(), $sao=0, $title="", $act
                   //<td id="birth_date_input" colspan="2">';
                     date_select ($the_date=get_inputed_date($type), $the_name="birthday");
                     echo 'date test: ' . get_inputed_date($type);
+                    echo '<br> type: ' . $type;
                 echo '</div>';
        //echo '     </td>
          //      </tr>';
