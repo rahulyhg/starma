@@ -387,7 +387,7 @@ function meridiem_select ($the_meridiem, $the_name, $greyed=0) {
 }
 
 function meridiem_select_profile ($the_meridiem, $the_name, $greyed=0) {
-  echo '<select name="meridiem_' . $the_name . '" id="meridiem_' . $the_name . '" class="meridiem_time_p';
+  echo '<select name="meridiem_' . $the_name . '" id="meridiem_' . $the_name . '" class="meridiem_time_p"';
   //if ((string)$greyed == '1') {
     //echo 'DISABLED="true"';
   //}
