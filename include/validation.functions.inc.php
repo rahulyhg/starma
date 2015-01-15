@@ -96,7 +96,36 @@ function valid_photo($photo_id, $user_id) {
   return mysql_num_rows($result) >= 1;
 }
 
+/**********************BEGIN MOBILE DOMAIN AND REDIRECT FUNCTIONS************************************/
 
+
+function get_email_domain() {
+  return 'starma.com';
+}
+
+
+function get_domain_sign_up ($n) {
+  return 'starma.com/sign_up.php?' . $n;
+}
+
+function get_domain () {
+  return 'starma.com';
+}
+
+function get_landing () {
+  return 'landing.php';
+}
+
+function get_full_domain () {
+  return 'https://m.' . get_domain();
+}
+
+function do_redirect ($url) {
+  header( 'Location: https://m.' . $url);
+}
+
+
+/*
 function get_email_domain() {
   return 'starma.com';
 }
@@ -121,7 +150,7 @@ function get_full_domain () {
 function do_redirect ($url) {
   header( 'Location: https://www.' . $url);
 }
-
+*/
 
 /**********************BEGIN STAGING SERVER DOMAIN AND REDIRECT FUNCTIONS************************************/
 
