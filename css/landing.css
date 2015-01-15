@@ -1,3 +1,33 @@
+/*////////////////////////////// MEDIA QUERIES ////////////////////////////////*/
+
+@media only screen and (max-width: 500px) {
+  #globe_landing {
+    position: relative;
+    height: 90%;
+    width: 90%;
+    top: -2%;
+    left: 50%;
+    margin-left: -100px;
+    padding: 20px;
+    background: url('/img/globeLanding.png') no-repeat;
+  }
+  #landing_sign_up_box {
+    width: 90%; 
+    height: 90%;
+    margin: 41px auto;
+    background: #e7ebee; 
+    font-size:.9em; 
+    padding: 20px;
+    box-shadow: 0 3px 13px 0 #1a1d2a;
+    border: 2px solid #1a1d2a;
+  }
+}
+
+
+
+/*////////////////////////////// END MEDIA QUERIES ////////////////////////////////*/
+
+
 #stars_bg {
   background: url('/img/stars_bg.png') repeat;
   background-position: center;
@@ -30,20 +60,6 @@
   font-weight:bold;
   cursor: pointer;
 }
-
-/*#initial_confirm_form input[type="submit"], */
-/*
-#confirm_form_button {
-  padding:5px;
-  margin:5px;
-  margin-top:30px;
-  width:230px;
-  height:30px;
-  text-transform:capitalize;
-  font-weight:bold;
-  cursor: pointer;
-}
-*/
 
 #hidden_submit_button {
   display: none;
@@ -84,15 +100,7 @@
 }
 
 /****************LANDING PAGE****************************/
-/*
-#landing, #register, #birth_info_first_time, #gender_location_first_time, #desc_photo_first_time {
-  width:1200px;
-  height:890px;
-  margin-left:auto;
-  margin-right:auto;
-  position:relative;
-}
-*/
+
 #landing {
   /*min-width: 900px;*/
   margin: 0 auto;
@@ -140,9 +148,7 @@
     width: 100px;
 }
 
-
-
-
+/*
 #login_form {
   position: relative;
   display:block;
@@ -185,6 +191,7 @@
 #login_form div {
   position:relative;
 }
+*/
 
 /*
 #landing #login_button_div{
@@ -211,6 +218,7 @@
     width: 300px;
 }
 
+/*
 #bug_button, #birth_info input[name="submit"]  {
   background:url('/img/account_info/Starma-Astrology-Space-Bug.png') no-repeat;
   width:76px;
@@ -224,6 +232,7 @@
   background:url('/img/account_info/Starma-Astrology-Space-BugHover.png') no-repeat;
   
 }
+*/
 
 #explore_container {
   position: absolute;
@@ -484,6 +493,7 @@
   border: 2px solid #1a1d2a;
 }
 
+/*
 #landing_login_box {
   display: inline-block;
   float: right;
@@ -491,6 +501,7 @@
   right: 4%;
   top: 25px;
 }
+*/
 
 #forgot_password_landing {
   line-height: .9;
@@ -1112,758 +1123,6 @@
 /*--END NEW WAY--*/
 
 
-/*
-
-#register #create_account {
-  width:800px;
-}
-
-
-#errors {
-  display: inline-block;
-  float: left;
-  margin-left: 15px;
-}
-
-#register_form_errors {
-  display: inline-block;
-}
-
-.register_error_area_old {
-  font-size: .75em;
-  text-align: left;
-  height: 15px;
-  width: 450px;
-  float: left;
-}
-
-.error {
-  color:red;
-  z-index:1;
-  display:block;
-  
-}
-
-#desc_photo_form_div .error {
-  position:absolute;
-}
-
-#register .error {
-  color:red;
-  position:relative;
-  z-index:1;
-  display:block;
-  width:435px;
-}
-
-.hidden_error {
-  visibility:hidden;
-}
-
-#register .hidden_error {
-  visibility:hidden;
-}
-
-#register #register_form_old #user_exists_error {
- top: 7px;
-    position: absolute;
-}
-
-#terms_error{
-  color: red;
-    display: block;
-    font-size: 0.7em;
-    left: 505px;
-    position: relative;
-    top: 30px;
-    width: 300px;
-    z-index: 1;
-}
-
-#not_words_error.error {
-  
-    bottom: 107px;
-    left: 181px;
-}
-
-#photo_first_time_error.error {
-  
-    bottom: -60px;
-    left: 228px;
-}
-
-#illegal_words_error.error {
-  
-    bottom: 107px;
-    left: 242px;
-}
-
-#register #create_account {
-  top:60px;
-  width: 1000px;
-  left:80px;
-}
-
-#register .title {
-  position:relative;
-  font-size:1.3em;
-  background:url('/img/account_info/Starma-Astrology-Flare.png') no-repeat #8393CA;
-  width:240px;
-  height:22px;
-  text-align:center;
-  margin:auto;
-  top:40px;
-}
-
-#register input, #register select {
-  position:relative;
-  
-  
-  margin:0px;
-  
-}
-
-
-#register input {
-  box-sizing: border-box; 
- -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
-  font-size:0.65em; 
-}
-
-
-#register input:focus {
-  outline: 0 none;
-
-}
-
-#register select {
-  display:inline-block;
-  position:relative;
-}
-
-
-#register #register_form div {
-  position:relative;
-}
-
-#register input[focus] {
-  outline: 0 none;
-}
-
-#register_form_old {
-    display: inline-block;
-    font-size: 1.1em;
-    left: 32px;
-    position: relative;
-    text-align: left;
-    margin-left: 190px;
-    width: 612px;
-}
-
-
-#register img.token_img {
-  position:relative;
-  display:block;
-  bottom:320px;
-  right:65px;
-}
-
-#register #token_title {
-  bottom:23px;
-  left:180px;
-}
-
-#register #token_input {
-  bottom:39px;
-  left:165px;
-  z-index:1;
-}
-
-#register #register_form_old .terms {
-  width:325px;
-}
-
-
-#register #register_form_old #agreement_box {
-  text-align:left;
-  font-size:0.7em;
-  left:190px;
-  bottom:18px;
-}
-
-#register #register_form_old #agreement_box input {
-  display:inline;
-  float:left;
-  position:relative;
-  top:5px;
-  left:0px;
-  width:20px;
-}
-
-#register #agreement_box div {
-  display: inline-block;
-    left: 5px;
-    width: 300px;
-}
-
-#agreement {
-  position:relative;
-  top:50px;
-  width:700px;
-  padding:30px;
-  margin:auto;
-  background: #d3dbf6;
-  border-bottom-right-radius: 50px;
-   border-bottom-left-radius: 50px;
-  border-top-right-radius: 50px;
-   border-top-left-radius: 50px;
-}
-
-#agreement ul {
-  list-style-type:disc;
-  margin: 20px;
-  margin-left:50px;
-  padding: 0;
-  padding-left:0px;
-}
-
-#agreement input[type="submit"] {
-  width:70px;
-}
-
-#register #reset_button_div {
-  visibility:hidden;
-}
-
-#register #register_button_div {
-  position: relative;
-  display: inline-block;
-  margin-left: 50px;
-}
-
-*/
-
-/***************************DESC AND PHOTO FIRST TIME PAGE ONLY*******************************/
-#desc_photo_first_time {
-  position: relative;
-  height: 502px;
-}
-
-#desc_photo_first_time #enter_info {
-  margin:auto;
-}
-
-#desc_photo_first_time .title {
-  position:relative;
-  font-size:1.3em;
-  margin:auto;
-  top:40px;
-}
-
-#desc_photo_form_div {
-  font-size:1.1em;
-}
-
-.go_bug_path_fix_desc_photo {
-  top: 44px;
-  left: 174px;
-}
-
-/*
-#desc_photo_form_div select, #desc_photo_form_div input {
-  font-size:0.7em;
-  border: 0;
-}
-*/
-
-#desc_photo_form_div div {
- 
-  position:relative;
-}
-
-#desc_photo_form_div #img_div {
-   height: 160px;
-    position: relative;
-    width: 700px;
-   text-align:left;
-   margin:auto;
-   left:65px;
-}
-
-#enter_info #desc_photo_form_div img {
-   top:0px;
-}
-
-#desc_photo_first_time #enter_info #desc_photo_form_div img#gender_img {
-   right:7px;
-}
-
-#desc_photo_first_time #enter_info #desc_photo_form_div #register_button_div {
-    left: 190px;
-    top: 185px;
-    width: 100px;
-    z-index:10;
-}
-
-#desc_photo_first_time #edit_descriptors {
-  
-    height: 30px;
-    left: 20px;
-    position: relative;
-}
-
-#desc_photo_first_time #edit_descriptors div {
-  padding:0px;
-  margin:auto;
-  bottom:0px;
-  left:0px;
-}
-
-#desc_photo_first_time #edit_descriptors .title {
-
-  left: auto;
-    right: 90px;
-    top: 20px;
-}
-
-#desc_photo_first_time #edit_descriptors div.selector {
-  display: inline-block;
-    padding-right: 55px;
-    width: 130px;
-}
-
-#desc_photo_first_time h1 {
-  font-size: 1.2em;
-    font-weight: normal;
-    padding-bottom: 10px;
-}
-
-#desc_photo_first_time #photo_form_div {
-   
-    margin: auto;
-    top: 30px;
-    width: 600px;
-}
-
-#desc_photo_first_time #form_photo { 
-    position: relative;
-}
-
-#desc_photo_first_time #form_photo input {
-  bottom: 28px;
-    display: inline-block;
-    overflow: visible;
-    position: relative;
-    
-  zoom:1;
-  *display:inline;
-}
-
-
-
-#desc_photo_first_time #photo_display {
-  display:inline-block;
-  
-  zoom:1;
-  *display:inline;
-}
-
-#desc_photo_first_time #photo_cropper {
-  position:relative;
-  margin:auto;
-  width:775px;
-  top:100px;
-  
-  
-}
-
-#desc_photo_first_time #photo_cropper #photo_cropping_area  {
-  position:relative;
-  
-}
-
-#desc_photo_first_time #photo_cropper #photo_cropping_area #preview_div {
-  top:0px;
-  
-}
-
-#desc_photo_first_time #photo_cropper #photo_cropping_area #crop_and_set {
-  top:187px;
-  
-}
-
-#desc_photo_first_time #photo_cropper #photo_cropping_area #rotate_left,
-#desc_photo_first_time #photo_cropper #photo_cropping_area #rotate_right {
-  top:159px;
-  
-}
-
- 
-  
-
-
-
-#desc_photo_first_time.crop {
-  
-  height:1180px;
-  
-}
-
-
-/***************************GENDER AND LOCATION FIRST TIME PAGE ONLY**************************/
-
-#gender_location_first_time #enter_info {
-  margin:auto;
-}
-
-#gender_location_first_time .title {
-  position:relative;
-  font-size:1.3em;
-  margin:auto;
-  top:40px;
-}
-
-#gender_location_form_div {
-   display: inline-block;
-    font-size: 1.1em;
-    text-align: left;
-}
-/*
-#gender_location_form_div select, #gender_location_form_div input {
-  font-size:0.7em;
-  border: 0;
-}
-*/
-#gender_location_form_div #js_city_div {
-  display:none;
-}
-
-#gender_location_form_div div {
- 
-  position:relative;
-}
-
-#gender_location_form_div #img_div {
-   height: 160px;
-    position: relative;
-    width: 350px;
-   text-align:left;
-   margin:auto;
-   left:65px;
-}
-
-#gender_location_first_time #gender_location_form_div img {
-   top:0px;
-}
-
-#gender_location_form_div img#gender_img {
-   right:7px;
-}
-
-#gender_location_form_div img#country_img, #gender_location_form_div img#zip_img {
-   top:37px;
-}
-
-#gender_location_form_div #input_divs {
-   display: inline-block;
-    position: relative;
-  
-}
-
-#gender_location_form_div #current_location_text {
-  position: relative;
-    right: 17px;
-    top: 27px;
-}
-
-#gender_location_form_div #gender_div {
-  right: 107px; 
-  
-}
-
-#gender_location_form_div #gender_div select {
-  left: 17px;
-  position:relative;
-}
-
-#gender_location_form_div #country_div {
-  right: 2px; 
-  top:50px;
-}
-
-#gender_location_form_div #country_div select {
-  left: 19px;
-  position:relative;
-}
-
-#gender_location_form_div #js_zip_div {
-  
-}
-
-#gender_location_form_div #js_zip_div input {
-  
-}
-
-#gender_location_form_div #location_verification {
-  height: 35px;
- 
-}
-
-#gender_location_form_div #js_city_div {
-  
-}
-
-#gender_location_form_div #js_city_div input {
-  
-}
-
-#gender_location_form_div #register_button_div {
-    left: 318px;
-    width: 100px;
-    bottom:64px;
-}
-
-/***************************BIRTH INFO FIRST TIME PAGE ONLY**************************/
-/*
-#birth_info_first_time #submit_div {
-  left: 300px;
-}
-
-
-#birth_info_first_time .error {
-  color:red;
-  position:relative;
-  z-index:1;
-  display:block;
-  left:830px;
-  width:435px;
-}
-
-#register .hidden_error {
-  visibility:hidden;
-}
-
-#username_error {  
-  bottom:535px;
-}
-
-#date_error {  
-  bottom:520px;
-}
-
-#user_exists_error {  
-  bottom:581px;
-}
-
-#email_error {  
-  bottom:532px;
-}
-
-#email_no_match_error {  
-  bottom:525px;
-}
-
-#password_error {  
-  bottom:520px;
-}
-
-#token_error {  
-  bottom:460px;
-  color:red;
-  position:relative;
-  z-index:1;
-  display:block;
-  left:680px;
-  width:435px;
-}
-*/
-
-#birth_info {
-  position:relative;
-}
-
-#birth_info #time_zone_div, #birth_info #latitude_div, #birth_info #longitude_div {
-  width:250px;
-}
-
-#birth_info #time_zone_div input, #birth_info #latitude_div input, #birth_info #longitude_div input {
-  width:25px;
-}
-
-
-
-#birth_info_first_time .title {
-  position:relative;
-  font-size:1.3em;
-  width: 330px;
-  height:22px;
-  text-align:center;
-  margin:auto;
-  top:40px;
-}
-
-#birth_info_first_time .description, #gender_location_first_time .description, #desc_photo_first_time .description {
-  position:relative;
-  width:500px;
-  text-align:center;
-  margin:auto;
-  top:50px;
-}
-
-
-
-#birth_info_first_time input, #birth_info_first_time select {
-  position:relative;
-  display:block;
-  margin:0px;
-  
-}
-
-#birth_info_first_time input, #desc_photo_first_time input {
-  box-sizing: border-box; 
- -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
-  font-size:0.8em;  
-  width:130px;
-}
-
-
-#birth_info_first_time input[type="checkbox"] {
-    position: relative;
-    width:auto;
-}
-
-
-#birth_info_first_time input:focus {
-  outline: 0 none;
-
-}
-
-#birth_info_first_time select {
-  display:inline-block;
-  position:relative;
- 
-  
-}
-
-
-#birth_info_first_time #birth_info div {
-  position:relative;
-}
-
-#birth_info_first_time input[focus] {
-  outline: 0 none;
-}
-
-#birth_info_first_time #birth_info {
-  display: inline-block;
-    font-size: 1.1em;
-    position: relative;
-    text-align: left;
-}
-
-#birth_info_first_time #birth_info .reg_title {
-  text-align:right;
-  width:180px;
-}
-
-
-#birth_info_first_time #birth_time_input select:disabled {
-  background-color:white;
-}
-
-#birth_place_title, #birth_place_input {
-  position:relative;
-}
-
-#birth_place_title.no_move, #birth_place_input.no_move {
-  position:relative;
-  bottom:0px;
-
-}
-
-#birth_interval_input {
-  width:130px;
-}
-
-
-#birth_info_first_time #birth_interval_input select:disabled {
-   background-color:white;
-}
-
-#birth_interval_box_title {
-    
-    position: relative;
-}
-
-
-#birth_interval_box_input {
-   
-    position: relative;
-    
-}
-
-
-#birth_interval_box_help_text {
-    /*bottom: -2px;*/
-    display: none;
-    /*left: 23px;*/
-    position: absolute;
-}
-
-#birth_interval_box_help_text a {
-  font-family: 'later_on';
-  color: black;
-}
-
-#birth_interval_box_help_text a:hover {
-  /*text-decoration: underline;*/
-}
-
-#birth_interval_box_help_text.offset {
-  top: -7px;
-}
-
-
-#birth_info_first_time #birth_info div#birth_interval_box_help_text {
-    bottom: -5px;
-    display: none;
-    left: 23px;
-    position: absolute;
-}
-
-    
-#birth_time_hover_box {
-    background-color: white;
-    border: 1px solid #d1d1d1;
-    color: #444;
-    font-size: 0.8em;
-    padding-left: 3px;
-    padding-right: 1px;
-    padding-top: 3px;
-    position: relative;
-    width: 10px;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-
-#birth_time_hover_box:hover {
-  color:white;
-  background-color:black;
-  cursor: pointer;
-}
-
-#birth_time_hover_box span {
-  
-  left:15px;
-  bottom:-180px;
-  
-}
-
-#enter_info img {
-  position:relative;
-  top:40px;
-}
 
 
 /*********************BUGABOOS**************************/
