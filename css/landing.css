@@ -9,7 +9,8 @@
     left: 50%;
     margin-left: -100px;
     padding: 20px;
-    background: url('/img/globeLanding.png') no-repeat;
+    /*background: url('/img/globeLanding.png') no-repeat;*/
+    background: #8393ca;
   }
   #landing_sign_up_box {
     width: 90%; 
