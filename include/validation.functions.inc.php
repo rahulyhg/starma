@@ -586,7 +586,7 @@ function valid_pass($pass, $minlength = 6, $maxlength = 15)
 }
 
 
-function valid_nickname($nickname, $minlength = 3, $maxlength = 30)
+function valid_nickname($nickname)
 {
     return valid_username($nickname);
     /*
