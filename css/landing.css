@@ -9,8 +9,7 @@
     left: 50%;
     margin-left: -100px;
     padding: 20px;
-    /*background: url('/img/globeLanding.png') no-repeat;*/
-    background: #8393ca;
+    background: url('/img/globeLanding.png') no-repeat;
   }
   #landing_sign_up_box {
     width: 90%; 
@@ -423,11 +422,11 @@
   cursor: pointer;
 }
 
-/*************LOGOTEST************/
+/*************LOGO************/
 
-#logo_test {
+#logo {
   width: 100%;
-  min-width: 900px; 
+  /*min-width: 900px;*/ 
   height: 132px;
 }
 
@@ -451,7 +450,7 @@
   margin-left: 7px;
 }
 
-#logo_test_img {
+#logo_img {
   position: absolute;
   left: 2%;
   display: inline-block;
