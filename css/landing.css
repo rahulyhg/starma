@@ -415,13 +415,12 @@
 }
 
 #rocketship {
-  background: url('/img/rocketship.png') no-repeat;
+  /*background: url('/img/rocketship.png') no-repeat;*/
   width: 299px;
   height: 123px;
   position: absolute;
-  right: 89px;
-  top: -14px;
-  cursor: pointer;
+  left: 250px;
+  bottom: 425px;
 }
 
 /*************LOGO************/
