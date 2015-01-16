@@ -633,6 +633,22 @@
   color: #444444;
 }
 
+#cancel_sign_up {
+    color: #939393;
+    cursor: pointer;
+    font-size: 0.65em;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    text-decoration: underline;
+    top: 38px;
+    width: 60px;
+}
+
+#cancel_sign_up:hover {
+  color: #444444;
+}
+
 
 /***************************************  FB REGISTRATION  ****************************************/
 

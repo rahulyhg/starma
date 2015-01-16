@@ -112,7 +112,7 @@ $(document).ready(function(){
 	});
 
 	$('#cancel_sign_up').click(function(){
-		$('#create_account_fb').hide();
+		$('#sign_up_box').hide();
 		$('#sign_up_or_sign_in').show();
 	});
 
