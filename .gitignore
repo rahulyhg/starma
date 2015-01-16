@@ -164,3 +164,7 @@ pip-log.txt
 
 #user images
 img/user/
+
+
+#server specs
+include/server.functions.inc.php
