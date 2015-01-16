@@ -7664,9 +7664,16 @@ require_once ("landing_footer.php");
 
 function show_sign_up_or_sign_in_box () {
   echo '<div id="sign_up_or_sign_in">';
-    echo '<button type="button" id="sign_up_button" class="sign_up">Sign Up</button>';
-    echo '<div id="or">~ or ~</div>';
-    echo '<button type="button" id="sign_in_button" class="sign_up">Log In</button>';
+  echo  '<div class="heading">Welcome</div>';
+    echo '<div style="margin-bottom:10px;">';
+      echo '<button type="button" id="sign_up_button" class="sign_up">Sign Up</button>';
+    echo '</div>';
+    echo '<div style="margin-bottom:10px;">';
+      echo '<div id="or">~ or ~</div>';
+    echo '</div>';
+    echo '<div style="margin-bottom:10px;">';
+      echo '<button type="button" id="sign_in_button" class="sign_up">Log In</button>';
+    echo '</div>';
   echo '</div>';
 
 }
