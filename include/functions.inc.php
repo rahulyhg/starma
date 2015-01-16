@@ -5,6 +5,7 @@ require_once("user.functions.inc.php");
 require_once("display.functions.inc.php");
 require_once("login.functions.inc.php");
 require_once("validation.functions.inc.php");
+require_once("server.functions.inc.php");
 require_once("math.functions.inc.php");
 require_once("poi.functions.inc.php");
 require_once("house.functions.inc.php");
