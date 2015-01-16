@@ -58,12 +58,28 @@ $(document).ready(function(){
 	});
 
 	//STARTS HERE
-
+	/*
 	$('#rocketship').click(function(){
 		$('#sign_up_box').hide();
 		$('#create_account').hide();
 		$('#create_account_fb').hide();
 		$('#login_box').show();
+	});
+	*/
+	$('#sign_in_button').click(function(){
+		$('#sign_up_or_sign_in').hide();
+		$('#sign_up_box').hide();
+		$('#create_account').hide();
+		$('#create_account_fb').hide();
+		$('#login_box').show();
+	});
+
+	$('#sign_up_button').click(function(){
+		$('#sign_up_or_sign_in').hide();
+		$('#sign_up_box').show();
+		$('#create_account').hide();
+		$('#create_account_fb').hide();
+		$('#login_box').hide();
 	});
 
 	$('#cancel_login').click(function(){

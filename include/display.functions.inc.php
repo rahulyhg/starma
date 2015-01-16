@@ -7662,6 +7662,15 @@ require_once ("landing_footer.php");
 
 //********************************  LANDING BOXES  ********************************/
 
+function show_sign_up_or_sign_in_box () {
+  echo '<div id="sign_up_or_sign_in">';
+    echo '<button type="button" id="sign_up_button" class="sign_up">Sign Up</button>';
+    echo '<div id="or">~ or ~</div>';
+    echo '<button type="button" id="sign_in_button" class="sign_up">Log In</button>';
+  echo '</div>';
+
+}
+
 function show_login_options_landing () {
   //echo '<div style="width:190px; margin:0 20px 10px 0;"><button type="button" class="login_options later_on" onClick="fbLogin();">Facebook Login</button></div>';
   //echo '<div style="width:100px; display: inline-block;"><button type="button" class="sign_up" id="login_email_landing">Log In</button></div>';
