@@ -7766,6 +7766,7 @@ function show_sign_up_box_landing () {
           //echo '<button type="button" onClick="revokeFB();">revoke fb</button>'; 
           echo '<div style="margin-top: 23px;"><button type="button" name="sign_up_email" class="sign_up">Email</button></div>';
         echo '</div>';
+        echo '<div id="cancel_sign_up">Cancel</div>';
       echo '</div>'; //Close sign_up_box
 }
 

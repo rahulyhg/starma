@@ -84,7 +84,7 @@ $(document).ready(function(){
 
 	$('#cancel_login').click(function(){
 		$('#login_box').hide();
-		$('#sign_up_box').show();
+		$('#sign_up_or_sign_in').show();
 	});
 
 	
@@ -96,7 +96,7 @@ $(document).ready(function(){
 
 	$('#cancel_email_sign_up').click(function(){
 		$('#create_account').hide();
-		$('#sign_up_box').show();
+		$('#sign_up_or_sign_in').show();
 	});
 
 
@@ -108,7 +108,12 @@ $(document).ready(function(){
 
 	$('#cancel_sign_up_fb').click(function(){
 		$('#create_account_fb').hide();
-		$('#sign_up_box').show();
+		$('#sign_up_or_sign_in').show();
+	});
+
+	$('#cancel_sign_up').click(function(){
+		$('#create_account_fb').hide();
+		$('#sign_up_or_sign_in').show();
 	});
 
 	$('#forgot_password_landing').click(function(){
