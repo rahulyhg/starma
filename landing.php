@@ -262,8 +262,8 @@ if (isLoggedIn())
     </div>
   
   <?php //show_landing_logo();
-  echo '<div id="logo_test">';
-    echo '<div id="logo_test_img">';
+  echo '<div id="logo">';
+    echo '<div id="logo_img">';
       //echo '<img src="img/Logotest.png" height="240px" />';
       //echo '<!--[if lte IE 8]><img src="/img/Logotest.png" style="width:300px;" /><![endif]-->';
       //echo '<!--[if gt IE 8]><img src="/img/LogoTest2.svg" style="width:300px;" /><![endif]-->';
@@ -281,9 +281,10 @@ if (isLoggedIn())
   //echo '<div style="position:absolute; width:100%;">';
   //echo '<div id="globe_and_footer">';
     echo '<div id="globe_landing">';
-      echo '<div id="rocketship"></div>';
+      echo '<div id="rocketship"><img height="96px" src="/img/rocketship.png" alt="Sign up for free!"/></div>';
       //echo '<div id="login_tab" class="later_on">Log In</div>';
       echo '<div id="landing_sign_up_box">';
+        show_sign_up_or_sign_in_box();
         show_login_box_landing();
         show_sign_up_box_landing();
         show_registration_box_landing();

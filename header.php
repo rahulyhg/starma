@@ -34,6 +34,10 @@ date_default_timezone_set('America/Chicago');
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
 
+
+<!-- RESPONSIVE DESIGN TESTING 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
 <!--HI MY NAME IS SLIM SHADY--->
 <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  <!-- Matt updated jquery -->
