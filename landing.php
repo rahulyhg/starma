@@ -295,7 +295,7 @@ if (isLoggedIn())
     echo '<div id="landing_footer">
           <div id="footer_links">
             <ul>
-              <li><a class="padding_right">Starma LLC 2014</a></li>
+              <li><a class="padding_right">Starma LLC ' . CURRENT_YEAR() . '</a></li>
               <li><a class="padding_right" href="' . get_full_domain() . '/guest/main.php?the_left=nav2&the_page=hsel" title="About Starma">About Starma</a></li>
               <li><a class="padding_right" href="docs/privacyPolicy.htm" target="_blank">Privacy</a></li>
               <li><a class="padding_right" href="docs/termsOfUse.htm" target="_blank">Terms</a></li>
