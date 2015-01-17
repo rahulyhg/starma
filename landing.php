@@ -324,7 +324,7 @@ if (isLoggedIn())
   echo '</div>'; //close main container
 
   
-  echo 'current year: ' . CURRENT_YEAR();
+  //echo 'current year: ' . CURRENT_YEAR();
   //show_bugaboos();
 
 ?>
