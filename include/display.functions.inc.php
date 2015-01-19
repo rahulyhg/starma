@@ -8617,7 +8617,7 @@ function show_login_box_guest () {
 }
 
 function show_sign_up_box_guest () {
-  echo '<div id="sign_up_box">';
+  echo '<div id="sign_up_box_guest">';
     echo  '<div id="sign_up_box_text" class="sign_up_text">';
     //if ($_GET['chart_id2'] == 861) {
     if ($_GET['tier'] == 2 && $_GET['chart_id2'] == 861) {

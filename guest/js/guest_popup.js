@@ -11,7 +11,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('#sign_up_box_text').text(generic_text);
 		$('.pop_guest').slideFadeToggle(function(){
-			$('#sign_up_box').show();
+			$('#sign_up_box_guest').show();
 			$('#create_account').hide();
 			$('#create_account_fb').hide();
 			$('#fb_or_email_guest').hide();
@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 	$('.pop_reg').click(function(){
 		$('.pop_guest').slideFadeToggle(function() {
-			$('#sign_up_box').show();
+			$('#sign_up_box_guest').show();
 			$('#create_account').hide();
 			$('#create_account_fb').hide();
 			$('#fb_or_email_guest').hide();
@@ -31,14 +31,14 @@ $(document).ready(function(){
 	});
 
 	$('#register_side, #register_top').click(function(){
-		$('#sign_up_box').hide();
+		$('#sign_up_box_guest').hide();
 		$('#fb_or_email_guest').show();
 		$('.pop_guest').slideFadeToggle();
 	});
 
 	$('#close').click(function(){
 		$('.pop_guest').slideFadeToggle(function() {
-			$('#sign_up_box').show();
+			$('#sign_up_box_guest').show();
 			//$('#intro').hide();
 			$('#create_account').hide();
 			$('#create_account_fb').hide();
@@ -49,14 +49,14 @@ $(document).ready(function(){
 
 	$('#create_an_account').click(function(){
 		//$('#intro').hide();
-		$('#sign_up_box').hide();
+		$('#sign_up_box_guest').hide();
 		$('#fb_or_email_guest').show();
 	});
 
 
 	$('button[name=cancel]').click(function(){
 		$('.pop_guest').slideFadeToggle(function() {
-			$('#sign_up_box').hide();
+			$('#sign_up_box_guest').hide();
 		});
 	});
 
@@ -72,7 +72,7 @@ $(document).ready(function(){
 
 	$('#cancel_sign_up_fb').click(function(){
 		$('.pop_guest').slideFadeToggle(function() {
-			$('#sign_up_box').show();
+			$('#sign_up_box_guest').show();
 			$('#create_account_fb').hide();
 			$('#fb_or_email_guest').hide();
 		});
@@ -81,7 +81,7 @@ $(document).ready(function(){
 	
 	$('#cancel_email_sign_up').click(function(){
 		$('.pop_guest').slideFadeToggle(function() {
-			$('#sign_up_box').show();
+			$('#sign_up_box_guest').show();
 			$('#create_account').hide();
 			$('#fb_or_email_guest').hide();
 		});
