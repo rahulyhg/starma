@@ -58,7 +58,8 @@ body {
               -webkit-gradient(circle, 0 0, 0px, center, #8393ca 39%, #424e6f 76%, #353e57 87%, #161b24 97%, black);   /* Safari 5.1 - 6 Test */    
   background: url('/img/star_bg.png') repeat,
               -ms-radial-gradient(50% 60%, circle cover, #8393ca, #424e6f 39%, #353e57 76%, #161b24 87%, black 97%, black 100%);
-  min-height: 100vh;
+  /*min-height: 100vh;*/
+  min-width: 320px;
 }
 
 #bg_stars_test {

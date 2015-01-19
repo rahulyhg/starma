@@ -295,6 +295,7 @@ if (isLoggedIn())
 
     echo '</div>'; //close globe_landing
 
+/*
     echo '<div id="landing_footer">
           <div id="footer_links">
             <ul>
@@ -306,6 +307,7 @@ if (isLoggedIn())
             </ul>
           </div>
           </div>';
+  */
 
   //echo '</div>'; // <!-- Close globe_and_footer -->
 
