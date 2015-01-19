@@ -242,16 +242,16 @@ if (isLoggedIn())
 <?php
   show_login_box_landing();
 ?>
-  <!--pop_landing_click-->
+  <!--pop_landing_click-
     <div id="msg_sheen" class="pop_fp">
       <div id="msg_sheen_screen_landing" class="pop_fp_click"></div>
-        <div id="msg_sheen_content_landing" class="pop_fp">
+        <div id="msg_sheen_content_landing" class="pop_fp"> -->
           <?php 
             //show_registration_box_landing(); 
             show_forgot_password_box();
           ?>
-        </div>
-    </div>
+        <!--</div>
+    </div>-->
 
 
     <div id="msg_sheen" class="pop_login_landing">
@@ -265,6 +265,7 @@ if (isLoggedIn())
     </div>
   
   <?php //show_landing_logo();
+  echo '<div id="landing1">';
   echo '<div id="logo">';
     echo '<div id="logo_img">';
       echo '<img src="/img/Starma-Astrology.png" />';
@@ -325,7 +326,7 @@ if (isLoggedIn())
 
   echo '<div id="planet"></div>';
   //echo '<div id="free">Free Western & <br/>Vedic Astrology</div>';
-
+  echo '</div>'; //close landing1
 
   //echo '<div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>';
   echo '</div>'; //close main container

@@ -67,6 +67,7 @@ $(document).ready(function(){
 	});
 	*/
 	$('#sign_in_button').click(function(){
+		$('#landing1').hide();
 		$('#sign_up_or_sign_in').hide();
 		$('#sign_up_box').hide();
 		$('#create_account').hide();
