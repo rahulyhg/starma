@@ -286,6 +286,7 @@ if (isLoggedIn())
       echo '<div id="rocketship"></div>';
       //echo '<div id="login_tab" class="later_on">Log In</div>';
       echo '<div id="landing_sign_up_box">';
+        show_sign_up_or_sign_in_box();
         show_login_box_landing();
         show_sign_up_box_landing();
         show_registration_box_landing();

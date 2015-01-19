@@ -7662,6 +7662,24 @@ require_once ("landing_footer.php");
 
 //********************************  LANDING BOXES  ********************************/
 
+
+function show_sign_up_or_sign_in_box () {
+  echo '<div id="sign_up_or_sign_in">';
+    echo  '<div class="heading">Welcome to Starma!</div>';
+    echo '<div style="margin-top: 27px;">';
+      echo '<div style="margin-bottom:12px;">';
+        echo '<button type="button" id="sign_up_button" class="sign_up">Sign Up</button>';
+      echo '</div>';
+      echo '<div id="or">~ or ~</div>';
+      echo '<div style="margin-top: 23px;">';
+        echo '<button type="button" id="sign_in_button" class="sign_up">Log In</button>';
+      echo '</div>';
+    echo '</div>';
+  echo '</div>';
+
+}
+
+
 function show_login_options_landing () {
   //echo '<div style="width:190px; margin:0 20px 10px 0;"><button type="button" class="login_options later_on" onClick="fbLogin();">Facebook Login</button></div>';
   //echo '<div style="width:100px; display: inline-block;"><button type="button" class="sign_up" id="login_email_landing">Log In</button></div>';
@@ -8600,7 +8618,7 @@ function show_login_box_guest () {
 }
 
 function show_sign_up_box_guest () {
-  echo '<div id="sign_up_box">';
+  echo '<div id="sign_up_box_guest">';
     echo  '<div id="sign_up_box_text" class="sign_up_text">';
     //if ($_GET['chart_id2'] == 861) {
     if ($_GET['tier'] == 2 && $_GET['chart_id2'] == 861) {
