@@ -88,6 +88,11 @@ $(document).ready(function(){
 		$('#sign_up_or_sign_in').show();
 	});
 
+	$('#back_login').click(function(){
+		$('#login_box').hide();
+		$('#sign_up_or_sign_in').show();
+	});
+
 	
 	$('button[name=sign_up_email]').click(function(){
 		$('#sign_up_box').hide();

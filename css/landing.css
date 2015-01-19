@@ -744,7 +744,12 @@
   display: none;
   height: 100%;
   width: 100%;
-  background: #8393ca;
+  min-height: 480px;
+  background: #e7ebee;
+  padding: 5%;
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
   /*width: 244px;*/
   /*margin: auto;*/
 }
