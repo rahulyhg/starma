@@ -282,7 +282,7 @@ if (isLoggedIn())
   
   //echo '<div style="position:absolute; width:100%;">';
   //echo '<div id="globe_and_footer">';
-    echo '<div id="globe_landing">';
+    //echo '<div id="globe_landing">';
       //echo '<div id="rocketship"></div>';
       //echo '<div id="login_tab" class="later_on">Log In</div>';
       echo '<div id="landing_sign_up_box">';
@@ -293,7 +293,7 @@ if (isLoggedIn())
         show_fb_registration_box_landing();
       echo '</div>';
 
-    echo '</div>'; //close globe_landing
+    //echo '</div>'; //close globe_landing
 
 /*
     echo '<div id="landing_footer">
