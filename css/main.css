@@ -4360,12 +4360,14 @@ END OLD WAY*/
   margin: 15px auto auto;
 }
 
-#password {
+/*
+#password_settings {
   width: 250px;
   display: inline-block;
   float: left;
   margin-right: 85px;
 }
+*/
 
 #privacy {
   width: 320px;

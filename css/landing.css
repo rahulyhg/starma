@@ -470,18 +470,22 @@
 
 #globe_landing {
   position: relative;
+  padding-top: 25px;
   height: 376px;
   width: 376px;
   margin: auto;
   background: url("/img/globeLanding.png") no-repeat scroll 0 0 / 376px auto rgba(0, 0, 0, 0);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 
 
 #landing_sign_up_box {
-  width:244px; 
-  height: 250px;
-  margin: 41px auto;
+  width:207px; 
+  height: 283px;
+  margin: auto;
   background: #e7ebee; 
   font-size:.9em; 
   padding: 20px;
