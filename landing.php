@@ -239,7 +239,9 @@ if (isLoggedIn())
 
 
 <div id="landing">
+<?php
   show_login_box_landing();
+?>
   <!--pop_landing_click-->
     <div id="msg_sheen" class="pop_fp">
       <div id="msg_sheen_screen_landing" class="pop_fp_click"></div>
