@@ -7675,7 +7675,7 @@ function show_sign_up_or_sign_in_box () {
         echo '<button type="button" id="sign_in_button" class="sign_up">Log In</button>';
       echo '</div>';
 
-      echo '<button type="button" class="sign_up"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></button>';
+      echo '<button type="button" class="sign_up" onClick="window.location=/guest/main.php;">Explore Starma</button>';
 
     echo '</div>';
   echo '</div>';
