@@ -265,6 +265,7 @@ if (isLoggedIn())
   <?php //show_landing_logo();
   echo '<div id="logo">';
     echo '<div id="logo_img">';
+      echo '<img src="/img/Starma-Astrology.png" />';
       //echo '<img src="img/Logotest.png" height="240px" />';
       //echo '<!--[if lte IE 8]><img src="/img/Logotest.png" style="width:300px;" /><![endif]-->';
       //echo '<!--[if gt IE 8]><img src="/img/LogoTest2.svg" style="width:300px;" /><![endif]-->';
