@@ -415,9 +415,8 @@
 
 /*************LOGOTEST************/
 
-#logo_test {
-  width: 100%;
-  min-width: 900px; 
+#logo {
+  width: 100%; 
   height: 132px;
 }
 
@@ -441,14 +440,14 @@
   margin-left: 7px;
 }
 
-#logo_test_img {
+#logo_img {
   position: absolute;
-  left: 2%;
   display: inline-block;
   top: 5px;
   background: url('/img/Starma-Astrology.png') no-repeat;
   width:254px;
   height: 132px;
+  margin: auto;
 }
 
 
