@@ -742,6 +742,9 @@
 
 #login_box {
   display: none;
+  height: 100%;
+  width: 100%;
+  background: #8393ca;
   /*width: 244px;*/
   /*margin: auto;*/
 }
@@ -1927,7 +1930,7 @@
     height: 51px;
     width: 78px;
     position: absolute;
-    bottom: 38px;
+    bottom: 34px;
     left: 8px;
     background: url("/img/planet.png") no-repeat scroll 0 0 / 80px auto rgba(0, 0, 0, 0);
 }

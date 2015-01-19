@@ -239,7 +239,7 @@ if (isLoggedIn())
 
 
 <div id="landing">
-
+  show_login_box_landing();
   <!--pop_landing_click-->
     <div id="msg_sheen" class="pop_fp">
       <div id="msg_sheen_screen_landing" class="pop_fp_click"></div>
@@ -287,7 +287,6 @@ if (isLoggedIn())
       //echo '<div id="login_tab" class="later_on">Log In</div>';
       echo '<div id="landing_sign_up_box">';
         show_sign_up_or_sign_in_box();
-        show_login_box_landing();
         show_sign_up_box_landing();
         show_registration_box_landing();
         show_fb_registration_box_landing();
