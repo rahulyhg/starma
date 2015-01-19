@@ -1,7 +1,7 @@
 <?php
 require_once "header.php"; 
 
- echo '<div id="welcome">
+ echo '<div id="two_zodiacs">
  	<br>
     <span style="font-size:2.2em; font-family:later_on; font-weight:bold; letter-spacing:2.2px;">A Tale of Two Zodiacs</span>
     <br>';
