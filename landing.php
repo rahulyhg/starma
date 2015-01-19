@@ -316,13 +316,14 @@ if (isLoggedIn())
   echo '<script type="text/javascript" src="/js/landing_popup.js"></script>';
   echo '<script type="text/javascript" src="/js/ajax_forgot_password.js"></script>';
 
-  echo '<div id="explore_container">
-              <div id="feet_bug"><a href="/guest/main.php"><span class="div_link"></span></a></div>
-              <div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>
-            </div>';
+  //echo '<div id="explore_container">
+    echo '<div id="feet_bug"></div>'; //<a href="/guest/main.php"><span class="div_link"></span></a>
+    echo '<div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>';
+  //echo '</div>';
   
 
-  echo '<div id="planet"></div><div id="free">Free Western & <br/>Vedic Astrology</div>';
+  echo '<div id="planet"></div>';
+  //echo '<div id="free">Free Western & <br/>Vedic Astrology</div>';
 
 
   //echo '<div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>';
