@@ -320,7 +320,7 @@ if (isLoggedIn())
 
   //echo '<div id="explore_container">
     echo '<div id="feet_bug"></div>'; //<a href="/guest/main.php"><span class="div_link"></span></a>
-    echo '<div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>';
+    //echo '<div id="explore"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></div>';
   //echo '</div>';
   
 

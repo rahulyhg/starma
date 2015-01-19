@@ -7665,15 +7665,18 @@ require_once ("landing_footer.php");
 
 function show_sign_up_or_sign_in_box () {
   echo '<div id="sign_up_or_sign_in">';
-    echo  '<div class="heading">Welcome to Starma!</div>';
+    //echo  '<div class="heading">Welcome to Starma!</div>';
     echo '<div style="margin-top: 27px;">';
       echo '<div style="margin-bottom:12px;">';
         echo '<button type="button" id="sign_up_button" class="sign_up">Sign Up</button>';
       echo '</div>';
-      echo '<div id="or">~ or ~</div>';
+      //echo '<div id="or">~ or ~</div>';
       echo '<div style="margin-top: 23px;">';
         echo '<button type="button" id="sign_in_button" class="sign_up">Log In</button>';
       echo '</div>';
+
+      echo '<button type="button" class="sign_up"><a href="/guest/main.php" title="Explore Starma">Explore Starma</a></button>';
+
     echo '</div>';
   echo '</div>';
 
