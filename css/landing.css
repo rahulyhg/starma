@@ -455,6 +455,7 @@
 }
 
 
+/*
 #globe_landing {
   position: relative;
   height: 376px;
@@ -465,6 +466,16 @@
   padding: 20px;
   background: url('/img/globeLanding.png') no-repeat;
 }
+*/
+
+#globe_landing {
+  position: relative;
+  height: 376px;
+  width: 376px;
+  margin: auto;
+  background: url("/img/globeLanding.png") no-repeat scroll 0 0 / 376px auto rgba(0, 0, 0, 0);
+}
+
 
 
 #landing_sign_up_box {
