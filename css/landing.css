@@ -468,7 +468,7 @@
   background: url('/img/globeLanding.png') no-repeat;
 }
 */
-/*
+
 #globe_landing {
   position: relative;
   padding-top: 25px;
@@ -480,20 +480,6 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-*/
-
-#globe_landing {
-  position: relative;
-  padding-top: 25px;
-  height: 376px;
-  width: 90%;
-  margin: auto;
-  background: radial-gradient(circle, #8393ca 39%, #424e6f 76%, #353e57 87%, #161b24 97%, black);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 
 #landing_sign_up_box {
   width:207px; 
