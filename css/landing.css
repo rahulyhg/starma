@@ -435,12 +435,14 @@
 #tagline {
   position: relative;
   margin: auto;
+  width: 354px;
 }
 
 #logo_img {
   position: relative;
   top: 5px;
   margin: auto;
+  width: 234px;
 }
 
 
