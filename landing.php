@@ -9,6 +9,7 @@ $pageDescription = 'Free detailed astrology made simple.  Read your horoscope an
  //   header( 'Location: http://www.' . $domain . '/underconstruction.php');
  //}  
 
+ //TEST
 if (isLoggedIn())
 {
     
