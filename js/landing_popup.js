@@ -67,7 +67,7 @@ $(document).ready(function(){
 	});
 	*/
 	$('#sign_in_button').click(function(){
-		$('#landing1').hide();
+		$('#landing_main').hide();
 		$('#sign_up_or_sign_in').hide();
 		$('#sign_up_box').hide();
 		$('#create_account').hide();
@@ -90,6 +90,7 @@ $(document).ready(function(){
 
 	$('#back_login').click(function(){
 		$('#login_box').hide();
+		$('#landing_main').show();
 		$('#sign_up_or_sign_in').show();
 	});
 
