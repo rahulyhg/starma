@@ -41,6 +41,12 @@ input{
   display: none;
 }
 
+#two_zodiacs {
+  padding-top:3px;
+  padding-left:25px;
+  padding-right:25px;
+}
+
 /*   --Matt--  Changed border radius, added left and right borders as placeholders   */
 #page_body {
     background-color: #FFFFFF;

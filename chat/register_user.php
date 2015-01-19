@@ -9,13 +9,13 @@ require_once("ajax_header.php");
 		$day_fb = $_POST['day_birthday_fb'];
 		$birthday_fb = $year_fb . "-" . $month_fb . "-" . $day_fb;  
 		$email_fb = $_POST['email_fb'];
-		$valid_username_fb = valid_nickname($username_fb);
+		$valid_username_fb = valid_username($username_fb);
 		$fb_id = $_SESSION['fb_id'];
 
 		$data_fb = array();
 		$errors = array();
 
-		if (!$valid_username_fb) {
+		if ($valid_username_fb != 'good') {
 			$errors['username_fb'] = 'Please enter a valid username';
 		}
 		if (!strtotime($birthday_fb)) {
@@ -84,7 +84,7 @@ require_once("ajax_header.php");
 		$birthday = $year . "-" . $month . "-" . $day;  
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		$valid_username = valid_nickname($username);
+		$valid_username = valid_username($username);
 		$valid_password = valid_pass($password); //MATT'S FUNCTION
 
 		$data = array();
@@ -95,7 +95,7 @@ require_once("ajax_header.php");
 		//echo json_encode($data); 
 		//$data = $username . ' ' . $year . ' ' . $month . ' ' . $day . ' ' . $birthday . ' ' . $email . ' ' . $email2 . ' ' . $password . ' ' . $valid_password; 
 		//echo json_encode($data);
-		if (!$valid_username) {
+		if ($valid_username != 'good') {
 			$errors['username'] = 'Please enter a valid username';
 		}
 		if (!strtotime($birthday)) {
