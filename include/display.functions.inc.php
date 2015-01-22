@@ -7692,7 +7692,7 @@ function show_login_box_landing () {
     echo '<div id="login_box">';
       //echo '<div class="heading">Log In</div>';
       echo '<div style="margin-bottom:-5px;"><img src="/img/logoLaterOnLCHP.png"/></div>';
-      echo '<div id="tagline"><img src="/img/Starma-Astrology-Compatibility-Birth-Charts-CommunityB.png" title="Compatibility  Birth Charts  Community" width="300px"/></div>';
+      echo '<div id="taglineB"><img src="/img/Starma-Astrology-Compatibility-Birth-Charts-CommunityB.png" title="Compatibility  Birth Charts  Community" width="300px"/></div>';
         echo '<div style="margin-bottom:17px;">';
           echo '<button type="button" id="fb_login" class="sign_up" onClick="fbLogin();">Facebook Login</button>';
         echo '</div>';
