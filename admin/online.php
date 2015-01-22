@@ -18,10 +18,10 @@
     }
 
     echo '<body>';    
-    echo '<div class="page_title">Online Stats</div>';
-    echo $threshold . '<br>';
-    echo date('Ymd', $date) . '<br>';
-    echo 'Right Now: ' . date('YmdHis', time()) . '<br>';
+    echo '<div class="page_title" style="font-weight:bold;font-size:1.5em">ONLINE STATS</div>';
+    //echo $threshold . '<br>';
+    //echo date('Ymd', $date) . '<br>';
+    //echo 'Right Now: ' . date('YmdHis', time()) . '<br>';
     echo '<br><hr><br>';
     $users_online = users_online();
     $users_online_since = users_logged_since($threshold);
