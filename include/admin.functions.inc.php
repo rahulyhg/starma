@@ -48,7 +48,34 @@ function token_there ($token) {
   }
 }
 
+function users_logged_since ($threshold) {
+  $users = get_user_list_full();
+  $result = array();
+  while ($user = mysql_fetch_array($users)) {
+    $last_action_made = $user["last_action_made"];
+    //echo (string)($last_action_made). ' compared to ';
+    //echo $threshold . ' = ' . ( ((string)($last_action_made)) >= $threshold  ) . '<br>';
+    if (((string)($last_action_made)) >= $threshold) {
+      $result[] = $user;
+      //echo 'good to go';
+    }
+  
+  }
+  return $result;
+}
 
+function users_online () {
+  
+  $users = get_user_list_full();
+  $result = array();
+  while ($user = mysql_fetch_array($users)) {
+    if (is_away($user['user_id'])) {
+      $result[] = $user;
+    }
+  
+  }
+  return $result;
+}
 
 
 ?>

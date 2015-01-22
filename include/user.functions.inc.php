@@ -1287,15 +1287,14 @@ function get_ruling_planet($chart_id) {
 
 
 
-//OLD WAY--------------------------------------
-/*
-function get_user_list () {
+
+function get_user_list_full () {
   
-  //if (isLoggedIn()) {
+  
     $q = 'SELECT user.*, chart.chart_id, user_picture.user_pic_id, user_picture.main from user 
           inner join chart on user.user_id = chart.user_id 
           left outer join user_picture on user.user_id = user_picture.user_id 
-          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 ORDER BY main desc, user_id desc LIMIT 32'; // where user_id = ' . $_SESSION["user_id"]; add LIMIT 32 to limit list
+          where chart.nickname="main" and permissions_id <> -1 and (main = 1 or main is null) and private = 0 ORDER BY main desc, user_id desc'; // where user_id = ' . $_SESSION["user_id"]; add LIMIT 32 to limit list
     
     if ($result = mysql_query($q)) {
       return $result;
@@ -1303,12 +1302,9 @@ function get_user_list () {
     else {
       return false;
     }
-  //}
-  //else {
-  //  return false;
-  //}
+  
 }
-*/
+
 //NEW WAY INFINITE SCROLL STYLE ------------------------------------
 
 function get_user_list ($begin, $limit) {

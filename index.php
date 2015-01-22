@@ -17,6 +17,7 @@
     echo '<a href="admin/edit_profile.php">Add / Edit Celebrities</a><br />';
     echo '<a href="admin/house_lords.php">House Lords</a><br />';
     echo '<a href="admin/logs.php">Log Report</a><br />';
+    echo '<a href="admin/online.php">Online Stats</a><br />';
 
     echo '<table border="1" cellpadding=10><th colspan=2>Test Form';
     if (isLoggedIn()) {
