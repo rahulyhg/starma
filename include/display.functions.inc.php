@@ -7691,8 +7691,8 @@ function show_login_options_landing () {
 function show_login_box_landing () {
     echo '<div id="login_box">';
       //echo '<div class="heading">Log In</div>';
-      echo '<div style="margin-bottom:20px;"><img src="/img/logoLaterOnLCHP.png"/></div>';
-        echo '<div style="margin-bottom:22px;">';
+      echo '<div style="margin-bottom:30px;"><img src="/img/logoLaterOnLCHP.png"/></div>';
+        echo '<div style="margin-bottom:17px;">';
           echo '<button type="button" id="fb_login" class="sign_up" onClick="fbLogin();">Facebook Login</button>';
         echo '</div>';
         echo '<div id="or">~ or ~</div>';
@@ -7708,7 +7708,7 @@ function show_login_box_landing () {
           //echo '<div class="register_error_area" id="login_password_error"></div>';
           echo '<div id="kmsi_fp">';  
             echo '<div id="forgot_password_landing">forgot your password?</div>';
-            echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="" /><div style="float:left; font-size: 1.1em;">keep me signed in</div></div>';
+            echo '<div id="stay_logged_in"><input type="checkbox" name="stay_logged_in" value="" /><div style="float:left; display:inline-block; font-size: 1.1em;">keep me signed in</div></div>';
           echo '</div>';
           //echo '<button type="submit" id="go" class="later_on" name="Login">Go!</button>';
           echo '<button type="submit" id="go_bug_button" name="Login"></button>';
@@ -7719,7 +7719,7 @@ function show_login_box_landing () {
         //echo '<div id="cancel_login">Cancel</div>';
 
         echo '<div id="go_bug_path_landing"></div>';
-        echo '<div class="later_on cursor" id="back_login">< Back</div>';
+        echo '<div class="later_on pointer" id="back_login">< Back</div>';
 
     echo '</div>';
 
