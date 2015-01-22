@@ -442,6 +442,12 @@
   margin-left: 15px;
 }
 
+#taglineB {
+  position: relative;
+  margin-left: 6px;
+  margin-bottom: 15px;
+}
+
 #logo_img {
   position: relative;
   top: 5px;
