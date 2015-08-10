@@ -592,7 +592,7 @@ function statusChangeCallbackNTS(response) {
    <div id="footer">
     <div class="footer_links">
       <ul>
-        <li>Starma<span class="small_symbol">&reg;</span> LLC 2014</li>
+        <li>Starma<span class="small_symbol">&reg;</span> LLC - <?php echo date('Y'); ?></li>
         <li><a href="docs/privacyPolicy.htm" target="_blank">Privacy Policy</a></li>
         <li><a href="docs/termsOfUse.htm" target="_blank">Terms Of Use</a></li>
         <li><a href="mailto:contact@starma.com">Contact</a></li>
