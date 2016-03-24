@@ -6,7 +6,7 @@
 define("HOST", "starma.com");
 // Database user
 //define("DBUSER", "starstareast");
-define("DBUSER", "admin");
+define("DBUSER", "starma_db");
 // Database password
 //define("PASS", "b!2w4DKt");
 define("PASS", "Sm(9)!-5fX0j$#");
