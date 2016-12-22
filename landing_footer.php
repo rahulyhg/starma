@@ -2,7 +2,7 @@
    <div id="footer_links">
     <ul>
       <li><a>Starma LLC - - <?php echo date('Y') ?></a></li>
-      <li><a title="Coming soon...">About Starma</a></li>
+      <li><a title="Coming soon...">About</a></li>
       <li><a href="docs/privacyPolicy.htm" target="_blank">Privacy</a></li>
       <li><a href="docs/termsOfUse.htm" target="_blank">Terms</a></li>
       <li><a href="mailto:contact@starma.com" title="contact@starma.com">Contact</a></li>
